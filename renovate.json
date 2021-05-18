@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "config:base",
+    ":timezone(Asia/Tokyo)"
+  ],
+  "schedule": [
+    "after 10:30 before 18:00 every weekday except after 13:00 before 14:00"
+  ]
+}
