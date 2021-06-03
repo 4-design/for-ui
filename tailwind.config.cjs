@@ -27,7 +27,7 @@ const fontSizes = {
   xr: [
     "1.25em",
     {
-      lineHeight: "1,75rem",
+      lineHeight: "1.75rem",
       letterSpacing: ".03rem",
     },
   ],
