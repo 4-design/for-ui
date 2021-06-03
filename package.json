@@ -1,6 +1,6 @@
 {
   "name": "@3-shake/3design-ui",
-  "version": "0.1.20",
+  "version": "0.2.0",
   "main": "dist/index.cjs",
   "module": "dist/index.esm.js",
   "browser": "dist/index.js",
@@ -103,7 +103,10 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "files": ["dist", "tailwind.config.cjs"],
+  "files": [
+    "dist",
+    "tailwind.config.cjs"
+  ],
   "babelMacros": {
     "twin": {
       "preset": "emotion",
