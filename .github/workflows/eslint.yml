@@ -1,4 +1,4 @@
-name: Check for Prettier
+name: Check for Eslint
 on: [pull_request]
 
 jobs:
