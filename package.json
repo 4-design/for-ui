@@ -1,6 +1,6 @@
 {
   "name": "@3-shake/3design-ui",
-  "version": "0.1.20",
+  "version": "1.0.0",
   "main": "dist/index.cjs",
   "module": "dist/index.esm.js",
   "browser": "dist/index.js",
@@ -24,7 +24,8 @@
     "build:js:watch": "NODE_ENV=production rollup -c --watch",
     "build": "yarn build:types && yarn build:js",
     "storybook": "rm -rf node_modules/.cache/storybook && start-storybook --no-manager-cache -p 6006 -s public",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "release": "shipjs prepare"
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",
@@ -37,6 +38,7 @@
     "react-spinners": "^0.10.6",
     "react-table": "^7.6.3",
     "react-tabs": "3.2.2",
+    "shipjs": "0.23.2",
     "twin.macro": "^2.2.3"
   },
   "devDependencies": {
@@ -101,10 +103,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "files": [
-    "dist",
-    "tailwind.config.cjs"
-  ],
+  "files": ["dist", "tailwind.config.cjs"],
   "babelMacros": {
     "twin": {
       "preset": "emotion",
