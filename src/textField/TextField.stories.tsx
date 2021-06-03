@@ -1,13 +1,12 @@
 import React from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
 import { Meta } from '@storybook/react/types-6-0'
 import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
+import tw from 'twin.macro'
 import * as yup from 'yup'
 
-import { TextField } from './TextField'
-import tw from 'twin.macro'
-import { TextFieldProps as MuiTextFieldProps } from '@material-ui/core/TextField'
 import { Button } from '../button/Button'
+import { TextField } from './TextField'
 
 export default {
   title: 'Atom/TextField',
@@ -23,7 +22,7 @@ const schema = yup.object().shape({
   password: yup.string().required(),
 })
 
-export const standard = () => {
+export const Standard = (): JSX.Element => {
   const { register, errors, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   })
@@ -38,7 +37,7 @@ export const standard = () => {
             required
             fullWidth
             variant="standard"
-            ref={register}
+            inputRef={register}
             autoComplete="on"
             type="email"
             name="email"
@@ -89,7 +88,7 @@ export const standard = () => {
   )
 }
 
-export const outlined = () => {
+export const Outlined = (): JSX.Element => {
   const { register, errors, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   })
@@ -103,7 +102,7 @@ export const outlined = () => {
           required
           fullWidth
           variant="outlined"
-          ref={register}
+          inputRef={register}
           autoComplete="on"
           type="email"
           name="email"
@@ -120,7 +119,7 @@ export const outlined = () => {
           multiline
           rows={3}
           variant="outlined"
-          ref={register}
+          inputRef={register}
           autoComplete="on"
           type="email"
           name="email"
@@ -131,8 +130,8 @@ export const outlined = () => {
       </div>
       <div tw="mb-4">
         <TextField
-          variant="outlined"
           name="password"
+          inputRef={register}
           type="password"
           label="パスワード"
           placeholder="example@lancepod.com"
@@ -141,7 +140,7 @@ export const outlined = () => {
       </div>
 
       <div tw="mt-8">
-        <Button>登録する</Button>
+        <Button type="submit">登録する</Button>
       </div>
     </form>
   )

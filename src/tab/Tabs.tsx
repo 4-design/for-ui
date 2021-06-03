@@ -6,12 +6,14 @@ import { SerializedStyles } from '@emotion/react'
 
 export interface TabsProps extends TabListProps {
   noBorder?: boolean
+  reverse?: boolean
   twin?: (TwStyle | SerializedStyles)[]
 }
 
 export const Tabs: React.VFC<TabsProps> = ({
   twin,
   noBorder = false,
+  reverse = false,
   onChange,
   children,
   ...rest
@@ -23,10 +25,13 @@ export const Tabs: React.VFC<TabsProps> = ({
       css={[
         css`
           &.MuiTabs-root {
-            ${tw`(border-b-2 border-low)!`}
+            ${reverse
+              ? tw`(border-transparent border-t-2)!`
+              : tw`(border-low border-b-2)!`}
           }
           & .MuiTabs-indicator {
             ${tw`(bg-primary-main)!`}
+            ${reverse && tw`top-0`}
           }
         `,
         noBorder && tw`border-none!`,

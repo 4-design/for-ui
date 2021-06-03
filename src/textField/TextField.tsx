@@ -1,13 +1,11 @@
 import React from 'react'
-import tw, { TwStyle, css } from 'twin.macro'
 import MuiTextField, {
   TextFieldProps as MuiTextFieldProps,
 } from '@material-ui/core/TextField'
-import { SerializedStyles } from '@emotion/react'
+import tw, { TwStyle, css } from 'twin.macro'
 
 export type TextFieldProps = MuiTextFieldProps & {
-  variant: 'outlined' | 'standard'
-
+  variant?: 'outlined' | 'standard'
   twin?: TwStyle
   labelTwin?: TwStyle
   inputTwin?: TwStyle
@@ -44,7 +42,7 @@ const styles = {
     }
 
     & .MuiInputBase-input {
-      ${tw`(py-2 px-3 h-6 focus:shadow-none)!`}
+      ${tw`(py-2 px-3 focus:shadow-none)!`}
     }
 
     & fieldset {
@@ -57,24 +55,37 @@ const styles = {
   `,
 }
 
-export const TextField: React.VFC<TextFieldProps> = ({
-  label,
-  variant = 'outlined',
-  twin,
-  labelTwin,
-  inputTwin,
-  required,
-  ...rest
-}) => {
-  return (
-    <>
-      {variant === 'standard' ? (
+export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.forwardRef(
+  (
+    {
+      label,
+      variant = 'outlined',
+      twin,
+      labelTwin,
+      inputTwin,
+      required,
+      inputRef,
+      ...rest
+    },
+    ref
+  ) => {
+    /**
+     * react-hook-form : v6 ~> inputRef   v7 ~> ref
+     * TODO: react-hook-form v7で統合されたらrefを直接インラインで使用
+     */
+    const validRef = React.useMemo(() => {
+      return inputRef ? inputRef : ref
+    }, [ref, inputRef])
+
+    const renderStandardTextField = (): JSX.Element => {
+      return (
         <MuiTextField
+          inputRef={validRef}
           required={required}
           label={label}
           variant={variant}
           css={[
-            styles[variant],
+            styles['standard'],
             css`
               & .MuiFormLabel-root {
                 ${labelTwin}
@@ -88,7 +99,11 @@ export const TextField: React.VFC<TextFieldProps> = ({
           ]}
           {...rest}
         />
-      ) : (
+      )
+    }
+
+    const renderOutlinedTextField = (): JSX.Element => {
+      return (
         <div css={[tw`flex flex-col`, twin]}>
           {label && (
             <label css={[tw`mb-2 text-middle`, labelTwin]}>
@@ -98,11 +113,11 @@ export const TextField: React.VFC<TextFieldProps> = ({
           )}
 
           <MuiTextField
+            inputRef={validRef}
             required={required}
-            label={undefined}
             variant={variant}
             css={[
-              styles[variant],
+              styles['outlined'],
               css`
                 & .MuiInputBase-root {
                   ${inputTwin}
@@ -112,7 +127,11 @@ export const TextField: React.VFC<TextFieldProps> = ({
             {...rest}
           />
         </div>
-      )}
-    </>
-  )
-}
+      )
+    }
+
+    return variant === 'outlined'
+      ? renderOutlinedTextField()
+      : renderStandardTextField()
+  }
+)

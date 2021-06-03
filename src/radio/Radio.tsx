@@ -1,13 +1,12 @@
 import React from 'react'
-import tw, { css, TwStyle } from 'twin.macro'
-import MuiRadio, { RadioProps as MuiRadioProps } from '@material-ui/core/Radio'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
+import MuiRadio, { RadioProps as MuiRadioProps } from '@material-ui/core/Radio'
+import tw, { css, TwStyle } from 'twin.macro'
 
 export interface RadioProps extends MuiRadioProps {
   label: string
   value: string | number
   error?: string
-
   twin?: TwStyle | TwStyle[]
 }
 

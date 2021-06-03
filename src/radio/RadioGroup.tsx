@@ -1,18 +1,17 @@
 import React from 'react'
-import tw, { css, TwStyle } from 'twin.macro'
+import FormControl from '@material-ui/core/FormControl'
+import FormHelperText from '@material-ui/core/FormHelperText'
 import MuiRadioGroup, {
   RadioGroupProps as MuiRadioGroupProps,
 } from '@material-ui/core/RadioGroup'
-import FormControl, { FormControlProps } from '@material-ui/core/FormControl'
-import FormHelperText from '@material-ui/core/FormHelperText'
-import FormLabel from '@material-ui/core/FormLabel'
+import tw, { css, TwStyle } from 'twin.macro'
 
 export interface RadioGroupProps extends MuiRadioGroupProps {
+  children: React.ReactNode
+  required?: boolean
   label?: string
   error?: string
-
   twin?: TwStyle | TwStyle[]
-  children: React.ReactNode
 }
 
 export const RadioGroup: React.VFC<RadioGroupProps> = ({
@@ -23,6 +22,8 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
   row = true,
   error,
   children,
+  onChange,
+  required = true,
 }) => {
   return (
     <FormControl
@@ -36,12 +37,18 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
         `,
       ]}
     >
-      {label && <FormLabel component="legend">{label}</FormLabel>}
+      {label && (
+        <label css={[tw`mb-2 text-middle`]}>
+          {label}
+          {required && <span>*</span>}
+        </label>
+      )}
       <MuiRadioGroup
         row={row}
         name={name}
         defaultValue={defaultValue}
         css={[twin]}
+        onChange={onChange}
       >
         {children}
       </MuiRadioGroup>

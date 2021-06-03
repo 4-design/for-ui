@@ -31,9 +31,9 @@ export interface SelectProps {
     detail?: AutocompleteChangeDetails<SelectOption> | undefined
   ) => void
   defaultValue?: SelectOption
-
   twin?: TwStyle[]
   inputTwin?: TwStyle
+  placeholder?: string
 }
 
 export const Select: React.VFC<SelectProps> = ({
@@ -44,6 +44,7 @@ export const Select: React.VFC<SelectProps> = ({
   defaultValue,
   twin,
   inputTwin,
+  placeholder,
   onChange,
   ...rest
 }: SelectProps) => {
@@ -99,6 +100,7 @@ export const Select: React.VFC<SelectProps> = ({
             label={label}
             variant="outlined"
             inputTwin={inputTwin}
+            placeholder={placeholder}
             {...params}
           />
         )

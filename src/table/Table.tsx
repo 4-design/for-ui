@@ -40,7 +40,7 @@ export function Table<T extends object>(
     return (
       <tr
         {...row.getRowProps()}
-        tw="border-b border-bg
+        tw="border-b-2 border-middle
         transform transition duration-300 ease-in-out
         hover:shadow-hover"
       >
@@ -52,17 +52,17 @@ export function Table<T extends object>(
   }
 
   return (
-    <div tw="mx-auto">
+    <>
       <table {...getTableProps()} tw="w-full">
         <thead tw="table-header-group">
           {headerGroups.map((headerGroup) => (
             <tr
               {...headerGroup.getHeaderGroupProps()}
-              tw="table-row align-middle"
+              tw="border-b-2 border-middle table-row align-middle"
             >
               {headerGroup.headers.map((column) => (
                 <th
-                  tw="py-4 px-6 font-bold text-base text-left text-gray-low table-cell whitespace-nowrap"
+                  tw="py-4 px-6 font-bold text-base text-high text-left table-cell whitespace-nowrap"
                   scope="col"
                 >
                   {column.render('Header')}
@@ -71,12 +71,12 @@ export function Table<T extends object>(
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()} tw="bg-white table-row-group">
+        <tbody {...getTableBodyProps()} tw="bg-white text-high table-row-group">
           {page.map((row: Row<T>) => rowGenerate(row))}
         </tbody>
       </table>
 
       <TablePagination instance={instance} />
-    </div>
+    </>
   )
 }

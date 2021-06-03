@@ -1,5 +1,4 @@
 import React from 'react'
-import tw from 'twin.macro'
 import { Meta } from '@storybook/react/types-6-0'
 
 import { Radio } from './Radio'
@@ -20,17 +19,23 @@ export default {
   },
 } as Meta
 
-export const basic = () => (
-  <>
-    <div tw="flex flex-row gap-4">
-      <RadioGroup label="サービス名">
-        <Radio label="Relance" value="relance" />
-        <Radio label="Sreake Sonar" value="sreake-sonar" />
-        <Radio label="Reckoner" value="reckoner" disabled />
-      </RadioGroup>
-    </div>
-  </>
-)
+export const Basic = (): JSX.Element => {
+  const handleRadioChange = (e) => {
+    console.log(e.target.value)
+  }
+
+  return (
+    <>
+      <div tw="flex flex-row gap-4">
+        <RadioGroup label="サービス名" onChange={handleRadioChange}>
+          <Radio label="Relance" value="relance" />
+          <Radio label="Sreake Sonar" value="sreake-sonar" />
+          <Radio label="Reckoner" value="reckoner" disabled />
+        </RadioGroup>
+      </div>
+    </>
+  )
+}
 
 export const error = () => (
   <>

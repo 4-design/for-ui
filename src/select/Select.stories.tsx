@@ -49,7 +49,7 @@ const Template: Story = () => {
               options={options}
               twin={[tw`w-44`]}
               onChange={(e, option) => {
-                onChange(option.value)
+                onChange(option)
               }}
             />
           )
