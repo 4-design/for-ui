@@ -3,7 +3,7 @@
 
 ### Bug Fixes
 
-* CHANGELOG削除 ([a6596e0](https://github.com/3-shake/3design-ui/commit/a6596e0736e5c1b3cb80f2c363f024222fcb804f))
+* CHANGELOG削除 ([bf3ebf9](https://github.com/3-shake/3design-ui/commit/bf3ebf9dfd56c1b9bca3885777bff3788b2e6cfd))
 
 
 ### BREAKING CHANGES
