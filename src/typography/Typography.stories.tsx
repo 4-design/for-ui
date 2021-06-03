@@ -1,22 +1,22 @@
-import { Fragment } from 'react'
-import { Meta } from '@storybook/react/types-6-0'
+import { Fragment } from "react";
+import { Meta } from "@storybook/react/types-6-0";
 import {
   Title,
   Subtitle,
   Description,
   Source,
   DocsStory,
-} from '@storybook/addon-docs/blocks'
-import tw from 'twin.macro'
-import { Text, Variant, variants, texts } from './Typography'
+} from "@storybook/addon-docs/blocks";
+import tw from "twin.macro";
+import { Text, Variant, variants, texts } from "./Typography";
 
 export default {
-  title: 'Example/Typography',
+  title: "Example/Typography",
   component: null,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundColor: { control: "color" },
   },
-} as Meta
+} as Meta;
 
 const body: Partial<Variant>[] = [
   variants.p,
@@ -24,11 +24,11 @@ const body: Partial<Variant>[] = [
   variants.body2,
   variants.span,
   variants.caption,
-]
+];
 
-const short = `Freelance エンジニアに「いい案件」を。`
+const short = `Freelance エンジニアに「いい案件」を。`;
 
-const long = `RelanceはSREのプロフェッショナルがエンジニア目線で案件を分析してミスマッチを防ぎ、あなたにあったベストな案件を提供します。直感的かつsimpleなinterfaceにより、Database、Storage、SaaSなど、あらゆるデータを活用するETL/Data Pipelineを素早く構築することができます。また、豊富な変換・加工処理により、Platform間のデータ連携をスムーズに実現します。 `
+const long = `RelanceはSREのプロフェッショナルがエンジニア目線で案件を分析してミスマッチを防ぎ、あなたにあったベストな案件を提供します。直感的かつsimpleなinterfaceにより、Database、Storage、SaaSなど、あらゆるデータを活用するETL/Data Pipelineを素早く構築することができます。また、豊富な変換・加工処理により、Platform間のデータ連携をスムーズに実現します。 `;
 
 export const Sizes = () => {
   return (
@@ -42,14 +42,14 @@ export const Sizes = () => {
         </Fragment>
       ))}
     </Fragment>
-  )
-}
+  );
+};
 
 Sizes.parameters = {
-  title: 'Sizes',
+  title: "Sizes",
   docs: {
     source: {
-      language: 'tsx',
+      language: "tsx",
       code: `
 { /* Common Usage */ }
 <p tw="text-r">Hello</p>
@@ -68,9 +68,9 @@ Sizes.parameters = {
         <Description
           markdown={`
 3design-uiでは5サイズのTypographyを使い分けています。  
-それぞれ \`text-xs\` \`text-s\` \`text-r\` \`text-l\` \`text-xl\` となっており，\`tailwind.config.js\` で設定されているため，\`className\`や\`tw\` propsを使って使うことができます。  
+それぞれ \`text-xs\` \`text-s\` \`text-r\` \`text-xr\` \`text-l\` \`text-xl\` となっており，\`tailwind.config.cjs\` で設定されているため，\`className\`や\`tw\` propsを使って使うことができます。  
 一般的なテキストは\`text-r\`を使うことが想定されています。  
-Cardのタイトルのように\`text-r\`を含むエリアのタイトルにはそれより少し大きな\`text-l\`を，さらにページ全体のタイトルのようなものには \`text-xl\`を使うことを想定しています。  
+Cardのタイトルのように\`text-r\`を含むエリアのタイトルにはそれより少し大きな\`text-l\` (またはカード間のヒエラルキーを表現する場合は \`text-xr\`) を，さらにページ全体のタイトルのようなものには \`text-xl\`を使うことを想定しています。  
 またそれより小さな，アノテーションのようなテキストには \`text-xs\` を使うことを想定しています。
 
 \`text-s\`と\`text-r\`，及び\`text-s\`と\`text-xs\`について，それぞれお互いの大きさが十分に異なるようには設計されていません。これが何を意味するかと言うと，例えば見出しに\`text-r\`をつかって本文に\`text-s\`を使うだけでは，従属関係の表現が十分ではありません。  
@@ -78,7 +78,7 @@ Cardのタイトルのように\`text-r\`を含むエリアのタイトルには
 
 ## デザインの背景
 
-なぜ5種類のみなのかというと，多すぎるサイズの設定はデザインの一貫性を崩してしまい，ページごとに同じレベルの重要度で表示されるべきものがデザイナーや実装者で異なってしまう可能性があるためです。  
+なぜ6種類のみなのかというと，多すぎるサイズの設定はデザインの一貫性を崩してしまい，ページごとに同じレベルの重要度で表示されるべきものがデザイナーや実装者で異なってしまう可能性があるためです。  
 これをできるだけ防ぐため，この5種類のみを設定する制約を定めています。
 
 ## 設定値
@@ -103,6 +103,7 @@ Cardのタイトルのように\`text-r\`を含むエリアのタイトルには
 | \`text-xs\` | 12 px (.75 rem) | 16 px (1 rem) | .03 rem |
 | \`text-s\` | 14 px (.875 rem) | 20 px (1.25 rem) | .03 rem |
 | \`text-r\` | 16 px (1 rem) | 24 px (1.5 rem) | .03 rem |
+| \`text-xr\` | 20 px (1.25 rem) | 28 px (1.75 rem) | .03 rem |
 | \`text-l\` | 24 px (1.5 rem) | 32 px (2 rem) | .03 rem |
 | \`text-xl\` | 32 px (2 rem) | 40 px (2.5 rem) | .03 rem |
         `}
@@ -112,19 +113,19 @@ Cardのタイトルのように\`text-r\`を含むエリアのタイトルには
       </Fragment>
     ),
   },
-}
+};
 
 const colors = {
-  'text-high': tw`text-high`,
-  'text-middle': tw`text-middle`,
-  'text-low': tw`text-low`,
-  'text-disabled': tw`text-disabled`,
-  'text-accent': tw`text-accent`,
-  'text-accent-dark': tw`text-accent-dark`,
-  'text-error': tw`text-error`,
-  'text-info': tw`text-info`,
-  'text-white': tw`text-white`,
-}
+  "text-high": tw`text-high`,
+  "text-middle": tw`text-middle`,
+  "text-low": tw`text-low`,
+  "text-disabled": tw`text-disabled`,
+  "text-accent": tw`text-accent`,
+  "text-accent-dark": tw`text-accent-dark`,
+  "text-error": tw`text-error`,
+  "text-info": tw`text-info`,
+  "text-white": tw`text-white`,
+};
 
 export const Colors = () => {
   return (
@@ -138,14 +139,14 @@ export const Colors = () => {
         </div>
       ))}
     </Fragment>
-  )
-}
+  );
+};
 
 Colors.parameters = {
-  title: 'Colors',
+  title: "Colors",
   docs: {
     source: {
-      language: 'tsx',
+      language: "tsx",
       code: `
 import { Text } from '@3-shake/3design-ui'
 
@@ -158,7 +159,7 @@ ${Object.keys(colors)
     ) => `<Text variant="p" tw="${v}">Freelance エンジニアに「いい案件」を。</Text>
 `
   )
-  .join('')}
+  .join("")}
 `,
     },
     description: { story: `# hello` },
@@ -186,7 +187,7 @@ Typographyのサイズと同じく，どの部分を目立たせるかはよく�
       </Fragment>
     ),
   },
-}
+};
 
 export const Texts = () => {
   return (
@@ -206,14 +207,14 @@ export const Texts = () => {
         </div>
       ))}
     </Fragment>
-  )
-}
+  );
+};
 
 Texts.parameters = {
-  title: 'Texts',
+  title: "Texts",
   docs: {
     source: {
-      language: 'tsx',
+      language: "tsx",
       code: `
 import { Text } from '@3-shake/3design-ui'
 
@@ -224,7 +225,7 @@ ${Object.values(variants)
     (v) => `<Text variant="${v}">Freelance エンジニアに「いい案件」を。</Text>
 `
   )
-  .join('')}
+  .join("")}
 
 // Or
 
@@ -254,7 +255,7 @@ Typographを適切にスタイリングすることはときに冗長なこと�
       </Fragment>
     ),
   },
-}
+};
 
 const exampleCode = `import { Fragment } from 'react'
 import { Text } from '@3design-ui'
@@ -266,7 +267,7 @@ const Awesome = () => (
     { (1 <= 2) & <Text variant="p">こんにちは 世界!</Text> }
   </Fragment>
 )
-`
+`;
 
 export const Mono = () => {
   return (
@@ -280,14 +281,14 @@ export const Mono = () => {
         </Fragment>
       ))}
     </Fragment>
-  )
-}
+  );
+};
 
 Mono.parameters = {
-  title: 'Mono',
+  title: "Mono",
   docs: {
     source: {
-      language: 'tsx',
+      language: "tsx",
       code: `
 { /* Common Usage */ }
 <p tw="font-mono text-r">Hello</p>
@@ -328,4 +329,4 @@ Mono.parameters = {
       </Fragment>
     ),
   },
-}
+};
