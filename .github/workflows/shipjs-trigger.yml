@@ -17,7 +17,6 @@ jobs:
         with:
           always-auth: true
           node-version: 12.x
-        with:
           registry-url: 'https://npm.pkg.github.com'
       - run: |
           if [ -f "yarn.lock" ]; then
