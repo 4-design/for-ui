@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/3-shake/3design.git"
+    "url": "git+https://github.com/3-shake/3design-ui.git"
   },
   "scripts": {
     "type-check": "tsc --noEmit",
