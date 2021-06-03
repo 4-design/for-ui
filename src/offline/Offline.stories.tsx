@@ -1,14 +1,14 @@
 import React from 'react'
-import tw from 'twin.macro'
 import { Meta } from '@storybook/react/types-6-0'
 
-import { Offline } from './Offline'
 import { Typography } from '../typography'
+import { Offline } from './Offline'
 
 export default {
   title: 'Atom/Offline',
   component: Offline,
   decorators: [
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (Story: any) => (
       <div tw="mt-10 flex flex-col h-screen w-screen gap-4">
         <Story />

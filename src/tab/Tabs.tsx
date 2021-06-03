@@ -1,8 +1,7 @@
 import React from 'react'
-import tw, { css, TwStyle } from 'twin.macro'
-import Box from '@material-ui/core/Box'
-import TabList, { TabListProps } from '@material-ui/lab/TabList'
 import { SerializedStyles } from '@emotion/react'
+import TabList, { TabListProps } from '@material-ui/lab/TabList'
+import tw, { css, TwStyle } from 'twin.macro'
 
 export interface TabsProps extends TabListProps {
   noBorder?: boolean

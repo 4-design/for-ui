@@ -1,14 +1,14 @@
 import React from 'react'
+import MoreVertIcon from '@material-ui/icons/MoreVert'
 import { Story, Meta } from '@storybook/react/types-6-0'
+import { CellProps, Column } from 'react-table'
 import tw from 'twin.macro'
 
-import { Table } from './Table'
-import { PersonData } from '../utils/makeData'
-import { CellProps, Column } from 'react-table'
 import { IconButton } from '../icon'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
-import { TableCell } from './TableCell'
+import { PersonData } from '../utils/makeData'
 import makeData from '../utils/makeData'
+import { Table } from './Table'
+import { TableCell } from './TableCell'
 
 export default {
   title: 'Atom/Table',

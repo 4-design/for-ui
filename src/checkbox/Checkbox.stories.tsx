@@ -3,14 +3,14 @@ import 'twin.macro'
 import { Meta } from '@storybook/react/types-6-0'
 import { useForm } from 'react-hook-form'
 
-import { Checkbox } from './Checkbox'
 import { Button } from '../button'
+import { Checkbox } from './Checkbox'
 
 export default {
   title: 'Atom/Checkbox',
   component: Checkbox,
   decorators: [
-    (Story: any) => (
+    (Story) => (
       <div tw="mt-10 flex flex-col h-screen w-screen gap-4">
         <Story />
       </div>
@@ -18,9 +18,9 @@ export default {
   ],
 } as Meta
 
-export const basic = () => {
-  const { register, errors, handleSubmit } = useForm()
-  const onSubmit = (data: any) => console.log(data)
+export const Basic = (): JSX.Element => {
+  const { register, handleSubmit } = useForm()
+  const onSubmit = (data: unknown) => console.log(data)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

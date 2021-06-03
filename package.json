@@ -23,6 +23,8 @@
     "build:js": "cp ./react-table-index.js ./node_modules/react-table/index.js && NODE_ENV=production rollup -c",
     "build:js:watch": "NODE_ENV=production rollup -c --watch",
     "build": "yarn build:types && yarn build:js",
+    "lint": "eslint --ext .ts,.tsx --ignore-pattern '**/__test*__/*' .",
+    "lint-fix": "eslint --fix --ext .ts,.tsx --ignore-pattern '**/__test*__/*' .",
     "storybook": "rm -rf node_modules/.cache/storybook && start-storybook --no-manager-cache -p 6006 -s public",
     "build-storybook": "build-storybook",
     "release": "shipjs prepare"
@@ -72,6 +74,7 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-unused-imports": "^1.1.1",
+    "prettier": "2.2.1",
     "lint-staged": "^11.0.0",
     "namor": "2.0.2",
     "postcss": "8.2.15",

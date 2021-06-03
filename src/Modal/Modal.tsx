@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react'
-import tw, { TwStyle } from 'twin.macro'
-import { ModalIcon, Mode } from './ModalIcon'
-import MuiModal from '@material-ui/core/Modal'
 import { SerializedStyles } from '@emotion/react'
+import MuiModal from '@material-ui/core/Modal'
+import { TwStyle } from 'twin.macro'
+import { ModalIcon, Mode } from './ModalIcon'
 interface ModalProps {
   twin?: (TwStyle | SerializedStyles)[] /** The contents of the Dialog. */
   children: ReactNode

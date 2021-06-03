@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react'
-import tw, { css, TwStyle } from 'twin.macro'
 import MuiMenuItem, {
   MenuItemProps as MuiMenuItemProps,
 } from '@material-ui/core/MenuItem'
+import tw, { css, TwStyle } from 'twin.macro'
 
 export interface MenuItemProps extends MuiMenuItemProps {
   twin?: TwStyle[]

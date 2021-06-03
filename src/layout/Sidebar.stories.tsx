@@ -1,10 +1,10 @@
 import React from 'react'
+import FolderIcon from '@material-ui/icons/Folder'
+import GroupIcon from '@material-ui/icons/Group'
+import HomeIcon from '@material-ui/icons/Home'
 import { Story, Meta } from '@storybook/react/types-6-0'
 
 import { Sidebar, SidebarProps, SidebarMenu, SidebarMenuItem } from './Sidebar'
-import HomeIcon from '@material-ui/icons/Home'
-import GroupIcon from '@material-ui/icons/Group'
-import FolderIcon from '@material-ui/icons/Folder'
 
 export default {
   title: 'Example/Layout/Sidebar',

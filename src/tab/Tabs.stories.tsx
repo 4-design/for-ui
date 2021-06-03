@@ -2,10 +2,10 @@ import React from 'react'
 import 'twin.macro'
 import { Story, Meta } from '@storybook/react/types-6-0'
 
-import { Tabs } from './Tabs'
-import { TabPanel } from './TabPanel'
-import { TabContext } from './TabContext'
 import { Tab } from './Tab'
+import { TabContext } from './TabContext'
+import { TabPanel } from './TabPanel'
+import { Tabs } from './Tabs'
 
 export default {
   title: 'Atom/Tabs',
