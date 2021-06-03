@@ -1,8 +1,8 @@
 import React from 'react'
+import { EmotionJSX } from '@emotion/react/types/jsx-namespace'
 import CheckCicleOutline from '@material-ui/icons/CheckCircleOutline'
 import ReportProblemOutlined from '@material-ui/icons/ReportProblemOutlined'
 import tw, { TwStyle } from 'twin.macro'
-import { EmotionJSX } from '@emotion/react/types/jsx-namespace'
 
 export interface ModalIconProps {
   mode: 'success' | 'alert'

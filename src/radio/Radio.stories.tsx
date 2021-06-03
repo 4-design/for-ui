@@ -8,6 +8,7 @@ export default {
   title: 'Atom/Radio',
   component: Radio,
   decorators: [
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (Story: any) => (
       <div tw="mt-10 flex flex-col h-screen w-screen gap-4">
         <Story />

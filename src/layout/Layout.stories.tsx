@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
+import FolderIcon from '@material-ui/icons/Folder'
+import GroupIcon from '@material-ui/icons/Group'
+import HomeIcon from '@material-ui/icons/Home'
+import NotificationImportantIcon from '@material-ui/icons/NotificationImportant'
 import { Story, Meta } from '@storybook/react/types-6-0'
 import tw from 'twin.macro'
 
-import { Header, HeaderLeft, HeaderRight } from './Header'
-import { Menu } from '../menu/Menu'
-import { MenuItem } from '../menu'
 import { IconButton } from '../icon/Icon'
+import { MenuItem } from '../menu'
+import { Menu } from '../menu/Menu'
+import { Header, HeaderLeft, HeaderRight } from './Header'
 import { Sidebar, SidebarMenu, SidebarMenuItem } from './Sidebar'
-import HomeIcon from '@material-ui/icons/Home'
-import GroupIcon from '@material-ui/icons/Group'
-import FolderIcon from '@material-ui/icons/Folder'
-import NotificationImportantIcon from '@material-ui/icons/NotificationImportant'
 
 export default {
   title: 'Example/Layout/App',
@@ -20,8 +20,7 @@ export default {
 } as Meta
 
 const Template: Story = () => {
-  const [open, setOpen] = useState(false)
-  const toggle = () => setOpen(!open)
+  const [open, _] = useState(false)
 
   return (
     <div tw="h-screen flex overflow-hidden">

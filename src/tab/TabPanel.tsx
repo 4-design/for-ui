@@ -1,9 +1,9 @@
 import React from 'react'
-import tw, { css, TwStyle } from 'twin.macro'
+import { SerializedStyles } from '@emotion/react'
 import MuiTabPanel, {
   TabPanelProps as MuiTabPanelProps,
 } from '@material-ui/lab/TabPanel'
-import { SerializedStyles } from '@emotion/react'
+import tw, { css, TwStyle } from 'twin.macro'
 
 export interface TabPanelProps extends MuiTabPanelProps {
   twin?: (TwStyle | SerializedStyles)[]

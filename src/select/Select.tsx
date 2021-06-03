@@ -1,12 +1,12 @@
 import React from 'react'
-import tw, { css, TwStyle } from 'twin.macro'
-import { MenuItem } from '../menu'
-import { TextField } from '../textField'
 import Autocomplete, {
   AutocompleteChangeDetails,
   AutocompleteChangeReason,
 } from '@material-ui/core/Autocomplete'
 import MuiPaper, { PaperProps } from '@material-ui/core/Paper'
+import tw, { css, TwStyle } from 'twin.macro'
+import { MenuItem } from '../menu'
+import { TextField } from '../textField'
 
 const Paper = (props: PaperProps) => {
   return <MuiPaper {...props} tw="rounded-2xl!" />
@@ -14,12 +14,14 @@ const Paper = (props: PaperProps) => {
 
 export interface SelectOption {
   label: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value: any
 }
 
 export interface SelectProps {
   options: SelectOption[]
   name: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value?: any
   label?: string
   required?: boolean

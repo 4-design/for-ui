@@ -1,7 +1,7 @@
 import React from 'react'
-import tw, { css, TwStyle } from 'twin.macro'
-import MuiTab, { TabProps as MuiTabProps } from '@material-ui/core/Tab'
 import { SerializedStyles } from '@emotion/react'
+import MuiTab, { TabProps as MuiTabProps } from '@material-ui/core/Tab'
+import tw, { css, TwStyle } from 'twin.macro'
 
 export interface TabProps extends MuiTabProps {
   minWidth?: number

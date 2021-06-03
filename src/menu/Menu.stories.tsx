@@ -2,9 +2,9 @@ import React from 'react'
 import { Meta } from '@storybook/react/types-6-0'
 import tw from 'twin.macro'
 
+import { Button } from '../button/Button'
 import { Menu } from './Menu'
 import { MenuItem } from './MenuItem'
-import { Button } from '../button/Button'
 
 export default {
   title: 'Atom/Menu',
@@ -13,6 +13,7 @@ export default {
     backgroundColor: { control: 'color' },
   },
   decorators: [
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (Story: any) => (
       <div tw="mt-10 flex flex-col h-screen w-screen gap-4">
         <Story />
@@ -21,7 +22,7 @@ export default {
   ],
 } as Meta
 
-export const basic = () => {
+export const Basic = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const toggle = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(anchorEl ? null : event.currentTarget)

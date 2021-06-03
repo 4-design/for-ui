@@ -1,14 +1,15 @@
 import React from 'react'
-import tw from 'twin.macro'
 import { Story, Meta } from '@storybook/react/types-6-0'
 import { Controller, useForm } from 'react-hook-form'
-import { Select, SelectOption } from './Select'
+import tw from 'twin.macro'
 import { Button } from '../button'
+import { Select } from './Select'
 
 export default {
   title: 'Atom/Select',
   component: Select,
   decorators: [
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (Story: any) => (
       <div tw="mt-10 flex flex-col h-screen w-screen gap-4">
         <Story />
@@ -29,12 +30,12 @@ const options = [
 ]
 
 const Template: Story = () => {
-  const { control, handleSubmit, setValue } = useForm({
+  const { control, handleSubmit } = useForm({
     defaultValues: {
       country: options[0],
     },
   })
-  const onSubmit = (data: any) => console.log(JSON.stringify(data))
+  const onSubmit = (data: unknown) => console.log(JSON.stringify(data))
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

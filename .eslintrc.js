@@ -41,6 +41,7 @@ module.exports = {
       {
         singleQuote: true,
         trailingComma: 'es5',
+        semi: false,
       },
     ],
     'import/order': [
@@ -72,6 +73,9 @@ module.exports = {
     ],
     '@typescript-eslint/no-unused-vars': 'off',
     'unused-imports/no-unused-imports': 'error',
+    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     'unused-imports/no-unused-vars': [
       'warn',
       {

@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
+import NotificationImportantIcon from '@material-ui/icons/NotificationImportant'
 import { Story, Meta } from '@storybook/react/types-6-0'
 import tw from 'twin.macro'
 
-import { Header, HeaderLeft, HeaderRight } from './Header'
-import { Menu } from '../menu/Menu'
-import { MenuItem } from '../menu'
 import { IconButton } from '../icon/Icon'
-import NotificationImportantIcon from '@material-ui/icons/NotificationImportant'
+import { MenuItem } from '../menu'
+import { Menu } from '../menu/Menu'
+import { Header, HeaderLeft, HeaderRight } from './Header'
 
 export default {
   title: 'Example/Layout/Header',
@@ -17,8 +17,7 @@ export default {
 } as Meta
 
 const Template: Story = () => {
-  const [open, setOpen] = useState(false)
-  const toggle = () => setOpen(!open)
+  const [open, _] = useState(false)
 
   return (
     <Header>

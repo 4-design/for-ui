@@ -1,8 +1,8 @@
 import React from 'react'
 import 'twin.macro'
+import MailIcon from '@material-ui/icons/Mail'
 import { Story, Meta } from '@storybook/react/types-6-0'
 import { Badge } from './Badge'
-import MailIcon from '@material-ui/icons/Mail'
 
 export default {
   title: 'Atom/Badge',

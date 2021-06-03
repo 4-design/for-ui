@@ -1,13 +1,13 @@
 import { PropsWithChildren } from 'react'
 import 'twin.macro'
-import tw, { css } from 'twin.macro'
+import Pagination from '@material-ui/lab/Pagination'
 import { TableInstance } from 'react-table'
+import tw, { css } from 'twin.macro'
 
 // import FirstPageIcon from '@material-ui/icons/FirstPage'
 // import LastPageIcon from '@material-ui/icons/LastPage'
 // import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 // import ChevronRightIcon from '@material-ui/icons/ChevronRight'
-import Pagination from '@material-ui/lab/Pagination'
 
 // NOTE: 今後複雑な要件が追加され、に対応できなくなった場合コメントアウトされているコンポーネントを拡張し使用する
 export function TablePagination<T extends object>({
