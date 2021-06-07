@@ -38,7 +38,12 @@ const styles: TwStyle = {
   textDanger: tw`(text-error disabled:opacity-disabled hover:opacity-70 hover:bg-transparent)!`,
 }
 
-export const Button: React.VFC<ButtonProps> = (props) => {
+export const Button: React.VFC<
+  ButtonProps & {
+    // NOTE: duplicated
+    pending?: boolean
+  }
+> = (props) => {
   const {
     type = 'button',
     color = 'primary',
@@ -70,7 +75,7 @@ export const Button: React.VFC<ButtonProps> = (props) => {
       variant={variant}
       startIcon={startIcon}
       endIcon={endIcon}
-      pending={pending}
+      loading={pending}
       disabled={disabled}
       onClick={onClick}
       aria-label={label || props['aria-label'] || 'button'}

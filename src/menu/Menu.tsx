@@ -28,7 +28,6 @@ export const Menu: React.VFC<MenuProps> = ({
       anchorEl={anchorEl}
       anchorOrigin={anchorOrigin}
       transformOrigin={transformOrigin}
-      getContentAnchorEl={null}
       onClose={onClose}
       css={[
         css`
