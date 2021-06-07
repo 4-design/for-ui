@@ -1,6 +1,6 @@
 {
   "name": "@3-shake/3design-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.cjs",
   "module": "dist/index.esm.js",
   "browser": "dist/index.js",
@@ -40,10 +40,10 @@
     "react-spinners": "^0.10.6",
     "react-table": "^7.6.3",
     "react-tabs": "3.2.2",
-    "shipjs": "0.23.2",
     "twin.macro": "^2.2.3"
   },
   "devDependencies": {
+    "shipjs": "0.23.2",
     "@babel/core": "7.13.0",
     "@babel/preset-env": "7.13.12",
     "@babel/preset-react": "7.12.13",
