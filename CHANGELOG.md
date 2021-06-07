@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/3-shake/3design-ui/compare/v1.0.1...v1.0.2) (2021-06-07)
+
+
+### Bug Fixes
+
+* Use materal-ui/core in pagination ([#18](https://github.com/3-shake/3design-ui/issues/18)) ([27826c9](https://github.com/3-shake/3design-ui/commit/27826c9f698a127158e811f78591efc0e7f00dd4))
+
+
+
 ## [1.0.1](https://github.com/3-shake/3design-ui/compare/v1.0.0...v1.0.1) (2021-06-07)
 
 
