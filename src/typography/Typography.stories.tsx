@@ -11,12 +11,12 @@ import tw from 'twin.macro'
 import { Text, Variant, variants, texts } from './Typography'
 
 export default {
-  title: "Example/Typography",
+  title: 'Example/Typography',
   component: null,
   argTypes: {
-    backgroundColor: { control: "color" },
+    backgroundColor: { control: 'color' },
   },
-} as Meta;
+} as Meta
 
 const body: Partial<Variant>[] = [
   variants.p,
@@ -24,11 +24,11 @@ const body: Partial<Variant>[] = [
   variants.body2,
   variants.span,
   variants.caption,
-];
+]
 
-const short = `Freelance エンジニアに「いい案件」を。`;
+const short = `Freelance エンジニアに「いい案件」を。`
 
-const long = `RelanceはSREのプロフェッショナルがエンジニア目線で案件を分析してミスマッチを防ぎ、あなたにあったベストな案件を提供します。直感的かつsimpleなinterfaceにより、Database、Storage、SaaSなど、あらゆるデータを活用するETL/Data Pipelineを素早く構築することができます。また、豊富な変換・加工処理により、Platform間のデータ連携をスムーズに実現します。 `;
+const long = `RelanceはSREのプロフェッショナルがエンジニア目線で案件を分析してミスマッチを防ぎ、あなたにあったベストな案件を提供します。直感的かつsimpleなinterfaceにより、Database、Storage、SaaSなど、あらゆるデータを活用するETL/Data Pipelineを素早く構築することができます。また、豊富な変換・加工処理により、Platform間のデータ連携をスムーズに実現します。 `
 
 export const Sizes = (): JSX.Element => {
   return (
@@ -46,10 +46,10 @@ export const Sizes = (): JSX.Element => {
 }
 
 Sizes.parameters = {
-  title: "Sizes",
+  title: 'Sizes',
   docs: {
     source: {
-      language: "tsx",
+      language: 'tsx',
       code: `
 { /* Common Usage */ }
 <p tw="text-r">Hello</p>
@@ -113,19 +113,19 @@ Cardのタイトルのように\`text-r\`を含むエリアのタイトルには
       </Fragment>
     ),
   },
-};
+}
 
 const colors = {
-  "text-high": tw`text-high`,
-  "text-middle": tw`text-middle`,
-  "text-low": tw`text-low`,
-  "text-disabled": tw`text-disabled`,
-  "text-accent": tw`text-accent`,
-  "text-accent-dark": tw`text-accent-dark`,
-  "text-error": tw`text-error`,
-  "text-info": tw`text-info`,
-  "text-white": tw`text-white`,
-};
+  'text-high': tw`text-high`,
+  'text-middle': tw`text-middle`,
+  'text-low': tw`text-low`,
+  'text-disabled': tw`text-disabled`,
+  'text-accent': tw`text-accent`,
+  'text-accent-dark': tw`text-accent-dark`,
+  'text-error': tw`text-error`,
+  'text-info': tw`text-info`,
+  'text-white': tw`text-white`,
+}
 
 export const Colors = (): JSX.Element => {
   return (
@@ -139,14 +139,14 @@ export const Colors = (): JSX.Element => {
         </div>
       ))}
     </Fragment>
-  );
-};
+  )
+}
 
 Colors.parameters = {
-  title: "Colors",
+  title: 'Colors',
   docs: {
     source: {
-      language: "tsx",
+      language: 'tsx',
       code: `
 import { Text } from '@3-shake/3design-ui'
 
@@ -159,7 +159,7 @@ ${Object.keys(colors)
     ) => `<Text variant="p" tw="${v}">Freelance エンジニアに「いい案件」を。</Text>
 `
   )
-  .join("")}
+  .join('')}
 `,
     },
     description: { story: `# hello` },
@@ -187,7 +187,7 @@ Typographyのサイズと同じく，どの部分を目立たせるかはよく�
       </Fragment>
     ),
   },
-};
+}
 
 export const Texts = (): JSX.Element => {
   return (
@@ -207,14 +207,14 @@ export const Texts = (): JSX.Element => {
         </div>
       ))}
     </Fragment>
-  );
-};
+  )
+}
 
 Texts.parameters = {
-  title: "Texts",
+  title: 'Texts',
   docs: {
     source: {
-      language: "tsx",
+      language: 'tsx',
       code: `
 import { Text } from '@3-shake/3design-ui'
 
@@ -225,7 +225,7 @@ ${Object.values(variants)
     (v) => `<Text variant="${v}">Freelance エンジニアに「いい案件」を。</Text>
 `
   )
-  .join("")}
+  .join('')}
 
 // Or
 
@@ -255,7 +255,7 @@ Typographを適切にスタイリングすることはときに冗長なこと�
       </Fragment>
     ),
   },
-};
+}
 
 const exampleCode = `import { Fragment } from 'react'
 import { Text } from '@3design-ui'
@@ -267,7 +267,7 @@ const Awesome = () => (
     { (1 <= 2) & <Text variant="p">こんにちは 世界!</Text> }
   </Fragment>
 )
-`;
+`
 
 export const Mono = (): JSX.Element => {
   return (
@@ -281,14 +281,14 @@ export const Mono = (): JSX.Element => {
         </Fragment>
       ))}
     </Fragment>
-  );
-};
+  )
+}
 
 Mono.parameters = {
-  title: "Mono",
+  title: 'Mono',
   docs: {
     source: {
-      language: "tsx",
+      language: 'tsx',
       code: `
 { /* Common Usage */ }
 <p tw="font-mono text-r">Hello</p>
@@ -329,4 +329,4 @@ Mono.parameters = {
       </Fragment>
     ),
   },
-};
+}
