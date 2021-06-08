@@ -1,11 +1,5 @@
 import React, { PropsWithChildren, useState } from 'react'
-import {
-  useTable,
-  usePagination,
-  TableOptions,
-  Row,
-  makeRenderer,
-} from 'react-table'
+import { useTable, usePagination, TableOptions, Row } from 'react-table'
 import 'twin.macro'
 
 import { TablePagination } from './TablePagination'
@@ -55,13 +49,15 @@ export function Table<T extends object>(
     <>
       <table {...getTableProps()} tw="w-full">
         <thead tw="table-header-group">
-          {headerGroups.map((headerGroup) => (
+          {headerGroups.map((headerGroup, i) => (
             <tr
               {...headerGroup.getHeaderGroupProps()}
+              key={i}
               tw="border-b-2 border-middle table-row align-middle"
             >
-              {headerGroup.headers.map((column) => (
+              {headerGroup.headers.map((column, j) => (
                 <th
+                  key={j}
                   tw="py-4 px-6 font-bold text-base text-high text-left table-cell whitespace-nowrap"
                   scope="col"
                 >

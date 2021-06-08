@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import tw, { css } from 'twin.macro'
 
 export interface SidebarMenuItemProps {

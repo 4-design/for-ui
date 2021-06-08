@@ -14,7 +14,6 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  decorators: [(Story: any) => <Story />],
 } as Meta
 
 const schema = yup.object().shape({
@@ -26,7 +25,7 @@ export const Standard = (): JSX.Element => {
   const { register, errors, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   })
-  const onSubmit = (data: any) => console.log(data)
+  const onSubmit = (data: unknown) => console.log(data)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -92,7 +91,7 @@ export const Outlined = (): JSX.Element => {
   const { register, errors, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   })
-  const onSubmit = (data: any) => console.log(data)
+  const onSubmit = (data: unknown) => console.log(data)
 
   return (
     <form tw="w-96" onSubmit={handleSubmit(onSubmit)}>

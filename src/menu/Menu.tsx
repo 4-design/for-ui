@@ -1,6 +1,6 @@
 import React from 'react'
-import tw, { css, TwStyle } from 'twin.macro'
 import MuiMenu, { MenuProps as MuiMenuProps } from '@material-ui/core/Menu'
+import tw, { css, TwStyle } from 'twin.macro'
 
 export interface MenuProps extends MuiMenuProps {
   twin?: TwStyle | TwStyle[]
@@ -28,7 +28,6 @@ export const Menu: React.VFC<MenuProps> = ({
       anchorEl={anchorEl}
       anchorOrigin={anchorOrigin}
       transformOrigin={transformOrigin}
-      getContentAnchorEl={null}
       onClose={onClose}
       css={[
         css`

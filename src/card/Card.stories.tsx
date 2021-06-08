@@ -1,8 +1,8 @@
 import React from 'react'
-import { Story, Meta } from '@storybook/react/types-6-0'
+import MoreVertIcon from '@material-ui/icons/MoreVert'
+import { Meta } from '@storybook/react/types-6-0'
 
 import { Card, CardHeader, CardBody } from './Card'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
 
 export default {
   title: 'Example/Card',
@@ -12,7 +12,7 @@ export default {
   },
 } as Meta
 
-export const basic = () => {
+export const Basic = (): JSX.Element => {
   return (
     <Card>
       <CardHeader title="タイトル" action={<MoreVertIcon />} />

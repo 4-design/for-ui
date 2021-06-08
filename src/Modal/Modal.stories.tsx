@@ -1,20 +1,19 @@
-import React, { useRef, useState } from 'react'
-import tw from 'twin.macro'
-import { Story, Meta } from '@storybook/react/types-6-0'
+import React, { useState } from 'react'
+import { Meta } from '@storybook/react/types-6-0'
 
 import { Button } from '../button'
-import { Modal } from '.'
 import { ModalContent } from './ModalContent'
 import { ModalFooter } from './ModalFooter'
 import { ModalHeader } from './ModalHeader'
+import { Modal } from '.'
 
 export default {
   title: 'Example/Modal',
   component: Modal,
 } as Meta
 
-export const modalDefault = () => {
-  const [showModal, setShowModal] = useState(false)
+export const ModalDefault = (): JSX.Element => {
+  const [showModal, setShowModal] = useState<boolean>(false)
 
   const onSubmit = () => {
     console.log('submit')
@@ -63,7 +62,7 @@ export const modalDefault = () => {
   )
 }
 
-export const modalSuccess = () => {
+export const ModalSuccess = (): JSX.Element => {
   const [showModal, setShowModal] = useState(false)
 
   const onSubmit = () => {
@@ -118,7 +117,7 @@ export const modalSuccess = () => {
   )
 }
 
-export const modalAlert = () => {
+export const ModalAlert = (): JSX.Element => {
   const [showModal, setShowModal] = useState(false)
 
   const onSubmit = () => {

@@ -1,8 +1,8 @@
 import React from 'react'
+import NotificationImportantIcon from '@material-ui/icons/NotificationImportant'
 import { Story, Meta } from '@storybook/react/types-6-0'
 
 import { IconButton } from './Icon'
-import NotificationImportantIcon from '@material-ui/icons/NotificationImportant'
 
 export default {
   title: 'Example/icon/IconButton',
