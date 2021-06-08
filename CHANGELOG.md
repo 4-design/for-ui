@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/3-shake/3design-ui/compare/v1.0.2...v1.1.0) (2021-06-08)
+
+
+### Features
+
+* **Typography:** text-xr として サイズ 20px の Typography を追加 ([#12](https://github.com/3-shake/3design-ui/issues/12)) ([6347363](https://github.com/3-shake/3design-ui/commit/6347363c79865516a9c2341562eec18c3b634638))
+
+
+
 ## [1.0.2](https://github.com/3-shake/3design-ui/compare/v1.0.1...v1.0.2) (2021-06-07)
 
 
