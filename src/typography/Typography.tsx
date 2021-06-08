@@ -5,6 +5,7 @@ export const sizes = {
   xs: 'xs',
   s: 's',
   r: 'r',
+  xr: 'xr',
   l: 'l',
   xl: 'xl',
 } as const
@@ -17,6 +18,7 @@ export const texts: { [key in Size]: TwStyle } = {
   xs: tw`text-xs`,
   s: tw`text-s`,
   r: tw`text-r`,
+  xr: tw`text-xr`,
   l: tw`text-l`,
   xl: tw`text-xl`,
 }

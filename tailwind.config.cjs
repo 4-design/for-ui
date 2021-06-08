@@ -24,6 +24,13 @@ const fontSizes = {
       letterSpacing: '.03rem',
     },
   ],
+  xr: [
+    '1.25em',
+    {
+      lineHeight: '1.75rem',
+      letterSpacing: '.03rem',
+    },
+  ],
   l: [
     '1.5rem',
     {
