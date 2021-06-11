@@ -1,78 +1,97 @@
 import React from 'react'
-import Autocomplete, {
-  AutocompleteChangeDetails,
-  AutocompleteChangeReason,
-} from '@material-ui/core/Autocomplete'
+import { UseAutocompleteProps } from '@material-ui/core'
+import Autocomplete from '@material-ui/core/Autocomplete'
 import MuiPaper, { PaperProps } from '@material-ui/core/Paper'
 import tw, { css, TwStyle } from 'twin.macro'
 import { MenuItem } from '../menu'
+import { Tag } from '../tag'
 import { TextField } from '../textField'
 
 const Paper = (props: PaperProps) => {
   return <MuiPaper {...props} tw="rounded-2xl!" />
 }
 
-export interface SelectOption {
-  label: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  value: any
-}
+export type SelectOption =
+  | {
+      label: string
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      value: any
+    }
+  | string
 
-export interface SelectProps {
-  options: SelectOption[]
+export type AutocompleteProps = UseAutocompleteProps<
+  SelectOption,
+  boolean,
+  boolean,
+  boolean
+> & {
   name: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  value?: any
   label?: string
+  placeholder?: string
   required?: boolean
   fullWidth?: boolean
-  onChange?: (
-    event?: React.SyntheticEvent<Element, Event>,
-    value?: SelectOption | null,
-    reason?: AutocompleteChangeReason,
-    detail?: AutocompleteChangeDetails<SelectOption> | undefined
-  ) => void
-  defaultValue?: SelectOption
+  loadingText?: React.ReactNode
+
   twin?: TwStyle[]
   inputTwin?: TwStyle
-  placeholder?: string
 }
 
-export const Select: React.VFC<SelectProps> = ({
+export const Select: React.VFC<AutocompleteProps> = ({
   name,
   options = [],
   label,
   required = false,
-  defaultValue,
   twin,
   inputTwin,
   placeholder,
+  multiple,
+  loadingText,
+  freeSolo,
   onChange,
   ...rest
-}: SelectProps) => {
+}) => {
   return (
-    <Autocomplete<SelectOption>
+    <Autocomplete
       disablePortal
       autoComplete
       autoHighlight
       autoSelect
+      multiple={multiple}
+      freeSolo={freeSolo}
       loading={true}
-      loadingText="Loading..."
-      defaultValue={defaultValue}
+      loadingText={loadingText || 'Enterで作成されます'}
       options={options}
       onChange={onChange}
       PaperComponent={Paper}
+      getOptionLabel={(option) => {
+        return typeof option === 'string' ? option : option.label
+      }}
+      renderTags={(value, getTagProps) => {
+        return value.map((option, index) => {
+          const tagProps = getTagProps({ index })
+          const label = typeof option === 'string' ? option : option.label
+          return (
+            <Tag
+              {...tagProps}
+              key={tagProps.key}
+              variant="outlined"
+              label={label}
+            />
+          )
+        })
+      }}
       renderOption={(props, option, { selected }) => {
+        const label = typeof option === 'string' ? option : option.label
         return (
           <MenuItem
             {...props}
             twin={[
               selected
-                ? tw`(bg-primary-main text-white text-base hover:bg-primary-dark)!`
+                ? tw`(text-white text-base bg-primary-main hover:bg-primary-dark)!`
                 : tw``,
             ]}
           >
-            {option.label}
+            {label}
           </MenuItem>
         )
       }}
@@ -97,13 +116,13 @@ export const Select: React.VFC<SelectProps> = ({
       renderInput={(params) => {
         return (
           <TextField
+            {...params}
             name={name}
             required={required}
             label={label}
             variant="outlined"
             inputTwin={inputTwin}
             placeholder={placeholder}
-            {...params}
           />
         )
       }}
