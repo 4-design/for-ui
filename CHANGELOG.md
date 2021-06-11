@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/3-shake/3design-ui/compare/v1.1.0...v1.2.0) (2021-06-11)
+
+
+### Features
+
+* **Tag/Select:** Tag・Select multiple 実装 ([#30](https://github.com/3-shake/3design-ui/issues/30)) ([1d8f1cb](https://github.com/3-shake/3design-ui/commit/1d8f1cb4af07856c06738569ccb27d539050729e))
+
+
+
 # [1.1.0](https://github.com/3-shake/3design-ui/compare/v1.0.2...v1.1.0) (2021-06-08)
 
 
