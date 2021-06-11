@@ -18,17 +18,18 @@ export default {
   ],
 } as Meta
 
+const options = [
+  {
+    label: '日本',
+    inputValue: 'japan',
+  },
+  {
+    label: 'アメリカ',
+    inputValue: 'america',
+  },
+]
+
 export const Basic: Story = () => {
-  const options = [
-    {
-      label: '日本',
-      value: 'japan',
-    },
-    {
-      label: 'アメリカ',
-      value: 'america',
-    },
-  ]
   const { control, handleSubmit } = useForm({
     defaultValues: {
       country: options[0],
@@ -45,7 +46,6 @@ export const Basic: Story = () => {
           return (
             <Select
               {...fields}
-              fullWidth
               name={fields.name}
               options={options}
               twin={[tw`w-44`]}
@@ -63,18 +63,40 @@ export const Basic: Story = () => {
   )
 }
 
-export const Multiple: Story = () => {
-  const options = [
-    {
-      label: '日本',
-      value: 'japan',
+export const Single: Story = () => {
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      country: options[0],
     },
-    {
-      label: 'アメリカ',
-      value: 'america',
-    },
-  ]
+  })
+  const onSubmit = (data: unknown) => console.log(JSON.stringify(data))
 
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        name="country"
+        control={control}
+        render={({ onChange, ...fields }) => {
+          return (
+            <Select
+              {...fields}
+              name={fields.name}
+              options={options}
+              twin={[tw`w-160`]}
+              onChange={(e, option) => {
+                onChange(option)
+              }}
+            />
+          )
+        }}
+      />
+
+      <Button type="submit">登録</Button>
+    </form>
+  )
+}
+
+export const Multiple: Story = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
       country: options,
@@ -110,8 +132,6 @@ export const Multiple: Story = () => {
 }
 
 export const MultipleFreeSolo: Story = () => {
-  const options = ['japan', 'america']
-
   const { control, handleSubmit } = useForm({
     defaultValues: {
       country: options,
@@ -134,7 +154,6 @@ export const MultipleFreeSolo: Story = () => {
               options={options}
               twin={[tw`w-160`]}
               onChange={(e, option) => {
-                console.log('option', option)
                 onChange(option)
               }}
             />

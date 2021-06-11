@@ -1,6 +1,8 @@
 import React from 'react'
 import { UseAutocompleteProps } from '@material-ui/core'
-import Autocomplete from '@material-ui/core/Autocomplete'
+import Autocomplete, {
+  createFilterOptions,
+} from '@material-ui/core/Autocomplete'
 import MuiPaper, { PaperProps } from '@material-ui/core/Paper'
 import tw, { css, TwStyle } from 'twin.macro'
 import { MenuItem } from '../menu'
@@ -11,13 +13,13 @@ const Paper = (props: PaperProps) => {
   return <MuiPaper {...props} tw="rounded-2xl!" />
 }
 
-export type SelectOption =
-  | {
-      label: string
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      value: any
-    }
-  | string
+export type SelectOption = {
+  label: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  inputValue: string
+}
+
+const filter = createFilterOptions<SelectOption>()
 
 export type AutocompleteProps = UseAutocompleteProps<
   SelectOption,
@@ -45,7 +47,6 @@ export const Select: React.VFC<AutocompleteProps> = ({
   inputTwin,
   placeholder,
   multiple,
-  loadingText,
   freeSolo,
   onChange,
   ...rest
@@ -54,17 +55,48 @@ export const Select: React.VFC<AutocompleteProps> = ({
     <Autocomplete
       disablePortal
       autoComplete
+      disableClearable
       autoHighlight
-      autoSelect
+      disableCloseOnSelect
+      clearOnBlur
+      includeInputInList
+      handleHomeEndKeys
       multiple={multiple}
       freeSolo={freeSolo}
-      loading={true}
-      loadingText={loadingText || 'Enterで作成されます'}
       options={options}
       onChange={onChange}
       PaperComponent={Paper}
+      filterOptions={(options, params) => {
+        const filtered = filter(options, params)
+
+        const { inputValue } = params
+        // Suggest the creation of a new value
+        const isExisting = options.some((option) => {
+          return typeof option === 'string'
+            ? inputValue === option
+            : inputValue === option.label
+        })
+
+        if (inputValue !== '' && !isExisting) {
+          filtered.push({
+            inputValue,
+            label: inputValue,
+          })
+        }
+
+        return filtered
+      }}
       getOptionLabel={(option) => {
-        return typeof option === 'string' ? option : option.label
+        // Value selected with enter, right from the input
+        if (typeof option === 'string') {
+          return option
+        }
+        // Add "xxx" option created dynamically
+        if (option.label) {
+          return option.label
+        }
+        // Regular option
+        return option.inputValue
       }}
       renderTags={(value, getTagProps) => {
         return value.map((option, index) => {
