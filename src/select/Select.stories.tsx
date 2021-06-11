@@ -21,15 +21,15 @@ export default {
 const options = [
   {
     label: '日本',
-    value: 'japan',
+    inputValue: 'japan',
   },
   {
     label: 'アメリカ',
-    value: 'america',
+    inputValue: 'america',
   },
 ]
 
-const Template: Story = () => {
+export const Basic: Story = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
       country: options[0],
@@ -50,6 +50,7 @@ const Template: Story = () => {
               options={options}
               twin={[tw`w-44`]}
               onChange={(e, option) => {
+                console.log('option', option)
                 onChange(option)
               }}
             />
@@ -62,5 +63,105 @@ const Template: Story = () => {
   )
 }
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Single: Story = () => {
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      country: options[0],
+    },
+  })
+  const onSubmit = (data: unknown) => console.log(JSON.stringify(data))
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        name="country"
+        control={control}
+        render={({ onChange, ...fields }) => {
+          return (
+            <Select
+              {...fields}
+              name={fields.name}
+              options={options}
+              twin={[tw`w-160`]}
+              onChange={(e, option) => {
+                onChange(option)
+              }}
+            />
+          )
+        }}
+      />
+
+      <Button type="submit">登録</Button>
+    </form>
+  )
+}
+
+export const Multiple: Story = () => {
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      country: options,
+    },
+  })
+  const onSubmit = (data: unknown) => console.log(JSON.stringify(data))
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        name="country"
+        control={control}
+        render={({ onChange, ...fields }) => {
+          return (
+            <Select
+              {...fields}
+              multiple
+              name={fields.name}
+              options={options}
+              twin={[tw`w-160`]}
+              onChange={(e, option) => {
+                console.log('option', option)
+                onChange(option)
+              }}
+            />
+          )
+        }}
+      />
+
+      <Button type="submit">登録</Button>
+    </form>
+  )
+}
+
+export const MultipleFreeSolo: Story = () => {
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      country: options,
+    },
+  })
+  const onSubmit = (data: unknown) => console.log(JSON.stringify(data))
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        name="country"
+        control={control}
+        render={({ onChange, ...fields }) => {
+          return (
+            <Select
+              {...fields}
+              freeSolo
+              multiple
+              name={fields.name}
+              options={options}
+              twin={[tw`w-160`]}
+              onChange={(e, option) => {
+                onChange(option)
+              }}
+            />
+          )
+        }}
+      />
+
+      <Button type="submit">登録</Button>
+    </form>
+  )
+}

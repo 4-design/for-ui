@@ -1,78 +1,129 @@
 import React from 'react'
+import { UseAutocompleteProps } from '@material-ui/core'
 import Autocomplete, {
-  AutocompleteChangeDetails,
-  AutocompleteChangeReason,
+  createFilterOptions,
 } from '@material-ui/core/Autocomplete'
 import MuiPaper, { PaperProps } from '@material-ui/core/Paper'
 import tw, { css, TwStyle } from 'twin.macro'
 import { MenuItem } from '../menu'
+import { Tag } from '../tag'
 import { TextField } from '../textField'
 
 const Paper = (props: PaperProps) => {
   return <MuiPaper {...props} tw="rounded-2xl!" />
 }
 
-export interface SelectOption {
+export type SelectOption = {
   label: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  value: any
+  inputValue: string
 }
 
-export interface SelectProps {
-  options: SelectOption[]
+const filter = createFilterOptions<SelectOption>()
+
+export type AutocompleteProps = UseAutocompleteProps<
+  SelectOption,
+  boolean,
+  boolean,
+  boolean
+> & {
   name: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  value?: any
   label?: string
+  placeholder?: string
   required?: boolean
   fullWidth?: boolean
-  onChange?: (
-    event?: React.SyntheticEvent<Element, Event>,
-    value?: SelectOption | null,
-    reason?: AutocompleteChangeReason,
-    detail?: AutocompleteChangeDetails<SelectOption> | undefined
-  ) => void
-  defaultValue?: SelectOption
+  loadingText?: React.ReactNode
+
   twin?: TwStyle[]
   inputTwin?: TwStyle
-  placeholder?: string
 }
 
-export const Select: React.VFC<SelectProps> = ({
+export const Select: React.VFC<AutocompleteProps> = ({
   name,
   options = [],
   label,
   required = false,
-  defaultValue,
   twin,
   inputTwin,
   placeholder,
+  multiple,
+  freeSolo,
   onChange,
   ...rest
-}: SelectProps) => {
+}) => {
   return (
-    <Autocomplete<SelectOption>
+    <Autocomplete
       disablePortal
       autoComplete
+      disableClearable
       autoHighlight
-      autoSelect
-      loading={true}
-      loadingText="Loading..."
-      defaultValue={defaultValue}
+      disableCloseOnSelect
+      clearOnBlur
+      includeInputInList
+      handleHomeEndKeys
+      multiple={multiple}
+      freeSolo={freeSolo}
       options={options}
       onChange={onChange}
       PaperComponent={Paper}
+      filterOptions={(options, params) => {
+        const filtered = filter(options, params)
+
+        const { inputValue } = params
+        // Suggest the creation of a new value
+        const isExisting = options.some((option) => {
+          return typeof option === 'string'
+            ? inputValue === option
+            : inputValue === option.label
+        })
+
+        if (inputValue !== '' && !isExisting) {
+          filtered.push({
+            inputValue,
+            label: inputValue,
+          })
+        }
+
+        return filtered
+      }}
+      getOptionLabel={(option) => {
+        // Value selected with enter, right from the input
+        if (typeof option === 'string') {
+          return option
+        }
+        // Add "xxx" option created dynamically
+        if (option.label) {
+          return option.label
+        }
+        // Regular option
+        return option.inputValue
+      }}
+      renderTags={(value, getTagProps) => {
+        return value.map((option, index) => {
+          const tagProps = getTagProps({ index })
+          const label = typeof option === 'string' ? option : option.label
+          return (
+            <Tag
+              {...tagProps}
+              key={tagProps.key}
+              variant="outlined"
+              label={label}
+            />
+          )
+        })
+      }}
       renderOption={(props, option, { selected }) => {
+        const label = typeof option === 'string' ? option : option.label
         return (
           <MenuItem
             {...props}
             twin={[
               selected
-                ? tw`(bg-primary-main text-white text-base hover:bg-primary-dark)!`
+                ? tw`(text-white text-base bg-primary-main hover:bg-primary-dark)!`
                 : tw``,
             ]}
           >
-            {option.label}
+            {label}
           </MenuItem>
         )
       }}
@@ -97,13 +148,13 @@ export const Select: React.VFC<SelectProps> = ({
       renderInput={(params) => {
         return (
           <TextField
+            {...params}
             name={name}
             required={required}
             label={label}
             variant="outlined"
             inputTwin={inputTwin}
             placeholder={placeholder}
-            {...params}
           />
         )
       }}
