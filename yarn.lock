@@ -9403,10 +9403,10 @@ mute-stream@0.0.8:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.8.tgz#1630c42b2251ff81e2a283de96a5497ea92e5e0d"
   integrity sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
 
-namor@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/namor/-/namor-2.0.2.tgz#5b1f4e63b91d1fdc8b67d5b9962edd73f67cfcbe"
-  integrity sha512-2LNDTv2naxXm7j0op8ngH472iL5ftTlLUmnq7Uj0kapkNxP2Oa3IyDpo4KUlHcgdQBHBSrUpJLEyUWkMqjFkMQ==
+namor@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/namor/-/namor-2.0.3.tgz#a42c5e76f6170f9e2fc4ddfc6d403a881f59350d"
+  integrity sha512-BDDfplXUwxcEK1QAwL0k82VyqYyAa3xdQv24ijfLc+5Zqdm3IyfAIBTCRWhKPbbLncmdvG/vCr9JhrVH9FGpNQ==
   dependencies:
     crypto-extra "1.0.1"
 
