@@ -37,7 +37,7 @@
     "@material-ui/lab": "5.0.0-alpha.34",
     "react-detect-offline": "^2.4.3",
     "react-dropzone": "^11.3.2",
-    "react-spinners": "^0.10.6",
+    "react-spinners": "^0.11.0",
     "react-table": "^7.6.3",
     "react-tabs": "3.2.2",
     "twin.macro": "^2.2.3"
