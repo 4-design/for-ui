@@ -23,7 +23,7 @@ jobs:
             ${{ runner.os }}-yarn-
             ${{ runner.os }}-
       - name: Use Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           always-auth: true
           node-version: 12.x
