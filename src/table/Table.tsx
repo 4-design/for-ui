@@ -21,13 +21,8 @@ export function Table<T extends object>(
     ...hooks
   )
 
-  const {
-    headerGroups,
-    page,
-    getTableProps,
-    getTableBodyProps,
-    prepareRow,
-  } = instance
+  const { headerGroups, page, getTableProps, getTableBodyProps, prepareRow } =
+    instance
 
   const rowGenerate = (row: Row<T>) => {
     prepareRow(row)

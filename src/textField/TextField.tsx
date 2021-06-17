@@ -55,83 +55,84 @@ const styles = {
   `,
 }
 
-export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.forwardRef(
-  (
-    {
-      label,
-      variant = 'outlined',
-      twin,
-      labelTwin,
-      inputTwin,
-      required,
-      inputRef,
-      ...rest
-    },
-    ref
-  ) => {
-    /**
-     * react-hook-form : v6 ~> inputRef   v7 ~> ref
-     * TODO: react-hook-form v7で統合されたらrefを直接インラインで使用
-     */
-    const validRef = React.useMemo(() => {
-      return inputRef ? inputRef : ref
-    }, [ref, inputRef])
+export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
+  React.forwardRef(
+    (
+      {
+        label,
+        variant = 'outlined',
+        twin,
+        labelTwin,
+        inputTwin,
+        required,
+        inputRef,
+        ...rest
+      },
+      ref
+    ) => {
+      /**
+       * react-hook-form : v6 ~> inputRef   v7 ~> ref
+       * TODO: react-hook-form v7で統合されたらrefを直接インラインで使用
+       */
+      const validRef = React.useMemo(() => {
+        return inputRef ? inputRef : ref
+      }, [ref, inputRef])
 
-    const renderStandardTextField = (): JSX.Element => {
-      return (
-        <MuiTextField
-          inputRef={validRef}
-          required={required}
-          label={label}
-          variant={variant}
-          css={[
-            styles['standard'],
-            css`
-              & .MuiFormLabel-root {
-                ${labelTwin}
-              }
-
-              & .MuiInputBase-root {
-                ${inputTwin}
-              }
-            `,
-            twin,
-          ]}
-          {...rest}
-        />
-      )
-    }
-
-    const renderOutlinedTextField = (): JSX.Element => {
-      return (
-        <div css={[tw`flex flex-col`, twin]}>
-          {label && (
-            <label css={[tw`mb-2 text-middle`, labelTwin]}>
-              {label}
-              {required && <span>*</span>}
-            </label>
-          )}
-
+      const renderStandardTextField = (): JSX.Element => {
+        return (
           <MuiTextField
             inputRef={validRef}
             required={required}
+            label={label}
             variant={variant}
             css={[
-              styles['outlined'],
+              styles['standard'],
               css`
+                & .MuiFormLabel-root {
+                  ${labelTwin}
+                }
+
                 & .MuiInputBase-root {
                   ${inputTwin}
                 }
               `,
+              twin,
             ]}
             {...rest}
           />
-        </div>
-      )
-    }
+        )
+      }
 
-    return variant === 'outlined'
-      ? renderOutlinedTextField()
-      : renderStandardTextField()
-  }
-)
+      const renderOutlinedTextField = (): JSX.Element => {
+        return (
+          <div css={[tw`flex flex-col`, twin]}>
+            {label && (
+              <label css={[tw`mb-2 text-middle`, labelTwin]}>
+                {label}
+                {required && <span>*</span>}
+              </label>
+            )}
+
+            <MuiTextField
+              inputRef={validRef}
+              required={required}
+              variant={variant}
+              css={[
+                styles['outlined'],
+                css`
+                  & .MuiInputBase-root {
+                    ${inputTwin}
+                  }
+                `,
+              ]}
+              {...rest}
+            />
+          </div>
+        )
+      }
+
+      return variant === 'outlined'
+        ? renderOutlinedTextField()
+        : renderStandardTextField()
+    }
+  )
