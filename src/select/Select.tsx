@@ -51,13 +51,14 @@ export const Select: React.VFC<AutocompleteProps> = ({
   onChange,
   ...rest
 }) => {
+  console.error(multiple)
   return (
     <Autocomplete
       disablePortal
       autoComplete
+      disableCloseOnSelect={multiple}
       disableClearable
       autoHighlight
-      disableCloseOnSelect
       clearOnBlur
       includeInputInList
       handleHomeEndKeys
@@ -66,16 +67,20 @@ export const Select: React.VFC<AutocompleteProps> = ({
       options={options}
       onChange={onChange}
       PaperComponent={Paper}
+      noOptionsText="データが見つかりません"
       filterOptions={(options, params) => {
         const filtered = filter(options, params)
-
         const { inputValue } = params
         // Suggest the creation of a new value
         const isExisting = options.some((option) => {
           return typeof option === 'string'
             ? inputValue === option
-            : inputValue === option.label
+            : inputValue === option.inputValue
         })
+
+        if (!freeSolo && !isExisting) {
+          return filtered
+        }
 
         if (inputValue !== '' && !isExisting) {
           filtered.push({
@@ -83,6 +88,8 @@ export const Select: React.VFC<AutocompleteProps> = ({
             label: inputValue,
           })
         }
+
+        console.log(filtered)
 
         return filtered
       }}
