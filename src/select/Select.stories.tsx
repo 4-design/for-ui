@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 import { Controller, useForm } from 'react-hook-form'
 import tw from 'twin.macro'
 import { Button } from '../button'
-import { Select } from './Select'
+import { Select, SelectOption } from './Select'
 
 export default {
   title: 'Atom/Select',
@@ -18,7 +18,7 @@ export default {
   ],
 } as Meta
 
-const options = [
+const options: SelectOption[] = [
   {
     label: '日本',
     inputValue: 'japan',
@@ -42,16 +42,16 @@ export const Basic: Story = () => {
       <Controller
         name="country"
         control={control}
-        render={({ onChange, ...fields }) => {
+        render={({ field: { name, onChange, ...fields } }) => {
+          console.log(fields)
           return (
             <Select
-              {...fields}
-              name={fields.name}
+              name={name}
+              placeholder="国名"
               options={options}
               twin={[tw`w-44`]}
               onChange={(e, option) => {
-                console.log('option', option)
-                onChange(option)
+                onChange((option as SelectOption)?.inputValue)
               }}
             />
           )
@@ -76,15 +76,15 @@ export const Single: Story = () => {
       <Controller
         name="country"
         control={control}
-        render={({ onChange, ...fields }) => {
+        render={({ field: { onChange, ...fields } }) => {
           return (
             <Select
-              {...fields}
               name={fields.name}
+              placeholder="国名"
               options={options}
               twin={[tw`w-160`]}
               onChange={(e, option) => {
-                onChange(option)
+                onChange((option as SelectOption)?.inputValue)
               }}
             />
           )
@@ -109,17 +109,17 @@ export const Multiple: Story = () => {
       <Controller
         name="country"
         control={control}
-        render={({ onChange, ...fields }) => {
+        render={({ field: { onChange, ...fields } }) => {
           return (
             <Select
-              {...fields}
               multiple
               name={fields.name}
+              label="国名"
+              placeholder="未定"
               options={options}
               twin={[tw`w-160`]}
               onChange={(e, option) => {
-                console.log('option', option)
-                onChange(option)
+                onChange((option as SelectOption)?.inputValue)
               }}
             />
           )
@@ -144,17 +144,17 @@ export const MultipleFreeSolo: Story = () => {
       <Controller
         name="country"
         control={control}
-        render={({ onChange, ...fields }) => {
+        render={({ field: { onChange, ...fields } }) => {
           return (
             <Select
-              {...fields}
               freeSolo
               multiple
+              placeholder="国名"
               name={fields.name}
               options={options}
               twin={[tw`w-160`]}
               onChange={(e, option) => {
-                onChange(option)
+                onChange((option as SelectOption)?.inputValue)
               }}
             />
           )
