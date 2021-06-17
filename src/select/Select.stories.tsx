@@ -42,8 +42,7 @@ export const Basic: Story = () => {
       <Controller
         name="country"
         control={control}
-        render={({ field: { name, onChange, ...fields } }) => {
-          console.log(fields)
+        render={({ field: { name, onChange } }) => {
           return (
             <Select
               name={name}
