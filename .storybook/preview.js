@@ -1,10 +1,6 @@
 import React from 'react'
 import 'twin.macro'
 import { GlobalStyles } from 'twin.macro'
-import { CacheProvider } from '@emotion/react'
-import createCache from '@emotion/cache'
-
-const cache = createCache({ prepend: true, key: 'twin' })
 
 import '../src/styles/tailwind.css'
 
@@ -38,7 +34,7 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <CacheProvider value={cache}>
+    <>
       <head>
         <link
           href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
@@ -49,6 +45,6 @@ export const decorators = [
       <div tw="h-screen">
         <Story />
       </div>
-    </CacheProvider>
+    </>
   ),
 ]
