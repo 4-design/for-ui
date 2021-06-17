@@ -109,6 +109,9 @@ module.exports = {
       error: 'var(--border-error)',
     }),
     extend: {
+      borderRadius: {
+        modal: '2rem',
+      },
       spacing: {
         100: '25rem',
         104: '26rem',
