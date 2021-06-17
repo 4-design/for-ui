@@ -1,3 +1,19 @@
+# [1.3.0](https://github.com/3-shake/3design-ui/compare/v1.2.0...v1.3.0) (2021-06-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-spinners to ^0.11.0 ([#50](https://github.com/3-shake/3design-ui/issues/50)) ([2503ae1](https://github.com/3-shake/3design-ui/commit/2503ae1f7576d4cd715d63e75c31441b82f11d01))
+* **Modal:** スタイル修正 ([#62](https://github.com/3-shake/3design-ui/issues/62)) ([cb10def](https://github.com/3-shake/3design-ui/commit/cb10def8c989b72a60f4391e115466f0cd89054a))
+* **Select:** single selectの場合は一つ選択した段階でセレクトボックスが閉じるようにしたい ([#60](https://github.com/3-shake/3design-ui/issues/60)) ([5a0a303](https://github.com/3-shake/3design-ui/commit/5a0a303e9a288a0eda823b68b217a59db016f20e))
+
+
+### Features
+
+* storybook 6.2.9 アップグレード ([0fa2ea7](https://github.com/3-shake/3design-ui/commit/0fa2ea7f81f2be3b89ab23fbfe2ffef0006f1d8b))
+
+
+
 # [1.2.0](https://github.com/3-shake/3design-ui/compare/v1.1.0...v1.2.0) (2021-06-11)
 
 
