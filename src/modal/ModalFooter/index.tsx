@@ -8,5 +8,5 @@ interface Props {
 }
 
 export const ModalFooter: React.FC<Props> = ({ children }) => {
-  return <div tw="mt-3 flex flex-row-reverse">{children}</div>
+  return <div tw="mt-2 mb-4 mx-9 flex flex-row-reverse">{children}</div>
 }
