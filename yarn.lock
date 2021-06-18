@@ -2468,7 +2468,7 @@
     regenerator-runtime "^0.13.7"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-postcss@^2.0.0":
+"@storybook/addon-postcss@2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@storybook/addon-postcss/-/addon-postcss-2.0.0.tgz#ec61cb9bb2662f408072b35c466c7df801c28498"
   integrity sha512-Nt82A7e9zJH4+A+VzLKKswUfru+T6FJTakj4dccP0i8DSn7a0CkzRPrLuZBq8tg4voV6gD74bcDf3gViCVBGtA==
