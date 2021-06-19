@@ -81,7 +81,7 @@
     "postcss": "8.3.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-hook-form": "7.8.8",
+    "react-hook-form": "7.9.0",
     "rollup": "2.51.2",
     "rollup-config-analyzer": "2.2.0",
     "rollup-plugin-analyzer": "4.0.0",
