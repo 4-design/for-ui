@@ -1958,15 +1958,15 @@
     csstype "^3.0.2"
     prop-types "^15.7.2"
 
-"@material-ui/types@5.1.8":
-  version "5.1.8"
-  resolved "https://registry.yarnpkg.com/@material-ui/types/-/types-5.1.8.tgz#1fd3ceeab7d87da2a35e50991b715408140397a9"
-  integrity sha512-+1zGA2Vn8TaYxk7xe2iou3N68uPkjeR/tVmSI8RCybtzz0BxRGiG8hLJahxZAhPC3gGYCLkqgIEnMa015pLQ7Q==
-
 "@material-ui/types@6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@material-ui/types/-/types-6.0.0.tgz#d95d33375046c3d5b22e19ff595dbaa8940d9b08"
   integrity sha512-SjYYtMSKK3udQEg+tKkrg4wEJy1h8dgPeW1klwKGT/A71CK2Yl0c8GYY6sscF/gqFT9fOkJoNpYyUVXCg7tbWA==
+
+"@material-ui/types@6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@material-ui/types/-/types-6.0.1.tgz#bfcdcd3bb5091e5feac2b191db516543d84e26af"
+  integrity sha512-t53C2BZE59e8ao38EDIZdM2smPDSEo5Xx9XxQ/MNM9Ph63Mu4vj5pmECiXkYp0y2OrvFiiZhcqRWV34SBOA18g==
 
 "@material-ui/unstyled@5.0.0-alpha.34":
   version "5.0.0-alpha.34"
