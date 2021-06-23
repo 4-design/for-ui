@@ -1,3 +1,12 @@
+# [1.4.0](https://github.com/3-shake/3design-ui/compare/v1.3.0...v1.4.0) (2021-06-23)
+
+
+### Features
+
+* **Divider:** Divider 実装 ([#71](https://github.com/3-shake/3design-ui/issues/71)) ([d09dc66](https://github.com/3-shake/3design-ui/commit/d09dc665eac17095a9823470214083040eae41c6))
+
+
+
 # [1.3.0](https://github.com/3-shake/3design-ui/compare/v1.2.0...v1.3.0) (2021-06-17)
 
 
