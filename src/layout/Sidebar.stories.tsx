@@ -1,8 +1,9 @@
 import React from 'react'
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { Meta } from '@storybook/react/types-6-0'
+import 'twin.macro'
 
 import { MdHome, MdGroup, MdFolder } from 'react-icons/md'
-import { Sidebar, SidebarProps, SidebarMenu, SidebarMenuItem } from './Sidebar'
+import { Sidebar, SidebarMenu, SidebarMenuItem } from './Sidebar'
 
 export default {
   title: 'Example/Layout/Sidebar',
@@ -12,8 +13,14 @@ export default {
   },
 } as Meta
 
-const Template: Story<SidebarProps> = (args) => (
-  <Sidebar {...args}>
+const Logo = () => (
+  <div tw="flex items-center flex-shrink-0 px-6 h-20">
+    <img tw="w-auto h-9" src="/logo/relance.png" alt="logo" />
+  </div>
+)
+
+export const SidebarTemplate = () => (
+  <Sidebar logo={<Logo />}>
     <SidebarMenu>
       <SidebarMenuItem href="/" icon={<MdHome />} label="ダッシュボード" />
 
@@ -27,8 +34,3 @@ const Template: Story<SidebarProps> = (args) => (
     </SidebarMenu>
   </Sidebar>
 )
-
-export const Default = Template.bind({})
-Default.args = {
-  logo: '/logo/relance.png',
-}

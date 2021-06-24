@@ -41,14 +41,8 @@ export const SidebarMenu: React.FC<SidebarMenuProps> = ({ children }) => {
   )
 }
 
-const Logo: React.FC<{ src: string }> = ({ src }) => (
-  <div tw="flex items-center flex-shrink-0 px-6 h-20">
-    <img tw="w-auto h-9" src={src} alt="logo" />
-  </div>
-)
-
 export interface SidebarProps {
-  logo: string
+  logo: React.ReactNode
   children: React.ReactNode
 }
 
@@ -57,7 +51,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ logo, children }) => {
     <div tw="h-screen flex flex-shrink-0">
       <div tw="flex flex-col w-64">
         <div tw="flex flex-col flex-grow pb-4 overflow-y-auto">
-          <Logo src={logo} />
+          {logo}
           {children}
         </div>
       </div>
