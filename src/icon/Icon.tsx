@@ -4,7 +4,7 @@ import MuiIconButton, {
 } from '@material-ui/core/IconButton'
 import tw, { TwStyle } from 'twin.macro'
 
-export interface IconButtonProps extends MuiIconButtonProps {
+export type IconButtonProps = MuiIconButtonProps & {
   twin?: TwStyle[]
   children?: React.ReactNode
 }

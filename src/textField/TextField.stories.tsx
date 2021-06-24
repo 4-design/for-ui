@@ -16,13 +16,22 @@ export default {
   },
 } as Meta
 
-const schema = yup.object().shape({
+type FieldValue = {
+  email: string
+  password: string
+}
+
+const schema: yup.SchemaOf<FieldValue> = yup.object().shape({
   email: yup.string().required(),
   password: yup.string().required(),
 })
 
 export const Standard = (): JSX.Element => {
-  const { register, errors, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FieldValue>({
     resolver: yupResolver(schema),
   })
   const onSubmit = (data: unknown) => console.log(data)
@@ -36,24 +45,23 @@ export const Standard = (): JSX.Element => {
             required
             fullWidth
             variant="standard"
-            inputRef={register}
             autoComplete="on"
             type="email"
-            name="email"
             label="メールアドレス"
             inputTwin={tw`(max-w-sm text-4xl tracking-wide p-0)!`}
             placeholder="example@lancepod.com"
-            error={errors['email']}
+            error={errors && !!errors['email']}
+            {...register('email')}
           />
         </div>
         <div tw="flex flex-col mt-2">
           <TextField
             variant="standard"
-            name="password"
             type="password"
             label="パスワード"
             placeholder="example@lancepod.com"
-            error={errors['password']}
+            error={errors && !!errors['password']}
+            {...register('password')}
           />
         </div>
         <div tw="flex flex-col mt-2">
@@ -61,11 +69,11 @@ export const Standard = (): JSX.Element => {
             multiline
             rows={4}
             variant="standard"
-            name="password"
             type="password"
             label="パスワード"
             placeholder="example@lancepod.com"
-            error={errors['password']}
+            error={errors && !!errors['password']}
+            {...register('password')}
           />
         </div>
         <div tw="flex flex-col gap-5 mt-2">
@@ -76,10 +84,10 @@ export const Standard = (): JSX.Element => {
           </p>
           <TextField
             variant="standard"
-            name="password"
             type="password"
             label="パスワード"
-            error={errors['password']}
+            error={errors && !!errors['password']}
+            {...register('password')}
           />
         </div>
       </div>
@@ -88,7 +96,11 @@ export const Standard = (): JSX.Element => {
 }
 
 export const Outlined = (): JSX.Element => {
-  const { register, errors, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FieldValue>({
     resolver: yupResolver(schema),
   })
   const onSubmit = (data: unknown) => console.log(data)
@@ -101,14 +113,13 @@ export const Outlined = (): JSX.Element => {
           required
           fullWidth
           variant="outlined"
-          inputRef={register}
           autoComplete="on"
           type="email"
-          name="email"
           label="メールアドレス"
           inputTwin={tw`(max-w-sm text-4xl tracking-wide p-0 h-20)!`}
           placeholder="example@lancepod.com"
-          error={errors['email']}
+          error={errors && !!errors['email']}
+          {...register('email')}
         />
       </div>
       <div tw="mb-4">
@@ -118,23 +129,21 @@ export const Outlined = (): JSX.Element => {
           multiline
           rows={3}
           variant="outlined"
-          inputRef={register}
           autoComplete="on"
           type="email"
-          name="email"
           label="メールアドレス"
           placeholder="example@lancepod.com"
-          error={errors['email']}
+          error={errors && !!errors['email']}
+          {...register('email')}
         />
       </div>
       <div tw="mb-4">
         <TextField
-          name="password"
-          inputRef={register}
           type="password"
           label="パスワード"
           placeholder="example@lancepod.com"
-          error={errors['password']}
+          error={errors && !!errors['password']}
+          {...register('password')}
         />
       </div>
 

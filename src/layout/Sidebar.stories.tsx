@@ -1,9 +1,7 @@
 import React from 'react'
-import FolderIcon from '@material-ui/icons/Folder'
-import GroupIcon from '@material-ui/icons/Group'
-import HomeIcon from '@material-ui/icons/Home'
 import { Story, Meta } from '@storybook/react/types-6-0'
 
+import { MdHome, MdGroup, MdFolder } from 'react-icons/md'
 import { Sidebar, SidebarProps, SidebarMenu, SidebarMenuItem } from './Sidebar'
 
 export default {
@@ -17,15 +15,15 @@ export default {
 const Template: Story<SidebarProps> = (args) => (
   <Sidebar {...args}>
     <SidebarMenu>
-      <SidebarMenuItem href="/" icon={<HomeIcon />} label="ダッシュボード" />
+      <SidebarMenuItem href="/" icon={<MdHome />} label="ダッシュボード" />
 
       <SidebarMenuItem
         href="/applicants"
-        icon={<GroupIcon />}
+        icon={<MdGroup />}
         label="候補者一覧"
       />
 
-      <SidebarMenuItem href="/orgs" icon={<FolderIcon />} label="企業一覧" />
+      <SidebarMenuItem href="/orgs" icon={<MdFolder />} label="企業一覧" />
     </SidebarMenu>
   </Sidebar>
 )

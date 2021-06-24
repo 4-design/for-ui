@@ -1,6 +1,6 @@
 import React from 'react'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
 import { Story, Meta } from '@storybook/react/types-6-0'
+import { MdMoreVert } from 'react-icons/md'
 import { CellProps, Column } from 'react-table'
 import tw from 'twin.macro'
 
@@ -51,7 +51,7 @@ const basicColumns: Array<Column<PersonData>> = [
     Cell: ({ cell: { getCellProps } }) => (
       <TableCell {...getCellProps()} twin={tw`px-0 text-center`}>
         <IconButton>
-          <MoreVertIcon />
+          <MdMoreVert />
         </IconButton>
       </TableCell>
     ),
@@ -107,7 +107,7 @@ const withImageColumns: Array<Column<PersonData>> = [
     Cell: ({ cell: { getCellProps } }) => (
       <TableCell {...getCellProps()} twin={tw`px-0`}>
         <IconButton>
-          <MoreVertIcon />
+          <MdMoreVert />
         </IconButton>
       </TableCell>
     ),

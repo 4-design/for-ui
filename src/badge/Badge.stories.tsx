@@ -1,7 +1,7 @@
 import React from 'react'
 import 'twin.macro'
-import MailIcon from '@material-ui/icons/Mail'
 import { Story, Meta } from '@storybook/react/types-6-0'
+import { MdMail } from 'react-icons/md'
 import { Badge } from './Badge'
 
 export default {
@@ -11,7 +11,7 @@ export default {
 
 const Template: Story = () => (
   <Badge badgeContent={4}>
-    <MailIcon />
+    <MdMail size={24} />
   </Badge>
 )
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import 'twin.macro'
-import MailIcon from '@material-ui/icons/Mail'
 import { Meta } from '@storybook/react/types-6-0'
 
+import { MdMail } from 'react-icons/md'
 import { Button } from './Button'
 
 export default {
@@ -90,7 +90,7 @@ export const startIcon = (): JSX.Element => (
     <Button
       color="primary"
       variant="contained"
-      startIcon={<MailIcon />}
+      startIcon={<MdMail size={24} />}
       disabled
     >
       登録する
@@ -99,13 +99,18 @@ export const startIcon = (): JSX.Element => (
     <Button
       color="primary"
       variant="outlined"
-      startIcon={<MailIcon />}
+      startIcon={<MdMail size={24} />}
       disabled
     >
       登録する
     </Button>
 
-    <Button color="primary" variant="text" startIcon={<MailIcon />} disabled>
+    <Button
+      color="primary"
+      variant="text"
+      startIcon={<MdMail size={24} />}
+      disabled
+    >
       登録する
     </Button>
   </div>
@@ -113,15 +118,30 @@ export const startIcon = (): JSX.Element => (
 
 export const endIcon = (): JSX.Element => (
   <div tw="flex flex-row gap-4">
-    <Button color="primary" variant="contained" endIcon={<MailIcon />} disabled>
+    <Button
+      color="primary"
+      variant="contained"
+      endIcon={<MdMail size={24} />}
+      disabled
+    >
       登録する
     </Button>
 
-    <Button color="primary" variant="outlined" endIcon={<MailIcon />} disabled>
+    <Button
+      color="primary"
+      variant="outlined"
+      endIcon={<MdMail size={24} />}
+      disabled
+    >
       登録する
     </Button>
 
-    <Button color="primary" variant="text" endIcon={<MailIcon />} disabled>
+    <Button
+      color="primary"
+      variant="text"
+      endIcon={<MdMail size={24} />}
+      disabled
+    >
       登録する
     </Button>
   </div>

@@ -1,7 +1,7 @@
 import React from 'react'
-import NotificationImportantIcon from '@material-ui/icons/NotificationImportant'
 import { Story, Meta } from '@storybook/react/types-6-0'
 
+import { MdNotifications } from 'react-icons/md'
 import { IconButton } from './Icon'
 
 export default {
@@ -14,7 +14,7 @@ export default {
 
 const Template: Story = (args) => (
   <IconButton {...args}>
-    <NotificationImportantIcon />
+    <MdNotifications size={24} />
   </IconButton>
 )
 

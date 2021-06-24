@@ -1,7 +1,7 @@
 import React from 'react'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
 import { Meta } from '@storybook/react/types-6-0'
 
+import { MdMoreVert } from 'react-icons/md'
 import { Card, CardHeader, CardBody } from './Card'
 
 export default {
@@ -15,7 +15,7 @@ export default {
 export const Basic = (): JSX.Element => {
   return (
     <Card>
-      <CardHeader title="タイトル" action={<MoreVertIcon />} />
+      <CardHeader title="タイトル" action={<MdMoreVert size={24} />} />
       <CardBody>Body</CardBody>
     </Card>
   )
