@@ -51,7 +51,6 @@ export const Select: React.VFC<AutocompleteProps> = ({
   onChange,
   ...rest
 }) => {
-  console.error(multiple)
   return (
     <Autocomplete
       disablePortal
@@ -88,8 +87,6 @@ export const Select: React.VFC<AutocompleteProps> = ({
             label: inputValue,
           })
         }
-
-        console.log(filtered)
 
         return filtered
       }}
