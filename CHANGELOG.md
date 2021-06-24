@@ -1,3 +1,12 @@
+## [1.4.4](https://github.com/3-shake/3design-ui/compare/v1.4.3...v1.4.4) (2021-06-24)
+
+
+### Bug Fixes
+
+* **Radio:** required default false ([#81](https://github.com/3-shake/3design-ui/issues/81)) ([d565c36](https://github.com/3-shake/3design-ui/commit/d565c36bc774b7494b8372e63f5884891711e44c))
+
+
+
 ## [1.4.3](https://github.com/3-shake/3design-ui/compare/v1.4.2...v1.4.3) (2021-06-24)
 
 
