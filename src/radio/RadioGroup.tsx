@@ -23,7 +23,7 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
   error,
   children,
   onChange,
-  required = true,
+  required = false,
 }) => {
   return (
     <FormControl
@@ -40,7 +40,7 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
       {label && (
         <label css={[tw`mb-2 text-middle`]}>
           {label}
-          {required && <span>*</span>}
+          {required && <span tw="text-error">*</span>}
         </label>
       )}
       <MuiRadioGroup

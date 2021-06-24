@@ -28,7 +28,7 @@ export const Basic = (): JSX.Element => {
   return (
     <>
       <div tw="flex flex-row gap-4">
-        <RadioGroup label="サービス名" onChange={handleRadioChange}>
+        <RadioGroup required label="サービス名" onChange={handleRadioChange}>
           <Radio label="Relance" value="relance" />
           <Radio label="Sreake Sonar" value="sreake-sonar" />
           <Radio label="Reckoner" value="reckoner" disabled />
