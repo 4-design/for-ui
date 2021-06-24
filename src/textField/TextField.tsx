@@ -92,6 +92,9 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
                   ${labelTwin}
                 }
 
+                & .MuiFormLabel-asterisk {
+                  ${tw`text-error`}
+                }
                 & .MuiInputBase-root {
                   ${inputTwin}
                 }
@@ -109,7 +112,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
             {label && (
               <label css={[tw`mb-2 text-middle`, labelTwin]}>
                 {label}
-                {required && <span>*</span>}
+                {required && <span tw="text-error">*</span>}
               </label>
             )}
 
