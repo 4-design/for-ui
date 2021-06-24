@@ -1,3 +1,12 @@
+## [1.4.3](https://github.com/3-shake/3design-ui/compare/v1.4.2...v1.4.3) (2021-06-24)
+
+
+### Bug Fixes
+
+* **TextField:** required スタイル修正 ([#79](https://github.com/3-shake/3design-ui/issues/79)) ([bc171c1](https://github.com/3-shake/3design-ui/commit/bc171c1fa9924366bd314bc4cc606f1455e20b1a))
+
+
+
 ## [1.4.2](https://github.com/3-shake/3design-ui/compare/v1.4.0...v1.4.2) (2021-06-24)
 
 
