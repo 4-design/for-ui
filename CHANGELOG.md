@@ -1,3 +1,12 @@
+## [1.4.2](https://github.com/3-shake/3design-ui/compare/v1.4.0...v1.4.2) (2021-06-24)
+
+
+### Bug Fixes
+
+* fix peerDependencies ([91d9f08](https://github.com/3-shake/3design-ui/commit/91d9f0842c447541bb1f0ec954c2b79a46f0a43f))
+
+
+
 ## [1.4.1](https://github.com/3-shake/3design-ui/compare/v1.4.0...v1.4.1) (2021-06-24)
 
 
