@@ -1,6 +1,5 @@
 import React from 'react'
 import { Meta } from '@storybook/react/types-6-0'
-import tw from 'twin.macro'
 
 import { Dropzone } from './Dropzone'
 
@@ -56,9 +55,6 @@ export const Basic = ({
     <Dropzone
       multiple={multiple}
       message={message}
-      twin={[
-        tw`flex justify-center w-auto border border-dotted border-primary-main p-10`,
-      ]}
       onDrop={onDrop}
       onRemove={onRemove}
       files={filesState}
