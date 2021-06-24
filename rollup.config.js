@@ -2,6 +2,7 @@ import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import resolve from '@rollup/plugin-node-resolve'
+import replace from '@rollup/plugin-replace'
 import filesize from 'rollup-plugin-filesize'
 import postcss from 'rollup-plugin-postcss'
 import autoprefixer from 'autoprefixer'
@@ -45,6 +46,10 @@ const plugins = [
   filesize(),
   peerDepsExternal(),
   terser(),
+  replace({
+    'process.env.NODE_ENV': JSON.stringify('production'),
+  }),
+
 ]
 
 const OUTPUT_DATA = [
