@@ -3,6 +3,8 @@
 
 ### Bug Fixes
 
+* **Dropzone:** デザイン修正 ([27dbcda](https://github.com/3-shake/3design-ui/commit/27dbcda599e2457c023be96c3af6a3b2fabd7565))
+* material-ui/icons -> react-icons へ移行 ([1efd7a8](https://github.com/3-shake/3design-ui/commit/1efd7a8088b93cc6071afc98854158dc8dc1ba09))
 * **Divider:** index.ts 追加 ([#74](https://github.com/3-shake/3design-ui/issues/74)) ([f6b06c2](https://github.com/3-shake/3design-ui/commit/f6b06c2fb7ca098b9739415697e9f3d4a260ead6))
 
 
