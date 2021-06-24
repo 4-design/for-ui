@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/3-shake/3design-ui/compare/v1.4.4...v1.5.0) (2021-06-24)
+
+
+### Features
+
+* **Sidebar:** logo props をstring -> ReactNode ([#83](https://github.com/3-shake/3design-ui/issues/83)) ([d395ea7](https://github.com/3-shake/3design-ui/commit/d395ea751bc8e14c6ef73855be82635022631c36))
+
+
+
 ## [1.4.4](https://github.com/3-shake/3design-ui/compare/v1.4.3...v1.4.4) (2021-06-24)
 
 
