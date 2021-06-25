@@ -1,3 +1,12 @@
+## [1.5.2](https://github.com/3-shake/3design-ui/compare/v1.5.1...v1.5.2) (2021-06-25)
+
+
+### Bug Fixes
+
+* **Sidebar:** active parameter追加 ([#87](https://github.com/3-shake/3design-ui/issues/87)) ([a63383b](https://github.com/3-shake/3design-ui/commit/a63383bf4679393899952d1cf011da5f589ea833))
+
+
+
 ## [1.5.1](https://github.com/3-shake/3design-ui/compare/v1.5.0...v1.5.1) (2021-06-24)
 
 
