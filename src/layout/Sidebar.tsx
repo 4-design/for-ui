@@ -5,23 +5,26 @@ export interface SidebarMenuItemProps {
   href: string
   icon: React.ReactNode
   label: string | React.ReactNode // NOTE: 一時的に文字列とコンポーネントを許容
+  active?: boolean
 }
 
 export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
   href,
   icon,
   label,
+  active = false,
 }) => (
   <a
     href={href}
     className="group"
     css={[
-      tw`flex items-center pl-6 h-10 text-base font-medium rounded-md text-gray-low cursor-pointer hover:text-accent transition duration-300 ease-in-out`,
+      tw`flex items-center h-10 pl-6 text-base font-medium transition duration-300 ease-in-out rounded-md cursor-pointer text-gray-low hover:text-accent`,
       css`
         & > svg {
           ${tw`w-6 h-6 mr-4`}
         }
       `,
+      active && tw`text-accent`,
     ]}
   >
     {icon}

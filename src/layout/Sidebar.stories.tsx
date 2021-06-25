@@ -28,6 +28,7 @@ export const SidebarTemplate = () => (
         href="/applicants"
         icon={<MdGroup />}
         label="候補者一覧"
+        active
       />
 
       <SidebarMenuItem href="/orgs" icon={<MdFolder />} label="企業一覧" />
