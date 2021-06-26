@@ -1,3 +1,12 @@
+## [1.5.3](https://github.com/3-shake/3design-ui/compare/v1.5.2...v1.5.3) (2021-06-26)
+
+
+### Bug Fixes
+
+* **Table:** デザイン修正 ([#89](https://github.com/3-shake/3design-ui/issues/89)) ([1c9b06d](https://github.com/3-shake/3design-ui/commit/1c9b06dc38527c5611a19032e8567bbcdb16e830))
+
+
+
 ## [1.5.2](https://github.com/3-shake/3design-ui/compare/v1.5.1...v1.5.2) (2021-06-25)
 
 
