@@ -29,9 +29,7 @@ export function Table<T extends object>(
     return (
       <tr
         {...row.getRowProps()}
-        tw="border-b-2 border-middle
-        transform transition duration-300 ease-in-out
-        hover:shadow-hover"
+        tw="border-b-2 border-low transform transition duration-300 ease-in-out hover:bg-gray-bg"
       >
         {row.cells.map((cell) => (
           <>{cell.render('Cell')}</>
@@ -48,12 +46,12 @@ export function Table<T extends object>(
             <tr
               {...headerGroup.getHeaderGroupProps()}
               key={i}
-              tw="border-b-2 border-middle table-row align-middle"
+              tw="border-b-2 border-low table-row align-middle"
             >
               {headerGroup.headers.map((column, j) => (
                 <th
                   key={j}
-                  tw="py-4 px-6 font-bold text-base text-high text-left table-cell whitespace-nowrap"
+                  tw="p-3 font-bold text-base text-high text-left table-cell whitespace-nowrap"
                   scope="col"
                 >
                   {column.render('Header')}
