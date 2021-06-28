@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Story, Meta } from '@storybook/react/types-6-0'
 import { Controller, useForm } from 'react-hook-form'
 import tw from 'twin.macro'
@@ -28,6 +28,53 @@ const options: SelectOption[] = [
     inputValue: 'america',
   },
 ]
+
+const SKILL = {
+  // C#
+  csharp: 'csharp',
+  // C++
+  cpp: 'cpp',
+  // COBOL
+  cobol: 'cobol',
+  // CSS
+  css: 'css',
+  // C言語
+  clang: 'clang',
+  // Go
+  golang: 'golang',
+  // gRPC
+  grpc: 'grpc',
+  // HTML
+  html: 'html',
+  // Java
+  java: 'java',
+  // JavaScript
+  javascript: 'javascript',
+  // Kotlin
+  kotlin: 'kotlin',
+  // Perl
+  perl: 'perl',
+  // PHP
+  php: 'php',
+  // Python
+  python: 'python',
+  // Ruby
+  ruby: 'ruby',
+  // R言語
+  rlang: 'rlang',
+  // Scala
+  scala: 'scala',
+  // Swift
+  swift: 'swift',
+  // TypeScript
+  typescript: 'typescript',
+} as const
+
+const skillOptions: SelectOption[] = Object.keys(SKILL).map(
+  (key): SelectOption => {
+    return { label: SKILL[key], inputValue: key }
+  }
+)
 
 export const Basic: Story = () => {
   const { control, handleSubmit } = useForm({
@@ -131,29 +178,44 @@ export const Multiple: Story = () => {
 }
 
 export const MultipleFreeSolo: Story = () => {
-  const { control, handleSubmit } = useForm({
+  const { control, watch, reset, handleSubmit } = useForm<{
+    country: { label: string; inputValue: string }[]
+  }>({
     defaultValues: {
-      country: options,
+      country: [],
     },
   })
   const onSubmit = (data: unknown) => console.log(JSON.stringify(data))
+
+  useEffect(() => {
+    setTimeout(() => {
+      reset({
+        country: skillOptions,
+      })
+    }, 200)
+  }, [reset])
+
+  console.log(watch('country'))
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Controller
         name="country"
         control={control}
-        render={({ field: { onChange, ...fields } }) => {
+        render={({ field: { name, value, onChange } }) => {
+          console.log(value)
           return (
             <Select
               freeSolo
               multiple
-              placeholder="国名"
-              name={fields.name}
-              options={options}
+              placeholder="未設定"
+              name={name}
+              value={value}
+              options={skillOptions}
               twin={[tw`w-160`]}
               onChange={(e, option) => {
-                onChange((option as SelectOption)?.inputValue)
+                onChange(option)
+                // onChange((option as SelectOption)?.inputValue)
               }}
             />
           )

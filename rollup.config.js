@@ -47,9 +47,9 @@ const plugins = [
   peerDepsExternal(),
   terser(),
   replace({
+    preventAssignment: true,
     'process.env.NODE_ENV': JSON.stringify('production'),
   }),
-
 ]
 
 const OUTPUT_DATA = [
