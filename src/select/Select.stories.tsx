@@ -69,7 +69,6 @@ const SKILL = {
   // TypeScript
   typescript: 'typescript',
 } as const
-type SkillKey = keyof typeof SKILL
 
 const skillOptions: SelectOption[] = Object.keys(SKILL).map(
   (key): SelectOption => {
