@@ -1,3 +1,7 @@
+## [1.5.4](https://github.com/3-shake/3design-ui/compare/v1.5.3...v1.5.4) (2021-06-28)
+
+
+
 ## [1.5.3](https://github.com/3-shake/3design-ui/compare/v1.5.2...v1.5.3) (2021-06-26)
 
 
