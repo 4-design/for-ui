@@ -82,7 +82,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-hook-form": "7.9.0",
-    "rollup": "2.52.2",
+    "rollup": "2.52.3",
     "rollup-config-analyzer": "2.2.0",
     "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-filesize": "9.1.1",
