@@ -142,6 +142,40 @@ export const Single: Story = () => {
   )
 }
 
+export const Disabled: Story = () => {
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      country: options[0],
+    },
+  })
+  const onSubmit = (data: unknown) => console.log(JSON.stringify(data))
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        name="country"
+        control={control}
+        render={({ field: { onChange, ...fields } }) => {
+          return (
+            <Select
+              disabled
+              name={fields.name}
+              placeholder="国名"
+              options={options}
+              twin={[tw`w-160`]}
+              onChange={(e, option) => {
+                onChange((option as SelectOption)?.inputValue)
+              }}
+            />
+          )
+        }}
+      />
+
+      <Button type="submit">登録</Button>
+    </form>
+  )
+}
+
 export const Multiple: Story = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
