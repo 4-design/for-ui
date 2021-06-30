@@ -35,6 +35,32 @@ const styles = {
   outlined: css`
     & .MuiOutlinedInput-root {
       ${tw`p-0!`}
+
+      & fieldset {
+        ${tw`border border-low`}
+      }
+
+      &:hover {
+        & fieldset {
+          ${tw`border border-accent`}
+        }
+
+        &.Mui-focused .MuiOutlinedInput-notchedOutline {
+          ${tw`border border-accent`}
+        }
+
+        &.Mui-error .MuiOutlinedInput-notchedOutline {
+          ${tw`border border-error`}
+        }
+      }
+
+      &.Mui-error fieldset {
+        ${tw`border-error`}
+      }
+
+      & .Mui-focused fieldset {
+        ${tw`border border-accent!`}
+      }
     }
 
     & .MuiOutlinedInput-input {
@@ -43,14 +69,6 @@ const styles = {
 
     & .MuiInputBase-input {
       ${tw`(py-2 px-3 focus:shadow-none)!`}
-    }
-
-    & fieldset {
-      ${tw`(border border-low)!`}
-    }
-
-    & .Mui-focused fieldset {
-      ${tw`(border border-accent)!`}
     }
   `,
 }
@@ -66,6 +84,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
         inputTwin,
         required,
         inputRef,
+        error,
         ...rest
       },
       ref
@@ -81,6 +100,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
       const renderStandardTextField = (): JSX.Element => {
         return (
           <MuiTextField
+            error={error}
             inputRef={validRef}
             required={required}
             label={label}
@@ -117,6 +137,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
             )}
 
             <MuiTextField
+              error={error}
               inputRef={validRef}
               required={required}
               variant={variant}
