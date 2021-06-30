@@ -122,6 +122,7 @@ export const Select: React.VFC<AutocompleteProps> = ({
         return (
           <MenuItem
             {...props}
+            key={option.inputValue}
             twin={[
               selected
                 ? tw`(text-white text-base bg-primary-main hover:bg-primary-dark)!`
