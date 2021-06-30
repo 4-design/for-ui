@@ -1,3 +1,13 @@
+## [1.5.8](https://github.com/3-shake/3design-ui/compare/v1.5.7...v1.5.8) (2021-06-30)
+
+
+### Bug Fixes
+
+* **Select:** MenuItem のkeyの値を修正 ([#106](https://github.com/3-shake/3design-ui/issues/106)) ([10adf99](https://github.com/3-shake/3design-ui/commit/10adf99cea34121da46e059c14fbd6d0d73016c2))
+* **tailwindcss:** min-width variable 追加 ([#107](https://github.com/3-shake/3design-ui/issues/107)) ([9f9f990](https://github.com/3-shake/3design-ui/commit/9f9f990057134b4aecf64163014dd26b275d59a8))
+
+
+
 ## [1.5.7](https://github.com/3-shake/3design-ui/compare/v1.5.6...v1.5.7) (2021-06-30)
 
 
