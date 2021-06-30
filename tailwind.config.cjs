@@ -133,6 +133,15 @@ module.exports = {
       height: {
         'max-content': 'max-content',
       },
+      minWidth: {
+        '16': '4rem',
+        '20': '5rem',
+        '24': '6rem',
+        '28': '7rem',
+        '32': '8rem',
+        '36': '9rem',
+        '40': '10rem',
+      },
       fontSize: {
         'icon-18': '18px !important',
         'icon-24': '24px !important',
