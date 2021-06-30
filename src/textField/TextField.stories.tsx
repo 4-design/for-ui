@@ -44,13 +44,13 @@ export const Standard = (): JSX.Element => {
           <TextField
             required
             fullWidth
+            error
             variant="standard"
             autoComplete="on"
             type="email"
             label="メールアドレス"
             inputTwin={tw`(max-w-sm text-4xl tracking-wide p-0)!`}
             placeholder="example@lancepod.com"
-            error={errors && !!errors['email']}
             {...register('email')}
           />
         </div>
@@ -110,6 +110,7 @@ export const Outlined = (): JSX.Element => {
       <h1 tw="mb-4">Text Field (default styles)</h1>
       <div tw="mb-4">
         <TextField
+          error
           required
           fullWidth
           variant="outlined"
@@ -118,7 +119,7 @@ export const Outlined = (): JSX.Element => {
           label="メールアドレス"
           inputTwin={tw`(max-w-sm text-4xl tracking-wide p-0 h-20)!`}
           placeholder="example@lancepod.com"
-          error={errors && !!errors['email']}
+          helperText="エラーメッセージ"
           {...register('email')}
         />
       </div>
