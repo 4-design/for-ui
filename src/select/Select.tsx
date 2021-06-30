@@ -42,6 +42,7 @@ export const Select: React.VFC<AutocompleteProps> = ({
   name,
   options = [],
   label,
+  autoComplete = false,
   required = false,
   twin,
   inputTwin,
@@ -54,7 +55,7 @@ export const Select: React.VFC<AutocompleteProps> = ({
   return (
     <Autocomplete
       disablePortal
-      autoComplete
+      autoComplete={autoComplete}
       disableCloseOnSelect={multiple}
       disableClearable
       autoHighlight
@@ -153,6 +154,7 @@ export const Select: React.VFC<AutocompleteProps> = ({
         return (
           <TextField
             {...params}
+            autoComplete="off"
             name={name}
             required={required}
             label={label}
