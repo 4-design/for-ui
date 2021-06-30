@@ -195,8 +195,6 @@ export const MultipleFreeSolo: Story = () => {
     }, 200)
   }, [reset])
 
-  console.log(watch('country'))
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Controller
@@ -208,6 +206,7 @@ export const MultipleFreeSolo: Story = () => {
             <Select
               freeSolo
               multiple
+              autoComplete
               placeholder="未設定"
               name={name}
               value={value}
