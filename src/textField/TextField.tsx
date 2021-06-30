@@ -40,6 +40,14 @@ const styles = {
         ${tw`border border-low`}
       }
 
+      &.Mui-focused .MuiOutlinedInput-notchedOutline {
+        ${tw`border border-accent`}
+      }
+
+      &.Mui-error .MuiOutlinedInput-notchedOutline {
+        ${tw`border border-error`}
+      }
+
       &:hover {
         & fieldset {
           ${tw`border border-accent`}
