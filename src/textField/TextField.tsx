@@ -36,7 +36,15 @@ const styles = {
     & .MuiOutlinedInput-root {
       ${tw`p-0!`}
 
+      &.Mui-disabled {
+        ${tw`bg-gray-light`}
+      }
+
       & fieldset {
+        ${tw`border border-low`}
+      }
+
+      &.Mui-disabled .MuiOutlinedInput-notchedOutline {
         ${tw`border border-low`}
       }
 
@@ -51,6 +59,10 @@ const styles = {
       &:hover {
         & fieldset {
           ${tw`border border-accent`}
+        }
+
+        &.Mui-disabled .MuiOutlinedInput-notchedOutline {
+          ${tw`border border-low`}
         }
 
         &.Mui-focused .MuiOutlinedInput-notchedOutline {
