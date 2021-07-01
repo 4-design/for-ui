@@ -98,6 +98,7 @@ export const Standard = (): JSX.Element => {
             label="金額"
             placeholder="3"
             unitLabel="万円"
+            isPriceFormat
             error={errors && !!errors['price']}
             {...register('price')}
           />
@@ -165,6 +166,7 @@ export const Outlined = (): JSX.Element => {
           label="金額"
           placeholder="3"
           unitLabel="万円"
+          isPriceFormat
           error={errors && !!errors['price']}
           {...register('price')}
         />

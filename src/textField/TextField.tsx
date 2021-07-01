@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import MuiTextField, {
   TextFieldProps as MuiTextFieldProps,
 } from '@material-ui/core/TextField'
+import NumberFormat from 'react-number-format'
 import tw, { TwStyle, css } from 'twin.macro'
 
 export type TextFieldProps = MuiTextFieldProps & {
   unitLabel?: string
+  isPriceFormat?: boolean
   variant?: 'outlined' | 'standard'
   twin?: TwStyle
   labelTwin?: TwStyle
   inputTwin?: TwStyle
+}
+
+type NumberFormatCustomProps = {
+  onChange: (event: { target: { name: string; value: string } }) => void
+  name: string
+  other: {
+    children?: React.ReactNode
+  }
 }
 
 const styles = {
@@ -83,6 +93,26 @@ const styles = {
   `,
 }
 
+const NumberFormatCustom: React.ForwardRefExoticComponent<NumberFormatCustomProps> =
+  React.forwardRef(({ onChange, name, ...other }, ref) => {
+    return (
+      <NumberFormat
+        {...other}
+        getInputRef={ref}
+        onValueChange={(values) => {
+          onChange({
+            target: {
+              name: name,
+              value: values.value,
+            },
+          })
+        }}
+        thousandSeparator
+        isNumericString
+      />
+    )
+  })
+
 export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
   React.forwardRef(
     (
@@ -96,6 +126,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
         inputRef,
         error,
         unitLabel = '',
+        isPriceFormat = false,
         ...rest
       },
       ref
@@ -104,9 +135,23 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
        * react-hook-form : v6 ~> inputRef   v7 ~> ref
        * TODO: react-hook-form v7で統合されたらrefを直接インラインで使用
        */
-      const validRef = React.useMemo(() => {
+      const validRef = useMemo(() => {
         return inputRef ? inputRef : ref
       }, [ref, inputRef])
+
+      const inputProps = useMemo(() => {
+        const unitLabelProps = {
+          endAdornment: (
+            <InputAdornment position="start">{unitLabel}</InputAdornment>
+          ),
+        }
+        const priceFormatProps = { inputComponent: NumberFormatCustom as any }
+
+        return {
+          ...(unitLabel ? unitLabelProps : {}),
+          ...(isPriceFormat ? priceFormatProps : {}),
+        }
+      }, [unitLabel, isPriceFormat])
 
       const renderStandardTextField = (): JSX.Element => {
         return (
@@ -116,17 +161,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
             required={required}
             label={label}
             variant={variant}
-            InputProps={
-              unitLabel
-                ? {
-                    endAdornment: (
-                      <InputAdornment position="start">
-                        {unitLabel}
-                      </InputAdornment>
-                    ),
-                  }
-                : {}
-            }
+            InputProps={inputProps}
             css={[
               styles['standard'],
               css`
@@ -163,17 +198,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
               inputRef={validRef}
               required={required}
               variant={variant}
-              InputProps={
-                unitLabel
-                  ? {
-                      endAdornment: (
-                        <InputAdornment position="start">
-                          {unitLabel}
-                        </InputAdornment>
-                      ),
-                    }
-                  : {}
-              }
+              InputProps={inputProps}
               css={[
                 styles['outlined'],
                 css`
