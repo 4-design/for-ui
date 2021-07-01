@@ -1,10 +1,12 @@
 import React from 'react'
+import InputAdornment from '@material-ui/core/InputAdornment'
 import MuiTextField, {
   TextFieldProps as MuiTextFieldProps,
 } from '@material-ui/core/TextField'
 import tw, { TwStyle, css } from 'twin.macro'
 
 export type TextFieldProps = MuiTextFieldProps & {
+  unitLabel?: string
   variant?: 'outlined' | 'standard'
   twin?: TwStyle
   labelTwin?: TwStyle
@@ -93,6 +95,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
         required,
         inputRef,
         error,
+        unitLabel = '',
         ...rest
       },
       ref
@@ -113,6 +116,17 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
             required={required}
             label={label}
             variant={variant}
+            InputProps={
+              unitLabel
+                ? {
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        {unitLabel}
+                      </InputAdornment>
+                    ),
+                  }
+                : {}
+            }
             css={[
               styles['standard'],
               css`
@@ -149,6 +163,17 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
               inputRef={validRef}
               required={required}
               variant={variant}
+              InputProps={
+                unitLabel
+                  ? {
+                      endAdornment: (
+                        <InputAdornment position="start">
+                          {unitLabel}
+                        </InputAdornment>
+                      ),
+                    }
+                  : {}
+              }
               css={[
                 styles['outlined'],
                 css`
