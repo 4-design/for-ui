@@ -19,6 +19,7 @@ export default {
 type FieldValue = {
   email: string
   password: string
+  price: string
 }
 
 const schema: yup.SchemaOf<FieldValue> = yup.object().shape({
@@ -90,6 +91,17 @@ export const Standard = (): JSX.Element => {
             {...register('password')}
           />
         </div>
+
+        <div tw="mb-4">
+          <TextField
+            variant="standard"
+            label="金額"
+            placeholder="3"
+            unitLabel="万円"
+            error={errors && !!errors['price']}
+            {...register('price')}
+          />
+        </div>
       </div>
     </form>
   )
@@ -145,6 +157,16 @@ export const Outlined = (): JSX.Element => {
           placeholder="example@lancepod.com"
           error={errors && !!errors['password']}
           {...register('password')}
+        />
+      </div>
+
+      <div tw="mb-4">
+        <TextField
+          label="金額"
+          placeholder="3"
+          unitLabel="万円"
+          error={errors && !!errors['price']}
+          {...register('price')}
         />
       </div>
 
