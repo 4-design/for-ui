@@ -1,3 +1,12 @@
+## [1.5.9](https://github.com/3-shake/3design-ui/compare/v1.5.8...v1.5.9) (2021-07-01)
+
+
+### Bug Fixes
+
+* **TextField:** フラグで金額を3桁区切りで表示できるように ([#114](https://github.com/3-shake/3design-ui/issues/114)) ([ec4ab15](https://github.com/3-shake/3design-ui/commit/ec4ab15de4fdb366d26520784c59c89ddc4cecc2))
+
+
+
 ## [1.5.8](https://github.com/3-shake/3design-ui/compare/v1.5.7...v1.5.8) (2021-06-30)
 
 
