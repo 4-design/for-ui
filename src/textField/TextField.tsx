@@ -145,7 +145,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
             <InputAdornment position="start">{unitLabel}</InputAdornment>
           ),
         }
-        const priceFormatProps = { inputComponent: NumberFormatCustom as any }
+        const priceFormatProps = { inputComponent: NumberFormatCustom as any } // eslint-disable-line
 
         return {
           ...(unitLabel ? unitLabelProps : {}),
