@@ -33,16 +33,15 @@ export type AutocompleteProps = UseAutocompleteProps<
   required?: boolean
   fullWidth?: boolean
   loadingText?: React.ReactNode
-
   twin?: TwStyle[]
   inputTwin?: TwStyle
+  disabled?: boolean
 }
 
 export const Select: React.VFC<AutocompleteProps> = ({
   name,
   options = [],
   label,
-  autoComplete = false,
   required = false,
   twin,
   inputTwin,
@@ -50,16 +49,17 @@ export const Select: React.VFC<AutocompleteProps> = ({
   multiple,
   freeSolo,
   onChange,
+  disabled = false,
   ...rest
 }) => {
   return (
     <Autocomplete
       disablePortal
-      autoComplete={autoComplete}
       disableCloseOnSelect={multiple}
       disableClearable
       autoHighlight
       clearOnBlur
+      disabled={disabled}
       includeInputInList
       handleHomeEndKeys
       multiple={multiple}

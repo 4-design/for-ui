@@ -138,6 +138,7 @@ export const Outlined = (): JSX.Element => {
       </div>
       <div tw="mb-4">
         <TextField
+          disabled
           required
           fullWidth
           multiline
