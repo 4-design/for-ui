@@ -67,6 +67,7 @@ export const Select: React.VFC<AutocompleteProps> = ({
       options={options}
       onChange={onChange}
       PaperComponent={Paper}
+      isOptionEqualToValue={(option, v) => option.inputValue === v.inputValue}
       noOptionsText="データが見つかりません"
       filterOptions={(options, params) => {
         const filtered = filter(options, params)
