@@ -1,3 +1,14 @@
+## [1.5.11](https://github.com/3-shake/3design-ui/compare/v1.5.10...v1.5.11) (2021-07-08)
+
+
+### Bug Fixes
+
+* **Select:** isOptionEqualToValue 追加 ([#133](https://github.com/3-shake/3design-ui/issues/133)) ([82f2883](https://github.com/3-shake/3design-ui/commit/82f28837f0d236c9446e35f6dead29b938c5a13a))
+* **Select:** isOptionEqualToValue 追加 ([#134](https://github.com/3-shake/3design-ui/issues/134)) ([f719a2c](https://github.com/3-shake/3design-ui/commit/f719a2c687b7270f5ddaebb01a89708e29723403))
+* deps ([#128](https://github.com/3-shake/3design-ui/issues/128)) ([65ead74](https://github.com/3-shake/3design-ui/commit/65ead74ec06f5adb2a80f6350f0c94cf4b1d900d))
+
+
+
 ## [1.5.10](https://github.com/3-shake/3design-ui/compare/v1.5.9...v1.5.10) (2021-07-02)
 
 
