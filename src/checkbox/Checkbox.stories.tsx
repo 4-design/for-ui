@@ -26,33 +26,29 @@ export const Basic = (): JSX.Element => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div tw="flex flex-col mb-2">
         <Checkbox
-          name="sample-a"
           value="required"
-          inputRef={register}
           label="チェックボックス A"
+          {...register('sample-a')}
         />
         <Checkbox
-          name="sample-b"
           value="required"
-          inputRef={register}
           label="チェックボックス B"
+          {...register('sample-b')}
         />
       </div>
 
       <div tw="flex flex-col mb-4">
         <Checkbox
           disabled
-          name="sample-a"
           value="required"
-          inputRef={register}
           label="チェックボックス A"
+          {...register('sample-a')}
         />
         <Checkbox
           disabled
-          name="sample-b"
           value="required"
-          inputRef={register}
           label="チェックボックス B"
+          {...register('sample-b')}
         />
       </div>
 
