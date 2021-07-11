@@ -1,3 +1,12 @@
+# [1.6.0](https://github.com/3-shake/3design-ui/compare/v1.5.11...v1.6.0) (2021-07-11)
+
+
+### Features
+
+* Material-UI アップグレード 5.0.0-beta ([#138](https://github.com/3-shake/3design-ui/issues/138)) ([bd82d8d](https://github.com/3-shake/3design-ui/commit/bd82d8d2234763f33d876607dcfd2e6d0f859365))
+
+
+
 ## [1.5.11](https://github.com/3-shake/3design-ui/compare/v1.5.10...v1.5.11) (2021-07-08)
 
 
