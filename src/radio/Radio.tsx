@@ -5,7 +5,7 @@ import tw, { css, TwStyle } from 'twin.macro'
 
 export interface RadioProps extends MuiRadioProps {
   label: string
-  value: string | number
+  value: unknown
   error?: string
   twin?: TwStyle | TwStyle[]
 }
