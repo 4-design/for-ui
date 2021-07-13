@@ -1,3 +1,12 @@
+## [1.6.1](https://github.com/3-shake/3design-ui/compare/v1.6.0...v1.6.1) (2021-07-13)
+
+
+### Bug Fixes
+
+* **Radio:** value type; string | number -> unknown following material-ui ([#144](https://github.com/3-shake/3design-ui/issues/144)) ([fc22f71](https://github.com/3-shake/3design-ui/commit/fc22f7121a7a15a6a9eb92dfda86cf5e0e6e0f01))
+
+
+
 # [1.6.0](https://github.com/3-shake/3design-ui/compare/v1.5.11...v1.6.0) (2021-07-11)
 
 
