@@ -1,3 +1,17 @@
+# [1.7.0](https://github.com/3-shake/3design-ui/compare/v1.6.0...v1.7.0) (2021-07-13)
+
+
+### Bug Fixes
+
+* **Radio:** value type; string | number -> unknown following material-ui ([#144](https://github.com/3-shake/3design-ui/issues/144)) ([fc22f71](https://github.com/3-shake/3design-ui/commit/fc22f7121a7a15a6a9eb92dfda86cf5e0e6e0f01))
+
+
+### Features
+
+* Switch 実装 ([#146](https://github.com/3-shake/3design-ui/issues/146)) ([cd79b08](https://github.com/3-shake/3design-ui/commit/cd79b084ac1b2f49a7fa51419ec98c651b0fedf8))
+
+
+
 # [1.6.0](https://github.com/3-shake/3design-ui/compare/v1.5.11...v1.6.0) (2021-07-11)
 
 
