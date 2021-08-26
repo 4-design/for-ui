@@ -64,7 +64,7 @@
     "@types/react-table": "7.7.2",
     "@typescript-eslint/eslint-plugin": "4.29.3",
     "@typescript-eslint/parser": "4.29.3",
-    "autoprefixer": "10.3.1",
+    "autoprefixer": "10.3.3",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-import-resolver-alias": "1.1.2",
