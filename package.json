@@ -43,8 +43,8 @@
     "twin.macro": "^2.2.3"
   },
   "devDependencies": {
-    "@babel/core": "7.15.0",
-    "@babel/preset-env": "7.15.0",
+    "@babel/core": "7.15.4",
+    "@babel/preset-env": "7.15.4",
     "@babel/preset-react": "7.14.5",
     "@babel/preset-typescript": "7.15.0",
     "@emotion/babel-plugin-jsx-pragmatic": "0.1.5",
