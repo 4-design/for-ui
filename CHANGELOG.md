@@ -1,3 +1,16 @@
+## [1.7.1](https://github.com/3-shake/3design-ui/compare/v1.7.0...v1.7.1) (2021-09-14)
+
+
+### Bug Fixes
+
+* **deps:** update mui monorepo ([#185](https://github.com/3-shake/3design-ui/issues/185)) ([a6cb339](https://github.com/3-shake/3design-ui/commit/a6cb33922c81bd27c15a4147af4000d4d7f45230))
+* **deps:** update mui monorepo ([#191](https://github.com/3-shake/3design-ui/issues/191)) ([568de71](https://github.com/3-shake/3design-ui/commit/568de716a39852a11d0d89f436ec3b21d4a1bac1))
+* **deps:** update mui monorepo ([#33](https://github.com/3-shake/3design-ui/issues/33)) ([1f7be5b](https://github.com/3-shake/3design-ui/commit/1f7be5b49108faf576f3166cb62f89925b7079ba))
+* **Dropzone:** dropzoneのファイル名省略 ([#179](https://github.com/3-shake/3design-ui/issues/179)) ([b90267c](https://github.com/3-shake/3design-ui/commit/b90267ce90f87b1f713d544c407191be22c6bb11))
+* **Loader:** text 追加 ([#221](https://github.com/3-shake/3design-ui/issues/221)) ([a092ecf](https://github.com/3-shake/3design-ui/commit/a092ecf36026fd98defd5f853bbfe4afff0c5a1d))
+
+
+
 # [1.7.0](https://github.com/3-shake/3design-ui/compare/v1.6.0...v1.7.0) (2021-07-13)
 
 
