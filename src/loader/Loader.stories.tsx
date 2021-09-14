@@ -21,9 +21,13 @@ export default {
 } as Meta
 
 export const basic = () => (
-  <>
-    <div tw="flex flex-col">
-      <Loader color="#00bfbf" loading={true} />
-    </div>
-  </>
+  <div tw="flex flex-col">
+    <Loader color="#00bfbf" loading={true} />
+  </div>
+)
+
+export const withText = () => (
+  <div tw="flex flex-col">
+    <Loader color="#00bfbf" loading={true} text="リダイレクトします。。。。" />
+  </div>
 )

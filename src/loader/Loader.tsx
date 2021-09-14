@@ -9,7 +9,7 @@ export const Loader: React.VFC<{
   text?: string
 }> = ({ color, loading, text }) => {
   return (
-    <div tw="h-screen w-full flex justify-center items-center">
+    <div tw="h-screen w-full flex flex-col justify-center items-center">
       <HashLoader color={color} loading={loading} size={150} />
       {text && (
         <Typography twin={tw`pt-20`} variant="h4">
