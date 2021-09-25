@@ -5,6 +5,14 @@
   "module": "dist/index.esm.js",
   "browser": "dist/index.js",
   "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./tailwind.config.cjs": "./tailwind.config.cjs"
+  },
   "author": "locona <miyamae@3-shake.com>",
   "sideEffects": false,
   "engines": {
