@@ -21,10 +21,12 @@ export type ModalProps = {
 
 type BackdropProps = MuiBackdropProps
 
-const Backdrop: React.VFC<BackdropProps> = ({ open, children }) => {
+const Backdrop: React.VFC<BackdropProps> = ({ open, children, onClick }) => {
+  
   return (
     <MuiBackdrop
       open={open}
+      onClick={onClick}
       css={[
         css`
           &.MuiBackdrop-root {
@@ -52,6 +54,7 @@ export const Modal: React.VFC<ModalProps> = ({
       onClose={onClose}
       css={[rootTwin]}
       BackdropComponent={Backdrop}
+      BackdropProps={{ onClick: onClose }}
     >
       <div css={[tw`flex justify-center min-h-screen`]}>
         <div
