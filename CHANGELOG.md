@@ -1,3 +1,12 @@
+## [1.7.2](https://github.com/3-shake/3design-ui/compare/v1.7.1...v1.7.2) (2021-10-06)
+
+
+### Bug Fixes
+
+* **Modal:** エンドポイント新規登録画面の閉じ方 ([#241](https://github.com/3-shake/3design-ui/issues/241)) ([e7e8448](https://github.com/3-shake/3design-ui/commit/e7e8448d027da65b975ae9ea5a5699713783161d))
+
+
+
 ## [1.7.1](https://github.com/3-shake/3design-ui/compare/v1.7.0...v1.7.1) (2021-09-14)
 
 
