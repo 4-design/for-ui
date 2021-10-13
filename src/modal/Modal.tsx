@@ -2,8 +2,8 @@ import React, { ReactNode } from 'react'
 import { SerializedStyles } from '@emotion/react'
 import MuiBackdrop, {
   BackdropProps as MuiBackdropProps,
-} from '@material-ui/core/Backdrop'
-import MuiModal from '@material-ui/core/Modal'
+} from '@mui/material/Backdrop'
+import MuiModal from '@mui/material/Modal'
 import tw, { css, TwStyle } from 'twin.macro'
 
 export type ModalProps = {

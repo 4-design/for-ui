@@ -1,8 +1,8 @@
 import { VFC } from 'react'
 import FormControlLabel, {
   FormControlLabelProps,
-} from '@material-ui/core/FormControlLabel'
-import MuiSwitch from '@material-ui/core/Switch'
+} from '@mui/material/FormControlLabel'
+import MuiSwitch from '@mui/material/Switch'
 import tw, { css, TwStyle } from 'twin.macro'
 
 export type SwitchProps = Omit<FormControlLabelProps, 'control'> & {

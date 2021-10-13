@@ -1,7 +1,5 @@
 import { Children, ReactNode } from 'react'
-import LoadingButton, {
-  LoadingButtonProps,
-} from '@material-ui/lab/LoadingButton'
+import LoadingButton, { LoadingButtonProps } from '@mui/lab/LoadingButton'
 import tw, { TwStyle } from 'twin.macro'
 
 import capitalize from '../utils/capitalize'

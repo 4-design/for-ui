@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
-import MuiBadge from '@material-ui/core/Badge'
-import { BadgeProps } from '@material-ui/core/Badge'
+import { BadgeProps } from '@mui/material/Badge'
+import MuiBadge from '@mui/material/Badge'
 import tw, { css, TwStyle } from 'twin.macro'
 
 interface Props extends BadgeProps {

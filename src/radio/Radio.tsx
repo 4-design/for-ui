@@ -1,6 +1,6 @@
 import React from 'react'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import MuiRadio, { RadioProps as MuiRadioProps } from '@material-ui/core/Radio'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import MuiRadio, { RadioProps as MuiRadioProps } from '@mui/material/Radio'
 import tw, { css, TwStyle } from 'twin.macro'
 
 export interface RadioProps extends MuiRadioProps {

@@ -1,5 +1,5 @@
 import React from 'react'
-import Alert from '@material-ui/core/Alert'
+import Alert from '@mui/material/Alert'
 import { Offline as DetectOffline } from 'react-detect-offline'
 
 export const Offline: React.VFC<{ children: React.ReactNode }> = ({

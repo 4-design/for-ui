@@ -1,8 +1,8 @@
 import React from 'react'
 import MuiCheckbox, {
   CheckboxProps as MuiCheckboxProps,
-} from '@material-ui/core/Checkbox'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
+} from '@mui/material/Checkbox'
+import FormControlLabel from '@mui/material/FormControlLabel'
 import tw, { css } from 'twin.macro'
 import { Typography } from '../typography'
 
