@@ -100,7 +100,7 @@
     "shipjs": "0.24.0",
     "tailwindcss": "2.2.19",
     "ts-loader": "9.2.6",
-    "typescript": "4.4.4",
+    "typescript": "4.5.2",
     "yup": "0.32.11"
   },
   "peerDependencies": {
