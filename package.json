@@ -40,9 +40,9 @@
   "dependencies": {
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
-    "@mui/lab": "5.0.0-alpha.55",
-    "@mui/material": "5.1.1",
-    "@mui/styles": "5.1.1",
+    "@mui/lab": "5.0.0-alpha.57",
+    "@mui/material": "5.2.1",
+    "@mui/styles": "5.2.1",
     "react-detect-offline": "^2.4.3",
     "react-dropzone": "^11.3.2",
     "react-icons": "4.3.1",
