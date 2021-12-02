@@ -69,6 +69,7 @@ const config = OUTPUT_DATA.map(({ file, format }) => ({
   input: 'src/index.ts',
   output: {
     name: '3-design',
+    preserveModules: true,
     file,
     format,
     globals,

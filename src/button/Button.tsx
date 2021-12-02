@@ -10,31 +10,34 @@ export interface ButtonProps extends Omit<LoadingButtonProps, 'color'> {
 }
 
 const styles: TwStyle = {
-  containedDefault: tw`
-    (text-white bg-gray-main
-    hover:bg-gray-dark disabled:bg-gray-main disabled:opacity-disabled)!`,
-  containedPrimary: tw`
-    (text-white bg-primary-main
-    hover:bg-primary-dark disabled:bg-primary-main disabled:opacity-disabled)!`,
-  containedDanger: tw`
-    (text-white bg-error-main
-    hover:bg-error-dark disabled:bg-error-main disabled:opacity-disabled)!`,
-  outlinedDefault: tw`
-    (bg-white text-gray-low border border-gray-low
-    hover:bg-gray-main hover:text-white
-    disabled:text-gray-low disabled:opacity-disabled disabled:bg-white)!`,
-  outlinedPrimary: tw`
-    (bg-white text-accent border border-accent
-    hover:text-white hover:bg-primary-main
-    disabled:text-accent disabled:bg-white disabled:opacity-disabled)!`,
-  outlinedDanger: tw`
-    (bg-white text-error border border-error
-    hover:text-white hover:bg-error-main
-    disabled:text-error disabled:opacity-disabled disabled:bg-white)!`,
-  textDefault: tw`(text-gray-high disabled:text-gray-disabled hover:text-accent hover:bg-transparent)!`,
-  textPrimary: tw`(text-accent disabled:text-accent disabled:opacity-disabled hover:opacity-70 hover:bg-transparent)!`,
-  textDanger: tw`(text-error disabled:opacity-disabled hover:opacity-70 hover:bg-transparent)!`,
+  filled: {},
 }
+
+// const styles: TwStyle = {
+//   containedDefault: tw`(text-white bg-gray-main
+//     hover:bg-gray-dark disabled:bg-gray-main disabled:opacity-disabled)!`,
+//   containedPrimary: tw`
+//     (text-white bg-primary-main
+//     hover:bg-primary-dark disabled:bg-primary-main disabled:opacity-disabled)!`,
+//   containedDanger: tw`
+//     (text-white bg-error-main
+//     hover:bg-error-dark disabled:bg-error-main disabled:opacity-disabled)!`,
+//   outlinedDefault: tw`
+//     (bg-white text-gray-low border border-gray-low
+//     hover:bg-gray-main hover:text-white
+//     disabled:text-gray-low disabled:opacity-disabled disabled:bg-white)!`,
+//   outlinedPrimary: tw`
+//     (bg-white text-accent border border-accent
+//     hover:text-white hover:bg-primary-main
+//     disabled:text-accent disabled:bg-white disabled:opacity-disabled)!`,
+//   outlinedDanger: tw`
+//     (bg-white text-error border border-error
+//     hover:text-white hover:bg-error-main
+//     disabled:text-error disabled:opacity-disabled disabled:bg-white)!`,
+//   textDefault: tw`(text-gray-high disabled:text-gray-disabled hover:text-accent hover:bg-transparent)!`,
+//   textPrimary: tw`(text-accent disabled:text-accent disabled:opacity-disabled hover:opacity-70 hover:bg-transparent)!`,
+//   textDanger: tw`(text-error disabled:opacity-disabled hover:opacity-70 hover:bg-transparent)!`,
+// }
 
 export const Button: React.VFC<
   ButtonProps & {
