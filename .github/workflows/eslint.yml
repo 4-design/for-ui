@@ -1,9 +1,9 @@
-name: Check for Eslint
+name: Check for Budnlewatch
 on: [pull_request]
 
 jobs:
   eslint:
-    name: runner / eslint
+    name: runner / bundlewatch
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
