@@ -2897,7 +2897,7 @@
   dependencies:
     debug "^4.1.1"
 
-"@size-limit/file@7.0.3", "@size-limit/file@^7.0.3":
+"@size-limit/file@7.0.3":
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-7.0.3.tgz#a9ba258b8d386f557384a025c4f06f404a3035ba"
   integrity sha512-jizDZduAQ71KoraRWkj6ZSHPPo8SQ/KO4z1hZBl1ZujxwF7R6NLWKghNUtIQHsXpqyZWbK3VV39lOLx7qHuLjg==
