@@ -44,10 +44,10 @@
     "react-icons": "4.3.1",
     "react-number-format": "^4.6.3",
     "react-spinners": "^0.11.0",
-    "react-table": "7.7.0",
     "twin.macro": "2.8.1"
   },
   "devDependencies": {
+    "react-table": "7.7.0",
     "@babel/core": "7.16.0",
     "@babel/preset-env": "7.16.4",
     "@babel/preset-react": "7.16.0",
