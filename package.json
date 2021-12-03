@@ -138,7 +138,6 @@
   },
   "bundlewatch": {
     "ci": {
-      "repoBranchBase": "v2",
       "trackBranches": [
         "v2"
       ]
