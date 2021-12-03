@@ -338,15 +338,10 @@ module.exports = {
         solid: '0 0 0 2px white',
         hover: '0 0 20px -3px rgba(0, 0, 0, 0.15)',
         image: '0 16px 23px 0 rgba(191, 71, 0, 0.06)',
+        modal: '0px 8px 32px rgba(0, 0, 0, 0.05)',
       },
       fontFamily: {
-        sans: [
-          'YakuHanJP',
-          'Open Sans',
-          'Noto Sans JP',
-          ...defaultTheme.fontFamily.sans,
-        ],
-        mono: ['Fira Mono', 'Noto Sans JP', ...defaultTheme.fontFamily.mono],
+        sans: ['Inter', 'Noto Sans JP', ...defaultTheme.fontFamily.sans],
       },
       gridTemplateColumns: {
         'auto-1': 'repeat(auto-fill, minmax(80px, 1fr))',
