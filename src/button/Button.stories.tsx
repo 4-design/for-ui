@@ -204,7 +204,7 @@ export const Outlined = (): JSX.Element => (
 
     <div>
       <div tw="border-b mb-4">
-        <Text variant="h3">Button/Contained/Medium</Text>
+        <Text variant="h3">Button/Outlined/Medium</Text>
       </div>
 
       <div tw="flex flex-row gap-8">
@@ -334,7 +334,7 @@ export const _Text = (): JSX.Element => (
 
     <div>
       <div tw="border-b mb-4">
-        <Text variant="h3">Button/Contained/Medium</Text>
+        <Text variant="h3">Button/Text/Medium</Text>
       </div>
 
       <div tw="flex flex-row gap-8">
