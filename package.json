@@ -139,7 +139,8 @@
   "bundlewatch": {
     "ci": {
       "trackBranches": [
-        "v2"
+        "v2",
+        "v2-chip"
       ]
     },
     "files": [
