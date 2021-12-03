@@ -10,8 +10,10 @@ interface Props {
 
 export const ModalHeader: React.FC<Props> = ({ children }) => {
   return (
-    <Typography variant="h3" className={tw`my-4 mx-9`}>
-      {children}
-    </Typography>
+    <div tw=" p-4 border-b border-shade-light-default">
+      <Typography variant="p" bold twin={tw`text-xr!`}>
+        {children}
+      </Typography>
+    </div>
   )
 }

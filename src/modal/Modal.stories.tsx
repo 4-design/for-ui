@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useState } from '@storybook/addons'
 import { Meta } from '@storybook/react/types-6-0'
 
 import { Button } from '../button'
@@ -13,7 +14,7 @@ export default {
 } as Meta
 
 export const ModalDefault = (): JSX.Element => {
-  const [showModal, setShowModal] = useState<boolean>(false)
+  const [showModal, setShowModal] = useState<boolean>(true)
 
   const onSubmit = () => {
     console.log('submit')
