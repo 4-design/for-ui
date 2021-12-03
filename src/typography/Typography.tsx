@@ -95,7 +95,7 @@ export const Typography: React.FC<Props> = ({
     <ElementType
       css={[
         typographyStyles[variant],
-        tw`relative`,
+        tw`relative font-sans`,
         bold && tw`font-bold`,
         disabled && tw`text-shade-dark-disabled`,
         twin,

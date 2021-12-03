@@ -13509,11 +13509,6 @@ react-colorful@^5.1.2:
   resolved "https://registry.yarnpkg.com/react-colorful/-/react-colorful-5.2.2.tgz#0a69d0648db47e51359d343854d83d250a742243"
   integrity sha512-Xdb1Rl6lZ5SMdNBH59eE0lGqR1g2LVD8IgPlw0WeMDrOC65lYI8fgMEwj/0dDpVRVMh5qp73ciISDst/t2O2iQ==
 
-react-detect-offline@^2.4.3:
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/react-detect-offline/-/react-detect-offline-2.4.3.tgz#167c340f86adba719b7d57acef69a2f5664412fa"
-  integrity sha512-YDJRJ1qbCcwCV37yiBGEzC+SeHtqe2kKV9EVYDEo77gm9QFLa2tZesF6ciOSx1A+tmMAZGtBD38VHdBQVe4yAA==
-
 react-dev-utils@^11.0.4:
   version "11.0.4"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-11.0.4.tgz#a7ccb60257a1ca2e0efe7a83e38e6700d17aa37a"

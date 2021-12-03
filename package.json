@@ -39,7 +39,6 @@
     "size": "yarn build && size-limit"
   },
   "dependencies": {
-    "react-detect-offline": "^2.4.3",
     "react-dropzone": "^11.3.2",
     "react-icons": "4.3.1",
     "react-number-format": "^4.6.3",

@@ -3,10 +3,10 @@ import MuiCheckbox, {
   CheckboxProps as MuiCheckboxProps,
 } from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
-import tw, { css } from 'twin.macro'
+import tw, { css, theme } from 'twin.macro'
 import { Typography } from '../typography'
 
-export interface CheckboxProps extends MuiCheckboxProps {
+export type CheckboxProps = MuiCheckboxProps & {
   label: string
 }
 
@@ -15,15 +15,16 @@ export const Checkbox: React.VFC<CheckboxProps> = ({ label, ...rest }) => {
     <FormControlLabel
       control={
         <MuiCheckbox
-          disableRipple
-          size="medium"
+          sx={{ '& .MuiSvgIcon-root': { fontSize: 20 } }}
           css={[
             css`
               &.MuiCheckbox-root {
                 ${tw`(text-primary-dark-default hover:bg-primary-white-default)!`}
 
-                &.Mui-checked > span path {
-                  ${tw`text-primary-dark-default!`}
+                color: ${theme`textColor.shade.medium.default`} !important;
+
+                &.Mui-checked {
+                  color: ${theme`backgroundColor.secondary.dark.default`} !important;
                 }
 
                 &.Mui-disabled > span path {
@@ -36,7 +37,7 @@ export const Checkbox: React.VFC<CheckboxProps> = ({ label, ...rest }) => {
         />
       }
       label={
-        <Typography variant="body1" disabled={rest.disabled}>
+        <Typography variant="body1" disabled={rest.disabled} twin={tw`text-s`}>
           {label}
         </Typography>
       }
