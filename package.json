@@ -141,9 +141,11 @@
   },
   "size-limit": [
     {
+      "limit": "1 s",
       "path": "./dist/commonjs/src/**/*.js"
     },
     {
+      "limit": "1 s",
       "path": "./dist/esm/src/**/*.js"
     }
   ]
