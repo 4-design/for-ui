@@ -47,7 +47,7 @@ const plugins = [
     preventAssignment: true,
     'process.env.NODE_ENV': JSON.stringify('production'),
   }),
-  analyze(),
+  // analyze(),
 ]
 
 const OUTPUT_DATA = [
