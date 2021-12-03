@@ -1,9 +1,9 @@
-name: Check for Budnlewatch
+name: Check for Eslint
 on: [pull_request]
 
 jobs:
   eslint:
-    name: runner / bundlewatch
+    name: runner / eslint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -29,13 +29,17 @@ jobs:
           node-version: 12.x
           registry-url: 'https://npm.pkg.github.com'
       # https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-nodejs#example-using-a-private-registry-and-creating-the-npmrc-file
+
       - name: Install dependencies
         run: yarn install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: eslint
-        uses: reviewdog/action-eslint@v1
-        with:
-          reporter: github-pr-review # Change reporter.
-          eslint_flags: ' --fix . --ext .ts,.js,.tsx,.jsx,.cjs'
-          github_token: ${{ github.token }}
+
+      - name: run bundlewatch
+        run: yarn build && yarn run bundlewatch
+        env:
+          CI_REPO_OWNER: 3-shake
+          CI_REPO_NAME: 3design-ui
+          CI_COMMIT_SHA: ${{ secrets.GITHUB_TOKEN }}
+          CI_BRANCH: ${{ github.sha }}
+          BUNDLEWATCH_GITHUB_TOKEN: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
