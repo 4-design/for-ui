@@ -118,12 +118,10 @@ Cardのタイトルのように\`text-r\`を含むエリアのタイトルには
 const colors = {
   'text-shade-dark-default': tw`text-shade-dark-default`,
   'text-shade-medium-default': tw`text-shade-medium-default`,
-  'text-low': tw`text-low`,
+  'text-shade-light-default': tw`text-shade-light-default`,
   'text-shade-dark-disabled': tw`text-shade-dark-disabled`,
   'text-primary-dark-default': tw`text-primary-dark-default`,
-  'text-primary-dark-default-dark': tw`text-primary-dark-default-dark`,
   'text-negative-medium-default': tw`text-negative-medium-default`,
-  'text-info': tw`text-info`,
   'text-primary-white-default': tw`text-primary-white-default`,
 }
 

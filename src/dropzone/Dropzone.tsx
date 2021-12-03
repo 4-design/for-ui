@@ -1,17 +1,18 @@
 import React from 'react'
 import { useDropzone } from 'react-dropzone'
-import { MdFileUpload, MdClose } from 'react-icons/md'
+import { MdFileUpload } from 'react-icons/md'
 import tw, { TwStyle } from 'twin.macro'
 
-import { Button } from '../button'
+import { Chip } from '../chip/Chip'
+import { Text } from '../typography/Typography'
 
-export interface DropzoneProps {
+export type DropzoneProps = {
   twin?: TwStyle[]
   files: File[]
-  onDrop: (acceptedFiles: File[]) => void
-  onRemove: (file: File) => (e: React.MouseEvent<HTMLButtonElement>) => void
   message?: string
   multiple?: boolean
+  onDrop: (acceptedFiles: File[]) => void
+  onRemove: (file: File) => (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export const Dropzone: React.VFC<DropzoneProps> = ({
@@ -19,7 +20,7 @@ export const Dropzone: React.VFC<DropzoneProps> = ({
   files,
   onDrop,
   onRemove,
-  message = 'ここにファイルをドロップ',
+  message = 'ここにファイルをドロップしてアップロード',
   multiple = false,
 }) => {
   const { getRootProps, getInputProps } = useDropzone({ onDrop, multiple })
@@ -28,31 +29,26 @@ export const Dropzone: React.VFC<DropzoneProps> = ({
     <div
       {...getRootProps()}
       css={[
-        tw`flex justify-center w-auto p-8 border border-dotted cursor-pointer border-shade-medium-default`,
+        tw`w-auto min-h-[144px] flex justify-center px-5 py-3 border rounded border-dashed cursor-pointer border-shade-medium-default`,
         twin,
       ]}
     >
       <input {...getInputProps()} />
+
       {files.length > 0 ? (
-        <div tw="w-full flex justify-center">
+        <div tw="w-full flex justify-start gap-8">
           {files.map((file) => (
-            <div key={file.name} tw="flex justify-center items-center w-4/5">
-              <div tw="mr-2 truncate">{file.name}</div>
-              <Button
-                onClick={(e) => onRemove(file)(e)}
-                color="danger"
-                variant="text"
-                twin={[tw`flex-shrink-0 flex-grow-0`]}
-              >
-                <MdClose size={24} />
-              </Button>
-            </div>
+            <Chip
+              key={file.name}
+              label={file.name}
+              onDelete={(e) => onRemove(file)(e)}
+            />
           ))}
         </div>
       ) : (
-        <div tw="w-full flex flex-col items-center text-shade-medium-default">
-          <MdFileUpload size={48} tw="mb-3" />
-          <p tw="text-shade-medium-default">{message}</p>
+        <div tw="py-3 w-full flex flex-col items-center text-shade-medium-default">
+          <MdFileUpload size={48} tw="mb-3 text-shade-light-default" />
+          <Text variant="span">{message}</Text>
         </div>
       )}
     </div>

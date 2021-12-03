@@ -44,16 +44,16 @@
     "react-icons": "4.3.1",
     "react-number-format": "^4.6.3",
     "react-spinners": "^0.11.0",
-    "react-table": "7.7.0",
     "twin.macro": "2.8.1"
   },
   "devDependencies": {
+    "react-table": "7.7.0",
     "@babel/core": "7.16.0",
     "@babel/preset-env": "7.16.4",
     "@babel/preset-react": "7.16.0",
     "@babel/preset-typescript": "7.16.0",
+    "babel-plugin-twin": "^1.0.2",
     "@emotion/babel-plugin": "11.3.0",
-    "@emotion/babel-plugin-jsx-pragmatic": "0.1.5",
     "@emotion/babel-preset-css-prop": "11.2.0",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
@@ -68,12 +68,12 @@
     "@rollup/plugin-node-resolve": "13.0.6",
     "@rollup/plugin-replace": "3.0.0",
     "@size-limit/preset-big-lib": "^7.0.3",
-    "@storybook/addon-actions": "6.4.5",
-    "@storybook/addon-backgrounds": "6.4.5",
-    "@storybook/addon-essentials": "6.4.5",
-    "@storybook/addon-links": "6.4.5",
+    "@storybook/addon-actions": "6.4.7",
+    "@storybook/addon-backgrounds": "6.4.7",
+    "@storybook/addon-essentials": "6.4.7",
+    "@storybook/addon-links": "6.4.7",
     "@storybook/addon-postcss": "2.0.0",
-    "@storybook/react": "6.4.5",
+    "@storybook/react": "6.4.7",
     "@types/react-table": "7.7.8",
     "@typescript-eslint/eslint-plugin": "5.5.0",
     "@typescript-eslint/parser": "5.5.0",
@@ -88,6 +88,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.27.1",
     "eslint-plugin-react-hooks": "4.3.0",
+    "eslint-plugin-storybook": "^0.5.2",
     "eslint-plugin-unused-imports": "2.0.0",
     "lint-staged": "12.1.2",
     "namor": "2.0.3",
@@ -126,6 +127,9 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
+  },
+  "resolutions": {
+    "babel-loader": "8.1.0"
   },
   "files": [
     "dist",
