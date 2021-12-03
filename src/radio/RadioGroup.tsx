@@ -32,13 +32,13 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
       css={[
         css`
           > .Mui-error {
-            ${tw`text-negative-medium-default!`}
+            ${tw`m-0! mt-1! text-negative-medium-default!`}
           }
         `,
       ]}
     >
       {label && (
-        <label css={[tw`mb-2 text-shade-medium-default`]}>
+        <label css={[tw`font-sans text-s mb-2 text-shade-medium-default`]}>
           {label}
           {required && <span tw="text-negative-medium-default">*</span>}
         </label>
@@ -52,7 +52,11 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
       >
         {children}
       </MuiRadioGroup>
-      {error && <FormHelperText tw="text-negative-medium-default!">{error}</FormHelperText>}
+      {error && (
+        <FormHelperText tw="text-negative-medium-default!">
+          {error}
+        </FormHelperText>
+      )}
     </FormControl>
   )
 }
