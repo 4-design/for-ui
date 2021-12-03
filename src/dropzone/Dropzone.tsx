@@ -41,7 +41,7 @@ export const Dropzone: React.VFC<DropzoneProps> = ({
             <Chip
               key={file.name}
               label={file.name}
-              onDelete={() => console.log('delete')}
+              onDelete={(e) => onRemove(file)(e)}
             />
           ))}
         </div>
