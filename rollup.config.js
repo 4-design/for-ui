@@ -51,25 +51,29 @@ const plugins = [
 ]
 
 const OUTPUT_DATA = [
-  {
-    file: pkg.browser,
-    format: 'umd',
-  },
+  // {
+  //   file: pkg.browser,
+  //   dir: 'dist/umd',
+  //   format: 'umd',
+  // },
   {
     file: pkg.main,
+    dir: 'dist/commonjs',
     format: 'cjs',
   },
   {
     file: pkg.module,
+    dir: 'dist/esm',
     format: 'es',
   },
 ]
 
-const config = OUTPUT_DATA.map(({ file, format }) => ({
+const config = OUTPUT_DATA.map(({ format, dir }) => ({
   input: 'src/index.ts',
   output: {
     name: '3-design',
-    file,
+    preserveModules: true,
+    dir,
     format,
     globals,
   },

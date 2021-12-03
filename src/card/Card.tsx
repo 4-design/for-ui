@@ -23,7 +23,10 @@ interface CardActionProps {
 }
 
 export const CardTitle: React.VFC<CardTitleProps> = ({ children }) => (
-  <Typography variant="h4" twin={tw`font-bold text-gray-high border-none`}>
+  <Typography
+    variant="h4"
+    twin={tw`font-bold text-shade-dark-default border-none`}
+  >
     {children}
   </Typography>
 )
@@ -35,7 +38,7 @@ export const CardAction: React.VFC<CardActionProps> = ({ children }) => (
 export const Card: React.VFC<CardProps> = ({ twin, children }) => (
   <section
     css={[
-      tw`flex flex-col bg-white overflow-y-visible shadow-main rounded-3xl`,
+      tw`flex flex-col bg-shade-white-default overflow-y-visible shadow-main rounded-3xl`,
       twin,
     ]}
   >

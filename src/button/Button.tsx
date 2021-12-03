@@ -2,38 +2,27 @@ import { Children, ReactNode } from 'react'
 import LoadingButton, { LoadingButtonProps } from '@mui/lab/LoadingButton'
 import tw, { TwStyle } from 'twin.macro'
 
-import capitalize from '../utils/capitalize'
-
 export interface ButtonProps extends Omit<LoadingButtonProps, 'color'> {
   twin?: TwStyle[]
   color?: 'primary' | 'default' | 'danger'
 }
 
+const sizes: TwStyle = {
+  large: tw`(px-6 py-2 text-r)!`,
+  medium: tw`(px-4 py-2 text-s)!`,
+  small: tw`(px-4 py-2 text-s)!`,
+}
+
 const styles: TwStyle = {
-  containedDefault: tw`
-    (text-white bg-gray-main
-    hover:bg-gray-dark disabled:bg-gray-main disabled:opacity-disabled)!`,
-  containedPrimary: tw`
-    (text-white bg-primary-main
-    hover:bg-primary-dark disabled:bg-primary-main disabled:opacity-disabled)!`,
-  containedDanger: tw`
-    (text-white bg-error-main
-    hover:bg-error-dark disabled:bg-error-main disabled:opacity-disabled)!`,
-  outlinedDefault: tw`
-    (bg-white text-gray-low border border-gray-low
-    hover:bg-gray-main hover:text-white
-    disabled:text-gray-low disabled:opacity-disabled disabled:bg-white)!`,
-  outlinedPrimary: tw`
-    (bg-white text-accent border border-accent
-    hover:text-white hover:bg-primary-main
-    disabled:text-accent disabled:bg-white disabled:opacity-disabled)!`,
-  outlinedDanger: tw`
-    (bg-white text-error border border-error
-    hover:text-white hover:bg-error-main
-    disabled:text-error disabled:opacity-disabled disabled:bg-white)!`,
-  textDefault: tw`(text-gray-high disabled:text-gray-disabled hover:text-accent hover:bg-transparent)!`,
-  textPrimary: tw`(text-accent disabled:text-accent disabled:opacity-disabled hover:opacity-70 hover:bg-transparent)!`,
-  textDanger: tw`(text-error disabled:opacity-disabled hover:opacity-70 hover:bg-transparent)!`,
+  contained: tw`(text-primary-white-default bg-primary-dark-default
+  hover:text-primary-white-hover hover:bg-primary-dark-hover
+  disabled:text-primary-white-disabled disabled:bg-primary-dark-disabled)!`,
+  outlined: tw`(text-primary-dark-default bg-primary-white-default border-primary-dark-default
+  hover:text-primary-dark-hover hover:bg-primary-white-hover hover:border-primary-dark-hover
+  disabled:text-primary-dark-disabled disabled:bg-primary-white-disabled disabled:border-primary-dark-disabled)!`,
+  text: tw`(text-primary-dark-default bg-primary-white-default
+  hover:text-primary-dark-hover hover:bg-primary-white-hover
+  disabled:text-primary-dark-disabled disabled:bg-primary-white-disabled)!`,
 }
 
 export const Button: React.VFC<
@@ -44,7 +33,9 @@ export const Button: React.VFC<
 > = (props) => {
   const {
     type = 'button',
+    // eslint-disable-next-line unused-imports/no-unused-vars
     color = 'primary',
+    size = 'large',
     variant = 'contained',
     disabled = false,
     pending = false,
@@ -68,7 +59,6 @@ export const Button: React.VFC<
 
   return (
     <LoadingButton
-      color="primary"
       type={type}
       variant={variant}
       startIcon={startIcon}
@@ -80,10 +70,11 @@ export const Button: React.VFC<
       css={[
         tw`
         (h-max-content max-w-max px-6 py-2
-        flex text-base font-medium rounded-full cursor-pointer shadow-none transition whitespace-nowrap
+        flex text-base font-medium rounded-lg cursor-pointer shadow-none transition whitespace-nowrap
         disabled:cursor-not-allowed
         hover:shadow-none focus:outline-none)!`,
-        styles[`${variant}${capitalize(color)}`],
+        styles[`${variant}`],
+        sizes[size],
         twin,
       ]}
       {...rest}

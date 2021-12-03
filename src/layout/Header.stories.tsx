@@ -24,7 +24,7 @@ const Template: Story = () => {
       <HeaderLeft></HeaderLeft>
       <HeaderRight>
         <>
-          <IconButton twin={[tw`bg-white`]}>
+          <IconButton twin={[tw`bg-shade-white-default`]}>
             <MdNotifications size={36} />
           </IconButton>
 

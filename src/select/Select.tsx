@@ -1,8 +1,6 @@
 import React from 'react'
 import { UseAutocompleteProps } from '@mui/material'
-import Autocomplete, {
-  createFilterOptions,
-} from '@mui/material/Autocomplete'
+import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete'
 import MuiPaper, { PaperProps } from '@mui/material/Paper'
 import tw, { css, TwStyle } from 'twin.macro'
 import { MenuItem } from '../menu'
@@ -126,7 +124,7 @@ export const Select: React.VFC<AutocompleteProps> = ({
             key={option.inputValue}
             twin={[
               selected
-                ? tw`(text-white text-base bg-primary-main hover:bg-primary-dark)!`
+                ? tw`(text-primary-white-default text-base bg-primary-dark-default hover:bg-primary-dark-default)!`
                 : tw``,
             ]}
           >
@@ -136,18 +134,18 @@ export const Select: React.VFC<AutocompleteProps> = ({
       }}
       css={[
         css`
-          ${tw`(bg-white)!`}
+          ${tw`(bg-shade-white-default)!`}
 
           & .MuiAutocomplete-paper {
             ${tw`(py-2 min-w-min rounded-2xl shadow-main transform translate-y-4)!`}
           }
 
           & .MuiOutlinedInput-root {
-            ${tw`(p-0 text-base text-middle)!`}
+            ${tw`(p-0 text-base text-shade-medium-default)!`}
           }
 
           & .MuiOutlinedInput-input {
-            ${tw`(px-3 text-base text-middle)!`}
+            ${tw`(px-3 text-base text-shade-medium-default)!`}
           }
         `,
         twin,

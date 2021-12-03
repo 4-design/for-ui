@@ -67,19 +67,19 @@ const mapVariantToTag: { [key in Variant]: React.ElementType } = {
 } as const
 
 export const typographyStyles: { [key in Variant]: TwStyle } = {
-  [variants.h1]: tw`font-bold text-xl text-high`,
-  [variants.h2]: tw`font-bold text-xl text-middle`,
-  [variants.h3]: tw`font-bold text-l text-high`,
-  [variants.h4]: tw`font-bold text-l text-middle`,
-  [variants.h5]: tw`font-bold text-r text-high`,
-  [variants.h6]: tw`font-bold text-r text-middle`,
-  [variants.subtitle1]: tw`text-l text-high`,
-  [variants.subtitle2]: tw`text-l text-middle`,
-  [variants.p]: tw`text-r text-high`,
-  [variants.body1]: tw`text-r text-high`,
-  [variants.body2]: tw`text-r text-middle`,
-  [variants.span]: tw`text-r text-middle`,
-  [variants.caption]: tw`text-s text-middle`,
+  [variants.h1]: tw`font-bold text-xl text-shade-dark-default`,
+  [variants.h2]: tw`font-bold text-xl text-shade-medium-default`,
+  [variants.h3]: tw`font-bold text-l text-shade-dark-default`,
+  [variants.h4]: tw`font-bold text-l text-shade-medium-default`,
+  [variants.h5]: tw`font-bold text-r text-shade-dark-default`,
+  [variants.h6]: tw`font-bold text-r text-shade-medium-default`,
+  [variants.subtitle1]: tw`text-l text-shade-dark-default`,
+  [variants.subtitle2]: tw`text-l text-shade-medium-default`,
+  [variants.p]: tw`text-r text-shade-dark-default`,
+  [variants.body1]: tw`text-r text-shade-dark-default`,
+  [variants.body2]: tw`text-r text-shade-medium-default`,
+  [variants.span]: tw`text-r text-shade-medium-default`,
+  [variants.caption]: tw`text-s text-shade-medium-default`,
 } as const
 
 export const Typography: React.FC<Props> = ({
@@ -97,7 +97,7 @@ export const Typography: React.FC<Props> = ({
         typographyStyles[variant],
         tw`relative`,
         bold && tw`font-bold`,
-        disabled && tw`text-disabled`,
+        disabled && tw`text-shade-dark-disabled`,
         twin,
         className,
       ]}

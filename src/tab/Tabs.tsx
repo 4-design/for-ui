@@ -26,10 +26,10 @@ export const Tabs: React.VFC<TabsProps> = ({
           &.MuiTabs-root {
             ${reverse
               ? tw`(border-transparent border-t-2)!`
-              : tw`(border-low border-b-2)!`}
+              : tw`(border-shade-medium-default border-b-2)!`}
           }
           & .MuiTabs-indicator {
-            ${tw`(bg-primary-main)!`}
+            ${tw`(bg-primary-dark-default)!`}
             ${reverse && tw`top-0`}
           }
         `,

@@ -2,7 +2,7 @@ import React from 'react'
 import 'twin.macro'
 import { GlobalStyles } from 'twin.macro'
 
-import '../src/styles/tailwind.css'
+import '../src/styles/tailwind.v2.css'
 
 export const parameters = {
   backgrounds: {
@@ -10,11 +10,20 @@ export const parameters = {
     values: [
       {
         name: 'default',
-        value: '#F9F9F9',
+        value: '#FFF',
       },
     ],
   },
   actions: { argTypesRegex: '^on[A-Z].*' },
+  dependencies: {
+    // display only dependencies/dependents that have a story in storybook
+    // by default this is false
+    withStoriesOnly: true,
+
+    // completely hide a dependency/dependents block if it has no elements
+    // by default this is false
+    hideEmpty: true,
+  },
   controls: { expanded: true },
   options: {
     storySort: (a, b) => {

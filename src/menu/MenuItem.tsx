@@ -17,8 +17,8 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
         css={[
           css`
             ${tw`
-            (block px-3 py-3 text-base text-gray-high bg-white whitespace-nowrap
-            hover:bg-gray-light)!`}
+            (block px-3 py-3 text-base text-shade-dark-default bg-shade-white-default whitespace-nowrap
+            hover:bg-shade-white-hover)!`}
           `,
           twin,
         ]}

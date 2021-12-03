@@ -7,5 +7,5 @@ interface Props {
 }
 
 export const ModalContent: React.FC<Props> = ({ children }) => {
-  return <div tw="my-4 mx-9 text-high">{children}</div>
+  return <div tw="my-4 mx-9 text-shade-dark-default">{children}</div>
 }
