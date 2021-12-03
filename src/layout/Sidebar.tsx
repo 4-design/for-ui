@@ -1,7 +1,7 @@
 import React from 'react'
 import tw, { css } from 'twin.macro'
 
-export interface SidebarMenuItemProps {
+export type SidebarMenuItemProps = {
   href: string
   icon: React.ReactNode
   label: string | React.ReactNode // NOTE: 一時的に文字列とコンポーネントを許容
@@ -18,13 +18,13 @@ export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
     href={href}
     className="group"
     css={[
-      tw`flex items-center h-10 pl-6 text-base font-medium transition duration-300 ease-in-out rounded-md cursor-pointer text-gray-low hover:text-accent`,
+      tw`flex items-center h-10 pl-6 text-base font-medium transition duration-300 ease-in-out rounded-md cursor-pointer text-shade-medium-default hover:text-primary-dark-default`,
       css`
         & > svg {
           ${tw`w-6 h-6 mr-4`}
         }
       `,
-      active && tw`text-accent`,
+      active && tw`text-primary-dark-default`,
     ]}
   >
     {icon}

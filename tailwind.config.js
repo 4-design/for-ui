@@ -12,6 +12,7 @@ const colors = {
       },
       medium: {
         default: 'var(--shade-text-medium-default)',
+        active: 'var(--shade-text-medium-active)',
       },
       light: {
         default: 'var(--shade-text-light-default)',
@@ -38,6 +39,7 @@ const colors = {
       white: {
         default: 'var(--shade-background-white-default)',
         hover: 'var(--shade-background-white-hover)',
+        active: 'var(--shade-background-white-active)',
         disabled: 'var(--shade-background-white-disabled)',
       },
     },
@@ -50,15 +52,12 @@ const colors = {
       },
       medium: {
         default: 'var(--shade-border-medium-default)',
+        active: 'var(--shade-border-medium-active)',
         disabled: 'var(--shade-border-medium-disabled)',
       },
       light: {
         default: 'var(--shade-border-light-default)',
-      },
-      white: {
-        default: 'var(--shade-border-white-default)',
-        hover: 'var(--shade-border-white-hover)',
-        disabled: 'var(--shade-border-white-disabled)',
+        active: 'var(--shade-border-light-active)',
       },
     },
 
@@ -69,9 +68,11 @@ const colors = {
       },
       medium: {
         default: 'var(--shade-icon-medium-default)',
+        active: 'var(--shade-icon-medium-active)',
       },
       light: {
         default: 'var(--shade-icon-light-default)',
+        hover: 'var(--shade-icon-medium-hover)',
       },
       white: {
         default: 'var(--shade-icon-white-default)',
@@ -83,74 +84,60 @@ const colors = {
   primary: {
     text: {
       dark: {
-        default: 'var(--shade-text-dark-default)',
-        disabled: 'var(--shade-text-dark-disabled)',
+        default: 'var(--primary-text-dark-default)',
+        hover: 'var(--primary-text-dark-hover)',
+        disabled: 'var(--primary-text-dark-disabled)',
       },
       medium: {
-        default: 'var(--shade-text-medium-default)',
+        default: 'var(--primary-text-medium-default)',
       },
       light: {
-        default: 'var(--shade-text-light-default)',
-        disabled: 'var(--shade-text-light-disabled)',
+        default: 'var(--primary-text-light-default)',
       },
       white: {
-        default: 'var(--shade-text-white-default)',
+        default: 'var(--primary-text-white-default)',
+        hover: 'var(--primary-text-white-hover)',
+        disabled: 'var(--primary-text-white-disabled)',
       },
     },
 
     background: {
       dark: {
-        default: 'var(--shade-background-dark-default)',
-        hover: 'var(--shade-background-dark-hover)',
-        disabled: 'var(--shade-background-dark-disabled)',
+        default: 'var(--primary-background-dark-default)',
+        hover: 'var(--primary-background-dark-hover)',
+        disabled: 'var(--primary-background-dark-disabled)',
       },
       medium: {
-        default: 'var(--shade-background-medium-default)',
-        disabled: 'var(--shade-background-medium-disabled)',
+        default: 'var(--primary-background-medium-default)',
       },
       light: {
-        default: 'var(--shade-background-light-default)',
+        default: 'var(--primary-background-light-default)',
       },
       white: {
-        default: 'var(--shade-background-white-default)',
-        hover: 'var(--shade-background-white-hover)',
-        disabled: 'var(--shade-background-white-disabled)',
+        default: 'var(--primary-background-white-default)',
+        hover: 'var(--primary-background-white-hover)',
+        disabled: 'var(--primary-background-white-disabled)',
       },
     },
 
     border: {
       dark: {
-        default: 'var(--shade-border-dark-default)',
-        hover: 'var(--shade-border-dark-hover)',
-        disabled: 'var(--shade-border-dark-disabled)',
-      },
-      medium: {
-        default: 'var(--shade-border-medium-default)',
-        disabled: 'var(--shade-border-medium-disabled)',
-      },
-      light: {
-        default: 'var(--shade-border-light-default)',
-      },
-      white: {
-        default: 'var(--shade-border-white-default)',
-        hover: 'var(--shade-border-white-hover)',
-        disabled: 'var(--shade-border-white-disabled)',
+        default: 'var(--primary-border-dark-default)',
+        hover: 'var(--primary-border-dark-hover)',
+        disabled: 'var(--primary-border-dark-disabled)',
       },
     },
 
     icon: {
       dark: {
-        default: 'var(--shade-icon-dark-default)',
-        disabled: 'var(--shade-icon-dark-disabled)',
-      },
-      medium: {
-        default: 'var(--shade-icon-medium-default)',
-      },
-      light: {
-        default: 'var(--shade-icon-light-default)',
+        default: 'var(--primary-icon-dark-default)',
+        hover: 'var(--primary-icon-dark-hover)',
+        disabled: 'var(--primary-icon-dark-disabled)',
       },
       white: {
-        default: 'var(--shade-icon-white-default)',
+        default: 'var(--primary-icon-white-default)',
+        hover: 'var(--primary-icon-white-hover)',
+        disabled: 'var(--primary-icon-white-disabled)',
       },
     },
   },
@@ -171,12 +158,32 @@ const colors = {
     border: {
       dark: {
         default: 'var(--secondary-background-dark-default)',
-        disabled: 'var(--secondary-background-dark-disabled)',
       },
     },
   },
   // TODO
-  negative: {},
+  negative: {
+    text: {
+      medium: {
+        default: 'var(--negative-text-medium-default)',
+      },
+    },
+    background: {
+      light: {
+        default: 'var(--negative-background-light-default)',
+      },
+    },
+    border: {
+      medium: {
+        default: 'var(--negative-background-medium-default)',
+      },
+    },
+    icon: {
+      medium: {
+        default: 'var(--negative-icon-medium-default)',
+      },
+    },
+  },
 }
 
 const fontSizes = {
@@ -226,24 +233,26 @@ const fontSizes = {
 
 module.exports = {
   important: true,
-  purge: [
-    './components/**/*.{js,ts,jsx,tsx}',
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './src/**/*.{js,ts,jsx,tsx}',
-  ],
   theme: {
     textColor: {
       shade: colors.shade.text,
       primary: colors.primary.text,
       secondary: colors.secondary.text,
+      negative: colors.negative.text,
     },
     backgroundColor: {
+      transparent: 'transparent',
       shade: colors.shade.background,
+      primary: colors.primary.background,
       secondary: colors.secondary.background,
+      negative: colors.negative.background,
     },
     borderColor: {
+      transparent: 'transparent',
       shade: colors.shade.border,
+      primary: colors.primary.border,
       secondary: colors.secondary.border,
+      negative: colors.negative.border,
     },
     fontSize: {
       xs: fontSizes.s,
@@ -364,10 +373,13 @@ module.exports = {
     },
   },
   variants: {
+    backgroundColor: ['hover', 'focus', 'disabled', 'checked', 'active'],
+    borderColor: ['hover', 'focus', 'focus-within', 'disabled'],
     borderWidth: ['hover', 'focus', 'checked'],
     boxShadow: ['hover', 'focus'],
     placeholderColor: ['focus', 'focus-within'],
     cursor: ['disabled'],
+    textColor: ['hover', 'focus', 'disabled'],
     opacity: ['hover', 'disabled'],
   },
 }

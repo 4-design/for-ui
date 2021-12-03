@@ -15,7 +15,7 @@ export const Divider: VFC<DividerProps> = ({ twin }) => {
       css={[
         css`
           &.MuiDivider-root {
-            ${tw`border border-low`}
+            ${tw`border border-shade-medium-default`}
             ${twin}
           }
         `,

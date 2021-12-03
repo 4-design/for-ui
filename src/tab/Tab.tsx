@@ -31,12 +31,12 @@ export const Tab: React.VFC<TabProps> = ({
             ${tw`focus:outline-none!`}
 
             > .MuiTab-wrapper {
-              ${tw`text-accent!`}
+              ${tw`text-primary-dark-default!`}
             }
           }
 
           > .MuiTab-wrapper {
-            ${tw`text-middle!`}
+            ${tw`text-shade-medium-default!`}
           }
         `,
         twin,

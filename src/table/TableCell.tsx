@@ -22,7 +22,7 @@ export const TableCell: React.VFC<TableCellProps> = ({
       {component === 'td' ? (
         <td
           key={key}
-          css={[tw`p-3 font-medium text-left text-high`, twin]}
+          css={[tw`p-3 font-medium text-left text-shade-dark-default`, twin]}
           {...rest}
         >
           {children}
@@ -30,7 +30,7 @@ export const TableCell: React.VFC<TableCellProps> = ({
       ) : (
         <th
           key={key}
-          css={[tw`p-3 font-medium text-left text-high`, twin]}
+          css={[tw`p-3 font-medium text-left text-shade-dark-default`, twin]}
           {...rest}
         >
           {children}

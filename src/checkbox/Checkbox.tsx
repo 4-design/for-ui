@@ -20,14 +20,14 @@ export const Checkbox: React.VFC<CheckboxProps> = ({ label, ...rest }) => {
           css={[
             css`
               &.MuiCheckbox-root {
-                ${tw`(text-accent hover:bg-primary-bg)!`}
+                ${tw`(text-primary-dark-default hover:bg-primary-white-default)!`}
 
                 &.Mui-checked > span path {
-                  ${tw`text-accent!`}
+                  ${tw`text-primary-dark-default!`}
                 }
 
                 &.Mui-disabled > span path {
-                  ${tw`text-disabled!`}
+                  ${tw`text-shade-dark-disabled!`}
                 }
               }
             `,

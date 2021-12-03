@@ -28,7 +28,7 @@ export const Dropzone: React.VFC<DropzoneProps> = ({
     <div
       {...getRootProps()}
       css={[
-        tw`flex justify-center w-auto p-8 border border-dotted cursor-pointer border-middle`,
+        tw`flex justify-center w-auto p-8 border border-dotted cursor-pointer border-shade-medium-default`,
         twin,
       ]}
     >
@@ -50,9 +50,9 @@ export const Dropzone: React.VFC<DropzoneProps> = ({
           ))}
         </div>
       ) : (
-        <div tw="w-full flex flex-col items-center text-middle">
+        <div tw="w-full flex flex-col items-center text-shade-medium-default">
           <MdFileUpload size={48} tw="mb-3" />
-          <p tw="text-middle">{message}</p>
+          <p tw="text-shade-medium-default">{message}</p>
         </div>
       )}
     </div>

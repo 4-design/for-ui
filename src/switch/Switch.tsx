@@ -26,11 +26,11 @@ export const Switch: VFC<SwitchProps> = ({
           css={[
             css`
               & .MuiSwitch-switchBase.Mui-checked {
-                ${tw`text-accent hover:bg-primary-main`}
+                ${tw`text-primary-dark-default hover:bg-primary-dark-default`}
               }
 
               & .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
-                ${tw`bg-primary-main`}
+                ${tw`bg-primary-dark-default`}
               }
             `,
             twin,

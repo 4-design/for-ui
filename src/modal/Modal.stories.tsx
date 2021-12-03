@@ -35,7 +35,7 @@ export const ModalDefault = (): JSX.Element => {
         <Modal open={showModal} onClose={() => setShowModal(false)}>
           <ModalHeader>本当に削除してよろしいですか？</ModalHeader>
           <ModalContent>
-            <p tw="text-sm leading-5 text-high">
+            <p tw="text-sm leading-5 text-shade-dark-default">
               アカウントを無効にしてもよろしいですか？すべてのデータは完全に削除されます。このアクションは元に戻せません。
             </p>
           </ModalContent>

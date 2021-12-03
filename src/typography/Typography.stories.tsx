@@ -67,10 +67,10 @@ Sizes.parameters = {
         <Subtitle>Sizes - タイポグラフィのサイズに関するドキュメント</Subtitle>
         <Description
           markdown={`
-3design-uiでは5サイズのTypographyを使い分けています。  
-それぞれ \`text-xs\` \`text-s\` \`text-r\` \`text-xr\` \`text-l\` \`text-xl\` となっており，\`tailwind.config.cjs\` で設定されているため，\`className\`や\`tw\` propsを使って使うことができます。  
-一般的なテキストは\`text-r\`を使うことが想定されています。  
-Cardのタイトルのように\`text-r\`を含むエリアのタイトルにはそれより少し大きな\`text-l\` (またはカード間のヒエラルキーを表現する場合は \`text-xr\`) を，さらにページ全体のタイトルのようなものには \`text-xl\`を使うことを想定しています。  
+3design-uiでは5サイズのTypographyを使い分けています。
+それぞれ \`text-xs\` \`text-s\` \`text-r\` \`text-xr\` \`text-l\` \`text-xl\` となっており，\`tailwind.config.cjs\` で設定されているため，\`className\`や\`tw\` propsを使って使うことができます。
+一般的なテキストは\`text-r\`を使うことが想定されています。
+Cardのタイトルのように\`text-r\`を含むエリアのタイトルにはそれより少し大きな\`text-l\` (またはカード間のヒエラルキーを表現する場合は \`text-xr\`) を，さらにページ全体のタイトルのようなものには \`text-xl\`を使うことを想定しています。
 またそれより小さな，アノテーションのようなテキストには \`text-xs\` を使うことを想定しています。
 
 \`text-s\`と\`text-r\`，及び\`text-s\`と\`text-xs\`について，それぞれお互いの大きさが十分に異なるようには設計されていません。これが何を意味するかと言うと，例えば見出しに\`text-r\`をつかって本文に\`text-s\`を使うだけでは，従属関係の表現が十分ではありません。
@@ -78,7 +78,7 @@ Cardのタイトルのように\`text-r\`を含むエリアのタイトルには
 
 ## デザインの背景
 
-なぜ6種類のみなのかというと，多すぎるサイズの設定はデザインの一貫性を崩してしまい，ページごとに同じレベルの重要度で表示されるべきものがデザイナーや実装者で異なってしまう可能性があるためです。  
+なぜ6種類のみなのかというと，多すぎるサイズの設定はデザインの一貫性を崩してしまい，ページごとに同じレベルの重要度で表示されるべきものがデザイナーや実装者で異なってしまう可能性があるためです。
 これをできるだけ防ぐため，この5種類のみを設定する制約を定めています。
 
 ## 設定値
@@ -116,15 +116,15 @@ Cardのタイトルのように\`text-r\`を含むエリアのタイトルには
 }
 
 const colors = {
-  'text-high': tw`text-high`,
-  'text-middle': tw`text-middle`,
+  'text-shade-dark-default': tw`text-shade-dark-default`,
+  'text-shade-medium-default': tw`text-shade-medium-default`,
   'text-low': tw`text-low`,
-  'text-disabled': tw`text-disabled`,
-  'text-accent': tw`text-accent`,
-  'text-accent-dark': tw`text-accent-dark`,
-  'text-error': tw`text-error`,
+  'text-shade-dark-disabled': tw`text-shade-dark-disabled`,
+  'text-primary-dark-default': tw`text-primary-dark-default`,
+  'text-primary-dark-default-dark': tw`text-primary-dark-default-dark`,
+  'text-negative-medium-default': tw`text-negative-medium-default`,
   'text-info': tw`text-info`,
-  'text-white': tw`text-white`,
+  'text-primary-white-default': tw`text-primary-white-default`,
 }
 
 export const Colors = (): JSX.Element => {
@@ -171,15 +171,15 @@ ${Object.keys(colors)
           markdown={`
 Typographyと色は厳密には切り離された概念ですが，ここでは便宜上テキストの色としてこのセクションにドキュメントを含めます。
 
-Typographyのサイズと同じく，どの部分を目立たせるかはよく考えて使用する必要があります。大きく異なるのはサイズは \`text-r\` という中ほどの大きさが普通の状態であるのに対して，カラーはデフォルトが \`text-high\` です。
+Typographyのサイズと同じく，どの部分を目立たせるかはよく考えて使用する必要があります。大きく異なるのはサイズは \`text-r\` という中ほどの大きさが普通の状態であるのに対して，カラーはデフォルトが \`text-shade-dark-default\` です。
 これが何を意味するかと言うと，通常の色が濃く，それより情報量を落としたい部分で薄い色を使うという，少し高度な技術が求められるということです。
 
-もしエラー表現などでない場面でただのテキストを \`text-high\` より目立たせたければ，唯一の方法は \`text-accent\` を使うことです。
-そのため，あるページを開いたときに \`text-accent\` で表示されているテキストは，本当に重要な部分であることを示すことができます。言い換えれば，そうしなければならず，最大でも4箇所ほどが望ましいでしょう。
-また \`text-accent\` はユーザーが操作可能な，何らかの反応がある部分としての表示色の役割を持っています。この原則を保つため，なるべく強調したいテキストは \`font-bold\` を用いた表現に留めるのがよいです。
+もしエラー表現などでない場面でただのテキストを \`text-shade-dark-default\` より目立たせたければ，唯一の方法は \`text-primary-dark-default\` を使うことです。
+そのため，あるページを開いたときに \`text-primary-dark-default\` で表示されているテキストは，本当に重要な部分であることを示すことができます。言い換えれば，そうしなければならず，最大でも4箇所ほどが望ましいでしょう。
+また \`text-primary-dark-default\` はユーザーが操作可能な，何らかの反応がある部分としての表示色の役割を持っています。この原則を保つため，なるべく強調したいテキストは \`font-bold\` を用いた表現に留めるのがよいです。
 
-意味を持たない色として，一般的なテキストには \`text-high\` と \`text-middle\` と \`text-low\` を用います。これらは伝えたい情報の重さによって使い分けてください。
-この使い分けは「意味を持たない色」であるのでさほど厳密ではありませんが，ページ間で統一することは必要です。例えばあるページではtop-levelのCardのタイトルが \`text-high\` なのに，またあるページでは \`text-low\` である，このようなことは避けるべきです。
+意味を持たない色として，一般的なテキストには \`text-shade-dark-default\` と \`text-shade-medium-default\` と \`text-low\` を用います。これらは伝えたい情報の重さによって使い分けてください。
+この使い分けは「意味を持たない色」であるのでさほど厳密ではありませんが，ページ間で統一することは必要です。例えばあるページではtop-levelのCardのタイトルが \`text-shade-dark-default\` なのに，またあるページでは \`text-low\` である，このようなことは避けるべきです。
         `}
         />
         <Source />

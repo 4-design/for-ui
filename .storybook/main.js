@@ -4,6 +4,8 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-backgrounds',
+    '@hover/storybook-addon-pseudo-states',
+    'storybook-addon-outline',
     {
       name: '@storybook/addon-postcss',
       options: {

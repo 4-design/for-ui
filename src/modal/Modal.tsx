@@ -59,7 +59,7 @@ export const Modal: React.VFC<ModalProps> = ({
       <div css={[tw`flex justify-center min-h-screen`]}>
         <div
           css={[
-            tw`flex flex-col py-4 m-auto text-left break-all transition-all transform bg-white shadow-xl rounded-modal sm:align-middle`,
+            tw`flex flex-col py-4 m-auto text-left break-all transition-all transform bg-shade-white-default shadow-xl rounded-modal sm:align-middle`,
             twin,
           ]}
         >

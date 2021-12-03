@@ -21,6 +21,7 @@ export const Badge: React.VFC<Props> = ({
       css={[
         css`
           ${tw`text-shade-dark-default`}
+
           & .MuiBadge-badge {
             ${tw`text-shade-dark-default`}
           }

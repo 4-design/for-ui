@@ -17,15 +17,15 @@ export const Radio: React.VFC<RadioProps> = ({ label, value, disabled }) => {
       value={value}
       label={label}
       control={
-        <MuiRadio tw="(text-primary-main border-primary-main disabled:text-gray-disabled)!" />
+        <MuiRadio tw="(text-primary-dark-default border-primary-dark-default disabled:text-primary-dark-disabled)!" />
       }
       css={[
         css`
           & .MuiFormControlLabel-label {
-            ${tw`text-high!`}
+            ${tw`text-shade-dark-default!`}
 
             &.Mui-disabled {
-              ${tw`text-disabled!`}
+              ${tw`text-shade-dark-disabled!`}
             }
           }
         `,

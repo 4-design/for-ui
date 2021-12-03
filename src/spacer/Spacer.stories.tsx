@@ -33,7 +33,7 @@ export const Constraints = () => {
       {Object.entries(spacers).map(([k, v]) => (
         <Fragment key={k}>
           <Text variant="caption">{k}</Text>
-          <div css={[v, tw`bg-primary-main`]} />
+          <div css={[v, tw`bg-primary-dark-default`]} />
         </Fragment>
       ))}
     </Fragment>
