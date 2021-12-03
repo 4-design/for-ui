@@ -40,9 +40,9 @@
   "dependencies": {
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
-    "@mui/lab": "5.0.0-alpha.57",
-    "@mui/material": "5.2.1",
-    "@mui/styles": "5.2.1",
+    "@mui/lab": "5.0.0-alpha.58",
+    "@mui/material": "5.2.2",
+    "@mui/styles": "5.2.2",
     "react-detect-offline": "^2.4.3",
     "react-dropzone": "^11.3.2",
     "react-icons": "4.3.1",
@@ -65,15 +65,15 @@
     "@rollup/plugin-commonjs": "21.0.1",
     "@rollup/plugin-node-resolve": "13.0.6",
     "@rollup/plugin-replace": "3.0.0",
-    "@storybook/addon-actions": "6.3.12",
-    "@storybook/addon-backgrounds": "6.3.12",
-    "@storybook/addon-essentials": "6.3.12",
-    "@storybook/addon-links": "6.3.12",
+    "@storybook/addon-actions": "6.4.3",
+    "@storybook/addon-backgrounds": "6.4.3",
+    "@storybook/addon-essentials": "6.4.3",
+    "@storybook/addon-links": "6.4.3",
     "@storybook/addon-postcss": "2.0.0",
-    "@storybook/react": "6.3.12",
+    "@storybook/react": "6.4.3",
     "@types/react-table": "7.7.8",
-    "@typescript-eslint/eslint-plugin": "5.4.0",
-    "@typescript-eslint/parser": "5.4.0",
+    "@typescript-eslint/eslint-plugin": "5.5.0",
+    "@typescript-eslint/parser": "5.5.0",
     "autoprefixer": "10.4.0",
     "eslint": "8.3.0",
     "eslint-config-prettier": "8.3.0",
@@ -90,8 +90,8 @@
     "prettier": "2.5.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-hook-form": "7.20.4",
-    "rollup": "2.60.0",
+    "react-hook-form": "7.20.5",
+    "rollup": "2.60.2",
     "rollup-config-analyzer": "2.2.0",
     "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-filesize": "9.1.1",
@@ -128,6 +128,6 @@
     }
   },
   "volta": {
-    "node": "14.18.1"
+    "node": "14.18.2"
   }
 }
