@@ -36,7 +36,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: run bundlewatch
-        run: yarn run bundlewatch
+        run: yarn build && yarn run bundlewatch
         env:
           CI_REPO_OWNER: 3-shake
           CI_REPO_NAME: 3design-ui
