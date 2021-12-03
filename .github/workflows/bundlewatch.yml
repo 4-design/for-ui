@@ -1,0 +1,44 @@
+name: Check for Eslint
+on: [pull_request]
+
+jobs:
+  eslint:
+    name: runner / eslint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # yarn cache files are stored in `~/.cache/yarn` on Linux/macOS
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-${{ env.cache-name }}-
+            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          always-auth: true
+          node-version: 12.x
+          registry-url: 'https://npm.pkg.github.com'
+      # https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-nodejs#example-using-a-private-registry-and-creating-the-npmrc-file
+
+      - name: Install dependencies
+        run: yarn install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: run bundlewatch
+        run: yarn run bundlewatch
+        env:
+          CI_REPO_OWNER: 3-shake
+          CI_REPO_NAME: 3design-ui
+          CI_COMMIT_SHA: ${{ secrets.GITHUB_TOKEN }}
+          CI_BRANCH: ${{ github.sha }}
