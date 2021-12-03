@@ -18,6 +18,12 @@ module.exports = {
       },
     },
   ],
+  babel: async (options) => {
+    options.plugins.unshift('babel-plugin-twin')
+    options.presets.push('@emotion/babel-preset-css-prop')
+    return options
+  },
+
   webpackFinal: async (config) => {
     return {
       ...config,
