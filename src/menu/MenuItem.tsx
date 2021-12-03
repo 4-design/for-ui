@@ -16,8 +16,8 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
       <MuiMenuItem
         css={[
           css`
-            ${tw`
-            (block px-3 py-3 text-base text-shade-dark-default bg-shade-white-default whitespace-nowrap
+            ${tw`(font-sans pl-6 pr-12 py-2 text-r
+            text-shade-dark-default bg-shade-white-default whitespace-nowrap
             hover:bg-shade-white-hover)!`}
           `,
           twin,
