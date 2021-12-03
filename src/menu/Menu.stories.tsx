@@ -1,8 +1,9 @@
 import React from 'react'
 import { Meta } from '@storybook/react/types-6-0'
-import tw from 'twin.macro'
 
+import 'twin.macro'
 import { Button } from '../button/Button'
+import { Text } from '../typography/Typography'
 import { Menu } from './Menu'
 import { MenuItem } from './MenuItem'
 
@@ -22,7 +23,7 @@ export default {
   ],
 } as Meta
 
-export const Basic = () => {
+export const Base = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const toggle = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(anchorEl ? null : event.currentTarget)
@@ -34,14 +35,17 @@ export const Basic = () => {
   const open = Boolean(anchorEl)
 
   return (
-    <>
-      <div tw="flex flex-row gap-4">
+    <div tw="flex flex-col gap-8">
+      <div tw="border-b mb-4">
+        <Text variant="h3">Button/Contained/Large</Text>
+      </div>
+
+      <div>
         <Button
           id="demo-positioned-button"
           aria-controls="demo-positioned-menu"
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
-          twin={[tw`left-64`]}
           variant="contained"
           color="primary"
           onClick={toggle}
@@ -49,24 +53,18 @@ export const Basic = () => {
           プロジェクト
         </Button>
 
-        <Menu
-          id="demo-positioned-menu"
-          aria-labelledby="demo-positioned-button"
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-        >
+        <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
           <MenuItem>
-            <a href="#">プロフィールAAAAAAAAAAAAAAAAAAAAAA</a>
+            <a href="#">プロフィール</a>
           </MenuItem>
           <MenuItem>
-            <a href="#">プロフィールAAAAAAAAAAAAAAAAAAAAAA</a>
+            <a href="#">設定</a>
           </MenuItem>
           <MenuItem>
             <a href="#">プロフィール</a>
           </MenuItem>
         </Menu>
       </div>
-    </>
+    </div>
   )
 }

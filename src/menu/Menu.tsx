@@ -32,7 +32,15 @@ export const Menu: React.VFC<MenuProps> = ({
       css={[
         css`
           & .MuiMenu-paper {
-            ${tw`(z-modal py-2 min-w-min rounded-2xl shadow-main transform translate-y-4)!`}
+            ${tw`(z-modal py-1 min-w-min rounded-[4px] shadow-menu transform translate-y-2)!`}
+          }
+
+          & .MuiMenu-list {
+            ${tw`divide-y! divide-shade-light-default!`}
+
+            > .MuiMenuItem-root {
+              ${tw`border-solid!`}
+            }
           }
 
           & .MuiList-padding {
