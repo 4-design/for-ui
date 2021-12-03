@@ -1,3 +1,27 @@
+# [2.0.0-alpha.0](https://github.com/3-shake/3design-ui/compare/v1.7.1...v2.0.0-alpha.0) (2021-12-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @mui/lab to v5.0.0-alpha.55 ([#285](https://github.com/3-shake/3design-ui/issues/285)) ([77de926](https://github.com/3-shake/3design-ui/commit/77de926c4e1220a5b335ade1a90a81fd3e7d9acf))
+* **deps:** update material-ui monorepo ([#292](https://github.com/3-shake/3design-ui/issues/292)) ([24ef3a8](https://github.com/3-shake/3design-ui/commit/24ef3a85e841a3e5893ca2ffd4162f35d5c7fdae))
+* **deps:** update material-ui monorepo ([#298](https://github.com/3-shake/3design-ui/issues/298)) ([7a1f11f](https://github.com/3-shake/3design-ui/commit/7a1f11f92c589e4f8d9c173b5c55d6572aefb973))
+* Mui アップグレード ([#283](https://github.com/3-shake/3design-ui/issues/283)) ([050b2d9](https://github.com/3-shake/3design-ui/commit/050b2d9ce1a75b0e1369f3496db9bfada3dea734))
+
+
+### Features
+
+* Modal デザイン調整 ([#306](https://github.com/3-shake/3design-ui/issues/306)) ([3f7fcdf](https://github.com/3-shake/3design-ui/commit/3f7fcdfd396bfe040793aeb442967127f7ff3a07))
+* New mui/material ([51238d0](https://github.com/3-shake/3design-ui/commit/51238d0a8fcc86a8630e46f0f2807364fca27de2))
+* v2 Checkbox 実装 ([#312](https://github.com/3-shake/3design-ui/issues/312)) ([1fc2a8a](https://github.com/3-shake/3design-ui/commit/1fc2a8a44c783f8fe77777430a4543284122677e))
+* v2 Chip 実装 ([#309](https://github.com/3-shake/3design-ui/issues/309)) ([2e7e42a](https://github.com/3-shake/3design-ui/commit/2e7e42aae1a673bdd71dc9e1d4c0cf9ba1b19be3))
+* v2 Dropzone 実装 ([#310](https://github.com/3-shake/3design-ui/issues/310)) ([208614c](https://github.com/3-shake/3design-ui/commit/208614c1b608e775c3faf29e19c84b90ec63b0e3))
+* v2 Menu 実装 ([#308](https://github.com/3-shake/3design-ui/issues/308)) ([c667155](https://github.com/3-shake/3design-ui/commit/c667155e5c0ba60bb3ef3dfcdcbb1ced90e8c227))
+* V2 mui upgrade ([#304](https://github.com/3-shake/3design-ui/issues/304)) ([5a94ca4](https://github.com/3-shake/3design-ui/commit/5a94ca4a6a7b7fe7d280e075e77f2945cfd60e1f))
+* v2 Radio 実装 ([#311](https://github.com/3-shake/3design-ui/issues/311)) ([42e6582](https://github.com/3-shake/3design-ui/commit/42e6582aff4b3565af18f2cd64c00bfd15a35bea))
+
+
+
 ## [1.7.2](https://github.com/3-shake/3design-ui/compare/v1.7.1...v1.7.2) (2021-10-06)
 
 
