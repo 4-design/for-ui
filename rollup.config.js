@@ -40,7 +40,7 @@ const plugins = [
     extensions,
   }),
   commonjs(),
-  filesize(),
+  // filesize(),
   peerDepsExternal(),
   terser(),
   replace({

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Meta } from '@storybook/react/types-6-0'
 
+import 'twin.macro'
+import { Text } from '../typography/Typography'
 import { Radio } from './Radio'
 import { RadioGroup } from './RadioGroup'
 
@@ -20,32 +22,37 @@ export default {
   },
 } as Meta
 
-export const Basic = (): JSX.Element => {
+export const Base = (): JSX.Element => {
   const handleRadioChange = (e) => {
     console.log(e.target.value)
   }
 
   return (
-    <>
-      <div tw="flex flex-row gap-4">
+    <div tw="flex flex-col gap-8">
+      <div tw="border-b mb-4">
+        <Text variant="h3">Radio</Text>
+      </div>
+
+      <div>
         <RadioGroup required label="サービス名" onChange={handleRadioChange}>
           <Radio label="Relance" value="relance" />
           <Radio label="Sreake Sonar" value="sreake-sonar" />
           <Radio label="Reckoner" value="reckoner" disabled />
         </RadioGroup>
       </div>
-    </>
+
+      <div>
+        <RadioGroup
+          required
+          label="サービス名"
+          onChange={handleRadioChange}
+          error="必須項目です"
+        >
+          <Radio label="Relance" value="relance" />
+          <Radio label="Sreake Sonar" value="sreake-sonar" />
+          <Radio label="Reckoner" value="reckoner" disabled />
+        </RadioGroup>
+      </div>
+    </div>
   )
 }
-
-export const error = () => (
-  <>
-    <div tw="flex flex-row gap-4">
-      <RadioGroup label="サービス名" error="エラーを表示します">
-        <Radio label="Relance" value="relance" />
-        <Radio label="Sreake Sonar" value="sreake-sonar" />
-        <Radio label="Reckoner" value="reckoner" />
-      </RadioGroup>
-    </div>
-  </>
-)
