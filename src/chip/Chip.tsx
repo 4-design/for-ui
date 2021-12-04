@@ -1,4 +1,4 @@
-import { VFC } from 'react'
+import React, { VFC } from 'react'
 import MuiChip, { ChipProps as MuiChipProps } from '@mui/material/Chip'
 import tw, { css, TwStyle } from 'twin.macro'
 

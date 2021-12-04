@@ -23,8 +23,15 @@ module.exports = {
     options.presets.push('@emotion/babel-preset-css-prop')
     return options
   },
-
   webpackFinal: async (config) => {
+    config.module.rules[0].use[0].options.presets = [
+      require.resolve('@babel/preset-react'),
+      require.resolve('@babel/preset-env'),
+      // Emotion preset must run BEFORE reacts preset to properly convert css-prop.
+      // Babel preset-ordering runs reversed (from last to first). Emotion has to be after React preset.
+      require.resolve('@emotion/babel-preset-css-prop'),
+    ]
+
     return {
       ...config,
       resolve: {
