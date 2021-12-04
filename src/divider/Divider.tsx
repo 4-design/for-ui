@@ -1,4 +1,4 @@
-import { VFC } from 'react'
+import React, { VFC } from 'react'
 import MuiDivider, {
   DividerProps as MuiDividerProps,
 } from '@mui/material/Divider'

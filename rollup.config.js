@@ -3,8 +3,6 @@ import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
 import autoprefixer from 'autoprefixer'
-import analyze from 'rollup-plugin-analyzer'
-import filesize from 'rollup-plugin-filesize'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
 import { terser } from 'rollup-plugin-terser'
@@ -22,6 +20,14 @@ const extensions = ['.ts', '.tsx']
 const EXTERNAL = ['react', 'react-dom', 'prop-types']
 
 const CJS_AND_ES_EXTERNALS = EXTERNAL.concat(/@babel\/runtime/)
+
+const externalPackages = [
+  ...Object.keys(pkg.dependencies || {}),
+  ...Object.keys(pkg.peerDependencies || {}),
+]
+const regexesOfPackages = externalPackages.map(
+  (packageName) => new RegExp(`^${packageName}(\/.*)?`)
+)
 
 const plugins = [
   postcss({
@@ -73,11 +79,15 @@ const config = OUTPUT_DATA.map(({ format, dir }) => ({
   output: {
     name: '3-design',
     preserveModules: true,
+    preserveModulesRoot: 'src',
+    exports: 'named',
+    sourcemap: true,
     dir,
     format,
     globals,
   },
-  external: ['cjs', 'es'].includes(format) ? CJS_AND_ES_EXTERNALS : EXTERNAL,
+  external: regexesOfPackages,
+
   plugins,
 }))
 
