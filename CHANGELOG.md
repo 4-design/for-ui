@@ -1,3 +1,12 @@
+# [2.0.0-alpha.1](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2021-12-04)
+
+
+### Bug Fixes
+
+* package用に修正 ([#314](https://github.com/3-shake/3design-ui/issues/314)) ([afca530](https://github.com/3-shake/3design-ui/commit/afca530b00a7c58f0e1c8cba9ce212677dd9ae07))
+
+
+
 # [2.0.0-alpha.0](https://github.com/3-shake/3design-ui/compare/v1.7.1...v2.0.0-alpha.0) (2021-12-03)
 
 
