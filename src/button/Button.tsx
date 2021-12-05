@@ -58,7 +58,7 @@ export const Button: React.VFC<
   )
 
   return (
-    <LoadingButton
+      <LoadingButton
       type={type}
       variant={variant}
       startIcon={startIcon}
