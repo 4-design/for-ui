@@ -1,3 +1,12 @@
+# [2.0.0-alpha.4](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.3...v2.0.0-alpha.4) (2021-12-05)
+
+
+### Bug Fixes
+
+* **Sidebar:** next/link と相性が悪いため、a -> div に変更 ([#320](https://github.com/3-shake/3design-ui/issues/320)) ([b15e367](https://github.com/3-shake/3design-ui/commit/b15e3670ff112d8eadd44fb961f86a265269f168))
+
+
+
 # [2.0.0-alpha.3](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2021-12-05)
 
 
