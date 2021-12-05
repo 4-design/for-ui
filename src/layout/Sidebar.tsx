@@ -2,21 +2,17 @@ import React from 'react'
 import tw, { TwStyle, css, theme } from 'twin.macro'
 
 export type SidebarMenuItemProps = {
-  href: string
   icon: React.ReactNode
   label: string | React.ReactNode // NOTE: 一時的に文字列とコンポーネントを許容
   active?: boolean
 }
 
 export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
-  href,
   icon,
   label,
   active = false,
 }) => (
-  <a
-    href={href}
-    className="group"
+  <div
     css={[
       tw`flex items-center mx-4 px-2 py-3 text-r font-medium transition duration-300 ease-in-out rounded-lg cursor-pointer text-shade-medium-default hover:text-primary-white-default`,
       css`
@@ -37,7 +33,7 @@ export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
   >
     {icon}
     {label}
-  </a>
+  </div>
 )
 
 export type SidebarMenuProps = {
