@@ -29,6 +29,7 @@
     "build:js": "cp ./react-table-index.js ./node_modules/react-table/index.js && NODE_ENV=production rollup -c",
     "build:js:watch": "NODE_ENV=production rollup -c --watch",
     "build": "yarn build:types && yarn build:js",
+    "eslint": "eslint . --ext .ts,.js,.tsx,.jsx,.cjs -c .eslintrc.js  --ignore-pattern '**/__test*__/*' .",
     "lint": "eslint --ext .ts,.tsx,.cjs --ignore-pattern '**/__test*__/*' .",
     "lint-fix": "eslint --fix --ext .ts,.tsx,.cjs --ignore-pattern '**/__test*__/*' .",
     "storybook": "rm -rf node_modules/.cache/storybook && start-storybook --no-manager-cache -p 6006 -s public",
