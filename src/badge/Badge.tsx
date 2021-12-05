@@ -15,7 +15,7 @@ export const Badge: React.VFC<Props> = ({
   ...rest
 }) => {
   return (
-      <MuiBadge
+    <MuiBadge
       badgeContent={badgeContent}
       color="primary"
       css={[
