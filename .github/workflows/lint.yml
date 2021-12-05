@@ -27,12 +27,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: install
-        run: yarn --check-files --frozen-lockfile --non-interactive
-        working-directory: '.'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: run eslint
         uses: reviewdog/action-eslint@v1
         with:
