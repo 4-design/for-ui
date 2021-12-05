@@ -1,3 +1,12 @@
+# [2.0.0-alpha.3](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2021-12-05)
+
+
+### Features
+
+* v2 Header 実装 ([#318](https://github.com/3-shake/3design-ui/issues/318)) ([feab6ad](https://github.com/3-shake/3design-ui/commit/feab6ad99c7c50e9f9ea1051a6d23b42060177b1))
+
+
+
 # [2.0.0-alpha.2](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2021-12-05)
 
 
