@@ -3,7 +3,7 @@ on: [pull_request]
 
 jobs:
   eslint:
-    name: runner / bundlewatch
+    name: runner / eslint
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -26,6 +26,7 @@ jobs:
       - name: eslint
         uses: reviewdog/action-eslint@v1
         with:
+          fail_on_error: true
           reporter: github-pr-review # Change reporter.
-          eslint_flags: ' . --ext .ts,.js,.tsx,.jsx,.cjs'
+          eslint_flags: '. --ext .ts,.js,.tsx,.jsx,.cjs -c .eslintrc.js'
           github_token: ${{ github.token }}
