@@ -1,0 +1,35 @@
+name: Check for Lint
+on: [pull_request]
+
+jobs:
+  lint:
+    name: runner / lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: cache node_modules
+        id: node_modules_cache_id
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+
+      - name: install
+        run: yarn --check-files --frozen-lockfile --non-interactive
+        working-directory: '.'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: run eslint
+        uses: reviewdog/action-eslint@v1
+        with:
+          fail_on_error: true
+          reporter: github-pr-review # Change reporter.
+          eslint_flags: '. --ext .ts,.js,.tsx,.jsx,.cjs -c .eslintrc.js'
+          github_token: ${{ github.token }}
+
+      - name: run prettier
+        run: yarn lint
