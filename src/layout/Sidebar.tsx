@@ -1,5 +1,5 @@
 import React from 'react'
-import tw, { css } from 'twin.macro'
+import tw, { css, theme } from 'twin.macro'
 
 export type SidebarMenuItemProps = {
   href: string
@@ -18,13 +18,21 @@ export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
     href={href}
     className="group"
     css={[
-      tw`flex items-center h-10 pl-6 text-base font-medium transition duration-300 ease-in-out rounded-md cursor-pointer text-shade-medium-default hover:text-primary-dark-default`,
+      tw`flex items-center h-10 mx-4 pl-2 py-3 text-r font-medium transition duration-300 ease-in-out rounded-lg cursor-pointer text-shade-medium-default hover:text-primary-white-default`,
       css`
         & > svg {
           ${tw`w-6 h-6 mr-4`}
         }
+
+        &:hover {
+          ${tw`text-primary-white-default`}
+        }
       `,
-      active && tw`text-primary-dark-default`,
+      active &&
+        css`
+          background-color: ${theme('borderColor.shade.medium.active')};
+          ${tw`text-primary-white-default`}
+        `,
     ]}
   >
     {icon}
@@ -32,15 +40,13 @@ export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
   </a>
 )
 
-export interface SidebarMenuProps {
+export type SidebarMenuProps = {
   children: React.ReactNode
 }
 
 export const SidebarMenu: React.FC<SidebarMenuProps> = ({ children }) => {
   return (
-    <div tw="flex flex-col flex-1 h-0 overflow-y-auto">
-      <nav>{children}</nav>
-    </div>
+    <nav tw="flex flex-col flex-1 h-0 overflow-y-auto gap-2">{children}</nav>
   )
 }
 
@@ -52,7 +58,7 @@ export interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({ logo, children }) => {
   return (
     <div tw="h-screen flex flex-shrink-0">
-      <div tw="flex flex-col w-64">
+      <div tw="flex flex-col w-64 bg-primary-dark-default">
         <div tw="flex flex-col flex-grow pb-4 overflow-y-auto">
           {logo}
           {children}

@@ -11,12 +11,21 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [
+    (Story) => (
+      <div tw="mt-10 flex flex-col h-screen w-screen gap-4">
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta
 
 const Logo = () => (
-  <div tw="flex items-center flex-shrink-0 px-6 h-20">
-    <img tw="w-auto h-9" src="/logo/relance.png" alt="logo" />
-  </div>
+  <a>
+    <div tw="flex pl-8 pt-8">
+      <img src="/logo/metis.png" width="145" height="42" alt="logo" />
+    </div>
+  </a>
 )
 
 export const SidebarTemplate = () => (
