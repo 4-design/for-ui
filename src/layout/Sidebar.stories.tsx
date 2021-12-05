@@ -32,20 +32,17 @@ export const SidebarTemplate = () => (
   <Sidebar logo={<Logo />}>
     <SidebarMenu>
       <SidebarMenuItem
-        href="/"
         icon={<MdHome size={24} />}
         label="ダッシュボード"
       />
 
       <SidebarMenuItem
-        href="/applicants"
         icon={<MdGroup size={24} />}
         label="候補者一覧"
         active
       />
 
       <SidebarMenuItem
-        href="/"
         icon={<MdHome size={24} />}
         label="ダッシュボード"
       />
