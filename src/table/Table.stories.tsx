@@ -58,7 +58,7 @@ const basicColumns: Array<Column<PersonData>> = [
   },
 ]
 
-export const basic: Story = () => (
+export const Base: Story = () => (
   <Table<PersonData> columns={basicColumns} data={makeData(1000)} />
 )
 
@@ -114,6 +114,6 @@ const withImageColumns: Array<Column<PersonData>> = [
   },
 ]
 
-export const withImage: Story = () => (
+export const WithImage: Story = () => (
   <Table<PersonData> columns={withImageColumns} data={makeData(1000)} />
 )

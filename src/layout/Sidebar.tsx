@@ -1,5 +1,5 @@
 import React from 'react'
-import tw, { css, theme } from 'twin.macro'
+import tw, { TwStyle, css, theme } from 'twin.macro'
 
 export type SidebarMenuItemProps = {
   href: string
@@ -18,10 +18,10 @@ export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
     href={href}
     className="group"
     css={[
-      tw`flex items-center h-10 mx-4 pl-2 py-3 text-r font-medium transition duration-300 ease-in-out rounded-lg cursor-pointer text-shade-medium-default hover:text-primary-white-default`,
+      tw`flex items-center mx-4 px-2 py-3 text-r font-medium transition duration-300 ease-in-out rounded-lg cursor-pointer text-shade-medium-default hover:text-primary-white-default`,
       css`
         & > svg {
-          ${tw`w-6 h-6 mr-4`}
+          ${tw`mr-4`}
         }
 
         &:hover {
@@ -41,6 +41,7 @@ export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
 )
 
 export type SidebarMenuProps = {
+  twin?: TwStyle
   children: React.ReactNode
 }
 
@@ -50,7 +51,8 @@ export const SidebarMenu: React.FC<SidebarMenuProps> = ({ children }) => {
   )
 }
 
-export interface SidebarProps {
+export type SidebarProps = {
+  twin?: TwStyle
   logo: React.ReactNode
   children: React.ReactNode
 }
@@ -59,7 +61,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ logo, children }) => {
   return (
     <div tw="h-screen flex flex-shrink-0">
       <div tw="flex flex-col w-64 bg-primary-dark-default">
-        <div tw="flex flex-col flex-grow pb-4 overflow-y-auto">
+        <div tw="flex flex-col flex-grow overflow-y-auto">
           {logo}
           {children}
         </div>

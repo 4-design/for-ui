@@ -6,6 +6,7 @@ import tw from 'twin.macro'
 import { IconButton } from '../icon/Icon'
 import { MenuItem } from '../menu'
 import { Menu } from '../menu/Menu'
+import { Text } from '../typography/Typography'
 import { Header, HeaderLeft, HeaderRight } from './Header'
 
 export default {
@@ -21,7 +22,9 @@ const Template: Story = () => {
 
   return (
     <Header>
-      <HeaderLeft></HeaderLeft>
+      <HeaderLeft>
+        <Text variant="h3">SaaS一覧</Text>
+      </HeaderLeft>
       <HeaderRight>
         <>
           <IconButton twin={[tw`bg-shade-white-default`]}>
