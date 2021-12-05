@@ -31,21 +31,11 @@ const Logo = () => (
 export const SidebarTemplate = () => (
   <Sidebar logo={<Logo />}>
     <SidebarMenu>
-      <SidebarMenuItem
-        icon={<MdHome size={24} />}
-        label="ダッシュボード"
-      />
+      <SidebarMenuItem icon={<MdHome size={24} />} label="ダッシュボード" />
 
-      <SidebarMenuItem
-        icon={<MdGroup size={24} />}
-        label="候補者一覧"
-        active
-      />
+      <SidebarMenuItem icon={<MdGroup size={24} />} label="候補者一覧" active />
 
-      <SidebarMenuItem
-        icon={<MdHome size={24} />}
-        label="ダッシュボード"
-      />
+      <SidebarMenuItem icon={<MdHome size={24} />} label="ダッシュボード" />
     </SidebarMenu>
   </Sidebar>
 )
