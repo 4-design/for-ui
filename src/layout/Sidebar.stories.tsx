@@ -2,7 +2,7 @@ import React from 'react'
 import { Meta } from '@storybook/react/types-6-0'
 import 'twin.macro'
 
-import { MdHome, MdGroup, MdFolder } from 'react-icons/md'
+import { MdHome, MdGroup } from 'react-icons/md'
 import { Sidebar, SidebarMenu, SidebarMenuItem } from './Sidebar'
 
 export default {
@@ -31,16 +31,24 @@ const Logo = () => (
 export const SidebarTemplate = () => (
   <Sidebar logo={<Logo />}>
     <SidebarMenu>
-      <SidebarMenuItem href="/" icon={<MdHome />} label="ダッシュボード" />
+      <SidebarMenuItem
+        href="/"
+        icon={<MdHome size={24} />}
+        label="ダッシュボード"
+      />
 
       <SidebarMenuItem
         href="/applicants"
-        icon={<MdGroup />}
+        icon={<MdGroup size={24} />}
         label="候補者一覧"
         active
       />
 
-      <SidebarMenuItem href="/orgs" icon={<MdFolder />} label="企業一覧" />
+      <SidebarMenuItem
+        href="/"
+        icon={<MdHome size={24} />}
+        label="ダッシュボード"
+      />
     </SidebarMenu>
   </Sidebar>
 )

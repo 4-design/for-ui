@@ -26,8 +26,5 @@ jobs:
         working-directory: '.'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: run prettier fix
-        run: yarn lint-fix
-      # https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-nodejs#example-using-a-private-registry-and-creating-the-npmrc-file
       - name: run prettier
         run: yarn lint
