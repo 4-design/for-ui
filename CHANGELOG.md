@@ -1,3 +1,12 @@
+# [2.0.0-alpha.2](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2021-12-05)
+
+
+### Features
+
+* v2 Sidebar 実装 ([#316](https://github.com/3-shake/3design-ui/issues/316)) ([a62fc58](https://github.com/3-shake/3design-ui/commit/a62fc5890508668fd06c7643a01115a29125ce7a))
+
+
+
 # [2.0.0-alpha.1](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2021-12-04)
 
 
