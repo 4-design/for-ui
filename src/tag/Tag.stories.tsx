@@ -20,7 +20,7 @@ export default {
   },
 } as Meta
 
-export const basic = () => (
+export const Base = () => (
   <>
     <div tw="flex flex-col">
       <Tag label="React" />

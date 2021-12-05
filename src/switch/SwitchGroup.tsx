@@ -35,7 +35,11 @@ export const SwitchGroup: React.VFC<RadioGroupProps> = ({
     >
       {label && <FormLabel component="legend">{label}</FormLabel>}
       <FormGroup row={row}>{children}</FormGroup>
-      {error && <FormHelperText tw="text-negative-medium-default!">{error}</FormHelperText>}
+      {error && (
+        <FormHelperText tw="text-negative-medium-default!">
+          {error}
+        </FormHelperText>
+      )}
     </FormControl>
   )
 }

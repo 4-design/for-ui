@@ -212,7 +212,7 @@ export const Multiple: Story = () => {
 }
 
 export const MultipleFreeSolo: Story = () => {
-  const { control, watch, reset, handleSubmit } = useForm<{
+  const { control, reset, handleSubmit } = useForm<{
     country: { label: string; inputValue: string }[]
   }>({
     defaultValues: {

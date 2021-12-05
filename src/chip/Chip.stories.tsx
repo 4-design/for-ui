@@ -21,7 +21,7 @@ export default {
   },
 } as Meta
 
-export const basic = () => (
+export const Base = () => (
   <div tw="flex flex-col">
     <div tw="border-b mb-4">
       <Text variant="h3">Chip</Text>

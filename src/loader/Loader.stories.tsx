@@ -20,13 +20,13 @@ export default {
   },
 } as Meta
 
-export const basic = () => (
+export const Base = () => (
   <div tw="flex flex-col">
     <Loader color="#00bfbf" loading={true} />
   </div>
 )
 
-export const withText = () => (
+export const WithText = () => (
   <div tw="flex flex-col">
     <Loader color="#00bfbf" loading={true} text="リダイレクトします。。。。" />
   </div>

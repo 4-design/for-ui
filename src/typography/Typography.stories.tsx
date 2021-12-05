@@ -254,15 +254,3 @@ Typographを適切にスタイリングすることはときに冗長なこと�
     ),
   },
 }
-
-const exampleCode = `import { Fragment } from 'react'
-import { Text } from '@3design-ui'
-
-const Awesome = () => (
-  <Fragment>
-    <Text variant="p">こんにちは 世界!</Text>
-    <Text variant="p">Hello World!!</Text>
-    { (1 <= 2) & <Text variant="p">こんにちは 世界!</Text> }
-  </Fragment>
-)
-`
