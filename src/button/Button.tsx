@@ -10,7 +10,7 @@ export interface ButtonProps extends Omit<LoadingButtonProps, 'color'> {
 const sizes: TwStyle = {
   large: tw`(px-6 py-2 text-r)!`,
   medium: tw`(px-4 py-2 text-s)!`,
-  small: tw`(px-4 py-2 text-s)!`,
+  small: tw`(px-4 py-2 text-s m-0 p-0)!`,
 }
 
 const styles: TwStyle = {
