@@ -3235,38 +3235,38 @@
   dependencies:
     debug "^4.1.1"
 
-"@size-limit/file@7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-7.0.3.tgz#a9ba258b8d386f557384a025c4f06f404a3035ba"
-  integrity sha512-jizDZduAQ71KoraRWkj6ZSHPPo8SQ/KO4z1hZBl1ZujxwF7R6NLWKghNUtIQHsXpqyZWbK3VV39lOLx7qHuLjg==
+"@size-limit/file@7.0.4":
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-7.0.4.tgz#b6c8b5ad57db2b4488ffb2907d1876ad0197cb0b"
+  integrity sha512-/UfiOp8bDIdmNs0c8IQgGKlByo1esoayZ6+Pr/LQCJPZWPyQWVeGTo+J/+aYa9+5+r6ezvmAF5aR7VVt+rvW2Q==
   dependencies:
     semver "7.3.5"
 
-"@size-limit/preset-big-lib@^7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@size-limit/preset-big-lib/-/preset-big-lib-7.0.3.tgz#3932bf4b738ca6f25b5df557c03d1066cfbe3fcb"
-  integrity sha512-yBt3+GfYTte8rLTI7iaXR6bCZAvuA9U3lrmwDKEaGDBvbInD2Tw5619DgBHXPiftuyVimS/CL0SGSo9uAKBMtA==
+"@size-limit/preset-big-lib@7.0.4":
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/@size-limit/preset-big-lib/-/preset-big-lib-7.0.4.tgz#390856b3e68ad4b968e944a04dc6012d5270790c"
+  integrity sha512-wYdmzT2q48FeQeoONL60ERsV97xbd8utJhBiX/si3wirNQCvj+Vxf+LFi7aXMDOG5wGxPQ3u8WOinH9HCw44eg==
   dependencies:
-    "@size-limit/file" "7.0.3"
-    "@size-limit/time" "7.0.3"
-    "@size-limit/webpack" "7.0.3"
+    "@size-limit/file" "7.0.4"
+    "@size-limit/time" "7.0.4"
+    "@size-limit/webpack" "7.0.4"
 
-"@size-limit/time@7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@size-limit/time/-/time-7.0.3.tgz#fcfc4302dca698f18b477a171648d885627db6ef"
-  integrity sha512-3ZFd5wEp5hJ8RPavGz57QGYBSL0iyMKjrM6Yq5y4CHPS1r1WOzSClXDXdyLLogY40AxEX5jwJhK7aB4WC3CbUQ==
+"@size-limit/time@7.0.4":
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/@size-limit/time/-/time-7.0.4.tgz#1ba5be8304941b696d963db69ec43deaf238f6d3"
+  integrity sha512-1ShT8uKNpSoR3AqBCbVOHY4p4i7guPgRNcTvmDXfv1XqcnBX20C45D8NPRZmDOp4+MMNkFtIOtfGsB+8abNyEQ==
   dependencies:
     estimo "^2.3.0"
     react "^17.0.2"
 
-"@size-limit/webpack@7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-7.0.3.tgz#fd5633de7066ed6dbc7e14a8b4c95b1d2f7c7bd6"
-  integrity sha512-9TDXqsSJx7v1wUouIjCy4Weyi84xzIUiphRQWqSFLrzMZ6Rk2DEwwzlo1elS3FRN8en0P7NphYf70Ml0Dyar3w==
+"@size-limit/webpack@7.0.4":
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-7.0.4.tgz#50e7e3614a9f85b27ca23a07f052384009683e7e"
+  integrity sha512-cFlExDyYBWBC+zJYkFUhco2XClzWImzz50M2prP79b6kl6EWTmgUcPBaWHKxM4ziiNuxmAlCtum9kFVFbB/2dQ==
   dependencies:
     escape-string-regexp "^4.0.0"
     nanoid "^3.1.30"
-    webpack "^5.64.1"
+    webpack "^5.64.4"
 
 "@slack/types@^1.2.1":
   version "1.10.0"
@@ -16504,7 +16504,7 @@ webpack@4, webpack@^4.43.0:
     watchpack "^1.7.4"
     webpack-sources "^1.4.1"
 
-webpack@^5.64.1:
+webpack@^5.64.4:
   version "5.64.4"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.64.4.tgz#e1454b6a13009f57cc2c78e08416cd674622937b"
   integrity sha512-LWhqfKjCLoYJLKJY8wk2C3h77i8VyHowG3qYNZiIqD6D0ZS40439S/KVuc/PY48jp2yQmy0mhMknq8cys4jFMw==
