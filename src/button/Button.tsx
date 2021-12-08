@@ -70,7 +70,7 @@ export const Button: React.VFC<
       css={[
         tw`
         (h-max-content max-w-max px-6 py-2
-        flex text-base font-medium rounded-lg cursor-pointer shadow-none transition whitespace-nowrap
+        flex text-r font-medium font-sans rounded-lg cursor-pointer shadow-none transition whitespace-nowrap
         disabled:cursor-not-allowed
         hover:shadow-none focus:outline-none)!`,
         styles[`${variant}`],
