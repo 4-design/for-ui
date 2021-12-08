@@ -1,5 +1,5 @@
 import React from 'react'
-import tw, { TwStyle, css, theme } from 'twin.macro'
+import tw, { TwStyle, css } from 'twin.macro'
 
 export type SidebarMenuItemProps = {
   icon: React.ReactNode
@@ -26,8 +26,7 @@ export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
       `,
       active &&
         css`
-          background-color: ${theme('borderColor.shade.medium.active')};
-          ${tw`text-primary-white-default`}
+          ${tw`text-primary-white-default bg-primary-dark-hover`}
         `,
     ]}
   >

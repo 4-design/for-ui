@@ -28,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({ twin, children }) => {
   return (
     <header
       css={[
-        tw`relative h-24 px-6 z-header flex flex-shrink-0 items-center`,
+        tw`relative h-16 px-6 z-header flex flex-shrink-0 items-center border-b border-shade-light-default`,
         twin,
       ]}
     >
