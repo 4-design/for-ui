@@ -25,7 +25,7 @@ interface CardActionProps {
 export const CardTitle: React.VFC<CardTitleProps> = ({ children }) => (
   <Typography
     variant="h4"
-    twin={tw`font-bold text-shade-dark-default border-none`}
+    twin={tw`font-sans font-bold text-shade-dark-default border-none`}
   >
     {children}
   </Typography>
@@ -38,7 +38,7 @@ export const CardAction: React.VFC<CardActionProps> = ({ children }) => (
 export const Card: React.VFC<CardProps> = ({ twin, children }) => (
   <section
     css={[
-      tw`flex flex-col bg-shade-white-default overflow-y-visible shadow-main rounded-3xl`,
+      tw`font-sans flex flex-col bg-shade-white-default overflow-y-visible shadow-main rounded-3xl`,
       twin,
     ]}
   >
@@ -52,7 +52,7 @@ export const CardHeader: React.VFC<CardHeaderProps> = ({
   action,
 }) => {
   return (
-    <div css={[tw`flex justify-between pt-8 px-8`, twin]}>
+    <div css={[tw`font-sans flex justify-between pt-8 px-8`, twin]}>
       <CardTitle>{title}</CardTitle>
       {action && <CardAction>{action}</CardAction>}
     </div>
@@ -63,5 +63,5 @@ export const CardBody: React.VFC<{
   twin?: TwStyle[]
   children: React.ReactNode
 }> = ({ twin, children }) => {
-  return <div css={[tw`p-8 pt-6`, twin]}>{children}</div>
+  return <div css={[tw`font-sans p-8 pt-6`, twin]}>{children}</div>
 }
