@@ -1,3 +1,14 @@
+# [2.0.0-alpha.5](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.4...v2.0.0-alpha.5) (2021-12-08)
+
+
+### Bug Fixes
+
+* font-family 修正 ([#333](https://github.com/3-shake/3design-ui/issues/333)) ([4305cab](https://github.com/3-shake/3design-ui/commit/4305cabed50513bfb73bcbdfebfc83fde75e3579))
+* Layout の修正 ([#334](https://github.com/3-shake/3design-ui/issues/334)) ([dac357e](https://github.com/3-shake/3design-ui/commit/dac357ebf913e0d790188d6b477df0caf31365b2))
+* **deps:** update dependency twin.macro to v2.8.2 ([#332](https://github.com/3-shake/3design-ui/issues/332)) ([0971f64](https://github.com/3-shake/3design-ui/commit/0971f647c4e2a691d8d27a58119690b2fef88327))
+
+
+
 # [2.0.0-alpha.4](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.3...v2.0.0-alpha.4) (2021-12-05)
 
 
