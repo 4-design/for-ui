@@ -2,13 +2,14 @@ import React from 'react'
 import { UseAutocompleteProps } from '@mui/material'
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete'
 import MuiPaper, { PaperProps } from '@mui/material/Paper'
+import { MdCheck } from 'react-icons/md'
 import tw, { css, TwStyle } from 'twin.macro'
 import { MenuItem } from '../menu'
 import { Tag } from '../tag'
 import { TextField } from '../textField'
 
 const Paper = (props: PaperProps) => {
-  return <MuiPaper {...props} tw="rounded-2xl!" />
+  return <MuiPaper {...props} tw="rounded-md" />
 }
 
 export type SelectOption = {
@@ -124,11 +125,17 @@ export const Select: React.VFC<AutocompleteProps> = ({
             key={option.inputValue}
             twin={[
               selected
-                ? tw`(text-primary-white-default text-base bg-primary-dark-default hover:bg-primary-dark-default)!`
+                ? tw`(text-primary-dark-default text-base hover:bg-primary-white-hover)!`
                 : tw``,
             ]}
           >
             {label}
+            {selected && (
+              <MdCheck
+                size={20}
+                tw="text-primary-medium-default absolute right-4"
+              />
+            )}
           </MenuItem>
         )
       }}
@@ -141,11 +148,11 @@ export const Select: React.VFC<AutocompleteProps> = ({
           }
 
           & .MuiOutlinedInput-root {
-            ${tw`(p-0 text-base text-shade-medium-default)!`}
+            ${tw`(p-0 text-base text-shade-dark-default)!`}
           }
 
           & .MuiOutlinedInput-input {
-            ${tw`(px-3 text-base text-shade-medium-default)!`}
+            ${tw`(px-3 text-base text-shade-dark-default)!`}
           }
         `,
         twin,

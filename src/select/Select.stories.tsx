@@ -27,6 +27,14 @@ const options: SelectOption[] = [
     label: 'アメリカ',
     inputValue: 'america',
   },
+  {
+    label: 'イギリス',
+    inputValue: 'england',
+  },
+  {
+    label: 'スペイン',
+    inputValue: 'spain',
+  },
 ]
 
 const SKILL = {
@@ -104,7 +112,9 @@ export const Basic: Story = () => {
         }}
       />
 
-      <Button type="submit">登録</Button>
+      <Button type="submit" tw="mt-4">
+        登録
+      </Button>
     </form>
   )
 }
@@ -137,7 +147,9 @@ export const Single: Story = () => {
         }}
       />
 
-      <Button type="submit">登録</Button>
+      <Button type="submit" tw="mt-4">
+        登録
+      </Button>
     </form>
   )
 }
@@ -171,7 +183,9 @@ export const Disabled: Story = () => {
         }}
       />
 
-      <Button type="submit">登録</Button>
+      <Button type="submit" tw="mt-4">
+        登録
+      </Button>
     </form>
   )
 }
@@ -206,7 +220,9 @@ export const Multiple: Story = () => {
         }}
       />
 
-      <Button type="submit">登録</Button>
+      <Button type="submit" tw="mt-4">
+        登録
+      </Button>
     </form>
   )
 }
@@ -255,7 +271,9 @@ export const MultipleFreeSolo: Story = () => {
         }}
       />
 
-      <Button type="submit">登録</Button>
+      <Button type="submit" tw="mt-4">
+        登録
+      </Button>
     </form>
   )
 }
