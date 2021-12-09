@@ -44,9 +44,9 @@
     "react-spinners": "^0.11.0",
     "twin.macro": "2.8.2",
     "@mui/base": "^5.0.0-alpha.58",
-    "@mui/lab": "5.0.0-alpha.58",
-    "@mui/material": "5.2.2",
-    "@mui/styles": "5.2.2",
+    "@mui/lab": "5.0.0-alpha.59",
+    "@mui/material": "5.2.3",
+    "@mui/styles": "5.2.3",
     "@mui/types": "7.1.0"
   },
   "devDependencies": {
