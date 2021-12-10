@@ -7,7 +7,6 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-backgrounds',
-    '@hover/storybook-addon-pseudo-states',
     'storybook-addon-outline',
     {
       name: '@storybook/addon-postcss',
@@ -20,6 +19,11 @@ module.exports = {
   ],
   babel: async (options) => {
     options.plugins.unshift('babel-plugin-twin')
+    options.plugins.push([
+      '@babel/plugin-proposal-private-property-in-object',
+      { loose: true },
+    ])
+    options.plugins.push('@babel/plugin-proposal-private-methods')
     options.presets.push('@emotion/babel-preset-css-prop')
     return options
   },
