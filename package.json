@@ -81,7 +81,7 @@
     "babel-plugin-twin": "1.0.2",
     "bundlesize": "0.18.1",
     "bundlewatch": "0.3.2",
-    "eslint": "8.3.0",
+    "eslint": "8.4.1",
     "eslint-config-prettier": "8.3.0",
     "eslint-import-resolver-alias": "1.1.2",
     "eslint-import-resolver-typescript": "2.5.0",
