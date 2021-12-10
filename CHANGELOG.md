@@ -1,3 +1,18 @@
+# [2.0.0-alpha.6](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2021-12-10)
+
+
+### Bug Fixes
+
+* **deps:** update material-ui monorepo ([#337](https://github.com/3-shake/3design-ui/issues/337)) ([68eabe9](https://github.com/3-shake/3design-ui/commit/68eabe9c5bc5e076cd363eba59bba0e64191fd99))
+* **Modal:** ModalHeader font size 修正 ([#342](https://github.com/3-shake/3design-ui/issues/342)) ([3ef81cc](https://github.com/3-shake/3design-ui/commit/3ef81cc646996c11b9515ca7511b86d3a02e5b01))
+
+
+### Features
+
+* New Tailwind CSS v3 ([#349](https://github.com/3-shake/3design-ui/issues/349)) ([2102894](https://github.com/3-shake/3design-ui/commit/21028948c1587cb668009ec53cbe6ec0ffcaddeb))
+
+
+
 # [2.0.0-alpha.5](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.4...v2.0.0-alpha.5) (2021-12-08)
 
 
