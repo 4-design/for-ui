@@ -35,7 +35,8 @@
     "storybook": "rm -rf node_modules/.cache/storybook && start-storybook --no-manager-cache -p 6006 -s public",
     "build-storybook": "build-storybook",
     "release": "shipjs prepare",
-    "size": "yarn build && size-limit"
+    "size": "yarn build && size-limit",
+    "chromatic": "npx chromatic --project-token=09565c34ed02"
   },
   "dependencies": {
     "@mui/base": "^5.0.0-alpha.58",
@@ -81,6 +82,7 @@
     "babel-plugin-twin": "1.0.2",
     "bundlesize": "0.18.1",
     "bundlewatch": "0.3.2",
+    "chromatic": "^6.2.0",
     "eslint": "8.4.1",
     "eslint-config-prettier": "8.3.0",
     "eslint-import-resolver-alias": "1.1.2",
