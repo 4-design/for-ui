@@ -18,23 +18,22 @@ export function TablePagination<T extends object>({
   return (
     <div tw="bg-shade-white-default px-4 py-3 flex items-center justify-between border-shade-light-default sm:px-6">
       <div tw="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-        <div></div>
+        <div />
         <div>
           <Pagination
             size="large"
+            shape="rounded"
             count={pageCount}
             showFirstButton
             showLastButton
             onChange={(_, page: number) => gotoPage(page - 1)}
             css={[
               css`
-                > .MuiPagination-ul {
-                  .Mui-selected {
-                    ${tw`bg-primary-dark-default text-primary-white-default`}
-                  }
-                  button:hover {
-                    ${tw`bg-primary-light-default text-primary-white-default`}
-                  }
+                .Mui-selected {
+                  ${tw`bg-shade-light-default rounded-md`}
+                }
+                .MuiPaginationItem-icon {
+                  ${tw`border border-shade-light-active rounded-md`}
                 }
               `,
             ]}
