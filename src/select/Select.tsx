@@ -154,6 +154,14 @@ export const Select: React.VFC<AutocompleteProps> = ({
           & .MuiOutlinedInput-input {
             ${tw`(px-3 text-base text-shade-dark-default)!`}
           }
+
+          & .MuiChip-root {
+            ${tw`bg-shade-light-default border-none`}
+
+            > .MuiChip-deleteIcon {
+              ${tw`text-shade-dark-default`}
+            }
+          }
         `,
         twin,
       ]}
