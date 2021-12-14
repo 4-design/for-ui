@@ -51,12 +51,12 @@
     "twin.macro": "2.8.2"
   },
   "devDependencies": {
-    "@babel/core": "7.16.0",
-    "@babel/plugin-proposal-private-methods": "7.16.0",
-    "@babel/plugin-proposal-private-property-in-object": "7.16.0",
-    "@babel/preset-env": "7.16.4",
-    "@babel/preset-react": "7.16.0",
-    "@babel/preset-typescript": "7.16.0",
+    "@babel/core": "7.16.5",
+    "@babel/plugin-proposal-private-methods": "7.16.5",
+    "@babel/plugin-proposal-private-property-in-object": "7.16.5",
+    "@babel/preset-env": "7.16.5",
+    "@babel/preset-react": "7.16.5",
+    "@babel/preset-typescript": "7.16.5",
     "@emotion/babel-plugin": "11.3.0",
     "@emotion/babel-preset-css-prop": "11.2.0",
     "@emotion/react": "11.7.0",
