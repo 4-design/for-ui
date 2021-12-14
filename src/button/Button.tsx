@@ -9,8 +9,8 @@ export interface ButtonProps extends Omit<LoadingButtonProps, 'color'> {
 
 const sizes: TwStyle = {
   large: tw`(px-6 py-2 text-r)!`,
-  medium: tw`(px-4 py-2 text-s)!`,
-  small: tw`(px-4 py-2 text-s)!`,
+  medium: tw`(px-4 py-1 text-s)!`,
+  small: tw`(p-0 text-s hover:bg-transparent)!`,
 }
 
 const styles: TwStyle = {
@@ -35,8 +35,8 @@ export const Button: React.VFC<
     type = 'button',
     // eslint-disable-next-line unused-imports/no-unused-vars
     color = 'primary',
-    size = 'large',
     variant = 'contained',
+    size = 'large',
     disabled = false,
     pending = false,
     startIcon,
