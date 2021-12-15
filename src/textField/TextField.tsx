@@ -43,6 +43,18 @@ const styles = {
         ${tw`border-b border-primary-dark-default`}
       }
     }
+
+    & .MuiInput-underline.Mui-error {
+      &:before {
+        ${tw`(border-b border-negative-medium-default)!`}
+      }
+      &:after {
+        ${tw`(border-b border-negative-medium-default)!`}
+      }
+    }
+    & .MuiFormLabel-root.Mui-error {
+      ${tw`(text-negative-medium-default)!`}
+    }
   `,
   outlined: css`
     & .MuiOutlinedInput-root {
