@@ -401,5 +401,75 @@ export const _Text = (): JSX.Element => (
         </div>
       </div>
     </div>
+
+    <div>
+      <div tw="border-b mb-4">
+        <Text variant="h3">Button/Text/Small</Text>
+      </div>
+
+      <div tw="flex flex-row gap-8">
+        <div tw="flex flex-col gap-4">
+          <Button variant="text" size="small">
+            登録する
+          </Button>
+
+          <Button variant="text" size="small" disabled>
+            登録する
+          </Button>
+
+          <Button variant="text" size="small" pending>
+            登録する
+          </Button>
+        </div>
+
+        <div tw="flex flex-col gap-4">
+          <Button variant="text" size="small" startIcon={<MdAdd size={20} />}>
+            登録する
+          </Button>
+
+          <Button
+            variant="text"
+            size="small"
+            startIcon={<MdAdd size={20} />}
+            disabled
+          >
+            登録する
+          </Button>
+
+          <Button
+            variant="text"
+            size="small"
+            startIcon={<MdAdd size={20} />}
+            pending
+          >
+            登録する
+          </Button>
+        </div>
+
+        <div tw="flex flex-col gap-4">
+          <Button variant="text" size="small" endIcon={<MdEdit size={20} />}>
+            登録する
+          </Button>
+
+          <Button
+            variant="text"
+            size="small"
+            endIcon={<MdEdit size={20} />}
+            disabled
+          >
+            登録する
+          </Button>
+
+          <Button
+            variant="text"
+            size="small"
+            endIcon={<MdEdit size={20} />}
+            pending
+          >
+            登録する
+          </Button>
+        </div>
+      </div>
+    </div>
   </div>
 )
