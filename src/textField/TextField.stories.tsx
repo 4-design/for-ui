@@ -129,7 +129,7 @@ export const Outlined = (): JSX.Element => {
           autoComplete="on"
           type="email"
           label="メールアドレス"
-          inputTwin={tw`(max-w-sm tracking-wide p-0 text-primary-medium-default)!`}
+          inputTwin={tw`(max-w-sm tracking-wide p-0)!`}
           placeholder="example@lancepod.com"
           {...register('email')}
         />
