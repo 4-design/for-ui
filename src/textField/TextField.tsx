@@ -96,7 +96,7 @@ const styles = {
     }
 
     & .MuiInputBase-input {
-      ${tw`py-2 px-3 focus:shadow-none`}
+      ${tw`py-2 px-3 focus:shadow-none text-shade-dark-default`}
     }
 
     & .MuiFormHelperText-root {
