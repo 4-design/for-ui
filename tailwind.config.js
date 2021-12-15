@@ -175,7 +175,7 @@ const colors = {
     },
     border: {
       medium: {
-        default: 'var(--negative-background-medium-default)',
+        default: 'var(--negative-border-medium-default)',
       },
     },
     icon: {
