@@ -46,7 +46,7 @@ const styles = {
   `,
   outlined: css`
     & .MuiOutlinedInput-root {
-      ${tw`p-0!`}
+      ${tw`p-0! text-shade-light-default`}
 
       &.Mui-disabled {
         ${tw`bg-primary-light-default`}
@@ -73,16 +73,16 @@ const styles = {
           ${tw`border border-primary-dark-default`}
         }
 
-        &.Mui-disabled .MuiOutlinedInput-notchedOutline {
+        & .Mui-error .MuiOutlinedInput-notchedOutline {
+          ${tw`border border-negative-medium-default`}
+        }
+
+        & .Mui-disabled .MuiOutlinedInput-notchedOutline {
           ${tw`border border-shade-medium-default`}
         }
 
-        &.Mui-focused .MuiOutlinedInput-notchedOutline {
+        & .Mui-focused .MuiOutlinedInput-notchedOutline {
           ${tw`border border-primary-dark-default`}
-        }
-
-        &.Mui-error .MuiOutlinedInput-notchedOutline {
-          ${tw`border border-negative-medium-default`}
         }
       }
 
@@ -95,12 +95,14 @@ const styles = {
       }
     }
 
-    & .MuiOutlinedInput-input {
-      ${tw`(text-shade-dark-default)!`}
+    & .MuiInputBase-input {
+      ${tw`py-2 px-3 focus:shadow-none`}
     }
 
-    & .MuiInputBase-input {
-      ${tw`(py-2 px-3 focus:shadow-none)!`}
+    & .MuiFormHelperText-root {
+      > .Mui-error {
+        ${tw`text-negative-medium-default`}
+      }
     }
   `,
 }

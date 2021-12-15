@@ -50,7 +50,7 @@ export const Standard = (): JSX.Element => {
             autoComplete="on"
             type="email"
             label="メールアドレス"
-            inputTwin={tw`(max-w-sm text-4xl tracking-wide p-0)!`}
+            inputTwin={tw`(max-w-sm tracking-wide p-0)!`}
             placeholder="example@lancepod.com"
             {...register('email')}
           />
@@ -123,16 +123,29 @@ export const Outlined = (): JSX.Element => {
       <h1 tw="mb-4">Text Field (default styles)</h1>
       <div tw="mb-4">
         <TextField
-          error
           required
           fullWidth
           variant="outlined"
           autoComplete="on"
           type="email"
           label="メールアドレス"
-          inputTwin={tw`(max-w-sm text-4xl tracking-wide p-0 h-20)!`}
+          inputTwin={tw`(max-w-sm tracking-wide p-0)!`}
           placeholder="example@lancepod.com"
-          helperText="エラーメッセージ"
+          {...register('email')}
+        />
+      </div>
+      <div tw="mb-4">
+        <TextField
+          error
+          required
+          fullWidth
+          variant="outlined"
+          autoComplete="on"
+          type="email"
+          label="メールアドレス Error"
+          inputTwin={tw`(max-w-sm tracking-wide p-0)!`}
+          placeholder="example@lancepod.com"
+          helperText="ヘルパーテキスト"
           {...register('email')}
         />
       </div>
