@@ -1,3 +1,23 @@
+# [2.0.0-alpha.7](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.6...v2.0.0-alpha.7) (2021-12-16)
+
+
+### Bug Fixes
+
+* **Modal:** TailwindCSS デフォルトのfocus-visibleをオーバーライト ([#368](https://github.com/3-shake/3design-ui/issues/368)) ([2b4d619](https://github.com/3-shake/3design-ui/commit/2b4d6193f3bfb5ca9e8cd0fad70db7fb8d9f863f))
+* TextField スタイル修正 ([#362](https://github.com/3-shake/3design-ui/issues/362)) ([eeda081](https://github.com/3-shake/3design-ui/commit/eeda081ca4dd1248697d08c25f22c8a03739096e))
+* **deps:** update material-ui monorepo ([#360](https://github.com/3-shake/3design-ui/issues/360)) ([9a95a1e](https://github.com/3-shake/3design-ui/commit/9a95a1ea28891eb7357469dd7d46a3fa7aa52a8a))
+
+
+### Features
+
+* Add chromatic to Github Action ([32c2e37](https://github.com/3-shake/3design-ui/commit/32c2e3785af836c75ae28ebb48a8215709bb2560))
+* chromatic 導入 ([5bd230e](https://github.com/3-shake/3design-ui/commit/5bd230e6b72af7f5a6de119ff2c675ffc78568ba))
+* v2 Button 実装 ([#341](https://github.com/3-shake/3design-ui/issues/341)) ([976472c](https://github.com/3-shake/3design-ui/commit/976472c5a98850e5d6c9f385a2e37113d72a4fca))
+* v2 Switch 実装 ([#367](https://github.com/3-shake/3design-ui/issues/367)) ([a9e194c](https://github.com/3-shake/3design-ui/commit/a9e194c6ba0dd3918787cf24fed82e9f18b9b693))
+* v2 Table 実装 ([#340](https://github.com/3-shake/3design-ui/issues/340)) ([e922012](https://github.com/3-shake/3design-ui/commit/e9220122855bb1c5e2eb55acefbeb840524d6197))
+
+
+
 # [2.0.0-alpha.6](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2021-12-10)
 
 
