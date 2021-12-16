@@ -25,12 +25,23 @@ export const Switch: VFC<SwitchProps> = ({
           disabled={disabled}
           css={[
             css`
-              & .MuiSwitch-switchBase.Mui-checked {
-                ${tw`text-primary-dark-default hover:bg-primary-dark-default`}
+              ${tw`w-11 h-6 p-0 mr-2 my-2`}
+              .MuiSwitch-switchBase {
+                &.Mui-checked + .MuiSwitch-track {
+                  ${tw`bg-secondary-dark-default opacity-100`}
+                }
+                &.Mui-checked.Mui-disabled + .MuiSwitch-track {
+                  ${tw`bg-secondary-dark-disabled opacity-100`}
+                }
+                &.Mui-disabled + .MuiSwitch-track {
+                  ${tw`bg-primary-dark-disabled opacity-100`}
+                }
               }
-
-              & .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
-                ${tw`bg-primary-dark-default`}
+              .MuiSwitch-track {
+                ${tw`block w-full h-full rounded-xl bg-primary-dark-default opacity-100`}
+              }
+              .MuiSwitch-thumb {
+                ${tw` w-4 h-4 absolute top-1 left-1 rounded-2xl transition-all duration-200 ease-in bg-shade-white-default`}
               }
             `,
             twin,
