@@ -175,7 +175,7 @@ const colors = {
     },
     border: {
       medium: {
-        default: 'var(--negative-background-medium-default)',
+        default: 'var(--negative-border-medium-default)',
       },
     },
     icon: {
@@ -259,6 +259,12 @@ module.exports = {
       primary: colors.primary.border,
       secondary: colors.secondary.border,
       negative: colors.negative.border,
+    },
+    iconColor: {
+      transparent: 'transparent',
+      shade: colors.shade.icon,
+      primary: colors.primary.icon,
+      secondary: colors.secondary.icon,
     },
     fontSize: {
       xs: fontSizes.s,
