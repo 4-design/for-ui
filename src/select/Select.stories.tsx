@@ -230,31 +230,62 @@ export const Multiple: Story = () => {
   const onSubmit = (data: unknown) => console.log(JSON.stringify(data))
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller
-        name="country"
-        control={control}
-        render={({ field: { onChange, ...fields } }) => {
-          return (
-            <Select
-              multiple
-              name={fields.name}
-              label="国名"
-              placeholder="未定"
-              options={options}
-              twin={[tw`w-160`]}
-              onChange={(e, option) => {
-                onChange((option as SelectOption)?.inputValue)
-              }}
-            />
-          )
-        }}
-      />
+    <div>
+      <form onSubmit={handleSubmit(onSubmit)} tw="mb-10">
+        <Controller
+          name="country"
+          control={control}
+          render={({ field: { onChange, ...fields } }) => {
+            return (
+              <Select
+                multiple
+                name={fields.name}
+                label="国名"
+                placeholder="未定"
+                options={options}
+                twin={[tw`w-160`]}
+                onChange={(e, option) => {
+                  onChange((option as SelectOption)?.inputValue)
+                }}
+              />
+            )
+          }}
+        />
 
-      <Button type="submit" tw="mt-4">
-        登録
-      </Button>
-    </form>
+        <Button type="submit" tw="mt-4">
+          登録
+        </Button>
+      </form>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="country"
+          control={control}
+          render={({ field: { onChange, ...fields } }) => {
+            return (
+              <>
+                <Select
+                  multiple
+                  required
+                  name={fields.name}
+                  label="国名"
+                  placeholder="未定"
+                  options={options}
+                  twin={[tw`w-160`]}
+                  onChange={(e, option) => {
+                    onChange((option as SelectOption)?.inputValue)
+                  }}
+                />
+                <FormHelperText error>入力してください</FormHelperText>
+              </>
+            )
+          }}
+        />
+
+        <Button type="submit" tw="mt-4">
+          登録
+        </Button>
+      </form>
+    </div>
   )
 }
 
