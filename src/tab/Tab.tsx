@@ -19,6 +19,8 @@ export const Tab: React.VFC<TabProps> = ({
     <MuiTab
       css={[
         css`
+          ${tw`text-primary-medium-default`}
+
           &.MuiTab-root {
             min-width: ${minWidth}px !important;
           }
@@ -28,7 +30,7 @@ export const Tab: React.VFC<TabProps> = ({
           }
 
           &.Mui-selected {
-            ${tw`focus:outline-none!`}
+            ${tw`(focus:outline-none text-primary-dark-default)!`}
 
             > .MuiTab-wrapper {
               ${tw`text-primary-dark-default!`}

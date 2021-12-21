@@ -5,8 +5,7 @@ import { CellProps, Column } from 'react-table'
 import tw from 'twin.macro'
 
 import { IconButton } from '../icon'
-import { PersonData } from '../utils/makeData'
-import makeData from '../utils/makeData'
+import { PersonData, StaticPersonData } from '../utils/makeData'
 import { Table } from './Table'
 import { TableCell } from './TableCell'
 
@@ -59,7 +58,7 @@ const basicColumns: Array<Column<PersonData>> = [
 ]
 
 export const Base: Story = () => (
-  <Table<PersonData> columns={basicColumns} data={makeData(1000)} />
+  <Table<PersonData> columns={basicColumns} data={StaticPersonData} />
 )
 
 const withImageColumns: Array<Column<PersonData>> = [
@@ -115,5 +114,5 @@ const withImageColumns: Array<Column<PersonData>> = [
 ]
 
 export const WithImage: Story = () => (
-  <Table<PersonData> columns={withImageColumns} data={makeData(1000)} />
+  <Table<PersonData> columns={withImageColumns} data={StaticPersonData} />
 )

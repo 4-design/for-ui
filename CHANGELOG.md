@@ -1,3 +1,58 @@
+# [2.0.0-alpha.8](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.7...v2.0.0-alpha.8) (2021-12-21)
+
+
+### Features
+
+* v2 Tabs 実装 ([#380](https://github.com/3-shake/3design-ui/issues/380)) ([a7bb1b5](https://github.com/3-shake/3design-ui/commit/a7bb1b5aeac7dea3e0a2af4a39ffce04a5b1d298))
+
+
+
+# [2.0.0-alpha.7](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.6...v2.0.0-alpha.7) (2021-12-16)
+
+
+### Bug Fixes
+
+* **Modal:** TailwindCSS デフォルトのfocus-visibleをオーバーライト ([#368](https://github.com/3-shake/3design-ui/issues/368)) ([2b4d619](https://github.com/3-shake/3design-ui/commit/2b4d6193f3bfb5ca9e8cd0fad70db7fb8d9f863f))
+* TextField スタイル修正 ([#362](https://github.com/3-shake/3design-ui/issues/362)) ([eeda081](https://github.com/3-shake/3design-ui/commit/eeda081ca4dd1248697d08c25f22c8a03739096e))
+* **deps:** update material-ui monorepo ([#360](https://github.com/3-shake/3design-ui/issues/360)) ([9a95a1e](https://github.com/3-shake/3design-ui/commit/9a95a1ea28891eb7357469dd7d46a3fa7aa52a8a))
+
+
+### Features
+
+* Add chromatic to Github Action ([32c2e37](https://github.com/3-shake/3design-ui/commit/32c2e3785af836c75ae28ebb48a8215709bb2560))
+* chromatic 導入 ([5bd230e](https://github.com/3-shake/3design-ui/commit/5bd230e6b72af7f5a6de119ff2c675ffc78568ba))
+* v2 Button 実装 ([#341](https://github.com/3-shake/3design-ui/issues/341)) ([976472c](https://github.com/3-shake/3design-ui/commit/976472c5a98850e5d6c9f385a2e37113d72a4fca))
+* v2 Switch 実装 ([#367](https://github.com/3-shake/3design-ui/issues/367)) ([a9e194c](https://github.com/3-shake/3design-ui/commit/a9e194c6ba0dd3918787cf24fed82e9f18b9b693))
+* v2 Table 実装 ([#340](https://github.com/3-shake/3design-ui/issues/340)) ([e922012](https://github.com/3-shake/3design-ui/commit/e9220122855bb1c5e2eb55acefbeb840524d6197))
+
+
+
+# [2.0.0-alpha.6](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2021-12-10)
+
+
+### Bug Fixes
+
+* **deps:** update material-ui monorepo ([#337](https://github.com/3-shake/3design-ui/issues/337)) ([68eabe9](https://github.com/3-shake/3design-ui/commit/68eabe9c5bc5e076cd363eba59bba0e64191fd99))
+* **Modal:** ModalHeader font size 修正 ([#342](https://github.com/3-shake/3design-ui/issues/342)) ([3ef81cc](https://github.com/3-shake/3design-ui/commit/3ef81cc646996c11b9515ca7511b86d3a02e5b01))
+
+
+### Features
+
+* New Tailwind CSS v3 ([#349](https://github.com/3-shake/3design-ui/issues/349)) ([2102894](https://github.com/3-shake/3design-ui/commit/21028948c1587cb668009ec53cbe6ec0ffcaddeb))
+
+
+
+# [2.0.0-alpha.5](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.4...v2.0.0-alpha.5) (2021-12-08)
+
+
+### Bug Fixes
+
+* font-family 修正 ([#333](https://github.com/3-shake/3design-ui/issues/333)) ([4305cab](https://github.com/3-shake/3design-ui/commit/4305cabed50513bfb73bcbdfebfc83fde75e3579))
+* Layout の修正 ([#334](https://github.com/3-shake/3design-ui/issues/334)) ([dac357e](https://github.com/3-shake/3design-ui/commit/dac357ebf913e0d790188d6b477df0caf31365b2))
+* **deps:** update dependency twin.macro to v2.8.2 ([#332](https://github.com/3-shake/3design-ui/issues/332)) ([0971f64](https://github.com/3-shake/3design-ui/commit/0971f647c4e2a691d8d27a58119690b2fef88327))
+
+
+
 # [2.0.0-alpha.4](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.3...v2.0.0-alpha.4) (2021-12-05)
 
 
