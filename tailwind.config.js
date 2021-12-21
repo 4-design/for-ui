@@ -260,6 +260,12 @@ module.exports = {
       secondary: colors.secondary.border,
       negative: colors.negative.border,
     },
+    iconColor: {
+      transparent: 'transparent',
+      shade: colors.shade.icon,
+      primary: colors.primary.icon,
+      secondary: colors.secondary.icon,
+    },
     fontSize: {
       xs: fontSizes.s,
       sm: fontSizes.s,
