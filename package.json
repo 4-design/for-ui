@@ -41,7 +41,7 @@
   "dependencies": {
     "@mui/base": "^5.0.0-alpha.58",
     "@mui/lab": "5.0.0-alpha.61",
-    "@mui/material": "5.2.4",
+    "@mui/material": "5.2.5",
     "@mui/styles": "5.2.3",
     "@mui/types": "7.1.0",
     "react-dropzone": "^11.3.2",
