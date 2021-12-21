@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { FormHelperText } from '@mui/material'
 import { Story, Meta } from '@storybook/react/types-6-0'
 import { Controller, useForm } from 'react-hook-form'
 import tw from 'twin.macro'
@@ -93,29 +94,59 @@ export const Basic: Story = () => {
   const onSubmit = (data: unknown) => console.log(JSON.stringify(data))
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller
-        name="country"
-        control={control}
-        render={({ field: { name, onChange } }) => {
-          return (
-            <Select
-              name={name}
-              placeholder="国名"
-              options={options}
-              twin={[tw`w-44`]}
-              onChange={(e, option) => {
-                onChange((option as SelectOption)?.inputValue)
-              }}
-            />
-          )
-        }}
-      />
+    <div>
+      <form onSubmit={handleSubmit(onSubmit)} tw="mb-10">
+        <Controller
+          name="country"
+          control={control}
+          render={({ field: { name, onChange } }) => {
+            return (
+              <Select
+                name={name}
+                placeholder="国名"
+                options={options}
+                twin={[tw`w-44`]}
+                onChange={(e, option) => {
+                  onChange((option as SelectOption)?.inputValue)
+                }}
+              />
+            )
+          }}
+        />
 
-      <Button type="submit" tw="mt-4">
-        登録
-      </Button>
-    </form>
+        <Button type="submit" tw="mt-4">
+          登録
+        </Button>
+      </form>
+
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="country"
+          control={control}
+          render={({ field: { name, onChange } }) => {
+            return (
+              <>
+                <Select
+                  name={name}
+                  required
+                  placeholder="国名"
+                  options={options}
+                  twin={[tw`w-44`]}
+                  onChange={(e, option) => {
+                    onChange((option as SelectOption)?.inputValue)
+                  }}
+                />
+                <FormHelperText error>入力してください</FormHelperText>
+              </>
+            )
+          }}
+        />
+
+        <Button type="submit" tw="mt-4">
+          登録
+        </Button>
+      </form>
+    </div>
   )
 }
 

@@ -163,6 +163,18 @@ export const Select: React.VFC<AutocompleteProps> = ({
             }
           }
         `,
+        required &&
+          css`
+            & .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+              ${tw`(border border-negative-medium-default)!`}
+            }
+            &:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+              ${tw`(border border-negative-medium-default)!`}
+            }
+            & .Mui-focused fieldset {
+              ${tw`(border border-negative-medium-default)!`}
+            }
+          `,
         twin,
       ]}
       renderInput={(params) => {
