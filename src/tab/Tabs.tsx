@@ -6,13 +6,21 @@ import tw, { css, TwStyle } from 'twin.macro'
 export interface TabsProps extends TabListProps {
   noBorder?: boolean
   reverse?: boolean
+  color?: 'primary' | 'secondary' | 'shade'
   twin?: (TwStyle | SerializedStyles)[]
+}
+
+const colorStyle = {
+  primary: tw`bg-primary-dark-default`,
+  secondary: tw`bg-secondary-dark-default`,
+  shade: tw`bg-shade-dark-default`,
 }
 
 export const Tabs: React.VFC<TabsProps> = ({
   twin,
   noBorder = false,
   reverse = false,
+  color = 'secondary',
   onChange,
   children,
   ...rest
@@ -29,7 +37,7 @@ export const Tabs: React.VFC<TabsProps> = ({
               : tw`(border-shade-light-default border-b-2)!`}
           }
           & .MuiTabs-indicator {
-            ${tw`(bg-secondary-dark-default)!`}
+            ${colorStyle[color]}
             ${reverse && tw`top-0`}
           }
         `,
