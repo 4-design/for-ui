@@ -13,7 +13,7 @@ export interface TabsProps extends TabListProps {
 const colorStyle = {
   primary: tw`bg-primary-dark-default`,
   secondary: tw`bg-secondary-dark-default`,
-  shade: tw`bg-shade-dark-default`,
+  shade: tw`bg-shade-medium-default`,
 }
 
 export const Tabs: React.VFC<TabsProps> = ({
