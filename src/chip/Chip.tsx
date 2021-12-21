@@ -1,6 +1,6 @@
 import React, { VFC } from 'react'
 import MuiChip, { ChipProps as MuiChipProps } from '@mui/material/Chip'
-import tw, { css, TwStyle } from 'twin.macro'
+import tw, { css, TwStyle, theme } from 'twin.macro'
 
 export type ChipProps = Exclude<MuiChipProps, 'color'> & {
   twin?: TwStyle[]
@@ -28,6 +28,9 @@ export const Chip: VFC<ChipProps> = ({ color = 'default', twin, ...props }) => {
 
             > .MuiChip-deleteIcon {
               ${tw`text-shade-dark-default`}
+              &:hover {
+                color: ${theme`iconColor.primary.dark.hover`} !important;
+              }
             }
           }
         `,
