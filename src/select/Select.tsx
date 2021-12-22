@@ -9,7 +9,7 @@ import { Tag } from '../tag'
 import { TextField } from '../textField'
 
 const Paper = (props: PaperProps) => {
-  return <MuiPaper {...props} tw="rounded-md" />
+  return <MuiPaper {...props} elevation={4} tw="rounded-md" />
 }
 
 export type SelectOption = {
@@ -143,8 +143,12 @@ export const Select: React.VFC<AutocompleteProps> = ({
         css`
           ${tw`(bg-shade-white-default)!`}
 
+          &.MuiPaper-root {
+            ${tw`drop-shadow-2xl!`}
+          }
+
           & .MuiAutocomplete-paper {
-            ${tw`(py-2 min-w-min rounded-2xl shadow-main transform translate-y-4)!`}
+            ${tw`(py-2 min-w-min rounded-2xl shadow-main transform translate-y-4 shadow-3xl)!`}
           }
 
           & .MuiOutlinedInput-root {
