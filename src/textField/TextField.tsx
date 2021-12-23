@@ -13,6 +13,7 @@ export type TextFieldProps = MuiTextFieldProps & {
   twin?: TwStyle
   labelTwin?: TwStyle
   inputTwin?: TwStyle
+  resize?: boolean
 }
 
 type NumberFormatCustomProps = {
@@ -153,6 +154,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
         error,
         unitLabel = '',
         isPriceFormat = false,
+        resize = false,
         ...rest
       },
       ref
@@ -218,23 +220,49 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
                 {required && <span tw="text-negative-medium-default">*</span>}
               </label>
             )}
-
-            <MuiTextField
-              error={error}
-              inputRef={validRef}
-              required={required}
-              variant={variant}
-              InputProps={inputProps}
-              css={[
-                styles['outlined'],
-                css`
-                  & .MuiInputBase-root {
-                    ${inputTwin}
-                  }
-                `,
-              ]}
-              {...rest}
-            />
+            {resize ? (
+              <div>
+                <MuiTextField
+                  error={error}
+                  inputRef={validRef}
+                  required={required}
+                  variant={variant}
+                  InputProps={inputProps}
+                  css={[
+                    styles['outlined'],
+                    css`
+                      & .MuiInputBase-root {
+                        ${inputTwin}
+                      }
+                      .MuiInputBase-inputMultiline {
+                        ${resize && tw`resize`}
+                      }
+                    `,
+                  ]}
+                  {...rest}
+                />
+              </div>
+            ) : (
+              <MuiTextField
+                error={error}
+                inputRef={validRef}
+                required={required}
+                variant={variant}
+                InputProps={inputProps}
+                css={[
+                  styles['outlined'],
+                  css`
+                    & .MuiInputBase-root {
+                      ${inputTwin}
+                    }
+                    .MuiInputBase-inputMultiline {
+                      ${resize && tw`resize`}
+                    }
+                  `,
+                ]}
+                {...rest}
+              />
+            )}
           </div>
         )
       }

@@ -149,22 +149,7 @@ export const Outlined = (): JSX.Element => {
           {...register('email')}
         />
       </div>
-      <div tw="mb-4">
-        <TextField
-          disabled
-          required
-          fullWidth
-          multiline
-          rows={3}
-          variant="outlined"
-          autoComplete="on"
-          type="email"
-          label="メールアドレス"
-          placeholder="example@lancepod.com"
-          error={errors && !!errors['email']}
-          {...register('email')}
-        />
-      </div>
+
       <div tw="mb-4">
         <TextField
           type="password"
@@ -183,6 +168,51 @@ export const Outlined = (): JSX.Element => {
           isPriceFormat
           error={errors && !!errors['price']}
           {...register('price')}
+        />
+      </div>
+      <div tw="mb-4">
+        <TextField
+          disabled
+          required
+          fullWidth
+          multiline
+          rows={3}
+          variant="outlined"
+          autoComplete="on"
+          type="email"
+          label="メールアドレス"
+          placeholder="example@lancepod.com"
+          error={errors && !!errors['email']}
+          {...register('email')}
+        />
+      </div>
+      <div tw="mb-4">
+        <TextField
+          error
+          fullWidth
+          multiline
+          rows={3}
+          variant="outlined"
+          autoComplete="on"
+          type="email"
+          label="メールアドレス"
+          placeholder="example@lancepod.com"
+          {...register('email')}
+        />
+      </div>
+      <div tw="mb-4">
+        <TextField
+          required
+          multiline
+          resize
+          rows={3}
+          variant="outlined"
+          autoComplete="on"
+          type="email"
+          label="メールアドレス"
+          placeholder="example@lancepod.com"
+          error={errors && !!errors['email']}
+          {...register('email')}
         />
       </div>
 
