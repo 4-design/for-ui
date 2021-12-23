@@ -1,3 +1,12 @@
+# [2.0.0-alpha.8](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.7...v2.0.0-alpha.8) (2021-12-21)
+
+
+### Features
+
+* v2 Tabs 実装 ([#380](https://github.com/3-shake/3design-ui/issues/380)) ([a7bb1b5](https://github.com/3-shake/3design-ui/commit/a7bb1b5aeac7dea3e0a2af4a39ffce04a5b1d298))
+
+
+
 # [2.0.0-alpha.7](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.6...v2.0.0-alpha.7) (2021-12-16)
 
 
