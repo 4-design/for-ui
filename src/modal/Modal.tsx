@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode } from 'react'
+import React, { forwardRef } from 'react'
 import { SerializedStyles } from '@emotion/react'
 
 import MuiBackdrop, {
@@ -10,13 +10,14 @@ import tw, { css, TwStyle } from 'twin.macro'
 
 type BackdropProps = MuiBackdropProps
 
-export type ModalProps = MuiModalProps & {
+export type ModalProps = Omit<MuiModalProps, 'children'> & {
   rootTwin?: (TwStyle | SerializedStyles)[]
   twin?: (TwStyle | SerializedStyles)[]
 
   /** Whether the Dialog is open */
   open: boolean
-  children: ReactNode
+
+  children: React.ReactNode | React.ReactNode[]
 
   /** Handler that is called when the 'cancel' button of a dismissable Dialog is clicked. */
   onClose?(event: React.MouseEvent | React.KeyboardEvent): void
@@ -47,7 +48,7 @@ const StyledModal = styled(ModalUnstyled)`
  `
 */
 
-const Backdrop: React.VFC<BackdropProps> = ({ open, children, onClick }) => {
+const Backdrop: React.FC<BackdropProps> = ({ open, children, onClick }) => {
   return (
     <MuiBackdrop
       open={open}
@@ -65,7 +66,7 @@ const Backdrop: React.VFC<BackdropProps> = ({ open, children, onClick }) => {
   )
 }
 
-export const Modal: React.VFC<ModalProps> = forwardRef(
+export const Modal: React.FC<ModalProps> = forwardRef(
   ({ rootTwin, twin, open, onClose, children, ...props }, ref) => {
     return (
       <MuiModal
