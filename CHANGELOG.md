@@ -1,3 +1,25 @@
+# [2.0.0-alpha.9](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.7...v2.0.0-alpha.9) (2021-12-24)
+
+
+### Bug Fixes
+
+* **Modal:** muiのバグによりUnstyled Modalを廃止 ([#393](https://github.com/3-shake/3design-ui/issues/393)) ([fa3246f](https://github.com/3-shake/3design-ui/commit/fa3246f5bba5c94e0bf20b804d52e1e519bac96a))
+* Storybook/Table 静的データに変更 ([#383](https://github.com/3-shake/3design-ui/issues/383)) ([dd58737](https://github.com/3-shake/3design-ui/commit/dd5873716a26a08e0c744984495ee00dcb9abb9a))
+
+
+### Features
+
+* v2 Chip hover 実装 ([#381](https://github.com/3-shake/3design-ui/issues/381)) ([8c2fd0e](https://github.com/3-shake/3design-ui/commit/8c2fd0e845cfef130107ce3b2711c70952a48044))
+* v2 Select 実装 ([#384](https://github.com/3-shake/3design-ui/issues/384)) ([a6216fe](https://github.com/3-shake/3design-ui/commit/a6216fe30e297148f7c5fd792a5c7703ecf5381b))
+* v2 Tabs 実装 ([#380](https://github.com/3-shake/3design-ui/issues/380)) ([a7bb1b5](https://github.com/3-shake/3design-ui/commit/a7bb1b5aeac7dea3e0a2af4a39ffce04a5b1d298))
+
+
+### Reverts
+
+* Revert "chore: release v2.0.0-alpha.8 (#382)" ([2b97151](https://github.com/3-shake/3design-ui/commit/2b971514d81c1930f546f224f6d590bac84da9c5)), closes [#382](https://github.com/3-shake/3design-ui/issues/382)
+
+
+
 # [2.0.0-alpha.8](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.7...v2.0.0-alpha.8) (2021-12-24)
 
 
