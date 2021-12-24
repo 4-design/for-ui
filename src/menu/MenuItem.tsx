@@ -8,12 +8,13 @@ export interface MenuItemProps extends MuiMenuItemProps {
   twin?: TwStyle[]
 }
 
-export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
-  (props, _) => {
+export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
+  (props, ref) => {
     const { twin, children, ...rest } = props
 
     return (
       <MuiMenuItem
+        ref={ref}
         css={[
           css`
             ${tw`(font-sans pl-6 pr-12 py-2 text-r

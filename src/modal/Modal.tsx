@@ -1,22 +1,28 @@
-import React, { ReactNode } from 'react'
+import React, { forwardRef, ReactNode } from 'react'
 import { SerializedStyles } from '@emotion/react'
-import ModalUnstyled from '@mui/base/ModalUnstyled'
 
-import tw, { styled, TwStyle } from 'twin.macro'
+import MuiBackdrop, {
+  BackdropProps as MuiBackdropProps,
+} from '@mui/material/Backdrop'
+import MuiModal, { ModalProps as MuiModalProps } from '@mui/material/Modal'
 
-export type ModalProps = {
+import tw, { css, TwStyle } from 'twin.macro'
+
+type BackdropProps = MuiBackdropProps
+
+export type ModalProps = MuiModalProps & {
   rootTwin?: (TwStyle | SerializedStyles)[]
   twin?: (TwStyle | SerializedStyles)[]
 
-  children: ReactNode
-
   /** Whether the Dialog is open */
   open: boolean
+  children: ReactNode
 
   /** Handler that is called when the 'cancel' button of a dismissable Dialog is clicked. */
   onClose?(event: React.MouseEvent | React.KeyboardEvent): void
 }
 
+/*
 const StyledModal = styled(ModalUnstyled)`
   position: fixed;
   z-index: 1300;
@@ -29,46 +35,63 @@ const StyledModal = styled(ModalUnstyled)`
   justify-content: center;
 `
 
-const Backdrop = styled('div')`
-  z-index: -1;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  -webkit-tap-highlight-color: transparent;
-`
+ const Backdrop = styled('div')`
+   z-index: -1;
+   position: fixed;
+   right: 0;
+   bottom: 0;
+   top: 0;
+   left: 0;
+   background-color: rgba(0, 0, 0, 0.2);
+   -webkit-tap-highlight-color: transparent;
+ `
+*/
 
-export const Modal: React.VFC<ModalProps> = ({
-  rootTwin,
-  twin,
-  open,
-  onClose,
-  children,
-}) => {
+const Backdrop: React.VFC<BackdropProps> = ({ open, children, onClick }) => {
   return (
-    <StyledModal
+    <MuiBackdrop
       open={open}
-      onClose={onClose}
-      css={[rootTwin]}
-      BackdropComponent={Backdrop}
-      BackdropProps={{ onClick: onClose }}
+      onClick={onClick}
+      css={[
+        css`
+          &.MuiBackdrop-root {
+            background-color: #001f3333;
+          }
+        `,
+      ]}
     >
-      <div
-        css={[
-          tw`flex justify-center min-h-screen focus-visible:ring-0 focus-visible:outline-none`,
-        ]}
+      {children}
+    </MuiBackdrop>
+  )
+}
+
+export const Modal: React.VFC<ModalProps> = forwardRef(
+  ({ rootTwin, twin, open, onClose, children, ...props }, ref) => {
+    return (
+      <MuiModal
+        ref={ref}
+        open={open}
+        onClose={onClose}
+        css={[rootTwin]}
+        BackdropComponent={Backdrop}
+        BackdropProps={{ onClick: onClose }}
+        {...props}
       >
         <div
           css={[
-            tw`flex flex-col m-auto rounded-lg shadow-modal break-all transition-all transform bg-shade-white-default`,
-            twin,
+            tw`flex justify-center min-h-screen focus-visible:ring-0 focus-visible:outline-none`,
           ]}
         >
-          {children}
+          <div
+            css={[
+              tw`flex flex-col m-auto rounded-lg shadow-modal break-all transition-all transform bg-shade-white-default`,
+              twin,
+            ]}
+          >
+            {children}
+          </div>
         </div>
-      </div>
-    </StyledModal>
-  )
-}
+      </MuiModal>
+    )
+  }
+)
