@@ -1,3 +1,12 @@
+# [2.0.0-alpha.10](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.9...v2.0.0-alpha.10) (2021-12-24)
+
+
+### Bug Fixes
+
+* **Modal:** children type 修正 ([3e7030f](https://github.com/3-shake/3design-ui/commit/3e7030f17aa4e43512f1b867735d708564aa4cd2))
+
+
+
 # [2.0.0-alpha.9](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.7...v2.0.0-alpha.9) (2021-12-24)
 
 
