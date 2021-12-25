@@ -1,3 +1,12 @@
+# [2.0.0-alpha.11](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.10...v2.0.0-alpha.11) (2021-12-25)
+
+
+### Bug Fixes
+
+* **Sidebar:** support customize ([#398](https://github.com/3-shake/3design-ui/issues/398)) ([a52d87c](https://github.com/3-shake/3design-ui/commit/a52d87c17ca3d45222be58681ede0fcbf085f50f))
+
+
+
 # [2.0.0-alpha.10](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.9...v2.0.0-alpha.10) (2021-12-24)
 
 
