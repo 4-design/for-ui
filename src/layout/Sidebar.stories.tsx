@@ -22,8 +22,8 @@ export default {
 
 const Logo = () => (
   <a>
-    <div tw="flex pl-8 pt-8">
-      <img src="/logo/metis.png" width="145" height="42" alt="logo" />
+    <div tw="flex pl-3 pt-6">
+      <img src="/logo/metis.png" width="120" height="42" alt="logo" />
     </div>
   </a>
 )
@@ -31,7 +31,10 @@ const Logo = () => (
 export const SidebarTemplate = () => (
   <Sidebar logo={<Logo />}>
     <SidebarMenu>
-      <SidebarMenuItem icon={<MdHome size={24} />} label="ダッシュボード" />
+      <SidebarMenuItem
+        icon={<MdHome size={24} />}
+        label={<span tw="text-r">ジャーニーマップ</span>}
+      />
 
       <SidebarMenuItem icon={<MdGroup size={24} />} label="候補者一覧" active />
 
