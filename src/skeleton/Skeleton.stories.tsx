@@ -101,3 +101,20 @@ export const WithAvatar = () => {
     </div>
   )
 }
+
+export const WithCount = () => {
+  const [loading, setLoading] = React.useState(false)
+
+  React.useEffect(() => {
+    const intervalId = setInterval(() => setLoading((x) => !x), 1000)
+    return () => clearInterval(intervalId)
+  }, [])
+
+  return (
+    <div tw="flex flex-col">
+      <Skeleton loading={loading} count={10}>
+        <Typography variant="h1">H1. Heading</Typography>
+      </Skeleton>
+    </div>
+  )
+}
