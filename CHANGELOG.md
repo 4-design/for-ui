@@ -1,3 +1,12 @@
+# [2.0.0-alpha.13](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.12...v2.0.0-alpha.13) (2021-12-26)
+
+
+### Bug Fixes
+
+* **Skeleton:** count props 追加 ([#405](https://github.com/3-shake/3design-ui/issues/405)) ([f86d16f](https://github.com/3-shake/3design-ui/commit/f86d16fce020f525648c662dcbae6e867e2ba702))
+
+
+
 # [2.0.0-alpha.12](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.11...v2.0.0-alpha.12) (2021-12-26)
 
 
