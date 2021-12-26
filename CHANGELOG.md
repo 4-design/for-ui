@@ -1,3 +1,12 @@
+# [2.0.0-alpha.12](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.11...v2.0.0-alpha.12) (2021-12-26)
+
+
+### Features
+
+* Skeleton 実装 ([#403](https://github.com/3-shake/3design-ui/issues/403)) ([dad672a](https://github.com/3-shake/3design-ui/commit/dad672a2edecc0fa6218d47119c5cff96ef3a74a))
+
+
+
 # [2.0.0-alpha.11](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.10...v2.0.0-alpha.11) (2021-12-25)
 
 
