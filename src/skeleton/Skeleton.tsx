@@ -22,7 +22,8 @@ export const Skeleton: React.FC<SkeletonProps> = ({
       <>
         {[...Array(count)].map((_, idx) => (
           <MuiSkeleton css={[twin]} {...rest} key={idx}>
-            {children}
+            {React.Children.count(children) > 0 &&
+              React.Children.toArray(children)[0]}
           </MuiSkeleton>
         ))}
       </>

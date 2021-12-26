@@ -114,6 +114,7 @@ export const WithCount = () => {
     <div tw="flex flex-col">
       <Skeleton loading={loading} count={10}>
         <Typography variant="h1">H1. Heading</Typography>
+        <Typography variant="h1">H1. Heading</Typography>
       </Skeleton>
     </div>
   )
