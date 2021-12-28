@@ -33,3 +33,6 @@ jobs:
 
       - name: run prettier
         run: yarn lint
+
+      - name: run tsc
+        run: yarn build:types
