@@ -218,7 +218,6 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
                 {required && <span tw="text-negative-medium-default">*</span>}
               </label>
             )}
-
             <MuiTextField
               error={error}
               inputRef={validRef}
