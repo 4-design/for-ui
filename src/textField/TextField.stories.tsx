@@ -204,7 +204,6 @@ export const Outlined = (): JSX.Element => {
         <TextField
           required
           multiline
-          resize
           rows={3}
           variant="outlined"
           autoComplete="on"
