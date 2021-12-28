@@ -75,26 +75,34 @@ export const WithImage = () => {
 }
 
 export const WithAvatar = () => {
-  const [loading, setLoading] = React.useState(false)
-
-  React.useEffect(() => {
-    const intervalId = setInterval(() => setLoading((x) => !x), 1000)
-    return () => clearInterval(intervalId)
-  }, [])
-
   return (
     <div>
       <AvatarGroup total={24}>
-        <Skeleton loading={loading}>
+        <Skeleton>
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
         </Skeleton>
-        <Skeleton loading={loading}>
+        <Skeleton>
           <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
         </Skeleton>
-        <Skeleton loading={loading}>
+        <Skeleton>
           <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
         </Skeleton>
-        <Skeleton loading={loading}>
+        <Skeleton>
+          <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
+        </Skeleton>
+      </AvatarGroup>
+
+      <AvatarGroup total={24}>
+        <Skeleton loading>
+          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+        </Skeleton>
+        <Skeleton loading>
+          <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+        </Skeleton>
+        <Skeleton loading>
+          <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
+        </Skeleton>
+        <Skeleton loading>
           <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
         </Skeleton>
       </AvatarGroup>
