@@ -1,3 +1,12 @@
+# [2.0.0-alpha.14](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.13...v2.0.0-alpha.14) (2021-12-28)
+
+
+### Bug Fixes
+
+* LoadingButton スタイル修正 ([#411](https://github.com/3-shake/3design-ui/issues/411)) ([aef3597](https://github.com/3-shake/3design-ui/commit/aef3597f51220074ce71034ed56ddcf41e28493d))
+
+
+
 # [2.0.0-alpha.13](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.12...v2.0.0-alpha.13) (2021-12-26)
 
 
