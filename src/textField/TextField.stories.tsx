@@ -188,6 +188,19 @@ export const Outlined = (): JSX.Element => {
       </div>
       <div tw="mb-4">
         <TextField
+          required
+          multiline
+          variant="outlined"
+          autoComplete="on"
+          type="email"
+          label="マルチライン"
+          placeholder="example@lancepod.com"
+          error={errors && !!errors['email']}
+          {...register('email')}
+        />
+      </div>
+      <div tw="mb-4">
+        <TextField
           error
           fullWidth
           multiline
@@ -195,22 +208,8 @@ export const Outlined = (): JSX.Element => {
           variant="outlined"
           autoComplete="on"
           type="email"
-          label="メールアドレス"
+          label="エラー"
           placeholder="example@lancepod.com"
-          {...register('email')}
-        />
-      </div>
-      <div tw="mb-4">
-        <TextField
-          required
-          multiline
-          rows={3}
-          variant="outlined"
-          autoComplete="on"
-          type="email"
-          label="メールアドレス"
-          placeholder="example@lancepod.com"
-          error={errors && !!errors['email']}
           {...register('email')}
         />
       </div>
