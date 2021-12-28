@@ -241,6 +241,7 @@ module.exports = {
   important: true,
   theme: {
     textColor: {
+      transparent: 'transparent',
       shade: colors.shade.text,
       primary: colors.primary.text,
       secondary: colors.secondary.text,
