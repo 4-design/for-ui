@@ -1,3 +1,18 @@
+# [2.0.0-alpha.16](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.15...v2.0.0-alpha.16) (2022-01-02)
+
+
+### Bug Fixes
+
+* upgrade mui 5.2.6 ([19b8c12](https://github.com/3-shake/3design-ui/commit/19b8c12da626b7842a9edea5da0bd348d3894cb3))
+* **Skeltone:** chromatic で毎回変更されるため、stateをstaticにする ([73040fe](https://github.com/3-shake/3design-ui/commit/73040fead1fe10c2f6ebc564ce28006a26ead55b))
+
+
+### Features
+
+* v2 TextArea 実装 ([#389](https://github.com/3-shake/3design-ui/issues/389)) ([eacda85](https://github.com/3-shake/3design-ui/commit/eacda8522a610f24342cdd9aece871858d088eba))
+
+
+
 # [2.0.0-alpha.15](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.13...v2.0.0-alpha.15) (2021-12-28)
 
 
