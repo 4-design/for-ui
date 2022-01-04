@@ -13091,7 +13091,7 @@ react-draggable@^4.4.3:
     classnames "^2.2.5"
     prop-types "^15.6.0"
 
-react-dropzone@^11.3.2:
+react-dropzone@11.3.2:
   version "11.3.2"
   resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-11.3.2.tgz#2efb6af800a4779a9daa1e7ba1f8d51d0ab862d7"
   integrity sha512-Z0l/YHcrNK1r85o6RT77Z5XgTARmlZZGfEKBl3tqTXL9fZNQDuIdRx/J0QjvR60X+yYu26dnHeaG2pWU+1HHvw==
@@ -13164,7 +13164,7 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
 
-react-number-format@^4.6.3:
+react-number-format@4.6.3:
   version "4.6.3"
   resolved "https://registry.yarnpkg.com/react-number-format/-/react-number-format-4.6.3.tgz#41e99871e50167cc1ac86c961285504244382f55"
   integrity sha512-AZJwR/2mnl1cTRxQRjIITKp+Rg+4bYgjNylw7it7+x9UyIUAEpEK3fETKCqC5F2mVW8S41Xc6gpeH3VcJbPRsg==
@@ -13218,7 +13218,7 @@ react-sizeme@^3.0.1:
     shallowequal "^1.1.0"
     throttle-debounce "^3.0.1"
 
-react-spinners@^0.11.0:
+react-spinners@0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/react-spinners/-/react-spinners-0.11.0.tgz#186fd150cc9f7ab1436227f70d5d113b47e9e43d"
   integrity sha512-rDZc0ABWn/M1OryboGsWVmIPg8uYWl0L35jPUhr40+Yg+syVPjeHwvnB7XWaRpaKus3M0cG9BiJA+ZB0dAwWyw==
