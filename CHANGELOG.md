@@ -1,3 +1,13 @@
+# [2.0.0-alpha.17](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.16...v2.0.0-alpha.17) (2022-01-04)
+
+
+### Bug Fixes
+
+* mui upgrade ([#431](https://github.com/3-shake/3design-ui/issues/431)) ([ade9196](https://github.com/3-shake/3design-ui/commit/ade9196b87fa60c9cbdacba1677d0f649885afdf))
+* pin library ([#432](https://github.com/3-shake/3design-ui/issues/432)) ([033c23e](https://github.com/3-shake/3design-ui/commit/033c23ea06c478e24450c07ebd067d391e4825c8))
+
+
+
 # [2.0.0-alpha.16](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.15...v2.0.0-alpha.16) (2022-01-02)
 
 
