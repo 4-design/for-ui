@@ -38,9 +38,10 @@
     "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
-    "@mui/lab": "5.0.0-alpha.62",
-    "@mui/material": "5.2.6",
+    "@mui/lab": "5.0.0-alpha.63",
+    "@mui/material": "5.2.7",
     "@mui/styles": "5.2.3",
+    "@mui/utils": "5.2.3",
     "@mui/types": "7.1.0",
     "react-dropzone": "^11.3.2",
     "react-icons": "4.3.1",
