@@ -90,7 +90,7 @@
     "eslint-plugin-react-hooks": "4.3.0",
     "eslint-plugin-storybook": "0.5.5",
     "eslint-plugin-unused-imports": "2.0.0",
-    "lint-staged": "12.1.4",
+    "lint-staged": "12.1.5",
     "namor": "2.0.3",
     "postcss": "8.4.5",
     "prettier": "2.5.1",
