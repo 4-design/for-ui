@@ -14765,10 +14765,10 @@ synchronous-promise@^2.0.15:
   resolved "https://registry.yarnpkg.com/synchronous-promise/-/synchronous-promise-2.0.15.tgz#07ca1822b9de0001f5ff73595f3d08c4f720eb8e"
   integrity sha512-k8uzYIkIVwmT+TcglpdN50pS2y1BDcUnBPK9iJeGu0Pl1lOI8pD6wtzgw91Pjpe+RxtTncw32tLxs/R0yNL2Mg==
 
-tailwindcss@3.0.8:
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.0.8.tgz#6c751c3d2ee8e1fa18b108303b73f44a5e868992"
-  integrity sha512-Yww1eRYO1AxITJmW/KduZPxNvYdHuedeKwPju9Oakp7MdiixRi5xkpLhirsc81QCxHL0eoce6qKmxXwYGt4Cjw==
+tailwindcss@3.0.10:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.0.10.tgz#be83322644353b053fe8581f8f2413e958d7e11b"
+  integrity sha512-dSKGNqI6hyzY8CPX0GsYTZ9yTxGesHrNFPIANTBe8bQWNHGTsAd7PoZQ+HTaIQb/we3zaZfa4F487WCCvhBGbw==
   dependencies:
     arg "^5.0.1"
     chalk "^4.1.2"
@@ -14790,7 +14790,6 @@ tailwindcss@3.0.8:
     postcss-value-parser "^4.2.0"
     quick-lru "^5.1.1"
     resolve "^1.20.0"
-    tmp "^0.2.1"
 
 tailwindcss@^2.2.7:
   version "2.2.19"
