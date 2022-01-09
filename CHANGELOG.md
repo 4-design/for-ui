@@ -1,3 +1,12 @@
+# [2.0.0-alpha.18](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.17...v2.0.0-alpha.18) (2022-01-09)
+
+
+### Bug Fixes
+
+* **Menu:** menu border 修正 ([#442](https://github.com/3-shake/3design-ui/issues/442)) ([5abc3c6](https://github.com/3-shake/3design-ui/commit/5abc3c6ef6d246d022fcbd7b42efce28850606b2))
+
+
+
 # [2.0.0-alpha.17](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.16...v2.0.0-alpha.17) (2022-01-04)
 
 
