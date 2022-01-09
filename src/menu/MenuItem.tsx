@@ -18,7 +18,7 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
         css={[
           css`
             ${tw`(font-sans pl-6 pr-12 py-2 text-r
-            text-shade-dark-default bg-shade-white-default whitespace-nowrap
+            text-shade-dark-default bg-shade-white-default whitespace-nowrap border-solid!
             hover:bg-shade-white-hover)!`}
           `,
           twin,

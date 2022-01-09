@@ -38,14 +38,14 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
           css`
             & .MuiMenu-paper {
               ${tw`(z-modal py-1 min-w-min rounded-[4px] shadow-menu transform translate-y-2)!`}
+
+              & .MuiList-root {
+                ${tw`(grid grid-cols-1 divide-y divide-shade-light-default)!`}
+              }
             }
 
             & .MuiMenu-list {
               ${tw`divide-y! divide-shade-light-default!`}
-
-              > .MuiMenuItem-root {
-                ${tw`border-solid!`}
-              }
             }
 
             & .MuiList-padding {
