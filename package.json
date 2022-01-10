@@ -70,7 +70,7 @@
     "@storybook/addon-actions": "6.4.10",
     "@storybook/addon-backgrounds": "6.4.9",
     "@storybook/addon-essentials": "6.4.9",
-    "@storybook/addon-links": "6.4.9",
+    "@storybook/addon-links": "6.4.10",
     "@storybook/addon-postcss": "2.0.0",
     "@storybook/react": "6.4.9",
     "@types/react-table": "7.7.9",
