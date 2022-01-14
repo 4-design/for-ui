@@ -5352,6 +5352,13 @@ axios@^0.21.1:
   dependencies:
     follow-redirects "^1.10.0"
 
+axios@^0.24.0:
+  version "0.24.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.24.0.tgz#804e6fa1e4b9c5288501dd9dff56a7a0940d20d6"
+  integrity sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==
+  dependencies:
+    follow-redirects "^1.14.4"
+
 babel-loader@8.2.3, babel-loader@^8.0.0:
   version "8.2.3"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.2.3.tgz#8986b40f1a64cacfcb4b8429320085ef68b1342d"
@@ -5875,18 +5882,18 @@ builtins@^1.0.3:
   resolved "https://registry.yarnpkg.com/builtins/-/builtins-1.0.3.tgz#cb94faeb61c8696451db36534e1422f94f0aee88"
   integrity sha1-y5T662HIaWRR2zZTThQi+U8K7og=
 
-bundlewatch@0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/bundlewatch/-/bundlewatch-0.3.2.tgz#b07c57347a790f436f8b59c12418618f5e938432"
-  integrity sha512-gqekMv+ph1vKjM2B6P7mk8HxNZ3ZLOU94Vo3eFqPgQ0COqDsYcrPwsmpczAwsPxOMY7ZpKCGUez7shbdttCDew==
+bundlewatch@0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/bundlewatch/-/bundlewatch-0.3.3.tgz#6226f2317a8183cfccdd1ea016bdf10373c9498c"
+  integrity sha512-qzSVWrZyyWXa546JpAPRPTFmnXms9YNVnfzB05DRJKmN6wRRa7SkxE4OgKQmbAY74Z6CM2mKAc6vwvd2R+1lUQ==
   dependencies:
-    axios "^0.21.1"
-    bytes "^3.0.0"
+    axios "^0.24.0"
+    bytes "^3.1.1"
     chalk "^4.0.0"
-    ci-env "^1.14.0"
+    ci-env "^1.17.0"
     commander "^5.0.0"
     glob "^7.1.2"
-    gzip-size "^5.1.1"
+    gzip-size "^6.0.0"
     jsonpack "^1.1.5"
     lodash.merge "^4.6.1"
     read-pkg-up "^7.0.1"
@@ -5900,6 +5907,11 @@ bytes@3.1.0, bytes@^3.0.0, bytes@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.1.0.tgz#f6cf7933a360e0588fa9fde85651cdc7f805d1f6"
   integrity sha512-zauLjrfCG+xvoyaqLoV8bLVXXNGC4JqlxFCutSDWA6fJrTo2ZuvLYTqZ7aHBLZSMOopbzwv8f+wZcVzfVTI2Dg==
+
+bytes@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.1.1.tgz#3f018291cb4cbad9accb6e6970bca9c8889e879a"
+  integrity sha512-dWe4nWO/ruEOY7HkUJ5gFt1DCFV9zPRoJr8pV0/ASQermOZjtq8jMjOprC0Kd10GLN+l7xaUPvxzJFWtxGu8Fg==
 
 cacache@^12.0.2:
   version "12.0.4"
@@ -6249,7 +6261,7 @@ chrome-trace-event@^1.0.2:
   dependencies:
     tslib "^1.9.0"
 
-ci-env@^1.14.0:
+ci-env@^1.17.0:
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/ci-env/-/ci-env-1.17.0.tgz#386b8821ce5da1cd0b2b6a06c1f52b1433f8889a"
   integrity sha512-NtTjhgSEqv4Aj90TUYHQLxHdnCPXnjdtuGG1X8lTfp/JqeXTdw0FTWl/vUAPuvbWZTF8QVpv6ASe/XacE+7R2A==
@@ -8488,6 +8500,11 @@ follow-redirects@^1.10.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.1.tgz#d9114ded0a1cfdd334e164e6662ad02bfd91ff43"
   integrity sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg==
+
+follow-redirects@^1.14.4:
+  version "1.14.7"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.7.tgz#2004c02eb9436eee9a21446a6477debf17e81685"
+  integrity sha512-+hbxoLbFMbRKDwohX8GkTataGqO6Jb7jGwpAlwgy2bIz25XtRm7KEzJM76R1WiNT5SwZkX4Y75SwBolkpmE7iQ==
 
 for-in@^1.0.2:
   version "1.0.2"
