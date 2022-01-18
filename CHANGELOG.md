@@ -1,3 +1,12 @@
+# [2.0.0-alpha.19](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.18...v2.0.0-alpha.19) (2022-01-12)
+
+
+### Bug Fixes
+
+* upgrade mui ([cb98c64](https://github.com/3-shake/3design-ui/commit/cb98c64539f07b0afad4cd5eaa2c3a4cc005b126))
+
+
+
 # [2.0.0-alpha.18](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.17...v2.0.0-alpha.18) (2022-01-09)
 
 
