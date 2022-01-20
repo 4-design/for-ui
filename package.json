@@ -50,7 +50,7 @@
   "devDependencies": {
     "@mui/types": "7.1.0",
     "@babel/core": "7.16.10",
-    "@babel/plugin-proposal-private-methods": "7.16.7",
+    "@babel/plugin-proposal-private-methods": "7.16.11",
     "@babel/plugin-proposal-private-property-in-object": "7.16.7",
     "@babel/preset-env": "7.16.10",
     "@babel/preset-react": "7.16.7",
