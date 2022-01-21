@@ -68,7 +68,7 @@
     "@rollup/plugin-typescript": "8.3.0",
     "@storybook/addon-actions": "6.4.14",
     "@storybook/addon-backgrounds": "6.4.14",
-    "@storybook/addon-essentials": "6.4.13",
+    "@storybook/addon-essentials": "6.4.14",
     "@storybook/addon-links": "6.4.13",
     "@storybook/addon-postcss": "2.0.0",
     "@storybook/react": "6.4.13",
