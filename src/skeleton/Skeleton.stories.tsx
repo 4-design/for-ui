@@ -2,9 +2,10 @@ import React from 'react'
 import Avatar from '@mui/material/Avatar'
 import AvatarGroup from '@mui/material/AvatarGroup'
 import { Meta } from '@storybook/react/types-6-0'
+import tw from 'twin.macro'
 
-import { Typography } from '../typography'
-import { Skeleton } from './Skeleton'
+import { Text, Typography } from '../typography'
+import { Skeleton, SkeletonX } from './Skeleton'
 
 export default {
   title: 'Atom/Skeleton',
@@ -24,7 +25,6 @@ export default {
 
 export const WithText = () => {
   const [loading, setLoading] = React.useState(false)
-
   React.useEffect(() => {
     const intervalId = setInterval(() => setLoading((x) => !x), 1000)
     return () => clearInterval(intervalId)
@@ -127,3 +127,80 @@ export const WithCount = () => {
     </div>
   )
 }
+
+export const WithNest = () => {
+  const [loading, setLoading] = React.useState(true)
+
+  React.useEffect(() => {
+    const intervalId = setInterval(() => setLoading((x) => !x), 1000)
+    return () => clearInterval(intervalId)
+  }, [])
+
+  return (
+    <div tw="flex flex-col">
+      <SkeletonX loading={loading} variant="text">
+        <Row>
+          <Text bold variant="caption" twin={tw`text-shade-dark-default mb-2`}>
+            サービス名
+          </Text>
+
+          <Text variant="caption" twin={tw`text-shade-dark-default`}>
+            メルカリ
+          </Text>
+        </Row>
+
+        <Row>
+          <Text bold variant="caption" twin={tw`text-shade-dark-default`}>
+            サービス概要
+          </Text>
+
+          <Text variant="caption" twin={tw`text-shade-dark-default`}>
+            「メルカリ」は、個人が簡単にモノの売り買いが楽しめるフリマアプリです。AIによる不正の監視や独自の入金システムにより、誰でも安心・安全な取引が行えます。
+          </Text>
+        </Row>
+
+        <Row>
+          <Text bold variant="caption" twin={tw`text-shade-dark-default`}>
+            使用中のインフラサービス
+          </Text>
+
+          <Text variant="caption" twin={tw`text-shade-dark-default`}>
+            Google Cloud
+          </Text>
+        </Row>
+
+        <Row>
+          <Text bold variant="caption" twin={tw`text-shade-dark-default`}>
+            停止の際の影響範囲
+          </Text>
+
+          <Text variant="caption" twin={tw`text-shade-dark-default`}>
+            顧客がメルカリ上で取引が出来ない
+          </Text>
+        </Row>
+
+        <Row>
+          <Text bold variant="caption" twin={tw`text-shade-dark-default`}>
+            構成図リンク
+          </Text>
+
+          <Text variant="caption" twin={tw`text-shade-dark-default`}>
+            https://3-shake.com
+          </Text>
+        </Row>
+
+        <Row>
+          <Text bold variant="caption" twin={tw`text-shade-dark-default`}>
+            トラフィック·ピーク時間帯
+          </Text>
+
+          <Text variant="caption" twin={tw`text-shade-dark-default`}>
+            00:00 ~ 24:00
+          </Text>
+        </Row>
+      </SkeletonX>
+    </div>
+  )
+}
+
+const Row = ({ children }) => <div tw="flex flex-col gap-2">{children}</div>
