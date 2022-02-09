@@ -1,3 +1,12 @@
+# [2.0.0-alpha.21](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.20...v2.0.0-alpha.21) (2022-02-09)
+
+
+### Features
+
+* **Skeletone:** Experimental SkeletoneX を実装 ([#528](https://github.com/3-shake/3design-ui/issues/528)) ([9ae0d4b](https://github.com/3-shake/3design-ui/commit/9ae0d4b5031e19dda5e982e5e4033289b98b2745))
+
+
+
 # [2.0.0-alpha.20](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.19...v2.0.0-alpha.20) (2022-01-18)
 
 
