@@ -3018,7 +3018,12 @@
     csstype "^3.0.10"
     prop-types "^15.7.2"
 
-"@mui/types@7.1.0", "@mui/types@^7.1.0":
+"@mui/types@7.1.1":
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/@mui/types/-/types-7.1.1.tgz#9cf159dc60a101ee336e6ec74193a4f5f97f6160"
+  integrity sha512-33hbHFLCwenTpS+T4m4Cz7cQ/ng5g+IgtINkw1uDBVvi1oM83VNt/IGzWIQNPK8H2pr0WIfkmboD501bVdYsPw==
+
+"@mui/types@^7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@mui/types/-/types-7.1.0.tgz#5ed928c5a41cfbf9a4be82ea3bbdc47bcc9610d5"
   integrity sha512-Hh7ALdq/GjfIwLvqH3XftuY3bcKhupktTm+S6qRIDGOtPtRuq2L21VWzOK4p7kblirK0XgGVH5BLwa6u8z/6QQ==
