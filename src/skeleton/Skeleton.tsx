@@ -31,3 +31,43 @@ export const Skeleton: React.FC<SkeletonProps> = ({
   }
   return children as React.ReactElement
 }
+
+const recursiveChildren = (children: React.ReactNode): React.ReactNode => {
+  if (!children) return <></>
+
+  return React.Children.map(children, (child: React.ReactNode) => {
+    if (!React.isValidElement<unknown>(child)) {
+      return child
+    }
+
+    console.info(
+      React.Children.count(child.props.children),
+      child.props.children
+    )
+
+    if (React.Children.count(child.props.children) > 1) {
+      return recursiveChildren(child.props.children)
+    }
+
+    return <MuiSkeleton>{React.cloneElement(child, child.props)}</MuiSkeleton>
+  })
+}
+
+export const SkeletonX: React.FC<SkeletonProps> = ({
+  loading = false,
+  count = 1,
+  children,
+}) => {
+  if (loading) {
+    const childs = recursiveChildren(children)
+
+    return (
+      <>
+        {[...Array(count)].map((_) => (
+          <>{childs}</>
+        ))}
+      </>
+    )
+  }
+  return children as React.ReactElement
+}
