@@ -36,7 +36,7 @@ const recursiveChildren = (children: React.ReactNode): React.ReactNode => {
   if (!children) return <></>
 
   return React.Children.map(children, (child: React.ReactNode) => {
-    if (!React.isValidElement<any>(child)) {
+    if (!React.isValidElement<unknown>(child)) {
       return child
     }
 
@@ -56,16 +56,14 @@ const recursiveChildren = (children: React.ReactNode): React.ReactNode => {
 export const SkeletonX: React.FC<SkeletonProps> = ({
   loading = false,
   count = 1,
-  twin,
   children,
-  ...rest
 }) => {
   if (loading) {
     const childs = recursiveChildren(children)
 
     return (
       <>
-        {[...Array(count)].map((_, idx) => (
+        {[...Array(count)].map((_) => (
           <>{childs}</>
         ))}
       </>
