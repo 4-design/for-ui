@@ -6,18 +6,23 @@ import tw, { css, theme, TwStyle } from 'twin.macro'
 export interface RadioProps extends MuiRadioProps {
   label?: string
   error?: string
+  nopadding?: boolean
   twin?: TwStyle | TwStyle[]
 }
 
-const _Radio: FC<MuiRadioProps> = memo(({ ...rest }) => (
+const _Radio: FC<RadioProps> = memo(({ nopadding, ...rest }) => (
   <MuiRadio
     css={[
       tw`(disabled:text-primary-dark-disabled)!`,
       css`
-        color: ${theme`textColor.shade.medium.default`} !important;
+        &.MuiRadio-root {
+          color: ${theme`textColor.shade.medium.default`} !important;
 
-        &.Mui-checked {
-          color: ${theme`backgroundColor.secondary.dark.default`} !important;
+          ${nopadding && tw`p-0!`}
+
+          &.Mui-checked {
+            color: ${theme`backgroundColor.secondary.dark.default`} !important;
+          }
         }
       `,
     ]}

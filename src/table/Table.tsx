@@ -76,6 +76,7 @@ export const Table = <T extends object>(
 
             {!!onSelectRow && (
               <Radio
+                nopadding
                 size="small"
                 value="required"
                 {...row.getToggleRowSelectedProps()}
