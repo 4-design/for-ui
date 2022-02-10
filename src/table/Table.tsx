@@ -10,7 +10,7 @@ import {
   HeaderProps,
   IdType,
 } from 'react-table'
-import 'twin.macro'
+import tw from 'twin.macro'
 import { Checkbox } from '../checkbox'
 import { Radio } from '../radio'
 import { TableCell } from './TableCell'
@@ -144,7 +144,13 @@ export const Table = <T extends object>(
     return (
       <tr
         {...row.getRowProps()}
-        tw="border-b border-shade-medium-default transform transition duration-300 ease-in-out hover:bg-shade-light-default"
+        css={[
+          tw`border-b border-shade-medium-default transform transition duration-300 ease-in-out hover:bg-shade-light-default`,
+          (onSelectRow || onSelectRows) && tw`cursor-pointer`,
+        ]}
+        onClick={() => {
+          if (onSelectRow || onSelectRows) row.toggleRowSelected()
+        }}
       >
         {row.cells.map((cell) => (
           <Fragment key={cell.getCellProps().key}>
