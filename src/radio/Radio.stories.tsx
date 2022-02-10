@@ -106,3 +106,25 @@ export const WithLabel = (): JSX.Element => {
     </div>
   )
 }
+
+export const WithNopadding = (): JSX.Element => {
+  const handleRadioChange = (e) => {
+    console.log(e.target.value)
+  }
+
+  return (
+    <div tw="flex flex-col gap-8">
+      <div tw="border-b mb-4">
+        <Text variant="h3">Radio</Text>
+      </div>
+
+      <div>
+        <RadioGroup required label="サービス名" onChange={handleRadioChange}>
+          <Radio nopadding label="Relance" value="relance" />
+          <Radio nopadding label="Sreake Sonar" value="sreake-sonar" />
+          <Radio nopadding label="Reckoner" value="reckoner" disabled />
+        </RadioGroup>
+      </div>
+    </div>
+  )
+}
