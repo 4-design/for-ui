@@ -32,6 +32,7 @@ export const Table = <T extends object>(
     )
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const useRowSelectHook = (hooks: Hooks<any>) => {
     hooks.allColumns.push((columns) => [
       // Let's make a column for selection
@@ -42,8 +43,7 @@ export const Table = <T extends object>(
         minWidth: 45,
         width: 45,
         maxWidth: 45,
-        // The header can use the table's getToggleAllRowsSelectedProps method
-        // to render a checkbox
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         Header: ({ getToggleAllRowsSelectedProps }: HeaderProps<any>) => (
           <>
             {!!onSelectRows && (
@@ -51,8 +51,7 @@ export const Table = <T extends object>(
             )}
           </>
         ),
-        // The cell can use the individual row's getToggleRowSelectedProps method
-        // to the render a checkbox
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         Cell: ({ row, cell: { getCellProps } }: CellProps<any>) => (
           <TableCell {...getCellProps()}>
             {!!onSelectRows && (
