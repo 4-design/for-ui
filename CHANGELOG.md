@@ -1,3 +1,12 @@
+# [2.0.0-alpha.25](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.24...v2.0.0-alpha.25) (2022-02-10)
+
+
+### Bug Fixes
+
+* **Radio:** nopadding 追加 ([#538](https://github.com/3-shake/3design-ui/issues/538)) ([dc7e69c](https://github.com/3-shake/3design-ui/commit/dc7e69c015f2db834b9eea9ce502e202800886c5))
+
+
+
 # [2.0.0-alpha.24](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.23...v2.0.0-alpha.24) (2022-02-10)
 
 
