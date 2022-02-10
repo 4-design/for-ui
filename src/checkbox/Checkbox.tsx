@@ -8,15 +8,17 @@ import { Typography } from '../typography'
 
 export type CheckboxProps = MuiCheckboxProps & {
   label?: string
+  nopadding?: boolean
 }
 
-const _Checkbox: FC<MuiCheckboxProps> = memo(({ ...rest }) => (
+const _Checkbox: FC<CheckboxProps> = memo(({ nopadding = false, ...rest }) => (
   <MuiCheckbox
-    sx={{ '& .MuiSvgIcon-root': { fontSize: 20 } }}
+    // sx={{ '& .MuiSvgIcon-root': { fontSize: 20 } }}
     css={[
       css`
         &.MuiCheckbox-root {
           ${tw`(text-primary-dark-default)!`}
+          ${nopadding && tw`p-0!`}
 
           color: ${theme`textColor.shade.medium.default`} !important;
 
@@ -34,25 +36,27 @@ const _Checkbox: FC<MuiCheckboxProps> = memo(({ ...rest }) => (
   />
 ))
 
-export const Checkbox = memo(({ label, ...rest }: CheckboxProps) => {
-  return (
-    <>
-      {label ? (
-        <FormControlLabel
-          control={<_Checkbox {...rest} />}
-          label={
-            <Typography
-              variant="body1"
-              disabled={rest.disabled}
-              twin={tw`text-s`}
-            >
-              {label}
-            </Typography>
-          }
-        />
-      ) : (
-        <_Checkbox {...rest} />
-      )}
-    </>
-  )
-})
+export const Checkbox = memo(
+  ({ label, nopadding = false, ...rest }: CheckboxProps) => {
+    return (
+      <>
+        {label ? (
+          <FormControlLabel
+            control={<_Checkbox nopadding={nopadding} {...rest} />}
+            label={
+              <Typography
+                variant="body1"
+                disabled={rest.disabled}
+                twin={tw`text-s`}
+              >
+                {label}
+              </Typography>
+            }
+          />
+        ) : (
+          <_Checkbox nopadding={nopadding} {...rest} />
+        )}
+      </>
+    )
+  }
+)

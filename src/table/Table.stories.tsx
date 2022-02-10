@@ -154,18 +154,6 @@ const withSelectColumns: Array<Column<PersonData>> = [
       <TableCell {...getCellProps()}>{value}</TableCell>
     ),
   },
-  {
-    Header: '',
-    accessor: 'status',
-    width: 50,
-    Cell: ({ cell: { getCellProps } }) => (
-      <TableCell {...getCellProps()} twin={tw`px-0`}>
-        <IconButton>
-          <MdMoreVert />
-        </IconButton>
-      </TableCell>
-    ),
-  },
 ]
 
 export const WithSelect: Story = () => (

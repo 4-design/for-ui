@@ -20,14 +20,14 @@ export const TableCell: React.VFC<TableCellProps> = ({
     <>
       {component === 'td' ? (
         <td
-          css={[tw`p-3 font-medium text-left text-shade-dark-default`, twin]}
+          css={[tw`p-3 font-normal text-left text-shade-dark-default`, twin]}
           {...rest}
         >
           {children}
         </td>
       ) : (
         <th
-          css={[tw`p-3 font-medium text-left text-shade-dark-default`, twin]}
+          css={[tw`p-3 font-normal text-left text-shade-dark-default`, twin]}
           {...rest}
         >
           {children}

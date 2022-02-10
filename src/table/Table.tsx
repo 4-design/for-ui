@@ -47,7 +47,12 @@ export const Table = <T extends object>(
         Header: ({ getToggleAllRowsSelectedProps }: HeaderProps<any>) => (
           <>
             {!!onSelectRows && (
-              <Checkbox value="required" {...getToggleAllRowsSelectedProps()} />
+              <Checkbox
+                nopadding
+                size="small"
+                value="required"
+                {...getToggleAllRowsSelectedProps()}
+              />
             )}
           </>
         ),
@@ -55,11 +60,20 @@ export const Table = <T extends object>(
         Cell: ({ row, cell: { getCellProps } }: CellProps<any>) => (
           <TableCell {...getCellProps()}>
             {!!onSelectRows && (
-              <Checkbox value="required" {...row.getToggleRowSelectedProps()} />
+              <Checkbox
+                nopadding
+                size="small"
+                value="required"
+                {...row.getToggleRowSelectedProps()}
+              />
             )}
 
             {!!onSelectRow && (
-              <Radio value="required" {...row.getToggleRowSelectedProps()} />
+              <Radio
+                size="small"
+                value="required"
+                {...row.getToggleRowSelectedProps()}
+              />
             )}
           </TableCell>
         ),
