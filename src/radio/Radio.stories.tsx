@@ -23,6 +23,56 @@ export default {
 } as Meta
 
 export const Base = (): JSX.Element => {
+  const [selected, setSelected] = React.useState<string>()
+
+  const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelected(e.target.value)
+  }
+
+  return (
+    <div tw="flex flex-col gap-8">
+      <div tw="border-b mb-4">
+        <Text variant="h3">Radio</Text>
+      </div>
+
+      <div>
+        <Radio
+          name="radio-buttons"
+          value="a"
+          checked={selected === 'a'}
+          onChange={handleRadioChange}
+        />
+        <Radio
+          name="radio-buttons"
+          value="b"
+          checked={selected === 'b'}
+          onChange={handleRadioChange}
+        />
+        <Radio
+          name="radio-buttons"
+          value="c"
+          checked={selected === 'c'}
+          onChange={handleRadioChange}
+        />
+      </div>
+
+      <div>
+        <RadioGroup
+          required
+          label="サービス名"
+          onChange={handleRadioChange}
+          error="必須項目です"
+        >
+          <Radio label="Relance" value="relance" />
+          <Radio label="Sreake Sonar" value="sreake-sonar" />
+          <Radio label="Reckoner" value="reckoner" disabled />
+        </RadioGroup>
+      </div>
+    </div>
+  )
+}
+
+export const WithLabel = (): JSX.Element => {
   const handleRadioChange = (e) => {
     console.log(e.target.value)
   }
