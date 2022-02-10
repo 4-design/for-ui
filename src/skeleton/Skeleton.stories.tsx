@@ -145,7 +145,7 @@ export const WithNest = () => {
           </Text>
 
           <Text variant="caption" twin={tw`text-shade-dark-default`}>
-            メルカリ
+            {undefined}
           </Text>
         </Row>
 

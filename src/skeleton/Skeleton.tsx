@@ -29,10 +29,14 @@ export const Skeleton: React.FC<SkeletonProps> = ({
       </>
     )
   }
+
   return children as React.ReactElement
 }
 
-const recursiveChildren = (children: React.ReactNode): React.ReactNode => {
+const recursiveChildren = (
+  children: React.ReactNode,
+  empty: React.ReactNode
+): React.ReactNode => {
   if (!children) return <></>
 
   return React.Children.map(children, (child: React.ReactNode) => {
@@ -40,34 +44,34 @@ const recursiveChildren = (children: React.ReactNode): React.ReactNode => {
       return child
     }
 
-    console.info(
-      React.Children.count(child.props.children),
-      child.props.children
-    )
-
-    if (React.Children.count(child.props.children) > 1) {
-      return recursiveChildren(child.props.children)
+    if (!React.isValidElement<unknown>(empty)) {
+      return empty
     }
 
-    return <MuiSkeleton>{React.cloneElement(child, child.props)}</MuiSkeleton>
+    if (React.Children.count(child.props.children) > 1) {
+      return recursiveChildren(child.props.children, empty)
+    } else if (React.Children.count(child.props.children) === 0) {
+      return <MuiSkeleton>{React.cloneElement(empty, empty.props)}</MuiSkeleton>
+    } else {
+      return <MuiSkeleton>{React.cloneElement(child, child.props)}</MuiSkeleton>
+    }
   })
 }
 
-export const SkeletonX: React.FC<SkeletonProps> = ({
+type SkeletonXProps = MuiSkeletonProps & {
+  loading?: boolean
+  empty?: React.ReactNode
+}
+
+export const SkeletonX: React.FC<SkeletonXProps> = ({
   loading = false,
-  count = 1,
+  empty = <div>xxxxxxxxxxxxxxx</div>,
   children,
 }) => {
   if (loading) {
-    const childs = recursiveChildren(children)
+    const childs = recursiveChildren(children, empty)
 
-    return (
-      <>
-        {[...Array(count)].map((_) => (
-          <>{childs}</>
-        ))}
-      </>
-    )
+    return <>{childs}</>
   }
   return children as React.ReactElement
 }
