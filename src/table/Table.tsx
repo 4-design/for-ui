@@ -35,14 +35,12 @@ export const Table = <T extends object>(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const useRowSelectHook = (hooks: Hooks<any>) => {
     hooks.allColumns.push((columns) => [
-      // Let's make a column for selection
       {
         id: '_selector',
-        disableResizing: true,
         disableGroupBy: true,
-        minWidth: 45,
-        width: 45,
-        maxWidth: 45,
+        minWidth: 20,
+        width: 20,
+        maxWidth: 20,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         Header: ({ getToggleAllRowsSelectedProps }: HeaderProps<any>) => (
           <>
@@ -57,8 +55,16 @@ export const Table = <T extends object>(
           </>
         ),
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        Cell: ({ row, cell: { getCellProps } }: CellProps<any>) => (
-          <TableCell {...getCellProps()}>
+        Cell: ({ row, cell }: CellProps<any>) => (
+          <TableCell
+            {...cell.getCellProps({
+              style: {
+                minWidth: cell.column.minWidth,
+                width: cell.column.width,
+                maxWidth: cell.column.maxWidth,
+              },
+            })}
+          >
             {!!onSelectRows && (
               <Checkbox
                 nopadding
@@ -160,9 +166,16 @@ export const Table = <T extends object>(
             >
               {headerGroup.headers.map((column, j) => (
                 <th
-                  key={j}
-                  tw="p-3 text-base text-shade-dark-default text-left table-cell whitespace-nowrap"
+                  tw="p-3 text-base text-shade-dark-default text-left whitespace-nowrap"
                   scope="col"
+                  {...column.getHeaderProps({
+                    style: {
+                      minWidth: column.minWidth,
+                      width: column.width,
+                      maxWidth: column.maxWidth,
+                    },
+                  })}
+                  key={j}
                 >
                   {column.render('Header')}
                 </th>
@@ -172,7 +185,7 @@ export const Table = <T extends object>(
         </thead>
         <tbody
           {...getTableBodyProps()}
-          tw="bg-shade-white-default text-shade-dark-default table-row-group"
+          tw="bg-shade-white-default text-shade-dark-default"
         >
           {page.map((row: Row<T>) => rowGenerate(row))}
         </tbody>
