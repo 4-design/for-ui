@@ -1,3 +1,12 @@
+# [2.0.0-alpha.23](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.22...v2.0.0-alpha.23) (2022-02-10)
+
+
+### Features
+
+* **Table:** checkbox / radio で選択可能にする ([#534](https://github.com/3-shake/3design-ui/issues/534)) ([f732671](https://github.com/3-shake/3design-ui/commit/f732671d1d0d9c809c9e6521026cc78f21b3b223))
+
+
+
 # [2.0.0-alpha.22](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.21...v2.0.0-alpha.22) (2022-02-10)
 
 
