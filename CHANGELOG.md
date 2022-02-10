@@ -1,3 +1,12 @@
+# [2.0.0-alpha.22](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.21...v2.0.0-alpha.22) (2022-02-10)
+
+
+### Bug Fixes
+
+* **SkeletonX:** empty 状態の場合、デフォルト値を挿入できるように変更 ([#532](https://github.com/3-shake/3design-ui/issues/532)) ([216735d](https://github.com/3-shake/3design-ui/commit/216735d5909e77a2b624f5a39e44478eaa508bde))
+
+
+
 # [2.0.0-alpha.21](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.20...v2.0.0-alpha.21) (2022-02-09)
 
 
