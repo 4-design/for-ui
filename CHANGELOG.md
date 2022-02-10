@@ -1,3 +1,12 @@
+# [2.0.0-alpha.24](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.23...v2.0.0-alpha.24) (2022-02-10)
+
+
+### Bug Fixes
+
+* **Table:** style 修正 ([#536](https://github.com/3-shake/3design-ui/issues/536)) ([6b6d420](https://github.com/3-shake/3design-ui/commit/6b6d420b4e80a8247ccde63ed77b24816e74ad9c))
+
+
+
 # [2.0.0-alpha.23](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.22...v2.0.0-alpha.23) (2022-02-10)
 
 
