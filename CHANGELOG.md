@@ -1,3 +1,12 @@
+# [2.0.0-alpha.26](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.25...v2.0.0-alpha.26) (2022-02-10)
+
+
+### Bug Fixes
+
+* **Table:** rowでselect可能にする ([#540](https://github.com/3-shake/3design-ui/issues/540)) ([c8d192e](https://github.com/3-shake/3design-ui/commit/c8d192ef9c16846663f20fb3d013200bc71dfa1c))
+
+
+
 # [2.0.0-alpha.25](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.24...v2.0.0-alpha.25) (2022-02-10)
 
 
