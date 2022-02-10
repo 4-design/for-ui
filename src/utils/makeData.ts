@@ -1,6 +1,5 @@
-import namor from 'namor'
-
 export type Person = {
+  id: number
   firstName: string
   lastName: string
   image: string
@@ -9,49 +8,11 @@ export type Person = {
   status: string
 }
 
-const range = (len: number) => {
-  const arr = []
-  for (let i = 0; i < len; i++) {
-    arr.push(i)
-  }
-  return arr
-}
-
-const newPerson = (): Person => {
-  const statusChance = Math.random()
-  return {
-    firstName: namor.generate({ words: 1, numbers: 0 }),
-    lastName: namor.generate({ words: 1, numbers: 0 }),
-    image: '/image.png',
-    age: Math.floor(Math.random() * 30),
-    visits: Math.floor(Math.random() * 100),
-    status:
-      statusChance > 0.66
-        ? 'relationship'
-        : statusChance > 0.33
-        ? 'complicated'
-        : 'single',
-  }
-}
-
 export type PersonData = Person
-
-export default function makeData(...lens: number[]): PersonData[] {
-  const makeDataLevel = (depth = 0): PersonData[] => {
-    const len = lens[depth]
-    return range(len).map(() => {
-      return {
-        ...newPerson(),
-        subRows: lens[depth + 1] ? makeDataLevel(depth + 1) : undefined,
-      }
-    })
-  }
-
-  return makeDataLevel()
-}
 
 export const StaticPersonData: Person[] = [
   {
+    id: 10,
     firstName: 'population',
     lastName: 'wdpw7',
     age: 1,
@@ -60,6 +21,7 @@ export const StaticPersonData: Person[] = [
     image: '/image.png',
   },
   {
+    id: 11,
     firstName: 'feet',
     lastName: 'grq7l',
     age: 18,
@@ -68,6 +30,7 @@ export const StaticPersonData: Person[] = [
     image: '/image.png',
   },
   {
+    id: 12,
     firstName: 'home',
     lastName: '9l8bf',
     age: 23,
@@ -76,6 +39,7 @@ export const StaticPersonData: Person[] = [
     image: '/image.png',
   },
   {
+    id: 13,
     firstName: 'home',
     lastName: '9l8bf',
     age: 23,
@@ -84,6 +48,7 @@ export const StaticPersonData: Person[] = [
     image: '/image.png',
   },
   {
+    id: 14,
     firstName: 'home',
     lastName: '9l8bf',
     age: 23,
@@ -92,6 +57,7 @@ export const StaticPersonData: Person[] = [
     image: '/image.png',
   },
   {
+    id: 15,
     firstName: 'home',
     lastName: '9l8bf',
     age: 23,
@@ -100,6 +66,7 @@ export const StaticPersonData: Person[] = [
     image: '/image.png',
   },
   {
+    id: 16,
     firstName: 'home',
     lastName: '9l8bf',
     age: 23,
@@ -108,6 +75,7 @@ export const StaticPersonData: Person[] = [
     image: '/image.png',
   },
   {
+    id: 17,
     firstName: 'home',
     lastName: '9l8bf',
     age: 23,
@@ -116,6 +84,7 @@ export const StaticPersonData: Person[] = [
     image: '/image.png',
   },
   {
+    id: 18,
     firstName: 'home',
     lastName: '9l8bf',
     age: 23,
@@ -124,6 +93,7 @@ export const StaticPersonData: Person[] = [
     image: '/image.png',
   },
   {
+    id: 19,
     firstName: 'home',
     lastName: '9l8bf',
     age: 23,
@@ -132,6 +102,7 @@ export const StaticPersonData: Person[] = [
     image: '/image.png',
   },
   {
+    id: 20,
     firstName: 'home',
     lastName: '9l8bf',
     age: 23,
@@ -140,6 +111,7 @@ export const StaticPersonData: Person[] = [
     image: '/image.png',
   },
   {
+    id: 21,
     firstName: 'home',
     lastName: '9l8bf',
     age: 23,

@@ -12,7 +12,6 @@ export interface TableCellProps extends ReactTableCellProps {
 
 export const TableCell: React.VFC<TableCellProps> = ({
   component = 'td',
-  key,
   twin,
   children,
   ...rest
@@ -21,16 +20,14 @@ export const TableCell: React.VFC<TableCellProps> = ({
     <>
       {component === 'td' ? (
         <td
-          key={key}
-          css={[tw`p-3 font-medium text-left text-shade-dark-default`, twin]}
+          css={[tw`p-3 font-normal text-left text-shade-dark-default`, twin]}
           {...rest}
         >
           {children}
         </td>
       ) : (
         <th
-          key={key}
-          css={[tw`p-3 font-medium text-left text-shade-dark-default`, twin]}
+          css={[tw`p-3 font-normal text-left text-shade-dark-default`, twin]}
           {...rest}
         >
           {children}
