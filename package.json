@@ -97,7 +97,7 @@
     "react-dom": "17.0.2",
     "react-hook-form": "7.26.1",
     "react-table": "7.7.0",
-    "rollup": "2.67.1",
+    "rollup": "2.67.2",
     "rollup-config-analyzer": "2.2.0",
     "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-filesize": "9.1.2",
@@ -106,7 +106,7 @@
     "rollup-plugin-size-snapshot": "0.12.0",
     "rollup-plugin-terser": "7.0.2",
     "shipjs": "0.24.2",
-    "tailwindcss": "3.0.19",
+    "tailwindcss": "3.0.21",
     "typescript": "4.5.5",
     "yup": "0.32.11"
   },
