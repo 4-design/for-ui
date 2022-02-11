@@ -1,3 +1,12 @@
+# [2.0.0-alpha.27](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.26...v2.0.0-alpha.27) (2022-02-11)
+
+
+### Bug Fixes
+
+* **Modal/ModalContent:**  remove using p tag ([#543](https://github.com/3-shake/3design-ui/issues/543)) ([68251ed](https://github.com/3-shake/3design-ui/commit/68251ed2ec0ce1215af59e62934686e3da3e4735))
+
+
+
 # [2.0.0-alpha.26](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.25...v2.0.0-alpha.26) (2022-02-10)
 
 
