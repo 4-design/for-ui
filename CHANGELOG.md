@@ -1,3 +1,17 @@
+# [2.0.0-alpha.28](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.27...v2.0.0-alpha.28) (2022-02-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-dropzone to v12 ([#524](https://github.com/3-shake/3design-ui/issues/524)) ([2b21b78](https://github.com/3-shake/3design-ui/commit/2b21b7886cad722eacc9f66c360414adbdc017be))
+
+
+### Features
+
+* **Table:** disablePagination / TableScroller 実装 ([#545](https://github.com/3-shake/3design-ui/issues/545)) ([e3d06c6](https://github.com/3-shake/3design-ui/commit/e3d06c68f8fb9a72f700088482c759d2767d3b48))
+
+
+
 # [2.0.0-alpha.27](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.26...v2.0.0-alpha.27) (2022-02-11)
 
 
