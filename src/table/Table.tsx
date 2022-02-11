@@ -9,6 +9,7 @@ import {
   CellProps,
   HeaderProps,
   IdType,
+  PluginHook,
 } from 'react-table'
 import tw from 'twin.macro'
 import { Checkbox } from '../checkbox'
@@ -21,9 +22,16 @@ export const Table = <T extends object>(
   props: TableOptions<T> & {
     onSelectRow?: (row: IdType<T> | undefined) => void
     onSelectRows?: (rows: IdType<T>[]) => void
+    disablePagination?: boolean
   }
 ) => {
-  const { columns, data, onSelectRow, onSelectRows } = props
+  const {
+    columns,
+    data,
+    onSelectRow,
+    onSelectRows,
+    disablePagination = false,
+  } = props
   const [initialState, _] = useState({ pageIndex: 0 })
 
   if (onSelectRow && onSelectRows) {
@@ -33,7 +41,7 @@ export const Table = <T extends object>(
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const useRowSelectHook = (hooks: Hooks<any>) => {
+  const useRowSelectHook = (hooks: Hooks<T>) => {
     hooks.allColumns.push((columns) => [
       {
         id: '_selector',
@@ -94,10 +102,14 @@ export const Table = <T extends object>(
     })
   }
 
-  const hooks =
-    onSelectRow || onSelectRows
-      ? [usePagination, useRowSelect, useRowSelectHook]
-      : [usePagination, useRowSelect]
+  let hooks: PluginHook<T>[] = []
+  if (onSelectRow || onSelectRows) {
+    hooks = [...hooks, useRowSelect, useRowSelectHook]
+  }
+
+  if (!disablePagination) {
+    hooks = [...hooks, usePagination]
+  }
 
   const instance = useTable<T>(
     {
@@ -120,6 +132,7 @@ export const Table = <T extends object>(
   )
 
   const {
+    rows,
     headerGroups,
     page,
     getTableProps,
@@ -164,7 +177,7 @@ export const Table = <T extends object>(
   return (
     <>
       <table {...getTableProps()} tw="w-full">
-        <thead tw="table-header-group">
+        <thead tw="table-header-group bg-shade-white-default">
           {headerGroups.map((headerGroup, i) => (
             <tr
               {...headerGroup.getHeaderGroupProps()}
@@ -173,7 +186,7 @@ export const Table = <T extends object>(
             >
               {headerGroup.headers.map((column, j) => (
                 <th
-                  tw="p-3 text-base text-shade-dark-default text-left whitespace-nowrap"
+                  tw="p-3 text-base text-shade-dark-default text-left whitespace-nowrap bg-shade-white-default z-30"
                   scope="col"
                   {...column.getHeaderProps({
                     style: {
@@ -194,11 +207,15 @@ export const Table = <T extends object>(
           {...getTableBodyProps()}
           tw="bg-shade-white-default text-shade-dark-default"
         >
-          {page.map((row: Row<T>) => rowGenerate(row))}
+          {disablePagination ? (
+            <>{rows.map((row: Row<T>) => rowGenerate(row))}</>
+          ) : (
+            <>{page.map((row: Row<T>) => rowGenerate(row))}</>
+          )}
         </tbody>
       </table>
 
-      <TablePagination instance={instance} />
+      {!disablePagination && <TablePagination instance={instance} />}
     </>
   )
 }

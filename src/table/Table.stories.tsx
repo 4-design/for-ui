@@ -8,6 +8,7 @@ import { IconButton } from '../icon'
 import { PersonData, StaticPersonData } from '../utils/makeData'
 import { Table } from './Table'
 import { TableCell } from './TableCell'
+import { TableScroller } from './TableScroller'
 
 export default {
   title: 'Atom/Table',
@@ -172,4 +173,22 @@ export const WithSelectMultiple: Story = () => (
     getRowId={(row) => row.id.toString()}
     onSelectRows={(rows) => console.info('rows', rows)}
   />
+)
+
+export const WithDisablePagination: Story = () => (
+  <Table<PersonData>
+    columns={withSelectColumns}
+    data={StaticPersonData}
+    disablePagination
+  />
+)
+
+export const WithTableScroller: Story = () => (
+  <TableScroller height="400px">
+    <Table<PersonData>
+      columns={withSelectColumns}
+      data={StaticPersonData}
+      disablePagination
+    />
+  </TableScroller>
 )
