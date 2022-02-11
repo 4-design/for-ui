@@ -1,3 +1,12 @@
+# [2.0.0-alpha.29](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.28...v2.0.0-alpha.29) (2022-02-11)
+
+
+### Bug Fixes
+
+* **Table/TableScroller:** TableScroller export ([#547](https://github.com/3-shake/3design-ui/issues/547)) ([b085e8a](https://github.com/3-shake/3design-ui/commit/b085e8af36152a76943996f94f321539f96a5e0c))
+
+
+
 # [2.0.0-alpha.28](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.27...v2.0.0-alpha.28) (2022-02-11)
 
 
