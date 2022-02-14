@@ -192,7 +192,6 @@ const fontSizes = {
     {
       lineHeight: '1rem',
       letterSpacing: '.03rem',
-      fontFamily: 'YakuHanJP, Inter, Noto Sans JP',
     },
   ],
   s: [
@@ -200,7 +199,6 @@ const fontSizes = {
     {
       lineHeight: '1.25rem',
       letterSpacing: '.03rem',
-      fontFamily: 'YakuHanJP, Inter, Noto Sans JP',
     },
   ],
   r: [
@@ -208,7 +206,6 @@ const fontSizes = {
     {
       lineHeight: '1.5rem',
       letterSpacing: '.03rem',
-      fontFamily: 'YakuHanJP, Inter, Noto Sans JP',
     },
   ],
   xr: [
@@ -216,7 +213,6 @@ const fontSizes = {
     {
       lineHeight: '1.75rem',
       letterSpacing: '.03rem',
-      fontFamily: 'YakuHanJP, Inter, Noto Sans JP',
     },
   ],
   l: [
@@ -224,7 +220,6 @@ const fontSizes = {
     {
       lineHeight: '2rem',
       letterSpacing: '.03rem',
-      fontFamily: 'YakuHanJP, Inter, Noto Sans JP',
     },
   ],
   xl: [
@@ -232,7 +227,6 @@ const fontSizes = {
     {
       lineHeight: '2.5rem',
       letterSpacing: '.03rem',
-      fontFamily: 'YakuHanJP, Inter, Noto Sans JP',
     },
   ],
 }
