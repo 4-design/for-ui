@@ -58,10 +58,10 @@ const styles = {
   `,
   outlined: css`
     & .MuiOutlinedInput-root {
-      ${tw`p-0! text-shade-light-default`}
+      ${tw`p-0! text-shade-light-default bg-shade-white-default antialiased`}
 
       &.Mui-disabled {
-        ${tw`bg-primary-light-default`}
+        ${tw`bg-shade-white-disabled`}
       }
 
       & fieldset {
@@ -69,11 +69,11 @@ const styles = {
       }
 
       &.Mui-disabled .MuiOutlinedInput-notchedOutline {
-        ${tw`border border-shade-medium-default`}
+        ${tw`border border-shade-medium-disabled`}
       }
 
       &.Mui-focused .MuiOutlinedInput-notchedOutline {
-        ${tw`border border-primary-dark-default`}
+        ${tw`border border-primary-medium-active`}
       }
 
       &.Mui-error .MuiOutlinedInput-notchedOutline {
@@ -87,6 +87,11 @@ const styles = {
           ${tw`mr-3 text-r font-sans text-shade-dark-default antialiased`}
         }
       }
+
+      &.Mui-disabled .MuiInputAdornment-root .MuiTypography-root {
+        ${tw`text-shade-dark-disabled`}
+      }
+
       &:hover {
         & fieldset {
           ${tw`border border-primary-dark-default`}
@@ -118,10 +123,6 @@ const styles = {
       ${tw`py-2 px-3 focus:shadow-none text-shade-dark-default`}
     }
 
-    & .MuiFormHelperText-root {
-      > .Mui-error {
-        ${tw`text-negative-medium-default`}
-      }
     & .MuiInputBase-input::placeholder {
       ${tw`text-shade-light-default opacity-100`}
     }
@@ -129,6 +130,9 @@ const styles = {
     & .MuiInputBase-input:disabled::placeholder {
       ${tw`-webkit-text-fill-color[currentColor]` /* to remove -webkit-text-fill-color set by default*/ }
     }
+
+    & .MuiFormHelperText-root.Mui-error {
+      ${tw`m-0 mt-1 text-xs text-negative-medium-default`}
     }
   `,
 }
