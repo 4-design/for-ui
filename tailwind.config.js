@@ -126,6 +126,9 @@ const colors = {
         hover: 'var(--primary-border-dark-hover)',
         disabled: 'var(--primary-border-dark-disabled)',
       },
+      medium: {
+        active: 'var(--primary-border-medium-active)',
+      }
     },
 
     icon: {
