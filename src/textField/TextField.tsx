@@ -115,6 +115,13 @@ const styles = {
       > .Mui-error {
         ${tw`text-negative-medium-default`}
       }
+    & .MuiInputBase-input::placeholder {
+      ${tw`text-shade-light-default opacity-100`}
+    }
+
+    & .MuiInputBase-input:disabled::placeholder {
+      ${tw`-webkit-text-fill-color[currentColor]` /* to remove -webkit-text-fill-color set by default*/ }
+    }
     }
   `,
 }
