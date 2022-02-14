@@ -220,7 +220,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
         return (
           <div css={[tw`flex flex-col`, twin]}>
             {label && (
-              <label css={[tw`mb-2 text-shade-medium-default`, labelTwin]}>
+              <label css={[tw`mb-1 text-s font-bold text-shade-medium-default antialiased`, labelTwin]}>
                 {label}
                 {required && <span tw="text-negative-medium-default">*</span>}
               </label>
