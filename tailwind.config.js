@@ -128,7 +128,7 @@ const colors = {
       },
       medium: {
         active: 'var(--primary-border-medium-active)',
-      }
+      },
     },
 
     icon: {
