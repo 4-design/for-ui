@@ -80,6 +80,13 @@ const styles = {
         ${tw`border border-negative-medium-default`}
       }
 
+      & .MuiInputAdornment-root {
+        ${tw`m-0`}
+
+        & .MuiTypography-root {
+          ${tw`mr-3 text-r font-sans text-shade-dark-default antialiased`}
+        }
+      }
       &:hover {
         & fieldset {
           ${tw`border border-primary-dark-default`}
@@ -234,6 +241,10 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
               css={[
                 styles['outlined'],
                 css`
+                  & .MuiInputBase-input {
+                    ${unitLabel && tw`pr-2 text-right`}
+                  }
+
                   & .MuiInputBase-root {
                     ${inputTwin}
                   }
