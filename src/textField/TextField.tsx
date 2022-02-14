@@ -120,7 +120,7 @@ const styles = {
     }
 
     & .MuiInputBase-input {
-      ${tw`py-2 px-3 focus:shadow-none text-shade-dark-default`}
+      ${tw`py-2.5 px-3 h-auto text-r font-sans text-shade-dark-default focus:shadow-none`}
     }
 
     & .MuiInputBase-input::placeholder {
