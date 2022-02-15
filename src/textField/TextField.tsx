@@ -58,10 +58,10 @@ const styles = {
   `,
   outlined: css`
     & .MuiOutlinedInput-root {
-      ${tw`p-0! text-shade-light-default`}
+      ${tw`p-0! text-shade-light-default bg-shade-white-default antialiased`}
 
       &.Mui-disabled {
-        ${tw`bg-primary-light-default`}
+        ${tw`bg-shade-white-disabled`}
       }
 
       & fieldset {
@@ -69,15 +69,27 @@ const styles = {
       }
 
       &.Mui-disabled .MuiOutlinedInput-notchedOutline {
-        ${tw`border border-shade-medium-default`}
+        ${tw`border border-shade-medium-disabled`}
       }
 
       &.Mui-focused .MuiOutlinedInput-notchedOutline {
-        ${tw`border border-primary-dark-default`}
+        ${tw`border border-primary-medium-active`}
       }
 
       &.Mui-error .MuiOutlinedInput-notchedOutline {
         ${tw`border border-negative-medium-default`}
+      }
+
+      & .MuiInputAdornment-root {
+        ${tw`m-0`}
+
+        & .MuiTypography-root {
+          ${tw`mr-3 text-r font-sans text-shade-dark-default antialiased`}
+        }
+      }
+
+      &.Mui-disabled .MuiInputAdornment-root .MuiTypography-root {
+        ${tw`text-shade-dark-disabled`}
       }
 
       &:hover {
@@ -108,13 +120,21 @@ const styles = {
     }
 
     & .MuiInputBase-input {
-      ${tw`py-2 px-3 focus:shadow-none text-shade-dark-default`}
+      ${tw`py-2.5 px-3 h-auto text-r font-sans text-shade-dark-default focus:shadow-none`}
     }
 
-    & .MuiFormHelperText-root {
-      > .Mui-error {
-        ${tw`text-negative-medium-default`}
+    & .MuiInputBase-input::placeholder {
+      ${tw`text-shade-light-default opacity-100`}
+    }
+
+    & .MuiInputBase-input:disabled::placeholder {
+      ${
+        tw`-webkit-text-fill-color[currentColor]` /* to remove -webkit-text-fill-color set by default*/
       }
+    }
+
+    & .MuiFormHelperText-root.Mui-error {
+      ${tw`m-0 mt-1 text-xs text-negative-medium-default`}
     }
   `,
 }
@@ -213,7 +233,12 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
         return (
           <div css={[tw`flex flex-col`, twin]}>
             {label && (
-              <label css={[tw`mb-2 text-shade-medium-default`, labelTwin]}>
+              <label
+                css={[
+                  tw`mb-1 text-s font-bold text-shade-medium-default antialiased`,
+                  labelTwin,
+                ]}
+              >
                 {label}
                 {required && <span tw="text-negative-medium-default">*</span>}
               </label>
@@ -227,6 +252,10 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
               css={[
                 styles['outlined'],
                 css`
+                  & .MuiInputBase-input {
+                    ${unitLabel && tw`pr-2 text-right`}
+                  }
+
                   & .MuiInputBase-root {
                     ${inputTwin}
                   }
