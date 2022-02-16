@@ -1,3 +1,12 @@
+# [2.0.0-alpha.30](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.29...v2.0.0-alpha.30) (2022-02-16)
+
+
+### Bug Fixes
+
+* **TextField:** デザイン調整  ([#551](https://github.com/3-shake/3design-ui/issues/551)) ([5f4c8df](https://github.com/3-shake/3design-ui/commit/5f4c8dfc8ada0d656daf8e4230d54f9f89f65a56))
+
+
+
 # [2.0.0-alpha.29](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.28...v2.0.0-alpha.29) (2022-02-11)
 
 
