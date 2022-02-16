@@ -38,9 +38,9 @@
     "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
-    "@mui/lab": "5.0.0-alpha.68",
-    "@mui/material": "5.4.1",
-    "@mui/styles": "5.4.1",
+    "@mui/lab": "5.0.0-alpha.69",
+    "@mui/material": "5.4.2",
+    "@mui/styles": "5.4.2",
     "react-dropzone": "12.0.4",
     "react-icons": "4.3.1",
     "react-number-format": "4.9.1",
@@ -48,8 +48,8 @@
     "twin.macro": "2.8.2"
   },
   "devDependencies": {
-    "@mui/types": "7.1.1",
-    "@babel/core": "7.17.2",
+    "@mui/types": "7.1.2",
+    "@babel/core": "7.17.4",
     "@babel/plugin-proposal-private-methods": "7.16.11",
     "@babel/plugin-proposal-private-property-in-object": "7.16.7",
     "@babel/preset-env": "7.16.11",
@@ -106,7 +106,7 @@
     "rollup-plugin-size-snapshot": "0.12.0",
     "rollup-plugin-terser": "7.0.2",
     "shipjs": "0.24.2",
-    "tailwindcss": "3.0.22",
+    "tailwindcss": "3.0.23",
     "typescript": "4.5.5",
     "yup": "0.32.11"
   },
