@@ -20,7 +20,7 @@ export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
             & .MuiStepConnector-root {
               ${tw`top-5`}
               & .MuiStepConnector-line {
-                ${tw`border-t-2`}
+                ${tw`border-t-2 border-shade-dark-disabled`}
               }
               &.Mui-completed .MuiStepConnector-line {
                 ${tw`border-shade-dark-default`}
