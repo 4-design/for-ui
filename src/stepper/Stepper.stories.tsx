@@ -10,6 +10,7 @@ export default {
   argTypes: {
     activeStep: { control: { min: 0 } },
     alternativeLabel: { control: 'boolean' },
+    backgroundColor: { control: 'color' },
   },
   decorators: [
     (Story: Story) => (
@@ -22,17 +23,25 @@ export default {
 
 const steps = ['First', 'Second', 'Third', 'Last']
 
-export const Base = () => {
+const Template: Story = (args) => {
   return (
     <div>
       <div tw="border-b mb-4">
         <Text variant="h3">Stepper</Text>
       </div>
-      <Stepper alternativeLabel={true} activeStep={1}>
+      <Stepper alternativeLabel={true} activeStep={1} {...args}>
         {steps.map((step, index) => (
           <Step key={index}>{step}</Step>
         ))}
       </Stepper>
     </div>
   )
+}
+
+export const Basic = Template.bind({})
+
+Basic.args = {
+  activeStep: 0,
+  alternativeLabel: true,
+  backgroundColor: '',
 }
