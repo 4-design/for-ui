@@ -1,6 +1,6 @@
+import { Text } from '../typography/Typography'
 import { Step } from './Step'
 import { Stepper } from './Stepper'
-import { Text } from '../typography/Typography'
 import { Meta, Story } from '@storybook/react/types-6-0'
 import 'twin.macro'
 
