@@ -3,7 +3,7 @@ import MuiStep, { StepProps as MuiStepProps } from '@mui/material/Step'
 import MuiStepLabel, {
   StepLabelProps as MuiStepLabelProps,
 } from '@mui/material/StepLabel'
-import tw, { css, TwStyle } from 'twin.macro'
+import tw, { css, theme, TwStyle } from 'twin.macro'
 
 export interface StepProps extends MuiStepProps {
   twin?: TwStyle[]
@@ -31,22 +31,22 @@ export const Step = forwardRef<HTMLDivElement, StepProps & StepLabelProps>(
                 ${tw`text-shade-white-disabled`}
                 > circle {
                   ${tw`stroke-2`}
-                  stroke: #D4D9EC;
-                  r: calc(12 - (2 / 2)); // アウトラインが見切れる対応
+                  stroke: ${theme`iconColor.primary.dark.disabled`};
+                  r: 11; // アウトラインが見切れる対応
                 }
-                > text {
-                  fill: #d4d9ec;
+                .MuiStepIcon-text {
+                  fill: ${theme`iconColor.primary.dark.disabled`};
                 }
 
                 &.Mui-active {
                   ${tw`text-shade-white-default`}
                   > circle {
                     ${tw`stroke-2`}
-                    stroke: #001f33;
-                    r: calc(12 - (2 / 2));
+                    stroke: ${theme`iconColor.primary.dark.default`};
+                    r: 11;
                   }
-                  > text {
-                    fill: #001f33;
+                  .MuiStepIcon-text {
+                    fill: ${theme`iconColor.primary.dark.default`};
                   }
                 }
                 &.Mui-completed {
