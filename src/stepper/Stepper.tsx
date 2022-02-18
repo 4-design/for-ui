@@ -1,4 +1,4 @@
-import { Children, forwardRef } from 'react'
+import { forwardRef } from 'react'
 import MuiStepper, {
   StepperProps as MuiStepperProps,
 } from '@mui/material/Stepper'
