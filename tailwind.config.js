@@ -20,6 +20,7 @@ const colors = {
       },
       white: {
         default: 'var(--shade-text-white-default)',
+        disabled: 'var(--shade-text-white-disabled)',
       },
     },
 
