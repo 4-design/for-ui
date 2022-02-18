@@ -8,7 +8,6 @@ export interface StepperProps extends MuiStepperProps {
   twin?: TwStyle[]
 }
 
-// forwardRef 子要素にアクセスするやつ
 export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
   ({ twin, activeStep, alternativeLabel, children, ...rest }, ref) => {
     return (
@@ -18,8 +17,17 @@ export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
         alternativeLabel={alternativeLabel}
         css={[
           css`
-            & .MuiStepConnector-line {
-              ${tw`border-t-2`}
+            & .MuiStepConnector-root {
+              ${tw`top-5`}
+              & .MuiStepConnector-line {
+                ${tw`border-t-2`}
+              }
+              &.Mui-completed .MuiStepConnector-line {
+                ${tw`border-shade-dark-default`}
+              }
+              &.Mui-disabled .MuiStepConnector-line {
+                ${tw`border-shade-dark-disabled`}
+              }
             }
           `,
           twin,

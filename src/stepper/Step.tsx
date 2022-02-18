@@ -17,18 +17,48 @@ export const Step = forwardRef<HTMLDivElement, StepProps & StepLabelProps>(
   (props, ref) => {
     const { twin, children, ...rest } = props
     return (
-      <MuiStep
-        ref={ref}
-        css={[
-          css`
-            & .MuiStep-paper {
-            }
-          `,
-          twin,
-        ]}
-        {...rest}
-      >
-        <MuiStepLabel>{children}</MuiStepLabel>
+      <MuiStep ref={ref} css={[css``, twin]} {...rest}>
+        <MuiStepLabel
+          css={[
+            css`
+              & .MuiStepLabel-alternativeLabel {
+                ${tw`mt-2!`}
+              }
+              & .MuiStepLabel-label {
+                ${tw`text-shade-dark-default`}
+              }
+              & .MuiStepIcon-root {
+                ${tw`text-shade-white-disabled`}
+                > circle {
+                  ${tw`stroke-2`}
+                  stroke: #D4D9EC;
+                  r: calc(12 - (2 / 2)); // アウトラインが見切れる対応
+                }
+                > text {
+                  fill: #d4d9ec;
+                }
+
+                &.Mui-active {
+                  ${tw`text-shade-white-default`}
+                  > circle {
+                    ${tw`stroke-2`}
+                    stroke: #001f33;
+                    r: calc(12 - (2 / 2));
+                  }
+                  > text {
+                    fill: #001f33;
+                  }
+                }
+                &.Mui-completed {
+                  ${tw`text-shade-dark-default`}
+                }
+              }
+            `,
+            twin,
+          ]}
+        >
+          {children}
+        </MuiStepLabel>
       </MuiStep>
     )
   }
