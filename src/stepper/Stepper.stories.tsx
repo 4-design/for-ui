@@ -8,7 +8,8 @@ export default {
   title: 'Atom/Stepper',
   component: Stepper,
   argTypes: {
-    activeStep: { control: 'number' },
+    activeStep: { control: { min: 0 } },
+    alternativeLabel: { control: 'boolean' },
   },
   decorators: [
     (Story: Story) => (
