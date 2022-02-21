@@ -29,9 +29,32 @@ const Template: Story = (args) => {
       <div tw="border-b mb-4">
         <Text variant="h3">Stepper</Text>
       </div>
+      <Stepper alternativeLabel={true} activeStep={0} {...args}>
+        {steps.map((step, index) => (
+          <Step key={index} step={index}>
+            {step}
+          </Step>
+        ))}
+      </Stepper>
       <Stepper alternativeLabel={true} activeStep={1} {...args}>
         {steps.map((step, index) => (
-          <Step key={index}>{step}</Step>
+          <Step key={index} step={index}>
+            {step}
+          </Step>
+        ))}
+      </Stepper>
+      <Stepper alternativeLabel={true} activeStep={2} {...args}>
+        {steps.map((step, index) => (
+          <Step key={index} step={index}>
+            {step}
+          </Step>
+        ))}
+      </Stepper>
+      <Stepper alternativeLabel={true} activeStep={3} {...args}>
+        {steps.map((step, index) => (
+          <Step key={index} step={index}>
+            {step}
+          </Step>
         ))}
       </Stepper>
     </div>
@@ -41,7 +64,5 @@ const Template: Story = (args) => {
 export const Basic = Template.bind({})
 
 Basic.args = {
-  activeStep: 0,
   alternativeLabel: true,
-  backgroundColor: '',
 }

@@ -29,6 +29,7 @@ export const Step = forwardRef<HTMLDivElement, StepProps & StepLabelProps>(
               }
               & .MuiStepIcon-root {
                 color: ${theme`backgroundColor.primary.light.default`};
+                font-size: 32px;
                 > circle {
                   ${tw`stroke-2`}
                   stroke: ${theme`iconColor.primary.dark.disabled`};

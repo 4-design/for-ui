@@ -18,7 +18,7 @@ export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
         css={[
           css`
             & .MuiStepConnector-root {
-              ${tw`top-5`}
+              ${tw`top-6`}
               & .MuiStepConnector-line {
                 ${tw`border-t-2 border-shade-dark-disabled`}
               }
