@@ -28,7 +28,7 @@ export const Step = forwardRef<HTMLDivElement, StepProps & StepLabelProps>(
                 ${tw`text-shade-dark-default`}
               }
               & .MuiStepIcon-root {
-                ${tw`text-shade-white-disabled`}
+                color: ${theme`backgroundColor.primary.light.default`};
                 > circle {
                   ${tw`stroke-2`}
                   stroke: ${theme`iconColor.primary.dark.disabled`};
