@@ -1,12 +1,15 @@
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 import MuiStep, { StepProps as MuiStepProps } from '@mui/material/Step'
 import MuiStepLabel, {
   StepLabelProps as MuiStepLabelProps,
 } from '@mui/material/StepLabel'
+import { StepIconProps as MuiStepIconProps } from '@mui/material/StepIcon'
 import tw, { css, theme, TwStyle } from 'twin.macro'
+import { MdCircle, MdOutlineCircle } from 'react-icons/md'
 
 export interface StepProps extends MuiStepProps {
   twin?: TwStyle[]
+  step: number
 }
 
 export interface StepLabelProps extends MuiStepLabelProps {
@@ -15,44 +18,24 @@ export interface StepLabelProps extends MuiStepLabelProps {
 
 export const Step = forwardRef<HTMLDivElement, StepProps & StepLabelProps>(
   (props, ref) => {
-    const { twin, children, ...rest } = props
+    const { twin, children, step, ...rest } = props
     return (
-      <MuiStep ref={ref} css={[css``, twin]} {...rest}>
+      <MuiStep ref={ref} css={twin} {...rest}>
         <MuiStepLabel
+          ref={ref}
+          StepIconComponent={Icon}
           css={[
             css`
+              & .MuiStepLabel-iconContainer {
+                span svg path path {
+                  ${tw`stroke-2`}
+                }
+              }
               & .MuiStepLabel-alternativeLabel {
                 ${tw`mt-2!`}
               }
               & .MuiStepLabel-label {
                 ${tw`text-shade-dark-default`}
-              }
-              & .MuiStepIcon-root {
-                color: ${theme`backgroundColor.primary.light.default`};
-                font-size: 32px;
-                > circle {
-                  ${tw`stroke-2`}
-                  stroke: ${theme`iconColor.primary.dark.disabled`};
-                  r: 11; // アウトラインが見切れる対応
-                }
-                .MuiStepIcon-text {
-                  fill: ${theme`iconColor.primary.dark.disabled`};
-                }
-
-                &.Mui-active {
-                  ${tw`text-shade-white-default`}
-                  > circle {
-                    ${tw`stroke-2`}
-                    stroke: ${theme`iconColor.primary.dark.default`};
-                    r: 11;
-                  }
-                  .MuiStepIcon-text {
-                    fill: ${theme`iconColor.primary.dark.default`};
-                  }
-                }
-                &.Mui-completed {
-                  ${tw`text-shade-dark-default`}
-                }
               }
             `,
             twin,
@@ -64,3 +47,67 @@ export const Step = forwardRef<HTMLDivElement, StepProps & StepLabelProps>(
     )
   }
 )
+
+const Icon = (props: Partial<MuiStepIconProps>) => {
+  const { completed, active, icon } = props
+  const commonStyle = tw`absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4`
+
+  return (
+    <span
+      css={[
+        css`
+          ${tw`relative font-bold m-px`}
+          ${active && tw`text-shade-dark-default`}
+        `,
+      ]}
+    >
+      {active ? (
+        <>
+          <MdOutlineCircle size={38} />
+          <span
+            css={[
+              css`
+                ${commonStyle}
+              `,
+            ]}
+          >
+            {icon}
+          </span>
+        </>
+      ) : (
+        <>
+          <MdCircle
+            size={38}
+            color={
+              completed
+                ? `${theme`iconColor.primary.dark.default`}`
+                : `${theme`backgroundColor.primary.light.default`}`
+            }
+            css={
+              !completed && [
+                css`
+                  path + path {
+                    ${tw`stroke-2`}
+                    stroke: ${theme`iconColor.primary.dark.disabled`};
+                  }
+                `,
+              ]
+            }
+          />
+          <span
+            css={[
+              css`
+                ${commonStyle}
+                ${completed
+                  ? tw`text-shade-white-default`
+                  : tw`text-shade-dark-disabled`}
+              `,
+            ]}
+          >
+            {icon}
+          </span>
+        </>
+      )}
+    </span>
+  )
+}

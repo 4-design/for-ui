@@ -3,12 +3,13 @@ import { Text } from '../typography/Typography'
 import { Step } from './Step'
 import { Stepper } from './Stepper'
 import 'twin.macro'
+import { createRef } from 'react'
 
 export default {
   title: 'Atom/Stepper',
   component: Stepper,
   argTypes: {
-    activeStep: { control: { min: 0 } },
+    activeStep: { control: { min: 1 } },
     alternativeLabel: { control: 'boolean' },
     backgroundColor: { control: 'color' },
   },
@@ -30,31 +31,23 @@ const Template: Story = (args) => {
         <Text variant="h3">Stepper</Text>
       </div>
       <Stepper alternativeLabel={true} activeStep={0} {...args}>
-        {steps.map((step, index) => (
-          <Step key={index} step={index}>
-            {step}
-          </Step>
+        {steps.map((_, index) => (
+          <Step key={index} step={index + 1} />
         ))}
       </Stepper>
       <Stepper alternativeLabel={true} activeStep={1} {...args}>
-        {steps.map((step, index) => (
-          <Step key={index} step={index}>
-            {step}
-          </Step>
+        {steps.map((_, index) => (
+          <Step key={index} step={index + 1} />
         ))}
       </Stepper>
       <Stepper alternativeLabel={true} activeStep={2} {...args}>
-        {steps.map((step, index) => (
-          <Step key={index} step={index}>
-            {step}
-          </Step>
+        {steps.map((_, index) => (
+          <Step key={index} step={index + 1} />
         ))}
       </Stepper>
       <Stepper alternativeLabel={true} activeStep={3} {...args}>
-        {steps.map((step, index) => (
-          <Step key={index} step={index}>
-            {step}
-          </Step>
+        {steps.map((_, index) => (
+          <Step key={index} step={index + 1} />
         ))}
       </Stepper>
     </div>
