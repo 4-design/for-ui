@@ -9,7 +9,6 @@ import { MdCircle, MdOutlineCircle } from 'react-icons/md'
 
 export interface StepProps extends MuiStepProps {
   twin?: TwStyle[]
-  step: number
 }
 
 export interface StepLabelProps extends MuiStepLabelProps {
@@ -18,7 +17,7 @@ export interface StepLabelProps extends MuiStepLabelProps {
 
 export const Step = forwardRef<HTMLDivElement, StepProps & StepLabelProps>(
   (props, ref) => {
-    const { twin, children, step, ...rest } = props
+    const { twin, children, ...rest } = props
     return (
       <MuiStep ref={ref} css={twin} {...rest}>
         <MuiStepLabel

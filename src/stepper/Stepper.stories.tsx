@@ -3,7 +3,6 @@ import { Text } from '../typography/Typography'
 import { Step } from './Step'
 import { Stepper } from './Stepper'
 import 'twin.macro'
-import { createRef } from 'react'
 
 export default {
   title: 'Atom/Stepper',
@@ -32,22 +31,22 @@ const Template: Story = (args) => {
       </div>
       <Stepper alternativeLabel={true} activeStep={0} {...args}>
         {steps.map((_, index) => (
-          <Step key={index} step={index + 1} />
+          <Step key={index} />
         ))}
       </Stepper>
       <Stepper alternativeLabel={true} activeStep={1} {...args}>
         {steps.map((_, index) => (
-          <Step key={index} step={index + 1} />
+          <Step key={index} />
         ))}
       </Stepper>
       <Stepper alternativeLabel={true} activeStep={2} {...args}>
         {steps.map((_, index) => (
-          <Step key={index} step={index + 1} />
+          <Step key={index} />
         ))}
       </Stepper>
       <Stepper alternativeLabel={true} activeStep={3} {...args}>
         {steps.map((_, index) => (
-          <Step key={index} step={index + 1} />
+          <Step key={index} />
         ))}
       </Stepper>
     </div>
