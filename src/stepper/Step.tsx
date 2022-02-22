@@ -4,8 +4,8 @@ import { StepIconProps as MuiStepIconProps } from '@mui/material/StepIcon'
 import MuiStepLabel, {
   StepLabelProps as MuiStepLabelProps,
 } from '@mui/material/StepLabel'
-import tw, { css, theme, TwStyle } from 'twin.macro'
 import { MdCircle, MdOutlineCircle } from 'react-icons/md'
+import tw, { css, theme, TwStyle } from 'twin.macro'
 
 export interface StepProps extends MuiStepProps {
   twin?: TwStyle[]
