@@ -26,11 +26,6 @@ export const Step = forwardRef<HTMLDivElement, StepProps & StepLabelProps>(
           StepIconComponent={Icon}
           css={[
             css`
-              & .MuiStepLabel-iconContainer {
-                span svg path path {
-                  ${tw`stroke-2`}
-                }
-              }
               & .MuiStepLabel-alternativeLabel {
                 ${tw`mt-2!`}
               }
@@ -56,7 +51,7 @@ const Icon = (props: Partial<MuiStepIconProps>) => {
     <span
       css={[
         css`
-          ${tw`relative font-bold m-px`}
+          ${tw`relative font-bold text-base`}
           ${active && tw`text-shade-dark-default`}
         `,
       ]}
