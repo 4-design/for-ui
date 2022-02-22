@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react'
 import MuiStep, { StepProps as MuiStepProps } from '@mui/material/Step'
+import { StepIconProps as MuiStepIconProps } from '@mui/material/StepIcon'
 import MuiStepLabel, {
   StepLabelProps as MuiStepLabelProps,
 } from '@mui/material/StepLabel'
-import { StepIconProps as MuiStepIconProps } from '@mui/material/StepIcon'
 import tw, { css, theme, TwStyle } from 'twin.macro'
 import { MdCircle, MdOutlineCircle } from 'react-icons/md'
 
