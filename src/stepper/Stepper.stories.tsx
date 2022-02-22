@@ -30,23 +30,23 @@ const Template: Story = (args) => {
         <Text variant="h3">Stepper</Text>
       </div>
       <Stepper alternativeLabel={true} activeStep={0} {...args}>
-        {steps.map((_, index) => (
-          <Step key={index} />
+        {steps.map((step, index) => (
+          <Step key={index}>{step}</Step>
         ))}
       </Stepper>
       <Stepper alternativeLabel={true} activeStep={1} {...args}>
-        {steps.map((_, index) => (
-          <Step key={index} />
+        {steps.map((step, index) => (
+          <Step key={index}>{step}</Step>
         ))}
       </Stepper>
       <Stepper alternativeLabel={true} activeStep={2} {...args}>
-        {steps.map((_, index) => (
-          <Step key={index} />
+        {steps.map((step, index) => (
+          <Step key={index}>{step}</Step>
         ))}
       </Stepper>
       <Stepper alternativeLabel={true} activeStep={3} {...args}>
-        {steps.map((_, index) => (
-          <Step key={index} />
+        {steps.map((step, index) => (
+          <Step key={index}>{step}</Step>
         ))}
       </Stepper>
     </div>
