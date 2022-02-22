@@ -4,8 +4,7 @@ import { StepIconProps as MuiStepIconProps } from '@mui/material/StepIcon'
 import MuiStepLabel, {
   StepLabelProps as MuiStepLabelProps,
 } from '@mui/material/StepLabel'
-import { MdCircle, MdOutlineCircle } from 'react-icons/md'
-import tw, { css, theme, TwStyle } from 'twin.macro'
+import tw, { css, TwStyle } from 'twin.macro'
 
 export interface StepProps extends MuiStepProps {
   twin?: TwStyle[]
@@ -50,58 +49,23 @@ const Icon = (props: Partial<MuiStepIconProps>) => {
     <span
       css={[
         css`
-          ${tw`relative font-bold text-base`}
-          ${active && tw`text-shade-dark-default`}
+          ${tw`relative h-8 w-8 border-2 border-primary-dark-disabled text-shade-dark-disabled bg-shade-white-disabled font-bold text-r rounded-full`}
+          ${active &&
+          tw`border-2 border-primary-dark-default text-primary-dark-default bg-shade-white-default`}
+          ${completed &&
+          tw`border-0 text-shade-white-default bg-primary-dark-default`}
         `,
       ]}
     >
-      {active ? (
-        <>
-          <MdOutlineCircle size={38} />
-          <span
-            css={[
-              css`
-                ${commonStyle}
-              `,
-            ]}
-          >
-            {icon}
-          </span>
-        </>
-      ) : (
-        <>
-          <MdCircle
-            size={38}
-            color={
-              completed
-                ? `${theme`iconColor.primary.dark.default`}`
-                : `${theme`backgroundColor.primary.light.default`}`
-            }
-            css={
-              !completed && [
-                css`
-                  path + path {
-                    ${tw`stroke-2`}
-                    stroke: ${theme`iconColor.primary.dark.disabled`};
-                  }
-                `,
-              ]
-            }
-          />
-          <span
-            css={[
-              css`
-                ${commonStyle}
-                ${completed
-                  ? tw`text-shade-white-default`
-                  : tw`text-shade-dark-disabled`}
-              `,
-            ]}
-          >
-            {icon}
-          </span>
-        </>
-      )}
+      <span
+        css={[
+          css`
+            ${commonStyle}
+          `,
+        ]}
+      >
+        {icon}
+      </span>
     </span>
   )
 }
