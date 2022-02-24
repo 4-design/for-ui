@@ -4,8 +4,7 @@ import { StepIconProps as MuiStepIconProps } from '@mui/material/StepIcon'
 import MuiStepLabel, {
   StepLabelProps as MuiStepLabelProps,
 } from '@mui/material/StepLabel'
-import { MdCircle, MdOutlineCircle } from 'react-icons/md'
-import tw, { css, theme, TwStyle } from 'twin.macro'
+import tw, { css, TwStyle } from 'twin.macro'
 
 export interface StepProps extends MuiStepProps {
   twin?: TwStyle[]
@@ -25,11 +24,16 @@ export const Step = forwardRef<HTMLDivElement, StepProps & StepLabelProps>(
           StepIconComponent={Icon}
           css={[
             css`
+              & .MuiStepLabel-label {
+                ${tw`text-shade-dark-default text-r font-normal`}
+                font-family: inherit;
+                &.Mui-completed,
+                &.Mui-active {
+                  ${tw`text-shade-dark-default text-r font-normal`}
+                }
+              }
               & .MuiStepLabel-alternativeLabel {
                 ${tw`mt-2!`}
-              }
-              & .MuiStepLabel-label {
-                ${tw`text-shade-dark-default`}
               }
             `,
             twin,
@@ -44,64 +48,30 @@ export const Step = forwardRef<HTMLDivElement, StepProps & StepLabelProps>(
 
 const Icon = (props: Partial<MuiStepIconProps>) => {
   const { completed, active, icon } = props
-  const commonStyle = tw`absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4`
 
   return (
-    <span
-      css={[
-        css`
-          ${tw`relative font-bold text-base`}
-          ${active && tw`text-shade-dark-default`}
-        `,
-      ]}
-    >
-      {active ? (
-        <>
-          <MdOutlineCircle size={38} />
-          <span
-            css={[
-              css`
-                ${commonStyle}
-              `,
-            ]}
-          >
-            {icon}
-          </span>
-        </>
-      ) : (
-        <>
-          <MdCircle
-            size={38}
-            color={
-              completed
-                ? `${theme`iconColor.primary.dark.default`}`
-                : `${theme`backgroundColor.primary.light.default`}`
-            }
-            css={
-              !completed && [
-                css`
-                  path + path {
-                    ${tw`stroke-2`}
-                    stroke: ${theme`iconColor.primary.dark.disabled`};
-                  }
-                `,
-              ]
-            }
-          />
-          <span
-            css={[
-              css`
-                ${commonStyle}
-                ${completed
-                  ? tw`text-shade-white-default`
-                  : tw`text-shade-dark-disabled`}
-              `,
-            ]}
-          >
-            {icon}
-          </span>
-        </>
-      )}
-    </span>
+    <>
+      <span
+        css={[
+          css`
+            ${tw`relative h-8 w-8 border-2 border-primary-dark-disabled text-shade-dark-disabled bg-shade-white-disabled font-bold text-r rounded-full`}
+            ${active &&
+            tw`border-2 border-primary-dark-default text-primary-dark-default bg-shade-white-default`}
+          ${completed &&
+            tw`border-0 text-shade-white-default bg-primary-dark-default`}
+          `,
+        ]}
+      >
+        <span
+          css={[
+            css`
+              ${tw`absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4`}
+            `,
+          ]}
+        >
+          {icon}
+        </span>
+      </span>
+    </>
   )
 }

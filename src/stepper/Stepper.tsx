@@ -18,11 +18,14 @@ export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
         css={[
           css`
             & .MuiStepConnector-root {
-              ${tw`top-6`}
+              ${tw`top-6 px-0 left-[calc(-50% + 1rem)] right-[calc(50% + 1rem)]`}
               & .MuiStepConnector-line {
                 ${tw`border-t-2 border-shade-dark-disabled`}
               }
               &.Mui-completed .MuiStepConnector-line {
+                ${tw`border-shade-dark-default`}
+              }
+              &.Mui-active .MuiStepConnector-line {
                 ${tw`border-shade-dark-default`}
               }
               &.Mui-disabled .MuiStepConnector-line {
