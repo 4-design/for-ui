@@ -1,3 +1,18 @@
+# [2.0.0-alpha.31](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.30...v2.0.0-alpha.31) (2022-03-01)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#558](https://github.com/3-shake/3design-ui/issues/558)) ([d8571d2](https://github.com/3-shake/3design-ui/commit/d8571d2d582d33b605a33238e7019aaab368dc1b))
+* **deps:** update all non-major dependencies ([#563](https://github.com/3-shake/3design-ui/issues/563)) ([7545855](https://github.com/3-shake/3design-ui/commit/7545855eefc9680571dd271cb6f6eb8ecd3087ec))
+
+
+### Features
+
+* **Stepper:** add stepper component ([#556](https://github.com/3-shake/3design-ui/issues/556)) ([f807b75](https://github.com/3-shake/3design-ui/commit/f807b75f53d0d2be790533e9dfa0b836639d4b4c))
+
+
+
 # [2.0.0-alpha.30](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.29...v2.0.0-alpha.30) (2022-02-16)
 
 
