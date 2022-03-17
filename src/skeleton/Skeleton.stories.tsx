@@ -155,7 +155,7 @@ export const WithNest = () => {
           </Text>
 
           <Text variant="caption" twin={tw`text-shade-dark-default`}>
-            「メルカリ」は、個人が簡単にモノの売り買いが楽しめるフリマアプリです。AIによる不正の監視や独自の入金システムにより、誰でも安心・安全な取引が行えます。
+            「Reckoner」は、個人が簡単にモノの売り買いが楽しめるフリマアプリです。AIによる不正の監視や独自の入金システムにより、誰でも安心・安全な取引が行えます。
           </Text>
         </Row>
 
@@ -175,7 +175,7 @@ export const WithNest = () => {
           </Text>
 
           <Text variant="caption" twin={tw`text-shade-dark-default`}>
-            顧客がメルカリ上で取引が出来ない
+            顧客がReckoner上で取引が出来ない
           </Text>
         </Row>
 
