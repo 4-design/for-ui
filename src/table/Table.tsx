@@ -11,26 +11,28 @@ import {
   IdType,
   PluginHook,
 } from 'react-table'
-import tw from 'twin.macro'
+import tw, { TwStyle } from 'twin.macro'
 import { Checkbox } from '../checkbox'
 import { Radio } from '../radio'
 import { TableCell } from './TableCell'
 
 import { TablePagination } from './TablePagination'
 
-export const Table = <T extends object>(
-  props: TableOptions<T> & {
-    onSelectRow?: (row: IdType<T> | undefined) => void
-    onSelectRows?: (rows: IdType<T>[]) => void
-    disablePagination?: boolean
-  }
-) => {
+export type TableProps<T extends object> = TableOptions<T> & {
+  onSelectRow?: ((row: IdType<T> | undefined) => void) | undefined
+  onSelectRows?: ((rows: IdType<T>[]) => void) | undefined
+  disablePagination?: boolean | undefined
+  twin?: TwStyle
+}
+
+export const Table = <T extends object>(props: TableProps<T>) => {
   const {
     columns,
     data,
     onSelectRow,
     onSelectRows,
     disablePagination = false,
+    twin,
   } = props
   const [initialState, _] = useState({ pageIndex: 0 })
 
@@ -103,12 +105,12 @@ export const Table = <T extends object>(
   }
 
   let hooks: PluginHook<T>[] = []
-  if (onSelectRow || onSelectRows) {
-    hooks = [...hooks, useRowSelect, useRowSelectHook]
-  }
-
   if (!disablePagination) {
     hooks = [...hooks, usePagination]
+  }
+
+  if (onSelectRow || onSelectRows) {
+    hooks = [...hooks, useRowSelect, useRowSelectHook]
   }
 
   const instance = useTable<T>(
@@ -176,7 +178,7 @@ export const Table = <T extends object>(
 
   return (
     <>
-      <table {...getTableProps()} tw="w-full">
+      <table {...getTableProps()} css={[tw`w-full`, twin]}>
         <thead tw="table-header-group bg-shade-white-default">
           {headerGroups.map((headerGroup, i) => (
             <tr
