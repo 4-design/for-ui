@@ -167,11 +167,18 @@
   /* negative-text-medium */
   --negative-text-medium-default: #e73812;
 
+  /* negative-text-light */
+  --negative-text-light-default: #d16148;
+
   /*******************************
    * negative background
   ********************************/
+  /* negative-background-medium */
+  --negative-background-medium-default: #e73812;
+
   /* negative-background-light */
   --negative-background-light-default: #fceae6;
+  --negative-background-light-hover: #fad5cd;
 
   /*******************************
    * negative border
@@ -184,4 +191,106 @@
   ********************************/
   /* negative-icon-medium */
   --negative-icon-medium-default: #e73812;
+
+  /* ------------------------------------------------------------------ */
+
+  /*******************************
+   * positive text
+  ********************************/
+  /* positive-text-medium */
+  --positive-text-medium-default: #59b99c;
+
+  /* positive-text-light */
+  --positive-text-light-default: #f3fffc;
+
+  /*******************************
+   * positive background
+  ********************************/
+  /* positive-background-medium */
+  --positive-background-medium-default: #59b99c;
+
+  /* positive-background-light */
+  --positive-background-light-default: #f3fffc;
+
+  /*******************************
+   * positive border
+  ********************************/
+  /* positive-border-medium */
+  --positive-border-medium-default: #59b99c;
+
+  /* positive-border-light */
+  --positive-border-light-default: #f3fffc;
+
+  /*******************************
+   * positive icon
+  ********************************/
+  /* positive-icon-medium */
+  --positive-icon-medium-default: #59b99c;
+
+  /* positive-icon-light */
+  --positive-icon-light-default: #f3fffc;
+
+  /* ------------------------------------------------------------------ */
+
+  /*******************************
+   * notice text
+  ********************************/
+  /* notice-text-medium */
+  --notice-text-medium-default: #e5d044;
+
+  /* notice-text-light */
+  --notice-text-light-default: #f5f4e8;
+
+  /*******************************
+   * notice background
+  ********************************/
+  /* notice-background-medium */
+  --notice-background-medium-default: #e5d044;
+
+  /* notice-background-light */
+  --notice-background-light-default: #f5f4e8;
+
+  /*******************************
+   * notice border
+  ********************************/
+  /* notice-border-medium */
+  --notice-border-medium-default: #e5d044;
+
+  /* notice-border-light */
+  --notice-border-light-default: #f5f4e8;
+
+  /*******************************
+   * notice icon
+  ********************************/
+  /* notice-icon-medium */
+  --notice-icon-medium-default: #e5d044;
+
+  /* notice-icon-light */
+  --notice-icon-light-default: #f5f4e8;
+
+  /* ------------------------------------------------------------------ */
+
+  /*******************************
+   * informative text
+  ********************************/
+  /* informative-text-medium */
+  --informative-text-medium-default: #4a7acf;
+
+  /*******************************
+   * informative background
+  ********************************/
+  /* informative-background-medium */
+  --informative-background-medium-default: #4a7acf;
+
+  /*******************************
+   * informative border
+  ********************************/
+  /* informative-border-medium */
+  --informative-border-medium-default: #4a7acf;
+
+  /*******************************
+   * informative icon
+  ********************************/
+  /* informative-icon-medium */
+  --informative-icon-medium-default: #4a7acf;
 }

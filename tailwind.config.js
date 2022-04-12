@@ -165,16 +165,23 @@ const colors = {
       },
     },
   },
-  // TODO
+
   negative: {
     text: {
       medium: {
         default: 'var(--negative-text-medium-default)',
       },
+      light: {
+        default: 'var(--negative-text-light-default)',
+      },
     },
     background: {
+      medium: {
+        default: 'var(--negative-background-medium-default)',
+      },
       light: {
         default: 'var(--negative-background-light-default)',
+        hover: 'var(--negative-background-light-hover)',
       },
     },
     border: {
@@ -185,6 +192,99 @@ const colors = {
     icon: {
       medium: {
         default: 'var(--negative-icon-medium-default)',
+      },
+    },
+  },
+
+  positive: {
+    text: {
+      medium: {
+        default: 'var(--postive-text-medium-default)',
+      },
+      light: {
+        default: 'var(--positive-text-light-default)',
+      },
+    },
+    background: {
+      medium: {
+        default: 'var(--positive-background-medium-default)',
+      },
+      light: {
+        default: 'var(--positive-background-light-default)',
+      },
+    },
+    border: {
+      medium: {
+        default: 'var(--positive-border-medium-default)',
+      },
+      light: {
+        default: 'var(--positive-border-light-default)',
+      },
+    },
+    icon: {
+      medium: {
+        default: 'var(--positive-icon-medium-default)',
+      },
+      light: {
+        default: 'var(--positive-icon-light-default)',
+      },
+    },
+  },
+
+  notice: {
+    text: {
+      medium: {
+        default: 'var(--notice-text-medium-default)',
+      },
+      light: {
+        default: 'var(--notice-text-light-default)',
+      },
+    },
+    background: {
+      medium: {
+        default: 'var(--notice-background-medium-default)',
+      },
+      light: {
+        default: 'var(--notice-background-light-default)',
+      },
+    },
+    border: {
+      medium: {
+        default: 'var(--notice-border-medium-default)',
+      },
+      light: {
+        default: 'var(--notice-border-light-default)',
+      },
+    },
+    icon: {
+      medium: {
+        default: 'var(--notice-icon-medium-default)',
+      },
+      light: {
+        default: 'var(--notice-icon-light-default)',
+      },
+    },
+  },
+
+  informative: {
+    text: {
+      medium: {
+        default: 'var(--informative-text-medium-default)',
+      },
+    },
+    background: {
+      medium: {
+        default: 'var(--informative-background-medium-default)',
+      },
+    },
+    border: {
+      medium: {
+        default: 'var(--informative-border-medium-default)',
+      },
+    },
+    icon: {
+      medium: {
+        default: 'var(--informative-icon-medium-default)',
       },
     },
   },
@@ -244,6 +344,9 @@ module.exports = {
       primary: colors.primary.text,
       secondary: colors.secondary.text,
       negative: colors.negative.text,
+      positive: colors.positive.text,
+      notice: colors.notice.text,
+      informative: colors.notice.text,
     },
     backgroundColor: {
       transparent: 'transparent',
@@ -251,6 +354,9 @@ module.exports = {
       primary: colors.primary.background,
       secondary: colors.secondary.background,
       negative: colors.negative.background,
+      positive: colors.positive.background,
+      notice: colors.notice.background,
+      informative: colors.notice.background,
     },
     borderColor: {
       transparent: 'transparent',
@@ -258,12 +364,18 @@ module.exports = {
       primary: colors.primary.border,
       secondary: colors.secondary.border,
       negative: colors.negative.border,
+      positive: colors.positive.border,
+      notice: colors.notice.border,
+      informative: colors.notice.border,
     },
     iconColor: {
       transparent: 'transparent',
       shade: colors.shade.icon,
       primary: colors.primary.icon,
       secondary: colors.secondary.icon,
+      positive: colors.positive.icon,
+      notice: colors.notice.icon,
+      informative: colors.notice.icon,
     },
     fontSize: {
       xs: fontSizes.s,
