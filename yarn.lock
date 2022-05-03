@@ -13219,10 +13219,10 @@ react-draggable@^4.4.3:
     classnames "^2.2.5"
     prop-types "^15.6.0"
 
-react-dropzone@12.1.0:
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-12.1.0.tgz#e097b37e9da6f9e324efc757b7434ebc6f3dc2cb"
-  integrity sha512-iBYHA1rbopIvtzokEX4QubO6qk5IF/x3BtKGu74rF2JkQDXnwC4uO/lHKpaw4PJIV6iIAYOlwLv2FpiGyqHNog==
+react-dropzone@14.1.2:
+  version "14.1.2"
+  resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-14.1.2.tgz#ea661c1ddf976d77c81d666c91d251113972bf2d"
+  integrity sha512-NoqvPmu2IDeJXHTRyyY0CnxGBG43gggynUY37bU3QHeAhhXSWSyYr9Aq1mIO152rQvpTd7afyRFvqeTWQYRxDA==
   dependencies:
     attr-accept "^2.2.2"
     file-selector "^0.5.0"
