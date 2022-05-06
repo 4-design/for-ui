@@ -97,7 +97,7 @@
     "react-dom": "18.1.0",
     "react-hook-form": "7.30.0",
     "react-table": "7.7.0",
-    "rollup": "2.71.1",
+    "rollup": "2.72.0",
     "rollup-config-analyzer": "2.2.0",
     "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-filesize": "9.1.2",
