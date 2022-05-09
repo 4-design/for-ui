@@ -39,7 +39,7 @@
     "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
-    "react-dropzone": "14.2.0",
+    "react-dropzone": "14.2.1",
     "react-number-format": "4.9.3",
     "react-spinners": "0.11.0",
     "twin.macro": "2.8.2"
@@ -79,7 +79,7 @@
     "babel-plugin-twin": "1.0.2",
     "bundlewatch": "0.3.3",
     "chromatic": "6.5.4",
-    "eslint": "8.14.0",
+    "eslint": "8.15.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-import-resolver-alias": "1.1.2",
     "eslint-import-resolver-typescript": "2.7.1",
@@ -97,7 +97,7 @@
     "react-dom": "18.1.0",
     "react-hook-form": "7.30.0",
     "react-table": "7.7.0",
-    "rollup": "2.72.0",
+    "rollup": "2.72.1",
     "rollup-config-analyzer": "2.2.0",
     "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-filesize": "9.1.2",
