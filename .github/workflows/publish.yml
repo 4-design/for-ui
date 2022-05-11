@@ -10,11 +10,11 @@ jobs:
         id: generate_token
         # @v1.5.1を使用 以下の使用actionをアップデートをする場合はコードがセキュリティ的に問題ないか確認して行ってください。
         # https://github.com/tibdex/github-app-token/commit/7ce9ffdcdeb2ba82b01b51d6584a6a85872336d4
-        uses: tibdex/github-app-token@c95b1c441a4dacd6d24f231b9697a5f9a04c607e
+        uses: tibdex/github-app-token@7ce9ffdcdeb2ba82b01b51d6584a6a85872336d4
         with:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.RELEASE_PRIVATE_KEY }}
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
           token: ${{ steps.generate_token.outputs.token }}
