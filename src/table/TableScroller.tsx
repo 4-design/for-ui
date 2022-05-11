@@ -3,6 +3,7 @@ import tw, { css } from 'twin.macro'
 
 type Props = {
   height?: number | string
+  children: React.ReactNode
 }
 
 export const TableScroller: React.FC<Props> = ({ height, children }) => (

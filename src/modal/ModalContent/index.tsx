@@ -1,6 +1,10 @@
 import React from 'react'
 import 'twin.macro'
 
-export const ModalContent: React.FC = ({ children }) => {
+export type ModalContentProps = {
+  children: React.ReactNode
+}
+
+export const ModalContent: React.FC<ModalContentProps> = ({ children }) => {
   return <div tw="p-4">{children}</div>
 }
