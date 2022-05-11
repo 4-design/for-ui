@@ -23,5 +23,5 @@ jobs:
           git config user.email github-actions@github.com
           git fetch
           git checkout -b release origin/release
-          git rebase origin/main
+          git rebase origin/v2
           git push origin release
