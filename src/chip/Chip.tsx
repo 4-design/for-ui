@@ -9,7 +9,7 @@ export type ChipProps = Exclude<MuiChipProps, 'color'> & {
   color?: ColorType
 }
 
-function styles(color: ColorType) {
+const styles = (color: ColorType) => {
   switch (color) {
     case 'negative':
       return css`
