@@ -30,7 +30,7 @@ function styles(color: ColorType) {
     default:
       return css`
         &.MuiChip-root {
-          ${tw`border-shade-medium-default`}
+          ${tw`border-shade-medium-default bg-shade-light-default`},
           > .MuiChip-label {
             ${tw`text-shade-dark-default`}
           }
@@ -51,7 +51,7 @@ export const Chip: VFC<ChipProps> = ({ color = 'default', twin, ...props }) => {
       css={[
         css`
           &.MuiChip-root {
-            ${tw`border px-3 py-1`}
+            ${tw`border px-3 py-1 h-7`}
             ${styles(color)},
             ${twin}
             > .MuiChip-label {
