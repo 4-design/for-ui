@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta, Args } from '@storybook/react/types-6-0'
 
-import tw from 'twin.macro'
+import 'twin.macro'
 import { Text } from '../typography/Typography'
 import { Chip } from './Chip'
 
@@ -32,7 +32,7 @@ export const Base = (args: Args) => (
 
     <div tw="flex flex-col gap-4">
       <div>
-        <Chip label={args.label} color={args.color} twin={[tw`font-bold`]} />
+        <Chip label={args.label} color={args.color} />
       </div>
       <div>
         <Chip label={args.label} color={args.color} onDelete={args.onDelete} />
