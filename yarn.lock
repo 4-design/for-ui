@@ -35,7 +35,7 @@ __metadata:
     "@storybook/addon-links": 6.5.4
     "@storybook/addon-postcss": 2.0.0
     "@storybook/react": 6.5.4
-    "@types/react": ^18.0.9
+    "@types/react": 18.0.9
     "@types/react-table": 7.7.12
     "@typescript-eslint/eslint-plugin": 5.25.0
     "@typescript-eslint/parser": 5.25.0
@@ -6203,7 +6203,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.0.9":
+"@types/react@npm:18.0.9":
   version: 18.0.9
   resolution: "@types/react@npm:18.0.9"
   dependencies:
