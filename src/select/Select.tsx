@@ -1,9 +1,9 @@
 import React from 'react'
-import { UseAutocompleteProps } from '@material-ui/core'
+import { UseAutocompleteProps } from '@mui/material'
 import Autocomplete, {
   createFilterOptions,
-} from '@material-ui/core/Autocomplete'
-import MuiPaper, { PaperProps } from '@material-ui/core/Paper'
+} from '@mui/material/Autocomplete'
+import MuiPaper, { PaperProps } from '@mui/material/Paper'
 import tw, { css, TwStyle } from 'twin.macro'
 import { MenuItem } from '../menu'
 import { Tag } from '../tag'

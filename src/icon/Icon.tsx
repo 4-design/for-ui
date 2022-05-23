@@ -1,7 +1,7 @@
 import React from 'react'
 import MuiIconButton, {
   IconButtonProps as MuiIconButtonProps,
-} from '@material-ui/core/IconButton'
+} from '@mui/material/IconButton'
 import tw, { TwStyle } from 'twin.macro'
 
 export type IconButtonProps = MuiIconButtonProps & {

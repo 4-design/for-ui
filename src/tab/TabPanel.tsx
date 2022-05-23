@@ -2,7 +2,7 @@ import React from 'react'
 import { SerializedStyles } from '@emotion/react'
 import MuiTabPanel, {
   TabPanelProps as MuiTabPanelProps,
-} from '@material-ui/lab/TabPanel'
+} from '@mui/lab/TabPanel'
 import tw, { css, TwStyle } from 'twin.macro'
 
 export interface TabPanelProps extends MuiTabPanelProps {

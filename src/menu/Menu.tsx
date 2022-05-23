@@ -1,5 +1,5 @@
 import React from 'react'
-import MuiMenu, { MenuProps as MuiMenuProps } from '@material-ui/core/Menu'
+import MuiMenu, { MenuProps as MuiMenuProps } from '@mui/material/Menu'
 import tw, { css, TwStyle } from 'twin.macro'
 
 export interface MenuProps extends MuiMenuProps {

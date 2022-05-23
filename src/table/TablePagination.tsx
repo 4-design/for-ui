@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react'
 import 'twin.macro'
-import Pagination from '@material-ui/core/Pagination'
+import Pagination from '@mui/material/Pagination'
 import { TableInstance } from 'react-table'
 import tw, { css } from 'twin.macro'
 

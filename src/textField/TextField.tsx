@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react'
-import InputAdornment from '@material-ui/core/InputAdornment'
+import InputAdornment from '@mui/material/InputAdornment'
 import MuiTextField, {
   TextFieldProps as MuiTextFieldProps,
-} from '@material-ui/core/TextField'
+} from '@mui/material/TextField'
 import NumberFormat from 'react-number-format'
 import tw, { TwStyle, css } from 'twin.macro'
 

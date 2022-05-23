@@ -1,6 +1,6 @@
 import React from 'react'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import MuiRadio, { RadioProps as MuiRadioProps } from '@material-ui/core/Radio'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import MuiRadio, { RadioProps as MuiRadioProps } from '@mui/material/Radio'
 import tw, { css, TwStyle } from 'twin.macro'
 
 export interface RadioProps extends MuiRadioProps {
@@ -10,7 +10,7 @@ export interface RadioProps extends MuiRadioProps {
   twin?: TwStyle | TwStyle[]
 }
 
-export const Radio: React.VFC<RadioProps> = ({ label, value, disabled }) => {
+export const Radio: React.FC<RadioProps> = ({ label, value, disabled }) => {
   return (
     <FormControlLabel
       disabled={disabled}

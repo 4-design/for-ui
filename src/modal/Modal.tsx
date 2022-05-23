@@ -2,8 +2,8 @@ import React, { ReactNode } from 'react'
 import { SerializedStyles } from '@emotion/react'
 import MuiBackdrop, {
   BackdropProps as MuiBackdropProps,
-} from '@material-ui/core/Backdrop'
-import MuiModal from '@material-ui/core/Modal'
+} from '@mui/material/Backdrop'
+import MuiModal from '@mui/material/Modal'
 import tw, { css, TwStyle } from 'twin.macro'
 
 export type ModalProps = {
@@ -21,7 +21,7 @@ export type ModalProps = {
 
 type BackdropProps = MuiBackdropProps
 
-const Backdrop: React.VFC<BackdropProps> = ({ open, children, onClick }) => {
+const Backdrop: React.FC<BackdropProps> = ({ open, children, onClick }) => {
   return (
     <MuiBackdrop
       open={open}
@@ -40,7 +40,7 @@ const Backdrop: React.VFC<BackdropProps> = ({ open, children, onClick }) => {
   )
 }
 
-export const Modal: React.VFC<ModalProps> = ({
+export const Modal: React.FC<ModalProps> = ({
   rootTwin,
   twin,
   open,

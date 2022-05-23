@@ -1,6 +1,6 @@
 import React from 'react'
 import { SerializedStyles } from '@emotion/react'
-import MuiTab, { TabProps as MuiTabProps } from '@material-ui/core/Tab'
+import MuiTab, { TabProps as MuiTabProps } from '@mui/material/Tab'
 import tw, { css, TwStyle } from 'twin.macro'
 
 export interface TabProps extends MuiTabProps {
