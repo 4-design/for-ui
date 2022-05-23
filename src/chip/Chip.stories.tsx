@@ -1,4 +1,5 @@
 import React from 'react'
+import { MdCheck } from 'react-icons/md'
 import { Meta, Args } from '@storybook/react/types-6-0'
 
 import 'twin.macro'
@@ -36,6 +37,21 @@ export const Base = (args: Args) => (
       </div>
       <div>
         <Chip label={args.label} color={args.color} onDelete={args.onDelete} />
+      </div>
+      <div>
+        <Chip
+          label={args.label}
+          color={args.color}
+          icon={<MdCheck size={20} tw="ml-0 mr-1" />}
+        />
+      </div>
+      <div>
+        <Chip
+          label={args.label}
+          color={args.color}
+          icon={<MdCheck size={20} tw="ml-0 mr-1" />}
+          endIcon
+        />
       </div>
     </div>
   </div>
