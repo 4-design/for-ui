@@ -34,7 +34,6 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "react-detect-offline": "^2.4.3",
     "react-dropzone": "^11.3.2",
     "react-number-format": "^4.6.3",
     "react-spinners": "^0.11.0",
