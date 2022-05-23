@@ -123,5 +123,8 @@
       "preset": "emotion",
       "config": "tailwind.config.cjs"
     }
+  },
+  "volta": {
+    "node": "14.19.3"
   }
 }
