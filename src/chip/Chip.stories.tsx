@@ -1,6 +1,6 @@
 import React from 'react'
-import { MdCheck } from 'react-icons/md'
 import { Meta, Args } from '@storybook/react/types-6-0'
+import { MdCheck } from 'react-icons/md'
 
 import 'twin.macro'
 import { Text } from '../typography/Typography'
