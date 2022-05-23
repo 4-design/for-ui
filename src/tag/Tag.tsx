@@ -1,5 +1,5 @@
 import { VFC } from 'react'
-import MuiChip, { ChipProps as MuiChipProps } from '@material-ui/core/Chip'
+import MuiChip, { ChipProps as MuiChipProps } from '@mui/material/Chip'
 
 export type TagProps = MuiChipProps
 

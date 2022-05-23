@@ -1,9 +1,9 @@
 import React from 'react'
-import FormControl from '@material-ui/core/FormControl'
-import FormGroup from '@material-ui/core/FormGroup'
-import FormHelperText from '@material-ui/core/FormHelperText'
-import FormLabel from '@material-ui/core/FormLabel'
-import { RadioGroupProps as MuiRadioGroupProps } from '@material-ui/core/RadioGroup'
+import FormControl from '@mui/material/FormControl'
+import FormGroup from '@mui/material/FormGroup'
+import FormHelperText from '@mui/material/FormHelperText'
+import FormLabel from '@mui/material/FormLabel'
+import { RadioGroupProps as MuiRadioGroupProps } from '@mui/material/RadioGroup'
 import tw, { css, TwStyle } from 'twin.macro'
 
 export interface RadioGroupProps extends MuiRadioGroupProps {
@@ -15,7 +15,7 @@ export interface RadioGroupProps extends MuiRadioGroupProps {
   twin?: TwStyle | TwStyle[]
 }
 
-export const SwitchGroup: React.VFC<RadioGroupProps> = ({
+export const SwitchGroup: React.FC<RadioGroupProps> = ({
   label,
   error,
   row = false,

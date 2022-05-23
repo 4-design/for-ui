@@ -1,6 +1,6 @@
 import React from 'react'
 import { SerializedStyles } from '@emotion/react'
-import TabList, { TabListProps } from '@material-ui/lab/TabList'
+import TabList, { TabListProps } from '@mui/lab/TabList'
 import tw, { css, TwStyle } from 'twin.macro'
 
 export interface TabsProps extends TabListProps {
