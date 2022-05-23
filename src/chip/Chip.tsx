@@ -1,4 +1,4 @@
-import React, { VFC } from 'react'
+import React, { FC } from 'react'
 import MuiChip, { ChipProps as MuiChipProps } from '@mui/material/Chip'
 import tw, { css, TwStyle, theme } from 'twin.macro'
 
@@ -7,6 +7,7 @@ type ColorType = 'default' | 'negative'
 export type ChipProps = Exclude<MuiChipProps, 'color'> & {
   twin?: TwStyle[]
   color?: ColorType
+  endIcon?: React.ReactNode
 }
 
 const styles = (color: ColorType) => {
@@ -45,20 +46,33 @@ const styles = (color: ColorType) => {
   }
 }
 
-export const Chip: VFC<ChipProps> = ({ color = 'default', twin, ...props }) => {
+export const Chip: FC<ChipProps> = ({
+  color = 'default',
+  icon,
+  endIcon,
+  twin,
+  ...props
+}) => {
   return (
     <MuiChip
+      icon={icon}
       css={[
         css`
           &.MuiChip-root {
             ${tw`border px-3 py-1 h-7`}
-            ${styles(color)},
+            ${styles(color)}
+            ${endIcon && tw`flex-row-reverse`}
             ${twin}
             > .MuiChip-label {
               ${tw`font-sans text-s pl-0 pr-1`}
+              ${(icon || endIcon) && tw`pr-0!`}
             }
             > .MuiChip-deleteIcon {
               ${tw`ml-0 -mr-1.5`}
+            }
+            .MuiChip-icon {
+              ${icon && tw`ml-0 mr-1`}
+              ${endIcon && tw`ml-1 mr-0`}
             }
           }
         `,
