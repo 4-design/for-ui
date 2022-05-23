@@ -1,0 +1,78 @@
+name-template: 'v$NEXT_PATCH_VERSION'
+tag-template: 'v$NEXT_PATCH_VERSION'
+categories:
+  - title: '🚀 feat'
+    labels:
+      - 'feat'
+  - title: '🧑‍🔧 fix'
+    labels:
+      - 'fix'
+  - title: '👍️ refactor'
+    labels:
+      - 'refactor'
+  - title: '✅ test'
+    labels:
+      - 'test'
+  - title: '📔 docs'
+    labels:
+      - 'docs'
+  - title: '🖊️ chore'
+    labels:
+      - 'chore'
+  - title: '📦 dependencies'
+    labels:
+      - 'dependencies'
+autolabeler:
+  - label: feat
+    branch:
+      - '/^feat(ure)?[/-].+/'
+    title:
+      - '/^feat(ure)?[/-].+/'
+  - label: fix
+    branch:
+      - '/^fix[/-].+/'
+    title:
+      - '/^fix[/-].+/'
+  - label: refactor
+    branch:
+      - '/^(refactor|refactoring)[/-].+/'
+    title:
+      - '/^(refactor|refactoring)[/-].+/'
+  - label: test
+    branch:
+      - '/^test[/-].+/'
+    title:
+      - '/^test[/-].+/'
+  - label: docs
+    branch:
+      - '/^doc(s|umentation)[/-].+/'
+      - '/^doc[/-].+/'
+    title:
+      - '/^doc(s|umentation)[/-].+/'
+      - '/^doc[/-].+/'
+  - label: chore
+    branch:
+      - '/^chore[/-].+/'
+  - label: dependencies
+    branch:
+      - '/^dep(s|endencies)[/-].+/'
+      - '/^renovate[/-].+/'
+    title:
+      - '/chore\(deps\)[/-].+/'
+      - '/fix\(deps\)[/-].+/'
+  - label: chore
+    branch:
+      - '/^chore[/-].+/'
+    title:
+      - '/^chore[/-].+/'
+  - label: dependencies
+    branch:
+      - '/^dependencies[/-].+/'
+    title:
+      - '/^dependencies[/-].+/'
+change-title-escapes: '\<*_&'
+exclude-labels:
+  - 'exclude from changelog'
+template: |
+  ## Changes
+  $CHANGES

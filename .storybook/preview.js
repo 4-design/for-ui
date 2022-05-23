@@ -10,11 +10,10 @@ export const parameters = {
     values: [
       {
         name: 'default',
-        value: '#F9F9F9',
+        value: '#FFF',
       },
     ],
   },
-  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: { expanded: true },
   options: {
     storySort: (a, b) => {

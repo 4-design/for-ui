@@ -22,7 +22,6 @@ export type ModalProps = {
 type BackdropProps = MuiBackdropProps
 
 const Backdrop: React.VFC<BackdropProps> = ({ open, children, onClick }) => {
-  
   return (
     <MuiBackdrop
       open={open}

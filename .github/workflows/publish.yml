@@ -1,0 +1,27 @@
+name: "Publish release"
+on:
+  release:
+    types: [published]
+jobs:
+  publish-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate token
+        id: generate_token
+        # @v1.5.1を使用 以下の使用actionをアップデートをする場合はコードがセキュリティ的に問題ないか確認して行ってください。
+        # https://github.com/tibdex/github-app-token/commit/7ce9ffdcdeb2ba82b01b51d6584a6a85872336d4
+        uses: tibdex/github-app-token@c95b1c441a4dacd6d24f231b9697a5f9a04c607e
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.RELEASE_PRIVATE_KEY }}
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ steps.generate_token.outputs.token }}
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git fetch
+          git checkout -b v1 origin/v1
+          git rebase origin/main
+          git push origin v1

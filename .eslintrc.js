@@ -12,8 +12,8 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:prettier/recommended',
     'prettier',
+    'plugin:storybook/recommended',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -34,14 +34,6 @@ module.exports = {
         types: {
           object: false,
         },
-      },
-    ],
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
-        trailingComma: 'es5',
-        semi: false,
       },
     ],
     'import/order': [
@@ -68,7 +60,10 @@ module.exports = {
             position: 'after',
           },
         ],
-        alphabetize: { order: 'asc', caseInsensitive: true },
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
       },
     ],
     '@typescript-eslint/no-unused-vars': 'off',
