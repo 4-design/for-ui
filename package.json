@@ -16,7 +16,7 @@
   "author": "locona <miyamae@3-shake.com>",
   "sideEffects": false,
   "engines": {
-    "node": ">=14.x"
+    "node": ">14.2.0"
   },
   "license": "MIT",
   "repository": {
