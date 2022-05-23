@@ -44,7 +44,7 @@
     "twin.macro": "2.8.2"
   },
   "devDependencies": {
-    "@babel/core": "7.18.0",
+    "@babel/core": "7.17.10",
     "@babel/plugin-proposal-private-methods": "7.17.12",
     "@babel/plugin-proposal-private-property-in-object": "7.17.12",
     "@babel/preset-env": "7.18.0",
