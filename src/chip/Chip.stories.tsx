@@ -20,7 +20,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
     label: { control: 'text', defaultValue: 'ラベル' },
-    color: { control: 'select', options: ['default', 'negative'] },
+    color: { control: 'select', options: ['default', 'negative', 'white'] },
     onDelete: { action: 'onDelete' },
   },
 } as Meta
@@ -42,15 +42,15 @@ export const Base = (args: Args) => (
         <Chip
           label={args.label}
           color={args.color}
-          icon={<MdCheck size={20} tw="ml-0 mr-1" />}
+          leadingIcon={<MdCheck size={20} tw="ml-0 mr-1" />}
         />
       </div>
       <div>
         <Chip
           label={args.label}
           color={args.color}
-          icon={<MdCheck size={20} tw="ml-0 mr-1" />}
-          endIcon
+          leadingIcon={<MdCheck size={20} tw="ml-0 mr-1" />}
+          isEndIcon
         />
       </div>
     </div>

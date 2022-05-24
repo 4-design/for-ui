@@ -1,23 +1,28 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import MuiChip, { ChipProps as MuiChipProps } from '@mui/material/Chip'
 import tw, { css, TwStyle, theme } from 'twin.macro'
 
-type ColorType = 'default' | 'negative'
+type ChipColorType = 'default' | 'negative' | 'white'
 
 export type ChipProps = Exclude<MuiChipProps, 'color'> & {
   twin?: TwStyle[]
-  color?: ColorType
-  endIcon?: React.ReactNode
+  color?: ChipColorType
+  leadingIcon?: MuiChipProps['icon']
+  trailingIcon?: MuiChipProps['deleteIcon']
+  isEndIcon?: boolean
 }
 
-const styles = (color: ColorType) => {
+const styles = (color: ChipColorType) => {
   switch (color) {
     case 'negative':
       return css`
         &.MuiChip-root {
-          ${tw`bg-negative-light-default`};
+          ${tw`bg-negative-light-default hover:bg-negative-light-hover`};
           > .MuiChip-label {
             ${tw`text-negative-medium-default`};
+          }
+          > .MuiChip-icon {
+            color: ${theme`iconColor.negative.medium.default`};
           }
           > .MuiChip-deleteIcon {
             ${tw`text-negative-medium-default`};
@@ -27,13 +32,33 @@ const styles = (color: ColorType) => {
           }
         }
       `
+    case 'white':
+      return css`
+        &.MuiChip-root {
+          ${tw`border-solid border-shade-light-default bg-shade-white-default hover:bg-shade-light-hover`};
+          > .MuiChip-label {
+            ${tw`text-shade-dark-default`};
+          }
+          > .MuiChip-icon {
+            color: ${theme`iconColor.shade.dark.default`};
+          }
+          > .MuiChip-deleteIcon {
+            ${tw`text-shade-dark-default`}
+            &:hover {
+              color: ${theme`iconColor.primary.dark.hover`} !important;
+          }
+        }
+      `
     case 'default':
     default:
       return css`
         &.MuiChip-root {
-          ${tw`border-shade-medium-default bg-shade-light-default`},
+          ${tw`border-shade-medium-default bg-shade-light-default hover:bg-shade-light-hover`}
           > .MuiChip-label {
             ${tw`text-shade-dark-default`}
+          }
+          > .MuiChip-icon {
+            color: ${theme`iconColor.shade.dark.default`};
           }
           > .MuiChip-deleteIcon {
             ${tw`text-shade-dark-default`}
@@ -48,31 +73,31 @@ const styles = (color: ColorType) => {
 
 export const Chip: FC<ChipProps> = ({
   color = 'default',
-  icon,
-  endIcon,
+  leadingIcon,
+  isEndIcon,
   twin,
   ...props
 }) => {
   return (
     <MuiChip
-      icon={icon}
+      icon={leadingIcon}
       css={[
         css`
           &.MuiChip-root {
             ${tw`border px-3 py-1 h-7`}
             ${styles(color)}
-            ${endIcon && tw`flex-row-reverse`}
+            ${isEndIcon && tw`flex-row-reverse`}
             ${twin}
             > .MuiChip-label {
-              ${tw`font-sans text-s pl-0 pr-1`}
-              ${(icon || endIcon) && tw`pr-0!`}
+              ${tw`font-sans text-s px-0`}
+              ${(leadingIcon || isEndIcon) && tw`pr-0!`}
             }
             > .MuiChip-deleteIcon {
               ${tw`ml-0 -mr-1.5`}
             }
             .MuiChip-icon {
-              ${icon && tw`ml-0 mr-1`}
-              ${endIcon && tw`ml-1 mr-0`}
+              ${leadingIcon && tw`ml-0 mr-1`}
+              ${isEndIcon && tw`ml-1 mr-0`}
             }
           }
         `,
