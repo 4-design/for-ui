@@ -377,6 +377,7 @@ module.exports = {
       positive: colors.positive.icon,
       notice: colors.notice.icon,
       informative: colors.notice.icon,
+      negative: colors.negative.icon,
     },
     fontSize: {
       xs: fontSizes.s,
