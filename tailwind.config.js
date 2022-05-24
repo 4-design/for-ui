@@ -36,6 +36,7 @@ const colors = {
       },
       light: {
         default: 'var(--shade-background-light-default)',
+        hover: 'var(--shade-background-light-hover)',
       },
       white: {
         default: 'var(--shade-background-white-default)',
