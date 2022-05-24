@@ -42,7 +42,6 @@ export const Table = <T extends object>(props: TableProps<T>) => {
     )
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const useRowSelectHook = (hooks: Hooks<T>) => {
     hooks.allColumns.push((columns) => [
       {
@@ -51,9 +50,8 @@ export const Table = <T extends object>(props: TableProps<T>) => {
         minWidth: 20,
         width: 20,
         maxWidth: 20,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        Header: ({ getToggleAllRowsSelectedProps }: HeaderProps<any>) => (
-          <>
+        Header: ({ getToggleAllRowsSelectedProps }: HeaderProps<T>) => (
+          <Fragment>
             {!!onSelectRows && (
               <Checkbox
                 nopadding
@@ -62,10 +60,9 @@ export const Table = <T extends object>(props: TableProps<T>) => {
                 {...getToggleAllRowsSelectedProps()}
               />
             )}
-          </>
+          </Fragment>
         ),
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        Cell: ({ row, cell }: CellProps<any>) => (
+        Cell: ({ row, cell }: CellProps<T>) => (
           <TableCell
             {...cell.getCellProps({
               style: {

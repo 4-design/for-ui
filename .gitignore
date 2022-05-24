@@ -58,3 +58,12 @@ firebase-adminsdk.json
 .size-snapshot.json
 
 dist
+
+# yarn
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
