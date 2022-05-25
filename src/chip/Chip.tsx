@@ -12,28 +12,25 @@ export type ChipProps = Exclude<MuiChipProps, 'color'> & {
   isEndIcon?: boolean
 }
 
-const styles = (color: ChipColorType) => {
-  switch (color) {
-    case 'negative':
-      return css`
-        &.MuiChip-root {
-          ${tw`bg-negative-light-default hover:bg-negative-light-hover`};
-          > .MuiChip-label {
-            ${tw`text-negative-medium-default`};
-          }
-          > .MuiChip-icon {
-            color: ${theme`iconColor.negative.medium.default`};
-          }
-          > .MuiChip-deleteIcon {
-            ${tw`text-negative-medium-default`};
-            &:hover {
-              ${tw`opacity-70`}
-            }
-          }
+const styles = {
+  negative: css`
+    &.MuiChip-root {
+      ${tw`bg-negative-light-default hover:bg-negative-light-hover`};
+      > .MuiChip-label {
+        ${tw`text-negative-medium-default`};
+      }
+      > .MuiChip-icon {
+        color: ${theme`iconColor.negative.medium.default`};
+      }
+      > .MuiChip-deleteIcon {
+        ${tw`text-negative-medium-default`};
+        &:hover {
+          ${tw`opacity-70`}
         }
-      `
-    case 'white':
-      return css`
+      }
+    }
+  `,
+  white: css`
         &.MuiChip-root {
           ${tw`border-solid border-shade-light-default bg-shade-white-default hover:bg-shade-light-hover`};
           > .MuiChip-label {
@@ -48,27 +45,24 @@ const styles = (color: ChipColorType) => {
               color: ${theme`iconColor.primary.dark.hover`} !important;
           }
         }
-      `
-    case 'default':
-    default:
-      return css`
-        &.MuiChip-root {
-          ${tw`border-shade-medium-default bg-shade-light-default hover:bg-shade-light-hover`}
-          > .MuiChip-label {
-            ${tw`text-shade-dark-default`}
-          }
-          > .MuiChip-icon {
-            color: ${theme`iconColor.shade.dark.default`};
-          }
-          > .MuiChip-deleteIcon {
-            ${tw`text-shade-dark-default`}
-            &:hover {
-              color: ${theme`iconColor.primary.dark.hover`} !important;
-            }
-          }
+      `,
+  default: css`
+    &.MuiChip-root {
+      ${tw`border-shade-medium-default bg-shade-light-default hover:bg-shade-light-hover`}
+      > .MuiChip-label {
+        ${tw`text-shade-dark-default`}
+      }
+      > .MuiChip-icon {
+        color: ${theme`iconColor.shade.dark.default`};
+      }
+      > .MuiChip-deleteIcon {
+        ${tw`text-shade-dark-default`}
+        &:hover {
+          color: ${theme`iconColor.primary.dark.hover`} !important;
         }
-      `
-  }
+      }
+    }
+  `,
 }
 
 export const Chip: FC<ChipProps> = ({
@@ -85,7 +79,7 @@ export const Chip: FC<ChipProps> = ({
         css`
           &.MuiChip-root {
             ${tw`border px-3 py-1 h-7`}
-            ${styles(color)}
+            ${styles[`${color}`]}
             ${isEndIcon && tw`flex-row-reverse`}
             ${twin}
             > .MuiChip-label {
