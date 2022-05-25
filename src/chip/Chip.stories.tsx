@@ -36,7 +36,16 @@ export const Base = (args: Args) => (
         <Chip label={args.label} color={args.color} />
       </div>
       <div>
-        <Chip label={args.label} color={args.color} onDelete={args.onDelete} />
+        <Chip
+          label={args.label}
+          color={args.color}
+          onDelete={
+            args.onDelete ||
+            (() => {
+              console.log('hello')
+            })
+          }
+        />
       </div>
       <div>
         <Chip
@@ -49,8 +58,7 @@ export const Base = (args: Args) => (
         <Chip
           label={args.label}
           color={args.color}
-          leadingIcon={<MdCheck size={20} tw="ml-0 mr-1" />}
-          isEndIcon
+          trailingIcon={<MdCheck size={20} tw="ml-0 mr-1" />}
         />
       </div>
     </div>
