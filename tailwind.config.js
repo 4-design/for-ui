@@ -36,6 +36,7 @@ const colors = {
       },
       light: {
         default: 'var(--shade-background-light-default)',
+        hover: 'var(--shade-background-light-hover)',
       },
       white: {
         default: 'var(--shade-background-white-default)',
@@ -376,6 +377,7 @@ module.exports = {
       positive: colors.positive.icon,
       notice: colors.notice.icon,
       informative: colors.notice.icon,
+      negative: colors.negative.icon,
     },
     fontSize: {
       xs: fontSizes.s,

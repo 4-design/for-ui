@@ -33,6 +33,7 @@
 
   /* shade-background-light */
   --shade-background-light-default: #f4f5fa;
+  --shade-background-light-hover: #e9ecf6;
 
   /* shade-background-white */
   --shade-background-white-default: #fff;
