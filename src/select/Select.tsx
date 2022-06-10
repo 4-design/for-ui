@@ -14,7 +14,6 @@ const Paper = (props: PaperProps) => {
 
 export type SelectOption = {
   label: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   inputValue: string
 }
 
@@ -148,7 +147,9 @@ export const Select: React.VFC<AutocompleteProps> = ({
           }
 
           & .MuiOutlinedInput-root {
-            ${tw`(p-0 text-base text-shade-dark-default)!`}
+            ${
+              tw`(p-0 text-base text-shade-dark-default h-11)!` /* h-11 is temporary, must be fixed in TextField */
+            }
           }
 
           & .MuiOutlinedInput-input {
