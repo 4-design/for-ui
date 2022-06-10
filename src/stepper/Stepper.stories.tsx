@@ -5,7 +5,7 @@ import { Stepper } from './Stepper'
 import 'twin.macro'
 
 export default {
-  title: 'Atom/Stepper',
+  title: 'Navigation / Stepper',
   component: Stepper,
   argTypes: {
     activeStep: { control: { min: 1 } },

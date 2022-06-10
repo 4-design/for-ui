@@ -5,7 +5,7 @@ import { MdNotifications } from 'react-icons/md'
 import { IconButton } from './Icon'
 
 export default {
-  title: 'Example/icon/IconButton',
+  title: 'Example / IconButton',
   component: IconButton,
   argTypes: {
     backgroundColor: { control: 'color' },

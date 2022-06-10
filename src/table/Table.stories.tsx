@@ -11,7 +11,7 @@ import { TableCell } from './TableCell'
 import { TableScroller } from './TableScroller'
 
 export default {
-  title: 'Atom/Table',
+  title: 'Data Display / Table',
   component: Table,
 } as Meta
 

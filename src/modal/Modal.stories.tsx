@@ -9,7 +9,7 @@ import { ModalHeader } from './ModalHeader'
 import { Modal } from '.'
 
 export default {
-  title: 'Atom/Modal',
+  title: 'Feedback / Modal',
   component: Modal,
 } as Meta
 

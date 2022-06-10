@@ -5,7 +5,7 @@ import { MdMoreVert } from 'react-icons/md'
 import { Card, CardHeader, CardBody } from './Card'
 
 export default {
-  title: 'Example/Card',
+  title: 'Example / Card',
   component: Card,
   argTypes: {
     backgroundColor: { control: 'color' },

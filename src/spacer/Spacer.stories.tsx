@@ -11,7 +11,7 @@ import tw from 'twin.macro'
 import { Text } from '../typography'
 
 export default {
-  title: 'Example/Spacer',
+  title: 'Example / Spacer',
   component: null,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -33,7 +33,7 @@ export const Constraints = () => {
       {Object.entries(spacers).map(([k, v]) => (
         <Fragment key={k}>
           <Text variant="caption">{k}</Text>
-          <div css={[v, tw`bg-primary-dark-default`]} />
+          <div tw={[v, tw`bg-primary-dark-default`]} />
         </Fragment>
       ))}
     </Fragment>

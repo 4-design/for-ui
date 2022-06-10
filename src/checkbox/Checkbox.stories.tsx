@@ -7,7 +7,7 @@ import { Button } from '../button'
 import { Checkbox } from './Checkbox'
 
 export default {
-  title: 'Atom/Checkbox',
+  title: 'Form / Checkbox',
   component: Checkbox,
   decorators: [(Story) => <Story />],
 } as Meta

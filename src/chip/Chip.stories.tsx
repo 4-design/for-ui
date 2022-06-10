@@ -7,7 +7,7 @@ import { Text } from '../typography/Typography'
 import { Chip } from './Chip'
 
 export default {
-  title: 'Atom/Chip',
+  title: 'Form / Chip',
   component: Chip,
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

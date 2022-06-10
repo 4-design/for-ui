@@ -9,7 +9,7 @@ import { Button } from '../button/Button'
 import { TextField } from './TextField'
 
 export default {
-  title: 'Atom/TextField',
+  title: 'Form / TextField',
   component: TextField,
   argTypes: {
     backgroundColor: { control: 'color' },

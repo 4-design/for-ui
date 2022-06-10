@@ -6,7 +6,7 @@ import { MdHome, MdGroup } from 'react-icons/md'
 import { Sidebar, SidebarMenu, SidebarMenuItem } from './Sidebar'
 
 export default {
-  title: 'Example/Layout/Sidebar',
+  title: 'Example / Layout / Sidebar',
   component: Sidebar,
   argTypes: {
     backgroundColor: { control: 'color' },

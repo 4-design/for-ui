@@ -9,7 +9,7 @@ import { TabPanel } from './TabPanel'
 import { Tabs } from './Tabs'
 
 export default {
-  title: 'Atom/Tabs',
+  title: 'Navigation / Tab',
   component: Tabs,
 } as Meta
 
