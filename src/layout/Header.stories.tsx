@@ -10,7 +10,7 @@ import { Text } from '../typography/Typography'
 import { Header, HeaderLeft, HeaderRight } from './Header'
 
 export default {
-  title: 'Example/Layout/Header',
+  title: 'Example / Layout / Header',
   component: Header,
   argTypes: {
     backgroundColor: { control: 'color' },

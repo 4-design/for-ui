@@ -7,7 +7,7 @@ import { Switch } from './Switch'
 import { SwitchGroup } from './SwitchGroup'
 
 export default {
-  title: 'Atom/Switch',
+  title: 'Form / Switch',
   component: Switch,
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

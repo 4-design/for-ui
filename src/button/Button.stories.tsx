@@ -7,7 +7,7 @@ import { Text } from '../typography/Typography'
 import { Button } from './Button'
 
 export default {
-  title: 'Atom/Button',
+  title: 'General / Button',
   component: Button,
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

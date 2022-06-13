@@ -7,7 +7,7 @@ import { Button } from '../button'
 import { Select, SelectOption } from './Select'
 
 export default {
-  title: 'Atom/Select',
+  title: 'Form / Select',
   component: Select,
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

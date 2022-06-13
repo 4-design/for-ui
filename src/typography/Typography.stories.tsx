@@ -11,7 +11,7 @@ import tw from 'twin.macro'
 import { Text, Variant, variants, texts } from './Typography'
 
 export default {
-  title: 'Example/Typography',
+  title: 'Example / Typography',
   component: null,
   argTypes: {
     backgroundColor: { control: 'color' },

@@ -7,7 +7,7 @@ import { Radio } from './Radio'
 import { RadioGroup } from './RadioGroup'
 
 export default {
-  title: 'Atom/Radio',
+  title: 'Form / Radio',
   component: Radio,
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

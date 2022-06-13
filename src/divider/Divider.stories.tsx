@@ -5,7 +5,7 @@ import 'twin.macro'
 import { Divider } from './Divider'
 
 export default {
-  title: 'Atom/Divider',
+  title: 'Example / Divider',
   component: Divider,
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

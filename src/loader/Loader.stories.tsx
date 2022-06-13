@@ -5,7 +5,7 @@ import { Meta } from '@storybook/react/types-6-0'
 import { Loader } from './Loader'
 
 export default {
-  title: 'Atom/Loader',
+  title: 'Example / Loader',
   component: Loader,
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

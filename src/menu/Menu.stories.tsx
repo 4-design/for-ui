@@ -8,7 +8,7 @@ import { Menu } from './Menu'
 import { MenuItem } from './MenuItem'
 
 export default {
-  title: 'Atom/Menu',
+  title: 'Navigation / Menu',
   component: Menu,
   argTypes: {
     backgroundColor: { control: 'color' },

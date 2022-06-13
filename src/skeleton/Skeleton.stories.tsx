@@ -8,7 +8,7 @@ import { Text, Typography } from '../typography'
 import { Skeleton, SkeletonX } from './Skeleton'
 
 export default {
-  title: 'Atom/Skeleton',
+  title: 'Example / Skeleton',
   component: Skeleton,
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

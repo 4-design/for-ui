@@ -5,7 +5,7 @@ import 'twin.macro'
 import { Tag } from './Tag'
 
 export default {
-  title: 'Atom/Tag',
+  title: 'Example / Tag',
   component: Tag,
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
