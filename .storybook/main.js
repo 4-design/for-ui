@@ -1,5 +1,6 @@
 const path = require('path')
 const toPath = (_path) => path.join(process.cwd(), _path)
+const cssVariablesTheme = require('@etchteam/storybook-addon-css-variables-theme')
 
 module.exports = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -15,6 +16,7 @@ module.exports = {
         },
       },
     },
+    '@etchteam/storybook-addon-css-variables-theme',
   ],
   babel: async (options) => {
     options.plugins.unshift('babel-plugin-twin')

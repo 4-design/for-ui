@@ -1,8 +1,9 @@
 import React from 'react'
 import 'twin.macro'
 import { GlobalStyles } from 'twin.macro'
+import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
 
-import '../src/styles/tailwind.v2.css'
+import securifyShiled from '!!style-loader?injectType=lazyStyleTag!css-loader!../src/styles/tailwind.v2.css'
 
 export const parameters = {
   backgrounds: {
@@ -20,6 +21,12 @@ export const parameters = {
       order: ['General', 'Form', 'Data Display', 'Feedback', 'Navigation']
     },
   },
+  cssVariables: {
+    files: {
+      'Securify Shield': securifyShiled,
+    },
+    defaultTheme: 'Securify Shield',
+  }
 }
 
 export const decorators = [
@@ -37,4 +44,5 @@ export const decorators = [
       </div>
     </>
   ),
+  cssVariablesTheme,
 ]
