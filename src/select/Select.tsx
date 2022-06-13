@@ -1,9 +1,9 @@
-import React from 'react'
+import { FC } from 'react'
 import { UseAutocompleteProps } from '@mui/material'
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete'
 import MuiPaper, { PaperProps } from '@mui/material/Paper'
-import { MdCheck } from 'react-icons/md'
-import tw, { css, TwStyle } from 'twin.macro'
+import { MdCheck, MdExpandMore } from 'react-icons/md'
+import tw, { css, TwStyle, theme } from 'twin.macro'
 import { MenuItem } from '../menu'
 import { Tag } from '../tag'
 import { TextField } from '../textField'
@@ -14,7 +14,6 @@ const Paper = (props: PaperProps) => {
 
 export type SelectOption = {
   label: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   inputValue: string
 }
 
@@ -37,7 +36,7 @@ export type AutocompleteProps = UseAutocompleteProps<
   disabled?: boolean
 }
 
-export const Select: React.VFC<AutocompleteProps> = ({
+export const Select: FC<AutocompleteProps> = ({
   name,
   options = [],
   label,
@@ -68,6 +67,7 @@ export const Select: React.VFC<AutocompleteProps> = ({
       PaperComponent={Paper}
       isOptionEqualToValue={(option, v) => option.inputValue === v.inputValue}
       noOptionsText="データが見つかりません"
+      popupIcon={<MdExpandMore size={24} />}
       filterOptions={(options, params) => {
         const filtered = filter(options, params)
         const { inputValue } = params
@@ -148,7 +148,9 @@ export const Select: React.VFC<AutocompleteProps> = ({
           }
 
           & .MuiOutlinedInput-root {
-            ${tw`(p-0 text-base text-shade-dark-default)!`}
+            ${
+              tw`(p-0 text-base text-shade-dark-default h-11)!` /* h-11 is temporary, must be fixed in TextField */
+            }
           }
 
           & .MuiOutlinedInput-input {
@@ -161,6 +163,14 @@ export const Select: React.VFC<AutocompleteProps> = ({
             > .MuiChip-deleteIcon {
               ${tw`text-shade-dark-default`}
             }
+          }
+
+          & .MuiAutocomplete-endAdornment svg {
+            fill: ${theme`iconColor.shade.medium.default`};
+          }
+
+          & .Mui-focused .MuiAutocomplete-endAdornment svg {
+            fill: ${theme`iconColor.shade.medium.active`};
           }
         `,
         required &&
