@@ -54,6 +54,7 @@
     "@emotion/babel-preset-css-prop": "11.2.0",
     "@emotion/react": "11.9.0",
     "@emotion/styled": "11.8.1",
+    "@etchteam/storybook-addon-css-variables-theme": "^1.2.1",
     "@hookform/resolvers": "2.9.0",
     "@mui/lab": "5.0.0-alpha.85",
     "@mui/material": "5.8.3",

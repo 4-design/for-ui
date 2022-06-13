@@ -19,6 +19,7 @@ __metadata:
     "@emotion/babel-preset-css-prop": 11.2.0
     "@emotion/react": 11.9.0
     "@emotion/styled": 11.8.1
+    "@etchteam/storybook-addon-css-variables-theme": ^1.2.1
     "@hookform/resolvers": 2.9.0
     "@mui/lab": 5.0.0-alpha.85
     "@mui/material": 5.8.3
@@ -2119,6 +2120,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@etchteam/storybook-addon-css-variables-theme@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "@etchteam/storybook-addon-css-variables-theme@npm:1.2.1"
+  dependencies:
+    "@storybook/addons": ^6.2.9
+    "@storybook/api": ^6.2.9
+    "@storybook/client-logger": ^6.2.9
+    "@storybook/components": ^6.2.9
+    "@storybook/core-events": ^6.2.9
+    "@storybook/theming": ^6.2.9
+    core-js: ^3.0.1
+    lodash: ^4.17.21
+    memoizerific: ^1.11.3
+    util-deprecate: ^1.0.2
+  checksum: ca20df3a28efecbc9481a7b320c4d9ad3ad515236824108c5c16247646c46b8d3d26d54985778fc64b5f4623581124999d16837aac72b289757a9ea6b718c273
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.0.1, @gar/promisify@npm:^1.1.3":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -3179,7 +3198,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addons@npm:6.5.8":
+"@storybook/addons@npm:6.5.8, @storybook/addons@npm:^6.2.9":
   version: 6.5.8
   resolution: "@storybook/addons@npm:6.5.8"
   dependencies:
@@ -3201,7 +3220,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/api@npm:6.5.8":
+"@storybook/api@npm:6.5.8, @storybook/api@npm:^6.2.9":
   version: 6.5.8
   resolution: "@storybook/api@npm:6.5.8"
   dependencies:
@@ -3360,7 +3379,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/client-logger@npm:6.5.8":
+"@storybook/client-logger@npm:6.5.8, @storybook/client-logger@npm:^6.2.9":
   version: 6.5.8
   resolution: "@storybook/client-logger@npm:6.5.8"
   dependencies:
@@ -3370,7 +3389,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/components@npm:6.5.8":
+"@storybook/components@npm:6.5.8, @storybook/components@npm:^6.2.9":
   version: 6.5.8
   resolution: "@storybook/components@npm:6.5.8"
   dependencies:
@@ -3489,7 +3508,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/core-events@npm:6.5.8":
+"@storybook/core-events@npm:6.5.8, @storybook/core-events@npm:^6.2.9":
   version: 6.5.8
   resolution: "@storybook/core-events@npm:6.5.8"
   dependencies:
@@ -3948,7 +3967,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/theming@npm:6.5.8":
+"@storybook/theming@npm:6.5.8, @storybook/theming@npm:^6.2.9":
   version: 6.5.8
   resolution: "@storybook/theming@npm:6.5.8"
   dependencies:
@@ -6961,6 +6980,13 @@ __metadata:
   version: 3.22.6
   resolution: "core-js-pure@npm:3.22.6"
   checksum: 90737229b00fb26b0896bf5d22351702e595db7c60258f76d58cbd6a0dcef37a45017c97dc91632d168e2242e6dfff3f442ebcea1090e6154462fac5f119bc2d
+  languageName: node
+  linkType: hard
+
+"core-js@npm:^3.0.1":
+  version: 3.22.8
+  resolution: "core-js@npm:3.22.8"
+  checksum: c79bcfea37920a5da880ad1fc8336355e833c83998bb28cd45cc59eef4d9824dd8d59ccd24d6b18ff88f284d53d9eef021ddbd2b5ab1c6305b01e98c1402e510
   languageName: node
   linkType: hard
 
