@@ -193,6 +193,7 @@ const colors = {
     icon: {
       medium: {
         default: 'var(--negative-icon-medium-default)',
+        hover: 'var(--negative-icon-medium-hover)',
       },
     },
   },
