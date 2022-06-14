@@ -399,6 +399,10 @@ module.exports = {
       borderRadius: {
         modal: '2rem',
       },
+      borderWidth: {
+        3: '3px',
+        7: '7px',
+      },
       spacing: {
         100: '25rem',
         104: '26rem',
