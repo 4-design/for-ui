@@ -41,7 +41,7 @@ const _Radio: FC<RadioProps> = memo(
             ${
               /* Hover style for Indicator. Did not work well if written in Indicator component. */ ''
             }
-          &:hover:not(.Mui-checked) span {
+            &:hover:not(.Mui-checked) span {
               ${tw`border-secondary-dark-default border-3`};
             }
             &:hover {
