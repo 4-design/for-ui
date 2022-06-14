@@ -1,7 +1,7 @@
-import React, { FC, memo } from 'react'
+import { FC, Fragment, memo } from 'react'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import MuiRadio, { RadioProps as MuiRadioProps } from '@mui/material/Radio'
-import tw, { css, theme, TwStyle } from 'twin.macro'
+import tw, { css, TwStyle } from 'twin.macro'
 
 export interface RadioProps extends MuiRadioProps {
   label?: string
@@ -10,34 +10,58 @@ export interface RadioProps extends MuiRadioProps {
   twin?: TwStyle | TwStyle[]
 }
 
-const _Radio: FC<RadioProps> = memo(({ nopadding, ...rest }) => (
-  <MuiRadio
-    css={[
-      tw`(disabled:text-primary-dark-disabled)!`,
-      css`
-        &.MuiRadio-root {
-          color: ${theme`textColor.shade.medium.default`} !important;
-
-          ${nopadding && tw`p-0!`}
-
-          &.Mui-checked {
-            color: ${theme`backgroundColor.secondary.dark.default`} !important;
-          }
-        }
-      `,
-    ]}
-    {...rest}
-  />
-))
-
-export const Radio: React.VFC<RadioProps> = ({
-  label,
-  value,
+const Indicator: FC<{ checked: boolean; disabled: boolean }> = ({
+  checked,
   disabled,
-  ...rest
-}) => {
+}) => (
+  <span
+    css={[
+      tw`w-5 h-5 bg-shade-white-default rounded-full transition-[border-width] duration-100`,
+      checked ? tw`border-7` : tw`border-2`,
+      disabled
+        ? tw`border-shade-medium-disabled`
+        : checked
+        ? tw`border-secondary-dark-default`
+        : tw`border-shade-medium-default`,
+    ]}
+  />
+)
+
+const _Radio: FC<RadioProps> = memo(
+  ({ nopadding, disabled, twin, ...rest }) => (
+    <MuiRadio
+      disableRipple
+      icon={<Indicator checked={false} disabled={!!disabled} />}
+      checkedIcon={<Indicator checked={true} disabled={!!disabled} />}
+      disabled={disabled}
+      css={[
+        css`
+          &.MuiRadio-root {
+            ${nopadding ? tw`p-0!` : tw`p-1`}
+            ${
+              /* Hover style for Indicator. Did not work well if written in Indicator component. */ ''
+            }
+          &:hover:not(.Mui-checked) span {
+              ${tw`border-secondary-dark-default border-3`};
+            }
+            &:hover {
+              ${tw`bg-transparent`};
+            }
+            &.Mui-focusVisible span {
+              ${tw`outline-focus`};
+            }
+          }
+        `,
+        twin,
+      ]}
+      {...rest}
+    />
+  )
+)
+
+export const Radio: FC<RadioProps> = ({ label, value, disabled, ...rest }) => {
   return (
-    <>
+    <Fragment>
       {label ? (
         <FormControlLabel
           disabled={disabled}
@@ -46,19 +70,19 @@ export const Radio: React.VFC<RadioProps> = ({
           control={<_Radio {...rest} />}
           css={[
             css`
+              ${tw`flex gap-2 m-0`};
               & .MuiFormControlLabel-label {
-                ${tw`(font-sans text-s text-shade-dark-default)!`}
-
+                ${tw`(font-sans text-s text-shade-dark-default)!`};
                 &.Mui-disabled {
-                  ${tw`text-shade-dark-disabled!`}
+                  ${tw`text-shade-dark-disabled!`};
                 }
               }
             `,
           ]}
         />
       ) : (
-        <_Radio value={value} {...rest} />
+        <_Radio value={value} disabled={disabled} {...rest} />
       )}
-    </>
+    </Fragment>
   )
 }
