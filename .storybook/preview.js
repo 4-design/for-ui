@@ -3,7 +3,7 @@ import 'twin.macro'
 import { GlobalStyles } from 'twin.macro'
 import cssVariablesTheme from '@etchteam/storybook-addon-css-variables-theme'
 
-import securifyShiled from '!!style-loader?injectType=lazyStyleTag!css-loader!../src/styles/tailwind.v2.css'
+import ss from '!!style-loader?injectType=lazyStyleTag!css-loader!../src/styles/tailwind.v2.css'
 
 export const parameters = {
   backgrounds: {
@@ -23,9 +23,9 @@ export const parameters = {
   },
   cssVariables: {
     files: {
-      'Securify Shield': securifyShiled,
+      'SS': ss,
     },
-    defaultTheme: 'Securify Shield',
+    defaultTheme: 'SS',
   }
 }
 
