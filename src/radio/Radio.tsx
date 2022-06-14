@@ -1,4 +1,4 @@
-import { FC, Fragment, memo } from 'react'
+import { FC, Fragment, memo, forwardRef } from 'react'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import MuiRadio, { RadioProps as MuiRadioProps } from '@mui/material/Radio'
 import tw, { css, TwStyle } from 'twin.macro'
@@ -59,30 +59,33 @@ const _Radio: FC<RadioProps> = memo(
   )
 )
 
-export const Radio: FC<RadioProps> = ({ label, value, disabled, ...rest }) => {
-  return (
-    <Fragment>
-      {label ? (
-        <FormControlLabel
-          disabled={disabled}
-          value={value}
-          label={label}
-          control={<_Radio {...rest} />}
-          css={[
-            css`
-              ${tw`flex gap-2 m-0`};
-              & .MuiFormControlLabel-label {
-                ${tw`(font-sans text-s text-shade-dark-default)!`};
-                &.Mui-disabled {
-                  ${tw`text-shade-dark-disabled!`};
+export const Radio: FC<RadioProps> = forwardRef(
+  ({ label, value, disabled, ...rest }, ref) => {
+    return (
+      <Fragment>
+        {label ? (
+          <FormControlLabel
+            disabled={disabled}
+            value={value}
+            label={label}
+            control={<_Radio {...rest} />}
+            ref={ref}
+            css={[
+              css`
+                ${tw`flex gap-2 m-0`};
+                & .MuiFormControlLabel-label {
+                  ${tw`(font-sans text-s text-shade-dark-default)!`};
+                  &.Mui-disabled {
+                    ${tw`text-shade-dark-disabled!`};
+                  }
                 }
-              }
-            `,
-          ]}
-        />
-      ) : (
-        <_Radio value={value} disabled={disabled} {...rest} />
-      )}
-    </Fragment>
-  )
-}
+              `,
+            ]}
+          />
+        ) : (
+          <_Radio value={value} disabled={disabled} ref={ref} {...rest} />
+        )}
+      </Fragment>
+    )
+  }
+)
