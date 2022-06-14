@@ -493,6 +493,9 @@ module.exports = {
       opacity: {
         disabled: '.4',
       },
+      outline: {
+        focus: ['1px solid var(--primary-border-dark-default)', '1px'],
+      },
       zIndex: {
         '-1': '-1',
         header: '1100',
