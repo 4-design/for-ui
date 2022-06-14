@@ -51,7 +51,15 @@ export const Base = (): JSX.Element => {
         <Radio
           name="radio-buttons"
           value="c"
+          disabled
           checked={selected === 'c'}
+          onChange={handleRadioChange}
+        />
+        <Radio
+          name="radio-buttons"
+          value="d"
+          disabled
+          checked
           onChange={handleRadioChange}
         />
       </div>
