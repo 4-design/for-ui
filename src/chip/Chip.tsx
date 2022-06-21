@@ -6,7 +6,7 @@ type ChipColorType = 'default' | 'negative' | 'white'
 
 export type ChipProps = Omit<
   MuiChipProps,
-  'color' | 'icon' | 'deleteIcon' | 'size' 
+  'color' | 'icon' | 'deleteIcon' | 'size'
 > & {
   twin?: TwStyle[]
   color?: ChipColorType
