@@ -4,9 +4,9 @@ import tw, { css, TwStyle, theme } from 'twin.macro'
 
 type ChipColorType = 'default' | 'negative' | 'white'
 
-export type ChipProps = Exclude<
+export type ChipProps = Omit<
   MuiChipProps,
-  'color' | 'onDelete' | 'icon' | 'deleteIcon' | 'size'
+  'color' | 'icon' | 'deleteIcon' | 'size'
 > & {
   twin?: TwStyle[]
   color?: ChipColorType
