@@ -26,7 +26,6 @@ export const Tabs: React.VFC<TabsProps> = ({
   children,
   ...rest
 }) => {
-  console.info('value', value)
   return (
     <MuiTabs
       value={value}
