@@ -399,6 +399,10 @@ module.exports = {
       borderRadius: {
         modal: '2rem',
       },
+      borderWidth: {
+        3: '3px',
+        7: '7px',
+      },
       spacing: {
         100: '25rem',
         104: '26rem',
@@ -488,6 +492,9 @@ module.exports = {
       },
       opacity: {
         disabled: '.4',
+      },
+      outline: {
+        focus: ['1px solid var(--primary-border-dark-default)', '1px'],
       },
       zIndex: {
         '-1': '-1',

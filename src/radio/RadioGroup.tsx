@@ -47,7 +47,7 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
         row={row}
         name={name}
         defaultValue={defaultValue}
-        css={[twin]}
+        css={[tw`flex gap-x-6 gap-y-2`, twin]}
         onChange={onChange}
       >
         {children}
