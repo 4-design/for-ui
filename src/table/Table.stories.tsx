@@ -15,7 +15,7 @@ export default {
   component: Table,
 } as Meta
 
-const basicColumns: Array<Column<PersonData>> = [
+const basicColumns = [
   {
     Header: 'ID',
     Cell: ({ cell: { row, getCellProps } }: CellProps<PersonData>) => (
@@ -25,8 +25,9 @@ const basicColumns: Array<Column<PersonData>> = [
     ),
   },
   {
-    Header: '名前',
+    Header: <span role="button">名前</span>,
     accessor: 'firstName',
+    sortType: 'string',
     Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
       <TableCell {...getCellProps()}>{value}</TableCell>
     ),
@@ -115,5 +116,9 @@ const withImageColumns: Array<Column<PersonData>> = [
 ]
 
 export const withImage: Story = () => (
-  <Table<PersonData> columns={withImageColumns} data={makeData(1000)} />
+  <Table<PersonData>
+    columns={withImageColumns}
+    data={makeData(1000)}
+    initialState={{ sortBy: [{ id: 'firstName', desc: false }] }}
+  />
 )

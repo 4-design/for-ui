@@ -1,16 +1,26 @@
 import React, { PropsWithChildren, useState } from 'react'
-import { useTable, usePagination, TableOptions, Row } from 'react-table'
+import { MdArrowDownward, MdArrowUpward } from 'react-icons/md'
+import {
+  useTable,
+  usePagination,
+  TableOptions,
+  Row,
+  useSortBy,
+} from 'react-table'
 import 'twin.macro'
 
 import { TablePagination } from './TablePagination'
 
-const hooks = [usePagination]
+const hooks = [useSortBy, usePagination]
 
 export function Table<T extends object>(
   props: PropsWithChildren<TableOptions<T>>
 ) {
   const { columns, data } = props
-  const [initialState, _] = useState({ pageIndex: 0 })
+  const [initialState, _] = useState({
+    sortBy: props.initialState?.sortBy || [],
+    pageIndex: 0,
+  })
   const instance = useTable<T>(
     {
       ...props,
@@ -50,11 +60,30 @@ export function Table<T extends object>(
             >
               {headerGroup.headers.map((column, j) => (
                 <th
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
                   key={j}
                   tw="p-3 font-bold text-base text-high text-left table-cell whitespace-nowrap"
                   scope="col"
                 >
-                  {column.render('Header')}
+                  <div tw="flex items-center ">
+                    {column.render('Header')}
+                    {column.canSort &&
+                      (() => {
+                        return (
+                          <div>
+                            {column.isSorted ? (
+                              column.isSortedDesc ? (
+                                <MdArrowDownward />
+                              ) : (
+                                <MdArrowUpward />
+                              )
+                            ) : (
+                              ''
+                            )}
+                          </div>
+                        )
+                      })()}
+                  </div>
                 </th>
               ))}
             </tr>
