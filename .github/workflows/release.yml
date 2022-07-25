@@ -3,6 +3,8 @@ on:
   push:
     tags:
       - v*.*.*
+  release:
+    types: [published]
 
 env:
   HUSKY: '0'
