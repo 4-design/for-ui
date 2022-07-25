@@ -31,7 +31,7 @@ jobs:
       - name: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRETS }}
-        run: yarn publish --access public
+        run: npm publish --access=public
 
       - name: version
         id: version
