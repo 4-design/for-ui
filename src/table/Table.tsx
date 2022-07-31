@@ -205,23 +205,25 @@ export const Table = <T extends object>(props: TableProps<T>) => {
                   })}
                   key={j}
                 >
-                  {column.render('Header')}
-                  {column.canSort &&
-                    (() => {
-                      return (
-                        <div>
-                          {column.isSorted ? (
-                            column.isSortedDesc ? (
-                              <MdArrowDownward />
+                  <div tw="flex items-center ">
+                    {column.render('Header')}
+                    {column.canSort &&
+                      (() => {
+                        return (
+                          <div>
+                            {column.isSorted ? (
+                              column.isSortedDesc ? (
+                                <MdArrowDownward />
+                              ) : (
+                                <MdArrowUpward />
+                              )
                             ) : (
-                              <MdArrowUpward />
-                            )
-                          ) : (
-                            ''
-                          )}
-                        </div>
-                      )
-                    })()}
+                              ''
+                            )}
+                          </div>
+                        )
+                      })()}
+                  </div>
                 </th>
               ))}
             </tr>
