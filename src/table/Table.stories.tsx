@@ -114,9 +114,8 @@ const withImageColumns: Array<Column<PersonData>> = [
   },
 ]
 
-
 export const WithImage: Story = () => (
-    <Table<PersonData> columns={withImageColumns} data={StaticPersonData} />
+  <Table<PersonData> columns={withImageColumns} data={StaticPersonData} />
 )
 
 const withSelectColumns: Array<Column<PersonData>> = [
@@ -125,71 +124,82 @@ const withSelectColumns: Array<Column<PersonData>> = [
     Header: 'id',
     accessor: 'id',
     Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-        <TableCell {...getCellProps()}>{value}</TableCell>
+      <TableCell {...getCellProps()}>{value}</TableCell>
     ),
   },
   {
     Header: '苗字',
     accessor: 'lastName',
     Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-        <TableCell {...getCellProps()}>{value}</TableCell>
+      <TableCell {...getCellProps()}>{value}</TableCell>
     ),
   },
   {
     Header: '名前',
     accessor: 'firstName',
     Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-        <TableCell {...getCellProps()}>{value}</TableCell>
+      <TableCell {...getCellProps()}>{value}</TableCell>
     ),
   },
   {
     Header: '年齢',
     accessor: 'age',
     Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-        <TableCell {...getCellProps()}>{value}</TableCell>
+      <TableCell {...getCellProps()}>{value}</TableCell>
     ),
   },
   {
     Header: '訪問',
     accessor: 'visits',
     Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-        <TableCell {...getCellProps()}>{value}</TableCell>
+      <TableCell {...getCellProps()}>{value}</TableCell>
     ),
   },
 ]
 
 export const WithSelect: Story = () => (
-    <Table<PersonData>
-        columns={withSelectColumns}
-        data={StaticPersonData}
-        getRowId={(row) => row.id.toString()}
-        onSelectRow={(rows) => console.info('rows', rows)}
-    />
+  <Table<PersonData>
+    columns={withSelectColumns}
+    data={StaticPersonData}
+    getRowId={(row) => row.id.toString()}
+    onSelectRow={(rows) => console.info('rows', rows)}
+  />
 )
 
 export const WithSelectMultiple: Story = () => (
-    <Table<PersonData>
-        columns={withSelectColumns}
-        data={StaticPersonData}
-        getRowId={(row) => row.id.toString()}
-        onSelectRows={(rows) => console.info('rows', rows)}
-    />
+  <Table<PersonData>
+    columns={withSelectColumns}
+    data={StaticPersonData}
+    getRowId={(row) => row.id.toString()}
+    onSelectRows={(rows) => console.info('rows', rows)}
+  />
 )
 
 export const WithDisablePagination: Story = () => (
-    <Table<PersonData>
-        columns={withSelectColumns}
-        data={StaticPersonData}
-        disablePagination
-    />
+  <Table<PersonData>
+    columns={withSelectColumns}
+    data={StaticPersonData}
+    disablePagination
+  />
 )
 
 export const WithTableScroller: Story = () => (
-    <TableScroller height="400px">
-      <Table<PersonData>
-          columns={withSelectColumns}
-          data={StaticPersonData}
-          disablePagination
-      />
-    </TableScroller>
+  <TableScroller height="400px">
+    <Table<PersonData>
+      columns={withSelectColumns}
+      data={StaticPersonData}
+      disablePagination
+    />
+  </TableScroller>
+)
+
+export const WithTableSort: Story = () => (
+  <TableScroller height="400px">
+    <Table<PersonData>
+      columns={withSelectColumns}
+      data={StaticPersonData}
+      disablePagination
+      sortBy={[{ id: 'firstName', desc: false }]}
+    />
+  </TableScroller>
 )
