@@ -193,7 +193,6 @@ export const Table = <T extends object>(props: TableProps<T>) => {
             >
               {headerGroup.headers.map((column, j) => (
                 <th
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
                   tw="p-3 text-base text-shade-dark-default text-left whitespace-nowrap bg-shade-white-default z-30"
                   scope="col"
                   {...column.getHeaderProps({
@@ -202,6 +201,9 @@ export const Table = <T extends object>(props: TableProps<T>) => {
                       width: column.width,
                       maxWidth: column.maxWidth,
                     },
+                    ...(column.getSortByToggleProps
+                      ? column.getSortByToggleProps()
+                      : {}),
                   })}
                   key={j}
                 >
