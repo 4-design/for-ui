@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
-import MuiBadge from '@mui/material/Badge'
 import { BadgeProps } from '@mui/material/Badge'
+import MuiBadge from '@mui/material/Badge'
 import tw, { css, TwStyle } from 'twin.macro'
 
 interface Props extends BadgeProps {
@@ -20,8 +20,10 @@ export const Badge: React.VFC<Props> = ({
       color="primary"
       css={[
         css`
+          ${tw`text-shade-dark-default`}
+
           & .MuiBadge-badge {
-            ${tw`bg-primary-main`}
+            ${tw`text-shade-dark-default`}
           }
         `,
         twin,

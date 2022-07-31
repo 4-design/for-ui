@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useState } from '@storybook/addons'
 import { Meta } from '@storybook/react/types-6-0'
 
 import { Button } from '../button'
@@ -8,12 +9,12 @@ import { ModalHeader } from './ModalHeader'
 import { Modal } from '.'
 
 export default {
-  title: 'Atom/Modal',
+  title: 'Feedback / Modal',
   component: Modal,
 } as Meta
 
 export const ModalDefault = (): JSX.Element => {
-  const [showModal, setShowModal] = useState<boolean>(false)
+  const [showModal, setShowModal] = useState<boolean>(true)
 
   const onSubmit = () => {
     console.log('submit')
@@ -35,7 +36,7 @@ export const ModalDefault = (): JSX.Element => {
         <Modal open={showModal} onClose={() => setShowModal(false)}>
           <ModalHeader>本当に削除してよろしいですか？</ModalHeader>
           <ModalContent>
-            <p tw="text-sm leading-5 text-high">
+            <p tw="text-sm leading-5 text-shade-dark-default">
               アカウントを無効にしてもよろしいですか？すべてのデータは完全に削除されます。このアクションは元に戻せません。
             </p>
           </ModalContent>

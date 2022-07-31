@@ -1,3 +1,370 @@
+# [2.0.0-alpha.31](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.30...v2.0.0-alpha.31) (2022-03-01)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#558](https://github.com/3-shake/3design-ui/issues/558)) ([d8571d2](https://github.com/3-shake/3design-ui/commit/d8571d2d582d33b605a33238e7019aaab368dc1b))
+* **deps:** update all non-major dependencies ([#563](https://github.com/3-shake/3design-ui/issues/563)) ([7545855](https://github.com/3-shake/3design-ui/commit/7545855eefc9680571dd271cb6f6eb8ecd3087ec))
+
+
+### Features
+
+* **Stepper:** add stepper component ([#556](https://github.com/3-shake/3design-ui/issues/556)) ([f807b75](https://github.com/3-shake/3design-ui/commit/f807b75f53d0d2be790533e9dfa0b836639d4b4c))
+
+
+
+# [2.0.0-alpha.30](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.29...v2.0.0-alpha.30) (2022-02-16)
+
+
+### Bug Fixes
+
+* **TextField:** デザイン調整  ([#551](https://github.com/3-shake/3design-ui/issues/551)) ([5f4c8df](https://github.com/3-shake/3design-ui/commit/5f4c8dfc8ada0d656daf8e4230d54f9f89f65a56))
+
+
+
+# [2.0.0-alpha.29](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.28...v2.0.0-alpha.29) (2022-02-11)
+
+
+### Bug Fixes
+
+* **Table/TableScroller:** TableScroller export ([#547](https://github.com/3-shake/3design-ui/issues/547)) ([b085e8a](https://github.com/3-shake/3design-ui/commit/b085e8af36152a76943996f94f321539f96a5e0c))
+
+
+
+# [2.0.0-alpha.28](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.27...v2.0.0-alpha.28) (2022-02-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency react-dropzone to v12 ([#524](https://github.com/3-shake/3design-ui/issues/524)) ([2b21b78](https://github.com/3-shake/3design-ui/commit/2b21b7886cad722eacc9f66c360414adbdc017be))
+
+
+### Features
+
+* **Table:** disablePagination / TableScroller 実装 ([#545](https://github.com/3-shake/3design-ui/issues/545)) ([e3d06c6](https://github.com/3-shake/3design-ui/commit/e3d06c68f8fb9a72f700088482c759d2767d3b48))
+
+
+
+# [2.0.0-alpha.27](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.26...v2.0.0-alpha.27) (2022-02-11)
+
+
+### Bug Fixes
+
+* **Modal/ModalContent:**  remove using p tag ([#543](https://github.com/3-shake/3design-ui/issues/543)) ([68251ed](https://github.com/3-shake/3design-ui/commit/68251ed2ec0ce1215af59e62934686e3da3e4735))
+
+
+
+# [2.0.0-alpha.26](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.25...v2.0.0-alpha.26) (2022-02-10)
+
+
+### Bug Fixes
+
+* **Table:** rowでselect可能にする ([#540](https://github.com/3-shake/3design-ui/issues/540)) ([c8d192e](https://github.com/3-shake/3design-ui/commit/c8d192ef9c16846663f20fb3d013200bc71dfa1c))
+
+
+
+# [2.0.0-alpha.25](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.24...v2.0.0-alpha.25) (2022-02-10)
+
+
+### Bug Fixes
+
+* **Radio:** nopadding 追加 ([#538](https://github.com/3-shake/3design-ui/issues/538)) ([dc7e69c](https://github.com/3-shake/3design-ui/commit/dc7e69c015f2db834b9eea9ce502e202800886c5))
+
+
+
+# [2.0.0-alpha.24](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.23...v2.0.0-alpha.24) (2022-02-10)
+
+
+### Bug Fixes
+
+* **Table:** style 修正 ([#536](https://github.com/3-shake/3design-ui/issues/536)) ([6b6d420](https://github.com/3-shake/3design-ui/commit/6b6d420b4e80a8247ccde63ed77b24816e74ad9c))
+
+
+
+# [2.0.0-alpha.23](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.22...v2.0.0-alpha.23) (2022-02-10)
+
+
+### Features
+
+* **Table:** checkbox / radio で選択可能にする ([#534](https://github.com/3-shake/3design-ui/issues/534)) ([f732671](https://github.com/3-shake/3design-ui/commit/f732671d1d0d9c809c9e6521026cc78f21b3b223))
+
+
+
+# [2.0.0-alpha.22](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.21...v2.0.0-alpha.22) (2022-02-10)
+
+
+### Bug Fixes
+
+* **SkeletonX:** empty 状態の場合、デフォルト値を挿入できるように変更 ([#532](https://github.com/3-shake/3design-ui/issues/532)) ([216735d](https://github.com/3-shake/3design-ui/commit/216735d5909e77a2b624f5a39e44478eaa508bde))
+
+
+
+# [2.0.0-alpha.21](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.20...v2.0.0-alpha.21) (2022-02-09)
+
+
+### Features
+
+* **Skeletone:** Experimental SkeletoneX を実装 ([#528](https://github.com/3-shake/3design-ui/issues/528)) ([9ae0d4b](https://github.com/3-shake/3design-ui/commit/9ae0d4b5031e19dda5e982e5e4033289b98b2745))
+
+
+
+# [2.0.0-alpha.20](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.19...v2.0.0-alpha.20) (2022-01-18)
+
+
+### Bug Fixes
+
+* upgrade mui ([8276403](https://github.com/3-shake/3design-ui/commit/8276403a73e879c8be2507e4746ed7bfdb7ffa12))
+
+
+
+# [2.0.0-alpha.19](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.18...v2.0.0-alpha.19) (2022-01-12)
+
+
+### Bug Fixes
+
+* upgrade mui ([cb98c64](https://github.com/3-shake/3design-ui/commit/cb98c64539f07b0afad4cd5eaa2c3a4cc005b126))
+
+
+
+# [2.0.0-alpha.18](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.17...v2.0.0-alpha.18) (2022-01-09)
+
+
+### Bug Fixes
+
+* **Menu:** menu border 修正 ([#442](https://github.com/3-shake/3design-ui/issues/442)) ([5abc3c6](https://github.com/3-shake/3design-ui/commit/5abc3c6ef6d246d022fcbd7b42efce28850606b2))
+
+
+
+# [2.0.0-alpha.17](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.16...v2.0.0-alpha.17) (2022-01-04)
+
+
+### Bug Fixes
+
+* mui upgrade ([#431](https://github.com/3-shake/3design-ui/issues/431)) ([ade9196](https://github.com/3-shake/3design-ui/commit/ade9196b87fa60c9cbdacba1677d0f649885afdf))
+* pin library ([#432](https://github.com/3-shake/3design-ui/issues/432)) ([033c23e](https://github.com/3-shake/3design-ui/commit/033c23ea06c478e24450c07ebd067d391e4825c8))
+
+
+
+# [2.0.0-alpha.16](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.15...v2.0.0-alpha.16) (2022-01-02)
+
+
+### Bug Fixes
+
+* upgrade mui 5.2.6 ([19b8c12](https://github.com/3-shake/3design-ui/commit/19b8c12da626b7842a9edea5da0bd348d3894cb3))
+* **Skeltone:** chromatic で毎回変更されるため、stateをstaticにする ([73040fe](https://github.com/3-shake/3design-ui/commit/73040fead1fe10c2f6ebc564ce28006a26ead55b))
+
+
+### Features
+
+* v2 TextArea 実装 ([#389](https://github.com/3-shake/3design-ui/issues/389)) ([eacda85](https://github.com/3-shake/3design-ui/commit/eacda8522a610f24342cdd9aece871858d088eba))
+
+
+
+# [2.0.0-alpha.15](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.13...v2.0.0-alpha.15) (2021-12-28)
+
+
+### Bug Fixes
+
+* LoadingButton スタイル修正 ([#411](https://github.com/3-shake/3design-ui/issues/411)) ([aef3597](https://github.com/3-shake/3design-ui/commit/aef3597f51220074ce71034ed56ddcf41e28493d))
+* tsc 終わらない問題解決 ([ad7bf61](https://github.com/3-shake/3design-ui/commit/ad7bf61b2427bf368db1509919265c114e44c735))
+
+
+
+# [2.0.0-alpha.14](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.13...v2.0.0-alpha.14) (2021-12-28)
+
+
+### Bug Fixes
+
+* LoadingButton スタイル修正 ([#411](https://github.com/3-shake/3design-ui/issues/411)) ([aef3597](https://github.com/3-shake/3design-ui/commit/aef3597f51220074ce71034ed56ddcf41e28493d))
+
+
+
+# [2.0.0-alpha.13](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.12...v2.0.0-alpha.13) (2021-12-26)
+
+
+### Bug Fixes
+
+* **Skeleton:** count props 追加 ([#405](https://github.com/3-shake/3design-ui/issues/405)) ([f86d16f](https://github.com/3-shake/3design-ui/commit/f86d16fce020f525648c662dcbae6e867e2ba702))
+
+
+
+# [2.0.0-alpha.12](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.11...v2.0.0-alpha.12) (2021-12-26)
+
+
+### Features
+
+* Skeleton 実装 ([#403](https://github.com/3-shake/3design-ui/issues/403)) ([dad672a](https://github.com/3-shake/3design-ui/commit/dad672a2edecc0fa6218d47119c5cff96ef3a74a))
+
+
+
+# [2.0.0-alpha.11](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.10...v2.0.0-alpha.11) (2021-12-25)
+
+
+### Bug Fixes
+
+* **Sidebar:** support customize ([#398](https://github.com/3-shake/3design-ui/issues/398)) ([a52d87c](https://github.com/3-shake/3design-ui/commit/a52d87c17ca3d45222be58681ede0fcbf085f50f))
+
+
+
+# [2.0.0-alpha.10](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.9...v2.0.0-alpha.10) (2021-12-24)
+
+
+### Bug Fixes
+
+* **Modal:** children type 修正 ([3e7030f](https://github.com/3-shake/3design-ui/commit/3e7030f17aa4e43512f1b867735d708564aa4cd2))
+
+
+
+# [2.0.0-alpha.9](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.7...v2.0.0-alpha.9) (2021-12-24)
+
+
+### Bug Fixes
+
+* **Modal:** muiのバグによりUnstyled Modalを廃止 ([#393](https://github.com/3-shake/3design-ui/issues/393)) ([fa3246f](https://github.com/3-shake/3design-ui/commit/fa3246f5bba5c94e0bf20b804d52e1e519bac96a))
+* Storybook/Table 静的データに変更 ([#383](https://github.com/3-shake/3design-ui/issues/383)) ([dd58737](https://github.com/3-shake/3design-ui/commit/dd5873716a26a08e0c744984495ee00dcb9abb9a))
+
+
+### Features
+
+* v2 Chip hover 実装 ([#381](https://github.com/3-shake/3design-ui/issues/381)) ([8c2fd0e](https://github.com/3-shake/3design-ui/commit/8c2fd0e845cfef130107ce3b2711c70952a48044))
+* v2 Select 実装 ([#384](https://github.com/3-shake/3design-ui/issues/384)) ([a6216fe](https://github.com/3-shake/3design-ui/commit/a6216fe30e297148f7c5fd792a5c7703ecf5381b))
+* v2 Tabs 実装 ([#380](https://github.com/3-shake/3design-ui/issues/380)) ([a7bb1b5](https://github.com/3-shake/3design-ui/commit/a7bb1b5aeac7dea3e0a2af4a39ffce04a5b1d298))
+
+
+### Reverts
+
+* Revert "chore: release v2.0.0-alpha.8 (#382)" ([2b97151](https://github.com/3-shake/3design-ui/commit/2b971514d81c1930f546f224f6d590bac84da9c5)), closes [#382](https://github.com/3-shake/3design-ui/issues/382)
+
+
+
+# [2.0.0-alpha.8](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.7...v2.0.0-alpha.8) (2021-12-24)
+
+
+### Bug Fixes
+
+* **Modal:** muiのバグによりUnstyled Modalを廃止 ([#393](https://github.com/3-shake/3design-ui/issues/393)) ([fa3246f](https://github.com/3-shake/3design-ui/commit/fa3246f5bba5c94e0bf20b804d52e1e519bac96a))
+* Storybook/Table 静的データに変更 ([#383](https://github.com/3-shake/3design-ui/issues/383)) ([dd58737](https://github.com/3-shake/3design-ui/commit/dd5873716a26a08e0c744984495ee00dcb9abb9a))
+
+
+### Features
+
+* v2 Chip hover 実装 ([#381](https://github.com/3-shake/3design-ui/issues/381)) ([8c2fd0e](https://github.com/3-shake/3design-ui/commit/8c2fd0e845cfef130107ce3b2711c70952a48044))
+* v2 Select 実装 ([#384](https://github.com/3-shake/3design-ui/issues/384)) ([a6216fe](https://github.com/3-shake/3design-ui/commit/a6216fe30e297148f7c5fd792a5c7703ecf5381b))
+* v2 Tabs 実装 ([#380](https://github.com/3-shake/3design-ui/issues/380)) ([a7bb1b5](https://github.com/3-shake/3design-ui/commit/a7bb1b5aeac7dea3e0a2af4a39ffce04a5b1d298))
+
+
+### Reverts
+
+* Revert "chore: release v2.0.0-alpha.8 (#382)" ([2b97151](https://github.com/3-shake/3design-ui/commit/2b971514d81c1930f546f224f6d590bac84da9c5)), closes [#382](https://github.com/3-shake/3design-ui/issues/382)
+
+
+
+# [2.0.0-alpha.7](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.6...v2.0.0-alpha.7) (2021-12-16)
+
+
+### Bug Fixes
+
+* **Modal:** TailwindCSS デフォルトのfocus-visibleをオーバーライト ([#368](https://github.com/3-shake/3design-ui/issues/368)) ([2b4d619](https://github.com/3-shake/3design-ui/commit/2b4d6193f3bfb5ca9e8cd0fad70db7fb8d9f863f))
+* TextField スタイル修正 ([#362](https://github.com/3-shake/3design-ui/issues/362)) ([eeda081](https://github.com/3-shake/3design-ui/commit/eeda081ca4dd1248697d08c25f22c8a03739096e))
+* **deps:** update material-ui monorepo ([#360](https://github.com/3-shake/3design-ui/issues/360)) ([9a95a1e](https://github.com/3-shake/3design-ui/commit/9a95a1ea28891eb7357469dd7d46a3fa7aa52a8a))
+
+
+### Features
+
+* Add chromatic to Github Action ([32c2e37](https://github.com/3-shake/3design-ui/commit/32c2e3785af836c75ae28ebb48a8215709bb2560))
+* chromatic 導入 ([5bd230e](https://github.com/3-shake/3design-ui/commit/5bd230e6b72af7f5a6de119ff2c675ffc78568ba))
+* v2 Button 実装 ([#341](https://github.com/3-shake/3design-ui/issues/341)) ([976472c](https://github.com/3-shake/3design-ui/commit/976472c5a98850e5d6c9f385a2e37113d72a4fca))
+* v2 Switch 実装 ([#367](https://github.com/3-shake/3design-ui/issues/367)) ([a9e194c](https://github.com/3-shake/3design-ui/commit/a9e194c6ba0dd3918787cf24fed82e9f18b9b693))
+* v2 Table 実装 ([#340](https://github.com/3-shake/3design-ui/issues/340)) ([e922012](https://github.com/3-shake/3design-ui/commit/e9220122855bb1c5e2eb55acefbeb840524d6197))
+
+
+
+# [2.0.0-alpha.6](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2021-12-10)
+
+
+### Bug Fixes
+
+* **deps:** update material-ui monorepo ([#337](https://github.com/3-shake/3design-ui/issues/337)) ([68eabe9](https://github.com/3-shake/3design-ui/commit/68eabe9c5bc5e076cd363eba59bba0e64191fd99))
+* **Modal:** ModalHeader font size 修正 ([#342](https://github.com/3-shake/3design-ui/issues/342)) ([3ef81cc](https://github.com/3-shake/3design-ui/commit/3ef81cc646996c11b9515ca7511b86d3a02e5b01))
+
+
+### Features
+
+* New Tailwind CSS v3 ([#349](https://github.com/3-shake/3design-ui/issues/349)) ([2102894](https://github.com/3-shake/3design-ui/commit/21028948c1587cb668009ec53cbe6ec0ffcaddeb))
+
+
+
+# [2.0.0-alpha.5](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.4...v2.0.0-alpha.5) (2021-12-08)
+
+
+### Bug Fixes
+
+* font-family 修正 ([#333](https://github.com/3-shake/3design-ui/issues/333)) ([4305cab](https://github.com/3-shake/3design-ui/commit/4305cabed50513bfb73bcbdfebfc83fde75e3579))
+* Layout の修正 ([#334](https://github.com/3-shake/3design-ui/issues/334)) ([dac357e](https://github.com/3-shake/3design-ui/commit/dac357ebf913e0d790188d6b477df0caf31365b2))
+* **deps:** update dependency twin.macro to v2.8.2 ([#332](https://github.com/3-shake/3design-ui/issues/332)) ([0971f64](https://github.com/3-shake/3design-ui/commit/0971f647c4e2a691d8d27a58119690b2fef88327))
+
+
+
+# [2.0.0-alpha.4](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.3...v2.0.0-alpha.4) (2021-12-05)
+
+
+### Bug Fixes
+
+* **Sidebar:** next/link と相性が悪いため、a -> div に変更 ([#320](https://github.com/3-shake/3design-ui/issues/320)) ([b15e367](https://github.com/3-shake/3design-ui/commit/b15e3670ff112d8eadd44fb961f86a265269f168))
+
+
+
+# [2.0.0-alpha.3](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2021-12-05)
+
+
+### Features
+
+* v2 Header 実装 ([#318](https://github.com/3-shake/3design-ui/issues/318)) ([feab6ad](https://github.com/3-shake/3design-ui/commit/feab6ad99c7c50e9f9ea1051a6d23b42060177b1))
+
+
+
+# [2.0.0-alpha.2](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2021-12-05)
+
+
+### Features
+
+* v2 Sidebar 実装 ([#316](https://github.com/3-shake/3design-ui/issues/316)) ([a62fc58](https://github.com/3-shake/3design-ui/commit/a62fc5890508668fd06c7643a01115a29125ce7a))
+
+
+
+# [2.0.0-alpha.1](https://github.com/3-shake/3design-ui/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2021-12-04)
+
+
+### Bug Fixes
+
+* package用に修正 ([#314](https://github.com/3-shake/3design-ui/issues/314)) ([afca530](https://github.com/3-shake/3design-ui/commit/afca530b00a7c58f0e1c8cba9ce212677dd9ae07))
+
+
+
+# [2.0.0-alpha.0](https://github.com/3-shake/3design-ui/compare/v1.7.1...v2.0.0-alpha.0) (2021-12-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @mui/lab to v5.0.0-alpha.55 ([#285](https://github.com/3-shake/3design-ui/issues/285)) ([77de926](https://github.com/3-shake/3design-ui/commit/77de926c4e1220a5b335ade1a90a81fd3e7d9acf))
+* **deps:** update material-ui monorepo ([#292](https://github.com/3-shake/3design-ui/issues/292)) ([24ef3a8](https://github.com/3-shake/3design-ui/commit/24ef3a85e841a3e5893ca2ffd4162f35d5c7fdae))
+* **deps:** update material-ui monorepo ([#298](https://github.com/3-shake/3design-ui/issues/298)) ([7a1f11f](https://github.com/3-shake/3design-ui/commit/7a1f11f92c589e4f8d9c173b5c55d6572aefb973))
+* Mui アップグレード ([#283](https://github.com/3-shake/3design-ui/issues/283)) ([050b2d9](https://github.com/3-shake/3design-ui/commit/050b2d9ce1a75b0e1369f3496db9bfada3dea734))
+
+
+### Features
+
+* Modal デザイン調整 ([#306](https://github.com/3-shake/3design-ui/issues/306)) ([3f7fcdf](https://github.com/3-shake/3design-ui/commit/3f7fcdfd396bfe040793aeb442967127f7ff3a07))
+* New mui/material ([51238d0](https://github.com/3-shake/3design-ui/commit/51238d0a8fcc86a8630e46f0f2807364fca27de2))
+* v2 Checkbox 実装 ([#312](https://github.com/3-shake/3design-ui/issues/312)) ([1fc2a8a](https://github.com/3-shake/3design-ui/commit/1fc2a8a44c783f8fe77777430a4543284122677e))
+* v2 Chip 実装 ([#309](https://github.com/3-shake/3design-ui/issues/309)) ([2e7e42a](https://github.com/3-shake/3design-ui/commit/2e7e42aae1a673bdd71dc9e1d4c0cf9ba1b19be3))
+* v2 Dropzone 実装 ([#310](https://github.com/3-shake/3design-ui/issues/310)) ([208614c](https://github.com/3-shake/3design-ui/commit/208614c1b608e775c3faf29e19c84b90ec63b0e3))
+* v2 Menu 実装 ([#308](https://github.com/3-shake/3design-ui/issues/308)) ([c667155](https://github.com/3-shake/3design-ui/commit/c667155e5c0ba60bb3ef3dfcdcbb1ced90e8c227))
+* V2 mui upgrade ([#304](https://github.com/3-shake/3design-ui/issues/304)) ([5a94ca4](https://github.com/3-shake/3design-ui/commit/5a94ca4a6a7b7fe7d280e075e77f2945cfd60e1f))
+* v2 Radio 実装 ([#311](https://github.com/3-shake/3design-ui/issues/311)) ([42e6582](https://github.com/3-shake/3design-ui/commit/42e6582aff4b3565af18f2cd64c00bfd15a35bea))
+
+
+
 ## [1.7.2](https://github.com/3-shake/3design-ui/compare/v1.7.1...v1.7.2) (2021-10-06)
 
 

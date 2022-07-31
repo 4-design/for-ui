@@ -3,7 +3,6 @@ import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
 import autoprefixer from 'autoprefixer'
-import filesize from 'rollup-plugin-filesize'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
 import { terser } from 'rollup-plugin-terser'
@@ -22,6 +21,14 @@ const EXTERNAL = ['react', 'react-dom', 'prop-types']
 
 const CJS_AND_ES_EXTERNALS = EXTERNAL.concat(/@babel\/runtime/)
 
+const externalPackages = [
+  ...Object.keys(pkg.dependencies || {}),
+  ...Object.keys(pkg.peerDependencies || {}),
+]
+const regexesOfPackages = externalPackages.map(
+  (packageName) => new RegExp(`^${packageName}(\/.*)?`)
+)
+
 const plugins = [
   postcss({
     extract: true,
@@ -39,39 +46,48 @@ const plugins = [
     extensions,
   }),
   commonjs(),
-  filesize(),
+  // filesize(),
   peerDepsExternal(),
   terser(),
   replace({
     preventAssignment: true,
     'process.env.NODE_ENV': JSON.stringify('production'),
   }),
+  // analyze(),
 ]
 
 const OUTPUT_DATA = [
-  {
-    file: pkg.browser,
-    format: 'umd',
-  },
+  // {
+  //   file: pkg.browser,
+  //   dir: 'dist/umd',
+  //   format: 'umd',
+  // },
   {
     file: pkg.main,
+    dir: 'dist/commonjs',
     format: 'cjs',
   },
   {
     file: pkg.module,
+    dir: 'dist/esm',
     format: 'es',
   },
 ]
 
-const config = OUTPUT_DATA.map(({ file, format }) => ({
+const config = OUTPUT_DATA.map(({ format, dir }) => ({
   input: 'src/index.ts',
   output: {
     name: '3-design',
-    file,
+    preserveModules: true,
+    preserveModulesRoot: 'src',
+    exports: 'named',
+    sourcemap: true,
+    dir,
     format,
     globals,
   },
-  external: ['cjs', 'es'].includes(format) ? CJS_AND_ES_EXTERNALS : EXTERNAL,
+  external: regexesOfPackages,
+
   plugins,
 }))
 

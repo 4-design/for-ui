@@ -6,10 +6,11 @@ import tw from 'twin.macro'
 import { IconButton } from '../icon/Icon'
 import { MenuItem } from '../menu'
 import { Menu } from '../menu/Menu'
+import { Text } from '../typography/Typography'
 import { Header, HeaderLeft, HeaderRight } from './Header'
 
 export default {
-  title: 'Example/Layout/Header',
+  title: 'Example / Layout / Header',
   component: Header,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -21,10 +22,12 @@ const Template: Story = () => {
 
   return (
     <Header>
-      <HeaderLeft></HeaderLeft>
+      <HeaderLeft>
+        <Text variant="h3">SaaS一覧</Text>
+      </HeaderLeft>
       <HeaderRight>
         <>
-          <IconButton twin={[tw`bg-white`]}>
+          <IconButton twin={[tw`bg-shade-white-default`]}>
             <MdNotifications size={36} />
           </IconButton>
 

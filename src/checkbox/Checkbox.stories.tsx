@@ -7,15 +7,9 @@ import { Button } from '../button'
 import { Checkbox } from './Checkbox'
 
 export default {
-  title: 'Atom/Checkbox',
+  title: 'Form / Checkbox',
   component: Checkbox,
-  decorators: [
-    (Story) => (
-      <div tw="mt-10 flex flex-col h-screen w-screen gap-4">
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [(Story) => <Story />],
 } as Meta
 
 export const Basic = (): JSX.Element => {
@@ -49,6 +43,33 @@ export const Basic = (): JSX.Element => {
           value="required"
           label="チェックボックス B"
           {...register('sample-b')}
+        />
+      </div>
+
+      <Button type="submit">登録</Button>
+    </form>
+  )
+}
+
+export const WithNopadding = (): JSX.Element => {
+  const { register, handleSubmit } = useForm()
+  const onSubmit = (data: unknown) => console.log(data)
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div tw="flex flex-col gap-4">
+        <Checkbox
+          nopadding
+          value="required"
+          label="チェックボックス A"
+          {...register('sample-a')}
+        />
+
+        <Checkbox
+          nopadding
+          value="required"
+          label="チェックボックス A"
+          {...register('sample-a')}
         />
       </div>
 

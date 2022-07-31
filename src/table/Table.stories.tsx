@@ -5,17 +5,17 @@ import { CellProps, Column } from 'react-table'
 import tw from 'twin.macro'
 
 import { IconButton } from '../icon'
-import { PersonData } from '../utils/makeData'
-import makeData from '../utils/makeData'
+import { PersonData, StaticPersonData } from '../utils/makeData'
 import { Table } from './Table'
 import { TableCell } from './TableCell'
+import { TableScroller } from './TableScroller'
 
 export default {
-  title: 'Atom/Table',
+  title: 'Data Display / Table',
   component: Table,
 } as Meta
 
-const basicColumns = [
+const basicColumns: Array<Column<PersonData>> = [
   {
     Header: 'ID',
     Cell: ({ cell: { row, getCellProps } }: CellProps<PersonData>) => (
@@ -25,9 +25,8 @@ const basicColumns = [
     ),
   },
   {
-    Header: <span role="button">名前</span>,
+    Header: '名前',
     accessor: 'firstName',
-    sortType: 'string',
     Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
       <TableCell {...getCellProps()}>{value}</TableCell>
     ),
@@ -59,8 +58,8 @@ const basicColumns = [
   },
 ]
 
-export const basic: Story = () => (
-  <Table<PersonData> columns={basicColumns} data={makeData(1000)} />
+export const Base: Story = () => (
+  <Table<PersonData> columns={basicColumns} data={StaticPersonData} />
 )
 
 const withImageColumns: Array<Column<PersonData>> = [
@@ -115,10 +114,82 @@ const withImageColumns: Array<Column<PersonData>> = [
   },
 ]
 
-export const withImage: Story = () => (
-  <Table<PersonData>
-    columns={withImageColumns}
-    data={makeData(1000)}
-    initialState={{ sortBy: [{ id: 'firstName', desc: false }] }}
-  />
+
+export const WithImage: Story = () => (
+    <Table<PersonData> columns={withImageColumns} data={StaticPersonData} />
+)
+
+const withSelectColumns: Array<Column<PersonData>> = [
+  {
+    id: 'id',
+    Header: 'id',
+    accessor: 'id',
+    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
+        <TableCell {...getCellProps()}>{value}</TableCell>
+    ),
+  },
+  {
+    Header: '苗字',
+    accessor: 'lastName',
+    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
+        <TableCell {...getCellProps()}>{value}</TableCell>
+    ),
+  },
+  {
+    Header: '名前',
+    accessor: 'firstName',
+    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
+        <TableCell {...getCellProps()}>{value}</TableCell>
+    ),
+  },
+  {
+    Header: '年齢',
+    accessor: 'age',
+    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
+        <TableCell {...getCellProps()}>{value}</TableCell>
+    ),
+  },
+  {
+    Header: '訪問',
+    accessor: 'visits',
+    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
+        <TableCell {...getCellProps()}>{value}</TableCell>
+    ),
+  },
+]
+
+export const WithSelect: Story = () => (
+    <Table<PersonData>
+        columns={withSelectColumns}
+        data={StaticPersonData}
+        getRowId={(row) => row.id.toString()}
+        onSelectRow={(rows) => console.info('rows', rows)}
+    />
+)
+
+export const WithSelectMultiple: Story = () => (
+    <Table<PersonData>
+        columns={withSelectColumns}
+        data={StaticPersonData}
+        getRowId={(row) => row.id.toString()}
+        onSelectRows={(rows) => console.info('rows', rows)}
+    />
+)
+
+export const WithDisablePagination: Story = () => (
+    <Table<PersonData>
+        columns={withSelectColumns}
+        data={StaticPersonData}
+        disablePagination
+    />
+)
+
+export const WithTableScroller: Story = () => (
+    <TableScroller height="400px">
+      <Table<PersonData>
+          columns={withSelectColumns}
+          data={StaticPersonData}
+          disablePagination
+      />
+    </TableScroller>
 )

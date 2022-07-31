@@ -5,7 +5,7 @@ import { MdMail } from 'react-icons/md'
 import { Badge } from './Badge'
 
 export default {
-  title: 'Atom/Badge',
+  title: 'Example / Badge',
   component: Badge,
 } as Meta
 

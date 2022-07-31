@@ -28,14 +28,18 @@ export const SwitchGroup: React.FC<RadioGroupProps> = ({
       css={[
         css`
           > .Mui-error {
-            ${tw`text-error!`}
+            ${tw`text-negative-medium-default!`}
           }
         `,
       ]}
     >
       {label && <FormLabel component="legend">{label}</FormLabel>}
       <FormGroup row={row}>{children}</FormGroup>
-      {error && <FormHelperText tw="text-error!">{error}</FormHelperText>}
+      {error && (
+        <FormHelperText tw="text-negative-medium-default!">
+          {error}
+        </FormHelperText>
+      )}
     </FormControl>
   )
 }

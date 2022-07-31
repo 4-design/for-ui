@@ -9,7 +9,7 @@ import { Button } from '../button/Button'
 import { TextField } from './TextField'
 
 export default {
-  title: 'Atom/TextField',
+  title: 'Form / TextField',
   component: TextField,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -50,7 +50,7 @@ export const Standard = (): JSX.Element => {
             autoComplete="on"
             type="email"
             label="メールアドレス"
-            inputTwin={tw`(max-w-sm text-4xl tracking-wide p-0)!`}
+            inputTwin={tw`(max-w-sm tracking-wide p-0)!`}
             placeholder="example@lancepod.com"
             {...register('email')}
           />
@@ -123,17 +123,51 @@ export const Outlined = (): JSX.Element => {
       <h1 tw="mb-4">Text Field (default styles)</h1>
       <div tw="mb-4">
         <TextField
-          error
           required
           fullWidth
           variant="outlined"
           autoComplete="on"
           type="email"
           label="メールアドレス"
-          inputTwin={tw`(max-w-sm text-4xl tracking-wide p-0 h-20)!`}
+          inputTwin={tw`(max-w-sm tracking-wide p-0)!`}
           placeholder="example@lancepod.com"
-          helperText="エラーメッセージ"
           {...register('email')}
+        />
+      </div>
+      <div tw="mb-4">
+        <TextField
+          error
+          required
+          fullWidth
+          variant="outlined"
+          autoComplete="on"
+          type="email"
+          label="メールアドレス Error"
+          inputTwin={tw`(max-w-sm tracking-wide p-0)!`}
+          placeholder="example@lancepod.com"
+          helperText="ヘルパーテキスト"
+          {...register('email')}
+        />
+      </div>
+
+      <div tw="mb-4">
+        <TextField
+          type="password"
+          label="パスワード"
+          placeholder="example@lancepod.com"
+          error={errors && !!errors['password']}
+          {...register('password')}
+        />
+      </div>
+
+      <div tw="mb-4">
+        <TextField
+          label="金額"
+          placeholder="3"
+          unitLabel="万円"
+          isPriceFormat
+          error={errors && !!errors['price']}
+          {...register('price')}
         />
       </div>
       <div tw="mb-4">
@@ -154,22 +188,29 @@ export const Outlined = (): JSX.Element => {
       </div>
       <div tw="mb-4">
         <TextField
-          type="password"
-          label="パスワード"
+          required
+          multiline
+          variant="outlined"
+          autoComplete="on"
+          type="email"
+          label="マルチライン"
           placeholder="example@lancepod.com"
-          error={errors && !!errors['password']}
-          {...register('password')}
+          error={errors && !!errors['email']}
+          {...register('email')}
         />
       </div>
-
       <div tw="mb-4">
         <TextField
-          label="金額"
-          placeholder="3"
-          unitLabel="万円"
-          isPriceFormat
-          error={errors && !!errors['price']}
-          {...register('price')}
+          error
+          fullWidth
+          multiline
+          rows={3}
+          variant="outlined"
+          autoComplete="on"
+          type="email"
+          label="エラー"
+          placeholder="example@lancepod.com"
+          {...register('email')}
         />
       </div>
 

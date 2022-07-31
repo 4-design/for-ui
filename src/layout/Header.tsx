@@ -1,30 +1,38 @@
 import React from 'react'
-import 'twin.macro'
+import tw, { TwStyle } from 'twin.macro'
 
-export interface HeaderLeftProps {
+export type HeaderLeftProps = {
+  twin?: TwStyle
   children?: React.ReactNode
 }
 
-export interface HeaderRightProps {
+export type HeaderRightProps = {
+  twin?: TwStyle
   children: React.ReactNode | React.ReactNode[]
 }
 
-export interface HeaderProps {
+export type HeaderProps = {
+  twin?: TwStyle
   children: React.ReactNode | React.ReactNode[]
 }
 
-export const HeaderLeft: React.FC<HeaderLeftProps> = ({ children }) => (
-  <div tw="flex flex-1 items-center">{children}</div>
+export const HeaderLeft: React.FC<HeaderLeftProps> = ({ twin, children }) => (
+  <div css={[tw`flex flex-1 items-center`, twin]}>{children}</div>
 )
 
-export const HeaderRight: React.FC<HeaderRightProps> = ({ children }) => (
-  <div tw="flex items-center ml-6">{children}</div>
+export const HeaderRight: React.FC<HeaderRightProps> = ({ twin, children }) => (
+  <div css={[tw`flex items-center`, twin]}>{children}</div>
 )
 
-export const Header: React.FC<HeaderProps> = ({ children }) => {
+export const Header: React.FC<HeaderProps> = ({ twin, children }) => {
   return (
-    <header tw="relative h-20 z-header flex flex-shrink-0 items-center">
-      <div tw="flex justify-between flex-1 pl-5 pr-10">{children}</div>
+    <header
+      css={[
+        tw`relative h-16 px-6 z-header flex flex-shrink-0 items-center border-b border-shade-light-default`,
+        twin,
+      ]}
+    >
+      <div tw="flex justify-between flex-1">{children}</div>
     </header>
   )
 }

@@ -7,7 +7,7 @@ import { Switch } from './Switch'
 import { SwitchGroup } from './SwitchGroup'
 
 export default {
-  title: 'Atom/Switch',
+  title: 'Form / Switch',
   component: Switch,
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -23,8 +23,12 @@ export default {
 } as Meta
 
 export const Basic = (): JSX.Element => {
-  const { control, handleSubmit } =
-    useForm<{ switch1: boolean; switch2: boolean }>()
+  const { control, handleSubmit } = useForm<{
+    default1: boolean
+    default2: boolean
+    disable1: boolean
+    disable2: boolean
+  }>()
 
   const onSubmit = (data: unknown) => console.log(data)
 
@@ -34,13 +38,13 @@ export const Basic = (): JSX.Element => {
         <SwitchGroup required label="サービス名">
           <Controller
             control={control}
-            name="switch1"
+            name="default1"
             defaultValue={false}
             render={({ field: { name, value, onChange } }) => {
               return (
                 <Switch
                   name={name}
-                  label="switch1"
+                  label="default1"
                   checked={value}
                   onChange={onChange}
                 />
@@ -49,14 +53,46 @@ export const Basic = (): JSX.Element => {
           />
           <Controller
             control={control}
-            name="switch2"
+            name="default2"
+            defaultValue={true}
+            render={({ field: { name, value, onChange } }) => {
+              return (
+                <Switch
+                  name={name}
+                  label="default2"
+                  checked={value}
+                  onChange={onChange}
+                />
+              )
+            }}
+          />
+          <Controller
+            control={control}
+            name="disable1"
             defaultValue={false}
             render={({ field: { name, value, onChange } }) => {
               return (
                 <Switch
                   name={name}
-                  label="switch2"
+                  label="disable1"
                   checked={value}
+                  disabled
+                  onChange={onChange}
+                />
+              )
+            }}
+          />
+          <Controller
+            control={control}
+            name="disable2"
+            defaultValue={true}
+            render={({ field: { name, value, onChange } }) => {
+              return (
+                <Switch
+                  name={name}
+                  label="disable2"
+                  checked={value}
+                  disabled
                   onChange={onChange}
                 />
               )

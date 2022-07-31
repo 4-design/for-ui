@@ -1,35 +1,44 @@
 import React from 'react'
 import { SerializedStyles } from '@emotion/react'
-import TabList, { TabListProps } from '@mui/lab/TabList'
+import MuiTabs, { TabsProps as MuiTabsProps } from '@mui/material/Tabs'
 import tw, { css, TwStyle } from 'twin.macro'
 
-export interface TabsProps extends TabListProps {
+export interface TabsProps extends MuiTabsProps {
   noBorder?: boolean
   reverse?: boolean
+  color?: 'primary' | 'secondary' | 'shade'
   twin?: (TwStyle | SerializedStyles)[]
+}
+
+const colorStyle = {
+  primary: tw`bg-primary-dark-default`,
+  secondary: tw`bg-secondary-dark-default`,
+  shade: tw`bg-shade-medium-default`,
 }
 
 export const Tabs: React.VFC<TabsProps> = ({
   twin,
   noBorder = false,
   reverse = false,
+  color = 'secondary',
+  value,
   onChange,
   children,
   ...rest
 }) => {
   return (
-    <TabList
+    <MuiTabs
+      value={value}
       onChange={onChange}
-      aria-label="lab API tabs example"
       css={[
         css`
           &.MuiTabs-root {
             ${reverse
-              ? tw`(border-transparent border-t-2)!`
-              : tw`(border-low border-b-2)!`}
+              ? tw`(border-shade-light-default border-t-2)!`
+              : tw`(border-shade-light-default border-b-2)!`}
           }
           & .MuiTabs-indicator {
-            ${tw`(bg-primary-main)!`}
+            ${colorStyle[color]}
             ${reverse && tw`top-0`}
           }
         `,
@@ -39,6 +48,6 @@ export const Tabs: React.VFC<TabsProps> = ({
       {...rest}
     >
       {children}
-    </TabList>
+    </MuiTabs>
   )
 }

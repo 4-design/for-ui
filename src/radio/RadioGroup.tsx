@@ -32,27 +32,31 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
       css={[
         css`
           > .Mui-error {
-            ${tw`text-error!`}
+            ${tw`m-0! mt-1! text-negative-medium-default!`}
           }
         `,
       ]}
     >
       {label && (
-        <label css={[tw`mb-2 text-middle`]}>
+        <label css={[tw`font-sans text-s mb-2 text-shade-medium-default`]}>
           {label}
-          {required && <span tw="text-error">*</span>}
+          {required && <span tw="text-negative-medium-default">*</span>}
         </label>
       )}
       <MuiRadioGroup
         row={row}
         name={name}
         defaultValue={defaultValue}
-        css={[twin]}
+        css={[tw`flex gap-x-6 gap-y-2`, twin]}
         onChange={onChange}
       >
         {children}
       </MuiRadioGroup>
-      {error && <FormHelperText tw="text-error!">{error}</FormHelperText>}
+      {error && (
+        <FormHelperText tw="text-negative-medium-default!">
+          {error}
+        </FormHelperText>
+      )}
     </FormControl>
   )
 }

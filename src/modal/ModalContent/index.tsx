@@ -1,11 +1,10 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import 'twin.macro'
 
-interface Props {
-  /** The contents of the Dialog. */
-  children: ReactNode | string
+export type ModalContentProps = {
+  children: React.ReactNode
 }
 
-export const ModalContent: React.FC<Props> = ({ children }) => {
-  return <div tw="my-4 mx-9 text-high">{children}</div>
+export const ModalContent: React.FC<ModalContentProps> = ({ children }) => {
+  return <div tw="p-4">{children}</div>
 }

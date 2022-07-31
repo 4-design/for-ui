@@ -16,25 +16,24 @@ export function TablePagination<T extends object>({
   const { pageCount, gotoPage } = instance
 
   return (
-    <div tw="bg-white px-4 py-3 flex items-center justify-between border-gray-bg sm:px-6">
+    <div tw="bg-shade-white-default px-4 py-3 flex items-center justify-between border-shade-light-default sm:px-6">
       <div tw="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-        <div></div>
+        <div />
         <div>
           <Pagination
             size="large"
+            shape="rounded"
             count={pageCount}
             showFirstButton
             showLastButton
             onChange={(_, page: number) => gotoPage(page - 1)}
             css={[
               css`
-                > .MuiPagination-ul {
-                  .Mui-selected {
-                    ${tw`bg-primary-main text-white`}
-                  }
-                  button:hover {
-                    ${tw`bg-primary-light text-white`}
-                  }
+                .Mui-selected {
+                  ${tw`bg-shade-light-default rounded-md`}
+                }
+                .MuiPaginationItem-icon {
+                  ${tw`border border-shade-light-active rounded-md`}
                 }
               `,
             ]}
@@ -75,7 +74,7 @@ export function TablePagination<T extends object>({
 //   })
 
 //   return (
-//     <div tw="bg-white px-4 py-3 flex items-center justify-between border-gray-bg sm:px-6">
+//     <div tw="bg-shade-white-default px-4 py-3 flex items-center justify-between border-shade-light-default sm:px-6">
 //       <div tw="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
 //         <div></div>
 //         <div>
@@ -86,10 +85,10 @@ export function TablePagination<T extends object>({
 //               tw="w-10 h-10
 //               flex justify-center items-center
 //               ml-2 px-2 py-2 rounded-full
-//               bg-white text-sm leading-5 font-medium
+//               bg-shade-white-default text-sm leading-5 font-medium
 //               transition ease-in-out duration-150
-//               hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-main focus:shadow-outline
-//               active:bg-gray-light active:text-gray-low
+//               hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-dark-default focus:shadow-outline
+//               active:bg-primary-light-default-default active:text-gray-low
 //               disabled:opacity-25 disabled:cursor-not-allowed"
 //             >
 //               <FirstPageIcon />
@@ -99,10 +98,10 @@ export function TablePagination<T extends object>({
 //               disabled={!canPreviousPage}
 //               tw="w-10 h-10 ml-2
 //               flex justify-center items-center
-//               px-2 py-2 rounded-full bg-white text-sm leading-5 font-medium
+//               px-2 py-2 rounded-full bg-shade-white-default text-sm leading-5 font-medium
 //               transition ease-in-out duration-150
-//               hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-main focus:shadow-outline
-//               active:bg-gray-light active:text-gray-low
+//               hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-dark-default focus:shadow-outline
+//               active:bg-primary-light-default-default active:text-gray-low
 //               disabled:opacity-25 disabled:cursor-not-allowed"
 //             >
 //               <ChevronLeftIcon />
@@ -112,10 +111,10 @@ export function TablePagination<T extends object>({
 //               tw="w-10 h-10
 //               flex justify-center items-center
 //               ml-2 px-2 py-2 rounded-full
-//               bg-primary-main text-sm leading-5 font-medium text-white
+//               bg-primary-dark-default text-sm leading-5 font-medium text-primary-white-default
 //               transition ease-in-out duration-150
-//               hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-main
-//               focus:shadow-outline active:bg-gray-light active:text-gray-low
+//               hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-dark-default
+//               focus:shadow-outline active:bg-primary-light-default-default active:text-gray-low
 //               disabled:opacity-25 disabled:cursor-not-allowed"
 //             >
 //               {pageIndex + 1}
@@ -129,10 +128,10 @@ export function TablePagination<T extends object>({
 //                     tw="w-10 h-10
 //                     flex justify-center items-center
 //                     ml-2 px-2 py-2 rounded-full
-//                     bg-white text-sm leading-5 font-medium
+//                     bg-shade-white-default text-sm leading-5 font-medium
 //                     transition ease-in-out duration-150
-//                     hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-main focus:shadow-outline
-//                     active:bg-gray-light active:text-gray-low disabled:opacity-25 disabled:cursor-not-allowed"
+//                     hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-dark-default focus:shadow-outline
+//                     active:bg-primary-light-default-default active:text-gray-low disabled:opacity-25 disabled:cursor-not-allowed"
 //                     key={index}
 //                   >
 //                     {pageIndex + index + 1}
@@ -144,10 +143,10 @@ export function TablePagination<T extends object>({
 //               tw="w-10 h-10 ml-2
 //               flex justify-center items-center
 //               px-2 py-2 rounded-full
-//               bg-white text-sm leading-5 font-medium
+//               bg-shade-white-default text-sm leading-5 font-medium
 //               transition ease-in-out duration-150
-//               hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-main focus:shadow-outline
-//               active:bg-gray-light active:text-gray-low disabled:opacity-25 disabled:cursor-not-allowed"
+//               hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-dark-default focus:shadow-outline
+//               active:bg-primary-light-default-default active:text-gray-low disabled:opacity-25 disabled:cursor-not-allowed"
 //             >
 //               ...
 //             </button>
@@ -156,10 +155,10 @@ export function TablePagination<T extends object>({
 //               tw="w-10 h-10
 //               flex justify-center items-center
 //               ml-2 px-2 py-2 rounded-full
-//               bg-white text-sm leading-5 font-medium
+//               bg-shade-white-default text-sm leading-5 font-medium
 //               transition ease-in-out duration-150
-//               hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-main focus:shadow-outline
-//               active:bg-gray-light active:text-gray-low disabled:opacity-25 disabled:cursor-not-allowed"
+//               hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-dark-default focus:shadow-outline
+//               active:bg-primary-light-default-default active:text-gray-low disabled:opacity-25 disabled:cursor-not-allowed"
 //             >
 //               {pageIndex + 10}
 //             </button>
@@ -169,10 +168,10 @@ export function TablePagination<T extends object>({
 //               tw="w-10 h-10
 //               flex justify-center items-center
 //               ml-2 px-2 py-2 rounded-full
-//               bg-white text-sm leading-5 font-medium
+//               bg-shade-white-default text-sm leading-5 font-medium
 //               transition ease-in-out duration-150
-//               hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-main focus:shadow-outline
-//               active:bg-gray-light active:text-gray-low disabled:opacity-25 disabled:cursor-not-allowed"
+//               hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-dark-default focus:shadow-outline
+//               active:bg-primary-light-default-default active:text-gray-low disabled:opacity-25 disabled:cursor-not-allowed"
 //               aria-label="Next"
 //             >
 //               <ChevronRightIcon />
@@ -182,10 +181,10 @@ export function TablePagination<T extends object>({
 //               disabled={!canNextPage}
 //               tw="w-10 h-10
 //               flex justify-center items-center
-//               ml-2 px-2 py-2 rounded-full bg-white text-sm leading-5 font-medium
+//               ml-2 px-2 py-2 rounded-full bg-shade-white-default text-sm leading-5 font-medium
 //               transition ease-in-out duration-150
-//               hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-main focus:shadow-outline
-//               active:bg-gray-light active:text-gray-low disabled:opacity-25 disabled:cursor-not-allowed"
+//               hover:text-gray-hover focus:z-10 focus:outline-none focus:border-primary-dark-default focus:shadow-outline
+//               active:bg-primary-light-default-default active:text-gray-low disabled:opacity-25 disabled:cursor-not-allowed"
 //             >
 //               <LastPageIcon />
 //             </button>

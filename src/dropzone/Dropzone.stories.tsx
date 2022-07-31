@@ -1,10 +1,10 @@
 import React from 'react'
 import { Meta } from '@storybook/react/types-6-0'
-
+import 'twin.macro'
 import { Dropzone } from './Dropzone'
 
 export default {
-  title: 'Atom/Dropzone',
+  title: 'Form / Dropzone',
   component: Dropzone,
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

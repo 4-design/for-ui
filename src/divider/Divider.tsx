@@ -1,4 +1,4 @@
-import { VFC } from 'react'
+import React, { VFC } from 'react'
 import MuiDivider, {
   DividerProps as MuiDividerProps,
 } from '@mui/material/Divider'
@@ -15,7 +15,7 @@ export const Divider: VFC<DividerProps> = ({ twin }) => {
       css={[
         css`
           &.MuiDivider-root {
-            ${tw`border border-low`}
+            ${tw`border border-shade-medium-default`}
             ${twin}
           }
         `,

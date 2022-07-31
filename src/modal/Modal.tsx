@@ -1,25 +1,27 @@
-import React, { ReactNode } from 'react'
+import React, { forwardRef } from 'react'
 import { SerializedStyles } from '@emotion/react'
+
 import MuiBackdrop, {
   BackdropProps as MuiBackdropProps,
 } from '@mui/material/Backdrop'
-import MuiModal from '@mui/material/Modal'
+import MuiModal, { ModalProps as MuiModalProps } from '@mui/material/Modal'
+
 import tw, { css, TwStyle } from 'twin.macro'
 
-export type ModalProps = {
+type BackdropProps = MuiBackdropProps
+
+export type ModalProps = Omit<MuiModalProps, 'children'> & {
   rootTwin?: (TwStyle | SerializedStyles)[]
   twin?: (TwStyle | SerializedStyles)[]
-
-  children: ReactNode
 
   /** Whether the Dialog is open */
   open: boolean
 
+  children: React.ReactNode | React.ReactNode[]
+
   /** Handler that is called when the 'cancel' button of a dismissable Dialog is clicked. */
   onClose?(event: React.MouseEvent | React.KeyboardEvent): void
 }
-
-type BackdropProps = MuiBackdropProps
 
 const Backdrop: React.FC<BackdropProps> = ({ open, children, onClick }) => {
   return (
@@ -29,7 +31,6 @@ const Backdrop: React.FC<BackdropProps> = ({ open, children, onClick }) => {
       css={[
         css`
           &.MuiBackdrop-root {
-            /* TODO: customize  */
             background-color: #001f3333;
           }
         `,
@@ -40,31 +41,33 @@ const Backdrop: React.FC<BackdropProps> = ({ open, children, onClick }) => {
   )
 }
 
-export const Modal: React.FC<ModalProps> = ({
-  rootTwin,
-  twin,
-  open,
-  onClose,
-  children,
-}) => {
-  return (
-    <MuiModal
-      open={open}
-      onClose={onClose}
-      css={[rootTwin]}
-      BackdropComponent={Backdrop}
-      BackdropProps={{ onClick: onClose }}
-    >
-      <div css={[tw`flex justify-center min-h-screen`]}>
+export const Modal: React.FC<ModalProps> = forwardRef(
+  ({ rootTwin, twin, open, onClose, children, ...props }, ref) => {
+    return (
+      <MuiModal
+        ref={ref}
+        open={open}
+        onClose={onClose}
+        css={[rootTwin]}
+        BackdropComponent={Backdrop}
+        BackdropProps={{ onClick: onClose }}
+        {...props}
+      >
         <div
           css={[
-            tw`flex flex-col py-4 m-auto text-left break-all transition-all transform bg-white shadow-xl rounded-modal sm:align-middle`,
-            twin,
+            tw`flex justify-center min-h-screen focus-visible:ring-0 focus-visible:outline-none`,
           ]}
         >
-          {children}
+          <div
+            css={[
+              tw`flex flex-col m-auto rounded-lg shadow-modal break-all transition-all transform bg-shade-white-default`,
+              twin,
+            ]}
+          >
+            {children}
+          </div>
         </div>
-      </div>
-    </MuiModal>
-  )
-}
+      </MuiModal>
+    )
+  }
+)

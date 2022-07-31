@@ -1,45 +1,62 @@
-import React from 'react'
+import React, { FC, memo } from 'react'
 import MuiCheckbox, {
   CheckboxProps as MuiCheckboxProps,
 } from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
-import tw, { css } from 'twin.macro'
+import tw, { css, theme } from 'twin.macro'
 import { Typography } from '../typography'
 
-export interface CheckboxProps extends MuiCheckboxProps {
-  label: string
+export type CheckboxProps = MuiCheckboxProps & {
+  label?: string
+  nopadding?: boolean
 }
 
-export const Checkbox: React.VFC<CheckboxProps> = ({ label, ...rest }) => {
-  return (
-    <FormControlLabel
-      control={
-        <MuiCheckbox
-          disableRipple
-          size="medium"
-          css={[
-            css`
-              &.MuiCheckbox-root {
-                ${tw`(text-accent hover:bg-primary-bg)!`}
+const _Checkbox: FC<CheckboxProps> = memo(({ nopadding = false, ...rest }) => (
+  <MuiCheckbox
+    // sx={{ '& .MuiSvgIcon-root': { fontSize: 20 } }}
+    css={[
+      css`
+        &.MuiCheckbox-root {
+          ${tw`(text-primary-dark-default)!`}
+          ${nopadding && tw`p-0!`}
 
-                &.Mui-checked > span path {
-                  ${tw`text-accent!`}
-                }
+          color: ${theme`textColor.shade.medium.default`} !important;
 
-                &.Mui-disabled > span path {
-                  ${tw`text-disabled!`}
-                }
-              }
-            `,
-          ]}
-          {...rest}
-        />
-      }
-      label={
-        <Typography variant="body1" disabled={rest.disabled}>
-          {label}
-        </Typography>
-      }
-    />
-  )
-}
+          &.Mui-checked {
+            color: ${theme`backgroundColor.secondary.dark.default`} !important;
+          }
+
+          &.Mui-disabled > span path {
+            ${tw`text-shade-dark-disabled!`}
+          }
+        }
+      `,
+    ]}
+    {...rest}
+  />
+))
+
+export const Checkbox = memo(
+  ({ label, nopadding = false, ...rest }: CheckboxProps) => {
+    return (
+      <>
+        {label ? (
+          <FormControlLabel
+            control={<_Checkbox nopadding={nopadding} {...rest} />}
+            label={
+              <Typography
+                variant="body1"
+                disabled={rest.disabled}
+                twin={tw`text-s`}
+              >
+                {label}
+              </Typography>
+            }
+          />
+        ) : (
+          <_Checkbox nopadding={nopadding} {...rest} />
+        )}
+      </>
+    )
+  }
+)

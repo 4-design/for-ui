@@ -26,81 +26,115 @@ type NumberFormatCustomProps = {
 const styles = {
   standard: css`
     & .MuiInputLabel-root.Mui-focused {
-      ${tw`(text-accent)!`}
+      ${tw`(text-primary-dark-default)!`}
     }
 
     & .MuiInput-root {
       &:before {
-        ${tw`(text-accent)!`}
+        ${tw`text-primary-dark-default!`}
       }
       &:after {
-        ${tw`(border-accent)!`}
+        ${tw`border-primary-dark-default!`}
       }
     }
 
     & .MuiInput-root {
       &:hover:not(.Mui-disabled):before {
-        ${tw`border-b border-accent`}
+        ${tw`border-b border-primary-dark-default`}
       }
+    }
+
+    & .MuiInput-underline.Mui-error {
+      &:before {
+        ${tw`(border-b border-negative-medium-default)!`}
+      }
+      &:after {
+        ${tw`(border-b border-negative-medium-default)!`}
+      }
+    }
+    & .MuiFormLabel-root.Mui-error {
+      ${tw`(text-negative-medium-default)!`}
     }
   `,
   outlined: css`
     & .MuiOutlinedInput-root {
-      ${tw`p-0!`}
+      ${tw`p-0! text-shade-light-default bg-shade-white-default antialiased`}
 
       &.Mui-disabled {
-        ${tw`bg-gray-light`}
+        ${tw`bg-shade-white-disabled`}
       }
 
       & fieldset {
-        ${tw`border border-low`}
+        ${tw`border border-shade-medium-default`}
       }
 
       &.Mui-disabled .MuiOutlinedInput-notchedOutline {
-        ${tw`border border-low`}
+        ${tw`border border-shade-medium-disabled`}
       }
 
       &.Mui-focused .MuiOutlinedInput-notchedOutline {
-        ${tw`border border-accent`}
+        ${tw`border border-primary-medium-active`}
       }
 
       &.Mui-error .MuiOutlinedInput-notchedOutline {
-        ${tw`border border-error`}
+        ${tw`border border-negative-medium-default`}
+      }
+
+      & .MuiInputAdornment-root {
+        ${tw`m-0`}
+
+        & .MuiTypography-root {
+          ${tw`mr-3 text-r font-sans text-shade-dark-default antialiased`}
+        }
+      }
+
+      &.Mui-disabled .MuiInputAdornment-root .MuiTypography-root {
+        ${tw`text-shade-dark-disabled`}
       }
 
       &:hover {
         & fieldset {
-          ${tw`border border-accent`}
+          ${tw`border border-primary-dark-default`}
         }
 
-        &.Mui-disabled .MuiOutlinedInput-notchedOutline {
-          ${tw`border border-low`}
+        & .Mui-error .MuiOutlinedInput-notchedOutline {
+          ${tw`border border-negative-medium-default`}
         }
 
-        &.Mui-focused .MuiOutlinedInput-notchedOutline {
-          ${tw`border border-accent`}
+        & .Mui-disabled .MuiOutlinedInput-notchedOutline {
+          ${tw`border border-shade-medium-default`}
         }
 
-        &.Mui-error .MuiOutlinedInput-notchedOutline {
-          ${tw`border border-error`}
+        & .Mui-focused .MuiOutlinedInput-notchedOutline {
+          ${tw`border border-primary-dark-default`}
         }
       }
 
       &.Mui-error fieldset {
-        ${tw`border-error`}
+        ${tw`border-negative-medium-default`}
       }
 
       & .Mui-focused fieldset {
-        ${tw`border border-accent!`}
+        ${tw`border border-primary-dark-default!`}
       }
     }
 
-    & .MuiOutlinedInput-input {
-      ${tw`(text-high)!`}
+    & .MuiInputBase-input {
+      ${tw`py-2.5 px-3 h-auto text-r font-sans text-shade-dark-default focus:shadow-none`}
     }
 
-    & .MuiInputBase-input {
-      ${tw`(py-2 px-3 focus:shadow-none)!`}
+    & .MuiInputBase-input::placeholder {
+      ${tw`text-shade-light-default opacity-100`}
+    }
+
+    & .MuiInputBase-input:disabled::placeholder {
+      ${
+        tw`-webkit-text-fill-color[currentColor]` /* to remove -webkit-text-fill-color set by default*/
+      }
+    }
+
+    & .MuiFormHelperText-root.Mui-error {
+      ${tw`m-0 mt-1 text-xs text-negative-medium-default`}
     }
   `,
 }
@@ -182,7 +216,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
                 }
 
                 & .MuiFormLabel-asterisk {
-                  ${tw`text-error`}
+                  ${tw`text-negative-medium-default`}
                 }
                 & .MuiInputBase-root {
                   ${inputTwin}
@@ -199,12 +233,16 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
         return (
           <div css={[tw`flex flex-col`, twin]}>
             {label && (
-              <label css={[tw`mb-2 text-middle`, labelTwin]}>
+              <label
+                css={[
+                  tw`mb-1 text-s font-bold text-shade-medium-default antialiased`,
+                  labelTwin,
+                ]}
+              >
                 {label}
-                {required && <span tw="text-error">*</span>}
+                {required && <span tw="text-negative-medium-default">*</span>}
               </label>
             )}
-
             <MuiTextField
               error={error}
               inputRef={validRef}
@@ -214,6 +252,10 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
               css={[
                 styles['outlined'],
                 css`
+                  & .MuiInputBase-input {
+                    ${unitLabel && tw`pr-2 text-right`}
+                  }
+
                   & .MuiInputBase-root {
                     ${inputTwin}
                   }

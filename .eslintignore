@@ -1,3 +1,5 @@
 node_modules
 dist
 types
+./tailwind.config.js
+./rollup.config.js

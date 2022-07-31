@@ -1,12 +1,13 @@
 import React from 'react'
-import 'twin.macro'
 import { Meta } from '@storybook/react/types-6-0'
 
-import { MdMail } from 'react-icons/md'
+import 'twin.macro'
+import { MdAdd, MdEdit } from 'react-icons/md'
+import { Text } from '../typography/Typography'
 import { Button } from './Button'
 
 export default {
-  title: 'Atom/Button',
+  title: 'General / Button',
   component: Button,
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -21,144 +22,492 @@ export default {
   },
 } as Meta
 
-export const basic = (): JSX.Element => (
-  <div>
-    <div tw="flex flex-row gap-4">
-      <Button color="primary" variant="contained">
-        登録する
-      </Button>
+export const Contained = (): JSX.Element => (
+  <div tw="flex flex-col gap-8">
+    <div>
+      <div tw="border-b mb-4">
+        <Text variant="h3">Button/Contained/Large</Text>
+      </div>
 
-      <Button color="primary" variant="outlined">
-        登録する
-      </Button>
+      <div tw="flex flex-row gap-8">
+        <div tw="flex flex-col gap-4">
+          <Button variant="contained">登録する</Button>
 
-      <Button color="primary" variant="text">
-        登録する
-      </Button>
+          <Button variant="contained" disabled>
+            登録する
+          </Button>
+
+          <Button variant="contained" pending>
+            登録する
+          </Button>
+        </div>
+
+        <div tw="flex flex-col gap-4">
+          <Button variant="contained" startIcon={<MdAdd size={20} />}>
+            登録する
+          </Button>
+
+          <Button variant="contained" startIcon={<MdAdd size={20} />} disabled>
+            登録する
+          </Button>
+
+          <Button
+            variant="contained"
+            startIcon={<MdAdd size={20} />}
+            loadingPosition="start"
+            pending
+          >
+            登録する
+          </Button>
+        </div>
+
+        <div tw="flex flex-col gap-4">
+          <Button variant="contained" endIcon={<MdEdit size={20} />}>
+            登録する
+          </Button>
+
+          <Button variant="contained" endIcon={<MdEdit size={20} />} disabled>
+            登録する
+          </Button>
+
+          <Button
+            variant="contained"
+            endIcon={<MdEdit size={20} />}
+            loadingPosition="end"
+            pending
+          >
+            登録する
+          </Button>
+        </div>
+      </div>
     </div>
 
-    <div tw="flex flex-row gap-4">
-      <Button color="default" variant="contained">
-        登録する
-      </Button>
+    <div>
+      <div tw="border-b mb-4">
+        <Text variant="h3">Button/Contained/Medium</Text>
+      </div>
 
-      <Button color="default" variant="outlined">
-        登録する
-      </Button>
+      <div tw="flex flex-row gap-8">
+        <div tw="flex flex-col gap-4">
+          <Button size="medium" variant="contained">
+            登録する
+          </Button>
 
-      <Button color="default" variant="text">
-        登録する
-      </Button>
-    </div>
+          <Button size="medium" variant="contained" disabled>
+            登録する
+          </Button>
 
-    <div tw="flex flex-row gap-4">
-      <Button color="danger" variant="contained">
-        登録する
-      </Button>
+          <Button size="medium" variant="contained" pending>
+            登録する
+          </Button>
+        </div>
 
-      <Button color="danger" variant="outlined">
-        登録する
-      </Button>
+        <div tw="flex flex-col gap-4">
+          <Button
+            size="medium"
+            variant="contained"
+            startIcon={<MdAdd size={20} />}
+          >
+            登録する
+          </Button>
 
-      <Button color="danger" variant="text">
-        登録する
-      </Button>
+          <Button
+            size="medium"
+            variant="contained"
+            startIcon={<MdAdd size={20} />}
+            disabled
+          >
+            登録する
+          </Button>
+
+          <Button
+            size="medium"
+            variant="contained"
+            startIcon={<MdAdd size={20} />}
+            loadingPosition="start"
+            pending
+          >
+            登録する
+          </Button>
+        </div>
+
+        <div tw="flex flex-col gap-4">
+          <Button
+            size="medium"
+            variant="contained"
+            endIcon={<MdEdit size={20} />}
+          >
+            登録する
+          </Button>
+
+          <Button
+            size="medium"
+            variant="contained"
+            endIcon={<MdEdit size={20} />}
+            disabled
+          >
+            登録する
+          </Button>
+
+          <Button
+            size="medium"
+            variant="contained"
+            endIcon={<MdEdit size={20} />}
+            loadingPosition="end"
+            pending
+          >
+            登録する
+          </Button>
+        </div>
+      </div>
     </div>
   </div>
 )
 
-export const disabled = (): JSX.Element => (
-  <>
-    <div tw="flex flex-row gap-4">
-      <Button color="primary" variant="contained" disabled>
-        登録する
-      </Button>
+export const Outlined = (): JSX.Element => (
+  <div tw="flex flex-col gap-8">
+    <div>
+      <div tw="border-b mb-4">
+        <Text variant="h3">Button/Outlined/Large</Text>
+      </div>
 
-      <Button color="primary" variant="outlined" disabled>
-        登録する
-      </Button>
+      <div tw="flex flex-row gap-8">
+        <div tw="flex flex-col gap-4">
+          <Button variant="outlined">登録する</Button>
 
-      <Button color="primary" variant="text" disabled>
-        登録する
-      </Button>
+          <Button variant="outlined" disabled>
+            登録する
+          </Button>
+
+          <Button variant="outlined" pending loadingPosition="center">
+            登録する
+          </Button>
+        </div>
+
+        <div tw="flex flex-col gap-4">
+          <Button variant="outlined" startIcon={<MdAdd size={20} />}>
+            登録する
+          </Button>
+
+          <Button variant="outlined" startIcon={<MdAdd size={20} />} disabled>
+            登録する
+          </Button>
+
+          <Button
+            variant="outlined"
+            startIcon={<MdAdd size={20} />}
+            pending
+            loadingPosition="start"
+          >
+            登録する
+          </Button>
+        </div>
+
+        <div tw="flex flex-col gap-4">
+          <Button variant="outlined" endIcon={<MdEdit size={20} />}>
+            登録する
+          </Button>
+
+          <Button variant="outlined" endIcon={<MdEdit size={20} />} disabled>
+            登録する
+          </Button>
+
+          <Button
+            variant="outlined"
+            endIcon={<MdEdit size={20} />}
+            pending
+            loadingPosition="end"
+          >
+            登録する
+          </Button>
+        </div>
+      </div>
     </div>
-  </>
-)
 
-export const startIcon = (): JSX.Element => (
-  <div tw="flex flex-row gap-4">
-    <Button
-      color="primary"
-      variant="contained"
-      startIcon={<MdMail size={24} />}
-      disabled
-    >
-      登録する
-    </Button>
+    <div>
+      <div tw="border-b mb-4">
+        <Text variant="h3">Button/Outlined/Medium</Text>
+      </div>
 
-    <Button
-      color="primary"
-      variant="outlined"
-      startIcon={<MdMail size={24} />}
-      disabled
-    >
-      登録する
-    </Button>
+      <div tw="flex flex-row gap-8">
+        <div tw="flex flex-col gap-4">
+          <Button size="medium" variant="outlined">
+            登録する
+          </Button>
 
-    <Button
-      color="primary"
-      variant="text"
-      startIcon={<MdMail size={24} />}
-      disabled
-    >
-      登録する
-    </Button>
+          <Button size="medium" variant="outlined" disabled>
+            登録する
+          </Button>
+
+          <Button size="medium" variant="outlined" pending>
+            登録する
+          </Button>
+        </div>
+
+        <div tw="flex flex-col gap-4">
+          <Button
+            size="medium"
+            variant="outlined"
+            startIcon={<MdAdd size={20} />}
+          >
+            登録する
+          </Button>
+
+          <Button
+            size="medium"
+            variant="outlined"
+            startIcon={<MdAdd size={20} />}
+            disabled
+          >
+            登録する
+          </Button>
+
+          <Button
+            size="medium"
+            variant="outlined"
+            startIcon={<MdAdd size={20} />}
+            loadingPosition="start"
+            pending
+          >
+            登録する
+          </Button>
+        </div>
+
+        <div tw="flex flex-col gap-4">
+          <Button
+            size="medium"
+            variant="outlined"
+            endIcon={<MdEdit size={20} />}
+          >
+            登録する
+          </Button>
+
+          <Button
+            size="medium"
+            variant="outlined"
+            endIcon={<MdEdit size={20} />}
+            disabled
+          >
+            登録する
+          </Button>
+
+          <Button
+            size="medium"
+            variant="outlined"
+            endIcon={<MdEdit size={20} />}
+            loadingPosition="end"
+            pending
+          >
+            登録する
+          </Button>
+        </div>
+      </div>
+    </div>
   </div>
 )
 
-export const endIcon = (): JSX.Element => (
-  <div tw="flex flex-row gap-4">
-    <Button
-      color="primary"
-      variant="contained"
-      endIcon={<MdMail size={24} />}
-      disabled
-    >
-      登録する
-    </Button>
+export const _Text = (): JSX.Element => (
+  <div tw="flex flex-col gap-8">
+    <div>
+      <div tw="border-b mb-4">
+        <Text variant="h3">Button/Text/Large</Text>
+      </div>
 
-    <Button
-      color="primary"
-      variant="outlined"
-      endIcon={<MdMail size={24} />}
-      disabled
-    >
-      登録する
-    </Button>
+      <div tw="flex flex-row gap-8">
+        <div tw="flex flex-col gap-4">
+          <Button variant="text">登録する</Button>
 
-    <Button
-      color="primary"
-      variant="text"
-      endIcon={<MdMail size={24} />}
-      disabled
-    >
-      登録する
-    </Button>
-  </div>
-)
+          <Button variant="text" disabled>
+            登録する
+          </Button>
 
-export const Loading = (): JSX.Element => (
-  <div tw="flex flex-row gap-4">
-    <Button pending color="primary" variant="contained">
-      登録する
-    </Button>
+          <Button variant="text" pending>
+            登録する
+          </Button>
+        </div>
 
-    <Button pending color="primary" variant="outlined">
-      登録する
-    </Button>
+        <div tw="flex flex-col gap-4">
+          <Button variant="text" startIcon={<MdAdd size={20} />}>
+            登録する
+          </Button>
 
-    <Button pending color="primary" variant="text">
-      登録する
-    </Button>
+          <Button variant="text" startIcon={<MdAdd size={20} />} disabled>
+            登録する
+          </Button>
+
+          <Button
+            variant="text"
+            startIcon={<MdAdd size={20} />}
+            loadingPosition="start"
+            pending
+          >
+            登録する
+          </Button>
+        </div>
+
+        <div tw="flex flex-col gap-4">
+          <Button variant="text" endIcon={<MdEdit size={20} />}>
+            登録する
+          </Button>
+
+          <Button variant="text" endIcon={<MdEdit size={20} />} disabled>
+            登録する
+          </Button>
+
+          <Button
+            variant="text"
+            endIcon={<MdEdit size={20} />}
+            loadingPosition="end"
+            pending
+          >
+            登録する
+          </Button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div tw="border-b mb-4">
+        <Text variant="h3">Button/Text/Medium</Text>
+      </div>
+
+      <div tw="flex flex-row gap-8">
+        <div tw="flex flex-col gap-4">
+          <Button size="medium" variant="text">
+            登録する
+          </Button>
+
+          <Button size="medium" variant="text" disabled>
+            登録する
+          </Button>
+
+          <Button size="medium" variant="text" pending>
+            登録する
+          </Button>
+        </div>
+
+        <div tw="flex flex-col gap-4">
+          <Button size="medium" variant="text" startIcon={<MdAdd size={20} />}>
+            登録する
+          </Button>
+
+          <Button
+            size="medium"
+            variant="text"
+            startIcon={<MdAdd size={20} />}
+            disabled
+          >
+            登録する
+          </Button>
+
+          <Button
+            size="medium"
+            variant="text"
+            startIcon={<MdAdd size={20} />}
+            loadingPosition="start"
+            pending
+          >
+            登録する
+          </Button>
+        </div>
+
+        <div tw="flex flex-col gap-4">
+          <Button size="medium" variant="text" endIcon={<MdEdit size={20} />}>
+            登録する
+          </Button>
+
+          <Button
+            size="medium"
+            variant="text"
+            endIcon={<MdEdit size={20} />}
+            disabled
+          >
+            登録する
+          </Button>
+
+          <Button
+            size="medium"
+            variant="text"
+            endIcon={<MdEdit size={20} />}
+            loadingPosition="end"
+            pending
+          >
+            登録する
+          </Button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div tw="border-b mb-4">
+        <Text variant="h3">Button/Text/Small</Text>
+      </div>
+
+      <div tw="flex flex-row gap-8">
+        <div tw="flex flex-col gap-4">
+          <Button variant="text" size="small">
+            登録する
+          </Button>
+
+          <Button variant="text" size="small" disabled>
+            登録する
+          </Button>
+
+          <Button variant="text" size="small" pending>
+            登録する
+          </Button>
+        </div>
+
+        <div tw="flex flex-col gap-4">
+          <Button variant="text" size="small" startIcon={<MdAdd size={20} />}>
+            登録する
+          </Button>
+
+          <Button
+            variant="text"
+            size="small"
+            startIcon={<MdAdd size={20} />}
+            disabled
+          >
+            登録する
+          </Button>
+
+          <Button
+            variant="text"
+            size="small"
+            startIcon={<MdAdd size={20} />}
+            loadingPosition="start"
+            pending
+          >
+            登録する
+          </Button>
+        </div>
+
+        <div tw="flex flex-col gap-4">
+          <Button variant="text" size="small" endIcon={<MdEdit size={20} />}>
+            登録する
+          </Button>
+
+          <Button
+            variant="text"
+            size="small"
+            endIcon={<MdEdit size={20} />}
+            disabled
+          >
+            登録する
+          </Button>
+
+          <Button
+            variant="text"
+            size="small"
+            endIcon={<MdEdit size={20} />}
+            loadingPosition="end"
+            pending
+          >
+            登録する
+          </Button>
+        </div>
+      </div>
+    </div>
   </div>
 )

@@ -1,4 +1,10 @@
 # 3design-ui
 
-## 環境構築
-https://www.notion.so/3shake/30e39784f4ba4c868f8abe3e69d4a3cb#c07f2a85a0ce4527855b6ebcf4a924e6
+## Install
+
+```
+yarn add @3-shake/3design-ui
+
+# install dependencies
+yarn add @mui/lab @mui/material @emotion/react @emotion/styled react-icons
+```
