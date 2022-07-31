@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react'
+import { MdArrowDownward, MdArrowUpward } from 'react-icons/md'
 import {
   useTable,
   usePagination,
@@ -10,6 +11,8 @@ import {
   HeaderProps,
   IdType,
   PluginHook,
+  useSortBy,
+  UseSortByState,
 } from 'react-table'
 import tw, { TwStyle } from 'twin.macro'
 import { Checkbox } from '../checkbox'
@@ -22,6 +25,7 @@ export type TableProps<T extends object> = TableOptions<T> & {
   onSelectRow?: ((row: IdType<T> | undefined) => void) | undefined
   onSelectRows?: ((rows: IdType<T>[]) => void) | undefined
   disablePagination?: boolean | undefined
+  sortBy?: UseSortByState<T>['sortBy']
   twin?: TwStyle
 }
 
@@ -34,7 +38,10 @@ export const Table = <T extends object>(props: TableProps<T>) => {
     disablePagination = false,
     twin,
   } = props
-  const [initialState, _] = useState({ pageIndex: 0 })
+  const [initialState, _] = useState({
+    sortBy: props.sortBy || [],
+    pageIndex: 0,
+  })
 
   if (onSelectRow && onSelectRows) {
     throw new Error(
@@ -102,6 +109,7 @@ export const Table = <T extends object>(props: TableProps<T>) => {
   }
 
   let hooks: PluginHook<T>[] = []
+  if (props.sortBy) hooks = [...hooks, useSortBy]
   if (!disablePagination) {
     hooks = [...hooks, usePagination]
   }
@@ -185,6 +193,7 @@ export const Table = <T extends object>(props: TableProps<T>) => {
             >
               {headerGroup.headers.map((column, j) => (
                 <th
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
                   tw="p-3 text-base text-shade-dark-default text-left whitespace-nowrap bg-shade-white-default z-30"
                   scope="col"
                   {...column.getHeaderProps({
@@ -197,6 +206,22 @@ export const Table = <T extends object>(props: TableProps<T>) => {
                   key={j}
                 >
                   {column.render('Header')}
+                  {column.canSort &&
+                    (() => {
+                      return (
+                        <div>
+                          {column.isSorted ? (
+                            column.isSortedDesc ? (
+                              <MdArrowDownward />
+                            ) : (
+                              <MdArrowUpward />
+                            )
+                          ) : (
+                            ''
+                          )}
+                        </div>
+                      )
+                    })()}
                 </th>
               ))}
             </tr>
