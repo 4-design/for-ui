@@ -81,7 +81,7 @@
     "eslint": "8.17.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-import-resolver-alias": "1.1.2",
-    "eslint-import-resolver-typescript": "2.7.1",
+    "eslint-import-resolver-typescript": "3.4.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.30.0",
