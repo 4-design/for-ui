@@ -215,7 +215,7 @@ export const Table = <T extends object>(props: TableProps<T>) => {
                           <div>
                             {column.isSorted ? (
                               column.isSortedDesc ? (
-                                <MdArrowDownward />
+                                <MdArrowDownward  tw="ml-1" />
                               ) : (
                                 <MdArrowUpward />
                               )
