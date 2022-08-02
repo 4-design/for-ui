@@ -192,3 +192,14 @@ export const WithTableScroller: Story = () => (
     />
   </TableScroller>
 )
+
+export const WithTableSort: Story = () => (
+  <TableScroller height="400px">
+    <Table<PersonData>
+      columns={withSelectColumns}
+      data={StaticPersonData}
+      disablePagination
+      sortBy={[{ id: 'firstName', desc: false }]}
+    />
+  </TableScroller>
+)
