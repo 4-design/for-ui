@@ -219,9 +219,7 @@ export const Table = <T extends object>(props: TableProps<T>) => {
                               ) : (
                                 <MdArrowUpward tw="ml-1" />
                               )
-                            ) : (
-                              ''
-                            )}
+                            ) : null}
                           </div>
                         )
                       })()}
