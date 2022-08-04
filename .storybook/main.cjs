@@ -17,6 +17,9 @@ module.exports = {
     },
   ],
   core: {
-    builder: 'webpack5',
+    builder: '@storybook/builder-vite',
+  },
+  features: {
+    storyStoreV7: true,
   },
 }
