@@ -15,31 +15,13 @@ export const Badge: React.FC<Props> = ({
 }) => {
   return (
     <MuiBadge
-      className={`text-shade-dark-default ${className}`}
       badgeContent={badgeContent}
       color="primary"
-      // css={[
-      //   css`
-      //     ${tw`text-shade-dark-default`}
-
-      //     & .MuiBadge-badge {
-      //       ${tw`text-shade-dark-default`}
-      //     }
-      //   `,
-      //   twin,
-      // ]}
-      // classes={{
-      //   root: 'text-secondary-dark-default',
-      //   badge: 'text-secondary-dark-default',
-      // }}
-      // componentsProps={{
-      //   root: {
-      //     className: 'w-full text-secondary-dark-default',
-      //   },
-      // }}
-      // sx={{
-      //   color: 'text-shade-dark-default',
-      // }}
+      componentsProps={{
+        root: {
+          className: `text-shade-dark-default ${className}`,
+        },
+      }}
       {...rest}
     >
       {children}
