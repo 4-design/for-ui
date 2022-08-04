@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const path = require("path");
+const path = require('path')
 
 const defaultTheme = require('tailwindcss/defaultTheme')
 
@@ -345,7 +345,7 @@ module.exports = {
   corePlugins: {
     preflight: false,
   },
-  content: [path.join(__dirname, "./src/**/*.(js|jsx|ts|tsx)")],
+  content: [path.join(__dirname, './src/**/*.(js|jsx|ts|tsx)')],
   theme: {
     textColor: {
       transparent: 'transparent',

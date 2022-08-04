@@ -30,9 +30,8 @@
     "build:js": "cp ./react-table-index.js ./node_modules/react-table/index.js && NODE_ENV=production rollup -c",
     "build:js:watch": "NODE_ENV=production rollup -c --watch",
     "build": "yarn build:types && yarn build:js",
-    "eslint": "eslint . --ext .ts,.js,.tsx,.jsx,.cjs -c .eslintrc.js  --ignore-pattern '**/__test*__/*' .",
-    "lint": "eslint --ext .ts,.tsx,.cjs --ignore-pattern '**/__test*__/*' .",
-    "lint-fix": "eslint --fix --ext .ts,.tsx,.cjs --ignore-pattern '**/__test*__/*' .",
+    "lint": "eslint '**/*.{tsx,ts,js,cjs}'",
+    "lint-fix": "eslint '**/*.{tsx,ts,js,cjs}' --fix",
     "storybook": "rm -rf node_modules/.cache/storybook && start-storybook --no-manager-cache -p 6006 -s public",
     "build-storybook": "build-storybook",
     "chromatic": "chromatic --exit-zero-on-changes"
