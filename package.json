@@ -23,6 +23,8 @@
     "url": "git+https://github.com/3-shake/3design-ui.git"
   },
   "scripts": {
+    "prettier": "prettier --check '**/*.{ts,tsx,js}'",
+    "prettier-format": "prettier --write '**/*.{ts,tsx,js}'",
     "type-check": "tsc --noEmit",
     "type-check:watch": "yarn type-check -- --watch",
     "build:types": "NODE_ENV=production tsc",

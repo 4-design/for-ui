@@ -29,7 +29,11 @@ jobs:
           fail_on_error: true
           reporter: github-pr-review # Change reporter.
           github_token: ${{ github.token }}
-          workdir: "'**/*.{tsx,ts,js,cjs}'"
+          eslint_flags: '**/*.{ts,tsx,js,cjs}'
+
+      - name: run prettier
+        run: yarn prettier
+        shell: bash
 
       - name: run tsc
         run: yarn build:types
