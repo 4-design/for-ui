@@ -14,7 +14,6 @@ import {
   useSortBy,
   UseSortByState,
 } from 'react-table'
-import tw, { TwStyle } from 'twin.macro'
 import { Checkbox } from '../checkbox'
 import { Radio } from '../radio'
 import { TableCell } from './TableCell'
@@ -26,7 +25,6 @@ export type TableProps<T extends object> = TableOptions<T> & {
   onSelectRows?: ((rows: IdType<T>[]) => void) | undefined
   disablePagination?: boolean | undefined
   sortBy?: UseSortByState<T>['sortBy']
-  twin?: TwStyle
 }
 
 export const Table = <T extends object>(props: TableProps<T>) => {
@@ -36,7 +34,6 @@ export const Table = <T extends object>(props: TableProps<T>) => {
     onSelectRow,
     onSelectRows,
     disablePagination = false,
-    twin,
   } = props
   const [initialState, _] = useState({
     sortBy: props.sortBy || [],
@@ -164,10 +161,11 @@ export const Table = <T extends object>(props: TableProps<T>) => {
     return (
       <tr
         {...row.getRowProps()}
-        css={[
-          tw`border-b border-shade-medium-default transform transition duration-300 ease-in-out hover:bg-shade-light-default`,
-          (onSelectRow || onSelectRows) && tw`cursor-pointer`,
-        ]}
+        className="border-b border-shade-medium-default transform transition duration-300 ease-in-out hover:bg-shade-light-default"
+        // css={[
+        //   tw`border-b border-shade-medium-default transform transition duration-300 ease-in-out hover:bg-shade-light-default`,
+        //   (onSelectRow || onSelectRows) && tw`cursor-pointer`,
+        // ]}
         onClick={() => {
           if (onSelectRow || onSelectRows) row.toggleRowSelected()
         }}
@@ -183,17 +181,17 @@ export const Table = <T extends object>(props: TableProps<T>) => {
 
   return (
     <>
-      <table {...getTableProps()} css={[tw`w-full`, twin]}>
-        <thead tw="table-header-group bg-shade-white-default">
+      <table {...getTableProps()} className="w-full">
+        <thead className="table-header-group bg-shade-white-default">
           {headerGroups.map((headerGroup, i) => (
             <tr
               {...headerGroup.getHeaderGroupProps()}
               key={i}
-              tw="border-b border-shade-medium-default table-row align-middle"
+              className="border-b border-shade-medium-default table-row align-middle"
             >
               {headerGroup.headers.map((column, j) => (
                 <th
-                  tw="p-3 text-base text-shade-dark-default text-left whitespace-nowrap bg-shade-white-default z-30"
+                  className="p-3 text-base text-shade-dark-default text-left whitespace-nowrap bg-shade-white-default z-30"
                   scope="col"
                   {...column.getHeaderProps({
                     style: {
@@ -210,14 +208,14 @@ export const Table = <T extends object>(props: TableProps<T>) => {
                   {column.canSort
                     ? (() => {
                         return (
-                          <div tw="flex items-center ">
+                          <div className="flex items-center ">
                             {column.render('Header')}
                             <div>
                               {column.isSorted ? (
                                 column.isSortedDesc ? (
-                                  <MdArrowDownward tw="ml-1" />
+                                  <MdArrowDownward className="ml-1" />
                                 ) : (
-                                  <MdArrowUpward tw="ml-1" />
+                                  <MdArrowUpward className="ml-1" />
                                 )
                               ) : null}
                             </div>
@@ -232,7 +230,7 @@ export const Table = <T extends object>(props: TableProps<T>) => {
         </thead>
         <tbody
           {...getTableBodyProps()}
-          tw="bg-shade-white-default text-shade-dark-default"
+          className="bg-shade-white-default text-shade-dark-default"
         >
           {disablePagination ? (
             <>{rows.map((row: Row<T>) => rowGenerate(row))}</>

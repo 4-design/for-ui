@@ -7,7 +7,6 @@ import {
   DocsStory,
 } from '@storybook/addon-docs/blocks'
 import { Meta } from '@storybook/react/types-6-0'
-import tw from 'twin.macro'
 import { Text, Variant, variants, texts } from './Typography'
 
 export default {
@@ -52,10 +51,10 @@ Sizes.parameters = {
       language: 'tsx',
       code: `
 { /* Common Usage */ }
-<p tw="text-r">Hello</p>
+<p className="text-r">Hello</p>
 
 { /* Bold Text */ }
-<p tw="text-r font-bold">Hello</p>
+<p className="text-r font-bold">Hello</p>
 
 { /* With CSS Props */ }
 <p css={[tw\`text-r\`]}>Hello</p>
@@ -116,22 +115,22 @@ Cardのタイトルのように\`text-r\`を含むエリアのタイトルには
 }
 
 const colors = {
-  'text-shade-dark-default': tw`text-shade-dark-default`,
-  'text-shade-medium-default': tw`text-shade-medium-default`,
-  'text-shade-light-default': tw`text-shade-light-default`,
-  'text-shade-dark-disabled': tw`text-shade-dark-disabled`,
-  'text-primary-dark-default': tw`text-primary-dark-default`,
-  'text-negative-medium-default': tw`text-negative-medium-default`,
-  'text-primary-white-default': tw`text-primary-white-default`,
+  'text-shade-dark-default': `text-shade-dark-default`,
+  'text-shade-medium-default': `text-shade-medium-default`,
+  'text-shade-light-default': `text-shade-light-default`,
+  'text-shade-dark-disabled': `text-shade-dark-disabled`,
+  'text-primary-dark-default': `text-primary-dark-default`,
+  'text-negative-medium-default': `text-negative-medium-default`,
+  'text-primary-white-default': `text-primary-white-default`,
 }
 
 export const Colors = (): JSX.Element => {
   return (
     <Fragment>
       {Object.entries(colors).map(([k, v]) => (
-        <div tw="flex flex-col mb-4" key={k}>
+        <div className="flex flex-col mb-4" key={k}>
           <Text variant="caption">Color: {k}</Text>
-          <Text variant="p" twin={v}>
+          <Text variant="p" className={v}>
             {short}
           </Text>
         </div>
@@ -154,7 +153,7 @@ ${Object.keys(colors)
   .map(
     (
       v
-    ) => `<Text variant="p" tw="${v}">Freelance エンジニアに「いい案件」を。</Text>
+    ) => `<Text variant="p" className="${v}">Freelance エンジニアに「いい案件」を。</Text>
 `
   )
   .join('')}
@@ -191,7 +190,7 @@ export const Texts = (): JSX.Element => {
   return (
     <Fragment>
       {Object.values(variants).map((v) => (
-        <div tw="flex flex-col mb-4" key={v}>
+        <div className="flex flex-col mb-4" key={v}>
           <Text variant="caption">Variant: {v}</Text>
           <Text variant={v}>
             {short}

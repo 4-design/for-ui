@@ -4,18 +4,17 @@ import FormHelperText from '@mui/material/FormHelperText'
 import MuiRadioGroup, {
   RadioGroupProps as MuiRadioGroupProps,
 } from '@mui/material/RadioGroup'
-import tw, { css, TwStyle } from 'twin.macro'
 
 export interface RadioGroupProps extends MuiRadioGroupProps {
   children: React.ReactNode
   required?: boolean
   label?: string
   error?: string
-  twin?: TwStyle | TwStyle[]
+  className?: string
 }
 
 export const RadioGroup: React.VFC<RadioGroupProps> = ({
-  twin,
+  className,
   name,
   label,
   defaultValue,
@@ -29,31 +28,32 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
     <FormControl
       component="fieldset"
       error={!!error}
-      css={[
-        css`
-          > .Mui-error {
-            ${tw`m-0! mt-1! text-negative-medium-default!`}
-          }
-        `,
-      ]}
+      // css={[
+      //   css`
+      //     > .Mui-error {
+      //       ${tw`m-0! mt-1! text-negative-medium-default!`}
+      //     }
+      //   `,
+      // ]}
     >
       {label && (
-        <label css={[tw`font-sans text-s mb-2 text-shade-medium-default`]}>
+        <label className={`font-sans text-s mb-2 text-shade-medium-default`}>
           {label}
-          {required && <span tw="text-negative-medium-default">*</span>}
+          {required && <span className="text-negative-medium-default">*</span>}
         </label>
       )}
       <MuiRadioGroup
         row={row}
         name={name}
         defaultValue={defaultValue}
-        css={[tw`flex gap-x-6 gap-y-2`, twin]}
+        // css={[tw`flex gap-x-6 gap-y-2`, twin]}
+        className={`flex gap-x-6 gap-y-2 ${className}`}
         onChange={onChange}
       >
         {children}
       </MuiRadioGroup>
       {error && (
-        <FormHelperText tw="text-negative-medium-default!">
+        <FormHelperText className="text-negative-medium-default!">
           {error}
         </FormHelperText>
       )}

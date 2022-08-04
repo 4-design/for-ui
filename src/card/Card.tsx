@@ -1,5 +1,4 @@
 import React from 'react'
-import tw, { TwStyle } from 'twin.macro'
 import { Typography } from '../typography/Typography'
 
 export interface CardTitleProps {
@@ -7,14 +6,14 @@ export interface CardTitleProps {
 }
 
 export interface CardProps {
-  twin?: TwStyle[]
+  className?: string
   children: React.ReactNode
 }
 
 export interface CardHeaderProps {
   title: React.ReactNode | string
 
-  twin?: TwStyle[]
+  className?: string
   action?: React.ReactNode
 }
 
@@ -22,46 +21,43 @@ interface CardActionProps {
   children: React.ReactNode
 }
 
-export const CardTitle: React.VFC<CardTitleProps> = ({ children }) => (
+export const CardTitle: React.FC<CardTitleProps> = ({ children }) => (
   <Typography
     variant="h4"
-    twin={tw`font-sans font-bold text-shade-dark-default border-none`}
+    className="font-sans font-bold text-shade-dark-default border-none"
   >
     {children}
   </Typography>
 )
 
-export const CardAction: React.VFC<CardActionProps> = ({ children }) => (
+export const CardAction: React.FC<CardActionProps> = ({ children }) => (
   <div>{children}</div>
 )
 
-export const Card: React.VFC<CardProps> = ({ twin, children }) => (
+export const Card: React.FC<CardProps> = ({ className, children }) => (
   <section
-    css={[
-      tw`font-sans flex flex-col bg-shade-white-default overflow-y-visible shadow-main rounded-3xl`,
-      twin,
-    ]}
+    className={`font-sans flex flex-col bg-shade-white-default overflow-y-visible shadow-main rounded-3xl ${className}`}
   >
     {children}
   </section>
 )
 
-export const CardHeader: React.VFC<CardHeaderProps> = ({
-  twin,
+export const CardHeader: React.FC<CardHeaderProps> = ({
+  className,
   title,
   action,
 }) => {
   return (
-    <div css={[tw`font-sans flex justify-between pt-8 px-8`, twin]}>
+    <div className={`font-sans flex justify-between pt-8 px-8 ${className}`}>
       <CardTitle>{title}</CardTitle>
       {action && <CardAction>{action}</CardAction>}
     </div>
   )
 }
 
-export const CardBody: React.VFC<{
-  twin?: TwStyle[]
+export const CardBody: React.FC<{
+  className?: string
   children: React.ReactNode
-}> = ({ twin, children }) => {
-  return <div css={[tw`font-sans p-8 pt-6`, twin]}>{children}</div>
+}> = ({ className, children }) => {
+  return <div className={`font-sans p-8 pt-6 ${className}`}>{children}</div>
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import 'twin.macro'
 import { Story, Meta } from '@storybook/react/types-6-0'
 
 import { Tab } from './Tab'

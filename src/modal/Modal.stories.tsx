@@ -21,11 +21,11 @@ export const ModalDefault = (): JSX.Element => {
   }
 
   return (
-    <div tw="flex flex-col">
+    <div className="flex flex-col">
       <h1>Default Modal</h1>
-      <div tw="flex flex-col mt-4">
+      <div className="flex flex-col mt-4">
         <Button
-          tw="w-48"
+          className="w-48"
           color="default"
           variant="contained"
           onClick={() => setShowModal(true)}
@@ -36,7 +36,7 @@ export const ModalDefault = (): JSX.Element => {
         <Modal open={showModal} onClose={() => setShowModal(false)}>
           <ModalHeader>本当に削除してよろしいですか？</ModalHeader>
           <ModalContent>
-            <p tw="text-sm leading-5 text-shade-dark-default">
+            <p className="text-sm leading-5 text-shade-dark-default">
               アカウントを無効にしてもよろしいですか？すべてのデータは完全に削除されます。このアクションは元に戻せません。
             </p>
           </ModalContent>
@@ -45,7 +45,7 @@ export const ModalDefault = (): JSX.Element => {
               type="submit"
               variant="contained"
               color="primary"
-              tw="ml-8"
+              className="ml-8"
               onClick={onSubmit}
             >
               登録
