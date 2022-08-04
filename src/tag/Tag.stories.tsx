@@ -21,8 +21,12 @@ export default {
 
 export const Base = () => (
   <>
-    <div className="flex flex-col">
+    <div>
       <Tag label="React" />
+      <Tag
+        label="React"
+        className="bg-shade-dark-default text-shade-white-default"
+      />
       <Tag label="onDelete" onDelete={() => console.log('onDelete')} />
     </div>
   </>

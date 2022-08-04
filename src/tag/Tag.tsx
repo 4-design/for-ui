@@ -1,10 +1,20 @@
-import { VFC } from 'react'
+import { FC } from 'react'
 import MuiChip, { ChipProps as MuiChipProps } from '@mui/material/Chip'
 
-export type TagProps = MuiChipProps
+export type TagProps = MuiChipProps & {
+  className?: string
+}
 
-export const Tag: VFC<TagProps> = ({ label, onDelete, ...rest }) => {
+export const Tag: FC<TagProps> = ({ label, className, onDelete, ...rest }) => {
   return (
-    <MuiChip variant="outlined" label={label} onDelete={onDelete} {...rest} />
+    <MuiChip
+      variant="outlined"
+      label={label}
+      onDelete={onDelete}
+      classes={{
+        root: `${className}`,
+      }}
+      {...rest}
+    />
   )
 }
