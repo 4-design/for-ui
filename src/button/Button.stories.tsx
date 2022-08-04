@@ -11,7 +11,7 @@ export default {
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (Story: any) => (
-      <div className="mt-10 flex flex-col h-screen w-screen gap-4">
+      <div className="mt-10 flex h-screen w-screen flex-col gap-4">
         <Story />
       </div>
     ),
@@ -24,7 +24,7 @@ export default {
 export const Contained = (): JSX.Element => (
   <div className="flex flex-col gap-8">
     <div>
-      <div className="border-b mb-4">
+      <div className="mb-4 border-b">
         <Text variant="h3">Button/Contained/Large</Text>
       </div>
 
@@ -82,7 +82,7 @@ export const Contained = (): JSX.Element => (
     </div>
 
     <div>
-      <div className="border-b mb-4">
+      <div className="mb-4 border-b">
         <Text variant="h3">Button/Contained/Medium</Text>
       </div>
 
@@ -166,7 +166,7 @@ export const Contained = (): JSX.Element => (
 export const Outlined = (): JSX.Element => (
   <div className="flex flex-col gap-8">
     <div>
-      <div className="border-b mb-4">
+      <div className="mb-4 border-b">
         <Text variant="h3">Button/Outlined/Large</Text>
       </div>
 
@@ -224,7 +224,7 @@ export const Outlined = (): JSX.Element => (
     </div>
 
     <div>
-      <div className="border-b mb-4">
+      <div className="mb-4 border-b">
         <Text variant="h3">Button/Outlined/Medium</Text>
       </div>
 
@@ -308,7 +308,7 @@ export const Outlined = (): JSX.Element => (
 export const _Text = (): JSX.Element => (
   <div className="flex flex-col gap-8">
     <div>
-      <div className="border-b mb-4">
+      <div className="mb-4 border-b">
         <Text variant="h3">Button/Text/Large</Text>
       </div>
 
@@ -366,7 +366,7 @@ export const _Text = (): JSX.Element => (
     </div>
 
     <div>
-      <div className="border-b mb-4">
+      <div className="mb-4 border-b">
         <Text variant="h3">Button/Text/Medium</Text>
       </div>
 
@@ -438,7 +438,7 @@ export const _Text = (): JSX.Element => (
     </div>
 
     <div>
-      <div className="border-b mb-4">
+      <div className="mb-4 border-b">
         <Text variant="h3">Button/Text/Small</Text>
       </div>
 
