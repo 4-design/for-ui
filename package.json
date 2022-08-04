@@ -32,8 +32,8 @@
     "build:js": "cp ./react-table-index.js ./node_modules/react-table/index.js && NODE_ENV=production rollup -c",
     "build:js:watch": "NODE_ENV=production rollup -c --watch",
     "build": "yarn build:types && yarn build:js",
-    "lint": "eslint '**/*.{tsx,ts,js,cjs}'",
-    "lint-fix": "eslint '**/*.{tsx,ts,js,cjs}' --fix",
+    "lint": "eslint 'src/**/*.{tsx,ts,js,cjs}'",
+    "lint-fix": "eslint 'src/**/*.{tsx,ts,js,cjs}' --fix",
     "storybook": "rm -rf node_modules/.cache/storybook && start-storybook --no-manager-cache -p 6006 -s public",
     "build-storybook": "build-storybook",
     "chromatic": "chromatic --exit-zero-on-changes"
@@ -41,13 +41,14 @@
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "clsx": "^1.2.1",
     "react-dropzone": "14.2.1",
     "react-number-format": "4.9.3",
     "react-spinners": "0.12.0"
   },
   "devDependencies": {
     "@hookform/resolvers": "2.9.1",
-    "@mui/lab": "5.0.0-alpha.86",
+    "@mui/lab": "5.0.0-alpha.93",
     "@mui/material": "5.9.3",
     "@mui/types": "7.1.4",
     "@rollup/plugin-babel": "5.3.1",
