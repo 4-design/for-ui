@@ -2,7 +2,6 @@ import { Meta, Story } from '@storybook/react/types-6-0'
 import { Text } from '../typography/Typography'
 import { Step } from './Step'
 import { Stepper } from './Stepper'
-import 'twin.macro'
 
 export default {
   title: 'Navigation / Stepper',
@@ -14,7 +13,7 @@ export default {
   },
   decorators: [
     (Story: Story) => (
-      <div tw="mt-10">
+      <div className="mt-10">
         <Story />
       </div>
     ),
@@ -26,7 +25,7 @@ const steps = ['First', 'Second', 'Third', 'Last']
 const Template: Story = (args) => {
   return (
     <div>
-      <div tw="border-b mb-4">
+      <div className="border-b mb-4">
         <Text variant="h3">Stepper</Text>
       </div>
       <Stepper alternativeLabel={true} activeStep={0} {...args}>

@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react'
-import tw from 'twin.macro'
 
 import { Typography } from '../../typography'
 
@@ -10,8 +9,8 @@ type Props = {
 
 export const ModalHeader: React.FC<Props> = ({ children }) => {
   return (
-    <div tw="p-4 border-b border-shade-light-default">
-      <Typography variant="p" bold twin={tw`font-bold! text-r!`}>
+    <div className="p-4 border-b border-shade-light-default">
+      <Typography variant="p" bold className={`font-bold! text-r!`}>
         {children}
       </Typography>
     </div>

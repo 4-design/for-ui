@@ -1,33 +1,45 @@
 import React, { ReactNode } from 'react'
 import { BadgeProps } from '@mui/material/Badge'
 import MuiBadge from '@mui/material/Badge'
-import tw, { css, TwStyle } from 'twin.macro'
 
 interface Props extends BadgeProps {
-  twin?: TwStyle
+  className?: string
   children: ReactNode
 }
 
-export const Badge: React.VFC<Props> = ({
-  twin,
+export const Badge: React.FC<Props> = ({
+  className,
   badgeContent,
   children,
   ...rest
 }) => {
   return (
     <MuiBadge
+      className={`text-shade-dark-default ${className}`}
       badgeContent={badgeContent}
       color="primary"
-      css={[
-        css`
-          ${tw`text-shade-dark-default`}
+      // css={[
+      //   css`
+      //     ${tw`text-shade-dark-default`}
 
-          & .MuiBadge-badge {
-            ${tw`text-shade-dark-default`}
-          }
-        `,
-        twin,
-      ]}
+      //     & .MuiBadge-badge {
+      //       ${tw`text-shade-dark-default`}
+      //     }
+      //   `,
+      //   twin,
+      // ]}
+      // classes={{
+      //   root: 'text-secondary-dark-default',
+      //   badge: 'text-secondary-dark-default',
+      // }}
+      // componentsProps={{
+      //   root: {
+      //     className: 'w-full text-secondary-dark-default',
+      //   },
+      // }}
+      // sx={{
+      //   color: 'text-shade-dark-default',
+      // }}
       {...rest}
     >
       {children}

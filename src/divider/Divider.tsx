@@ -1,25 +1,22 @@
-import React, { VFC } from 'react'
+import React from 'react'
 import MuiDivider, {
   DividerProps as MuiDividerProps,
 } from '@mui/material/Divider'
-import tw, { css, TwStyle } from 'twin.macro'
 
-export type DividerProps = MuiDividerProps & {
-  twin?: TwStyle[]
-}
+export type DividerProps = MuiDividerProps
 
-export const Divider: VFC<DividerProps> = ({ twin }) => {
+export const Divider: React.FC<DividerProps> = () => {
   return (
     <MuiDivider
       light
-      css={[
-        css`
-          &.MuiDivider-root {
-            ${tw`border border-shade-medium-default`}
-            ${twin}
-          }
-        `,
-      ]}
+      // css={[
+      //   css`
+      //     &.MuiDivider-root {
+      //       ${tw`border border-shade-medium-default`}
+      //       ${twin}
+      //     }
+      //   `,
+      // ]}
     />
   )
 }

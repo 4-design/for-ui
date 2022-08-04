@@ -1,8 +1,6 @@
 import { PropsWithChildren } from 'react'
-import 'twin.macro'
 import Pagination from '@mui/material/Pagination'
 import { TableInstance } from 'react-table'
-import tw, { css } from 'twin.macro'
 
 // import FirstPageIcon from '@material-ui/icons/FirstPage'
 // import LastPageIcon from '@material-ui/icons/LastPage'
@@ -16,8 +14,8 @@ export function TablePagination<T extends object>({
   const { pageCount, gotoPage } = instance
 
   return (
-    <div tw="bg-shade-white-default px-4 py-3 flex items-center justify-between border-shade-light-default sm:px-6">
-      <div tw="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+    <div className="bg-shade-white-default px-4 py-3 flex items-center justify-between border-shade-light-default sm:px-6">
+      <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
         <div />
         <div>
           <Pagination
@@ -27,16 +25,16 @@ export function TablePagination<T extends object>({
             showFirstButton
             showLastButton
             onChange={(_, page: number) => gotoPage(page - 1)}
-            css={[
-              css`
-                .Mui-selected {
-                  ${tw`bg-shade-light-default rounded-md`}
-                }
-                .MuiPaginationItem-icon {
-                  ${tw`border border-shade-light-active rounded-md`}
-                }
-              `,
-            ]}
+            // css={[
+            //   css`
+            //     .Mui-selected {
+            //       ${tw`bg-shade-light-default rounded-md`}
+            //     }
+            //     .MuiPaginationItem-icon {
+            //       ${tw`border border-shade-light-active rounded-md`}
+            //     }
+            //   `,
+            // ]}
           />
         </div>
       </div>
@@ -74,15 +72,15 @@ export function TablePagination<T extends object>({
 //   })
 
 //   return (
-//     <div tw="bg-shade-white-default px-4 py-3 flex items-center justify-between border-shade-light-default sm:px-6">
-//       <div tw="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+//     <div className="bg-shade-white-default px-4 py-3 flex items-center justify-between border-shade-light-default sm:px-6">
+//       <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
 //         <div></div>
 //         <div>
-//           <nav tw="relative z-0 inline-flex">
+//           <nav className="relative z-0 inline-flex">
 //             <button
 //               onClick={() => gotoPage(0)}
 //               disabled={!canPreviousPage}
-//               tw="w-10 h-10
+//               className="w-10 h-10
 //               flex justify-center items-center
 //               ml-2 px-2 py-2 rounded-full
 //               bg-shade-white-default text-sm leading-5 font-medium
@@ -96,7 +94,7 @@ export function TablePagination<T extends object>({
 //             <button
 //               onClick={() => previousPage()}
 //               disabled={!canPreviousPage}
-//               tw="w-10 h-10 ml-2
+//               className="w-10 h-10 ml-2
 //               flex justify-center items-center
 //               px-2 py-2 rounded-full bg-shade-white-default text-sm leading-5 font-medium
 //               transition ease-in-out duration-150
@@ -108,7 +106,7 @@ export function TablePagination<T extends object>({
 //             </button>
 //             <button
 //               onClick={() => previousPage()}
-//               tw="w-10 h-10
+//               className="w-10 h-10
 //               flex justify-center items-center
 //               ml-2 px-2 py-2 rounded-full
 //               bg-primary-dark-default text-sm leading-5 font-medium text-primary-white-default
@@ -125,7 +123,7 @@ export function TablePagination<T extends object>({
 //                 return (
 //                   <button
 //                     onClick={() => gotoPage(pageIndex + index)}
-//                     tw="w-10 h-10
+//                     className="w-10 h-10
 //                     flex justify-center items-center
 //                     ml-2 px-2 py-2 rounded-full
 //                     bg-shade-white-default text-sm leading-5 font-medium
@@ -140,7 +138,7 @@ export function TablePagination<T extends object>({
 //               })}
 //             <button
 //               disabled={!canPreviousPage}
-//               tw="w-10 h-10 ml-2
+//               className="w-10 h-10 ml-2
 //               flex justify-center items-center
 //               px-2 py-2 rounded-full
 //               bg-shade-white-default text-sm leading-5 font-medium
@@ -152,7 +150,7 @@ export function TablePagination<T extends object>({
 //             </button>
 //             <button
 //               onClick={() => gotoPage(pageIndex + 9)}
-//               tw="w-10 h-10
+//               className="w-10 h-10
 //               flex justify-center items-center
 //               ml-2 px-2 py-2 rounded-full
 //               bg-shade-white-default text-sm leading-5 font-medium
@@ -165,7 +163,7 @@ export function TablePagination<T extends object>({
 //             <button
 //               onClick={() => nextPage()}
 //               disabled={!canNextPage}
-//               tw="w-10 h-10
+//               className="w-10 h-10
 //               flex justify-center items-center
 //               ml-2 px-2 py-2 rounded-full
 //               bg-shade-white-default text-sm leading-5 font-medium
@@ -179,7 +177,7 @@ export function TablePagination<T extends object>({
 //             <button
 //               onClick={() => gotoPage(pageOptions.length - 1)}
 //               disabled={!canNextPage}
-//               tw="w-10 h-10
+//               className="w-10 h-10
 //               flex justify-center items-center
 //               ml-2 px-2 py-2 rounded-full bg-shade-white-default text-sm leading-5 font-medium
 //               transition ease-in-out duration-150

@@ -1,19 +1,13 @@
 import React, { forwardRef } from 'react'
-import { SerializedStyles } from '@emotion/react'
 
 import MuiBackdrop, {
   BackdropProps as MuiBackdropProps,
 } from '@mui/material/Backdrop'
 import MuiModal, { ModalProps as MuiModalProps } from '@mui/material/Modal'
 
-import tw, { css, TwStyle } from 'twin.macro'
-
 type BackdropProps = MuiBackdropProps
 
 export type ModalProps = Omit<MuiModalProps, 'children'> & {
-  rootTwin?: (TwStyle | SerializedStyles)[]
-  twin?: (TwStyle | SerializedStyles)[]
-
   /** Whether the Dialog is open */
   open: boolean
 
@@ -28,13 +22,13 @@ const Backdrop: React.FC<BackdropProps> = ({ open, children, onClick }) => {
     <MuiBackdrop
       open={open}
       onClick={onClick}
-      css={[
-        css`
-          &.MuiBackdrop-root {
-            background-color: #001f3333;
-          }
-        `,
-      ]}
+      // css={[
+      //   css`
+      //     &.MuiBackdrop-root {
+      //       background-color: #001f3333;
+      //     }
+      //   `,
+      // ]}
     >
       {children}
     </MuiBackdrop>
@@ -42,27 +36,24 @@ const Backdrop: React.FC<BackdropProps> = ({ open, children, onClick }) => {
 }
 
 export const Modal: React.FC<ModalProps> = forwardRef(
-  ({ rootTwin, twin, open, onClose, children, ...props }, ref) => {
+  ({ open, onClose, children, ...props }, ref) => {
     return (
       <MuiModal
         ref={ref}
         open={open}
         onClose={onClose}
-        css={[rootTwin]}
+        // css={[rootTwin]}
         BackdropComponent={Backdrop}
         BackdropProps={{ onClick: onClose }}
         {...props}
       >
-        <div
-          css={[
-            tw`flex justify-center min-h-screen focus-visible:ring-0 focus-visible:outline-none`,
-          ]}
-        >
+        <div className="flex justify-center min-h-screen focus-visible:ring-0 focus-visible:outline-none">
           <div
-            css={[
-              tw`flex flex-col m-auto rounded-lg shadow-modal break-all transition-all transform bg-shade-white-default`,
-              twin,
-            ]}
+            className="flex flex-col m-auto rounded-lg shadow-modal break-all transition-all transform bg-shade-white-default"
+            // css={[
+            //   tw`flex flex-col m-auto rounded-lg shadow-modal break-all transition-all transform bg-shade-white-default`,
+            //   twin,
+            // ]}
           >
             {children}
           </div>

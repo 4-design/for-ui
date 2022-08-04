@@ -1,29 +1,21 @@
 import React from 'react'
-import { SerializedStyles } from '@emotion/react'
 import MuiTabPanel, {
   TabPanelProps as MuiTabPanelProps,
 } from '@mui/lab/TabPanel'
-import tw, { css, TwStyle } from 'twin.macro'
 
-export interface TabPanelProps extends MuiTabPanelProps {
-  twin?: (TwStyle | SerializedStyles)[]
-}
+export type TabPanelProps = MuiTabPanelProps
 
-export const TabPanel: React.VFC<TabPanelProps> = ({
-  twin,
-  value,
-  children,
-}) => {
+export const TabPanel: React.VFC<TabPanelProps> = ({ value, children }) => {
   return (
     <MuiTabPanel
-      css={[
-        css`
-          &.MuiTabPanel-root {
-            ${tw`px-0`}
-          }
-        `,
-        twin,
-      ]}
+      // css={[
+      //   css`
+      //     &.MuiTabPanel-root {
+      //       ${tw`px-0`}
+      //     }
+      //   `,
+      //   twin,
+      // ]}
       value={value}
     >
       {children}

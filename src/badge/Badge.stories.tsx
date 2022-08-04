@@ -1,5 +1,4 @@
 import React from 'react'
-import 'twin.macro'
 import { Story, Meta } from '@storybook/react/types-6-0'
 import { MdMail } from 'react-icons/md'
 import { Badge } from './Badge'
@@ -17,3 +16,15 @@ const Template: Story = () => (
 
 export const DefaultBadge = Template.bind({})
 DefaultBadge.args = {}
+
+export const CustomBadge = () => {
+  return (
+    <div className="w-10 h-10">
+      <Badge badgeContent={4}>
+        <MdMail size={24} />
+      </Badge>
+
+      <div className="bg-shade-dark-default w-10 h-10">test</div>
+    </div>
+  )
+}
