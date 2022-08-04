@@ -24,7 +24,7 @@ interface CardActionProps {
 export const CardTitle: React.FC<CardTitleProps> = ({ children }) => (
   <Typography
     variant="h4"
-    className="font-sans font-bold text-shade-dark-default border-none"
+    className="border-none font-sans font-bold text-shade-dark-default"
   >
     {children}
   </Typography>
@@ -36,7 +36,7 @@ export const CardAction: React.FC<CardActionProps> = ({ children }) => (
 
 export const Card: React.FC<CardProps> = ({ className, children }) => (
   <section
-    className={`font-sans flex flex-col bg-shade-white-default overflow-y-visible shadow-main rounded-3xl ${className}`}
+    className={`flex flex-col overflow-y-visible rounded-3xl bg-shade-white-default font-sans shadow-main ${className}`}
   >
     {children}
   </section>
@@ -48,7 +48,7 @@ export const CardHeader: React.FC<CardHeaderProps> = ({
   action,
 }) => {
   return (
-    <div className={`font-sans flex justify-between pt-8 px-8 ${className}`}>
+    <div className={`flex justify-between px-8 pt-8 font-sans ${className}`}>
       <CardTitle>{title}</CardTitle>
       {action && <CardAction>{action}</CardAction>}
     </div>
@@ -59,5 +59,5 @@ export const CardBody: React.FC<{
   className?: string
   children: React.ReactNode
 }> = ({ className, children }) => {
-  return <div className={`font-sans p-8 pt-6 ${className}`}>{children}</div>
+  return <div className={`p-8 pt-6 font-sans ${className}`}>{children}</div>
 }

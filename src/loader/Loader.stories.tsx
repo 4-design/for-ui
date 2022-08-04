@@ -9,7 +9,7 @@ export default {
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (Story: any) => (
-      <div className="mt-10 flex flex-col h-screen w-screen gap-4">
+      <div className="mt-10 flex h-screen w-screen flex-col gap-4">
         <Story />
       </div>
     ),

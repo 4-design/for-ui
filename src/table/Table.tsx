@@ -161,7 +161,7 @@ export const Table = <T extends object>(props: TableProps<T>) => {
     return (
       <tr
         {...row.getRowProps()}
-        className="border-b border-shade-medium-default transform transition duration-300 ease-in-out hover:bg-shade-light-default"
+        className="border-b border-shade-medium-default transition duration-300 ease-in-out hover:bg-shade-light-default"
         // css={[
         //   tw`border-b border-shade-medium-default transform transition duration-300 ease-in-out hover:bg-shade-light-default`,
         //   (onSelectRow || onSelectRows) && tw`cursor-pointer`,
@@ -187,11 +187,11 @@ export const Table = <T extends object>(props: TableProps<T>) => {
             <tr
               {...headerGroup.getHeaderGroupProps()}
               key={i}
-              className="border-b border-shade-medium-default table-row align-middle"
+              className="table-row border-b border-shade-medium-default align-middle"
             >
               {headerGroup.headers.map((column, j) => (
                 <th
-                  className="p-3 text-base text-shade-dark-default text-left whitespace-nowrap bg-shade-white-default z-30"
+                  className="z-30 whitespace-nowrap bg-shade-white-default p-3 text-left text-base text-shade-dark-default"
                   scope="col"
                   {...column.getHeaderProps({
                     style: {

@@ -23,7 +23,7 @@ const Template: Story = () => {
     <div className="flex flex-col">
       <h1>Tab</h1>
 
-      <div className="flex flex-col mt-8">
+      <div className="mt-8 flex flex-col">
         <TabContext value={value}>
           <Tabs value={value} onChange={handleChange}>
             <Tab value="1" label="Item One" minWidth={0} />
@@ -43,7 +43,7 @@ const Template: Story = () => {
         </TabContext>
       </div>
 
-      <div className="flex flex-col mt-8">
+      <div className="mt-8 flex flex-col">
         <TabContext value={value}>
           <Tabs value={value} onChange={handleChange} color="primary">
             <Tab value="1" label="Item One" minWidth={0} />
@@ -63,7 +63,7 @@ const Template: Story = () => {
         </TabContext>
       </div>
 
-      <div className="flex flex-col mt-8">
+      <div className="mt-8 flex flex-col">
         <TabContext value={value}>
           <Tabs value={value} onChange={handleChange} color="shade">
             <Tab value="1" label="Item One" minWidth={0} />
@@ -83,7 +83,7 @@ const Template: Story = () => {
         </TabContext>
       </div>
 
-      <div className="flex flex-col mt-8">
+      <div className="mt-8 flex flex-col">
         <TabContext value={value}>
           <Tabs value={value} onChange={handleChange} color="shade" noBorder>
             <Tab value="1" label="Item One" minWidth={0} />
@@ -116,7 +116,7 @@ const Template2: Story = () => {
   return (
     <div className="flex flex-col">
       <h1>Reverse Tab</h1>
-      <div className="flex flex-col mt-8">
+      <div className="mt-8 flex flex-col">
         <TabContext value={value}>
           <Tabs value={value} onChange={handleChange} reverse>
             <Tab value="1" label="Item One" minWidth={0} />
@@ -136,7 +136,7 @@ const Template2: Story = () => {
         </TabContext>
       </div>
 
-      <div className="flex flex-col mt-8">
+      <div className="mt-8 flex flex-col">
         <TabContext value={value}>
           <Tabs value={value} onChange={handleChange} color="primary" reverse>
             <Tab value="1" label="Item One" minWidth={0} />
@@ -156,7 +156,7 @@ const Template2: Story = () => {
         </TabContext>
       </div>
 
-      <div className="flex flex-col mt-8">
+      <div className="mt-8 flex flex-col">
         <TabContext value={value}>
           <Tabs value={value} onChange={handleChange} color="shade" reverse>
             <Tab value="1" label="Item One" minWidth={0} />
@@ -176,7 +176,7 @@ const Template2: Story = () => {
         </TabContext>
       </div>
 
-      <div className="flex flex-col mt-8">
+      <div className="mt-8 flex flex-col">
         <TabContext value={value}>
           <Tabs
             value={value}
@@ -219,7 +219,7 @@ export const WithTabList: Story = () => {
     <div className="flex flex-col">
       <h1>Tab</h1>
 
-      <div className="flex flex-col mt-8">
+      <div className="mt-8 flex flex-col">
         <TabContext value={value}>
           <TabList onChange={handleChange}>
             <Tab value="1" label="Item One" minWidth={0} />
@@ -239,7 +239,7 @@ export const WithTabList: Story = () => {
         </TabContext>
       </div>
 
-      <div className="flex flex-col mt-8">
+      <div className="mt-8 flex flex-col">
         <TabContext value={value}>
           <TabList onChange={handleChange} color="primary">
             <Tab value="1" label="Item One" minWidth={0} />
@@ -259,7 +259,7 @@ export const WithTabList: Story = () => {
         </TabContext>
       </div>
 
-      <div className="flex flex-col mt-8">
+      <div className="mt-8 flex flex-col">
         <TabContext value={value}>
           <TabList onChange={handleChange} color="shade">
             <Tab value="1" label="Item One" minWidth={0} />
@@ -279,7 +279,7 @@ export const WithTabList: Story = () => {
         </TabContext>
       </div>
 
-      <div className="flex flex-col mt-8">
+      <div className="mt-8 flex flex-col">
         <TabContext value={value}>
           <TabList onChange={handleChange} color="shade" noBorder>
             <Tab value="1" label="Item One" minWidth={0} />

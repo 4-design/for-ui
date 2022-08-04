@@ -11,7 +11,7 @@ export default {
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (Story: any) => (
-      <div className="mt-10 flex flex-col h-screen w-screen gap-4">
+      <div className="mt-10 flex h-screen w-screen flex-col gap-4">
         <Story />
       </div>
     ),
@@ -30,7 +30,7 @@ export const Base = (): JSX.Element => {
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="border-b mb-4">
+      <div className="mb-4 border-b">
         <Text variant="h3">Radio</Text>
       </div>
 
@@ -86,7 +86,7 @@ export const WithLabel = (): JSX.Element => {
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="border-b mb-4">
+      <div className="mb-4 border-b">
         <Text variant="h3">Radio</Text>
       </div>
 
@@ -121,7 +121,7 @@ export const WithNopadding = (): JSX.Element => {
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="border-b mb-4">
+      <div className="mb-4 border-b">
         <Text variant="h3">Radio</Text>
       </div>
 

@@ -26,8 +26,8 @@ export const HeaderRight: React.FC<HeaderRightProps> = ({
 
 export const Header: React.FC<HeaderProps> = ({ children }) => {
   return (
-    <header className="relative h-16 px-6 z-header flex flex-shrink-0 items-center border-b border-shade-light-default">
-      <div className="flex justify-between flex-1">{children}</div>
+    <header className="relative z-header flex h-16 shrink-0 items-center border-b border-shade-light-default px-6">
+      <div className="flex flex-1 justify-between">{children}</div>
     </header>
   )
 }

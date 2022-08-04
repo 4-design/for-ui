@@ -18,14 +18,14 @@ export const TableCell: React.VFC<TableCellProps> = ({
     <>
       {component === 'td' ? (
         <td
-          className={`p-3 font-normal text-left text-shade-dark-default ${className}`}
+          className={`p-3 text-left font-normal text-shade-dark-default ${className}`}
           {...rest}
         >
           {children}
         </td>
       ) : (
         <th
-          className={`p-3 font-normal text-left text-shade-dark-default ${className}`}
+          className={`p-3 text-left font-normal text-shade-dark-default ${className}`}
           {...rest}
         >
           {children}
