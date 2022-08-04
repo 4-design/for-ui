@@ -1,7 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react/types-6-0'
 
-import 'twin.macro'
 import { Text } from '../typography/Typography'
 import { Radio } from './Radio'
 import { RadioGroup } from './RadioGroup'
@@ -12,7 +11,7 @@ export default {
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (Story: any) => (
-      <div tw="mt-10 flex flex-col h-screen w-screen gap-4">
+      <div className="mt-10 flex flex-col h-screen w-screen gap-4">
         <Story />
       </div>
     ),
@@ -30,8 +29,8 @@ export const Base = (): JSX.Element => {
   }
 
   return (
-    <div tw="flex flex-col gap-8">
-      <div tw="border-b mb-4">
+    <div className="flex flex-col gap-8">
+      <div className="border-b mb-4">
         <Text variant="h3">Radio</Text>
       </div>
 
@@ -86,8 +85,8 @@ export const WithLabel = (): JSX.Element => {
   }
 
   return (
-    <div tw="flex flex-col gap-8">
-      <div tw="border-b mb-4">
+    <div className="flex flex-col gap-8">
+      <div className="border-b mb-4">
         <Text variant="h3">Radio</Text>
       </div>
 
@@ -121,8 +120,8 @@ export const WithNopadding = (): JSX.Element => {
   }
 
   return (
-    <div tw="flex flex-col gap-8">
-      <div tw="border-b mb-4">
+    <div className="flex flex-col gap-8">
+      <div className="border-b mb-4">
         <Text variant="h3">Radio</Text>
       </div>
 

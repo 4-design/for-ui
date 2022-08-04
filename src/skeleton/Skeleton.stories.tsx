@@ -2,7 +2,6 @@ import React from 'react'
 import Avatar from '@mui/material/Avatar'
 import AvatarGroup from '@mui/material/AvatarGroup'
 import { Meta } from '@storybook/react/types-6-0'
-import tw from 'twin.macro'
 
 import { Text, Typography } from '../typography'
 import { Skeleton, SkeletonX } from './Skeleton'
@@ -13,7 +12,7 @@ export default {
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (Story: any) => (
-      <div tw="">
+      <div className="">
         <Story />
       </div>
     ),
@@ -31,7 +30,7 @@ export const WithText = () => {
   }, [])
 
   return (
-    <div tw="flex flex-col">
+    <div className="flex flex-col">
       <Skeleton loading={loading}>
         <Typography variant="h1">H1. Heading</Typography>
       </Skeleton>
@@ -63,10 +62,10 @@ export const WithImage = () => {
   }, [])
 
   return (
-    <div tw="flex flex-col">
+    <div className="flex flex-col">
       <Skeleton loading={loading} variant="circular">
         <img
-          tw="h-8 w-8 rounded-full"
+          className="h-8 w-8 rounded-full"
           src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         />
       </Skeleton>
@@ -119,7 +118,7 @@ export const WithCount = () => {
   }, [])
 
   return (
-    <div tw="flex flex-col">
+    <div className="flex flex-col">
       <Skeleton loading={loading} count={10}>
         <Typography variant="h1">H1. Heading</Typography>
         <Typography variant="h1">H1. Heading</Typography>
@@ -137,64 +136,68 @@ export const WithNest = () => {
   }, [])
 
   return (
-    <div tw="flex flex-col">
+    <div className="flex flex-col">
       <SkeletonX loading={loading} variant="text">
         <Row>
-          <Text bold variant="caption" twin={tw`text-shade-dark-default mb-2`}>
+          <Text
+            bold
+            variant="caption"
+            className={tw`text-shade-dark-default mb-2`}
+          >
             サービス名
           </Text>
 
-          <Text variant="caption" twin={tw`text-shade-dark-default`}>
+          <Text variant="caption" className={tw`text-shade-dark-default`}>
             {undefined}
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" twin={tw`text-shade-dark-default`}>
+          <Text bold variant="caption" className={`text-shade-dark-default`}>
             サービス概要
           </Text>
 
-          <Text variant="caption" twin={tw`text-shade-dark-default`}>
+          <Text variant="caption" className={`text-shade-dark-default`}>
             「Reckoner」は、個人が簡単にモノの売り買いが楽しめるフリマアプリです。AIによる不正の監視や独自の入金システムにより、誰でも安心・安全な取引が行えます。
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" twin={tw`text-shade-dark-default`}>
+          <Text bold variant="caption" className={`text-shade-dark-default`}>
             使用中のインフラサービス
           </Text>
 
-          <Text variant="caption" twin={tw`text-shade-dark-default`}>
+          <Text variant="caption" className={`text-shade-dark-default`}>
             Google Cloud
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" twin={tw`text-shade-dark-default`}>
+          <Text bold variant="caption" className={`text-shade-dark-default`}>
             停止の際の影響範囲
           </Text>
 
-          <Text variant="caption" twin={tw`text-shade-dark-default`}>
+          <Text variant="caption" className={`text-shade-dark-default`}>
             顧客がReckoner上で取引が出来ない
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" twin={tw`text-shade-dark-default`}>
+          <Text bold variant="caption" className={`text-shade-dark-default`}>
             構成図リンク
           </Text>
 
-          <Text variant="caption" twin={tw`text-shade-dark-default`}>
+          <Text variant="caption" className={`text-shade-dark-default`}>
             https://3-shake.com
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" twin={tw`text-shade-dark-default`}>
+          <Text bold variant="caption" className={`text-shade-dark-default`}>
             トラフィック·ピーク時間帯
           </Text>
 
-          <Text variant="caption" twin={tw`text-shade-dark-default`}>
+          <Text variant="caption" className={`text-shade-dark-default`}>
             00:00 ~ 24:00
           </Text>
         </Row>
@@ -203,4 +206,6 @@ export const WithNest = () => {
   )
 }
 
-const Row = ({ children }) => <div tw="flex flex-col gap-2">{children}</div>
+const Row = ({ children }) => (
+  <div className="flex flex-col gap-2">{children}</div>
+)

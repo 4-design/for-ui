@@ -2,20 +2,19 @@ import React from 'react'
 import MuiIconButton, {
   IconButtonProps as MuiIconButtonProps,
 } from '@mui/material/IconButton'
-import tw, { TwStyle } from 'twin.macro'
 
 export type IconButtonProps = MuiIconButtonProps & {
-  twin?: TwStyle[]
+  className?: string
   children?: React.ReactNode
 }
 
 export const IconButton: React.VFC<IconButtonProps> = ({
-  twin,
+  className,
   children,
   ...rect
 }) => {
   return (
-    <MuiIconButton css={[tw`focus:outline-none`, twin]} {...rect}>
+    <MuiIconButton className={`focus:outline-none ${className}`} {...rect}>
       {children}
     </MuiIconButton>
   )

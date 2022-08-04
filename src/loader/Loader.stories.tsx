@@ -1,5 +1,4 @@
 import React from 'react'
-import 'twin.macro'
 import { Meta } from '@storybook/react/types-6-0'
 
 import { Loader } from './Loader'
@@ -10,7 +9,7 @@ export default {
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (Story: any) => (
-      <div tw="mt-10 flex flex-col h-screen w-screen gap-4">
+      <div className="mt-10 flex flex-col h-screen w-screen gap-4">
         <Story />
       </div>
     ),
@@ -21,13 +20,13 @@ export default {
 } as Meta
 
 export const Base = () => (
-  <div tw="flex flex-col">
+  <div className="flex flex-col">
     <Loader color="#00bfbf" loading={true} />
   </div>
 )
 
 export const WithText = () => (
-  <div tw="flex flex-col">
+  <div className="flex flex-col">
     <Loader color="#00bfbf" loading={true} text="リダイレクトします。。。。" />
   </div>
 )

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Story, Meta } from '@storybook/react/types-6-0'
 import { MdNotifications } from 'react-icons/md'
-import tw from 'twin.macro'
 
 import { IconButton } from '../icon/Icon'
 import { MenuItem } from '../menu'
@@ -27,11 +26,11 @@ const Template: Story = () => {
       </HeaderLeft>
       <HeaderRight>
         <>
-          <IconButton twin={[tw`bg-shade-white-default`]}>
+          <IconButton className={`bg-shade-white-default`}>
             <MdNotifications size={36} />
           </IconButton>
 
-          <div tw="relative ml-3">
+          <div className="relative ml-3">
             <Menu open={open}>
               <MenuItem>
                 <a href="#" role="menuitem">

@@ -1,5 +1,4 @@
 import React from 'react'
-import 'twin.macro'
 import { Meta } from '@storybook/react/types-6-0'
 import { useForm } from 'react-hook-form'
 
@@ -18,7 +17,7 @@ export const Basic = (): JSX.Element => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div tw="flex flex-col mb-2">
+      <div className="flex flex-col mb-2">
         <Checkbox
           value="required"
           label="チェックボックス A"
@@ -31,7 +30,7 @@ export const Basic = (): JSX.Element => {
         />
       </div>
 
-      <div tw="flex flex-col mb-4">
+      <div className="flex flex-col mb-4">
         <Checkbox
           disabled
           value="required"
@@ -57,7 +56,7 @@ export const WithNopadding = (): JSX.Element => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div tw="flex flex-col gap-4">
+      <div className="flex flex-col gap-4">
         <Checkbox
           nopadding
           value="required"

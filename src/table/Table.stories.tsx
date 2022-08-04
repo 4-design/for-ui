@@ -2,7 +2,6 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react/types-6-0'
 import { MdMoreVert } from 'react-icons/md'
 import { CellProps, Column } from 'react-table'
-import tw from 'twin.macro'
 
 import { IconButton } from '../icon'
 import { PersonData, StaticPersonData } from '../utils/makeData'
@@ -49,7 +48,7 @@ const basicColumns: Array<Column<PersonData>> = [
     Header: '',
     accessor: 'status',
     Cell: ({ cell: { getCellProps } }) => (
-      <TableCell {...getCellProps()} twin={tw`px-0 text-center`}>
+      <TableCell {...getCellProps()} className={`px-0 text-center`}>
         <IconButton>
           <MdMoreVert />
         </IconButton>
@@ -68,7 +67,7 @@ const withImageColumns: Array<Column<PersonData>> = [
     accessor: 'image',
     Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
       <TableCell {...getCellProps()} component="th">
-        <img height="68" tw="my-8 shadow-image" src={value} alt="logo" />
+        <img height="68" className="my-8 shadow-image" src={value} alt="logo" />
       </TableCell>
     ),
   },
@@ -105,7 +104,7 @@ const withImageColumns: Array<Column<PersonData>> = [
     accessor: 'status',
     width: 50,
     Cell: ({ cell: { getCellProps } }) => (
-      <TableCell {...getCellProps()} twin={tw`px-0`}>
+      <TableCell {...getCellProps()} className={`px-0`}>
         <IconButton>
           <MdMoreVert />
         </IconButton>

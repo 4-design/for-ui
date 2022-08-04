@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require("path");
+
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 // fontSizes is separeted for the legacy support of fontSizes.
@@ -338,7 +341,11 @@ const fontSizes = {
 }
 
 module.exports = {
-  important: true,
+  important: '#root',
+  corePlugins: {
+    preflight: false,
+  },
+  content: [path.join(__dirname, "./src/**/*.(js|jsx|ts|tsx)")],
   theme: {
     textColor: {
       transparent: 'transparent',

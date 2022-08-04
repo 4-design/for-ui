@@ -1,18 +1,16 @@
 import React from 'react'
 import { TableCellProps as ReactTableCellProps } from 'react-table'
-import tw, { TwStyle } from 'twin.macro'
 
 export interface TableCellProps extends ReactTableCellProps {
   children: React.ReactNode
 
   component?: 'th' | 'td'
-
-  twin?: TwStyle | TwStyle[]
+  className?: string
 }
 
 export const TableCell: React.VFC<TableCellProps> = ({
   component = 'td',
-  twin,
+  className,
   children,
   ...rest
 }) => {
@@ -20,14 +18,14 @@ export const TableCell: React.VFC<TableCellProps> = ({
     <>
       {component === 'td' ? (
         <td
-          css={[tw`p-3 font-normal text-left text-shade-dark-default`, twin]}
+          className={`p-3 font-normal text-left text-shade-dark-default ${className}`}
           {...rest}
         >
           {children}
         </td>
       ) : (
         <th
-          css={[tw`p-3 font-normal text-left text-shade-dark-default`, twin]}
+          className={`p-3 font-normal text-left text-shade-dark-default ${className}`}
           {...rest}
         >
           {children}
