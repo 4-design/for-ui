@@ -16,15 +16,3 @@ const Template: Story = () => (
 
 export const DefaultBadge = Template.bind({})
 DefaultBadge.args = {}
-
-export const CustomBadge = () => {
-  return (
-    <div className="w-10 h-10">
-      <Badge badgeContent={4}>
-        <MdMail size={24} />
-      </Badge>
-
-      <div className="bg-shade-dark-default w-10 h-10">test</div>
-    </div>
-  )
-}
