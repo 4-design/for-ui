@@ -25,7 +25,7 @@ const Indicator: FC<{ checked: boolean; disabled: boolean }> = ({
   />
 )
 
-const _Radio: FC<RadioProps> = memo(({ nopadding, disabled, ...rest }) => (
+const _Radio: FC<RadioProps> = memo(({ disabled, ...rest }) => (
   <MuiRadio
     disableRipple
     icon={<Indicator checked={false} disabled={!!disabled} />}

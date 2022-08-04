@@ -10,12 +10,7 @@ export type SwitchProps = Omit<FormControlLabelProps, 'control'> & {
   disable?: boolean
 }
 
-export const Switch: React.FC<SwitchProps> = ({
-  className,
-  value,
-  disabled,
-  ...rest
-}) => {
+export const Switch: React.FC<SwitchProps> = ({ value, disabled, ...rest }) => {
   return (
     <FormControlLabel
       control={
