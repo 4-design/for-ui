@@ -28,11 +28,8 @@ jobs:
         with:
           fail_on_error: true
           reporter: github-pr-review # Change reporter.
-          eslint_flags: '. --ext .ts,.js,.tsx,.jsx,.cjs -c .eslintrc.js'
+          eslint_flags: "'**/*.{tsx,ts,js,cjs}'"
           github_token: ${{ github.token }}
-
-      - name: run prettier
-        run: yarn lint
 
       - name: run tsc
         run: yarn build:types
