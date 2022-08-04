@@ -2,9 +2,11 @@ import React, { Children, ReactNode } from 'react'
 import LoadingButton, { LoadingButtonProps } from '@mui/lab/LoadingButton'
 import clsx from 'clsx'
 
-export interface ButtonProps extends Omit<LoadingButtonProps, 'color'> {
+export type ButtonProps = Omit<LoadingButtonProps, 'color' | 'variant'> & {
   className?: string
-  color?: 'primary' | 'default' | 'danger'
+
+  // NOTE: duplicated "contained"
+  variant?: 'filled' | 'contained' | 'outlined' | 'text'
 }
 
 const sizes = {
@@ -52,67 +54,64 @@ const loadingIndicatorEndStyles = {
   text: '',
 }
 
-export const Button: React.VFC<
-  ButtonProps & {
-    // NOTE: duplicated
-    pending?: boolean
-  }
-> = (props) => {
-  const {
-    type = 'button',
-    // eslint-disable-next-line unused-imports/no-unused-vars
-    color = 'primary',
-    variant = 'contained',
-    size = 'large',
-    loadingPosition = 'center',
-    disabled = false,
-    pending = false,
-    startIcon,
-    endIcon,
-    children,
-    onClick,
-    ...rest
-  } = props
+export const Button: React.ForwardRefExoticComponent<ButtonProps> =
+  React.forwardRef((props, ref) => {
+    const {
+      type = 'button',
+      variant = 'filled',
+      size = 'large',
+      loadingPosition = 'center',
+      disabled = false,
+      loading = false,
+      startIcon,
+      endIcon,
+      children,
+      onClick,
+      ...rest
+    } = props
 
-  const label: string = Children.toArray(props.children).reduce<string>(
-    (acc: string, child: ReactNode): string => {
-      if (typeof child === 'string' || typeof child === 'number') {
-        return acc.concat(child.toString())
-      }
-      return acc
-    },
-    ''
-  )
+    const label: string = Children.toArray(props.children).reduce<string>(
+      (acc: string, child: ReactNode): string => {
+        if (typeof child === 'string' || typeof child === 'number') {
+          return acc.concat(child.toString())
+        }
+        return acc
+      },
+      ''
+    )
 
-  return (
-    <LoadingButton
-      type={type}
-      variant={variant}
-      startIcon={startIcon}
-      endIcon={endIcon}
-      loading={pending}
-      loadingPosition={loadingPosition}
-      disabled={disabled}
-      onClick={onClick}
-      aria-label={label || props['aria-label'] || 'button'}
-      classes={{
-        root: clsx([
-          'flex h-max-content max-w-max cursor-pointer whitespace-nowrap rounded-lg px-6 py-2 font-sans text-r font-medium shadow-none transition hover:shadow-none focus:outline-none disabled:cursor-not-allowed',
-          defaultStyles[variant],
-          hoverStyles[variant],
-          sizes[size],
-        ]),
-        disabled: clsx([
-          disableStyles[variant],
-          pending && loadingPosition === 'center' && 'text-transparent',
-        ]),
-        loadingIndicator: clsx([loadingIndicatorStyles[variant]]),
-        loadingIndicatorStart: clsx([loadingIndicatorStartStyles[variant]]),
-        loadingIndicatorEnd: clsx([loadingIndicatorEndStyles[variant]]),
-      }}
-      {...rest}
-    >
-      {children}
-    </LoadingButton>
-  )
-}
+    const _variant = variant === 'filled' ? 'contained' : variant
+
+    return (
+      <LoadingButton
+        ref={ref}
+        type={type}
+        variant={_variant}
+        startIcon={startIcon}
+        endIcon={endIcon}
+        loading={loading}
+        loadingPosition={loadingPosition}
+        disabled={disabled}
+        onClick={onClick}
+        aria-label={label || props['aria-label'] || 'button'}
+        classes={{
+          root: clsx([
+            'flex h-max-content max-w-max cursor-pointer whitespace-nowrap rounded-lg px-6 py-2 font-sans text-r font-medium shadow-none transition hover:shadow-none focus:outline-none disabled:cursor-not-allowed',
+            defaultStyles[_variant],
+            hoverStyles[_variant],
+            sizes[size],
+          ]),
+          disabled: clsx([
+            disableStyles[_variant],
+            loading && loadingPosition === 'center' && 'text-transparent',
+          ]),
+          loadingIndicator: clsx([loadingIndicatorStyles[_variant]]),
+          loadingIndicatorStart: clsx([loadingIndicatorStartStyles[_variant]]),
+          loadingIndicatorEnd: clsx([loadingIndicatorEndStyles[_variant]]),
+        }}
+        {...rest}
+      >
+        {children}
+      </LoadingButton>
+    )
+  })
