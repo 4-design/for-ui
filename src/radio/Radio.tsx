@@ -8,10 +8,7 @@ export interface RadioProps extends MuiRadioProps {
   nopadding?: boolean
 }
 
-const Indicator: FC<{ checked: boolean; disabled: boolean }> = ({
-  checked,
-  disabled,
-}) => (
+const Indicator: FC<{ checked: boolean; disabled: boolean }> = () => (
   <span
   // css={[
   //   tw`w-5 h-5 bg-shade-white-default rounded-full transition-[border-width] duration-100`,

@@ -83,9 +83,9 @@ const mapVariantToTag: { [key in Variant]: React.ElementType } = {
 export const Typography: React.FC<Props> = ({
   className,
   children,
-  bold = false,
+  // bold = false,
   variant = 'p',
-  disabled = false,
+  // disabled = false,
 }) => {
   const ElementType: React.ElementType = mapVariantToTag[variant]
   return (

@@ -5,7 +5,7 @@ type Props = {
   children: React.ReactNode
 }
 
-export const TableScroller: React.FC<Props> = ({ height, children }) => (
+export const TableScroller: React.FC<Props> = ({ children }) => (
   <div
   // css={[
   //   tw`overflow-y-auto`,
