@@ -47,9 +47,9 @@ export const Modal: React.FC<ModalProps> = forwardRef(
         BackdropProps={{ onClick: onClose }}
         {...props}
       >
-        <div className="flex justify-center min-h-screen focus-visible:ring-0 focus-visible:outline-none">
+        <div className="flex min-h-screen justify-center focus-visible:outline-none focus-visible:ring-0">
           <div
-            className="flex flex-col m-auto rounded-lg shadow-modal break-all transition-all transform bg-shade-white-default"
+            className="m-auto flex flex-col break-all rounded-lg bg-shade-white-default shadow-modal transition-all"
             // css={[
             //   tw`flex flex-col m-auto rounded-lg shadow-modal break-all transition-all transform bg-shade-white-default`,
             //   twin,

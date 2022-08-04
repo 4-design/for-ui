@@ -8,7 +8,7 @@ type Props = {
 
 export const ModalFooter: React.FC<Props> = ({ children }) => {
   return (
-    <div className="p-4 flex flex-row-reverse border-t border-shade-light-default">
+    <div className="flex flex-row-reverse border-t border-shade-light-default p-4">
       {children}
     </div>
   )

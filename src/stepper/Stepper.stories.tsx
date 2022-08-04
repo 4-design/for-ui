@@ -25,7 +25,7 @@ const steps = ['First', 'Second', 'Third', 'Last']
 const Template: Story = (args) => {
   return (
     <div>
-      <div className="border-b mb-4">
+      <div className="mb-4 border-b">
         <Text variant="h3">Stepper</Text>
       </div>
       <Stepper alternativeLabel={true} activeStep={0} {...args}>

@@ -37,7 +37,7 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
       // ]}
     >
       {label && (
-        <label className={`font-sans text-s mb-2 text-shade-medium-default`}>
+        <label className={`mb-2 font-sans text-s text-shade-medium-default`}>
           {label}
           {required && <span className="text-negative-medium-default">*</span>}
         </label>
