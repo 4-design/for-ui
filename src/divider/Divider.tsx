@@ -3,20 +3,17 @@ import MuiDivider, {
   DividerProps as MuiDividerProps,
 } from '@mui/material/Divider'
 
-export type DividerProps = MuiDividerProps
+export type DividerProps = MuiDividerProps & {
+  className?: string
+}
 
-export const Divider: React.FC<DividerProps> = () => {
+export const Divider: React.FC<DividerProps> = ({ className }) => {
   return (
     <MuiDivider
       light
-      // css={[
-      //   css`
-      //     &.MuiDivider-root {
-      //       ${tw`border border-shade-medium-default`}
-      //       ${twin}
-      //     }
-      //   `,
-      // ]}
+      classes={{
+        root: `border border-shade-medium-default ${className}`,
+      }}
     />
   )
 }
