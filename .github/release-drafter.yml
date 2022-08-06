@@ -26,6 +26,11 @@ categories:
     labels:
       - 'dependencies'
 autolabeler:
+  - label: release
+    branch:
+      - '/^release(s)?[/-].+/'
+    title:
+      - '/^release(s)?[/-].+/'
   - label: feat
     branch:
       - '/^feat(ure)?[/-].+/'
