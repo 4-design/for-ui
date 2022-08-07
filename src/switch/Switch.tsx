@@ -3,43 +3,38 @@ import FormControlLabel, {
   FormControlLabelProps,
 } from '@mui/material/FormControlLabel'
 import MuiSwitch from '@mui/material/Switch'
+import clsx from 'clsx'
 
 export type SwitchProps = Omit<FormControlLabelProps, 'control'> & {
-  className?: string
   value?: unknown
   disable?: boolean
 }
 
-export const Switch: React.FC<SwitchProps> = ({ value, disabled, ...rest }) => {
+export const Switch: React.FC<SwitchProps> = ({
+  value,
+  checked,
+  disabled,
+  ...rest
+}) => {
   return (
     <FormControlLabel
       control={
         <MuiSwitch
           value={value}
+          checked={checked}
           disabled={disabled}
-          // css={[
-          //   css`
-          //     ${tw`w-11 h-6 p-0 mr-2 my-2`}
-          //     .MuiSwitch-switchBase {
-          //       &.Mui-checked + .MuiSwitch-track {
-          //         ${tw`bg-secondary-dark-default opacity-100`}
-          //       }
-          //       &.Mui-checked.Mui-disabled + .MuiSwitch-track {
-          //         ${tw`bg-secondary-dark-disabled opacity-100`}
-          //       }
-          //       &.Mui-disabled + .MuiSwitch-track {
-          //         ${tw`bg-primary-dark-disabled opacity-100`}
-          //       }
-          //     }
-          //     .MuiSwitch-track {
-          //       ${tw`block w-full h-full rounded-xl bg-primary-dark-default opacity-100`}
-          //     }
-          //     .MuiSwitch-thumb {
-          //       ${tw` w-4 h-4 absolute top-1 left-1 rounded-2xl transition-all duration-200 ease-in bg-shade-white-default`}
-          //     }
-          //   `,
-          //   twin,
-          // ]}
+          classes={{
+            root: clsx(['my-2 mr-2 h-6 w-11 p-0']),
+            track: clsx([
+              'block h-full w-full rounded-xl bg-primary-dark-default opacity-100',
+              checked && 'bg-secondary-dark-default opacity-100',
+              disabled && 'bg-primary-dark-disabled opacity-100',
+              checked && disabled && 'bg-secondary-dark-disabled opacity-100',
+            ]),
+            thumb: clsx([
+              'absolute top-1 left-1 h-4 w-4 rounded-2xl bg-shade-white-default transition-all duration-200 ease-in',
+            ]),
+          }}
         />
       }
       {...rest}
