@@ -39,7 +39,7 @@ const rootStyles = (clickable: boolean) => {
   }
 }
 
-const labelStyles = (clickable: boolean) => {
+const labelStyles = (_: boolean) => {
   return {
     negative: clsx(['text-negative-medium-default']),
     white: clsx(['text-shade-dark-default']),
@@ -47,7 +47,7 @@ const labelStyles = (clickable: boolean) => {
   }
 }
 
-const iconStyles = (clickable: boolean) => {
+const iconStyles = (_: boolean) => {
   return {
     negative: clsx(['icon-negative-medium-default']),
     white: clsx(['icon-shade-dark-default']),
