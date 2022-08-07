@@ -20,21 +20,16 @@ export const SwitchGroup: React.VFC<RadioGroupProps> = ({
   children,
 }) => {
   return (
-    <FormControl
-      component="fieldset"
-      error={!!error}
-      // css={[
-      //   css`
-      //     > .Mui-error {
-      //       ${tw`text-negative-medium-default!`}
-      //     }
-      //   `,
-      // ]}
-    >
+    <FormControl component="fieldset" error={!!error}>
       {label && <FormLabel component="legend">{label}</FormLabel>}
       <FormGroup row={row}>{children}</FormGroup>
       {error && (
-        <FormHelperText className="text-negative-medium-default!">
+        <FormHelperText
+          classes={{
+            root: 'text-negative-medium-default',
+            error: 'text-negative-medium-default',
+          }}
+        >
           {error}
         </FormHelperText>
       )}
