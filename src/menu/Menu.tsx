@@ -1,7 +1,10 @@
 import React, { forwardRef } from 'react'
 import MuiMenu, { MenuProps as MuiMenuProps } from '@mui/material/Menu'
+import clsx from 'clsx'
 
-export type MenuProps = MuiMenuProps
+export type MenuProps = MuiMenuProps & {
+  className?: string
+}
 
 export const Menu = forwardRef<HTMLDivElement, MenuProps>(
   (
@@ -30,26 +33,13 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
         anchorOrigin={anchorOrigin}
         transformOrigin={transformOrigin}
         onClose={onClose}
-        // css={[
-        //   css`
-        //     & .MuiMenu-paper {
-        //       ${tw`(z-modal py-1 min-w-min rounded-[4px] shadow-menu transform translate-y-2)!`}
-
-        //       & .MuiList-root {
-        //         ${tw`(grid grid-cols-1 divide-y divide-shade-light-default)!`}
-        //       }
-        //     }
-
-        //     & .MuiMenu-list {
-        //       ${tw`divide-y! divide-shade-light-default!`}
-        //     }
-
-        //     & .MuiList-padding {
-        //       ${tw`py-0`}
-        //     }
-        //   `,
-        //   twin,
-        // ]}
+        classes={{
+          root: clsx(['translate-y-2']),
+          paper: clsx(['z-modal min-w-min  rounded-[4px] py-1 shadow-menu']),
+          list: clsx([
+            'grid grid-cols-1 divide-y divide-shade-light-default py-0',
+          ]),
+        }}
         {...rest}
       >
         {children}

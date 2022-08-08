@@ -3,6 +3,7 @@ import {
   StyledEngineProvider,
   createTheme,
 } from '@mui/material/styles'
+import { createRoot } from 'react-dom/client'
 
 import React from 'react'
 import { CssBaseline, GlobalStyles } from '@mui/material'
@@ -28,13 +29,32 @@ export const parameters = {
   },
 }
 
+const rootElement = document.getElementById('root')
+
+const theme = createTheme({
+  components: {
+    MuiPopover: {
+      defaultProps: {
+        container: rootElement,
+      },
+    },
+    MuiPopper: {
+      defaultProps: {
+        container: rootElement,
+      },
+    },
+  },
+})
+
 export const decorators = [
   (Story) => (
     <StyledEngineProvider injectFirst>
-      <div className="h-screen">
-        <CssBaseline />
-        <Story />
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className="h-screen">
+          {/* <CssBaseline /> */}
+          <Story />
+        </div>
+      </ThemeProvider>
     </StyledEngineProvider>
   ),
 ]
