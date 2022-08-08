@@ -342,9 +342,9 @@ const fontSizes = {
 
 module.exports = {
   important: '#root',
-  corePlugins: {
-    preflight: false,
-  },
+  // corePlugins: {
+  //   preflight: false,
+  // },
   content: [path.join(__dirname, './src/**/*.(js|jsx|ts|tsx)')],
   theme: {
     textColor: {
