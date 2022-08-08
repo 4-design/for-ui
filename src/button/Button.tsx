@@ -7,6 +7,9 @@ export type ButtonProps = Omit<LoadingButtonProps, 'color' | 'variant'> & {
 
   // NOTE: duplicated "contained"
   variant?: 'filled' | 'contained' | 'outlined' | 'text'
+
+  // duplicated
+  color?: 'primary' | 'secondary' | 'default'
 }
 
 const sizes = {

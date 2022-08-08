@@ -22,13 +22,9 @@ const Backdrop: React.FC<BackdropProps> = ({ open, children, onClick }) => {
     <MuiBackdrop
       open={open}
       onClick={onClick}
-      // css={[
-      //   css`
-      //     &.MuiBackdrop-root {
-      //       background-color: #001f3333;
-      //     }
-      //   `,
-      // ]}
+      classes={{
+        root: 'bg-[#001f3333]',
+      }}
     >
       {children}
     </MuiBackdrop>
@@ -42,19 +38,12 @@ export const Modal: React.FC<ModalProps> = forwardRef(
         ref={ref}
         open={open}
         onClose={onClose}
-        // css={[rootTwin]}
         BackdropComponent={Backdrop}
         BackdropProps={{ onClick: onClose }}
         {...props}
       >
         <div className="flex min-h-screen justify-center focus-visible:outline-none focus-visible:ring-0">
-          <div
-            className="m-auto flex flex-col break-all rounded-lg bg-shade-white-default shadow-modal transition-all"
-            // css={[
-            //   tw`flex flex-col m-auto rounded-lg shadow-modal break-all transition-all transform bg-shade-white-default`,
-            //   twin,
-            // ]}
-          >
+          <div className="m-auto flex flex-col break-all rounded-lg bg-shade-white-default shadow-modal transition-all">
             {children}
           </div>
         </div>
