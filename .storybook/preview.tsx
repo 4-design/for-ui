@@ -3,10 +3,8 @@ import {
   StyledEngineProvider,
   createTheme,
 } from '@mui/material/styles'
-import { createRoot } from 'react-dom/client'
 
 import React from 'react'
-import { CssBaseline, GlobalStyles } from '@mui/material'
 
 import '../src/styles/global.css'
 import '../src/styles/tailwind.v2.css'
@@ -51,7 +49,6 @@ export const decorators = [
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <div className="h-screen">
-          {/* <CssBaseline /> */}
           <Story />
         </div>
       </ThemeProvider>
