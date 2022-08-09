@@ -58,6 +58,7 @@ const _Tabs: React.FC<TabsProps> = ({
       value={value}
       onChange={onChange}
       classes={{
+        root: clsx(['min-h-[auto]']),
         indicator: clsx([colorStyle[color], reverse && 'top-0']),
       }}
       {...rest}
