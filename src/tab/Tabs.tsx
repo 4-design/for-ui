@@ -6,13 +6,12 @@ import clsx from 'clsx'
 export interface TabsProps extends MuiTabsProps {
   noBorder?: boolean
   reverse?: boolean
-  color?: 'primary' | 'secondary' | 'shade'
+  color?: 'primary' | 'secondary'
 }
 
 const colorStyle = {
   primary: clsx`bg-primary-dark-default`,
   secondary: clsx`bg-secondary-dark-default`,
-  shade: clsx`bg-shade-medium-default`,
 }
 
 export const Tabs: React.FC<TabsProps> = (props) => {
