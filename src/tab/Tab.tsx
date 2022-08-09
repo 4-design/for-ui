@@ -16,7 +16,7 @@ export const Tab: React.VFC<TabProps> = ({
     <MuiTab
       classes={{
         // eslint-disable-next-line tailwindcss/no-custom-classname
-        root: clsx([`min-w-[${minWidth}] text-primary-medium-default`]),
+        root: clsx([`min-w-[${minWidth}] min-h-[auto] text-primary-medium-default text-r font-bold font-sans pt-2 pb-2.5`]),
         textColorPrimary: clsx(['focus:outline-none']),
         selected: clsx(['text-primary-dark-default focus:outline-none']),
         wrapped: clsx(['focus:outline-none']),
