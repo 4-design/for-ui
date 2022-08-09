@@ -15,7 +15,7 @@ const _Checkbox: FC<CheckboxProps> = ({ nopadding = false, ...rest }) => (
   <MuiCheckbox
     sx={{ '& .MuiSvgIcon-root': { fontSize: 20 } }}
     classes={{
-      root: clsx(['text-shade-medium-default', nopadding && 'p-0']),
+      root: clsx(['text-shade-medium-default', nopadding ? 'p-0' : 'p-1']),
       checked: clsx(['text-secondary-dark-default']),
       disabled: clsx(['text-shade-dark-disabled']),
     }}
