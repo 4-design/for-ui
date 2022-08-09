@@ -27,7 +27,7 @@ const BorderedTabs: React.FC<TabsProps> = (props) => (
     {!props.noBorder && props.reverse && (
       <div
         className={clsx([
-          'absolute box-border h-[1px] w-full bg-shade-light-default',
+          'absolute box-border h-0 w-full border-b-[1px] border-solid border-shade-light-default',
         ])}
       />
     )}
@@ -37,7 +37,7 @@ const BorderedTabs: React.FC<TabsProps> = (props) => (
     {!props.noBorder && !props.reverse && (
       <div
         className={clsx([
-          'absolute box-border h-[1px] w-full bg-shade-light-default',
+          'absolute box-border h-0 w-full border-b-[1px] border-solid border-shade-light-default',
         ])}
       />
     )}
