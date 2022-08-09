@@ -5,7 +5,6 @@ import {
 } from '@mui/material/styles'
 
 import React from 'react'
-import { CssBaseline, GlobalStyles } from '@mui/material'
 
 import '../src/styles/global.css'
 import '../src/styles/tailwind.v2.css'
@@ -28,13 +27,31 @@ export const parameters = {
   },
 }
 
+const rootElement = document.getElementById('root')
+
+const theme = createTheme({
+  components: {
+    MuiPopover: {
+      defaultProps: {
+        container: rootElement,
+      },
+    },
+    MuiPopper: {
+      defaultProps: {
+        container: rootElement,
+      },
+    },
+  },
+})
+
 export const decorators = [
   (Story) => (
     <StyledEngineProvider injectFirst>
-      <div className="h-screen">
-        <CssBaseline />
-        <Story />
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className="h-screen">
+          <Story />
+        </div>
+      </ThemeProvider>
     </StyledEngineProvider>
   ),
 ]

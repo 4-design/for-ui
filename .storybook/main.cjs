@@ -19,6 +19,7 @@ module.exports = {
   core: {
     builder: '@storybook/builder-vite',
   },
+  framework: '@storybook/react',
   features: {
     storyStoreV7: true,
   },
