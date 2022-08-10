@@ -8,7 +8,18 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'react-color-picker',
+      name: '@3-shake/3design-ui',
+    },
+    rollupOptions: {
+      external: ['react', 'react-dom'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+          '@mui/lab': '@mui/lab',
+          '@mui/material': '@mui/material',
+        },
+      },
     },
   },
 })
