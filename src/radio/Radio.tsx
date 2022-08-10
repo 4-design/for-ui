@@ -28,7 +28,7 @@ const Indicator: FC<{ checked: boolean; disabled: boolean }> = ({
   />
 )
 
-const _Radio: FC<RadioProps> = memo(({ nopadding, disabled, ...rest }) => (
+const _Radio: FC<RadioProps> = memo(({ nopadding, disabled, ref, ...rest }) => (
   <MuiRadio
     disableRipple
     icon={<Indicator checked={false} disabled={!!disabled} />}
@@ -37,6 +37,7 @@ const _Radio: FC<RadioProps> = memo(({ nopadding, disabled, ...rest }) => (
     classes={{
       root: clsx(['group hover:bg-transparent', nopadding ? 'p-0' : 'p-1']),
     }}
+    inputRef={ref}
     {...rest}
   />
 ))
@@ -50,7 +51,9 @@ export const Radio: FC<RadioProps> = forwardRef(
             disabled={disabled}
             value={value}
             label={label}
-            control={<_Radio value={value} disabled={disabled} {...rest} />}
+            control={
+              <_Radio value={value} disabled={disabled} ref={ref} {...rest} />
+            }
             ref={ref}
             classes={{
               root: clsx([' m-0 flex gap-2']),
