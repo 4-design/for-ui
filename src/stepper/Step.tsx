@@ -40,11 +40,12 @@ const Icon = (props: Partial<MuiStepIconProps>) => {
     <>
       <span
         className={clsx([
-          'relative h-8 w-8 rounded-full border-2 border-primary-dark-disabled bg-shade-white-disabled text-r font-bold text-shade-dark-disabled',
-          active &&
-            'border-2 border-primary-dark-default bg-shade-white-default text-primary-dark-default',
-          completed &&
-            'border-0 bg-primary-dark-default text-shade-white-default',
+          'relative h-8 w-8 rounded-full border-2  text-r font-bold',
+          active
+            ? 'border-2 border-primary-dark-default bg-shade-white-default text-primary-dark-default'
+            : completed
+            ? 'border-0 bg-primary-dark-default text-shade-white-default'
+            : 'border-primary-dark-disabled bg-shade-white-disabled text-shade-dark-disabled',
         ])}
       >
         <span
