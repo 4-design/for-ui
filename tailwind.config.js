@@ -346,9 +346,6 @@ const fontSizes = {
 
 module.exports = {
   important: '#root',
-  corePlugins: {
-    preflight: false,
-  },
   plugins: [
     plugin(function({ matchUtilities, theme, corePlugins }) {
       matchUtilities(

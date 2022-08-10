@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 
-import { Typography } from '../../typography'
+import { Typography } from '../typography'
 
 type Props = {
   /** The contents of the Dialog. */

@@ -63,6 +63,7 @@ export const Button: React.ForwardRefExoticComponent<ButtonProps> =
       type = 'button',
       variant = 'filled',
       size = 'large',
+      color = 'primary',
       loadingPosition = 'center',
       disabled = false,
       loading = false,
@@ -82,6 +83,7 @@ export const Button: React.ForwardRefExoticComponent<ButtonProps> =
       },
       ''
     )
+    const _ = color
 
     const _variant = variant === 'filled' ? 'contained' : variant
 

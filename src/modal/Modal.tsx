@@ -43,7 +43,7 @@ export const Modal: React.FC<ModalProps> = forwardRef(
         {...props}
       >
         <div className="flex min-h-screen justify-center focus-visible:outline-none focus-visible:ring-0">
-          <div className="m-auto flex flex-col break-all rounded-lg bg-shade-white-default shadow-modal transition-all">
+          <div className="z-modal m-auto flex flex-col break-all rounded-lg bg-shade-white-default shadow-modal transition-all">
             {children}
           </div>
         </div>
