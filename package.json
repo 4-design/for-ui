@@ -1,14 +1,14 @@
 {
   "name": "@3-shake/3design-ui",
   "version": "2.1.5",
-  "main": "dist/commonjs/index.js",
   "homepage": "https://github.com/3-shake/3design-ui",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "main": "dist/commonjs/3design-ui.js",
+  "module": "dist/esm/3design-ui.mjs",
+  "types": "dist/types.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/commonjs/index.js"
+      "import": "./dist/esm/3design-ui.mjs",
+      "require": "./dist/commonjs/3design-ui.js"
     },
     "./tailwind.config.js": "./tailwind.config.js"
   },
@@ -27,11 +27,10 @@
     "prettier-format": "prettier --write '**/*.{ts,tsx,js}'",
     "type-check": "tsc --noEmit",
     "type-check:watch": "yarn type-check -- --watch",
-    "build:types": "NODE_ENV=production tsc",
+    "build:types": "tsc",
     "build:types:watch": "NODE_ENV=production tsc --watch",
-    "build:js": "cp ./react-table-index.js ./node_modules/react-table/index.js && NODE_ENV=production rollup -c",
-    "build:js:watch": "NODE_ENV=production rollup -c --watch",
-    "build": "yarn build:types && yarn build:js",
+    "build:js": "NODE_ENV=production vite build",
+    "build": "run-p build:'*'",
     "lint": "eslint 'src/**/*.{tsx,ts,js,cjs}'",
     "lint-fix": "eslint 'src/**/*.{tsx,ts,js,cjs}' --fix",
     "storybook": "rm -rf node_modules/.cache/storybook && start-storybook --no-manager-cache -p 6006 -s public",
@@ -87,6 +86,7 @@
     "eslint-plugin-unused-imports": "2.0.0",
     "lint-staged": "13.0.1",
     "namor": "2.0.3",
+    "npm-run-all": "4.1.5",
     "postcss": "8.4.14",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
@@ -98,7 +98,7 @@
     "rollup": "2.75.6",
     "rollup-config-analyzer": "2.2.0",
     "rollup-plugin-analyzer": "4.0.0",
-    "rollup-plugin-filesize": "9.1.2",
+    "rollup-plugin-filesize": "^9.1.2",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-postcss": "4.0.2",
     "rollup-plugin-size-snapshot": "0.12.0",
