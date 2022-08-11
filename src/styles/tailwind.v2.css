@@ -104,6 +104,7 @@
   --primary-background-dark-default: #070e2c;
   --primary-background-dark-hover: #242e56;
   --primary-background-dark-disabled: #f4f5fa;
+  --primary-background-dark-active: #242e56;
 
   /* primary-background-medium */
   --primary-background-medium-default: #a6aece;
@@ -159,7 +160,8 @@
   ********************************/
   /* secondary-border-dark */
   --secondary-border-dark-default: #e35b30;
-
+  /* secondary-border-medium */
+  --secondary-border-medium-active: #FFB25B;
   /* ------------------------------------------------------------------ */
 
   /*******************************
