@@ -65,27 +65,7 @@ const Template: Story = () => {
 
       <div className="mt-8 flex flex-col">
         <TabContext value={value}>
-          <Tabs value={value} onChange={handleChange} color="shade">
-            <Tab value="1" label="Item One" minWidth={0} />
-            <Tab value="2" label="Item Two" />
-            <Tab value="3" label="Item Three" />
-          </Tabs>
-
-          <TabPanel value="1">
-            <h1>shade 1</h1>
-          </TabPanel>
-          <TabPanel value="2">
-            <h1>shade 2</h1>
-          </TabPanel>
-          <TabPanel value="3">
-            <h1>shade 3</h1>
-          </TabPanel>
-        </TabContext>
-      </div>
-
-      <div className="mt-8 flex flex-col">
-        <TabContext value={value}>
-          <Tabs value={value} onChange={handleChange} color="shade" noBorder>
+          <Tabs value={value} onChange={handleChange} noBorder>
             <Tab value="1" label="Item One" minWidth={0} />
             <Tab value="2" label="Item Two" />
             <Tab value="3" label="Item Three" />

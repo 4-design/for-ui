@@ -1,5 +1,7 @@
 import React from 'react'
 import MuiTabList, { TabListProps as MuiTabListProps } from '@mui/lab/TabList'
+import { Box } from '@mui/material'
+import clsx from 'clsx'
 
 export interface TabListProps extends MuiTabListProps {
   noBorder?: boolean
@@ -7,14 +9,43 @@ export interface TabListProps extends MuiTabListProps {
   color?: 'primary' | 'secondary' | 'shade'
 }
 
-// const colorStyle = {
-//   primary: tw`bg-primary-dark-default`,
-//   secondary: tw`bg-secondary-dark-default`,
-//   shade: tw`bg-shade-medium-default`,
-// }
+const colorStyle = {
+  primary: clsx`bg-primary-dark-default`,
+  secondary: clsx`bg-secondary-dark-default`,
+  shade: clsx`bg-shade-medium-default`,
+}
 
-export const TabList: React.VFC<TabListProps> = ({
-  noBorder = false,
+export const TabList: React.FC<TabListProps> = (props) => {
+  return props.noBorder ? (
+    <_TabList {...props}>{props.children}</_TabList>
+  ) : (
+    <BorderedTabList {...props} />
+  )
+}
+
+const BorderedTabList: React.FC<TabListProps> = (props) => (
+  <Box className="w-full">
+    {!props.noBorder && props.reverse && (
+      <div
+        className={clsx([
+          'absolute box-border h-[1px] w-full bg-shade-light-default',
+        ])}
+      />
+    )}
+
+    <_TabList {...props}>{props.children}</_TabList>
+
+    {!props.noBorder && !props.reverse && (
+      <div
+        className={clsx([
+          'absolute box-border h-[1px] w-full bg-shade-light-default',
+        ])}
+      />
+    )}
+  </Box>
+)
+
+const _TabList: React.FC<TabListProps> = ({
   reverse = false,
   color = 'secondary',
   onChange,
@@ -25,21 +56,9 @@ export const TabList: React.VFC<TabListProps> = ({
     <MuiTabList
       onChange={onChange}
       aria-label="lab API tabs example"
-      // css={[
-      //   css`
-      //     &.MuiTabs-root {
-      //       ${reverse
-      //         ? tw`(border-shade-light-default border-t-2)!`
-      //         : tw`(border-shade-light-default border-b-2)!`}
-      //     }
-      //     & .MuiTabs-indicator {
-      //       ${colorStyle[color]}
-      //       ${reverse && tw`top-0`}
-      //     }
-      //   `,
-      //   noBorder && tw`border-none!`,
-      //   twin,
-      // ]}
+      classes={{
+        indicator: clsx([colorStyle[color], reverse && 'top-0']),
+      }}
       {...rest}
     >
       {children}
