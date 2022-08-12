@@ -56,7 +56,7 @@ export const Radio: FC<RadioProps> = forwardRef(
             }
             ref={ref}
             classes={{
-              root: clsx([' m-0 flex gap-2']),
+              root: clsx(['group m-0 flex gap-2']),
               label: clsx(['font-sans text-s text-shade-dark-default']),
               disabled: clsx(['text-shade-dark-disabled']),
             }}
