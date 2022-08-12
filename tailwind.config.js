@@ -1,4 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const plugin = require('tailwindcss/plugin')
+const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
+const { default: toColorValue } = require("tailwindcss/lib/util/toColorValue");
+const { default: withAlphaVariable } = require("tailwindcss/lib/util/withAlphaVariable");
 const path = require('path')
 
 const defaultTheme = require('tailwindcss/defaultTheme')
@@ -342,6 +346,30 @@ const fontSizes = {
 
 module.exports = {
   important: '#root',
+  plugins: [
+    plugin(function({ matchUtilities, theme, corePlugins }) {
+      matchUtilities(
+      {
+        icon: (value) => {
+          if (!corePlugins('iconOpacity')) {
+            return {
+              'icon-color': toColorValue(value),
+            }
+          }
+
+          return withAlphaVariable({
+            color: value,
+            property: 'icon-color',
+            variable: '--tw-bg-opacity',
+          })
+        },
+      },
+      { values: flattenColorPalette(theme('iconColor')), type: 'color' }
+
+      )
+    })
+
+  ],
   content: [path.join(__dirname, './src/**/*.(js|jsx|ts|tsx)')],
   theme: {
     textColor: {
