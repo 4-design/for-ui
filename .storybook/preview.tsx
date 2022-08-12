@@ -6,8 +6,8 @@ import {
 
 import React from 'react'
 
-import '../src/styles/global.css'
-import '../src/styles/tailwind.v2.css'
+import '../styles/global.css'
+import '../styles/tailwind.v2.css'
 
 export const parameters = {
   backgrounds: {
@@ -31,6 +31,11 @@ const rootElement = document.getElementById('root')
 
 const theme = createTheme({
   components: {
+    MuiModal: {
+      defaultProps: {
+        container: rootElement,
+      },
+    },
     MuiPopover: {
       defaultProps: {
         container: rootElement,
