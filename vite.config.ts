@@ -4,19 +4,17 @@ import { defineConfig } from 'vite'
 
 import pkg from './package.json'
 
-const externalPackages = [
-  ...Object.keys(pkg.dependencies || {}),
-  ...Object.keys(pkg.peerDependencies || {}),
-]
+const externalPackages = [...Object.keys(pkg.peerDependencies || {})]
 
 const regexesOfPackages = externalPackages.map(
   (packageName) => new RegExp(`^${packageName}(\/.*)?`)
 )
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
   build: {
+    sourcemap: mode === 'production' ? false : 'inline',
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: '3design-ui',
@@ -31,10 +29,6 @@ export default defineConfig({
           exports: 'named',
           dir: 'dist/commonjs',
           format: 'cjs',
-          globals: {
-            react: 'React',
-            'react-dom': 'ReactDOM',
-          },
         },
         {
           preserveModules: true,
@@ -43,12 +37,8 @@ export default defineConfig({
           exports: 'named',
           dir: 'dist/esm',
           format: 'es',
-          globals: {
-            react: 'React',
-            'react-dom': 'ReactDOM',
-          },
         },
       ],
     },
   },
-})
+}))
