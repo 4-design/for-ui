@@ -23,6 +23,7 @@ export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
   const { open } = useSidebarContext()
   return (
     <div
+      // eslint-disable-next-line tailwindcss/classnames-order
       className={clsx([
         'flex cursor-pointer items-center px-4 py-3 text-r font-medium',
         'hover:text-primary-white-default',
