@@ -8,7 +8,7 @@ import { Select, SelectOption } from './Select'
 export default {
   title: 'Form / Select',
   component: Select,
-  decorators: [(Story: any) => <Story />],
+  decorators: [(Story) => <Story />],
 } as Meta
 
 const options: SelectOption[] = [
