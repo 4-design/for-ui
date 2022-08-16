@@ -32,6 +32,11 @@ const rootElement = document.getElementById('root')
 
 const theme = createTheme({
   components: {
+    MuiModal: {
+      defaultProps: {
+        container: rootElement,
+      },
+    },
     MuiPopover: {
       defaultProps: {
         container: rootElement,

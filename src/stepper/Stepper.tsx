@@ -1,7 +1,9 @@
 import { forwardRef } from 'react'
+import { StepConnector, stepConnectorClasses } from '@mui/material'
 import MuiStepper, {
   StepperProps as MuiStepperProps,
 } from '@mui/material/Stepper'
+import clsx from 'clsx'
 
 export type StepperProps = MuiStepperProps
 
@@ -12,26 +14,35 @@ export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
         ref={ref}
         activeStep={activeStep}
         alternativeLabel={alternativeLabel}
-        // css={[
-        //   css`
-        //     & .MuiStepConnector-root {
-        //       ${tw`top-6 px-0 left-[calc(-50% + 1rem)] right-[calc(50% + 1rem)]`}
-        //       & .MuiStepConnector-line {
-        //         ${tw`border-t-2 border-shade-dark-disabled`}
-        //       }
-        //       &.Mui-completed .MuiStepConnector-line {
-        //         ${tw`border-shade-dark-default`}
-        //       }
-        //       &.Mui-active .MuiStepConnector-line {
-        //         ${tw`border-shade-dark-default`}
-        //       }
-        //       &.Mui-disabled .MuiStepConnector-line {
-        //         ${tw`border-shade-dark-disabled`}
-        //       }
-        //     }
-        //   `,
-        //   twin,
-        // ]}
+        connector={
+          <StepConnector
+            classes={{
+              root: clsx([
+                'right-[calc(50%+1rem)] left-[calc(-50%+1rem)] top-6 px-0',
+              ]),
+              line: clsx(['border-t-2']),
+            }}
+            sx={{
+              [`&.${stepConnectorClasses.active}`]: {
+                [`& .${stepConnectorClasses.line}`]: {
+                  borderColor: 'var(--shade-border-dark-default)',
+                },
+              },
+
+              [`&.${stepConnectorClasses.completed}`]: {
+                [`& .${stepConnectorClasses.line}`]: {
+                  borderColor: 'var(--shade-border-dark-default)',
+                },
+              },
+
+              [`&.${stepConnectorClasses.disabled}`]: {
+                [`& .${stepConnectorClasses.line}`]: {
+                  borderColor: 'var(--shade-border-dark-disabled)',
+                },
+              },
+            }}
+          />
+        }
         {...rest}
       >
         {children}

@@ -1,5 +1,6 @@
 import React from 'react'
 import MuiTab, { TabProps as MuiTabProps } from '@mui/material/Tab'
+import clsx from 'clsx'
 
 export interface TabProps extends MuiTabProps {
   minWidth?: number
@@ -13,32 +14,15 @@ export const Tab: React.VFC<TabProps> = ({
 }) => {
   return (
     <MuiTab
-      // css={[
-      //   css`
-      //     ${tw`text-primary-medium-default`}
-
-      //     &.MuiTab-root {
-      //       min-width: ${minWidth}px !important;
-      //     }
-
-      //     &.MuiTab-textColorPrimary {
-      //       ${tw`focus:outline-none!`}
-      //     }
-
-      //     &.Mui-selected {
-      //       ${tw`(focus:outline-none text-primary-dark-default)!`}
-
-      //       > .MuiTab-wrapper {
-      //         ${tw`text-primary-dark-default!`}
-      //       }
-      //     }
-
-      //     > .MuiTab-wrapper {
-      //       ${tw`text-shade-medium-default!`}
-      //     }
-      //   `,
-      //   twin,
-      // ]}
+      classes={{
+        // eslint-disable-next-line tailwindcss/no-custom-classname
+        root: clsx([
+          `min-w-[${minWidth}] min-h-[auto] pt-2 pb-2.5 font-sans text-r font-bold text-primary-medium-default`,
+        ]),
+        textColorPrimary: clsx(['focus:outline-none']),
+        selected: clsx(['text-primary-dark-default focus:outline-none']),
+        wrapped: clsx(['focus:outline-none']),
+      }}
       disabled={disabled}
       tabIndex={tabIndex}
       {...rest}
