@@ -110,5 +110,9 @@
     "node": "16.16.0",
     "yarn": "1.22.19"
   },
+  "workspaces": {
+    "packages": ["."],
+    "nohoist": ["**/example"]
+  },
   "packageManager": "yarn@3.2.1"
 }
