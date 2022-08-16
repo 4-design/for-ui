@@ -16,6 +16,7 @@ export type TextFieldProps = MuiTextFieldProps & {
 type NumberFormatCustomProps = {
   onChange: (event: { target: { name: string; value: string } }) => void
   name: string
+  className?: string
   other: {
     children?: React.ReactNode
   }
@@ -23,9 +24,11 @@ type NumberFormatCustomProps = {
 
 const NumberFormatCustom: React.ForwardRefExoticComponent<NumberFormatCustomProps> =
   React.forwardRef(({ onChange, name, ...other }, ref) => {
+    console.info(other)
     return (
       <NumberFormat
         {...other}
+        className={clsx([other.className, 'text-right'])}
         getInputRef={ref}
         onValueChange={(values) => {
           onChange({
@@ -49,14 +52,17 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
         variant = 'outlined',
         className,
         focused,
+        placeholder,
         // labelTwin,
         // inputTwin,
         disabled,
+        inputProps,
         required,
         inputRef,
         error,
         unitLabel = '',
         isPriceFormat = false,
+        InputProps,
         onFocus,
         onBlur,
         ...rest
@@ -71,7 +77,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
         return inputRef ? inputRef : ref
       }, [ref, inputRef])
 
-      const inputProps = useMemo(() => {
+      const _InputProps = useMemo(() => {
         const unitLabelProps = {
           endAdornment: (
             <InputAdornment
@@ -136,6 +142,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
             inputRef={validRef}
             required={required}
             variant={variant}
+            placeholder={placeholder}
             sx={{
               '& .MuiInputBase-input:disabled::placeholder': {
                 '-webkit-text-fill-color': 'currentColor',
@@ -171,10 +178,12 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> =
                     ? 'border-primary-medium-active group-hover:border-primary-dark-default'
                     : 'border-shade-medium-default group-hover:border-primary-dark-default',
                 ]),
-                inputAdornedEnd: clsx(['pr-2 text-right']),
+                inputAdornedEnd: clsx(['pr-2']),
               },
-              ...inputProps,
+              ...InputProps,
+              ..._InputProps,
             }}
+            inputProps={inputProps}
             onFocus={handleFocus}
             onBlur={handleBlur}
             {...rest}
