@@ -19,6 +19,4 @@ const Template: Story = (args) => (
 )
 
 export const Default = Template.bind({})
-Default.args = {
-  logo: '/logo/relance.png',
-}
+Default.args = {}

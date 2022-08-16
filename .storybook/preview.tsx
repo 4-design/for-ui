@@ -10,6 +10,7 @@ import '../styles/global.css'
 import '../styles/tailwind.v2.css'
 
 export const parameters = {
+  layout: 'fullscreen',
   backgrounds: {
     default: 'default',
     values: [
@@ -53,9 +54,7 @@ export const decorators = [
   (Story) => (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
-        <div className="h-screen">
-          <Story />
-        </div>
+        <Story />
       </ThemeProvider>
     </StyledEngineProvider>
   ),

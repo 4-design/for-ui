@@ -115,6 +115,7 @@ const colors = {
         default: 'var(--primary-background-dark-default)',
         hover: 'var(--primary-background-dark-hover)',
         disabled: 'var(--primary-background-dark-disabled)',
+        active: 'var(--primary-background-dark-active)',
       },
       medium: {
         default: 'var(--primary-background-medium-default)',
@@ -169,8 +170,11 @@ const colors = {
     },
     border: {
       dark: {
-        default: 'var(--secondary-background-dark-default)',
+        default: 'var(--secondary-border-dark-default)',
       },
+      medium: {
+        active: 'var(--secondary-border-medium-active)',
+      }
     },
   },
 
@@ -536,6 +540,10 @@ module.exports = {
         toast: '1400',
         tooltip: '1500',
       },
+      transitionProperty: {
+        width: 'width'
+      },
+
     },
   },
   variants: {
