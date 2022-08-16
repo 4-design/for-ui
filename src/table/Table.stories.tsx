@@ -44,17 +44,6 @@ const basicColumns: Array<Column<PersonData>> = [
       <TableCell {...getCellProps()}>{value}</TableCell>
     ),
   },
-  {
-    Header: '',
-    accessor: 'status',
-    Cell: ({ cell: { getCellProps } }) => (
-      <TableCell {...getCellProps()} className={`px-0 text-center`}>
-        <IconButton>
-          <MdMoreVert />
-        </IconButton>
-      </TableCell>
-    ),
-  },
 ]
 
 export const Base: Story = () => (
