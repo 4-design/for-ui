@@ -14,7 +14,7 @@ export type DropzoneProps = {
   onRemove: (file: File) => (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-export const Dropzone: React.VFC<DropzoneProps> = ({
+export const Dropzone: React.FC<DropzoneProps> = ({
   files,
   onDrop,
   onRemove,
