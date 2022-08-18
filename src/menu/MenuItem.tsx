@@ -4,11 +4,13 @@ import MuiMenuItem, {
 } from '@mui/material/MenuItem'
 import clsx from 'clsx'
 
-export type MenuItemProps = MuiMenuItemProps
+export type MenuItemProps = MuiMenuItemProps & {
+  className?: string
+}
 
 export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
   (props, ref) => {
-    const { children, ...rest } = props
+    const { children, className, ...rest } = props
 
     return (
       <MuiMenuItem
@@ -16,6 +18,7 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
         classes={{
           root: clsx([
             'whitespace-nowrap border-solid bg-shade-white-default py-2 pl-6 pr-12 font-sans text-r text-shade-dark-default hover:bg-shade-white-hover',
+            className,
           ]),
         }}
         {...rest}
