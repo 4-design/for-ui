@@ -4,7 +4,7 @@
   "homepage": "https://github.com/3-shake/3design-ui",
   "main": "dist/commonjs/3design-ui.js",
   "module": "dist/esm/3design-ui.mjs",
-  "types": "dist/types.d.ts",
+  "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/esm/3design-ui.mjs",
@@ -111,8 +111,12 @@
     "yarn": "1.22.19"
   },
   "workspaces": {
-    "packages": ["."],
-    "nohoist": ["**/example"]
+    "packages": [
+      "."
+    ],
+    "nohoist": [
+      "**/example"
+    ]
   },
   "packageManager": "yarn@3.2.1"
 }

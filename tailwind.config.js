@@ -326,7 +326,7 @@ const fontSizes = {
     },
   ],
   xr: [
-    '1.25em',
+    '1.25rem',
     {
       lineHeight: '1.75rem',
       letterSpacing: '.03rem',
@@ -364,7 +364,7 @@ module.exports = {
           return withAlphaVariable({
             color: value,
             property: 'color',
-            variable: '--tw-icon-color-opacity',
+            variable: '--tw-color-opacity',
           })
         },
       },
