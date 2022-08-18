@@ -528,6 +528,7 @@ module.exports = {
       },
       zIndex: {
         '-1': '-1',
+        table: '900',
         header: '1100',
         sidebar: '1100',
         modal: '1300',

@@ -8,33 +8,18 @@ type Props = {
 
 export const TableScroller: React.FC<Props> = ({ height, children }) => (
   <div
+    style={{
+      height:
+        typeof height === 'string'
+          ? height
+          : typeof height === 'number'
+          ? `${height}px`
+          : 'auto',
+    }}
     className={clsx([
-      'overflow-y-auto',
-      typeof height === 'string' && `h-[${height}]`,
-      typeof height === 'number' && `h-[${height}px]`,
+      `overflow-y-auto`,
+      '[&_table>thead_th]:sticky [&_table>thead_th]:top-0 [&_table>thead_th]:z-table',
     ])}
-    // css={[
-    //   tw`overflow-y-auto`,
-    //   typeof height === 'string' &&
-    //     css`
-    //       height: ${height};
-    //     `,
-    //   typeof height === 'number' &&
-    //     css`
-    //       height: ${height}px;
-    //     `,
-    //   css`
-    //     & table {
-    //       > thead {
-    //         & th {
-    //           position: sticky;
-    //           top: 0;
-    //           z-index: 999;
-    //         }
-    //       }
-    //     }
-    //   `,
-    // ]}
   >
     {children}
   </div>

@@ -172,7 +172,7 @@ export const WithDisablePagination: Story = () => (
 )
 
 export const WithTableScroller: Story = () => (
-  <TableScroller height="400px">
+  <TableScroller height={400}>
     <Table<PersonData>
       columns={withSelectColumns}
       data={StaticPersonData}
