@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react'
+import clsx from 'clsx'
 import { MdArrowDownward, MdArrowUpward } from 'react-icons/md'
 import {
   useTable,
@@ -161,11 +162,10 @@ export const Table = <T extends object>(props: TableProps<T>) => {
     return (
       <tr
         {...row.getRowProps()}
-        className="border-b border-shade-medium-default transition duration-300 ease-in-out hover:bg-shade-light-default"
-        // css={[
-        //   tw`border-b border-shade-medium-default transform transition duration-300 ease-in-out hover:bg-shade-light-default`,
-        //   (onSelectRow || onSelectRows) && tw`cursor-pointer`,
-        // ]}
+        className={clsx([
+          'border-b border-shade-light-default transition duration-300 ease-in-out hover:bg-shade-light-default',
+          (onSelectRow || onSelectRows) && 'cursor-pointer',
+        ])}
         onClick={() => {
           if (onSelectRow || onSelectRows) row.toggleRowSelected()
         }}
@@ -181,23 +181,30 @@ export const Table = <T extends object>(props: TableProps<T>) => {
 
   return (
     <>
-      <table {...getTableProps()} className="w-full">
+      <table
+        {...getTableProps()}
+        className="w-full border-separate border-spacing-0"
+      >
         <thead className="table-header-group bg-shade-white-default">
           {headerGroups.map((headerGroup, i) => (
             <tr
               {...headerGroup.getHeaderGroupProps()}
               key={i}
-              className="table-row border-b border-shade-medium-default align-middle"
+              className="table-row align-middle"
             >
               {headerGroup.headers.map((column, j) => (
                 <th
-                  className="z-30 whitespace-nowrap bg-shade-white-default p-3 text-left text-base text-shade-dark-default"
+                  className="z-30 whitespace-nowrap border-b border-shade-light-default bg-shade-white-default p-3 text-left text-base text-shade-dark-default"
                   scope="col"
                   {...column.getHeaderProps({
+                    ...(column.getSortByToggleProps
+                      ? column.getSortByToggleProps()
+                      : {}),
                     style: {
                       minWidth: column.minWidth,
                       width: column.width,
                       maxWidth: column.maxWidth,
+                      cursor: column.canSort ? 'pointer' : 'auto',
                     },
                     ...(column.getSortByToggleProps
                       ? column.getSortByToggleProps()
