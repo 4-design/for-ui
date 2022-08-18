@@ -115,6 +115,7 @@ const colors = {
         default: 'var(--primary-background-dark-default)',
         hover: 'var(--primary-background-dark-hover)',
         disabled: 'var(--primary-background-dark-disabled)',
+        active: 'var(--primary-background-dark-active)',
       },
       medium: {
         default: 'var(--primary-background-medium-default)',
@@ -169,8 +170,11 @@ const colors = {
     },
     border: {
       dark: {
-        default: 'var(--secondary-background-dark-default)',
+        default: 'var(--secondary-border-dark-default)',
       },
+      medium: {
+        active: 'var(--secondary-border-medium-active)',
+      }
     },
   },
 
@@ -322,7 +326,7 @@ const fontSizes = {
     },
   ],
   xr: [
-    '1.25em',
+    '1.25rem',
     {
       lineHeight: '1.75rem',
       letterSpacing: '.03rem',
@@ -349,22 +353,23 @@ module.exports = {
   plugins: [
     plugin(function({ matchUtilities, theme, corePlugins }) {
       matchUtilities(
-        {
-          icon: (value) => {
-            if (!corePlugins('iconOpacity')) {
-              return {
-                'icon-color': toColorValue(value),
-              }
+      {
+        icon: (value) => {
+          if (!corePlugins('iconOpacity')) {
+            return {
+              'color': toColorValue(value),
             }
+          }
 
-            return withAlphaVariable({
-              color: value,
-              property: 'icon-color',
-              variable: '--tw-bg-opacity',
-            })
-          },
+          return withAlphaVariable({
+            color: value,
+            property: 'color',
+            variable: '--tw-color-opacity',
+          })
         },
-        { values: flattenColorPalette(theme('iconColor')), type: 'color' }
+      },
+      { values: flattenColorPalette(theme('iconColor')), type: 'color' }
+
       )
     }),
   ],
@@ -535,6 +540,10 @@ module.exports = {
         toast: '1400',
         tooltip: '1500',
       },
+      transitionProperty: {
+        width: 'width'
+      },
+
     },
   },
   variants: {
