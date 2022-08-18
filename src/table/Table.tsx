@@ -183,7 +183,7 @@ export const Table = <T extends object>(props: TableProps<T>) => {
     <>
       <table
         {...getTableProps()}
-        className="w-full border-separate border-spacing-[1px]"
+        className="w-full border-separate border-spacing-0"
       >
         <thead className="table-header-group bg-shade-white-default">
           {headerGroups.map((headerGroup, i) => (
