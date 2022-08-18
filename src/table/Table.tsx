@@ -181,17 +181,20 @@ export const Table = <T extends object>(props: TableProps<T>) => {
 
   return (
     <>
-      <table {...getTableProps()} className="w-full">
+      <table
+        {...getTableProps()}
+        className="w-full border-separate border-spacing-[1px]"
+      >
         <thead className="table-header-group bg-shade-white-default">
           {headerGroups.map((headerGroup, i) => (
             <tr
               {...headerGroup.getHeaderGroupProps()}
               key={i}
-              className="table-row border-b border-shade-medium-default align-middle"
+              className="table-row align-middle"
             >
               {headerGroup.headers.map((column, j) => (
                 <th
-                  className="z-30 whitespace-nowrap bg-shade-white-default p-3 text-left text-base text-shade-dark-default"
+                  className="z-30 whitespace-nowrap border-b border-shade-light-default bg-shade-white-default p-3 text-left text-base text-shade-dark-default"
                   scope="col"
                   {...column.getHeaderProps({
                     ...(column.getSortByToggleProps
