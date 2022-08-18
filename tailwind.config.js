@@ -326,7 +326,7 @@ const fontSizes = {
     },
   ],
   xr: [
-    '1.25em',
+    '1.25rem',
     {
       lineHeight: '1.75rem',
       letterSpacing: '.03rem',
@@ -357,14 +357,14 @@ module.exports = {
         icon: (value) => {
           if (!corePlugins('iconOpacity')) {
             return {
-              'icon-color': toColorValue(value),
+              'color': toColorValue(value),
             }
           }
 
           return withAlphaVariable({
             color: value,
-            property: 'icon-color',
-            variable: '--tw-bg-opacity',
+            property: 'color',
+            variable: '--tw-color-opacity',
           })
         },
       },
