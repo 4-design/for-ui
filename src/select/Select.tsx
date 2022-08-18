@@ -139,57 +139,12 @@ export const Select: FC<AutocompleteProps> = ({
           'h-auto py-2.5 px-3 font-sans text-r text-shade-dark-default placeholder:text-shade-light-default placeholder:opacity-100 focus:shadow-none',
         ]),
         inputFocused: clsx(['border-primary-medium-active']),
+        focused: clsx(['[&_svg]:!icon-shade-medium-active']),
+        tag: clsx([
+          'border-none bg-shade-light-default [&.MuiChip-deleteIcon]:text-shade-dark-default',
+        ]),
+        endAdornment: clsx(['[&_svg]:icon-shade-medium-default']),
       }}
-      // css={[
-      //   css`
-      //     ${tw`(bg-shade-white-default)!`}
-
-      //     & .MuiAutocomplete-paper {
-      //       ${tw`(py-2 min-w-min rounded-2xl transform translate-y-4)!`}
-      //     }
-
-      //===================================================
-
-      //     & .MuiOutlinedInput-root {
-      //       ${
-      //         tw`(p-0 text-base text-shade-dark-default h-11)!` /* h-11 is temporary, must be fixed in TextField */
-      //       }
-      //     }
-
-      //     & .MuiOutlinedInput-input {
-      //       ${tw`(px-3 text-base text-shade-dark-default)!`}
-      //     }
-
-      //     & .MuiChip-root {
-      //       ${tw`bg-shade-light-default border-none`}
-
-      //       > .MuiChip-deleteIcon {
-      //         ${tw`text-shade-dark-default`}
-      //       }
-      //     }
-
-      //     & .MuiAutocomplete-endAdornment svg {
-      //       fill: ${theme`iconColor.shade.medium.default`};
-      //     }
-
-      //     & .Mui-focused .MuiAutocomplete-endAdornment svg {
-      //       fill: ${theme`iconColor.shade.medium.active`};
-      //     }
-      //   `,
-      //   required &&
-      //     css`
-      //       & .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
-      //         ${tw`(border border-negative-medium-default)!`}
-      //       }
-      //       &:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
-      //         ${tw`(border border-negative-medium-default)!`}
-      //       }
-      //       & .Mui-focused fieldset {
-      //         ${tw`(border border-negative-medium-default)!`}
-      //       }
-      //     `,
-      //   twin,
-      // ]}
       renderInput={(params) => {
         return (
           <TextField

@@ -357,14 +357,14 @@ module.exports = {
         icon: (value) => {
           if (!corePlugins('iconOpacity')) {
             return {
-              'icon-color': toColorValue(value),
+              'color': toColorValue(value),
             }
           }
 
           return withAlphaVariable({
             color: value,
-            property: 'icon-color',
-            variable: '--tw-bg-opacity',
+            property: 'color',
+            variable: '--tw-icon-color-opacity',
           })
         },
       },
