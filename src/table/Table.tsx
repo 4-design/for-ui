@@ -163,7 +163,7 @@ export const Table = <T extends object>(props: TableProps<T>) => {
       <tr
         {...row.getRowProps()}
         className={clsx([
-          'border-b border-shade-medium-default transition duration-300 ease-in-out hover:bg-shade-light-default',
+          'border-b border-shade-light-default transition duration-300 ease-in-out hover:bg-shade-light-default',
           (onSelectRow || onSelectRows) && 'cursor-pointer',
         ])}
         onClick={() => {
