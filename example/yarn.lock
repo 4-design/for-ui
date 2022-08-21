@@ -40,7 +40,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": 5.33.1
     "@typescript-eslint/parser": 5.33.1
     "@vitejs/plugin-react": ^2.0.1
-    autoprefix: ^1.0.1
+    autoprefixer: ^10.4.8
     clsx: ^1.2.1
     eslint: 8.22.0
     eslint-config-prettier: 8.5.0
@@ -1188,13 +1188,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"amdefine@npm:>=0.0.4":
-  version: 1.0.1
-  resolution: "amdefine@npm:1.0.1"
-  checksum: 9d4e15b94641643a9385b2841b4cb2bcf4e8e2f741ea4bd475c93ad7bab261ad4ed827a32e9c549b38b98759c4526c173ae4e6dde8caeb75ee5cebedc9863762
-  languageName: node
-  linkType: hard
-
 "ansi-regex@npm:^5.0.1":
   version: 5.0.1
   resolution: "ansi-regex@npm:5.0.1"
@@ -1312,26 +1305,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefix@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "autoprefix@npm:1.0.1"
+"autoprefixer@npm:^10.4.8":
+  version: 10.4.8
+  resolution: "autoprefixer@npm:10.4.8"
   dependencies:
-    autoprefixer-core: ~5.1.1
-    camelcase: ^1.1.0
-    decamelize: ^1.0.0
-  checksum: 4ef23f8c0fee75ddefa15f37648b212eaa2cb5718bb4d833a5a41598f3f824ebb1322d3c46e56e4fcfb17f50cbfbdd733354845e8065ef17c37b5599aaa77f76
-  languageName: node
-  linkType: hard
-
-"autoprefixer-core@npm:~5.1.1":
-  version: 5.1.11
-  resolution: "autoprefixer-core@npm:5.1.11"
-  dependencies:
-    browserslist: ~0.2.0
-    caniuse-db: ^1.0.30000132
-    num2fraction: ~1.1.0
-    postcss: ~4.0.6
-  checksum: 7cce017392638993692c0d0ff72e2e72d42cc7dc8db32aff54854bfaf5ae9dd86d04ea8dd3306e21080e98d29e0dd127685b2ac3827e904b552008dc26edeec0
+    browserslist: ^4.21.3
+    caniuse-lite: ^1.0.30001373
+    fraction.js: ^4.2.0
+    normalize-range: ^0.1.2
+    picocolors: ^1.0.0
+    postcss-value-parser: ^4.2.0
+  peerDependencies:
+    postcss: ^8.1.0
+  bin:
+    autoprefixer: bin/autoprefixer
+  checksum: 06cb4c497bb948714d5b1b4f7e7465fd88c50f90788fc2020b3d97d7661fb4dd0d9918c1b09dd3e909acd4485cbb27ad99085487d8ed5d75915e646d2b535770
   languageName: node
   linkType: hard
 
@@ -1388,7 +1376,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.20.2":
+"browserslist@npm:^4.20.2, browserslist@npm:^4.21.3":
   version: 4.21.3
   resolution: "browserslist@npm:4.21.3"
   dependencies:
@@ -1399,15 +1387,6 @@ __metadata:
   bin:
     browserslist: cli.js
   checksum: ff512a7bcca1c530e2854bbdfc7be2791d0fb524097a6340e56e1d5924164c7e4e0a9b070de04cdc4c149d15cb4d4275cb7c626ebbce954278a2823aaad2452a
-  languageName: node
-  linkType: hard
-
-"browserslist@npm:~0.2.0":
-  version: 0.2.0
-  resolution: "browserslist@npm:0.2.0"
-  dependencies:
-    caniuse-db: ^1.0.30000054
-  checksum: f49a513898f302ecd945defa073bd61871e984433bf303a8a0b5c0419e5872fc099027f7e866a36f9c19039e34a60622802e6ef6659b09b0cea252d6127d529e
   languageName: node
   linkType: hard
 
@@ -1461,24 +1440,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"camelcase@npm:^1.1.0":
-  version: 1.2.1
-  resolution: "camelcase@npm:1.2.1"
-  checksum: 3da5ab4bb997f33e57023ddee39887e0d3f34ce5a2d41bcfe84454ee528c4fd769a4f9a428168bf9b24aca9338699885ffb63527acb02834c31b864d4b0d2299
-  languageName: node
-  linkType: hard
-
-"caniuse-db@npm:^1.0.30000054, caniuse-db@npm:^1.0.30000132":
-  version: 1.0.30001377
-  resolution: "caniuse-db@npm:1.0.30001377"
-  checksum: fa6a1f0ba2664e197d06e02cdfce5ca447d473a62961bfe9bd88180bd807ef8a95b4f71d9a3c304e1f9d2ac2d6221215956340a5ec85e2cd17424dbfd3ca15cb
-  languageName: node
-  linkType: hard
-
 "caniuse-lite@npm:^1.0.30001370":
   version: 1.0.30001377
   resolution: "caniuse-lite@npm:1.0.30001377"
   checksum: bd42fa4255f30df914bcef846412c2710e032dfd43f5861753befbd45244574a8c281147247a57c11b19684c8516e3ef731b45bc12b1adfdad13b62f548b23fb
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001373":
+  version: 1.0.30001380
+  resolution: "caniuse-lite@npm:1.0.30001380"
+  checksum: a106a63dfc6f49271bff16820cda81ca87c0afa7bd0a7b542e31cec250bca8b4d29ec2daff5ac1e4d9ee58b9edef9ee6c1fb852ebd371a794f5c67d36184ede6
   languageName: node
   linkType: hard
 
@@ -1674,13 +1646,6 @@ __metadata:
   dependencies:
     ms: ^2.1.1
   checksum: b3d8c5940799914d30314b7c3304a43305fd0715581a919dacb8b3176d024a782062368405b47491516d2091d6462d4d11f2f4974a405048094f8bfebfa3071c
-  languageName: node
-  linkType: hard
-
-"decamelize@npm:^1.0.0":
-  version: 1.2.0
-  resolution: "decamelize@npm:1.2.0"
-  checksum: ad8c51a7e7e0720c70ec2eeb1163b66da03e7616d7b98c9ef43cce2416395e84c1e9548dd94f5f6ffecfee9f8b94251fc57121a8b021f2ff2469b2bae247b8aa
   languageName: node
   linkType: hard
 
@@ -2554,6 +2519,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fraction.js@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "fraction.js@npm:4.2.0"
+  checksum: 8c76a6e21dedea87109d6171a0ac77afa14205794a565d71cb10d2925f629a3922da61bf45ea52dbc30bce4d8636dc0a27213a88cbd600eab047d82f9a3a94c5
+  languageName: node
+  linkType: hard
+
 "fs-minipass@npm:^2.0.0, fs-minipass@npm:^2.1.0":
   version: 2.1.0
   resolution: "fs-minipass@npm:2.1.0"
@@ -3172,13 +3144,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-base64@npm:~2.1.7":
-  version: 2.1.9
-  resolution: "js-base64@npm:2.1.9"
-  checksum: 9a90987f413a361a9dbb9dd07bf7f1553339aa8640f7e7025d7ba652f31eb59ea4d7854f77b403a728026adc1ae9192c7139a10b3f9d9f8df10fac3ffec97f4e
-  languageName: node
-  linkType: hard
-
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -3567,6 +3532,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"normalize-range@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "normalize-range@npm:0.1.2"
+  checksum: 9b2f14f093593f367a7a0834267c24f3cb3e887a2d9809c77d8a7e5fd08738bcd15af46f0ab01cc3a3d660386f015816b5c922cea8bf2ee79777f40874063184
+  languageName: node
+  linkType: hard
+
 "npmlog@npm:^6.0.0":
   version: 6.0.2
   resolution: "npmlog@npm:6.0.2"
@@ -3576,13 +3548,6 @@ __metadata:
     gauge: ^4.0.3
     set-blocking: ^2.0.0
   checksum: ae238cd264a1c3f22091cdd9e2b106f684297d3c184f1146984ecbe18aaa86343953f26b9520dedd1b1372bc0316905b736c1932d778dbeb1fcf5a1001390e2a
-  languageName: node
-  linkType: hard
-
-"num2fraction@npm:~1.1.0":
-  version: 1.1.0
-  resolution: "num2fraction@npm:1.1.0"
-  checksum: bbf9dc24be761a23e7de1f420dcc0f741e09d9398bbe4e24dfa914efc0ef9876dd2ce1e121c41cbbda6899fcdd4d3455a5585329793e4b866f0c8b33ae102d0d
   languageName: node
   linkType: hard
 
@@ -3885,16 +3850,6 @@ __metadata:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: 10eee25efd77868036403858577da0cefaf2e0905feeaba5770d5438ccdddba3d01cba8063e96b8aac4c6daa0ed413dd5ae0554a433a3c4db38df1d134cffc1f
-  languageName: node
-  linkType: hard
-
-"postcss@npm:~4.0.6":
-  version: 4.0.6
-  resolution: "postcss@npm:4.0.6"
-  dependencies:
-    js-base64: ~2.1.7
-    source-map: ~0.2.0
-  checksum: 71c261dc4409c240d8edbdb457a75efe2262cc179a16331aebcfffc81c5b47d3e0d5c40befcc948b8b92201da0a180ac970170cbf2b048a274001773a550f94e
   languageName: node
   linkType: hard
 
@@ -4392,15 +4347,6 @@ __metadata:
   version: 0.5.7
   resolution: "source-map@npm:0.5.7"
   checksum: 5dc2043b93d2f194142c7f38f74a24670cd7a0063acdaf4bf01d2964b402257ae843c2a8fa822ad5b71013b5fcafa55af7421383da919752f22ff488bc553f4d
-  languageName: node
-  linkType: hard
-
-"source-map@npm:~0.2.0":
-  version: 0.2.0
-  resolution: "source-map@npm:0.2.0"
-  dependencies:
-    amdefine: ">=0.0.4"
-  checksum: 95fe800c3a93f8c0b9516c033bfc75f2678e27d2e6c0b23ae222f5ddc4afa0a39bd0be15d1c0a1e766d388f3761cc854a053a4330f49242e6045e1a4f9dc0e26
   languageName: node
   linkType: hard
 
