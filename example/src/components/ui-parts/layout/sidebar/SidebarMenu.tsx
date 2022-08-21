@@ -1,11 +1,7 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import React from 'react'
 import clsx from 'clsx'
-import {
-  SidebarContext,
-  SidebarProvider,
-  useSidebarContext,
-} from './SidebarContext'
+import { useSidebarContext } from './SidebarContext'
 
 export type SidebarMenuItemProps = {
   IconComponent: React.ElementType
@@ -50,38 +46,5 @@ export const SidebarMenu: React.FC<SidebarMenuProps> = ({ children }) => {
     <nav className="flex h-0 flex-1 flex-col overflow-y-auto pb-2">
       {children}
     </nav>
-  )
-}
-
-export type SidebarProps = {
-  LogoComponent: React.ElementType<{ open: boolean }>
-  children: React.ReactElement
-  defaultOpen?: boolean
-}
-
-export const Sidebar: React.FC<SidebarProps> = ({
-  LogoComponent,
-  defaultOpen = true,
-  children,
-}) => {
-  return (
-    <SidebarProvider defaultOpen={defaultOpen}>
-      <SidebarContext.Consumer>
-        {({ open }) => (
-          <div
-            className={clsx([
-              'mx-0 flex h-screen w-14 shrink-0 grow bg-shade-dark-default',
-              'transition-slowest transition-width duration-300 ease-in-out',
-              open ? 'w-60' : 'w-[56px]',
-            ])}
-          >
-            <div className="flex grow flex-col overflow-y-auto bg-primary-dark-default">
-              <LogoComponent open={open} />
-              {children}
-            </div>
-          </div>
-        )}
-      </SidebarContext.Consumer>
-    </SidebarProvider>
   )
 }
