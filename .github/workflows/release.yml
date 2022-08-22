@@ -35,24 +35,3 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_SECRETS }}
         run: npm publish --access=public
-
-      - name: version
-        id: version
-        run: |
-          tag=${GITHUB_REF/refs\/tags\//}
-          version=${tag#v}
-          major=${version%%.*}
-          echo "::set-output name=tag::${tag}"
-          echo "::set-output name=version::${version}"
-          echo "::set-output name=major::${major}"
-      - uses: release-drafter/release-drafter@master
-        with:
-          version: ${{ steps.version.outputs.version }}
-          publish: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: force update major tag
-        run: |
-          git tag v${{ steps.version.outputs.major }} ${{ steps.version.outputs.tag }} -f
-          git push origin refs/tags/v${{ steps.version.outputs.major }} -f
