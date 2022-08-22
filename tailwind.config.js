@@ -1,11 +1,11 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const plugin = require('tailwindcss/plugin')
+const path = require('path')
+const defaultTheme = require('tailwindcss/defaultTheme')
 const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
 const { default: toColorValue } = require("tailwindcss/lib/util/toColorValue");
 const { default: withAlphaVariable } = require("tailwindcss/lib/util/withAlphaVariable");
-const path = require('path')
 
-const defaultTheme = require('tailwindcss/defaultTheme')
+const plugin = require('tailwindcss/plugin')
 
 // fontSizes is separeted for the legacy support of fontSizes.
 // Once repalcing done, this should be written in config directly.
@@ -371,8 +371,7 @@ module.exports = {
       { values: flattenColorPalette(theme('iconColor')), type: 'color' }
 
       )
-    })
-
+    }),
   ],
   content: [path.join(__dirname, './src/**/*.(js|jsx|ts|tsx)')],
   theme: {
@@ -534,6 +533,7 @@ module.exports = {
       },
       zIndex: {
         '-1': '-1',
+        table: '900',
         header: '1100',
         sidebar: '1100',
         modal: '1300',
