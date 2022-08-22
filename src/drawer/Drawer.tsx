@@ -52,6 +52,7 @@ export const Drawer: React.FC<Props> = ({
   }, [onClose])
 
   const handleMouseMove = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (e: any) => {
       switch (anchor) {
         case DrawerAnchor.left: {
