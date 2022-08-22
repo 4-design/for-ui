@@ -14,8 +14,6 @@ const useSidebar = (defaultOpen = true): UseSidebar => {
     e.preventDefault()
     e.stopPropagation()
 
-    console.info('open')
-
     setOpen(true)
   }
 

@@ -4,4 +4,3 @@ types
 tailwind.config.js
 rollup.config.js
 storybook-static
-example
