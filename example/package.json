@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@3-shake/3design-ui": "file:.yalc/@3-shake/3design-ui",
+    "@3-shake/3design-ui": "3.0.0",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@mui/lab": "^5.0.0-alpha.94",
