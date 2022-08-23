@@ -9,7 +9,7 @@ export default {
   argTypes: {
     backgroundcolor: { control: 'color' },
     open: { control: 'boolean' },
-    anchor: { options: ['top', 'left', 'right', 'bottom'], control: 'select' },
+    anchor: { options: ['left', 'right'], control: 'select' },
     onClose: { action: 'onClose' },
   },
   decorators: [
