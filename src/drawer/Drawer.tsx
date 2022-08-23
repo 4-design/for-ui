@@ -44,7 +44,7 @@ export const Drawer: React.FC<Props> = ({
   )
 
   const [height, setHeight] = useState(
-    anchor === 'top' || anchor === 'bottom' ? defaultHeight : '100%'
+    '100%'
   )
 
   const handleClose = useCallback(() => {
