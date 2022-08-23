@@ -7,4 +7,5 @@ addons.setConfig({
     base: 'light',
     brandTitle: '3design-ui',
   }),
+  panelPosition: 'bottom',
 })
