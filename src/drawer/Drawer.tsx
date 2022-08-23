@@ -123,7 +123,7 @@ export const Drawer: React.FC<Props> = ({
         <Button
           variant="text"
           size="small"
-          startIcon={<MdClose />}
+          startIcon={<MdClose size={16} />}
           onClick={handleClose}
         >
           閉じる
