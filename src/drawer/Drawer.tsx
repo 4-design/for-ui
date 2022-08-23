@@ -116,7 +116,7 @@ export const Drawer: React.FC<Props> = ({
         <span
           className={clsx([
             'block h-full w-full border-shade-light-default hover:bg-shade-white-hover',
-            anchor === DrawerAnchor.left ? 'border-l' : 'border-r',
+            anchor === DrawerAnchor.left ? 'border-r' : 'border-l',
           ])}
         >
           <MdMoreVert
