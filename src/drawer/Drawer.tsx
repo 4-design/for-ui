@@ -132,7 +132,6 @@ export const Drawer: React.FC<Props> = ({
         {headerChildren && <div className="ml-auto">{headerChildren}</div>}
       </div>
 
-      {anchor === 'left' || anchor === 'right' ? (
         <div
           onMouseDown={handleMouseDown}
           ref={ref}
