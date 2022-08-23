@@ -4,7 +4,7 @@ import { Text } from '../typography/Typography'
 import { Drawer, DrawerAnchor } from '.'
 
 export default {
-  title: 'Common/Drawer',
+  title: 'Feedback / Drawer',
   component: Drawer,
   argTypes: {
     backgroundcolor: { control: 'color' },
