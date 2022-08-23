@@ -3,7 +3,7 @@
 import React, { useState, useRef, useCallback } from 'react'
 import MuiDrawer, { DrawerProps as MuiDrawerProps } from '@mui/material/Drawer'
 import clsx from 'clsx'
-import { MdClose, MdMoreHoriz, MdMoreVert } from 'react-icons/md'
+import { MdClose, MdMoreVert } from 'react-icons/md'
 import { Button } from '../button'
 
 type Props = MuiDrawerProps & {
@@ -16,13 +16,10 @@ type Props = MuiDrawerProps & {
 }
 
 const _minWidth = 240
-const _minHeight = 300
 
 export const DrawerAnchor = {
   left: 'left',
   right: 'right',
-  top: 'top',
-  bottom: 'bottom',
 } as const
 export type DrawerAnchor = typeof DrawerAnchor[keyof typeof DrawerAnchor]
 
@@ -31,21 +28,13 @@ export const Drawer: React.FC<Props> = ({
   anchor = DrawerAnchor.right,
   headerChildren,
   defaultWidth = _minWidth,
-  defaultHeight = _minHeight,
   minWidth = _minWidth,
-  minHeight = _minHeight,
   children,
   onClose,
   ...rest
 }) => {
   const ref = useRef(null)
-  const [width, setWidth] = useState(
-    anchor === 'left' || anchor === 'right' ? defaultWidth : '100%'
-  )
-
-  const [height, setHeight] = useState(
-    '100%'
-  )
+  const [width, setWidth] = useState(defaultWidth)
 
   const handleClose = useCallback(() => {
     if (onClose) onClose()
@@ -67,22 +56,6 @@ export const Drawer: React.FC<Props> = ({
           const newWidth = window.innerWidth - e.pageX
           if (newWidth > minWidth && newWidth < window.innerWidth) {
             setWidth(newWidth)
-          }
-
-          break
-        }
-        case DrawerAnchor.top: {
-          const newHeight = e.pageY
-          if (newHeight > minHeight && newHeight < window.innerHeight) {
-            setHeight(newHeight)
-          }
-
-          break
-        }
-        case DrawerAnchor.bottom: {
-          const newHeight = window.innerHeight - e.pageY
-          if (newHeight > minHeight && newHeight < window.innerHeight) {
-            setHeight(newHeight)
           }
 
           break
@@ -113,7 +86,7 @@ export const Drawer: React.FC<Props> = ({
       PaperProps={{
         sx: {
           width: width,
-          height: height,
+          height: '100%',
         },
       }}
       onClose={handleClose}
@@ -132,48 +105,29 @@ export const Drawer: React.FC<Props> = ({
         {headerChildren && <div className="ml-auto">{headerChildren}</div>}
       </div>
 
-        <div
-          onMouseDown={handleMouseDown}
-          ref={ref}
+      <div
+        onMouseDown={handleMouseDown}
+        ref={ref}
+        className={clsx([
+          'user-select[none] absolute top-0 h-full w-9 cursor-[ew-resize] px-3',
+          anchor === 'left' ? '-right-3' : '-left-3',
+        ])}
+      >
+        <span
           className={clsx([
-            'user-select[none] absolute top-0 h-full w-9 cursor-[ew-resize] px-3',
-            anchor === 'left' ? '-right-3' : '-left-3',
+            'block h-full w-full border-shade-light-default hover:bg-shade-white-hover',
+            anchor === DrawerAnchor.left ? 'border-l' : 'border-r',
           ])}
         >
-          <span
-            className={clsx(['block h-full w-full hover:bg-shade-white-hover'])}
-          >
-            <MdMoreVert
-              size="24"
-              className={clsx([
-                'relative h-full',
-                anchor === 'left' ? 'right-[6px]' : '-left-[6px]',
-              ])}
-            />
-          </span>
-        </div>
-      ) : (
-        <div
-          onMouseDown={handleMouseDown}
-          ref={ref}
-          className={clsx([
-            'user-select[none] absolute left-0 h-9 w-full cursor-[ns-resize] py-3',
-            anchor === 'top' ? '-bottom-3' : '-top-3',
-          ])}
-        >
-          <span
-            className={clsx(['!hover:bg-shade-dark-hover block h-full w-full'])}
-          >
-            <MdMoreHoriz
-              size="24"
-              className={clsx([
-                'relative w-full',
-                anchor === 'top' ? 'bottom-[6px]' : '-top-[6px]',
-              ])}
-            />
-          </span>
-        </div>
-      )}
+          <MdMoreVert
+            size="24"
+            className={clsx([
+              'relative h-full',
+              anchor === 'left' ? 'right-[6px]' : '-left-[6px]',
+            ])}
+          />
+        </span>
+      </div>
       <div className="overflow-wrap[break-word] mt-3">{children}</div>
     </MuiDrawer>
   )

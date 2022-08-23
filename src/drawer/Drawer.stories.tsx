@@ -45,18 +45,6 @@ WithHeaderChildren.args = {
   headerChildren: <Text variant="h2">Header</Text>,
 }
 
-export const AnchorTop = Template.bind({})
-AnchorTop.args = {
-  open: true,
-  anchor: DrawerAnchor.top,
-}
-
-export const AnchorBottom = Template.bind({})
-AnchorBottom.args = {
-  open: true,
-  anchor: DrawerAnchor.bottom,
-}
-
 export const AnchorLeft = Template.bind({})
 AnchorLeft.args = {
   open: true,
