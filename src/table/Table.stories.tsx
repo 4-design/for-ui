@@ -122,6 +122,7 @@ const withSelectColumns: Array<Column<PersonData>> = [
   {
     id: 'id',
     Header: 'id',
+    width: 'auto',
     accessor: 'id',
     Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
       <TableCell {...getCellProps()}>{value}</TableCell>
@@ -129,6 +130,7 @@ const withSelectColumns: Array<Column<PersonData>> = [
   },
   {
     Header: '苗字',
+    width: 40,
     accessor: 'lastName',
     Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
       <TableCell {...getCellProps()}>{value}</TableCell>
@@ -136,6 +138,7 @@ const withSelectColumns: Array<Column<PersonData>> = [
   },
   {
     Header: '名前',
+    width: 'auto',
     accessor: 'firstName',
     Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
       <TableCell {...getCellProps()}>{value}</TableCell>
@@ -143,6 +146,7 @@ const withSelectColumns: Array<Column<PersonData>> = [
   },
   {
     Header: '年齢',
+    width: 'auto',
     accessor: 'age',
     Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
       <TableCell {...getCellProps()}>{value}</TableCell>
@@ -150,6 +154,7 @@ const withSelectColumns: Array<Column<PersonData>> = [
   },
   {
     Header: '訪問',
+    width: 'auto',
     accessor: 'visits',
     Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
       <TableCell {...getCellProps()}>{value}</TableCell>

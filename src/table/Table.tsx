@@ -196,10 +196,14 @@ export const Table = <T extends object>(props: TableProps<T>) => {
                   tw="p-3 text-base text-shade-dark-default text-left whitespace-nowrap bg-shade-white-default z-30"
                   scope="col"
                   {...column.getHeaderProps({
+                    ...(column.getSortByToggleProps
+                      ? column.getSortByToggleProps()
+                      : {}),
                     style: {
                       minWidth: column.minWidth,
                       width: column.width,
                       maxWidth: column.maxWidth,
+                      cursor: column.canSort ? 'pointer' : 'auto',
                     },
                     ...(column.getSortByToggleProps
                       ? column.getSortByToggleProps()
