@@ -10,7 +10,7 @@
     "lint-fix": "eslint 'src/**/*.{tsx,ts,js,cjs}' --fix"
   },
   "dependencies": {
-    "@3-shake/3design-ui": "file://../../",
+    "@3-shake/3design-ui": "link:../../",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@mui/lab": "^5.0.0-alpha.94",

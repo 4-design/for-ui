@@ -5,32 +5,17 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@3-shake/3design-ui@file:.yalc/@3-shake/3design-ui::locator=%403design-ui%2Fexample%40workspace%3A.":
-  version: 3.1.0
-  resolution: "@3-shake/3design-ui@file:.yalc/@3-shake/3design-ui#.yalc/@3-shake/3design-ui::hash=531f2e&locator=%403design-ui%2Fexample%40workspace%3A."
-  dependencies:
-    "@emotion/react": 11.10.0
-    "@emotion/styled": 11.10.0
-    clsx: ^1.2.1
-    react-dropzone: 14.2.1
-    react-number-format: 4.9.3
-  peerDependencies:
-    "@mui/lab": ">=5.0.0-alpha.73"
-    "@mui/material": ">=5.9.3"
-    "@types/react": ">=17.0.11"
-    "@types/react-dom": ">=17.0.8"
-    react: ">=17.0.2"
-    react-dom: ">=17.0.2"
-    react-icons: ">=4.3.0"
-  checksum: 311521dc0a24c633c7327cda1a101dba4baf52abf03e2b127c5da6f2bc1f9a8171ff62166ff666d82de0380eef5ef38b8cf8b8ba0ede41772f6441884e90e649
+"@3-shake/3design-ui@link:../../::locator=%403design-ui%2Fexample%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@3-shake/3design-ui@link:../../::locator=%403design-ui%2Fexample%40workspace%3A."
   languageName: node
-  linkType: hard
+  linkType: soft
 
 "@3design-ui/example@workspace:.":
   version: 0.0.0-use.local
   resolution: "@3design-ui/example@workspace:."
   dependencies:
-    "@3-shake/3design-ui": "file:.yalc/@3-shake/3design-ui"
+    "@3-shake/3design-ui": "link:../../"
     "@emotion/react": ^11.10.0
     "@emotion/styled": ^11.10.0
     "@mui/lab": ^5.0.0-alpha.94
@@ -441,7 +426,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:11.10.0, @emotion/react@npm:^11.10.0":
+"@emotion/react@npm:^11.10.0":
   version: 11.10.0
   resolution: "@emotion/react@npm:11.10.0"
   dependencies:
@@ -484,7 +469,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:11.10.0, @emotion/styled@npm:^11.10.0":
+"@emotion/styled@npm:^11.10.0":
   version: 11.10.0
   resolution: "@emotion/styled@npm:11.10.0"
   dependencies:
@@ -1295,13 +1280,6 @@ __metadata:
     es-abstract: ^1.19.2
     es-shim-unscopables: ^1.0.0
   checksum: 818538f39409c4045d874be85df0dbd195e1446b14d22f95bdcfefea44ae77db44e42dcd89a559254ec5a7c8b338cfc986cc6d641e3472f9a5326b21eb2976a2
-  languageName: node
-  linkType: hard
-
-"attr-accept@npm:^2.2.2":
-  version: 2.2.2
-  resolution: "attr-accept@npm:2.2.2"
-  checksum: 496f7249354ab53e522510c1dc8f67a1887382187adde4dc205507d2f014836a247073b05e9d9ea51e2e9c7f71b0d2aa21730af80efa9af2d68303e5f0565c4d
   languageName: node
   linkType: hard
 
@@ -2464,15 +2442,6 @@ __metadata:
   dependencies:
     flat-cache: ^3.0.4
   checksum: f49701feaa6314c8127c3c2f6173cfefff17612f5ed2daaafc6da13b5c91fd43e3b2a58fd0d63f9f94478a501b167615931e7200e31485e320f74a33885a9c74
-  languageName: node
-  linkType: hard
-
-"file-selector@npm:^0.6.0":
-  version: 0.6.0
-  resolution: "file-selector@npm:0.6.0"
-  dependencies:
-    tslib: ^2.4.0
-  checksum: 7d051b6e5d793f3c6e2ab287ba5e7c2c6a0971bccc9d56e044c8047ba483e18f60fc0b5771c951dc707c0d15f4f36ccb4f1f1aaf385d21ec8f7700dadf8325ba
   languageName: node
   linkType: hard
 
@@ -3895,7 +3864,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -3939,19 +3908,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dropzone@npm:14.2.1":
-  version: 14.2.1
-  resolution: "react-dropzone@npm:14.2.1"
-  dependencies:
-    attr-accept: ^2.2.2
-    file-selector: ^0.6.0
-    prop-types: ^15.8.1
-  peerDependencies:
-    react: ">= 16.8 || 18.0.0"
-  checksum: 8556d997d66bad79fe165a30d6dc8f917c67d8c7d23069c417eb2a0da6df824ba71b84b532707711e184da105122f6a6e81104341dc5b8c0f96e318267fdda91
-  languageName: node
-  linkType: hard
-
 "react-icons@npm:^4.4.0":
   version: 4.4.0
   resolution: "react-icons@npm:4.4.0"
@@ -3972,18 +3928,6 @@ __metadata:
   version: 18.2.0
   resolution: "react-is@npm:18.2.0"
   checksum: e72d0ba81b5922759e4aff17e0252bd29988f9642ed817f56b25a3e217e13eea8a7f2322af99a06edb779da12d5d636e9fda473d620df9a3da0df2a74141d53e
-  languageName: node
-  linkType: hard
-
-"react-number-format@npm:4.9.3":
-  version: 4.9.3
-  resolution: "react-number-format@npm:4.9.3"
-  dependencies:
-    prop-types: ^15.7.2
-  peerDependencies:
-    react: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-  checksum: 74460ee813284b78d37e4459891d63b49e3276e1e506ffe85057696b9b4793e0fc9b8a77222e50cdc4ecefddb764774a20d2cfc92dce26aed13316b3f2e3b9c9
   languageName: node
   linkType: hard
 

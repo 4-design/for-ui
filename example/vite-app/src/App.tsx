@@ -1,4 +1,3 @@
-import { Button } from '@3-shake/3design-ui'
 import { Sidebar } from './components/layout/sidebar'
 import { Layout } from './components/ui-parts/layout'
 import './styles/tailwindcss.css'
@@ -20,7 +19,6 @@ function App() {
         ]}
         subtitle="説明文など"
       />
-      <Button>Button</Button>
     </Layout>
   )
 }
