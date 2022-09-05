@@ -3,9 +3,9 @@ import { Text, Card, Button } from '@3-shake/3design-ui'
 
 export const Login: React.FC = () => {
   return (
-    <div className="bg-shade-light-default min-width[1400px] h-screen w-screen">
+    <div className="min-width[1400px] bg-shade-light-default h-screen w-screen">
       <div className="m-auto flex h-full w-[fit-content] flex-col items-center justify-center">
-        <Card className="border-shade-light-default w-120 flex min-h-[320px] justify-center rounded px-6 pt-12 pb-6 shadow-none">
+        <Card className="w-120 border-shade-light-default flex min-h-[320px] justify-center rounded px-6 pt-12 pb-6 shadow-none">
           <div className="m-auto">
             <div className="relative h-9 min-w-[240px]">
               <img
