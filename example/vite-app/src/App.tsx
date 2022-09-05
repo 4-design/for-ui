@@ -1,4 +1,5 @@
-import { Sidebar } from '@/components/layout/sidebar'
+import { Button } from '@3-shake/3design-ui'
+import { Sidebar } from './components/layout/sidebar'
 import { Layout } from './components/ui-parts/layout'
 import './styles/tailwindcss.css'
 import { PageTitle } from './components/ui-parts/layout/pagetitle/index'
@@ -19,6 +20,7 @@ function App() {
         ]}
         subtitle="説明文など"
       />
+      <Button>Button</Button>
     </Layout>
   )
 }

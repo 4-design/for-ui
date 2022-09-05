@@ -5,9 +5,9 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@3-shake/3design-ui@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@3-shake/3design-ui@npm:3.0.0"
+"@3-shake/3design-ui@file:.yalc/@3-shake/3design-ui::locator=%403design-ui%2Fexample%40workspace%3A.":
+  version: 3.1.0
+  resolution: "@3-shake/3design-ui@file:.yalc/@3-shake/3design-ui#.yalc/@3-shake/3design-ui::hash=531f2e&locator=%403design-ui%2Fexample%40workspace%3A."
   dependencies:
     "@emotion/react": 11.10.0
     "@emotion/styled": 11.10.0
@@ -22,7 +22,7 @@ __metadata:
     react: ">=17.0.2"
     react-dom: ">=17.0.2"
     react-icons: ">=4.3.0"
-  checksum: c54e1106180ebf9f513022a4feff452450cbfe68260e86983e9f31ff95ea3814b2f7e71b37d5d4cfe9dcf173d157ef67cebb372e54eb8c122e7e1a30c77475fe
+  checksum: 311521dc0a24c633c7327cda1a101dba4baf52abf03e2b127c5da6f2bc1f9a8171ff62166ff666d82de0380eef5ef38b8cf8b8ba0ede41772f6441884e90e649
   languageName: node
   linkType: hard
 
@@ -30,7 +30,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@3design-ui/example@workspace:."
   dependencies:
-    "@3-shake/3design-ui": ^3.0.0
+    "@3-shake/3design-ui": "file:.yalc/@3-shake/3design-ui"
     "@emotion/react": ^11.10.0
     "@emotion/styled": ^11.10.0
     "@mui/lab": ^5.0.0-alpha.94

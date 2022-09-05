@@ -2,7 +2,6 @@
   "name": "@3design-ui/example",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -11,7 +10,7 @@
     "lint-fix": "eslint 'src/**/*.{tsx,ts,js,cjs}' --fix"
   },
   "dependencies": {
-    "@3-shake/3design-ui": "^3.0.0",
+    "@3-shake/3design-ui": "file://../../",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@mui/lab": "^5.0.0-alpha.94",
