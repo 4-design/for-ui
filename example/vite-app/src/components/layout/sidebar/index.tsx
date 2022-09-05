@@ -22,7 +22,7 @@ const Logo: React.FC<{ open: boolean }> = ({ open }) => (
             className="mr-4"
           />
           <span className="text-shade-white-default w-44 overflow-x-hidden text-ellipsis whitespace-nowrap text-base">
-            スリーシェイク
+            3design,inc
           </span>
         </div>
       )}
