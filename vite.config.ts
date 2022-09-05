@@ -4,10 +4,7 @@ import { defineConfig } from 'vite'
 
 import pkg from './package.json'
 
-const externalPackages = [
-  ...Object.keys(pkg.peerDependencies || {}),
-  ...Object.keys(pkg.dependencies || {}),
-]
+const externalPackages = [...Object.keys(pkg.peerDependencies || {})]
 
 const regexesOfPackages = externalPackages.map(
   (packageName) => new RegExp(`^${packageName}(\/.*)?`)
@@ -26,17 +23,15 @@ export default defineConfig(({ mode }) => ({
       external: regexesOfPackages,
       output: [
         {
-          preserveModules: true,
           preserveModulesRoot: 'src',
-          sourcemap: true,
           exports: 'named',
+          sourcemap: mode === 'production' ? false : 'inline',
           dir: 'dist/commonjs',
           format: 'cjs',
         },
         {
-          preserveModules: true,
           preserveModulesRoot: 'src',
-          sourcemap: true,
+          sourcemap: mode === 'production' ? false : 'inline',
           exports: 'named',
           dir: 'dist/esm',
           format: 'esm',

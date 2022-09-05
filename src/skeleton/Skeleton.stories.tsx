@@ -142,12 +142,12 @@ export const WithNest = () => {
           <Text
             bold
             variant="caption"
-            className={tw`mb-2 text-shade-dark-default`}
+            className={`mb-2 text-shade-dark-default`}
           >
             サービス名
           </Text>
 
-          <Text variant="caption" className={tw`text-shade-dark-default`}>
+          <Text variant="caption" className={`text-shade-dark-default`}>
             {undefined}
           </Text>
         </Row>
