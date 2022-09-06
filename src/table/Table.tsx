@@ -183,9 +183,9 @@ export const Table = <T extends object>(props: TableProps<T>) => {
     <>
       <table
         {...getTableProps()}
-        className="w-full border-separate border-spacing-0"
+        className="w-full border-separate border-spacing-0 rounded-sm border border-shade-light-default"
       >
-        <thead className="table-header-group bg-shade-white-default">
+        <thead className="table-header-group bg-shade-light-default">
           {headerGroups.map((headerGroup, i) => (
             <tr
               {...headerGroup.getHeaderGroupProps()}
@@ -194,7 +194,7 @@ export const Table = <T extends object>(props: TableProps<T>) => {
             >
               {headerGroup.headers.map((column, j) => (
                 <th
-                  className="z-30 whitespace-nowrap border-b border-shade-light-default bg-shade-white-default p-3 text-left text-base text-shade-dark-default"
+                  className="z-30 whitespace-nowrap border-b border-shade-light-default p-3 text-left text-base text-shade-dark-default"
                   scope="col"
                   {...column.getHeaderProps({
                     ...(column.getSortByToggleProps
