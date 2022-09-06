@@ -8,12 +8,18 @@ export const Login: React.FC = () => {
         <Card className="w-120 border-shade-light-default flex min-h-[320px] justify-center rounded px-6 pt-12 pb-6 shadow-none">
           <div className="m-auto">
             <div className="relative h-9 min-w-[240px]">
-              <img
-                src="/images/logo/logo.svg"
-                width="240"
-                height="36"
-                alt="securify shield logo"
-              />
+              <div className="flex">
+                <img
+                  src="/vite.svg"
+                  width="36"
+                  height="36"
+                  alt="logo"
+                  className="mr-4"
+                />
+                <span className="text-shade-dark-default overflow-x-hidden text-ellipsis whitespace-nowrap text-xl">
+                  3design,inc
+                </span>
+              </div>
             </div>
 
             <Text
