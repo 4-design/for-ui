@@ -54,7 +54,9 @@ export const decorators = [
   (Story) => (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
-        <Story />
+        <div className="p-2">
+          <Story />
+        </div>
       </ThemeProvider>
     </StyledEngineProvider>
   ),
