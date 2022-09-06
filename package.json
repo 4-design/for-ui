@@ -3,14 +3,14 @@
   "version": "3.1.0",
   "homepage": "https://github.com/3-shake/3design-ui",
   "main": "dist/commonjs/3design-ui.js",
-  "module": "dist/esm/3design-ui.mjs",
+  "module": "dist/esm/3design-ui.esm.js",
   "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/esm/3design-ui.mjs",
+      "import": "./dist/esm/3design-ui.esm.js",
       "require": "./dist/commonjs/3design-ui.js"
     },
-    "./tailwind.config.js": "./tailwind.config.js"
+    "./tailwind.config.base.js": "./tailwind.config.base.js"
   },
   "author": "locona <miyamae@3-shake.com>",
   "sideEffects": false,
@@ -34,17 +34,16 @@
     "lint": "eslint 'src/**/*.{tsx,ts,js,cjs}'",
     "lint-fix": "eslint 'src/**/*.{tsx,ts,js,cjs}' --fix",
     "storybook": "rm -rf node_modules/.cache/storybook && start-storybook --no-manager-cache -p 6006 -s public",
-    "build-storybook": "build-storybook",
-    "chromatic": "chromatic --exit-zero-on-changes"
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@emotion/react": "11.10.0",
-    "@emotion/styled": "11.10.0",
     "clsx": "^1.2.1",
     "react-dropzone": "14.2.1",
     "react-number-format": "4.9.3"
   },
   "devDependencies": {
+    "@emotion/react": "11.10.0",
+    "@emotion/styled": "11.10.0",
     "@hookform/resolvers": "2.9.1",
     "@mui/lab": "5.0.0-alpha.93",
     "@mui/material": "5.9.3",
@@ -104,7 +103,7 @@
   },
   "files": [
     "dist",
-    "tailwind.config.js"
+    "tailwind.config.base.js"
   ],
   "volta": {
     "node": "16.16.0",

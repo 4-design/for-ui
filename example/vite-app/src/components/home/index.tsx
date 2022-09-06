@@ -1,9 +1,8 @@
-import { Sidebar } from '@/components/layout/sidebar'
-import { Layout } from './components/ui-parts/layout'
-import './styles/tailwindcss.css'
-import { PageTitle } from './components/ui-parts/layout/pagetitle/index'
+import { Sidebar } from '../layout/sidebar'
+import { Layout } from '../ui-parts/layout'
+import { PageTitle } from '../ui-parts/layout/pagetitle'
 
-function App() {
+export const Home = () => {
   return (
     <Layout SidebarComponent={Sidebar}>
       <PageTitle
@@ -22,5 +21,3 @@ function App() {
     </Layout>
   )
 }
-
-export default App

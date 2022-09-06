@@ -23,20 +23,18 @@ export default defineConfig(({ mode }) => ({
       external: regexesOfPackages,
       output: [
         {
-          preserveModules: true,
           preserveModulesRoot: 'src',
-          sourcemap: true,
           exports: 'named',
+          sourcemap: mode === 'production' ? false : 'inline',
           dir: 'dist/commonjs',
           format: 'cjs',
         },
         {
-          preserveModules: true,
           preserveModulesRoot: 'src',
-          sourcemap: true,
+          sourcemap: mode === 'production' ? false : 'inline',
           exports: 'named',
           dir: 'dist/esm',
-          format: 'es',
+          format: 'esm',
         },
       ],
     },
