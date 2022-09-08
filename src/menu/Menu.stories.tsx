@@ -29,21 +29,19 @@ export const Base = () => {
         <Text variant="h3">Menu</Text>
       </div>
 
-      <div>
-        <Menu
-          TriggerComponent={<Button variant="contained">プロジェクト</Button>}
-        >
-          <MenuItem>
-            <a href="#">プロフィール</a>
-          </MenuItem>
-          <MenuItem>
-            <a href="#">設定</a>
-          </MenuItem>
-          <MenuItem>
-            <a href="#">プロフィール</a>
-          </MenuItem>
-        </Menu>
-      </div>
+      <Menu
+        TriggerComponent={<Button variant="contained">プロジェクト</Button>}
+      >
+        <MenuItem>
+          <a href="#">プロフィール</a>
+        </MenuItem>
+        <MenuItem>
+          <a href="#">設定</a>
+        </MenuItem>
+        <MenuItem>
+          <a href="#">プロフィール</a>
+        </MenuItem>
+      </Menu>
     </div>
   )
 }

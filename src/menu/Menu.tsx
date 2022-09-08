@@ -37,29 +37,25 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
     }
 
     return (
-      <div>
-        <React.Fragment>
-          {_TriggerComponent}
+      <React.Fragment>
+        {_TriggerComponent}
 
-          <MuiMenu
-            ref={ref}
-            anchorOrigin={anchorOrigin}
-            transformOrigin={transformOrigin}
-            classes={{
-              root: clsx(['translate-y-2']),
-              paper: clsx([
-                'z-modal min-w-min  rounded-[4px] py-1 shadow-menu',
-              ]),
-              list: clsx([
-                'grid grid-cols-1 divide-y divide-shade-light-default py-0',
-              ]),
-            }}
-            {...bindMenu(popupState)}
-          >
-            {children}
-          </MuiMenu>
-        </React.Fragment>
-      </div>
+        <MuiMenu
+          ref={ref}
+          anchorOrigin={anchorOrigin}
+          transformOrigin={transformOrigin}
+          classes={{
+            root: clsx(['translate-y-2']),
+            paper: clsx(['z-modal min-w-min  rounded-[4px] py-1 shadow-menu']),
+            list: clsx([
+              'grid grid-cols-1 divide-y divide-shade-light-default py-0',
+            ]),
+          }}
+          {...bindMenu(popupState)}
+        >
+          {children}
+        </MuiMenu>
+      </React.Fragment>
     )
   }
 )
