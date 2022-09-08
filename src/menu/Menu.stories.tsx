@@ -23,35 +23,16 @@ export default {
 } as Meta
 
 export const Base = () => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
-  const toggle = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(anchorEl ? null : event.currentTarget)
-  }
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
-
-  const open = Boolean(anchorEl)
-
   return (
     <div className="flex flex-col gap-8">
       <div className="mb-4 border-b">
-        <Text variant="h3">Button/Contained/Large</Text>
+        <Text variant="h3">Menu</Text>
       </div>
 
       <div>
-        <Button
-          id="demo-positioned-button"
-          aria-controls="demo-positioned-menu"
-          aria-haspopup="true"
-          aria-expanded={open ? 'true' : undefined}
-          variant="contained"
-          onClick={toggle}
+        <Menu
+          TriggerComponent={<Button variant="contained">プロジェクト</Button>}
         >
-          プロジェクト
-        </Button>
-
-        <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
           <MenuItem>
             <a href="#">プロフィール</a>
           </MenuItem>
