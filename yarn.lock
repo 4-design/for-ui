@@ -20,18 +20,18 @@ __metadata:
     "@storybook/addon-essentials": 6.5.10
     "@storybook/addon-links": 6.5.10
     "@storybook/addon-postcss": 2.0.0
-    "@storybook/builder-vite": ^0.2.2
+    "@storybook/builder-vite": 0.2.2
     "@storybook/builder-webpack5": 6.5.10
     "@storybook/manager-webpack5": 6.5.10
     "@storybook/react": 6.5.10
     "@types/react": 18.0.17
-    "@types/react-dom": ^18.0.6
+    "@types/react-dom": 18.0.6
     "@types/react-table": 7.7.12
     "@typescript-eslint/eslint-plugin": 5.33.1
     "@typescript-eslint/parser": 5.33.1
     "@vitejs/plugin-react": 2.0.0
     autoprefixer: 10.4.8
-    babel-loader: ^8.2.5
+    babel-loader: 8.2.5
     clsx: ^1.2.1
     eslint: 8.22.0
     eslint-config-prettier: 8.5.0
@@ -42,13 +42,13 @@ __metadata:
     eslint-plugin-react: 7.30.1
     eslint-plugin-react-hooks: 4.6.0
     eslint-plugin-storybook: 0.6.4
-    eslint-plugin-tailwindcss: ^3.6.0
+    eslint-plugin-tailwindcss: 3.6.0
     eslint-plugin-unused-imports: 2.0.0
     lint-staged: 13.0.1
     npm-run-all: 4.1.5
     postcss: 8.4.16
     prettier: 2.7.1
-    prettier-plugin-tailwindcss: ^0.1.13
+    prettier-plugin-tailwindcss: 0.1.13
     react: 18.2.0
     react-dom: 18.2.0
     react-dropzone: 14.2.1
@@ -3146,7 +3146,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/builder-vite@npm:^0.2.2":
+"@storybook/builder-vite@npm:0.2.2":
   version: 0.2.2
   resolution: "@storybook/builder-vite@npm:0.2.2"
   dependencies:
@@ -4271,7 +4271,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.6":
+"@types/react-dom@npm:18.0.6":
   version: 18.0.6
   resolution: "@types/react-dom@npm:18.0.6"
   dependencies:
@@ -5581,7 +5581,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-loader@npm:^8.0.0, babel-loader@npm:^8.2.5":
+"babel-loader@npm:8.2.5, babel-loader@npm:^8.0.0":
   version: 8.2.5
   resolution: "babel-loader@npm:8.2.5"
   dependencies:
@@ -8183,7 +8183,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-tailwindcss@npm:^3.6.0":
+"eslint-plugin-tailwindcss@npm:3.6.0":
   version: 3.6.0
   resolution: "eslint-plugin-tailwindcss@npm:3.6.0"
   dependencies:
@@ -13243,7 +13243,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prettier-plugin-tailwindcss@npm:^0.1.13":
+"prettier-plugin-tailwindcss@npm:0.1.13":
   version: 0.1.13
   resolution: "prettier-plugin-tailwindcss@npm:0.1.13"
   peerDependencies:
