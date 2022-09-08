@@ -5,11 +5,24 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@3-shake/3design-ui@link:./../../::locator=root-workspace-0b6124%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@3-shake/3design-ui@link:./../../::locator=root-workspace-0b6124%40workspace%3A."
+"@3-shake/3design-ui@npm:3.2.0":
+  version: 3.2.0
+  resolution: "@3-shake/3design-ui@npm:3.2.0"
+  dependencies:
+    clsx: ^1.2.1
+    react-dropzone: 14.2.1
+    react-number-format: 4.9.3
+  peerDependencies:
+    "@mui/lab": ">=5.0.0-alpha.73"
+    "@mui/material": ">=5.9.3"
+    "@types/react": ">=17.0.11"
+    "@types/react-dom": ">=17.0.8"
+    react: ">=17.0.2"
+    react-dom: ">=17.0.2"
+    react-icons: ">=4.3.0"
+  checksum: 0ca5e5a563bec7a0e23baa9509a5d2bc2768771ad5ee0b80a6b10671948b8c57c0649cf878870f41d0dc3a84173a3d944637950cf105f730a2cdfd552c9fc81e
   languageName: node
-  linkType: soft
+  linkType: hard
 
 "@ampproject/remapping@npm:^2.1.0":
   version: 2.2.0
@@ -37,7 +50,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.13.15":
+"@babel/core@npm:7.18.13":
   version: 7.18.13
   resolution: "@babel/core@npm:7.18.13"
   dependencies:
@@ -367,7 +380,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:^11.10.0":
+"@emotion/react@npm:11.10.4":
   version: 11.10.4
   resolution: "@emotion/react@npm:11.10.4"
   dependencies:
@@ -411,7 +424,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:^11.10.0":
+"@emotion/styled@npm:11.10.4":
   version: 11.10.4
   resolution: "@emotion/styled@npm:11.10.4"
   dependencies:
@@ -876,7 +889,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^12.12.21":
+"@types/node@npm:12.20.55":
   version: 12.20.55
   resolution: "@types/node@npm:12.20.55"
   checksum: e4f86785f4092706e0d3b0edff8dca5a13b45627e4b36700acd8dfe6ad53db71928c8dee914d4276c7fd3b6ccd829aa919811c9eb708a2c8e4c6eb3701178c37
@@ -897,7 +910,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17.0.1":
+"@types/react-dom@npm:17.0.17":
   version: 17.0.17
   resolution: "@types/react-dom@npm:17.0.17"
   dependencies:
@@ -944,7 +957,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^17, @types/react@npm:^17.0.2":
+"@types/react@npm:17.0.49, @types/react@npm:^17":
   version: 17.0.49
   resolution: "@types/react@npm:17.0.49"
   dependencies:
@@ -1076,7 +1089,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.4.8":
+"attr-accept@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "attr-accept@npm:2.2.2"
+  checksum: 496f7249354ab53e522510c1dc8f67a1887382187adde4dc205507d2f014836a247073b05e9d9ea51e2e9c7f71b0d2aa21730af80efa9af2d68303e5f0565c4d
+  languageName: node
+  linkType: hard
+
+"autoprefixer@npm:10.4.8":
   version: 10.4.8
   resolution: "autoprefixer@npm:10.4.8"
   dependencies:
@@ -1533,6 +1553,15 @@ __metadata:
   dependencies:
     reusify: ^1.0.4
   checksum: 32cf15c29afe622af187d12fc9cd93e160a0cb7c31a3bb6ace86b7dea3b28e7b72acde89c882663f307b2184e14782c6c664fa315973c03626c7d4bff070bb0b
+  languageName: node
+  linkType: hard
+
+"file-selector@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "file-selector@npm:0.6.0"
+  dependencies:
+    tslib: ^2.4.0
+  checksum: 7d051b6e5d793f3c6e2ab287ba5e7c2c6a0971bccc9d56e044c8047ba483e18f60fc0b5771c951dc707c0d15f4f36ccb4f1f1aaf385d21ec8f7700dadf8325ba
   languageName: node
   linkType: hard
 
@@ -2133,7 +2162,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-transpile-modules@npm:^9.0.0":
+"next-transpile-modules@npm:9.0.0":
   version: 9.0.0
   resolution: "next-transpile-modules@npm:9.0.0"
   dependencies:
@@ -2452,7 +2481,7 @@ next@latest:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.14, postcss@npm:^8.4.16":
+"postcss@npm:8.4.16, postcss@npm:^8.4.14":
   version: 8.4.16
   resolution: "postcss@npm:8.4.16"
   dependencies:
@@ -2480,7 +2509,7 @@ next@latest:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -2505,7 +2534,7 @@ next@latest:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18.0.2":
+"react-dom@npm:18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -2514,6 +2543,19 @@ next@latest:
   peerDependencies:
     react: ^18.2.0
   checksum: 7d323310bea3a91be2965f9468d552f201b1c27891e45ddc2d6b8f717680c95a75ae0bc1e3f5cf41472446a2589a75aed4483aee8169287909fcd59ad149e8cc
+  languageName: node
+  linkType: hard
+
+"react-dropzone@npm:14.2.1":
+  version: 14.2.1
+  resolution: "react-dropzone@npm:14.2.1"
+  dependencies:
+    attr-accept: ^2.2.2
+    file-selector: ^0.6.0
+    prop-types: ^15.8.1
+  peerDependencies:
+    react: ">= 16.8 || 18.0.0"
+  checksum: 8556d997d66bad79fe165a30d6dc8f917c67d8c7d23069c417eb2a0da6df824ba71b84b532707711e184da105122f6a6e81104341dc5b8c0f96e318267fdda91
   languageName: node
   linkType: hard
 
@@ -2537,6 +2579,18 @@ next@latest:
   version: 18.2.0
   resolution: "react-is@npm:18.2.0"
   checksum: e72d0ba81b5922759e4aff17e0252bd29988f9642ed817f56b25a3e217e13eea8a7f2322af99a06edb779da12d5d636e9fda473d620df9a3da0df2a74141d53e
+  languageName: node
+  linkType: hard
+
+"react-number-format@npm:4.9.3":
+  version: 4.9.3
+  resolution: "react-number-format@npm:4.9.3"
+  dependencies:
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: 74460ee813284b78d37e4459891d63b49e3276e1e506ffe85057696b9b4793e0fc9b8a77222e50cdc4ecefddb764774a20d2cfc92dce26aed13316b3f2e3b9c9
   languageName: node
   linkType: hard
 
@@ -2564,7 +2618,7 @@ next@latest:
   languageName: node
   linkType: hard
 
-"react@npm:^18.0.2":
+"react@npm:18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
@@ -2671,26 +2725,26 @@ next@latest:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@3-shake/3design-ui": "link:./../../"
-    "@babel/core": ^7.13.15
+    "@3-shake/3design-ui": 3.2.0
+    "@babel/core": 7.18.13
     "@emotion/babel-plugin": 11.7.2
-    "@emotion/react": ^11.10.0
-    "@emotion/styled": ^11.10.0
+    "@emotion/react": 11.10.4
+    "@emotion/styled": 11.10.4
     "@mui/lab": 5.0.0-alpha.97
     "@mui/material": 5.10.3
-    "@types/node": ^12.12.21
-    "@types/react": ^17.0.2
-    "@types/react-dom": ^17.0.1
+    "@types/node": 12.20.55
+    "@types/react": 17.0.49
+    "@types/react-dom": 17.0.17
     "@types/react-table": 7.7.12
-    autoprefixer: ^10.4.8
+    autoprefixer: 10.4.8
     next: latest
-    next-transpile-modules: ^9.0.0
-    postcss: ^8.4.16
-    react: ^18.0.2
-    react-dom: ^18.0.2
+    next-transpile-modules: 9.0.0
+    postcss: 8.4.16
+    react: 18.2.0
+    react-dom: 18.2.0
     react-icons: 4.3.1
     react-table: 7.8.0
-    tailwindcss: ^3.1.8
+    tailwindcss: 3.1.8
     typescript: 4.8.2
   languageName: unknown
   linkType: soft
@@ -2885,7 +2939,7 @@ next@latest:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.1.8":
+"tailwindcss@npm:3.1.8":
   version: 3.1.8
   resolution: "tailwindcss@npm:3.1.8"
   dependencies:
