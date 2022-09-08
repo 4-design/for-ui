@@ -5,7 +5,6 @@ import { bindTrigger, bindMenu } from 'material-ui-popup-state'
 import { usePopupState } from 'material-ui-popup-state/hooks'
 
 export type MenuProps = Omit<MuiMenuProps, 'open'> & {
-  className?: string
   TriggerComponent: React.ReactNode
 }
 
