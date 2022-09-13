@@ -895,12 +895,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:17.0.17":
-  version: 17.0.17
-  resolution: "@types/react-dom@npm:17.0.17"
+"@types/react-dom@npm:18.0.6":
+  version: 18.0.6
+  resolution: "@types/react-dom@npm:18.0.6"
   dependencies:
-    "@types/react": ^17
-  checksum: 23caf98aa03e968811560f92a2c8f451694253ebe16b670929b24eaf0e7fa62ba549abe9db0ac028a9d8a9086acd6ab9c6c773f163fa21224845edbc00ba6232
+    "@types/react": "*"
+  checksum: db571047af1a567631758700b9f7d143e566df939cfe5fbf7535347cc0c726a1cdbb5e3f8566d076e54cf708b6c1166689de194a9ba09ee35efc9e1d45911685
   languageName: node
   linkType: hard
 
@@ -942,7 +942,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:17.0.49, @types/react@npm:^17":
+"@types/react@npm:17.0.49":
   version: 17.0.49
   resolution: "@types/react@npm:17.0.49"
   dependencies:
@@ -2723,7 +2723,7 @@ next@latest:
     "@mui/material": 5.10.5
     "@types/node": 12.20.55
     "@types/react": 17.0.49
-    "@types/react-dom": 17.0.17
+    "@types/react-dom": 18.0.6
     "@types/react-table": 7.7.12
     autoprefixer: 10.4.9
     next: latest
