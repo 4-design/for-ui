@@ -43,6 +43,7 @@
     "react-number-format": "4.9.4"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.24.4",
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
     "@hookform/resolvers": "2.9.7",
@@ -109,14 +110,6 @@
   "volta": {
     "node": "16.17.0",
     "yarn": "1.22.19"
-  },
-  "workspaces": {
-    "packages": [
-      "."
-    ],
-    "nohoist": [
-      "**/example"
-    ]
   },
   "packageManager": "yarn@3.2.3"
 }
