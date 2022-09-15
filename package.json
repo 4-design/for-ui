@@ -120,7 +120,8 @@
       "packages/*"
     ],
     "nohoist": [
-      "**/example"
+      "**/example",
+      "**/packages"
     ]
   }
 }
