@@ -1,17 +1,12 @@
-import React from 'react'
-import MuiTab, { TabProps as MuiTabProps } from '@mui/material/Tab'
-import clsx from 'clsx'
+import React from 'react';
+import MuiTab, { TabProps as MuiTabProps } from '@mui/material/Tab';
+import clsx from 'clsx';
 
 export interface TabProps extends MuiTabProps {
-  minWidth?: number
+  minWidth?: number;
 }
 
-export const Tab: React.VFC<TabProps> = ({
-  minWidth = 160,
-  disabled,
-  tabIndex,
-  ...rest
-}) => {
+export const Tab: React.VFC<TabProps> = ({ minWidth = 160, disabled, tabIndex, ...rest }) => {
   return (
     <MuiTab
       classes={{
@@ -27,5 +22,5 @@ export const Tab: React.VFC<TabProps> = ({
       tabIndex={tabIndex}
       {...rest}
     />
-  )
-}
+  );
+};

@@ -1,14 +1,14 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import React from 'react'
-import clsx from 'clsx'
-import { useSidebarContext } from './SidebarContext'
+import React from 'react';
+import clsx from 'clsx';
+import { useSidebarContext } from './SidebarContext';
 
 export type SidebarMenuItemProps = {
-  IconComponent: React.ElementType
-  label: string | React.ReactNode // NOTE: 一時的に文字列とコンポーネントを許容
-  active?: boolean
-  className?: string
-}
+  IconComponent: React.ElementType;
+  label: string | React.ReactNode; // NOTE: 一時的に文字列とコンポーネントを許容
+  active?: boolean;
+  className?: string;
+};
 
 export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
   IconComponent,
@@ -16,15 +16,15 @@ export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
   className,
   active = false,
 }) => {
-  const { open } = useSidebarContext()
+  const { open } = useSidebarContext();
   return (
     <div
       // eslint-disable-next-line tailwindcss/classnames-order
       className={clsx([
-        'flex cursor-pointer items-center px-4 py-3 text-r font-medium',
+        'text-r flex cursor-pointer items-center px-4 py-3 font-medium',
         'hover:text-primary-white-default',
         active
-          ? 'rounded-none border-0 border-l-4 border-solid border-l-secondary-medium-active bg-primary-dark-active text-primary-white-default hover:bg-primary-dark-hover'
+          ? 'border-l-secondary-medium-active bg-primary-dark-active text-primary-white-default hover:bg-primary-dark-hover rounded-none border-0 border-l-4 border-solid'
           : 'text-shade-light-default',
         className,
       ])}
@@ -34,17 +34,13 @@ export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
 
       {open ? label : null}
     </div>
-  )
-}
+  );
+};
 
 export type SidebarMenuProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export const SidebarMenu: React.FC<SidebarMenuProps> = ({ children }) => {
-  return (
-    <nav className="flex h-0 flex-1 flex-col overflow-y-auto pb-2">
-      {children}
-    </nav>
-  )
-}
+  return <nav className="flex h-0 flex-1 flex-col overflow-y-auto pb-2">{children}</nav>;
+};

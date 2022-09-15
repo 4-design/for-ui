@@ -1,10 +1,10 @@
-import React from 'react'
-import Avatar from '@mui/material/Avatar'
-import AvatarGroup from '@mui/material/AvatarGroup'
-import { Meta } from '@storybook/react/types-6-0'
+import React from 'react';
+import Avatar from '@mui/material/Avatar';
+import AvatarGroup from '@mui/material/AvatarGroup';
+import { Meta } from '@storybook/react/types-6-0';
 
-import { Text, Typography } from '../typography'
-import { Skeleton, SkeletonX } from './Skeleton'
+import { Text, Typography } from '../typography';
+import { Skeleton, SkeletonX } from './Skeleton';
 
 export default {
   title: 'Example / Skeleton',
@@ -20,14 +20,14 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as Meta
+} as Meta;
 
 export const WithText = () => {
-  const [loading, setLoading] = React.useState(false)
+  const [loading, setLoading] = React.useState(false);
   React.useEffect(() => {
-    const intervalId = setInterval(() => setLoading((x) => !x), 1000)
-    return () => clearInterval(intervalId)
-  }, [])
+    const intervalId = setInterval(() => setLoading((x) => !x), 1000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <div className="flex flex-col">
@@ -50,16 +50,16 @@ export const WithText = () => {
         <Typography variant="h6">H6. Heading</Typography>
       </Skeleton>
     </div>
-  )
-}
+  );
+};
 
 export const WithImage = () => {
-  const [loading, setLoading] = React.useState(false)
+  const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
-    const intervalId = setInterval(() => setLoading((x) => !x), 1000)
-    return () => clearInterval(intervalId)
-  }, [])
+    const intervalId = setInterval(() => setLoading((x) => !x), 1000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <div className="flex flex-col">
@@ -70,8 +70,8 @@ export const WithImage = () => {
         />
       </Skeleton>
     </div>
-  )
-}
+  );
+};
 
 export const WithAvatar = () => {
   return (
@@ -106,16 +106,16 @@ export const WithAvatar = () => {
         </Skeleton>
       </AvatarGroup>
     </div>
-  )
-}
+  );
+};
 
 export const WithCount = () => {
-  const [loading, setLoading] = React.useState(false)
+  const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
-    const intervalId = setInterval(() => setLoading((x) => !x), 1000)
-    return () => clearInterval(intervalId)
-  }, [])
+    const intervalId = setInterval(() => setLoading((x) => !x), 1000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <div className="flex flex-col">
@@ -124,88 +124,82 @@ export const WithCount = () => {
         <Typography variant="h1">H1. Heading</Typography>
       </Skeleton>
     </div>
-  )
-}
+  );
+};
 
 export const WithNest = () => {
-  const [loading, setLoading] = React.useState(true)
+  const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    const intervalId = setInterval(() => setLoading((x) => !x), 1000)
-    return () => clearInterval(intervalId)
-  }, [])
+    const intervalId = setInterval(() => setLoading((x) => !x), 1000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <div className="flex flex-col">
       <SkeletonX loading={loading} variant="text">
         <Row>
-          <Text
-            bold
-            variant="caption"
-            className={`mb-2 text-shade-dark-default`}
-          >
+          <Text bold variant="caption" className="text-shade-dark-default mb-2">
             サービス名
           </Text>
 
-          <Text variant="caption" className={`text-shade-dark-default`}>
+          <Text variant="caption" className="text-shade-dark-default">
             {undefined}
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" className={`text-shade-dark-default`}>
+          <Text bold variant="caption" className="text-shade-dark-default">
             サービス概要
           </Text>
 
-          <Text variant="caption" className={`text-shade-dark-default`}>
+          <Text variant="caption" className="text-shade-dark-default">
             「Reckoner」は、個人が簡単にモノの売り買いが楽しめるフリマアプリです。AIによる不正の監視や独自の入金システムにより、誰でも安心・安全な取引が行えます。
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" className={`text-shade-dark-default`}>
+          <Text bold variant="caption" className="text-shade-dark-default">
             使用中のインフラサービス
           </Text>
 
-          <Text variant="caption" className={`text-shade-dark-default`}>
+          <Text variant="caption" className="text-shade-dark-default">
             Google Cloud
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" className={`text-shade-dark-default`}>
+          <Text bold variant="caption" className="text-shade-dark-default">
             停止の際の影響範囲
           </Text>
 
-          <Text variant="caption" className={`text-shade-dark-default`}>
+          <Text variant="caption" className="text-shade-dark-default">
             顧客がReckoner上で取引が出来ない
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" className={`text-shade-dark-default`}>
+          <Text bold variant="caption" className="text-shade-dark-default">
             構成図リンク
           </Text>
 
-          <Text variant="caption" className={`text-shade-dark-default`}>
+          <Text variant="caption" className="text-shade-dark-default">
             https://3-shake.com
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" className={`text-shade-dark-default`}>
+          <Text bold variant="caption" className="text-shade-dark-default">
             トラフィック·ピーク時間帯
           </Text>
 
-          <Text variant="caption" className={`text-shade-dark-default`}>
+          <Text variant="caption" className="text-shade-dark-default">
             00:00 ~ 24:00
           </Text>
         </Row>
       </SkeletonX>
     </div>
-  )
-}
+  );
+};
 
-const Row = ({ children }) => (
-  <div className="flex flex-col gap-2">{children}</div>
-)
+const Row = ({ children }) => <div className="flex flex-col gap-2">{children}</div>;

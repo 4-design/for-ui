@@ -1,17 +1,13 @@
-import clsx from 'clsx'
-import { SidebarContext, SidebarProvider } from './SidebarContext'
+import clsx from 'clsx';
+import { SidebarContext, SidebarProvider } from './SidebarContext';
 
 export type SidebarProps = {
-  LogoComponent: React.ElementType<{ open: boolean }>
-  children: React.ReactElement
-  defaultOpen?: boolean
-}
+  LogoComponent: React.ElementType<{ open: boolean }>;
+  children: React.ReactElement;
+  defaultOpen?: boolean;
+};
 
-export const Sidebar: React.FC<SidebarProps> = ({
-  LogoComponent,
-  defaultOpen = true,
-  children,
-}) => {
+export const Sidebar: React.FC<SidebarProps> = ({ LogoComponent, defaultOpen = true, children }) => {
   return (
     <SidebarProvider defaultOpen={defaultOpen}>
       <SidebarContext.Consumer>
@@ -31,5 +27,5 @@ export const Sidebar: React.FC<SidebarProps> = ({
         )}
       </SidebarContext.Consumer>
     </SidebarProvider>
-  )
-}
+  );
+};

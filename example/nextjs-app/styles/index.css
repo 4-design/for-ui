@@ -22,7 +22,6 @@
   --shade-text-white-default: #fff;
   --shade-text-white-disabled: #d4d9ec;
 
-
   /*******************************
    * shade background
   ********************************/
@@ -125,10 +124,10 @@
    * primary border
   ********************************/
   /* primary-border-dark */
-  --primary-border-dark-default: #070E2C;
+  --primary-border-dark-default: #070e2c;
   --primary-border-dark-hover: #474f71;
   --primary-border-dark-disabled: #d4d9ec;
-  --primary-border-medium-active: #474F71;
+  --primary-border-medium-active: #474f71;
 
   /*******************************
    * primary icon
@@ -165,7 +164,7 @@
   /* secondary-border-dark */
   --secondary-border-dark-default: #e35b30;
   /* secondary-border-medium */
-  --secondary-border-medium-active: #FFB25B;
+  --secondary-border-medium-active: #ffb25b;
   /* ------------------------------------------------------------------ */
 
   /*******************************
@@ -198,7 +197,7 @@
   ********************************/
   /* negative-icon-medium */
   --negative-icon-medium-default: #e73812;
-  --negative-icon-medium-hover: #ef6C50;
+  --negative-icon-medium-hover: #ef6c50;
 
   /* ------------------------------------------------------------------ */
 

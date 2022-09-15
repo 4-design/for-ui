@@ -1,26 +1,21 @@
-import React from 'react'
-import clsx from 'clsx'
-import { TableCellProps as ReactTableCellProps } from 'react-table'
+import React from 'react';
+import clsx from 'clsx';
+import { TableCellProps as ReactTableCellProps } from 'react-table';
 
 export interface TableCellProps extends ReactTableCellProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 
-  component?: 'th' | 'td'
-  className?: string
+  component?: 'th' | 'td';
+  className?: string;
 }
 
-export const TableCell: React.VFC<TableCellProps> = ({
-  component = 'td',
-  className,
-  children,
-  ...rest
-}) => {
+export const TableCell: React.VFC<TableCellProps> = ({ component = 'td', className, children, ...rest }) => {
   return (
     <>
       {component === 'td' ? (
         <td
           className={clsx([
-            'border-b border-shade-light-default p-3 text-left font-normal text-shade-dark-default',
+            'border-shade-light-default text-shade-dark-default border-b p-3 text-left font-normal',
             className,
           ])}
           {...rest}
@@ -30,7 +25,7 @@ export const TableCell: React.VFC<TableCellProps> = ({
       ) : (
         <th
           className={clsx([
-            'border-b border-shade-light-default p-3 text-left font-normal text-shade-dark-default',
+            'border-shade-light-default text-shade-dark-default border-b p-3 text-left font-normal',
             className,
           ])}
           {...rest}
@@ -39,5 +34,5 @@ export const TableCell: React.VFC<TableCellProps> = ({
         </th>
       )}
     </>
-  )
-}
+  );
+};

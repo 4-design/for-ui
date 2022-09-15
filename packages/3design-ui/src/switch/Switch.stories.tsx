@@ -1,10 +1,10 @@
-import React from 'react'
-import { Meta } from '@storybook/react/types-6-0'
+import React from 'react';
+import { Meta } from '@storybook/react/types-6-0';
 
-import { Controller, useForm } from 'react-hook-form'
-import { Button } from '../button'
-import { Switch } from './Switch'
-import { SwitchGroup } from './SwitchGroup'
+import { Controller, useForm } from 'react-hook-form';
+import { Button } from '../button';
+import { Switch } from './Switch';
+import { SwitchGroup } from './SwitchGroup';
 
 export default {
   title: 'Form / Switch',
@@ -20,17 +20,17 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as Meta
+} as Meta;
 
 export const Basic = (): JSX.Element => {
   const { control, handleSubmit } = useForm<{
-    default1: boolean
-    default2: boolean
-    disable1: boolean
-    disable2: boolean
-  }>()
+    default1: boolean;
+    default2: boolean;
+    disable1: boolean;
+    disable2: boolean;
+  }>();
 
-  const onSubmit = (data: unknown) => console.log(data)
+  const onSubmit = (data: unknown) => console.log(data);
 
   return (
     <div className="flex flex-row gap-4">
@@ -41,14 +41,7 @@ export const Basic = (): JSX.Element => {
             name="default1"
             defaultValue={false}
             render={({ field: { name, value, onChange } }) => {
-              return (
-                <Switch
-                  name={name}
-                  label="default1"
-                  checked={value}
-                  onChange={onChange}
-                />
-              )
+              return <Switch name={name} label="default1" checked={value} onChange={onChange} />;
             }}
           />
           <Controller
@@ -56,14 +49,7 @@ export const Basic = (): JSX.Element => {
             name="default2"
             defaultValue={true}
             render={({ field: { name, value, onChange } }) => {
-              return (
-                <Switch
-                  name={name}
-                  label="default2"
-                  checked={value}
-                  onChange={onChange}
-                />
-              )
+              return <Switch name={name} label="default2" checked={value} onChange={onChange} />;
             }}
           />
           <Controller
@@ -71,15 +57,7 @@ export const Basic = (): JSX.Element => {
             name="disable1"
             defaultValue={false}
             render={({ field: { name, value, onChange } }) => {
-              return (
-                <Switch
-                  name={name}
-                  label="disable1"
-                  checked={value}
-                  disabled
-                  onChange={onChange}
-                />
-              )
+              return <Switch name={name} label="disable1" checked={value} disabled onChange={onChange} />;
             }}
           />
           <Controller
@@ -87,15 +65,7 @@ export const Basic = (): JSX.Element => {
             name="disable2"
             defaultValue={true}
             render={({ field: { name, value, onChange } }) => {
-              return (
-                <Switch
-                  name={name}
-                  label="disable2"
-                  checked={value}
-                  disabled
-                  onChange={onChange}
-                />
-              )
+              return <Switch name={name} label="disable2" checked={value} disabled onChange={onChange} />;
             }}
           />
         </SwitchGroup>
@@ -105,5 +75,5 @@ export const Basic = (): JSX.Element => {
         </div>
       </form>
     </div>
-  )
-}
+  );
+};

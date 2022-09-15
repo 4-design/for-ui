@@ -1,32 +1,20 @@
-import React, { Fragment } from 'react'
-import {
-  Title,
-  Subtitle,
-  Description,
-  Source,
-  DocsStory,
-} from '@storybook/addon-docs/blocks'
-import { Meta } from '@storybook/react/types-6-0'
-import { Text, Variant, variants, texts } from './Typography'
+import React, { Fragment } from 'react';
+import { Title, Subtitle, Description, Source, DocsStory } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/react/types-6-0';
+import { Text, Variant, variants, texts } from './Typography';
 
 export default {
   title: 'Example / Typography',
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as Meta
+} as Meta;
 
-const body: Partial<Variant>[] = [
-  variants.p,
-  variants.body1,
-  variants.body2,
-  variants.span,
-  variants.caption,
-]
+const body: Partial<Variant>[] = [variants.p, variants.body1, variants.body2, variants.span, variants.caption];
 
-const short = `Freelance エンジニアに「いい案件」を。`
+const short = `Freelance エンジニアに「いい案件」を。`;
 
-const long = `RelanceはSREのプロフェッショナルがエンジニア目線で案件を分析してミスマッチを防ぎ、あなたにあったベストな案件を提供します。直感的かつsimpleなinterfaceにより、Database、Storage、SaaSなど、あらゆるデータを活用するETL/Data Pipelineを素早く構築することができます。また、豊富な変換・加工処理により、Platform間のデータ連携をスムーズに実現します。 `
+const long = `RelanceはSREのプロフェッショナルがエンジニア目線で案件を分析してミスマッチを防ぎ、あなたにあったベストな案件を提供します。直感的かつsimpleなinterfaceにより、Database、Storage、SaaSなど、あらゆるデータを活用するETL/Data Pipelineを素早く構築することができます。また、豊富な変換・加工処理により、Platform間のデータ連携をスムーズに実現します。 `;
 
 export const Sizes = (): JSX.Element => {
   return (
@@ -40,8 +28,8 @@ export const Sizes = (): JSX.Element => {
         </Fragment>
       ))}
     </Fragment>
-  )
-}
+  );
+};
 
 Sizes.parameters = {
   title: 'Sizes',
@@ -108,7 +96,7 @@ Cardのタイトルのように\`text-r\`を含むエリアのタイトルには
       </Fragment>
     ),
   },
-}
+};
 
 const colors = {
   'text-shade-dark-default': `text-shade-dark-default`,
@@ -118,7 +106,7 @@ const colors = {
   'text-primary-dark-default': `text-primary-dark-default`,
   'text-negative-medium-default': `text-negative-medium-default`,
   'text-primary-white-default': `text-primary-white-default`,
-}
+};
 
 export const Colors = (): JSX.Element => {
   return (
@@ -132,8 +120,8 @@ export const Colors = (): JSX.Element => {
         </div>
       ))}
     </Fragment>
-  )
-}
+  );
+};
 
 Colors.parameters = {
   title: 'Colors',
@@ -147,9 +135,7 @@ import { Text } from '@3-shake/3design-ui'
 
 ${Object.keys(colors)
   .map(
-    (
-      v
-    ) => `<Text variant="p" className="${v}">Freelance エンジニアに「いい案件」を。</Text>
+    (v) => `<Text variant="p" className="${v}">Freelance エンジニアに「いい案件」を。</Text>
 `
   )
   .join('')}
@@ -180,7 +166,7 @@ Typographyのサイズと同じく，どの部分を目立たせるかはよく�
       </Fragment>
     ),
   },
-}
+};
 
 export const Texts = (): JSX.Element => {
   return (
@@ -200,8 +186,8 @@ export const Texts = (): JSX.Element => {
         </div>
       ))}
     </Fragment>
-  )
-}
+  );
+};
 
 Texts.parameters = {
   title: 'Texts',
@@ -231,9 +217,7 @@ import { Text, variants } from '@3-shake/3design-ui'
     page: () => (
       <Fragment>
         <Title />
-        <Subtitle>
-          Texts - タイポグラフィを簡易的にマッピングしたコンポーネント
-        </Subtitle>
+        <Subtitle>Texts - タイポグラフィを簡易的にマッピングしたコンポーネント</Subtitle>
         <Description
           markdown={`
 **注意: このコンポーネントは現在整理中です**
@@ -248,4 +232,4 @@ Typographを適切にスタイリングすることはときに冗長なこと�
       </Fragment>
     ),
   },
-}
+};

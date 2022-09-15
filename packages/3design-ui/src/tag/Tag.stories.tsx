@@ -1,7 +1,7 @@
-import React from 'react'
-import { Meta } from '@storybook/react/types-6-0'
+import React from 'react';
+import { Meta } from '@storybook/react/types-6-0';
 
-import { Tag } from './Tag'
+import { Tag } from './Tag';
 
 export default {
   title: 'Example / Tag',
@@ -17,17 +17,14 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as Meta
+} as Meta;
 
 export const Base = () => (
   <>
     <div>
       <Tag label="React" />
-      <Tag
-        label="React"
-        className="bg-shade-dark-default text-shade-white-default"
-      />
+      <Tag label="React" className="bg-shade-dark-default text-shade-white-default" />
       <Tag label="onDelete" onDelete={() => console.log('onDelete')} />
     </div>
   </>
-)
+);

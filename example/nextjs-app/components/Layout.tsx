@@ -1,14 +1,13 @@
-/* eslint-disable react/no-unescaped-entities */
-import React, { ReactNode } from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
+import React, { ReactNode } from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
 
 type Props = {
-  children?: ReactNode
-  title?: string
-}
+  children?: ReactNode;
+  title?: string;
+};
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+export const Layout = ({ children, title = 'This is the default title' }: Props) => (
   <div>
     <Head>
       <title>{title}</title>
@@ -37,6 +36,4 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
       <span>I'm here to stay (Footer)</span>
     </footer>
   </div>
-)
-
-export default Layout
+);

@@ -1,1 +1,1 @@
-module.exports = require('./dist/react-table.production.min.js')
+module.exports = require('./dist/react-table.production.min.js');

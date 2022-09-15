@@ -1,17 +1,15 @@
-import React from 'react'
-import FormControl from '@mui/material/FormControl'
-import FormHelperText from '@mui/material/FormHelperText'
-import MuiRadioGroup, {
-  RadioGroupProps as MuiRadioGroupProps,
-} from '@mui/material/RadioGroup'
-import clsx from 'clsx'
+import React from 'react';
+import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
+import MuiRadioGroup, { RadioGroupProps as MuiRadioGroupProps } from '@mui/material/RadioGroup';
+import clsx from 'clsx';
 
 export interface RadioGroupProps extends MuiRadioGroupProps {
-  children: React.ReactNode
-  required?: boolean
-  label?: string
-  error?: string
-  className?: string
+  children: React.ReactNode;
+  required?: boolean;
+  label?: string;
+  error?: string;
+  className?: string;
 }
 
 export const RadioGroup: React.VFC<RadioGroupProps> = ({
@@ -28,7 +26,7 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
   return (
     <FormControl component="fieldset" error={!!error}>
       {label && (
-        <label className={`mb-2 font-sans text-s text-shade-medium-default`}>
+        <label className="text-s text-shade-medium-default mb-2 font-sans">
           {label}
           {required && <span className="text-negative-medium-default">*</span>}
         </label>
@@ -56,5 +54,5 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
         </FormHelperText>
       )}
     </FormControl>
-  )
-}
+  );
+};

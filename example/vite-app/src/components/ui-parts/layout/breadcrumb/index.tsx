@@ -1,15 +1,15 @@
-import React from 'react'
-import clsx from 'clsx'
-import { MdChevronRight } from 'react-icons/md'
+import React from 'react';
+import clsx from 'clsx';
+import { MdChevronRight } from 'react-icons/md';
 
 type BreadcrumbItem = {
-  title: string
-  href?: string
-}
+  title: string;
+  href?: string;
+};
 
 export type BreadcrumbProps = {
-  items: BreadcrumbItem[]
-}
+  items: BreadcrumbItem[];
+};
 
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
   return (
@@ -22,19 +22,12 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
                 href={item.href}
                 className={clsx([
                   'text-xr cursor-pointer font-bold',
-                  items.length - 1 === i
-                    ? 'text-shade-dark-default '
-                    : 'text-shade-medium-default',
+                  items.length - 1 === i ? 'text-shade-dark-default ' : 'text-shade-medium-default',
                 ])}
               >
                 {item.title}
               </a>
-              {items.length - 1 !== i && (
-                <MdChevronRight
-                  size={24}
-                  className="icon-shade-medium-default mx-1"
-                />
-              )}
+              {items.length - 1 !== i && <MdChevronRight size={24} className="icon-shade-medium-default mx-1" />}
             </>
           ) : (
             item.title
@@ -42,5 +35,5 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
         </li>
       ))}
     </ul>
-  )
-}
+  );
+};

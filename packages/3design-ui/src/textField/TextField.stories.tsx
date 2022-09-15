@@ -1,11 +1,11 @@
-import React from 'react'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { Meta } from '@storybook/react/types-6-0'
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
+import React from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Meta } from '@storybook/react/types-6-0';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
 
-import { Button } from '../button/Button'
-import { TextField } from './TextField'
+import { Button } from '../button/Button';
+import { TextField } from './TextField';
 
 export default {
   title: 'Form / TextField',
@@ -13,18 +13,18 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as Meta
+} as Meta;
 
 type FieldValue = {
-  email: string
-  password: string
-  price: string
-}
+  email: string;
+  password: string;
+  price: string;
+};
 
 const schema = yup.object().shape({
   email: yup.string().required(),
   password: yup.string().required(),
-})
+});
 
 export const Outlined = (): JSX.Element => {
   const {
@@ -33,8 +33,8 @@ export const Outlined = (): JSX.Element => {
     formState: { errors },
   } = useForm<FieldValue>({
     resolver: yupResolver(schema),
-  })
-  const onSubmit = (data: unknown) => console.log(data)
+  });
+  const onSubmit = (data: unknown) => console.log(data);
 
   return (
     <form className="w-96" onSubmit={handleSubmit(onSubmit)}>
@@ -134,5 +134,5 @@ export const Outlined = (): JSX.Element => {
         <Button type="submit">登録する</Button>
       </div>
     </form>
-  )
-}
+  );
+};

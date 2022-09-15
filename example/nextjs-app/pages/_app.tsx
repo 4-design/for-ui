@@ -1,13 +1,13 @@
-import * as React from 'react'
-import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material'
+import * as React from 'react';
+import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material';
 
-import '../styles/index.css'
+import '../styles/index.css';
 
 function MyApp({ Component, pageProps }) {
-  let theme = createTheme()
+  let theme = createTheme();
 
   if (typeof window !== 'undefined') {
-    const rootElement = window.document.getElementById('__next')
+    const rootElement = window.document.getElementById('__next');
     theme = createTheme({
       components: {
         MuiModal: {
@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
           },
         },
       },
-    })
+    });
   }
 
   return (
@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </ThemeProvider>
     </StyledEngineProvider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

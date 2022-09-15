@@ -2,7 +2,7 @@ name: make publish draft
 
 on:
   pull_request:
-    types: [ opened, closed, synchronize ]
+    types: [opened, closed, synchronize]
 
 jobs:
   update_release_draft:

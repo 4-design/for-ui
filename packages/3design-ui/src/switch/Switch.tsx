@@ -1,21 +1,14 @@
-import React from 'react'
-import FormControlLabel, {
-  FormControlLabelProps,
-} from '@mui/material/FormControlLabel'
-import MuiSwitch from '@mui/material/Switch'
-import clsx from 'clsx'
+import React from 'react';
+import FormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel';
+import MuiSwitch from '@mui/material/Switch';
+import clsx from 'clsx';
 
 export type SwitchProps = Omit<FormControlLabelProps, 'control'> & {
-  value?: unknown
-  disable?: boolean
-}
+  value?: unknown;
+  disable?: boolean;
+};
 
-export const Switch: React.FC<SwitchProps> = ({
-  value,
-  checked,
-  disabled,
-  ...rest
-}) => {
+export const Switch: React.FC<SwitchProps> = ({ value, checked, disabled, ...rest }) => {
   return (
     <FormControlLabel
       control={
@@ -39,5 +32,5 @@ export const Switch: React.FC<SwitchProps> = ({
       }
       {...rest}
     />
-  )
-}
+  );
+};

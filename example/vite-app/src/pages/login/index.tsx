@@ -1,3 +1,3 @@
-import { Login } from '@/components/login'
+import { Login } from '@/components/login';
 
-export const LoginPage = () => <Login />
+export const LoginPage = () => <Login />;

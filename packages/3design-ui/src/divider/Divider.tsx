@@ -1,11 +1,9 @@
-import React from 'react'
-import MuiDivider, {
-  DividerProps as MuiDividerProps,
-} from '@mui/material/Divider'
+import React from 'react';
+import MuiDivider, { DividerProps as MuiDividerProps } from '@mui/material/Divider';
 
 export type DividerProps = MuiDividerProps & {
-  className?: string
-}
+  className?: string;
+};
 
 export const Divider: React.FC<DividerProps> = ({ className }) => {
   return (
@@ -15,5 +13,5 @@ export const Divider: React.FC<DividerProps> = ({ className }) => {
         root: `border border-shade-medium-default ${className}`,
       }}
     />
-  )
-}
+  );
+};

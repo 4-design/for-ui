@@ -1,6 +1,6 @@
-import React, { Fragment, useEffect, useState } from 'react'
-import clsx from 'clsx'
-import { MdArrowDownward, MdArrowUpward } from 'react-icons/md'
+import React, { Fragment, useEffect, useState } from 'react';
+import clsx from 'clsx';
+import { MdArrowDownward, MdArrowUpward } from 'react-icons/md';
 import {
   useTable,
   usePagination,
@@ -14,37 +14,29 @@ import {
   PluginHook,
   useSortBy,
   UseSortByState,
-} from 'react-table'
-import { Checkbox } from '../checkbox'
-import { Radio } from '../radio'
-import { TableCell } from './TableCell'
+} from 'react-table';
+import { Checkbox } from '../checkbox';
+import { Radio } from '../radio';
+import { TableCell } from './TableCell';
 
-import { TablePagination } from './TablePagination'
+import { TablePagination } from './TablePagination';
 
 export type TableProps<T extends object> = TableOptions<T> & {
-  onSelectRow?: ((row: IdType<T> | undefined) => void) | undefined
-  onSelectRows?: ((rows: IdType<T>[]) => void) | undefined
-  disablePagination?: boolean | undefined
-  sortBy?: UseSortByState<T>['sortBy']
-}
+  onSelectRow?: ((row: IdType<T> | undefined) => void) | undefined;
+  onSelectRows?: ((rows: IdType<T>[]) => void) | undefined;
+  disablePagination?: boolean | undefined;
+  sortBy?: UseSortByState<T>['sortBy'];
+};
 
 export const Table = <T extends object>(props: TableProps<T>) => {
-  const {
-    columns,
-    data,
-    onSelectRow,
-    onSelectRows,
-    disablePagination = false,
-  } = props
+  const { columns, data, onSelectRow, onSelectRows, disablePagination = false } = props;
   const [initialState, _] = useState({
     sortBy: props.sortBy || [],
     pageIndex: 0,
-  })
+  });
 
   if (onSelectRow && onSelectRows) {
-    throw new Error(
-      'You cannot specify both onSelectRow and onSelectRows at the same time.'
-    )
+    throw new Error('You cannot specify both onSelectRow and onSelectRows at the same time.');
   }
 
   const useRowSelectHook = (hooks: Hooks<T>) => {
@@ -58,12 +50,7 @@ export const Table = <T extends object>(props: TableProps<T>) => {
         Header: ({ getToggleAllRowsSelectedProps }: HeaderProps<T>) => (
           <Fragment>
             {!!onSelectRows && (
-              <Checkbox
-                nopadding
-                size="small"
-                value="required"
-                {...getToggleAllRowsSelectedProps()}
-              />
+              <Checkbox nopadding size="small" value="required" {...getToggleAllRowsSelectedProps()} />
             )}
           </Fragment>
         ),
@@ -78,42 +65,30 @@ export const Table = <T extends object>(props: TableProps<T>) => {
             })}
           >
             {!!onSelectRows && (
-              <Checkbox
-                nopadding
-                size="small"
-                value="required"
-                {...row.getToggleRowSelectedProps()}
-              />
+              <Checkbox nopadding size="small" value="required" {...row.getToggleRowSelectedProps()} />
             )}
 
-            {!!onSelectRow && (
-              <Radio
-                nopadding
-                size="small"
-                value="required"
-                {...row.getToggleRowSelectedProps()}
-              />
-            )}
+            {!!onSelectRow && <Radio nopadding size="small" value="required" {...row.getToggleRowSelectedProps()} />}
           </TableCell>
         ),
       },
       ...columns,
-    ])
+    ]);
     hooks.useInstanceBeforeDimensions.push(({ headerGroups }) => {
       // fix the parent group of the selection button to not be resizable
-      const selectionGroupHeader = headerGroups[0].headers[0]
-      selectionGroupHeader.canResize = false
-    })
-  }
+      const selectionGroupHeader = headerGroups[0].headers[0];
+      selectionGroupHeader.canResize = false;
+    });
+  };
 
-  let hooks: PluginHook<T>[] = []
-  if (props.sortBy) hooks = [...hooks, useSortBy]
+  let hooks: PluginHook<T>[] = [];
+  if (props.sortBy) hooks = [...hooks, useSortBy];
   if (!disablePagination) {
-    hooks = [...hooks, usePagination]
+    hooks = [...hooks, usePagination];
   }
 
   if (onSelectRow || onSelectRows) {
-    hooks = [...hooks, useRowSelect, useRowSelectHook]
+    hooks = [...hooks, useRowSelect, useRowSelectHook];
   }
 
   const instance = useTable<T>(
@@ -125,16 +100,16 @@ export const Table = <T extends object>(props: TableProps<T>) => {
         if (!!onSelectRow && action.type === 'toggleRowSelected') {
           newState.selectedRowIds = {
             [action.id]: true,
-          } as Record<IdType<T>, boolean>
+          } as Record<IdType<T>, boolean>;
         }
 
-        return newState
+        return newState;
       },
 
-      initialState: initialState,
+      initialState,
     },
     ...hooks
-  )
+  );
 
   const {
     rows,
@@ -144,71 +119,61 @@ export const Table = <T extends object>(props: TableProps<T>) => {
     getTableBodyProps,
     prepareRow,
     state: { selectedRowIds },
-  } = instance
+  } = instance;
 
   useEffect(() => {
     if (onSelectRow) {
-      const keys = Object.keys(selectedRowIds)
-      onSelectRow(keys.length > 0 ? keys[0] : undefined)
+      const keys = Object.keys(selectedRowIds);
+      onSelectRow(keys.length > 0 ? keys[0] : undefined);
     }
 
     if (onSelectRows) {
-      onSelectRows(Object.keys(selectedRowIds))
+      onSelectRows(Object.keys(selectedRowIds));
     }
-  }, [onSelectRow, onSelectRows, selectedRowIds])
+  }, [onSelectRow, onSelectRows, selectedRowIds]);
 
   const rowGenerate = (row: Row<T>) => {
-    prepareRow(row)
+    prepareRow(row);
     return (
       <tr
         {...row.getRowProps()}
         className={clsx([
-          'border-b border-shade-light-default transition duration-300 ease-in-out hover:bg-shade-light-default',
+          'border-shade-light-default hover:bg-shade-light-default border-b transition duration-300 ease-in-out',
           (onSelectRow || onSelectRows) && 'cursor-pointer',
         ])}
         onClick={() => {
-          if (onSelectRow || onSelectRows) row.toggleRowSelected()
+          if (onSelectRow || onSelectRows) row.toggleRowSelected();
         }}
       >
         {row.cells.map((cell) => (
-          <Fragment key={cell.getCellProps().key}>
-            {cell.render('Cell')}
-          </Fragment>
+          <Fragment key={cell.getCellProps().key}>{cell.render('Cell')}</Fragment>
         ))}
       </tr>
-    )
-  }
+    );
+  };
 
   return (
     <>
       <table
         {...getTableProps()}
-        className="w-full border-separate border-spacing-0 rounded-sm border border-shade-light-default"
+        className="border-shade-light-default w-full border-separate border-spacing-0 rounded-sm border"
       >
-        <thead className="table-header-group bg-shade-light-default">
+        <thead className="bg-shade-light-default table-header-group">
           {headerGroups.map((headerGroup, i) => (
-            <tr
-              {...headerGroup.getHeaderGroupProps()}
-              key={i}
-              className="table-row align-middle"
-            >
+            <tr {...headerGroup.getHeaderGroupProps()} key={i} className="table-row align-middle">
               {headerGroup.headers.map((column, j) => (
                 <th
-                  className="z-30 whitespace-nowrap border-b border-shade-light-default p-3 text-left text-base text-shade-dark-default"
+                  className="border-shade-light-default text-shade-dark-default z-30 whitespace-nowrap border-b p-3 text-left text-base"
                   scope="col"
                   {...column.getHeaderProps({
-                    ...(column.getSortByToggleProps
-                      ? column.getSortByToggleProps()
-                      : {}),
+                    ...(column.getSortByToggleProps ? column.getSortByToggleProps() : {}),
                     style: {
                       minWidth: column.minWidth,
                       width: column.width,
                       maxWidth: column.maxWidth,
                       cursor: column.canSort ? 'pointer' : 'auto',
                     },
-                    ...(column.getSortByToggleProps
-                      ? column.getSortByToggleProps()
-                      : {}),
+                    ...(column.getSortByToggleProps ? column.getSortByToggleProps() : {}),
                   })}
                   key={j}
                 >
@@ -227,7 +192,7 @@ export const Table = <T extends object>(props: TableProps<T>) => {
                               ) : null}
                             </div>
                           </div>
-                        )
+                        );
                       })()
                     : column.render('Header')}
                 </th>
@@ -235,10 +200,7 @@ export const Table = <T extends object>(props: TableProps<T>) => {
             </tr>
           ))}
         </thead>
-        <tbody
-          {...getTableBodyProps()}
-          className="bg-shade-white-default text-shade-dark-default"
-        >
+        <tbody {...getTableBodyProps()} className="bg-shade-white-default text-shade-dark-default">
           {disablePagination ? (
             <>{rows.map((row: Row<T>) => rowGenerate(row))}</>
           ) : (
@@ -249,5 +211,5 @@ export const Table = <T extends object>(props: TableProps<T>) => {
 
       {!disablePagination && <TablePagination instance={instance} />}
     </>
-  )
-}
+  );
+};
