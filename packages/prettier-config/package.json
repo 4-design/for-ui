@@ -1,6 +1,6 @@
 {
   "name": "@3design/prettier-config",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "3design's shared Prettier config",
   "repository": {
     "url": "3-shake/3design-ui",
