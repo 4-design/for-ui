@@ -35,7 +35,9 @@
     "lint": "eslint 'src/**/*.{tsx,ts,js,cjs}'",
     "lint-fix": "eslint 'src/**/*.{tsx,ts,js,cjs}' --fix",
     "storybook": "rm -rf node_modules/.cache/storybook && start-storybook --no-manager-cache -p 6006 -s public",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "version-packages": "changeset version && yarn prettier",
+    "release": "changeset publish"
   },
   "dependencies": {
     "clsx": "^1.2.1",
