@@ -1,9 +1,8 @@
-name: Release
+name: Release / Changesets
 
 on:
   push:
     branches:
-      - feat/eslint-config
       - v3
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
