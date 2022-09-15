@@ -1,4 +1,11 @@
 node_modules
 dist
 types
-rollup.config.js
+tailwind.config.base.js
+**/packages/**/tailwind.config.base.js
+**/packages/**/tailwind.config.js
+**/types
+**/.next/*
+**/.yalc/*
+.next/**
+.yalc/**

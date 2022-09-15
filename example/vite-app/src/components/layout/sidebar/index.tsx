@@ -5,7 +5,7 @@ import { SidebarContext } from '@/components/ui-parts/layout/sidebar/SidebarCont
 import { SidebarMenu, SidebarMenuItem } from '@/components/ui-parts/layout/sidebar/SidebarMenu';
 
 const Logo: React.FC<{ open: boolean }> = ({ open }) => (
-  <a>
+  <a href="/#">
     <div className={clsx(['flex', open ? 'px-4 py-3' : 'p-4'])}>
       {!open ? (
         <img src="/vite.svg" width="24" height="24" alt="logo" />

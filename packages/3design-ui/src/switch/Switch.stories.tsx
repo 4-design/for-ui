@@ -30,7 +30,7 @@ export const Basic = (): JSX.Element => {
     disable2: boolean;
   }>();
 
-  const onSubmit = (data: unknown) => console.log(data);
+  const onSubmit = (data: unknown) => console.info(data);
 
   return (
     <div className="flex flex-row gap-4">

@@ -94,7 +94,7 @@ export const Button: React.ForwardRefExoticComponent<ButtonProps> = React.forwar
       aria-label={label || props['aria-label'] || 'button'}
       classes={{
         root: clsx([
-          'flex h-max-content max-w-max cursor-pointer whitespace-nowrap rounded-lg px-6 py-2 font-sans text-r font-medium shadow-none transition hover:shadow-none focus:outline-none disabled:cursor-not-allowed',
+          'h-max-content text-r flex max-w-max cursor-pointer whitespace-nowrap rounded-lg px-6 py-2 font-sans font-medium shadow-none transition hover:shadow-none focus:outline-none disabled:cursor-not-allowed',
           defaultStyles[_variant],
           hoverStyles[_variant],
           sizes[size],

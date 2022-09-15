@@ -1,8 +1,6 @@
 import './styles/tailwindcss.css';
 import { Router } from './router';
 
-function App() {
+export const App = () => {
   return <Router />;
-}
-
-export default App;
+};

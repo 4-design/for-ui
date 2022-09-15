@@ -1,10 +1,10 @@
-import { FC, PropsWithChildren } from 'react';
+import { ReactElement, PropsWithChildren } from 'react';
 
 type Props = PropsWithChildren<{
   SidebarComponent: React.ElementType;
 }>;
 
-export const Layout: FC<Props> = ({ SidebarComponent, children }) => {
+export const Layout = ({ SidebarComponent, children }: Props): ReactElement => {
   return (
     <div className="flex h-screen flex-row overflow-hidden">
       <SidebarComponent />

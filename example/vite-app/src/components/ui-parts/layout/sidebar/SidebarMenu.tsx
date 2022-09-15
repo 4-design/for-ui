@@ -1,4 +1,3 @@
-/* eslint-disable tailwindcss/no-custom-classname */
 import React from 'react';
 import clsx from 'clsx';
 import { useSidebarContext } from './SidebarContext';
@@ -19,7 +18,6 @@ export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
   const { open } = useSidebarContext();
   return (
     <div
-      // eslint-disable-next-line tailwindcss/classnames-order
       className={clsx([
         'text-r flex cursor-pointer items-center px-4 py-3 font-medium',
         'hover:text-primary-white-default',

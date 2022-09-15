@@ -6,7 +6,7 @@ import pkg from './package.json';
 
 const externalPackages = [...Object.keys(pkg.peerDependencies || {})];
 
-const regexesOfPackages = externalPackages.map((packageName) => new RegExp(`^${packageName}(\/.*)?`));
+const regexesOfPackages = externalPackages.map((packageName) => new RegExp(`^${packageName}(/.*)?`));
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({

@@ -81,7 +81,7 @@ export const Basic: Story = () => {
       country: options[0],
     },
   });
-  const onSubmit = (data: unknown) => console.log(JSON.stringify(data));
+  const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
 
   return (
     <div>
@@ -144,7 +144,7 @@ export const Single: Story = () => {
       country: options[0],
     },
   });
-  const onSubmit = (data: unknown) => console.log(JSON.stringify(data));
+  const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -178,7 +178,7 @@ export const Disabled: Story = () => {
       country: options[0],
     },
   });
-  const onSubmit = (data: unknown) => console.log(JSON.stringify(data));
+  const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -213,7 +213,7 @@ export const Multiple: Story = () => {
       country: options,
     },
   });
-  const onSubmit = (data: unknown) => console.log(JSON.stringify(data));
+  const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
 
   return (
     <div>
@@ -281,7 +281,7 @@ export const MultipleFreeSolo: Story = () => {
       country: [],
     },
   });
-  const onSubmit = (data: unknown) => console.log(JSON.stringify(data));
+  const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
 
   useEffect(() => {
     setTimeout(() => {
@@ -297,7 +297,7 @@ export const MultipleFreeSolo: Story = () => {
         name="country"
         control={control}
         render={({ field: { name, value, onChange } }) => {
-          console.log(value);
+          console.info(value);
           return (
             <Select
               freeSolo

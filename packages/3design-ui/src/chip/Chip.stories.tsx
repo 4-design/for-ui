@@ -41,7 +41,7 @@ export const Base = (args: Args) => (
           onDelete={
             args.onDelete ||
             (() => {
-              console.log('hello');
+              console.error('hello');
             })
           }
         />

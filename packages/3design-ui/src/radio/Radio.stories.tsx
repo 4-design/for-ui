@@ -54,7 +54,7 @@ export const Base = (): JSX.Element => {
 
 export const WithLabel = (): JSX.Element => {
   const handleRadioChange = (e) => {
-    console.log(e.target.value);
+    console.error(e.target.value);
   };
 
   return (
@@ -84,7 +84,7 @@ export const WithLabel = (): JSX.Element => {
 
 export const WithNopadding = (): JSX.Element => {
   const handleRadioChange = (e) => {
-    console.log(e.target.value);
+    console.info(e.target.value);
   };
 
   return (

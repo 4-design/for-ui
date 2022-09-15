@@ -14,7 +14,7 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>((props, ref) =>
       ref={ref}
       classes={{
         root: clsx([
-          'whitespace-nowrap border-solid bg-shade-white-default py-2 pl-6 pr-12 font-sans text-r text-shade-dark-default hover:bg-shade-white-hover',
+          'bg-shade-white-default text-r text-shade-dark-default hover:bg-shade-white-hover whitespace-nowrap border-solid py-2 pl-6 pr-12 font-sans',
           className,
         ]),
       }}

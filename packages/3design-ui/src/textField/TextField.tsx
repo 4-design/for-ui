@@ -80,7 +80,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.
         endAdornment: (
           <InputAdornment
             classes={{
-              root: clsx(['mr-3 font-sans text-r text-shade-dark-default antialiased']),
+              root: clsx(['text-r text-shade-dark-default mr-3 font-sans antialiased']),
             }}
             position="start"
             disableTypography
@@ -144,15 +144,15 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.
           }}
           FormHelperTextProps={{
             classes: {
-              root: clsx([error && 'm-0 mt-1 text-xs text-negative-medium-default']),
+              root: clsx([error && 'text-negative-medium-default m-0 mt-1 text-xs']),
             },
           }}
           InputProps={{
             classes: {
-              root: clsx(['group bg-shade-white-default p-0 text-shade-light-default antialiased']),
+              root: clsx(['group bg-shade-white-default text-shade-light-default p-0 antialiased']),
               disabled: clsx(['bg-shade-white-disabled', 'placeholder:text-shade-light-default']),
               input: clsx([
-                'h-auto py-2.5 px-3 font-sans text-r text-shade-dark-default placeholder:text-shade-light-default placeholder:opacity-100 focus:shadow-none',
+                'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
               ]),
               focused: clsx(['border-primary-medium-active']),
               notchedOutline: clsx([

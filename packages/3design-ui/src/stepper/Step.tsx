@@ -17,9 +17,9 @@ export const Step = forwardRef<HTMLDivElement, StepProps & StepLabelProps>((prop
         StepIconComponent={Icon}
         classes={{
           root: clsx(['mt-0']),
-          label: clsx(['mt-2 text-r font-normal text-shade-dark-default']),
-          completed: clsx(['text-r font-normal text-shade-dark-default']),
-          active: clsx(['text-r font-normal text-shade-dark-default']),
+          label: clsx(['text-r text-shade-dark-default mt-2 font-normal']),
+          completed: clsx(['text-r text-shade-dark-default font-normal']),
+          active: clsx(['text-r text-shade-dark-default font-normal']),
           iconContainer: clsx(['mt-2']),
         }}
       >

@@ -24,7 +24,7 @@ export const Base = () => (
     <div>
       <Tag label="React" />
       <Tag label="React" className="bg-shade-dark-default text-shade-white-default" />
-      <Tag label="onDelete" onDelete={() => console.log('onDelete')} />
+      <Tag label="onDelete" onDelete={() => console.info('onDelete')} />
     </div>
   </>
 );

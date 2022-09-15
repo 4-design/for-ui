@@ -13,7 +13,7 @@ export default {
 
 export const Basic = (): JSX.Element => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data: unknown) => console.log(data);
+  const onSubmit = (data: unknown) => console.error(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -34,7 +34,7 @@ export const Basic = (): JSX.Element => {
 
 export const WithNopadding = (): JSX.Element => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data: unknown) => console.log(data);
+  const onSubmit = (data: unknown) => console.error(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

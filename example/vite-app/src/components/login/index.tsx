@@ -16,20 +16,20 @@ export const Login: React.FC = () => {
               </div>
             </div>
 
-            <Text variant="h1" className={'text-shade-medium-default mt-3 text-center text-base font-bold'}>
+            <Text variant="h1" className="text-shade-medium-default mt-3 text-center text-base font-bold">
               ログイン
             </Text>
           </div>
 
           <div className="m-auto py-2.5">
-            <Text className={'text-center text-base'}>
+            <Text className="text-center text-base">
               サインアップ時に紐付けたアカウントで
               <br />
               ログインしてください
             </Text>
 
             <Button
-              className={'font-bold! mx-auto mt-3 normal-case'}
+              className="font-bold! mx-auto mt-3 normal-case"
               variant="outlined"
               startIcon={<img src="/images/login/google.svg" width="20" height="20" alt="Googleでログイン" />}
             >

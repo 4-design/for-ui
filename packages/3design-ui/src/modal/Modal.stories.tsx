@@ -17,7 +17,7 @@ export const ModalDefault = (): JSX.Element => {
   const [showModal, setShowModal] = useState<boolean>(true);
 
   const onSubmit = () => {
-    console.log('submit');
+    console.error('submit');
   };
 
   return (

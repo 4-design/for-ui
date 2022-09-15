@@ -12,13 +12,12 @@ module.exports = {
       extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
       plugins: ['sonarjs', 'unicorn', 'promise', 'import', 'unused-imports'],
       rules: {
-        'jsx-a11y/anchor-is-valid': 'off',
         // Disallows if statements as the only statement in else blocks
         // https://eslint.org/docs/rules/no-lonely-if
         'no-lonely-if': 'error',
         // Disallows the use of console
         // https://eslint.org/docs/rules/no-console
-        'no-console': 'error',
+        'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
         // Requires method and property shorthand syntax for object literals
         // https://eslint.org/docs/rules/object-shorthand
         'object-shorthand': ['error', 'always'],
@@ -74,9 +73,7 @@ module.exports = {
           },
         ],
 
-        '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-
-        'tailwindcss/no-custom-classname': 'off',
+        '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
         'unused-imports/no-unused-vars': [
           'warn',
           {

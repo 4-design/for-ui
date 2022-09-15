@@ -36,7 +36,7 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
         name={name}
         defaultValue={defaultValue}
         classes={{
-          error: clsx(['m-0 mt-1 text-negative-medium-default']),
+          error: clsx(['text-negative-medium-default m-0 mt-1']),
         }}
         className={clsx([`flex gap-x-6 gap-y-2`, className])}
         onChange={onChange}
@@ -47,7 +47,7 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
         <FormHelperText
           classes={{
             root: clsx(['text-negative-medium-default']),
-            error: clsx(['m-0 mt-1 text-negative-medium-default']),
+            error: clsx(['text-negative-medium-default m-0 mt-1']),
           }}
         >
           {error}

@@ -117,13 +117,13 @@ export const Select: FC<AutocompleteProps> = ({
       classes={{
         root: clsx(['bg-shade-white-default', '']),
         paper: clsx(['min-w-min translate-y-4 rounded-2xl py-2']),
-        inputRoot: clsx(['group bg-shade-white-default p-0 text-shade-light-default antialiased']),
+        inputRoot: clsx(['group bg-shade-white-default text-shade-light-default p-0 antialiased']),
         input: clsx([
-          'h-auto py-2.5 px-3 font-sans text-r text-shade-dark-default placeholder:text-shade-light-default placeholder:opacity-100 focus:shadow-none',
+          'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
         ]),
         inputFocused: clsx(['border-primary-medium-active']),
         focused: clsx(['[&_svg]:!icon-shade-medium-active']),
-        tag: clsx(['border-none bg-shade-light-default [&.MuiChip-deleteIcon]:text-shade-dark-default']),
+        tag: clsx(['bg-shade-light-default [&.MuiChip-deleteIcon]:text-shade-dark-default border-none']),
         endAdornment: clsx(['[&_svg]:icon-shade-medium-default']),
       }}
       renderInput={(params) => {

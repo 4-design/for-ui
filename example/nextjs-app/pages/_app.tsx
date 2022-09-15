@@ -1,9 +1,12 @@
-import * as React from 'react';
+import React from 'react';
 import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material';
+
+import { NextPage } from 'next';
+import { AppProps } from 'next/app';
 
 import '../styles/index.css';
 
-function MyApp({ Component, pageProps }) {
+const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
   let theme = createTheme();
 
   if (typeof window !== 'undefined') {
@@ -36,6 +39,6 @@ function MyApp({ Component, pageProps }) {
       </ThemeProvider>
     </StyledEngineProvider>
   );
-}
+};
 
 export default MyApp;

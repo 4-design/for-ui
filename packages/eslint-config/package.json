@@ -29,6 +29,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-sonarjs": "^0.15.0",
     "eslint-plugin-unicorn": "^42.0.0",
+    "eslint-plugin-tailwindcss": "3.6.1",
     "eslint-plugin-unused-imports": "2.0.0"
   },
   "optionalDependencies": {

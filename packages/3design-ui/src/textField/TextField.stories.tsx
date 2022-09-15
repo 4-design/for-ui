@@ -34,7 +34,7 @@ export const Outlined = (): JSX.Element => {
   } = useForm<FieldValue>({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data: unknown) => console.log(data);
+  const onSubmit = (data: unknown) => console.info(data);
 
   return (
     <form className="w-96" onSubmit={handleSubmit(onSubmit)}>

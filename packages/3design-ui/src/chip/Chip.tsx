@@ -21,14 +21,14 @@ export type ChipProps = Omit<MuiChipProps, 'color' | 'icon' | 'deleteIcon' | 'si
 
 const rootStyles = (clickable: boolean) => {
   return {
-    negative: clsx(['bg-negative-light-default', clickable && 'cursor-pointer hover:bg-negative-light-hover']),
+    negative: clsx(['bg-negative-light-default', clickable && 'hover:bg-negative-light-hover cursor-pointer']),
     white: clsx([
-      'border-solid border-shade-light-default bg-shade-white-default',
-      clickable && `cursor-pointer hover:bg-shade-light-hover`,
+      'border-shade-light-default bg-shade-white-default border-solid',
+      clickable && `hover:bg-shade-light-hover cursor-pointer`,
     ]),
     default: clsx([
       'border-shade-medium-default bg-shade-light-default',
-      clickable && `cursor-pointer hover:bg-shade-light-hover`,
+      clickable && `hover:bg-shade-light-hover cursor-pointer`,
     ]),
   };
 };
@@ -78,7 +78,7 @@ export const Chip: FC<ChipProps> = ({
           !onDelete && trailingIcon ? 'flex-row-reverse' : '',
           rootStyles(!!(clickable || onDelete))[color],
         ]),
-        label: clsx(['px-0 font-sans text-s'], labelStyles(!!(clickable || onDelete))[color]),
+        label: clsx(['text-s px-0 font-sans'], labelStyles(!!(clickable || onDelete))[color]),
         icon: clsx(['m-0', iconStyles(!!(clickable || onDelete))[color]]),
         deleteIcon: clsx(['m-0', deleteIconStyles(!!(clickable || onDelete))[color]]),
       }}
