@@ -1,4 +1,4 @@
-name: Check for Lint
+name: CI
 on: [pull_request]
 
 jobs:
@@ -18,23 +18,13 @@ jobs:
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
 
       - name: install
-        run: yarn --immutable
+        run: yarn install --ignore-engines --frozen-lockfile --immutable
         working-directory: '.'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: run eslint
-        uses: reviewdog/action-eslint@v1
-        with:
-          fail_on_error: true
-          reporter: github-pr-review # Change reporter.
-          github_token: ${{ github.token }}
-          eslint_flags: 'src/**/*.{ts,tsx,js,cjs} -c .eslintrc.js'
-          level: error
-
-      - name: run prettier
-        run: yarn prettier
-        shell: bash
+      - name: Check lint
+        run: yarn lint
 
       - name: run tsc
-        run: yarn build:types
+        run: yarn type-check
