@@ -1185,7 +1185,7 @@
   dependencies:
     "@changesets/types" "^5.1.0"
 
-"@changesets/changelog-github@^0.4.6":
+"@changesets/changelog-github@0.4.6":
   version "0.4.6"
   resolved "https://registry.yarnpkg.com/@changesets/changelog-github/-/changelog-github-0.4.6.tgz#5880448c578a160c06d8bd804872355ec0745dcb"
   integrity sha512-ahR/+o3OPodzfG9kucEMU/tEtBgwy6QoJiWi1sDBPme8n3WjT6pBlbhqNYpWAJKilomwfjBGY0MTUTs6r9d1RQ==
@@ -1194,7 +1194,7 @@
     "@changesets/types" "^5.1.0"
     dotenv "^8.1.0"
 
-"@changesets/cli@^2.24.4":
+"@changesets/cli@2.24.4":
   version "2.24.4"
   resolved "https://registry.yarnpkg.com/@changesets/cli/-/cli-2.24.4.tgz#35b200d49403342cb657b5a941d5c8ef32583eb1"
   integrity sha512-87JSwMv38zS3QW3062jXZYLsCNRtA08wa7vt3VnMmkGLfUMn2TTSfD+eSGVnKPJ/ycDCvAcCDnrv/B+gSX5KVA==
@@ -8730,7 +8730,7 @@ markdown-escapes@^1.0.0:
   resolved "https://registry.yarnpkg.com/markdown-escapes/-/markdown-escapes-1.0.4.tgz#c95415ef451499d7602b91095f3c8e8975f78535"
   integrity sha512-8z4efJYk43E0upd0NbVXwgSTQs6cT3T06etieCMEg7dRbzCbxUCK/GHlX8mhHRDcp+OLlHkPKsvqQTCvsRl2cg==
 
-material-ui-popup-state@^4.0.2:
+material-ui-popup-state@4.0.2, material-ui-popup-state@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/material-ui-popup-state/-/material-ui-popup-state-4.0.2.tgz#98bff4d50d7ef62a3bbe761b8f21c022c62488a6"
   integrity sha512-N/Dx0QAKkBxpyXGOE5+xaHijFkGZ5Sed/VYDpIk2TMKVDRIxszxuTFoOLoHrsk/SuQflBoCGLzzld/XYAdZymg==
