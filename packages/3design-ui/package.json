@@ -24,16 +24,10 @@
     "url": "git+https://github.com/3-shake/3design-ui.git"
   },
   "scripts": {
-    "prettier": "prettier --check '**/*.{ts,tsx,js}'",
-    "prettier-format": "prettier --write '**/*.{ts,tsx,js}'",
-    "type-check": "tsc --noEmit",
-    "type-check:watch": "yarn type-check -- --watch",
-    "build:types": "tsc",
-    "build:types:watch": "NODE_ENV=production tsc --watch",
+    "type-check": "tsc --noEmit --pretty",
+    "build:types": "yarn type-check",
     "build:js": "NODE_ENV=production vite build",
     "build": "run-p build:'*'",
-    "lint": "eslint 'src/**/*.{tsx,ts,js,cjs}'",
-    "lint-fix": "eslint 'src/**/*.{tsx,ts,js,cjs}' --fix",
     "storybook": "start-storybook --no-manager-cache -p 6006 -s public",
     "build-storybook": "build-storybook",
     "version-packages": "changeset version && yarn prettier",
@@ -46,8 +40,6 @@
     "react-number-format": "4.9.4"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.4.6",
-    "@changesets/cli": "^2.24.4",
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
     "@hookform/resolvers": "2.9.8",

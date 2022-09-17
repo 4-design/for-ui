@@ -1,23 +1,17 @@
-import React from 'react'
-import MuiTab, { TabProps as MuiTabProps } from '@mui/material/Tab'
-import clsx from 'clsx'
+import React from 'react';
+import MuiTab, { TabProps as MuiTabProps } from '@mui/material/Tab';
+import clsx from 'clsx';
 
 export interface TabProps extends MuiTabProps {
-  minWidth?: number
+  minWidth?: number;
 }
 
-export const Tab: React.VFC<TabProps> = ({
-  minWidth = 160,
-  disabled,
-  tabIndex,
-  ...rest
-}) => {
+export const Tab: React.VFC<TabProps> = ({ minWidth = 160, disabled, tabIndex, ...rest }) => {
   return (
     <MuiTab
       classes={{
-        // eslint-disable-next-line tailwindcss/no-custom-classname
         root: clsx([
-          `min-w-[${minWidth}] min-h-[auto] pt-2 pb-2.5 font-sans text-r font-bold text-primary-medium-default`,
+          `min-w-[${minWidth}] text-r text-primary-medium-default min-h-[auto] pt-2 pb-2.5 font-sans font-bold`,
         ]),
         textColorPrimary: clsx(['focus:outline-none']),
         selected: clsx(['text-primary-dark-default focus:outline-none']),
@@ -27,5 +21,5 @@ export const Tab: React.VFC<TabProps> = ({
       tabIndex={tabIndex}
       {...rest}
     />
-  )
-}
+  );
+};

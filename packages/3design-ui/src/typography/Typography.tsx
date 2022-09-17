@@ -1,5 +1,5 @@
-import React from 'react'
-import clsx from 'clsx'
+import React from 'react';
+import clsx from 'clsx';
 
 export const sizes = {
   xs: 'xs',
@@ -8,9 +8,9 @@ export const sizes = {
   xr: 'xr',
   l: 'l',
   xl: 'xl',
-} as const
+} as const;
 
-export type Size = typeof sizes[keyof typeof sizes]
+export type Size = typeof sizes[keyof typeof sizes];
 
 // See https://www.figma.com/file/6lYya5bf9katRbZsIFZTYv/3design?node-id=1833%3A4192
 // In tailwind.css, 1rem = 16px
@@ -21,7 +21,7 @@ export const texts: { [key in Size]: string } = {
   xr: clsx`text-xr`,
   l: clsx`text-l`,
   xl: clsx`text-xl`,
-}
+};
 
 export const variants = {
   h1: `h1`,
@@ -37,16 +37,16 @@ export const variants = {
   body2: 'body2',
   span: 'span',
   caption: 'caption',
-} as const
+} as const;
 
-export type Variant = typeof variants[keyof typeof variants]
+export type Variant = typeof variants[keyof typeof variants];
 
 interface Props {
-  className?: string
-  variant?: Variant
-  bold?: boolean
-  children: React.ReactNode
-  disabled?: boolean
+  className?: string;
+  variant?: Variant;
+  bold?: boolean;
+  children: React.ReactNode;
+  disabled?: boolean;
 }
 
 const mapVariantToTag: { [key in Variant]: React.ElementType } = {
@@ -63,7 +63,7 @@ const mapVariantToTag: { [key in Variant]: React.ElementType } = {
   body2: 'p',
   span: 'span',
   caption: 'span',
-} as const
+} as const;
 
 export const typographyStyles: { [key in Variant]: string } = {
   [variants.h1]: clsx`font-bold text-xl text-shade-dark-default`,
@@ -79,16 +79,10 @@ export const typographyStyles: { [key in Variant]: string } = {
   [variants.body2]: clsx`text-r text-shade-medium-default`,
   [variants.span]: clsx`text-r text-shade-medium-default`,
   [variants.caption]: clsx`text-s text-shade-medium-default`,
-} as const
+} as const;
 
-export const Typography: React.FC<Props> = ({
-  className,
-  children,
-  bold = false,
-  variant = 'p',
-  disabled = false,
-}) => {
-  const ElementType: React.ElementType = mapVariantToTag[variant]
+export const Typography: React.FC<Props> = ({ className, children, bold = false, variant = 'p', disabled = false }) => {
+  const ElementType: React.ElementType = mapVariantToTag[variant];
   return (
     <ElementType
       className={clsx([
@@ -101,7 +95,7 @@ export const Typography: React.FC<Props> = ({
     >
       {children}
     </ElementType>
-  )
-}
+  );
+};
 
-export const Text = Typography
+export const Text = Typography;

@@ -1,5 +1,5 @@
 {
-  "name": "@3design-ui/example",
+  "name": "@3design/vite-app",
   "private": true,
   "version": "0.0.0",
   "scripts": {

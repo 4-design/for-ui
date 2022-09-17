@@ -1,3 +1,3 @@
 export const Main = () => {
-  ;<div></div>
-}
+  <div></div>;
+};

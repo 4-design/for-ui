@@ -1,13 +1,8 @@
-import {
-  ThemeProvider,
-  StyledEngineProvider,
-  createTheme,
-} from '@mui/material/styles'
+import React from 'react';
+import { ThemeProvider, StyledEngineProvider, createTheme } from '@mui/material/styles';
 
-import React from 'react'
-
-import '../styles/global.css'
-import '../styles/tailwind.v2.css'
+import '../styles/global.css';
+import '../styles/tailwind.v2.css';
 
 export const parameters = {
   layout: 'fullscreen',
@@ -26,9 +21,9 @@ export const parameters = {
       order: ['General', 'Form', 'Data Display', 'Feedback', 'Navigation'],
     },
   },
-}
+};
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById('root');
 
 const theme = createTheme({
   components: {
@@ -48,7 +43,7 @@ const theme = createTheme({
       },
     },
   },
-})
+});
 
 export const decorators = [
   (Story) => (
@@ -60,4 +55,4 @@ export const decorators = [
       </ThemeProvider>
     </StyledEngineProvider>
   ),
-]
+];

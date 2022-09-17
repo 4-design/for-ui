@@ -1,6 +1,6 @@
-import { Sidebar } from '../layout/sidebar'
-import { Layout } from '../ui-parts/layout'
-import { PageTitle } from '../ui-parts/layout/pagetitle'
+import { Sidebar } from '../layout/sidebar';
+import { Layout } from '../ui-parts/layout';
+import { PageTitle } from '../ui-parts/layout/pagetitle';
 
 export const Home = () => {
   return (
@@ -19,5 +19,5 @@ export const Home = () => {
         subtitle="説明文など"
       />
     </Layout>
-  )
-}
+  );
+};

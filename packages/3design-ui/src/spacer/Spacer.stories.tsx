@@ -1,21 +1,15 @@
-import React, { Fragment } from 'react'
-import {
-  Title,
-  Subtitle,
-  Description,
-  Source,
-  DocsStory,
-} from '@storybook/addon-docs/blocks'
-import { Meta } from '@storybook/react/types-6-0'
-import clsx from 'clsx'
-import { Text } from '../typography'
+import React, { Fragment } from 'react';
+import { Title, Subtitle, Description, Source, DocsStory } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/react/types-6-0';
+import clsx from 'clsx';
+import { Text } from '../typography';
 
 export default {
   title: 'Example / Spacer',
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as Meta
+} as Meta;
 
 const spacers = {
   'コンポーネント内部 小 p-1 m-1 gap-1': `w-1 h-1`,
@@ -24,7 +18,7 @@ const spacers = {
   'コンポーネント間 大 p-4 m-4 gap-4': `w-4 h-4`,
   'コンポーネント包含 小 p-6 m-6 gap-6': `w-6 h-6`,
   'コンポーネント包含 大 p-8 m-8 gap-8': `w-8 h-8`,
-}
+};
 
 export const Constraints = () => {
   return (
@@ -36,8 +30,8 @@ export const Constraints = () => {
         </Fragment>
       ))}
     </Fragment>
-  )
-}
+  );
+};
 
 Constraints.parameters = {
   title: 'Constraints',
@@ -121,4 +115,4 @@ Spacer は他のコンポーネントやスタイルとは違い，特別な書�
       </Fragment>
     ),
   },
-}
+};

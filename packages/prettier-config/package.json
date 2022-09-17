@@ -12,7 +12,6 @@
   ],
   "author": "locona (https://github.com/locona)",
   "license": "MIT",
-  "private": false,
   "exports": {
     ".": "./src/index.cjs"
   },

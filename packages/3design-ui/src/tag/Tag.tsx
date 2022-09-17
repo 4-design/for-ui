@@ -1,9 +1,9 @@
-import { FC } from 'react'
-import MuiChip, { ChipProps as MuiChipProps } from '@mui/material/Chip'
+import { FC } from 'react';
+import MuiChip, { ChipProps as MuiChipProps } from '@mui/material/Chip';
 
 export type TagProps = MuiChipProps & {
-  className?: string
-}
+  className?: string;
+};
 
 export const Tag: FC<TagProps> = ({ label, className, onDelete, ...rest }) => {
   return (
@@ -16,5 +16,5 @@ export const Tag: FC<TagProps> = ({ label, className, onDelete, ...rest }) => {
       }}
       {...rest}
     />
-  )
-}
+  );
+};

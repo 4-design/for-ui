@@ -1,27 +1,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable tailwindcss/enforces-negative-arbitrary-values */
-import React, { useState, useRef, useCallback } from 'react'
-import MuiDrawer, { DrawerProps as MuiDrawerProps } from '@mui/material/Drawer'
-import clsx from 'clsx'
-import { MdClose, MdMoreVert } from 'react-icons/md'
-import { Button } from '../button'
+import React, { useState, useRef, useCallback } from 'react';
+import MuiDrawer, { DrawerProps as MuiDrawerProps } from '@mui/material/Drawer';
+import clsx from 'clsx';
+import { MdClose, MdMoreVert } from 'react-icons/md';
+import { Button } from '../button';
 
 type Props = MuiDrawerProps & {
-  headerChildren?: React.ReactNode
-  defaultWidth?: number
-  defaultHeight?: number
-  minWidth?: number
-  minHeight?: number
-  onClose?: () => void
-}
+  headerChildren?: React.ReactNode;
+  defaultWidth?: number;
+  defaultHeight?: number;
+  minWidth?: number;
+  minHeight?: number;
+  onClose?: () => void;
+};
 
-const _minWidth = 240
+const _minWidth = 240;
 
 export const DrawerAnchor = {
   left: 'left',
   right: 'right',
-} as const
-export type DrawerAnchor = typeof DrawerAnchor[keyof typeof DrawerAnchor]
+} as const;
+export type DrawerAnchor = typeof DrawerAnchor[keyof typeof DrawerAnchor];
 
 export const Drawer: React.FC<Props> = ({
   open,
@@ -33,47 +33,47 @@ export const Drawer: React.FC<Props> = ({
   onClose,
   ...rest
 }) => {
-  const ref = useRef(null)
-  const [width, setWidth] = useState(defaultWidth)
+  const ref = useRef(null);
+  const [width, setWidth] = useState(defaultWidth);
 
   const handleClose = useCallback(() => {
-    if (onClose) onClose()
-  }, [onClose])
+    if (onClose) onClose();
+  }, [onClose]);
 
   const handleMouseMove = useCallback(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (e: any) => {
       switch (anchor) {
         case DrawerAnchor.left: {
-          const newWidth = e.pageX
+          const newWidth = e.pageX;
           if (newWidth > minWidth && newWidth < window.innerWidth) {
-            setWidth(newWidth)
+            setWidth(newWidth);
           }
 
-          break
+          break;
         }
         case DrawerAnchor.right: {
-          const newWidth = window.innerWidth - e.pageX
+          const newWidth = window.innerWidth - e.pageX;
           if (newWidth > minWidth && newWidth < window.innerWidth) {
-            setWidth(newWidth)
+            setWidth(newWidth);
           }
 
-          break
+          break;
         }
       }
     },
     [anchor]
-  )
+  );
 
   const handleMouseUp = useCallback(() => {
-    document.removeEventListener('mouseup', handleMouseUp, true)
-    document.removeEventListener('mousemove', handleMouseMove, true)
-  }, [])
+    document.removeEventListener('mouseup', handleMouseUp, true);
+    document.removeEventListener('mousemove', handleMouseMove, true);
+  }, []);
 
   const handleMouseDown = useCallback(() => {
-    document.addEventListener('mouseup', handleMouseUp, true)
-    document.addEventListener('mousemove', handleMouseMove, true)
-  }, [])
+    document.addEventListener('mouseup', handleMouseUp, true);
+    document.addEventListener('mousemove', handleMouseMove, true);
+  }, []);
 
   return (
     <MuiDrawer
@@ -85,7 +85,7 @@ export const Drawer: React.FC<Props> = ({
       }}
       PaperProps={{
         sx: {
-          width: width,
+          width,
           height: '100%',
         },
       }}
@@ -93,12 +93,7 @@ export const Drawer: React.FC<Props> = ({
       {...rest}
     >
       <div className="flex items-center">
-        <Button
-          variant="text"
-          size="small"
-          startIcon={<MdClose size={16} />}
-          onClick={handleClose}
-        >
+        <Button variant="text" size="small" startIcon={<MdClose size={16} />} onClick={handleClose}>
           閉じる
         </Button>
 
@@ -115,20 +110,17 @@ export const Drawer: React.FC<Props> = ({
       >
         <span
           className={clsx([
-            'block h-full w-full border-shade-light-default hover:bg-shade-white-hover',
+            'border-shade-light-default hover:bg-shade-white-hover block h-full w-full',
             anchor === DrawerAnchor.left ? 'border-r' : 'border-l',
           ])}
         >
           <MdMoreVert
             size="24"
-            className={clsx([
-              'relative h-full',
-              anchor === 'left' ? 'right-[6px]' : '-left-[6px]',
-            ])}
+            className={clsx(['relative h-full', anchor === 'left' ? 'right-[6px]' : '-left-[6px]'])}
           />
         </span>
       </div>
       <div className="overflow-wrap[break-word] mt-3">{children}</div>
     </MuiDrawer>
-  )
-}
+  );
+};

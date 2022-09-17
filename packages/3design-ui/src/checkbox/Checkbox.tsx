@@ -1,15 +1,13 @@
-import { FC } from 'react'
-import MuiCheckbox, {
-  CheckboxProps as MuiCheckboxProps,
-} from '@mui/material/Checkbox'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import clsx from 'clsx'
-import { Typography } from '../typography'
+import { FC } from 'react';
+import MuiCheckbox, { CheckboxProps as MuiCheckboxProps } from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import clsx from 'clsx';
+import { Typography } from '../typography';
 
 export type CheckboxProps = MuiCheckboxProps & {
-  label?: string
-  nopadding?: boolean
-}
+  label?: string;
+  nopadding?: boolean;
+};
 
 const _Checkbox: FC<CheckboxProps> = ({ nopadding = false, ...rest }) => (
   <MuiCheckbox
@@ -21,24 +19,16 @@ const _Checkbox: FC<CheckboxProps> = ({ nopadding = false, ...rest }) => (
     }}
     {...rest}
   />
-)
+);
 
-export const Checkbox = ({
-  label,
-  nopadding = false,
-  ...rest
-}: CheckboxProps) => {
+export const Checkbox = ({ label, nopadding = false, ...rest }: CheckboxProps) => {
   return (
     <>
       {label ? (
         <FormControlLabel
           control={<_Checkbox nopadding={nopadding} {...rest} />}
           label={
-            <Typography
-              variant="body1"
-              disabled={rest.disabled}
-              className={`text-s`}
-            >
+            <Typography variant="body1" disabled={rest.disabled} className="text-s">
               {label}
             </Typography>
           }
@@ -47,5 +37,5 @@ export const Checkbox = ({
         <_Checkbox nopadding={nopadding} {...rest} />
       )}
     </>
-  )
-}
+  );
+};

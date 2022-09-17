@@ -1,14 +1,10 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const defaultTheme = require('tailwindcss/defaultTheme')
-const {
-  default: flattenColorPalette,
-} = require('tailwindcss/lib/util/flattenColorPalette')
-const { default: toColorValue } = require('tailwindcss/lib/util/toColorValue')
-const {
-  default: withAlphaVariable,
-} = require('tailwindcss/lib/util/withAlphaVariable')
+/* eslint-disable @typescript-eslint/no-var-requires */
+const defaultTheme = require('tailwindcss/defaultTheme');
+const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette');
+const { default: toColorValue } = require('tailwindcss/lib/util/toColorValue');
+const { default: withAlphaVariable } = require('tailwindcss/lib/util/withAlphaVariable');
 
-const plugin = require('tailwindcss/plugin')
+const plugin = require('tailwindcss/plugin');
 
 // fontSizes is separeted for the legacy support of fontSizes.
 // Once repalcing done, this should be written in config directly.
@@ -304,7 +300,7 @@ const colors = {
       },
     },
   },
-}
+};
 
 const fontSizes = {
   xs: [
@@ -349,29 +345,29 @@ const fontSizes = {
       letterSpacing: '.03rem',
     },
   ],
-}
+};
 
 module.exports = {
   plugins: [
-    plugin(function ({ matchUtilities, theme, corePlugins }) {
+    plugin(({ matchUtilities, theme, corePlugins }) => {
       matchUtilities(
         {
           icon: (value) => {
             if (!corePlugins('iconOpacity')) {
               return {
                 color: toColorValue(value),
-              }
+              };
             }
 
             return withAlphaVariable({
               color: value,
               property: 'color',
               variable: '--tw-color-opacity',
-            })
+            });
           },
         },
         { values: flattenColorPalette(theme('iconColor')), type: 'color' }
-      )
+      );
     }),
   ],
   theme: {
@@ -507,12 +503,7 @@ module.exports = {
         modal: '0px 8px 32px rgba(0, 0, 0, 0.05)',
       },
       fontFamily: {
-        sans: [
-          'YakuHanJP',
-          'Inter',
-          'Noto Sans JP',
-          ...defaultTheme.fontFamily.sans,
-        ],
+        sans: ['YakuHanJP', 'Inter', 'Noto Sans JP', ...defaultTheme.fontFamily.sans],
       },
       gridTemplateColumns: {
         'auto-1': 'repeat(auto-fill, minmax(80px, 1fr))',
@@ -555,4 +546,4 @@ module.exports = {
     textColor: ['hover', 'focus', 'disabled'],
     opacity: ['hover', 'disabled'],
   },
-}
+};

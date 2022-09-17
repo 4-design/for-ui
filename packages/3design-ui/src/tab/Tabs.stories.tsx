@@ -1,23 +1,23 @@
-import React from 'react'
-import { Story, Meta } from '@storybook/react/types-6-0'
+import React from 'react';
+import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Tab } from './Tab'
-import { TabContext } from './TabContext'
-import { TabList } from './TabList'
-import { TabPanel } from './TabPanel'
-import { Tabs } from './Tabs'
+import { Tab } from './Tab';
+import { TabContext } from './TabContext';
+import { TabList } from './TabList';
+import { TabPanel } from './TabPanel';
+import { Tabs } from './Tabs';
 
 export default {
   title: 'Navigation / Tab',
   component: Tabs,
-} as Meta
+} as Meta;
 
 const Template: Story = () => {
-  const [value, setValue] = React.useState('1')
+  const [value, setValue] = React.useState('1');
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue)
-  }
+    setValue(newValue);
+  };
 
   return (
     <div className="flex flex-col">
@@ -83,15 +83,15 @@ const Template: Story = () => {
         </TabContext>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Template2: Story = () => {
-  const [value, setValue] = React.useState('1')
+  const [value, setValue] = React.useState('1');
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue)
-  }
+    setValue(newValue);
+  };
 
   return (
     <div className="flex flex-col">
@@ -158,13 +158,7 @@ const Template2: Story = () => {
 
       <div className="mt-8 flex flex-col">
         <TabContext value={value}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            color="shade"
-            reverse
-            noBorder
-          >
+          <Tabs value={value} onChange={handleChange} color="shade" reverse noBorder>
             <Tab value="1" label="Item One" minWidth={0} />
             <Tab value="2" label="Item Two" />
             <Tab value="3" label="Item Three" />
@@ -182,18 +176,18 @@ const Template2: Story = () => {
         </TabContext>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export const DefaultTab = Template.bind({})
-export const ReverseTab = Template2.bind({})
+export const DefaultTab = Template.bind({});
+export const ReverseTab = Template2.bind({});
 
 export const WithTabList: Story = () => {
-  const [value, setValue] = React.useState('1')
+  const [value, setValue] = React.useState('1');
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue)
-  }
+    setValue(newValue);
+  };
 
   return (
     <div className="flex flex-col">
@@ -279,5 +273,5 @@ export const WithTabList: Story = () => {
         </TabContext>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -1,18 +1,18 @@
-import React from 'react'
-import { Story, Meta } from '@storybook/react/types-6-0'
-import { MdMoreVert } from 'react-icons/md'
-import { CellProps, Column } from 'react-table'
+import React from 'react';
+import { Story, Meta } from '@storybook/react/types-6-0';
+import { MdMoreVert } from 'react-icons/md';
+import { CellProps, Column } from 'react-table';
 
-import { IconButton } from '../icon'
-import { PersonData, StaticPersonData } from '../utils/makeData'
-import { Table } from './Table'
-import { TableCell } from './TableCell'
-import { TableScroller } from './TableScroller'
+import { IconButton } from '../icon';
+import { PersonData, StaticPersonData } from '../utils/makeData';
+import { Table } from './Table';
+import { TableCell } from './TableCell';
+import { TableScroller } from './TableScroller';
 
 export default {
   title: 'Data Display / Table',
   component: Table,
-} as Meta
+} as Meta;
 
 const basicColumns: Array<Column<PersonData>> = [
   {
@@ -44,11 +44,9 @@ const basicColumns: Array<Column<PersonData>> = [
       <TableCell {...getCellProps()}>{value}</TableCell>
     ),
   },
-]
+];
 
-export const Base: Story = () => (
-  <Table<PersonData> columns={basicColumns} data={StaticPersonData} />
-)
+export const Base: Story = () => <Table<PersonData> columns={basicColumns} data={StaticPersonData} />;
 
 const withImageColumns: Array<Column<PersonData>> = [
   {
@@ -56,7 +54,7 @@ const withImageColumns: Array<Column<PersonData>> = [
     accessor: 'image',
     Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
       <TableCell {...getCellProps()} component="th">
-        <img height="68" className="my-8 shadow-image" src={value} alt="logo" />
+        <img height="68" className="shadow-image my-8" src={value} alt="logo" />
       </TableCell>
     ),
   },
@@ -93,18 +91,16 @@ const withImageColumns: Array<Column<PersonData>> = [
     accessor: 'status',
     width: 50,
     Cell: ({ cell: { getCellProps } }) => (
-      <TableCell {...getCellProps()} className={`px-0`}>
+      <TableCell {...getCellProps()} className="px-0">
         <IconButton>
           <MdMoreVert />
         </IconButton>
       </TableCell>
     ),
   },
-]
+];
 
-export const WithImage: Story = () => (
-  <Table<PersonData> columns={withImageColumns} data={StaticPersonData} />
-)
+export const WithImage: Story = () => <Table<PersonData> columns={withImageColumns} data={StaticPersonData} />;
 
 const withSelectColumns: Array<Column<PersonData>> = [
   {
@@ -143,7 +139,7 @@ const withSelectColumns: Array<Column<PersonData>> = [
       <TableCell {...getCellProps()}>{value}</TableCell>
     ),
   },
-]
+];
 
 export const WithSelect: Story = () => (
   <Table<PersonData>
@@ -152,7 +148,7 @@ export const WithSelect: Story = () => (
     getRowId={(row) => row.id.toString()}
     onSelectRow={(rows) => console.info('rows', rows)}
   />
-)
+);
 
 export const WithSelectMultiple: Story = () => (
   <Table<PersonData>
@@ -161,25 +157,17 @@ export const WithSelectMultiple: Story = () => (
     getRowId={(row) => row.id.toString()}
     onSelectRows={(rows) => console.info('rows', rows)}
   />
-)
+);
 
 export const WithDisablePagination: Story = () => (
-  <Table<PersonData>
-    columns={withSelectColumns}
-    data={StaticPersonData}
-    disablePagination
-  />
-)
+  <Table<PersonData> columns={withSelectColumns} data={StaticPersonData} disablePagination />
+);
 
 export const WithTableScroller: Story = () => (
   <TableScroller height={400}>
-    <Table<PersonData>
-      columns={withSelectColumns}
-      data={StaticPersonData}
-      disablePagination
-    />
+    <Table<PersonData> columns={withSelectColumns} data={StaticPersonData} disablePagination />
   </TableScroller>
-)
+);
 
 export const WithTableSort: Story = () => (
   <TableScroller height="400px">
@@ -190,4 +178,4 @@ export const WithTableSort: Story = () => (
       sortBy={[{ id: 'firstName', desc: false }]}
     />
   </TableScroller>
-)
+);

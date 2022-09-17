@@ -1,8 +1,8 @@
-import React from 'react'
-import { Meta, Story } from '@storybook/react/types-6-0'
-import { Text } from '../typography/Typography'
-import { Step } from './Step'
-import { Stepper } from './Stepper'
+import React from 'react';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import { Text } from '../typography/Typography';
+import { Step } from './Step';
+import { Stepper } from './Stepper';
 
 export default {
   title: 'Navigation / Stepper',
@@ -19,9 +19,9 @@ export default {
       </div>
     ),
   ],
-} as Meta
+} as Meta;
 
-const steps = ['First', 'Second', 'Third', 'Last']
+const steps = ['First', 'Second', 'Third', 'Last'];
 
 const Template: Story = (args) => {
   return (
@@ -50,11 +50,11 @@ const Template: Story = (args) => {
         ))}
       </Stepper>
     </div>
-  )
-}
+  );
+};
 
-export const Basic = Template.bind({})
+export const Basic = Template.bind({});
 
 Basic.args = {
   alternativeLabel: true,
-}
+};
