@@ -2,6 +2,7 @@ node_modules
 dist
 types
 tailwind.config.base.js
+.github
 **/packages/**/tailwind.config.base.js
 **/packages/**/tailwind.config.js
 **/types
