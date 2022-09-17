@@ -16,10 +16,10 @@
     "type-check": "turbo run type-check",
     "lint": "run-p lint:'*'",
     "lint:eslint": "eslint .",
-    "lint:prettier": "prettier --ignore-path .gitignore --check .",
+    "lint:prettier": "prettier --check .",
     "fmt": "run-p fmt:'*'",
     "fmt:eslint": "eslint . --fix",
-    "fmt:prettier": "prettier --ignore-path .gitignore --write --list-different .",
+    "fmt:prettier": "prettier --write --list-different .",
     "version-packages": "changeset version && yarn prettier",
     "release": "changeset publish"
   },

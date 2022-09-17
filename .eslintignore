@@ -10,3 +10,4 @@ tailwind.config.base.js
 **/.yalc/*
 .next/**
 .yalc/**
+.changeset

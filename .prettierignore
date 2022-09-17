@@ -2,3 +2,8 @@ node_modules
 dist
 types
 storybook-static
+
+.changeset
+.next
+.yarn
+.yalc
