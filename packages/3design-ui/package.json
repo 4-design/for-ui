@@ -40,8 +40,6 @@
     "react-number-format": "4.9.4"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.4.6",
-    "@changesets/cli": "^2.24.4",
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
     "@hookform/resolvers": "2.9.8",
