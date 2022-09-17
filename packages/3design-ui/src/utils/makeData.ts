@@ -1,14 +1,14 @@
 export type Person = {
-  id: number
-  firstName: string
-  lastName: string
-  image: string
-  age: number
-  visits: number
-  status: string
-}
+  id: number;
+  firstName: string;
+  lastName: string;
+  image: string;
+  age: number;
+  visits: number;
+  status: string;
+};
 
-export type PersonData = Person
+export type PersonData = Person;
 
 export const StaticPersonData: Person[] = [
   {
@@ -335,4 +335,4 @@ export const StaticPersonData: Person[] = [
     status: '',
     image: '/image.png',
   },
-]
+];

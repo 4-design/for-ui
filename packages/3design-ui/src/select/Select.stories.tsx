@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react'
-import { FormHelperText } from '@mui/material'
-import { Story, Meta } from '@storybook/react/types-6-0'
-import { Controller, useForm } from 'react-hook-form'
-import { Button } from '../button'
-import { Select, SelectOption } from './Select'
+import React, { useEffect } from 'react';
+import { FormHelperText } from '@mui/material';
+import { Story, Meta } from '@storybook/react/types-6-0';
+import { Controller, useForm } from 'react-hook-form';
+import { Button } from '../button';
+import { Select, SelectOption } from './Select';
 
 export default {
   title: 'Form / Select',
   component: Select,
   decorators: [(Story) => <Story />],
-} as Meta
+} as Meta;
 
 const options: SelectOption[] = [
   {
@@ -28,7 +28,7 @@ const options: SelectOption[] = [
     label: 'スペイン',
     inputValue: 'spain',
   },
-]
+];
 
 const SKILL = {
   // C#
@@ -69,21 +69,19 @@ const SKILL = {
   swift: 'swift',
   // TypeScript
   typescript: 'typescript',
-} as const
+} as const;
 
-const skillOptions: SelectOption[] = Object.keys(SKILL).map(
-  (key): SelectOption => {
-    return { label: SKILL[key], inputValue: key }
-  }
-)
+const skillOptions: SelectOption[] = Object.keys(SKILL).map((key): SelectOption => {
+  return { label: SKILL[key], inputValue: key };
+});
 
 export const Basic: Story = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
       country: options[0],
     },
-  })
-  const onSubmit = (data: unknown) => console.log(JSON.stringify(data))
+  });
+  const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
 
   return (
     <div>
@@ -98,10 +96,10 @@ export const Basic: Story = () => {
                 placeholder="国名"
                 options={options}
                 onChange={(e, option) => {
-                  onChange((option as SelectOption)?.inputValue)
+                  onChange((option as SelectOption)?.inputValue);
                 }}
               />
-            )
+            );
           }}
         />
 
@@ -123,12 +121,12 @@ export const Basic: Story = () => {
                   placeholder="国名"
                   options={options}
                   onChange={(e, option) => {
-                    onChange((option as SelectOption)?.inputValue)
+                    onChange((option as SelectOption)?.inputValue);
                   }}
                 />
                 <FormHelperText error>入力してください</FormHelperText>
               </>
-            )
+            );
           }}
         />
 
@@ -137,16 +135,16 @@ export const Basic: Story = () => {
         </Button>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export const Single: Story = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
       country: options[0],
     },
-  })
-  const onSubmit = (data: unknown) => console.log(JSON.stringify(data))
+  });
+  const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -160,10 +158,10 @@ export const Single: Story = () => {
               placeholder="国名"
               options={options}
               onChange={(e, option) => {
-                onChange((option as SelectOption)?.inputValue)
+                onChange((option as SelectOption)?.inputValue);
               }}
             />
-          )
+          );
         }}
       />
 
@@ -171,16 +169,16 @@ export const Single: Story = () => {
         登録
       </Button>
     </form>
-  )
-}
+  );
+};
 
 export const Disabled: Story = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
       country: options[0],
     },
-  })
-  const onSubmit = (data: unknown) => console.log(JSON.stringify(data))
+  });
+  const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -195,10 +193,10 @@ export const Disabled: Story = () => {
               placeholder="国名"
               options={options}
               onChange={(e, option) => {
-                onChange((option as SelectOption)?.inputValue)
+                onChange((option as SelectOption)?.inputValue);
               }}
             />
-          )
+          );
         }}
       />
 
@@ -206,16 +204,16 @@ export const Disabled: Story = () => {
         登録
       </Button>
     </form>
-  )
-}
+  );
+};
 
 export const Multiple: Story = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
       country: options,
     },
-  })
-  const onSubmit = (data: unknown) => console.log(JSON.stringify(data))
+  });
+  const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
 
   return (
     <div>
@@ -232,10 +230,10 @@ export const Multiple: Story = () => {
                 placeholder="未定"
                 options={options}
                 onChange={(e, option) => {
-                  onChange((option as SelectOption)?.inputValue)
+                  onChange((option as SelectOption)?.inputValue);
                 }}
               />
-            )
+            );
           }}
         />
 
@@ -258,12 +256,12 @@ export const Multiple: Story = () => {
                   placeholder="未定"
                   options={options}
                   onChange={(e, option) => {
-                    onChange((option as SelectOption)?.inputValue)
+                    onChange((option as SelectOption)?.inputValue);
                   }}
                 />
                 <FormHelperText error>入力してください</FormHelperText>
               </>
-            )
+            );
           }}
         />
 
@@ -272,26 +270,26 @@ export const Multiple: Story = () => {
         </Button>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export const MultipleFreeSolo: Story = () => {
   const { control, reset, handleSubmit } = useForm<{
-    country: { label: string; inputValue: string }[]
+    country: { label: string; inputValue: string }[];
   }>({
     defaultValues: {
       country: [],
     },
-  })
-  const onSubmit = (data: unknown) => console.log(JSON.stringify(data))
+  });
+  const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
 
   useEffect(() => {
     setTimeout(() => {
       reset({
         country: skillOptions,
-      })
-    }, 200)
-  }, [reset])
+      });
+    }, 200);
+  }, [reset]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -299,7 +297,7 @@ export const MultipleFreeSolo: Story = () => {
         name="country"
         control={control}
         render={({ field: { name, value, onChange } }) => {
-          console.log(value)
+          console.info(value);
           return (
             <Select
               freeSolo
@@ -310,11 +308,11 @@ export const MultipleFreeSolo: Story = () => {
               value={value}
               options={skillOptions}
               onChange={(e, option) => {
-                onChange(option)
+                onChange(option);
                 // onChange((option as SelectOption)?.inputValue)
               }}
             />
-          )
+          );
         }}
       />
 
@@ -322,5 +320,5 @@ export const MultipleFreeSolo: Story = () => {
         登録
       </Button>
     </form>
-  )
-}
+  );
+};

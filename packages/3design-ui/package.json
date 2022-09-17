@@ -24,30 +24,22 @@
     "url": "git+https://github.com/3-shake/3design-ui.git"
   },
   "scripts": {
-    "prettier": "prettier --check '**/*.{ts,tsx,js}'",
-    "prettier-format": "prettier --write '**/*.{ts,tsx,js}'",
-    "type-check": "tsc --noEmit",
-    "type-check:watch": "yarn type-check -- --watch",
-    "build:types": "tsc",
-    "build:types:watch": "NODE_ENV=production tsc --watch",
+    "type-check": "tsc --noEmit --pretty",
+    "build:types": "yarn type-check",
     "build:js": "NODE_ENV=production vite build",
     "build": "run-p build:'*'",
-    "lint": "eslint 'src/**/*.{tsx,ts,js,cjs}'",
-    "lint-fix": "eslint 'src/**/*.{tsx,ts,js,cjs}' --fix",
     "storybook": "start-storybook --no-manager-cache -p 6006 -s public",
     "build-storybook": "build-storybook",
     "version-packages": "changeset version && yarn prettier",
     "release": "changeset publish"
   },
   "dependencies": {
-    "clsx": "^1.2.1",
-    "material-ui-popup-state": "^4.0.2",
+    "clsx": "1.2.1",
+    "material-ui-popup-state": "4.0.2",
     "react-dropzone": "14.2.2",
     "react-number-format": "4.9.4"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.4.6",
-    "@changesets/cli": "^2.24.4",
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
     "@hookform/resolvers": "2.9.8",
@@ -80,7 +72,7 @@
     "eslint-plugin-react": "7.31.8",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-storybook": "0.6.4",
-    "eslint-plugin-tailwindcss": "3.6.1",
+    "eslint-plugin-tailwindcss": "3.6.2",
     "eslint-plugin-unused-imports": "2.0.0",
     "lint-staged": "13.0.3",
     "npm-run-all": "4.1.5",
@@ -94,7 +86,7 @@
     "react-table": "7.8.0",
     "tailwindcss": "3.1.8",
     "typescript": "4.8.3",
-    "vite": "3.1.0",
+    "vite": "3.1.2",
     "webpack": "5.74.0",
     "yup": "0.32.11"
   },

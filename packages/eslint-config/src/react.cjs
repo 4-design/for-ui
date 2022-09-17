@@ -14,26 +14,23 @@ module.exports = {
         'plugin:react/recommended',
         'plugin:react-hooks/recommended',
         'plugin:jsx-a11y/recommended',
+        'plugin:tailwindcss/recommended',
         'prettier',
       ],
       rules: {
+        'react/display-name': 'off',
         'react/jsx-curly-brace-presence': 'error',
-        // Disallows specific imports
-        // https://eslint.org/docs/rules/no-restricted-imports
-        'no-restricted-imports': [
-          'error',
-          {
-            name: 'react',
-            importNames: ['FC', 'FunctionComponent'],
-            message: 'Just type props and `ReactElement` as return type',
-          },
-        ],
+        'jsx-a11y/anchor-is-valid': 'off',
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
         'react/react-in-jsx-scope': 'off', // import of React is no longer required starting from react@17
+        'tailwindcss/no-custom-classname': 'off',
       },
     },
     {
       files: [
         '**/pages/**', // Next.js pages directory use default export
+        '*.stories.tsx',
         'next.config.mjs',
       ],
       rules: {
@@ -46,5 +43,11 @@ module.exports = {
         node: true,
       },
     },
+    {
+      files: ['*.tsx'],
+      rules: {
+        'react/prop-types': 'off',
+      },
+    },
   ],
-}
+};

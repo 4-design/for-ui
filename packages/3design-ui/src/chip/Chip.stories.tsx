@@ -1,9 +1,9 @@
-import React from 'react'
-import { Meta, Args } from '@storybook/react/types-6-0'
-import { MdCheck } from 'react-icons/md'
+import React from 'react';
+import { Meta, Args } from '@storybook/react/types-6-0';
+import { MdCheck } from 'react-icons/md';
 
-import { Text } from '../typography/Typography'
-import { Chip } from './Chip'
+import { Text } from '../typography/Typography';
+import { Chip } from './Chip';
 
 export default {
   title: 'Form / Chip',
@@ -22,7 +22,7 @@ export default {
     color: { control: 'select', options: ['default', 'negative', 'white'] },
     onDelete: { action: 'onDelete' },
   },
-} as Meta
+} as Meta;
 
 export const Base = (args: Args) => (
   <div className="flex flex-col">
@@ -41,25 +41,17 @@ export const Base = (args: Args) => (
           onDelete={
             args.onDelete ||
             (() => {
-              console.log('hello')
+              console.error('hello');
             })
           }
         />
       </div>
       <div>
-        <Chip
-          label={args.label}
-          color={args.color}
-          leadingIcon={<MdCheck size={20} className="ml-0 mr-1" />}
-        />
+        <Chip label={args.label} color={args.color} leadingIcon={<MdCheck size={20} className="ml-0 mr-1" />} />
       </div>
       <div>
-        <Chip
-          label={args.label}
-          color={args.color}
-          trailingIcon={<MdCheck size={20} className="ml-0 mr-1" />}
-        />
+        <Chip label={args.label} color={args.color} trailingIcon={<MdCheck size={20} className="ml-0 mr-1" />} />
       </div>
     </div>
   </div>
-)
+);

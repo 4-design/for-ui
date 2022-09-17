@@ -1,7 +1,7 @@
-import React from 'react'
-import { Meta } from '@storybook/react/types-6-0'
+import React from 'react';
+import { Meta } from '@storybook/react/types-6-0';
 
-import { Divider } from './Divider'
+import { Divider } from './Divider';
 
 export default {
   title: 'Example / Divider',
@@ -17,10 +17,10 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as Meta
+} as Meta;
 
 export const Base = () => (
   <div>
     <Divider />
   </div>
-)
+);

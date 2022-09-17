@@ -1,8 +1,8 @@
-import React from 'react'
-import { Meta } from '@storybook/react/types-6-0'
+import React from 'react';
+import { Meta } from '@storybook/react/types-6-0';
 
-import { MdMoreVert } from 'react-icons/md'
-import { Card, CardHeader, CardBody } from './Card'
+import { MdMoreVert } from 'react-icons/md';
+import { Card, CardHeader, CardBody } from './Card';
 
 export default {
   title: 'Example / Card',
@@ -10,7 +10,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as Meta
+} as Meta;
 
 export const Basic = (): JSX.Element => {
   return (
@@ -18,5 +18,5 @@ export const Basic = (): JSX.Element => {
       <CardHeader title="タイトル" action={<MdMoreVert size={24} />} />
       <CardBody>Body</CardBody>
     </Card>
-  )
-}
+  );
+};

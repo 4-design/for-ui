@@ -1,10 +1,10 @@
-import React from 'react'
-import { Meta } from '@storybook/react/types-6-0'
+import React from 'react';
+import { Meta } from '@storybook/react/types-6-0';
 
-import { Button } from '../button/Button'
-import { Text } from '../typography/Typography'
-import { Menu } from './Menu'
-import { MenuItem } from './MenuItem'
+import { Button } from '../button/Button';
+import { Text } from '../typography/Typography';
+import { Menu } from './Menu';
+import { MenuItem } from './MenuItem';
 
 export default {
   title: 'Navigation / Menu',
@@ -20,7 +20,7 @@ export default {
       </div>
     ),
   ],
-} as Meta
+} as Meta;
 
 export const Base = () => {
   return (
@@ -29,9 +29,7 @@ export const Base = () => {
         <Text variant="h3">Menu</Text>
       </div>
 
-      <Menu
-        TriggerComponent={<Button variant="contained">プロジェクト</Button>}
-      >
+      <Menu TriggerComponent={<Button variant="contained">プロジェクト</Button>}>
         <MenuItem>
           <a href="#">プロフィール</a>
         </MenuItem>
@@ -43,5 +41,5 @@ export const Base = () => {
         </MenuItem>
       </Menu>
     </div>
-  )
-}
+  );
+};

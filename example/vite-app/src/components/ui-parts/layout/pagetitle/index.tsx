@@ -1,17 +1,13 @@
-import { FC, PropsWithChildren, ReactNode } from 'react'
-import clsx from 'clsx'
-import { Breadcrumb, BreadcrumbProps } from '../breadcrumb'
+import { FC, PropsWithChildren, ReactNode } from 'react';
+import clsx from 'clsx';
+import { Breadcrumb, BreadcrumbProps } from '../breadcrumb';
 
 type PageTitleProps = PropsWithChildren<{
-  breadcrumbs?: BreadcrumbProps['items']
-  subtitle?: string | ReactNode
-}>
+  breadcrumbs?: BreadcrumbProps['items'];
+  subtitle?: string | ReactNode;
+}>;
 
-export const PageTitle: FC<PageTitleProps> = ({
-  breadcrumbs,
-  subtitle,
-  children,
-}) => {
+export const PageTitle: FC<PageTitleProps> = ({ breadcrumbs, subtitle, children }) => {
   return (
     <div
       className={clsx([
@@ -29,12 +25,12 @@ export const PageTitle: FC<PageTitleProps> = ({
       {/* <PageTitleRight></PageTitleRight> */}
       {children}
     </div>
-  )
-}
+  );
+};
 
 const PageTitleLeft: FC<PropsWithChildren> = ({ children }) => (
   <div className="flex flex-1 items-center">{children}</div>
-)
+);
 
 // const PageTitleRight: FC<PropsWithChildren> = ({ children }) => (
 //   <div className="flex items-center">{children}</div>

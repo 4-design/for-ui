@@ -1,26 +1,17 @@
-import clsx from 'clsx'
-import { MdGroup, MdChevronLeft, MdDashboard } from 'react-icons/md'
-import { Sidebar as UISidebar } from '@/components/ui-parts/layout/sidebar'
-import { SidebarContext } from '@/components/ui-parts/layout/sidebar/SidebarContext'
-import {
-  SidebarMenu,
-  SidebarMenuItem,
-} from '@/components/ui-parts/layout/sidebar/SidebarMenu'
+import clsx from 'clsx';
+import { MdGroup, MdChevronLeft, MdDashboard } from 'react-icons/md';
+import { Sidebar as UISidebar } from '@/components/ui-parts/layout/sidebar';
+import { SidebarContext } from '@/components/ui-parts/layout/sidebar/SidebarContext';
+import { SidebarMenu, SidebarMenuItem } from '@/components/ui-parts/layout/sidebar/SidebarMenu';
 
 const Logo: React.FC<{ open: boolean }> = ({ open }) => (
-  <a>
+  <a href="/#">
     <div className={clsx(['flex', open ? 'px-4 py-3' : 'p-4'])}>
       {!open ? (
         <img src="/vite.svg" width="24" height="24" alt="logo" />
       ) : (
         <div className="flex">
-          <img
-            src="/vite.svg"
-            width="24"
-            height="24"
-            alt="logo"
-            className="mr-4"
-          />
+          <img src="/vite.svg" width="24" height="24" alt="logo" className="mr-4" />
           <span className="text-shade-white-default w-44 overflow-x-hidden text-ellipsis whitespace-nowrap text-base">
             3design,inc
           </span>
@@ -28,7 +19,7 @@ const Logo: React.FC<{ open: boolean }> = ({ open }) => (
       )}
     </div>
   </a>
-)
+);
 
 export const Sidebar = () => {
   return (
@@ -37,26 +28,15 @@ export const Sidebar = () => {
         {({ open, handleOpen, handleClose }) => (
           <>
             <SidebarMenu>
-              <SidebarMenuItem
-                IconComponent={MdDashboard}
-                label="ダッシュボード"
-              />
+              <SidebarMenuItem IconComponent={MdDashboard} label="ダッシュボード" />
 
-              <SidebarMenuItem
-                IconComponent={MdGroup}
-                label="候補者一覧"
-                active
-              />
+              <SidebarMenuItem IconComponent={MdGroup} label="候補者一覧" active />
 
               <div className="mt-auto">
                 <hr className="border-shade-medium-default my-2 mx-4" />
 
                 <div onClick={open ? handleClose : handleOpen}>
-                  <SidebarMenuItem
-                    active={false}
-                    IconComponent={MdChevronLeft}
-                    label={open ? '折りたたむ' : ''}
-                  />
+                  <SidebarMenuItem active={false} IconComponent={MdChevronLeft} label={open ? '折りたたむ' : ''} />
                 </div>
               </div>
             </SidebarMenu>
@@ -64,5 +44,5 @@ export const Sidebar = () => {
         )}
       </SidebarContext.Consumer>
     </UISidebar>
-  )
-}
+  );
+};

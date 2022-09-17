@@ -1,10 +1,8 @@
-import React from 'react'
-import MuiTabPanel, {
-  TabPanelProps as MuiTabPanelProps,
-} from '@mui/lab/TabPanel'
-import clsx from 'clsx'
+import React from 'react';
+import MuiTabPanel, { TabPanelProps as MuiTabPanelProps } from '@mui/lab/TabPanel';
+import clsx from 'clsx';
 
-export type TabPanelProps = MuiTabPanelProps
+export type TabPanelProps = MuiTabPanelProps;
 
 export const TabPanel: React.FC<TabPanelProps> = ({ value, children }) => {
   return (
@@ -16,5 +14,5 @@ export const TabPanel: React.FC<TabPanelProps> = ({ value, children }) => {
     >
       {children}
     </MuiTabPanel>
-  )
-}
+  );
+};
