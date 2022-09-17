@@ -34,8 +34,8 @@
     "release": "changeset publish"
   },
   "dependencies": {
-    "clsx": "^1.2.1",
-    "material-ui-popup-state": "^4.0.2",
+    "clsx": "1.2.1",
+    "material-ui-popup-state": "4.0.2",
     "react-dropzone": "14.2.2",
     "react-number-format": "4.9.4"
   },

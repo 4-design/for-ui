@@ -24,8 +24,8 @@
     "release": "changeset publish"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.4.6",
-    "@changesets/cli": "^2.24.4",
+    "@changesets/changelog-github": "0.4.6",
+    "@changesets/cli": "2.24.4",
     "eslint": "8.23.1",
     "lint-staged": "13.0.3",
     "npm-run-all": "4.1.5",
