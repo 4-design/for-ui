@@ -20,7 +20,7 @@
     "fmt": "run-p fmt:'*'",
     "fmt:eslint": "eslint . --fix",
     "fmt:prettier": "prettier --write --list-different .",
-    "version-packages": "changeset version && yarn prettier",
+    "version-packages": "changeset version",
     "release": "changeset publish"
   },
   "devDependencies": {
