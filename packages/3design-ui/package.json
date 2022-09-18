@@ -5,7 +5,6 @@
   "main": "dist/commonjs/3design-ui.js",
   "module": "dist/esm/3design-ui.esm.js",
   "types": "dist/types/index.d.ts",
-  "private": true,
   "exports": {
     ".": {
       "import": "./dist/esm/3design-ui.esm.js",
@@ -106,14 +105,5 @@
   "volta": {
     "node": "16.17.0",
     "yarn": "1.22.19"
-  },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "nohoist": [
-      "**/example",
-      "**/packages"
-    ]
   }
 }
