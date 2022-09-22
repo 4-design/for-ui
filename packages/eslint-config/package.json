@@ -1,6 +1,6 @@
 {
   "name": "@3design/eslint-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "3design's shared ESLint config",
   "repository": {
     "url": "3-shake/3design-ui",
