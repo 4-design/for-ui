@@ -1,5 +1,11 @@
 # @3design/eslint-config
 
+## 1.0.1
+
+### Patch Changes
+
+- [#777](https://github.com/3-shake/3design-ui/pull/777) [`128d232`](https://github.com/3-shake/3design-ui/commit/128d23227244cc3be2b0f56914d254d75c951305) Thanks [@locona](https://github.com/locona)! - fix: Release eslint-config v1.0.0
+
 ## 0.0.3
 
 ### Patch Changes
