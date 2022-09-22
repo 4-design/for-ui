@@ -23,8 +23,8 @@
     "url": "git+https://github.com/3-shake/3design-ui.git"
   },
   "scripts": {
-    "type-check": "tsc --noEmit --pretty",
-    "build:types": "yarn type-check",
+    "type-check": "tsc --pretty",
+    "build:types": "tsc",
     "build:js": "NODE_ENV=production vite build",
     "build": "run-p build:'*'",
     "storybook": "start-storybook --no-manager-cache -p 6006 -s public",
