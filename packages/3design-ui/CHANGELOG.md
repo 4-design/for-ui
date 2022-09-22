@@ -1,5 +1,13 @@
 # @3design/3design-ui
 
+## 3.3.3
+
+### Patch Changes
+
+- [#776](https://github.com/3-shake/3design-ui/pull/776) [`907a452`](https://github.com/3-shake/3design-ui/commit/907a4525a97456fe64b4733d8fbd9404309d46ef) Thanks [@locona](https://github.com/locona)! - fix: 3design-ui ビルド修正
+
+- [#771](https://github.com/3-shake/3design-ui/pull/771) [`172d453`](https://github.com/3-shake/3design-ui/commit/172d453d10db4d4ec7278a32729b28c94bd821f6) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
 ## 3.3.2
 
 ### Patch Changes
