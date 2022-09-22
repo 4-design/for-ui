@@ -1,9 +1,4 @@
 module.exports = {
-  settings: {
-    react: {
-      version: 'latest',
-    },
-  },
   env: {
     browser: true,
   },
