@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "clsx": "1.2.1",
-    "material-ui-popup-state": "4.0.2",
+    "material-ui-popup-state": "4.1.0",
     "react-dropzone": "14.2.2",
     "react-number-format": "4.9.4"
   },
@@ -54,7 +54,7 @@
     "@storybook/builder-webpack5": "6.5.12",
     "@storybook/manager-webpack5": "6.5.12",
     "@storybook/react": "6.5.12",
-    "@types/react": "18.0.20",
+    "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "@types/react-table": "7.7.12",
     "@typescript-eslint/eslint-plugin": "5.38.0",
