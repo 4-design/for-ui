@@ -1,5 +1,11 @@
 # @3design/eslint-config
 
+## 1.0.2
+
+### Patch Changes
+
+- [#782](https://github.com/3-shake/3design-ui/pull/782) [`813c7d9`](https://github.com/3-shake/3design-ui/commit/813c7d998f8b76c2af4abead1b4fd51e5da434bc) Thanks [@locona](https://github.com/locona)! - fix(eslint-config): next.config.xx の網羅する
+
 ## 1.0.1
 
 ### Patch Changes
