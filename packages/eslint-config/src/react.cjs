@@ -1,9 +1,4 @@
 module.exports = {
-  settings: {
-    react: {
-      version: 'latest',
-    },
-  },
   env: {
     browser: true,
   },
@@ -31,7 +26,7 @@ module.exports = {
       files: [
         '**/pages/**', // Next.js pages directory use default export
         '*.stories.tsx',
-        'next.config.mjs',
+        'next.config.{,c,m}{j,t}s',
       ],
       rules: {
         'import/no-default-export': 'off',
