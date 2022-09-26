@@ -17,8 +17,14 @@ jobs:
             node_modules
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
 
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: yarn
+
       - name: install
-        run: yarn install
+        run: yarn install --ignore-engines --frozen-lockfile --immutable
         working-directory: '.'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
