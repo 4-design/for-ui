@@ -36,7 +36,7 @@
     "clsx": "1.2.1",
     "material-ui-popup-state": "4.1.0",
     "react-dropzone": "14.2.2",
-    "react-number-format": "4.9.4"
+    "react-number-format": "5.0.0"
   },
   "devDependencies": {
     "@emotion/react": "11.10.4",
