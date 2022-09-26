@@ -71,3 +71,4 @@ dist
 .yarn
 
 .turbo
+tsconfig.tsbuildinfo
