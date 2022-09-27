@@ -1,5 +1,15 @@
 # @3design/3design-ui
 
+## 3.3.5
+
+### Patch Changes
+
+- [#783](https://github.com/3-shake/3design-ui/pull/783) [`d3a4f8e`](https://github.com/3-shake/3design-ui/commit/d3a4f8eeb886a8b56a02f1c26c18ea721dfe5d6d) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
+- [#787](https://github.com/3-shake/3design-ui/pull/787) [`74d3b75`](https://github.com/3-shake/3design-ui/commit/74d3b75949dc72750c5e9cda28c6a25d5dc2197c) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
+- [#784](https://github.com/3-shake/3design-ui/pull/784) [`bcde367`](https://github.com/3-shake/3design-ui/commit/bcde36759925eca90641e89c1e17a853487c8d4c) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency react-number-format to v5
+
 ## 3.3.4
 
 ### Patch Changes
