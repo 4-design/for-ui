@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import InputAdornment from '@mui/material/InputAdornment';
 import MuiTextField, { TextFieldProps as MuiTextFieldProps } from '@mui/material/TextField';
 import clsx from 'clsx';
-import NumberFormat from 'react-number-format';
+import { NumericFormat } from 'react-number-format';
 
 export type TextFieldProps = MuiTextFieldProps & {
   unitLabel?: string;
@@ -24,7 +24,7 @@ const NumberFormatCustom: React.ForwardRefExoticComponent<NumberFormatCustomProp
   ({ onChange, name, ...other }, ref) => {
     console.info(other);
     return (
-      <NumberFormat
+      <NumericFormat
         {...other}
         className={clsx([other.className, 'text-right'])}
         getInputRef={ref}
@@ -37,7 +37,6 @@ const NumberFormatCustom: React.ForwardRefExoticComponent<NumberFormatCustomProp
           });
         }}
         thousandSeparator
-        isNumericString
       />
     );
   }
@@ -80,7 +79,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.
         endAdornment: (
           <InputAdornment
             classes={{
-              root: clsx(['text-r text-shade-dark-default mr-3 font-sans antialiased']),
+              root: clsx(['mr-3 font-sans text-r text-shade-dark-default antialiased']),
             }}
             position="start"
             disableTypography
@@ -144,15 +143,15 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.
           }}
           FormHelperTextProps={{
             classes: {
-              root: clsx([error && 'text-negative-medium-default m-0 mt-1 text-xs']),
+              root: clsx([error && 'm-0 mt-1 text-xs text-negative-medium-default']),
             },
           }}
           InputProps={{
             classes: {
-              root: clsx(['group bg-shade-white-default text-shade-light-default p-0 antialiased']),
+              root: clsx(['group bg-shade-white-default p-0 text-shade-light-default antialiased']),
               disabled: clsx(['bg-shade-white-disabled', 'placeholder:text-shade-light-default']),
               input: clsx([
-                'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
+                'h-auto py-2.5 px-3 font-sans text-r text-shade-dark-default placeholder:text-shade-light-default placeholder:opacity-100 focus:shadow-none',
               ]),
               focused: clsx(['border-primary-medium-active']),
               notchedOutline: clsx([
