@@ -1,4 +1,4 @@
-import { Button } from '@3-shake/3design-ui';
+import { Button } from '@3design/3design-ui';
 import Link from 'next/link';
 import { Layout } from '../components/Layout';
 
