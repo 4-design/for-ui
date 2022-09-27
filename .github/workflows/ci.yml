@@ -11,16 +11,8 @@ jobs:
         with:
           fetch-depth: 2
 
-      # - name: cache node_modules
-      # id: node_modules_cache_id
-      # uses: actions/cache@v3
-      # with:
-      # path: |
-      # node_modules
-      # key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
-
       - name: setup node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: yarn
