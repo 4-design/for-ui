@@ -1,4 +1,0 @@
----
-"@3design/3design-ui": patch
----
-fix(3design-ui): リリースフローバグ修正
