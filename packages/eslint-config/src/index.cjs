@@ -85,9 +85,6 @@ module.exports = {
         ],
       },
       settings: {
-        react: {
-          version: 'detect',
-        },
         'import/extensions': ['.ts', '.tsx'],
         'import/resolver': {
           typescript: {},
