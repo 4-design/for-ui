@@ -1,25 +1,24 @@
-import { PropsWithChildren } from 'react';
 import Pagination from '@mui/material/Pagination';
-import { TableInstance } from 'react-table';
+import { RowData, Table } from '@tanstack/react-table';
 
-export function TablePagination<T extends object>({ instance }: PropsWithChildren<{ instance: TableInstance<T> }>) {
-  const { pageCount, gotoPage } = instance;
+export const TablePagination = <T extends RowData>({ table }: { table: Table<T> }) => {
+  const { getPageCount, setPageIndex } = table;
 
   return (
-    <div className="border-shade-light-default bg-shade-white-default flex items-center justify-between px-4 py-3 sm:px-6">
+    <div className="flex items-center justify-between border-shade-light-default bg-shade-white-default px-4 py-3 sm:px-6">
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div />
         <div>
           <Pagination
             size="large"
             shape="rounded"
-            count={pageCount}
+            count={getPageCount()}
             showFirstButton
             showLastButton
-            onChange={(_, page: number) => gotoPage(page - 1)}
+            onChange={(_, page: number) => setPageIndex(page - 1)}
           />
         </div>
       </div>
     </div>
   );
-}
+};

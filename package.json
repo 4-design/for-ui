@@ -12,6 +12,7 @@
     "url": "git+https://github.com/3-shake/3design-ui.git"
   },
   "scripts": {
+    "dev": "turbo run dev",
     "build": "turbo run build",
     "type-check": "turbo run type-check",
     "lint": "run-p lint:'*'",

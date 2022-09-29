@@ -1,215 +1,204 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import * as React from 'react';
+import {
+  ColumnDef,
+  ColumnSort,
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  OnChangeFn,
+  RowData,
+  RowSelectionState,
+  SortingState,
+  TableOptions,
+  useReactTable,
+} from '@tanstack/react-table';
 import clsx from 'clsx';
 import { MdArrowDownward, MdArrowUpward } from 'react-icons/md';
-import {
-  useTable,
-  usePagination,
-  useRowSelect,
-  TableOptions,
-  Row,
-  Hooks,
-  CellProps,
-  HeaderProps,
-  IdType,
-  PluginHook,
-  useSortBy,
-  UseSortByState,
-} from 'react-table';
 import { Checkbox } from '../checkbox';
 import { Radio } from '../radio';
 import { TableCell } from './TableCell';
-
 import { TablePagination } from './TablePagination';
 
-export type TableProps<T extends object> = TableOptions<T> & {
-  onSelectRow?: ((row: IdType<T> | undefined) => void) | undefined;
-  onSelectRows?: ((rows: IdType<T>[]) => void) | undefined;
+export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'columns' | 'getRowId'> & {
   disablePagination?: boolean | undefined;
-  sortBy?: UseSortByState<T>['sortBy'];
+  defaultSortColumn?: ColumnSort;
+
+  onSelectRow?: ((id: string | undefined) => void) | undefined;
+  onSelectRows?: ((ids: string[]) => void) | undefined;
 };
 
-export const Table = <T extends object>(props: TableProps<T>) => {
-  const { columns, data, onSelectRow, onSelectRows, disablePagination = false } = props;
-  const [initialState, _] = useState({
-    sortBy: props.sortBy || [],
-    pageIndex: 0,
-  });
+export const Table = <T extends RowData>(props: TableProps<T>) => {
+  const { data, disablePagination, defaultSortColumn } = props;
+  const [sorting, setSorting] = React.useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
+  const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
 
-  if (onSelectRow && onSelectRows) {
+  if (props.onSelectRow && props.onSelectRows) {
     throw new Error('You cannot specify both onSelectRow and onSelectRows at the same time.');
   }
 
-  const useRowSelectHook = (hooks: Hooks<T>) => {
-    hooks.allColumns.push((columns) => [
-      {
-        id: '_selector',
-        disableGroupBy: true,
-        minWidth: 20,
-        width: 20,
-        maxWidth: 20,
-        Header: ({ getToggleAllRowsSelectedProps }: HeaderProps<T>) => (
-          <Fragment>
-            {!!onSelectRows && (
-              <Checkbox nopadding size="small" value="required" {...getToggleAllRowsSelectedProps()} />
+  const columns = React.useMemo(() => {
+    if (props.onSelectRow || props.onSelectRows) {
+      const selectColumn: ColumnDef<T> = {
+        id: 'select',
+        meta: {
+          minWidth: '20px',
+          width: '20px',
+          maxWidth: '20px',
+        },
+        header: ({ table }) => (
+          <React.Fragment>
+            {!!props.onSelectRows && (
+              <Checkbox
+                nopadding
+                size="small"
+                value="required"
+                checked={table.getIsAllRowsSelected()}
+                indeterminate={table.getIsSomeRowsSelected()}
+                onChange={table.getToggleAllRowsSelectedHandler()}
+              />
             )}
-          </Fragment>
+          </React.Fragment>
         ),
-        Cell: ({ row, cell }: CellProps<T>) => (
-          <TableCell
-            {...cell.getCellProps({
-              style: {
-                minWidth: cell.column.minWidth,
-                width: cell.column.width,
-                maxWidth: cell.column.maxWidth,
-              },
-            })}
-          >
-            {!!onSelectRows && (
-              <Checkbox nopadding size="small" value="required" {...row.getToggleRowSelectedProps()} />
+        cell: ({ row }) => (
+          <TableCell>
+            {!!props.onSelectRows && (
+              <Checkbox
+                nopadding
+                size="small"
+                value="required"
+                checked={row.getIsSelected()}
+                indeterminate={row.getIsSomeSelected()}
+                onChange={row.getToggleSelectedHandler()}
+              />
             )}
-
-            {!!onSelectRow && <Radio nopadding size="small" value="required" {...row.getToggleRowSelectedProps()} />}
+            {!!props.onSelectRow && (
+              <Radio
+                nopadding
+                size="small"
+                value="required"
+                checked={row.getIsSelected()}
+                onChange={row.getToggleSelectedHandler()}
+              />
+            )}
           </TableCell>
         ),
-      },
-      ...columns,
-    ]);
-    hooks.useInstanceBeforeDimensions.push(({ headerGroups }) => {
-      // fix the parent group of the selection button to not be resizable
-      const selectionGroupHeader = headerGroups[0].headers[0];
-      selectionGroupHeader.canResize = false;
-    });
-  };
+      };
 
-  let hooks: PluginHook<T>[] = [];
-  if (props.sortBy) hooks = [...hooks, useSortBy];
-  if (!disablePagination) {
-    hooks = [...hooks, usePagination];
-  }
+      return [selectColumn, ...props.columns];
+    }
 
-  if (onSelectRow || onSelectRows) {
-    hooks = [...hooks, useRowSelect, useRowSelectHook];
-  }
+    return props.columns;
+  }, [props]);
 
-  const instance = useTable<T>(
-    {
-      ...props,
-      columns,
-      data,
-      stateReducer: (newState, action) => {
-        if (!!onSelectRow && action.type === 'toggleRowSelected') {
-          newState.selectedRowIds = {
-            [action.id]: true,
-          } as Record<IdType<T>, boolean>;
-        }
+  const onSelectRow = React.useCallback(
+    (row: RowSelectionState) => {
+      const keys = Object.keys(row);
+      if (props.onSelectRow) {
+        props.onSelectRow(keys.length > 0 ? keys[0] : undefined);
+      }
 
-        return newState;
-      },
+      if (props.onSelectRows) {
+        props.onSelectRows(keys);
+      }
 
-      initialState,
+      setRowSelection(row);
     },
-    ...hooks
+    [setRowSelection, props]
   );
 
-  const {
-    rows,
-    headerGroups,
-    page,
-    getTableProps,
-    getTableBodyProps,
-    prepareRow,
-    state: { selectedRowIds },
-  } = instance;
+  const onRowSelectionChange = React.useCallback<OnChangeFn<RowSelectionState>>(
+    (v) => {
+      if (typeof v === 'function') {
+        const updateRow = v(rowSelection);
+        const oldRow = rowSelection;
+        const newRow = Object.fromEntries(Object.entries(updateRow).filter(([k, _]) => k !== Object.keys(oldRow)[0]));
+        onSelectRow(newRow);
+      } else {
+        throw new Error('You cannot specify both onSelectRow and onSelectRows at the same time.');
+      }
+    },
+    [onSelectRow, rowSelection]
+  );
 
-  useEffect(() => {
-    if (onSelectRow) {
-      const keys = Object.keys(selectedRowIds);
-      onSelectRow(keys.length > 0 ? keys[0] : undefined);
-    }
-
-    if (onSelectRows) {
-      onSelectRows(Object.keys(selectedRowIds));
-    }
-  }, [onSelectRow, onSelectRows, selectedRowIds]);
-
-  const rowGenerate = (row: Row<T>) => {
-    prepareRow(row);
-    return (
-      <tr
-        {...row.getRowProps()}
-        className={clsx([
-          'border-shade-light-default hover:bg-shade-light-default border-b transition duration-300 ease-in-out',
-          (onSelectRow || onSelectRows) && 'cursor-pointer',
-        ])}
-        onClick={() => {
-          if (onSelectRow || onSelectRows) row.toggleRowSelected();
-        }}
-      >
-        {row.cells.map((cell) => (
-          <Fragment key={cell.getCellProps().key}>{cell.render('Cell')}</Fragment>
-        ))}
-      </tr>
-    );
-  };
+  const table = useReactTable({
+    data,
+    columns,
+    state: {
+      sorting,
+      rowSelection,
+    },
+    getRowId: props.getRowId,
+    onRowSelectionChange,
+    onSortingChange: setSorting,
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getPaginationRowModel: !disablePagination ? getPaginationRowModel() : undefined,
+  });
 
   return (
     <>
-      <table
-        {...getTableProps()}
-        className="border-shade-light-default w-full border-separate border-spacing-0 rounded-sm border"
-      >
-        <thead className="bg-shade-light-default table-header-group">
-          {headerGroups.map((headerGroup, i) => (
-            <tr {...headerGroup.getHeaderGroupProps()} key={i} className="table-row align-middle">
-              {headerGroup.headers.map((column, j) => (
+      <table className="w-full border-separate border-spacing-0 rounded-sm border border-shade-light-default">
+        <thead className="table-header-group bg-shade-light-default">
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr key={headerGroup.id} className="table-row align-middle">
+              {headerGroup.headers.map((header) => (
                 <th
-                  className="border-shade-light-default text-shade-dark-default z-30 whitespace-nowrap border-b p-3 text-left text-base"
+                  key={header.id}
+                  className="z-30 whitespace-nowrap border-b border-shade-light-default p-3 text-left text-base text-shade-dark-default"
                   scope="col"
-                  {...column.getHeaderProps({
-                    ...(column.getSortByToggleProps ? column.getSortByToggleProps() : {}),
-                    style: {
-                      minWidth: column.minWidth,
-                      width: column.width,
-                      maxWidth: column.maxWidth,
-                      cursor: column.canSort ? 'pointer' : 'auto',
-                    },
-                    ...(column.getSortByToggleProps ? column.getSortByToggleProps() : {}),
-                  })}
-                  key={j}
+                  style={{
+                    width: header.column.columnDef.meta?.width,
+                    cursor: header.column.getIsSorted() ? 'pointer' : 'auto',
+                  }}
                 >
-                  {column.canSort
-                    ? (() => {
-                        return (
-                          <div className="flex items-center ">
-                            {column.render('Header')}
-                            <div>
-                              {column.isSorted ? (
-                                column.isSortedDesc ? (
-                                  <MdArrowDownward className="ml-1" />
-                                ) : (
-                                  <MdArrowUpward className="ml-1" />
-                                )
-                              ) : null}
-                            </div>
-                          </div>
-                        );
-                      })()
-                    : column.render('Header')}
+                  {header.column.getCanSort() ? (
+                    <div
+                      className={clsx([
+                        'flex items-center',
+                        header.column.getCanSort() && 'cursor-pointer select-none',
+                      ])}
+                      onClick={header.column.getToggleSortingHandler()}
+                    >
+                      {flexRender(header.column.columnDef.header, header.getContext())}
+                      {{
+                        asc: <MdArrowUpward className="ml-1" />,
+                        desc: <MdArrowDownward className="ml-1" />,
+                      }[header.column.getIsSorted() as string] ?? null}
+                    </div>
+                  ) : (
+                    <div className="flex items-center">
+                      {flexRender(header.column.columnDef.header, header.getContext())}
+                    </div>
+                  )}
                 </th>
               ))}
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()} className="bg-shade-white-default text-shade-dark-default">
-          {disablePagination ? (
-            <>{rows.map((row: Row<T>) => rowGenerate(row))}</>
-          ) : (
-            <>{page.map((row: Row<T>) => rowGenerate(row))}</>
-          )}
+
+        <tbody className="bg-shade-white-default text-shade-dark-default">
+          {table.getRowModel().rows.map((row) => (
+            <tr
+              key={row.id}
+              className={clsx([
+                'border-b border-shade-light-default transition duration-300 ease-in-out hover:bg-shade-light-default',
+                (props.onSelectRow || props.onSelectRows) && 'cursor-pointer',
+              ])}
+            >
+              {row.getVisibleCells().map((cell) => (
+                <React.Fragment key={cell.id}>
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </React.Fragment>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </table>
 
-      {!disablePagination && <TablePagination instance={instance} />}
+      {!disablePagination && <TablePagination table={table} />}
     </>
   );
 };
