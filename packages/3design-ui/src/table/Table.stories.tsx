@@ -1,8 +1,8 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { ColumnDef } from '@tanstack/react-table';
 import { PersonData, StaticPersonData } from '../utils/makeData';
+import { ColumnDef } from './ColumnDef';
 import { Table } from './Table';
 import { TableCell } from './TableCell';
 import { TableScroller } from './TableScroller';
@@ -12,6 +12,7 @@ export default {
   component: Table,
 } as Meta;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const columns: ColumnDef<PersonData, any>[] = [
   {
     header: 'ID',
