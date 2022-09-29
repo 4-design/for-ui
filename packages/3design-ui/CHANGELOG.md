@@ -1,5 +1,11 @@
 # @3design/3design-ui
 
+## 3.4.1
+
+### Patch Changes
+
+- [#793](https://github.com/3-shake/3design-ui/pull/793) [`0b36a2d`](https://github.com/3-shake/3design-ui/commit/0b36a2de59fe28df4d4aa6da883f3d9dd5ac1916) Thanks [@locona](https://github.com/locona)! - fix(3design-ui): リリースフローバグ修正
+
 ## 3.4.0
 
 ### Minor Changes
