@@ -1,10 +1,8 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { MdMoreVert } from 'react-icons/md';
-import { CellProps, Column } from 'react-table';
 
-import { IconButton } from '../icon';
 import { PersonData, StaticPersonData } from '../utils/makeData';
+import { ColumnDef } from './ColumnDef';
 import { Table } from './Table';
 import { TableCell } from './TableCell';
 import { TableScroller } from './TableScroller';
@@ -14,136 +12,35 @@ export default {
   component: Table,
 } as Meta;
 
-const basicColumns: Array<Column<PersonData>> = [
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const columns: ColumnDef<PersonData, any>[] = [
   {
-    Header: 'ID',
-    Cell: ({ cell: { row, getCellProps } }: CellProps<PersonData>) => (
-      <TableCell {...getCellProps()} component="th">
-        {row.id}
-      </TableCell>
-    ),
+    header: 'ID',
+    accessorKey: 'id',
+    cell: (cell) => <TableCell>{cell.renderValue()}</TableCell>,
   },
   {
-    Header: '名前',
-    accessor: 'firstName',
-    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-      <TableCell {...getCellProps()}>{value}</TableCell>
-    ),
+    header: '名前',
+    accessorKey: 'firstName',
+    cell: (cell) => <TableCell>{cell.renderValue()}</TableCell>,
   },
   {
-    Header: '年齢',
-    accessor: 'age',
-    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-      <TableCell {...getCellProps()}>{value}</TableCell>
-    ),
+    header: '年齢',
+    accessorKey: 'age',
+    cell: (cell) => <TableCell>{cell.renderValue()}</TableCell>,
   },
   {
-    Header: '訪問',
-    accessor: 'visits',
-    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-      <TableCell {...getCellProps()}>{value}</TableCell>
-    ),
+    header: '訪問',
+    accessorKey: 'visits',
+    cell: (cell) => <TableCell>{cell.renderValue()}</TableCell>,
   },
 ];
 
-export const Base: Story = () => <Table<PersonData> columns={basicColumns} data={StaticPersonData} />;
-
-const withImageColumns: Array<Column<PersonData>> = [
-  {
-    Header: '画像',
-    accessor: 'image',
-    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-      <TableCell {...getCellProps()} component="th">
-        <img height="68" className="shadow-image my-8" src={value} alt="logo" />
-      </TableCell>
-    ),
-  },
-  {
-    Header: '苗字',
-    accessor: 'lastName',
-    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-      <TableCell {...getCellProps()}>{value}</TableCell>
-    ),
-  },
-  {
-    Header: '名前',
-    accessor: 'firstName',
-    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-      <TableCell {...getCellProps()}>{value}</TableCell>
-    ),
-  },
-  {
-    Header: '年齢',
-    accessor: 'age',
-    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-      <TableCell {...getCellProps()}>{value}</TableCell>
-    ),
-  },
-  {
-    Header: '訪問',
-    accessor: 'visits',
-    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-      <TableCell {...getCellProps()}>{value}</TableCell>
-    ),
-  },
-  {
-    Header: '',
-    accessor: 'status',
-    width: 50,
-    Cell: ({ cell: { getCellProps } }) => (
-      <TableCell {...getCellProps()} className="px-0">
-        <IconButton>
-          <MdMoreVert />
-        </IconButton>
-      </TableCell>
-    ),
-  },
-];
-
-export const WithImage: Story = () => <Table<PersonData> columns={withImageColumns} data={StaticPersonData} />;
-
-const withSelectColumns: Array<Column<PersonData>> = [
-  {
-    id: 'id',
-    Header: 'id',
-    accessor: 'id',
-    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-      <TableCell {...getCellProps()}>{value}</TableCell>
-    ),
-  },
-  {
-    Header: '苗字',
-    accessor: 'lastName',
-    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-      <TableCell {...getCellProps()}>{value}</TableCell>
-    ),
-  },
-  {
-    Header: '名前',
-    accessor: 'firstName',
-    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-      <TableCell {...getCellProps()}>{value}</TableCell>
-    ),
-  },
-  {
-    Header: '年齢',
-    accessor: 'age',
-    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-      <TableCell {...getCellProps()}>{value}</TableCell>
-    ),
-  },
-  {
-    Header: '訪問',
-    accessor: 'visits',
-    Cell: ({ cell: { value, getCellProps } }: CellProps<PersonData>) => (
-      <TableCell {...getCellProps()}>{value}</TableCell>
-    ),
-  },
-];
+export const Base: Story = () => <Table<PersonData> columns={columns} data={StaticPersonData} />;
 
 export const WithSelect: Story = () => (
   <Table<PersonData>
-    columns={withSelectColumns}
+    columns={columns}
     data={StaticPersonData}
     getRowId={(row) => row.id.toString()}
     onSelectRow={(rows) => console.info('rows', rows)}
@@ -152,30 +49,30 @@ export const WithSelect: Story = () => (
 
 export const WithSelectMultiple: Story = () => (
   <Table<PersonData>
-    columns={withSelectColumns}
+    columns={columns}
     data={StaticPersonData}
     getRowId={(row) => row.id.toString()}
     onSelectRows={(rows) => console.info('rows', rows)}
   />
 );
 
+export const WithDefaultSort: Story = () => (
+  <Table<PersonData>
+    columns={columns}
+    data={StaticPersonData}
+    defaultSortColumn={{
+      id: 'id',
+      desc: true,
+    }}
+  />
+);
+
 export const WithDisablePagination: Story = () => (
-  <Table<PersonData> columns={withSelectColumns} data={StaticPersonData} disablePagination />
+  <Table<PersonData> columns={columns} data={StaticPersonData} disablePagination />
 );
 
 export const WithTableScroller: Story = () => (
-  <TableScroller height={400}>
-    <Table<PersonData> columns={withSelectColumns} data={StaticPersonData} disablePagination />
-  </TableScroller>
-);
-
-export const WithTableSort: Story = () => (
-  <TableScroller height="400px">
-    <Table<PersonData>
-      columns={withSelectColumns}
-      data={StaticPersonData}
-      disablePagination
-      sortBy={[{ id: 'firstName', desc: false }]}
-    />
+  <TableScroller height={500}>
+    <Table<PersonData> columns={columns} data={StaticPersonData} disablePagination />
   </TableScroller>
 );
