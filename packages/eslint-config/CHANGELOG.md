@@ -1,5 +1,12 @@
 # @3design/eslint-config
 
+## 1.0.3
+
+### Patch Changes
+
+- [#791](https://github.com/3-shake/3design-ui/pull/791) [`3b091f3`](https://github.com/3-shake/3design-ui/commit/3b091f3e91ac8094d8fa77144f5ce1e9cf25c08d) Thanks [@locona](https://github.com/locona)! - fix(eslint-config): version: detect 削除
+  > apps/enterprise-ui/src/stories/Introduction.stories.mdxWarning: React version was set to "detect" in eslint-plugin-react settings, but the "react" package is not installed. Assuming latest React version for linting.
+
 ## 1.0.2
 
 ### Patch Changes
