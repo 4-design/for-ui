@@ -1,5 +1,14 @@
 # @3design/vite-app
 
+## 0.0.5
+
+### Patch Changes
+
+- [#788](https://github.com/3-shake/3design-ui/pull/788) [`43f491d`](https://github.com/3-shake/3design-ui/commit/43f491dca14bc3902f003411d3c2045271aade2f) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
+- Updated dependencies [[`9d1b37f`](https://github.com/3-shake/3design-ui/commit/9d1b37f2c1c2e84d0121ee3e2a017fc990ad2a68), [`43f491d`](https://github.com/3-shake/3design-ui/commit/43f491dca14bc3902f003411d3c2045271aade2f)]:
+  - @3design/3design-ui@3.4.0
+
 ## 0.0.4
 
 ### Patch Changes
