@@ -22,7 +22,7 @@
     "fmt:eslint": "eslint . --fix",
     "fmt:prettier": "prettier --write --list-different .",
     "version-packages": "changeset version",
-    "release": "changeset publish"
+    "release": "yarn build && changeset publish"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.6",
