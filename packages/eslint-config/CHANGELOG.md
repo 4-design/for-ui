@@ -1,5 +1,11 @@
 # @3design/eslint-config
 
+## 1.0.5
+
+### Patch Changes
+
+- [#798](https://github.com/3-shake/3design-ui/pull/798) [`bb219a7`](https://github.com/3-shake/3design-ui/commit/bb219a704a22efc95ed1ee44b2ea584ccc90f1f8) Thanks [@locona](https://github.com/locona)! - fix(eslint-config): remove custom import/order and unused-imports
+
 ## 1.0.4
 
 ### Patch Changes

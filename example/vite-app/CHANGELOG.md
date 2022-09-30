@@ -1,5 +1,12 @@
 # @3design/vite-app
 
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies [[`bb219a7`](https://github.com/3-shake/3design-ui/commit/bb219a704a22efc95ed1ee44b2ea584ccc90f1f8)]:
+  - @3design/3design-ui@3.4.3
+
 ## 0.0.7
 
 ### Patch Changes
