@@ -11,3 +11,4 @@ tailwind.config.base.js
 .next/**
 .yalc/**
 .changeset
+storybook-static

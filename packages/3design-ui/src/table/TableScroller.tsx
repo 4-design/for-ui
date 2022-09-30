@@ -12,7 +12,7 @@ export const TableScroller = ({ height, children }: Props) => (
     }}
     className={clsx([
       `overflow-y-auto`,
-      '[&_table>thead_th]:sticky [&_table>thead_th]:top-0 [&_table>thead_th]:z-table',
+      '[&_table>thead_th]:z-table [&_table>thead_th]:sticky [&_table>thead_th]:top-0',
     ])}
   >
     {children}

@@ -140,14 +140,14 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
 
   return (
     <>
-      <table className="w-full border-separate border-spacing-0 rounded-sm border border-shade-light-default">
-        <thead className="table-header-group bg-shade-light-default">
+      <table className="border-shade-light-default w-full border-separate border-spacing-0 rounded-sm border">
+        <thead className="bg-shade-light-default table-header-group">
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id} className="table-row align-middle">
               {headerGroup.headers.map((header) => (
                 <th
                   key={header.id}
-                  className="z-30 whitespace-nowrap border-b border-shade-light-default p-3 text-left text-base text-shade-dark-default"
+                  className="border-shade-light-default text-shade-dark-default z-30 whitespace-nowrap border-b p-3 text-left text-base"
                   scope="col"
                   style={{
                     width: header.column.columnDef.meta?.width,
@@ -184,7 +184,7 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
             <tr
               key={row.id}
               className={clsx([
-                'border-b border-shade-light-default transition duration-300 ease-in-out hover:bg-shade-light-default',
+                'border-shade-light-default hover:bg-shade-light-default border-b transition duration-300 ease-in-out',
                 (props.onSelectRow || props.onSelectRows) && 'cursor-pointer',
               ])}
             >

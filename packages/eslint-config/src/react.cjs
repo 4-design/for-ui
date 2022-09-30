@@ -5,12 +5,13 @@ module.exports = {
   overrides: [
     {
       files: '*.{,c,m}{j,t}s{,x}',
+      plugins: ['tailwindcss'],
       extends: [
         'plugin:react/recommended',
         'plugin:react-hooks/recommended',
         'plugin:jsx-a11y/recommended',
-        'plugin:tailwindcss/recommended',
         'prettier',
+        'plugin:tailwindcss/recommended',
       ],
       rules: {
         'react/display-name': 'off',

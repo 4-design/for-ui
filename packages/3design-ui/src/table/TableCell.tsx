@@ -13,7 +13,7 @@ export const TableCell = ({ component = 'td', className, children, ...rest }: Ta
       {component === 'td' ? (
         <td
           className={clsx([
-            'border-b border-shade-light-default p-3 text-left font-normal text-shade-dark-default',
+            'border-shade-light-default text-shade-dark-default border-b p-3 text-left font-normal',
             className,
           ])}
           {...rest}
@@ -23,7 +23,7 @@ export const TableCell = ({ component = 'td', className, children, ...rest }: Ta
       ) : (
         <th
           className={clsx([
-            'border-b border-shade-light-default p-3 text-left font-normal text-shade-dark-default',
+            'border-shade-light-default text-shade-dark-default border-b p-3 text-left font-normal',
             className,
           ])}
           {...rest}
