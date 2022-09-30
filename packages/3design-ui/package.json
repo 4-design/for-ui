@@ -1,6 +1,6 @@
 {
   "name": "@3design/3design-ui",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "homepage": "https://github.com/3-shake/3design-ui",
   "main": "dist/commonjs/3design-ui.js",
   "module": "dist/esm/3design-ui.esm.js",

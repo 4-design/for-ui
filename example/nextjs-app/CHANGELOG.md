@@ -1,5 +1,12 @@
 # @3design/nextjs-app
 
+## 0.0.7
+
+### Patch Changes
+
+- Updated dependencies [[`124cf06`](https://github.com/3-shake/3design-ui/commit/124cf06b655dbe48071df8d8cc81e84bebaa76e9)]:
+  - @3design/3design-ui@3.4.2
+
 ## 0.0.6
 
 ### Patch Changes
