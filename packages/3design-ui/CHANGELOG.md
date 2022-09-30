@@ -1,5 +1,11 @@
 # @3design/3design-ui
 
+## 3.4.2
+
+### Patch Changes
+
+- [#796](https://github.com/3-shake/3design-ui/pull/796) [`124cf06`](https://github.com/3-shake/3design-ui/commit/124cf06b655dbe48071df8d8cc81e84bebaa76e9) Thanks [@locona](https://github.com/locona)! - fix: tailwindcss config 修正
+
 ## 3.4.1
 
 ### Patch Changes
