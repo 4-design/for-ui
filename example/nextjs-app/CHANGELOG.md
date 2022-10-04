@@ -1,5 +1,14 @@
 # @3design/nextjs-app
 
+## 0.0.9
+
+### Patch Changes
+
+- [#800](https://github.com/3-shake/3design-ui/pull/800) [`ddccfb2`](https://github.com/3-shake/3design-ui/commit/ddccfb28e607c9e1d62dab9abcab75ff9925b3d5) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
+- Updated dependencies [[`ddccfb2`](https://github.com/3-shake/3design-ui/commit/ddccfb28e607c9e1d62dab9abcab75ff9925b3d5)]:
+  - @3design/3design-ui@3.4.4
+
 ## 0.0.8
 
 ### Patch Changes
