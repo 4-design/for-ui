@@ -12,5 +12,5 @@ export const Router = () => {
         <Route path="map" element={<MapPage />} />
       </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};

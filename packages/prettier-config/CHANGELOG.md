@@ -1,0 +1,19 @@
+# @3design/prettier-config
+
+## 0.0.2
+
+### Patch Changes
+
+- [#761](https://github.com/3-shake/3design-ui/pull/761) [`cb4c7a0`](https://github.com/3-shake/3design-ui/commit/cb4c7a027e626e9a12f42eba0c6439326e3878fc) Thanks [@locona](https://github.com/locona)! - fix: Reset npm version of eslint-config / prettier-config
+
+## 0.0.1
+
+### Patch Changes
+
+- [#761](https://github.com/3-shake/3design-ui/pull/761) [`cb4c7a0`](https://github.com/3-shake/3design-ui/commit/cb4c7a027e626e9a12f42eba0c6439326e3878fc) Thanks [@locona](https://github.com/locona)! - fix: Reset npm version of eslint-config / prettier-config
+
+## 0.0.1
+
+### Patch Changes
+
+- [#759](https://github.com/3-shake/3design-ui/pull/759) [`01c6f14`](https://github.com/3-shake/3design-ui/commit/01c6f147b8fc8580d8a0c5d08e42a184c587bb60) Thanks [@locona](https://github.com/locona)! - feat: prettier-config 実装

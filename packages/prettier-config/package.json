@@ -1,0 +1,27 @@
+{
+  "name": "@3design/prettier-config",
+  "version": "0.0.2",
+  "description": "3design's shared Prettier config",
+  "repository": {
+    "url": "3-shake/3design-ui",
+    "directory": "packages/eslint-config"
+  },
+  "keywords": [
+    "prettier",
+    "prettier-config"
+  ],
+  "author": "locona (https://github.com/locona)",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.cjs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "prettier-plugin-sh": "^0.12.0"
+  },
+  "peerDependencies": {
+    "prettier": "^2"
+  }
+}

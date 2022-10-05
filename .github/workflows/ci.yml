@@ -1,0 +1,29 @@
+name: CI
+on: [pull_request]
+
+jobs:
+  lint:
+    name: runner / lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: yarn
+
+      - name: install
+        run: yarn install --ignore-engines --frozen-lockfile --immutable
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build
+        run: yarn build
+
+      - name: Check lint
+        run: yarn lint

@@ -1,5 +1,3 @@
 {
-	"recommendations": [
-		"lightyen.tailwindcss-intellisense-twin"
-	]
+  "recommendations": ["lightyen.tailwindcss-intellisense-twin"]
 }
