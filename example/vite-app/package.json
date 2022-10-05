@@ -1,7 +1,7 @@
 {
   "name": "@3design/vite-app",
   "private": true,
-  "version": "0.0.8",
+  "version": "0.0.9",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -10,7 +10,7 @@
     "lint-fix": "eslint 'src/**/*.{tsx,ts,js,cjs}' --fix"
   },
   "dependencies": {
-    "@3design/3design-ui": "3.4.3",
+    "@3design/3design-ui": "3.4.4",
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
     "@mui/lab": "5.0.0-alpha.102",

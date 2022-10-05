@@ -1,5 +1,11 @@
 # @3design/3design-ui
 
+## 3.4.4
+
+### Patch Changes
+
+- [#800](https://github.com/3-shake/3design-ui/pull/800) [`ddccfb2`](https://github.com/3-shake/3design-ui/commit/ddccfb28e607c9e1d62dab9abcab75ff9925b3d5) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
 ## 3.4.3
 
 ### Patch Changes
