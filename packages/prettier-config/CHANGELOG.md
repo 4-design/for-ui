@@ -1,5 +1,11 @@
 # @3design/prettier-config
 
+## 0.0.3
+
+### Patch Changes
+
+- [#803](https://github.com/3-shake/3design-ui/pull/803) [`efcd702`](https://github.com/3-shake/3design-ui/commit/efcd702eda9d56b9a796988c7644d1e8f35c14ba) Thanks [@locona](https://github.com/locona)! - fix: https://github.com/francoismassart/eslint-plugin-tailwindcss/isuues/155
+
 ## 0.0.2
 
 ### Patch Changes
