@@ -1,3 +1,3 @@
-import { Map } from '@/components/map'
+import { Map } from '@/components/map';
 
-export const MapPage = () => <Map />
+export const MapPage = () => <Map />;

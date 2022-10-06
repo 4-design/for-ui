@@ -21,6 +21,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
       },
       children,
       TriggerComponent,
+      ...rest
     },
     ref
   ) => {
@@ -50,6 +51,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
             list: clsx(['divide-shade-light-default grid grid-cols-1 divide-y py-0']),
           }}
           {...bindMenu(popupState)}
+          {...rest}
         >
           {children}
         </MuiMenu>

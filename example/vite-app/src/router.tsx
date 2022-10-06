@@ -1,7 +1,7 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { HomePage } from './pages'
-import { LoginPage } from './pages/login'
-import { MapPage } from './pages/map'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HomePage } from './pages';
+import { LoginPage } from './pages/login';
+import { MapPage } from './pages/map';
 
 export const Router = () => {
   return (
