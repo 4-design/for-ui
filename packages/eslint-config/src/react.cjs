@@ -21,6 +21,7 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'react/react-in-jsx-scope': 'off', // import of React is no longer required starting from react@17
         'tailwindcss/no-custom-classname': 'off',
+        'tailwindcss/classnames-order': 'off',
       },
     },
     {
