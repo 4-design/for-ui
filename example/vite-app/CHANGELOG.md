@@ -1,5 +1,11 @@
 # @3design/vite-app
 
+## 0.0.10
+
+### Patch Changes
+
+- [#804](https://github.com/3-shake/3design-ui/pull/804) [`d78b2d2`](https://github.com/3-shake/3design-ui/commit/d78b2d29019e6b2a7acb8f78c807df99f7296157) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency react-router-dom to v6.4.2
+
 ## 0.0.9
 
 ### Patch Changes
