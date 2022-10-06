@@ -1,7 +1,7 @@
 {
   "name": "@3design/vite-app",
   "private": true,
-  "version": "0.0.9",
+  "version": "0.0.10",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -24,7 +24,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "4.4.0",
-    "react-router-dom": "6.4.1",
+    "react-router-dom": "6.4.2",
     "react-table": "7.8.0"
   },
   "devDependencies": {
