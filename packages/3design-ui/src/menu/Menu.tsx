@@ -52,8 +52,10 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
             root: clsx(['translate-y-2']),
             paper: clsx(['z-modal shadow-menu  min-w-min rounded-[4px]', nopadding ? 'p-0' : 'p-1']),
             list: clsx(['divide-shade-light-default grid grid-cols-1 divide-y py-0']),
+            ...rest.classes,
           }}
           {...bindMenu(popupState)}
+          {...rest}
         >
           {children}
         </MuiMenu>
