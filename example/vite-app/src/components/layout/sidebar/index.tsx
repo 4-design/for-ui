@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { MdGroup, MdChevronLeft, MdDashboard } from 'react-icons/md';
+import { MdGroup, MdChevronLeft, MdDashboard, MdMap } from 'react-icons/md';
 import { Sidebar as UISidebar } from '@/components/ui-parts/layout/sidebar';
 import { SidebarContext } from '@/components/ui-parts/layout/sidebar/SidebarContext';
 import { SidebarMenu, SidebarMenuItem } from '@/components/ui-parts/layout/sidebar/SidebarMenu';
@@ -28,9 +28,10 @@ export const Sidebar = () => {
         {({ open, handleOpen, handleClose }) => (
           <>
             <SidebarMenu>
-              <SidebarMenuItem IconComponent={MdDashboard} label="ダッシュボード" />
+              <SidebarMenuItem IconComponent={MdDashboard} label="ダッシュボード" active />
 
-              <SidebarMenuItem IconComponent={MdGroup} label="候補者一覧" active />
+              <SidebarMenuItem IconComponent={MdGroup} label="候補者一覧" />
+              <SidebarMenuItem IconComponent={MdMap} label="マップ" />
 
               <div className="mt-auto">
                 <hr className="border-shade-medium-default my-2 mx-4" />
