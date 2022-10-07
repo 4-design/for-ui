@@ -6,6 +6,7 @@ import { usePopupState } from 'material-ui-popup-state/hooks';
 
 export type MenuProps = Omit<MuiMenuProps, 'open'> & {
   TriggerComponent: React.ReactNode;
+  nopadding?: boolean;
 };
 
 export const Menu = forwardRef<HTMLDivElement, MenuProps>(
@@ -21,6 +22,8 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
       },
       children,
       TriggerComponent,
+      nopadding = false,
+      ...rest
     },
     ref
   ) => {
@@ -30,6 +33,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
     });
 
     let _TriggerComponent = <></>;
+
     if (React.isValidElement<unknown>(TriggerComponent)) {
       _TriggerComponent = React.cloneElement(TriggerComponent, {
         ...bindTrigger(popupState),
@@ -46,7 +50,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
           transformOrigin={transformOrigin}
           classes={{
             root: clsx(['translate-y-2']),
-            paper: clsx(['z-modal shadow-menu  min-w-min rounded-[4px] py-1']),
+            paper: clsx(['z-modal shadow-menu  min-w-min rounded-[4px]', nopadding ? 'p-0' : 'p-1']),
             list: clsx(['divide-shade-light-default grid grid-cols-1 divide-y py-0']),
           }}
           {...bindMenu(popupState)}
