@@ -5,9 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "lint": "eslint 'src/**/*.{tsx,ts,js,cjs}'",
-    "lint-fix": "eslint 'src/**/*.{tsx,ts,js,cjs}' --fix"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@3design/3design-ui": "3.4.4",

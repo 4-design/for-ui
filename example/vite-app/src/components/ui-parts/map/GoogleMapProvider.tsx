@@ -4,6 +4,7 @@ import { isLatLngLiteral } from '@googlemaps/typescript-guards';
 import { createCustomEqual } from 'fast-equals';
 
 function useDeepCompareEffectForMaps(callback: React.EffectCallback, dependencies: any[]) {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(callback, dependencies.map(useDeepCompareMemoize));
 }
 
@@ -21,23 +22,22 @@ const deepCompareEqualsForMaps = createCustomEqual((deepEqual) => (a: any, b: an
   if (isLatLngLiteral(a) || a instanceof google.maps.LatLng || isLatLngLiteral(b) || b instanceof google.maps.LatLng) {
     return new google.maps.LatLng(a).equals(new google.maps.LatLng(b));
   }
-
   // TODO extend to other types
-
   // use fast-equals for other objects
   return deepEqual(a, b);
 });
 
-interface Props extends google.maps.MapOptions {
-  onClick?: (e: google.maps.MapMouseEvent) => void;
-  onIdle?: (map: google.maps.Map) => void;
-  children?: React.ReactNode;
-}
+type UseGoogleMap = {
+  ref: React.RefObject<HTMLDivElement>;
+  map: google.maps.Map | null;
+  infoWindow: google.maps.InfoWindow;
+};
+type GoogleMapContext = UseGoogleMap;
 
-export const GoogleMap: React.FC<Props> = ({ onClick, onIdle, children, ...options }) => {
-  // [START maps_react_map_component_add_map_hooks]
+const useGoogleMap = (props: Props): UseGoogleMap => {
+  const { onClick, onIdle, ...mapOptions } = props;
   const ref = React.useRef<HTMLDivElement>(null);
-  const [map, setMap] = React.useState<google.maps.Map>();
+  const [map, setMap] = React.useState<google.maps.Map | null>(null);
 
   React.useEffect(() => {
     if (ref.current && !map) {
@@ -51,9 +51,9 @@ export const GoogleMap: React.FC<Props> = ({ onClick, onIdle, children, ...optio
   // see discussion in https://github.com/googlemaps/js-samples/issues/946
   useDeepCompareEffectForMaps(() => {
     if (map) {
-      map.setOptions(options);
+      map.setOptions(mapOptions);
     }
-  }, [map, options]);
+  }, [map, mapOptions]);
   // [END maps_react_map_component_options_hook]
 
   // [START maps_react_map_component_event_hooks]
@@ -72,17 +72,36 @@ export const GoogleMap: React.FC<Props> = ({ onClick, onIdle, children, ...optio
   }, [map, onClick, onIdle]);
   // [END maps_react_map_component_event_hooks]
 
-  // [START maps_react_map_component_return]
+  const infoWindow = new google.maps.InfoWindow({
+    content: '',
+    disableAutoPan: true,
+  });
+
+  return {
+    infoWindow,
+    ref,
+    map,
+  };
+};
+
+export const GoogleMapContext = React.createContext<UseGoogleMap>({} as UseGoogleMap);
+export const useGoogleMapContext = (): GoogleMapContext => React.useContext(GoogleMapContext);
+
+type Props = React.PropsWithChildren<
+  {
+    onClick?: (e: google.maps.MapMouseEvent) => void;
+    onIdle?: (map: google.maps.Map) => void;
+  } & google.maps.MapOptions
+>;
+
+export const GoogleMapProvider = (props: Props) => {
+  const { map, infoWindow, ref } = useGoogleMap(props);
+
   return (
-    <>
+    <GoogleMapContext.Provider value={{ map, infoWindow, ref }}>
       <div ref={ref} className="h-full w-full" />
-      {React.Children.map(children, (child) => {
-        if (React.isValidElement(child)) {
-          // set the map prop on the child component
-          return React.cloneElement(child, { map });
-        }
-      })}
-    </>
+
+      {props.children}
+    </GoogleMapContext.Provider>
   );
-  // [END maps_react_map_component_return]
 };
