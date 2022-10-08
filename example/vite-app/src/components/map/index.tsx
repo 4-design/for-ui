@@ -362,7 +362,7 @@ export const Map = () => {
           </Menu>
         </div>
 
-        <Wrapper apiKey="AIzaSyDWpuF7x9YJ8qIE9S531u2qVN18lRCK5aM" render={render}>
+        <Wrapper apiKey={import.meta.env.GOOGLE_MAP_API} render={render}>
           <GoogleMapProvider center={center} zoom={zoom}>
             <MarkerCluster markers={locations} InfoWindowComponent={InfoWindow} />
             <Marker position={{ lat: 35.68156736022668, lng: 139.76761832643018 }} InfoWindowComponent={InfoWindow} />
