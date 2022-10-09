@@ -1,7 +1,7 @@
-import { MarkerClusterer } from '@googlemaps/markerclusterer';
 import React from 'react';
+import { MarkerClusterer } from '@googlemaps/markerclusterer';
 import { renderToString } from 'react-dom/server';
-import { useGoogleMapsContext } from ./GoogleMapsProviderer';
+import { useGoogleMapsContext } from './GoogleMapsProvider';
 
 type MarkerProps<Meta> = google.maps.LatLngLiteral & { meta?: Meta };
 

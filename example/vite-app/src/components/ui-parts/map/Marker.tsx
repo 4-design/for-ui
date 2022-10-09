@@ -1,5 +1,5 @@
-import { useGoogleMapsContext } from @/components/ui-parts/map/GoogleMapsProviderer';
 import React from 'react';
+import { useGoogleMapsContext } from '@/components/ui-parts/map/GoogleMapsProvider';
 import { renderToString } from 'react-dom/server';
 
 type Props = google.maps.MarkerOptions & {
