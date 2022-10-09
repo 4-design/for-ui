@@ -1584,6 +1584,38 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
+"@googlemaps/js-api-loader@^1.13.2":
+  version "1.14.3"
+  resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-1.14.3.tgz#d7a161cd547be04ad46a1cb176e6c2647f6d74a7"
+  integrity sha512-6iIb+qpGgQpgIHmIFO44WhE1rDUxPVHuezNFL30wRJnkvhwFm94tD291UvNg9L05hLDSoL16jd0lbqqmdy4C5g==
+  dependencies:
+    fast-deep-equal "^3.1.3"
+
+"@googlemaps/markerclusterer@^2.0.8":
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/@googlemaps/markerclusterer/-/markerclusterer-2.0.11.tgz#38985ab79a309f4e54a419f0d1baa34a3015b3c3"
+  integrity sha512-/Rhqqq12vGwg+EuzaQtzjqrF5CFiGlJpPlC+bjVH/WYbZ4gPGARuEzWqRhY8m1u2cZDHF0yZrJKPOuYzc+2PcA==
+  dependencies:
+    fast-deep-equal "^3.1.3"
+    supercluster "^7.1.3"
+
+"@googlemaps/markerwithlabel@^2.0.14":
+  version "2.0.14"
+  resolved "https://registry.yarnpkg.com/@googlemaps/markerwithlabel/-/markerwithlabel-2.0.14.tgz#05b9396a407e68121be50b91a280aba4c4357d80"
+  integrity sha512-MKUhaOIht3a7hz/22Z6pPZ90ZvlSDIJ32l90yARrf5MUWm5qeJabpbOyrFrC6Hu1xbMtyanbEzeqMod4LX3+cw==
+
+"@googlemaps/react-wrapper@^1.1.35":
+  version "1.1.35"
+  resolved "https://registry.yarnpkg.com/@googlemaps/react-wrapper/-/react-wrapper-1.1.35.tgz#fde9146b1ae02805dcad9c0fab56c4bc137b32ee"
+  integrity sha512-vK+BDQMHN0Oqr66cW3ZPWVK43BUmJJBu6P8T74tc6/fKpUJUlFEaZsupgIIRRRDW9ejB8uGagUmwOnA2gdcvbw==
+  dependencies:
+    "@googlemaps/js-api-loader" "^1.13.2"
+
+"@googlemaps/typescript-guards@^2.0.2":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@googlemaps/typescript-guards/-/typescript-guards-2.0.3.tgz#fd718248f275095dd9b23af05d938a18be413cf0"
+  integrity sha512-3iHuO8H0jPehftsMK0kgyJzPYU/g/oiTRw+wu/yltqSZ7wJPt3vfsJHkPiuRpQjbnnWygX+T3mkRGyK/eyZ/lw==
+
 "@hookform/resolvers@2.9.8":
   version "2.9.8"
   resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-2.9.8.tgz#9af51d15602f3c6e3249714712d8275564e65b72"
@@ -3170,6 +3202,11 @@
   dependencies:
     "@types/minimatch" "*"
     "@types/node" "*"
+
+"@types/google.maps@^3.50.0":
+  version "3.50.2"
+  resolved "https://registry.yarnpkg.com/@types/google.maps/-/google.maps-3.50.2.tgz#85e2da5520ae4e71dfe230b25a1eed952a26a0e1"
+  integrity sha512-F47YMR1sdAVYk6mWab1J9CyO8J5QnCl62QGx9i87cTB2VW5/j2V5b/qgpXTvtUCg91PffirYKiAXlff/XTp+Zw==
 
 "@types/graceful-fs@^4.1.2":
   version "4.1.5"
@@ -6882,6 +6919,11 @@ fast-diff@^1.1.2:
   resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.2.0.tgz#73ee11982d86caaf7959828d519cfe927fac5f03"
   integrity sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
 
+fast-equals@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/fast-equals/-/fast-equals-3.0.3.tgz#8e6cb4e51ca1018d87dd41982ef92758b3e4197f"
+  integrity sha512-NCe8qxnZFARSHGztGMZOO/PC1qa5MIFB5Hp66WdzbCRAz8U8US3bx1UTgLS49efBQPcUtO9gf5oVEY8o7y/7Kg==
+
 fast-glob@^2.2.6:
   version "2.2.7"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-2.2.7.tgz#6953857c3afa475fff92ee6015d52da70a4cd39d"
@@ -8624,6 +8666,11 @@ junk@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/junk/-/junk-3.1.0.tgz#31499098d902b7e98c5d9b9c80f43457a88abfa1"
   integrity sha512-pBxcB3LFc8QVgdggvZWyeys+hnrNWg4OcZIU/1X59k5jQdLBlCsYGRQaz234SqoRLTCgMH00fY0xRJH+F9METQ==
+
+kdbush@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/kdbush/-/kdbush-3.0.0.tgz#f8484794d47004cc2d85ed3a79353dbe0abc2bf0"
+  integrity sha512-hRkd6/XW4HTsA9vjVpY9tuXJYLSlelnkTmVFu4M9/7MIYQtFcHpbugAU7UbOfjOiVSVYl2fqgBuJ32JUmRo5Ew==
 
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
@@ -12422,6 +12469,13 @@ stylis@4.0.13:
   version "4.0.13"
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.0.13.tgz#f5db332e376d13cc84ecfe5dace9a2a51d954c91"
   integrity sha512-xGPXiFVl4YED9Jh7Euv2V220mriG9u4B2TA6Ybjc1catrstKD2PpIdU3U0RKpkVBC2EhmL/F0sPCr9vrFTNRag==
+
+supercluster@^7.1.3:
+  version "7.1.5"
+  resolved "https://registry.yarnpkg.com/supercluster/-/supercluster-7.1.5.tgz#65a6ce4a037a972767740614c19051b64b8be5a3"
+  integrity sha512-EulshI3pGUM66o6ZdH3ReiFcvHpM3vAigyK+vcxdjpJyEbIIrtbmBdY23mGgnI24uXiGFvrGq9Gkum/8U7vJWg==
+  dependencies:
+    kdbush "^3.0.0"
 
 supports-color@^5.3.0:
   version "5.5.0"
