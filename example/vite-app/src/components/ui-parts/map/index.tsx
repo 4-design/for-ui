@@ -1,3 +1,3 @@
-export * from './GoogleMapProvider';
+export * from './GoogleMapsProvider';
 export * from './Marker';
 export * from './MarkerCluster';

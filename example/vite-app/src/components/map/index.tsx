@@ -4,7 +4,7 @@ import { Sidebar } from '@/components/layout/sidebar';
 import { Layout } from '@/components/ui-parts/layout';
 import { PageTitle } from '@/components/ui-parts/layout/pagetitle';
 import { Status, Wrapper } from '@googlemaps/react-wrapper';
-import { GoogleMapProvider } from '@/components/ui-parts/map/GoogleMapProvider';
+import { GoogleMapsProvider } from '@/components/ui-parts/map/GoogleMapsProvider';
 import { MarkerCluster } from '@/components/ui-parts/map/MarkerCluster';
 import { Marker } from '@/components/ui-parts/map/Marker';
 
@@ -363,10 +363,10 @@ export const Map = () => {
         </div>
 
         <Wrapper apiKey={import.meta.env.GOOGLE_MAP_API} render={render}>
-          <GoogleMapProvider center={center} zoom={zoom}>
+          <GoogleMapsProvider center={center} zoom={zoom}>
             <MarkerCluster markers={locations} InfoWindowComponent={InfoWindow} />
             <Marker position={{ lat: 35.68156736022668, lng: 139.76761832643018 }} InfoWindowComponent={InfoWindow} />
-          </GoogleMapProvider>
+          </GoogleMapsProvider>
         </Wrapper>
       </div>
     </Layout>

@@ -1,4 +1,4 @@
-import { useGoogleMapContext } from '@/components/ui-parts/map/GoogleMapProvider';
+import { useGoogleMapsContext } from @/components/ui-parts/map/GoogleMapsProviderer';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 
@@ -8,7 +8,7 @@ type Props = google.maps.MarkerOptions & {
 };
 
 export const Marker = React.memo((props: Props) => {
-  const { map, infoWindow } = useGoogleMapContext();
+  const { map, infoWindow } = useGoogleMapsContext();
   const [marker, setMarker] = React.useState<google.maps.Marker>();
 
   React.useEffect(() => {

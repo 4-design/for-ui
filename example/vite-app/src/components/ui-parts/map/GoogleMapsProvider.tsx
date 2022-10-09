@@ -27,14 +27,14 @@ const deepCompareEqualsForMaps = createCustomEqual((deepEqual) => (a: any, b: an
   return deepEqual(a, b);
 });
 
-type UseGoogleMap = {
+type UseGoogleMaps = {
   ref: React.RefObject<HTMLDivElement>;
   map: google.maps.Map | null;
   infoWindow: google.maps.InfoWindow;
 };
-type GoogleMapContext = UseGoogleMap;
+type GoogleMapsContext = UseGoogleMaps;
 
-const useGoogleMap = (props: Props): UseGoogleMap => {
+const useGoogleMaps = (props: Props): UseGoogleMaps => {
   const { onClick, onIdle, ...mapOptions } = props;
   const ref = React.useRef<HTMLDivElement>(null);
   const [map, setMap] = React.useState<google.maps.Map | null>(null);
@@ -84,8 +84,8 @@ const useGoogleMap = (props: Props): UseGoogleMap => {
   };
 };
 
-export const GoogleMapContext = React.createContext<UseGoogleMap>({} as UseGoogleMap);
-export const useGoogleMapContext = (): GoogleMapContext => React.useContext(GoogleMapContext);
+export const GoogleMapsContext = React.createContext<UseGoogleMaps>({} as UseGoogleMaps);
+export const useGoogleMapsContext = (): GoogleMapsContext => React.useContext(GoogleMapsContext);
 
 type Props = React.PropsWithChildren<
   {
@@ -94,14 +94,14 @@ type Props = React.PropsWithChildren<
   } & google.maps.MapOptions
 >;
 
-export const GoogleMapProvider = (props: Props) => {
-  const { map, infoWindow, ref } = useGoogleMap(props);
+export const GoogleMapsProvider = (props: Props) => {
+  const { map, infoWindow, ref } = useGoogleMaps(props);
 
   return (
-    <GoogleMapContext.Provider value={{ map, infoWindow, ref }}>
+    <GoogleMapsContext.Provider value={{ map, infoWindow, ref }}>
       <div ref={ref} className="h-full w-full" />
 
       {props.children}
-    </GoogleMapContext.Provider>
+    </GoogleMapsContext.Provider>
   );
 };

@@ -1,7 +1,7 @@
 import { MarkerClusterer } from '@googlemaps/markerclusterer';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { useGoogleMapContext } from './GoogleMapProvider';
+import { useGoogleMapsContext } from ./GoogleMapsProviderer';
 
 type MarkerProps<Meta> = google.maps.LatLngLiteral & { meta?: Meta };
 
@@ -11,7 +11,7 @@ type Props<Meta> = {
 };
 
 export const MarkerCluster = <T extends object>(props: Props<T>) => {
-  const { map, infoWindow } = useGoogleMapContext();
+  const { map, infoWindow } = useGoogleMapsContext();
   const { InfoWindowComponent } = props;
   const markers = props.markers.map((item) => {
     const marker = new google.maps.Marker({
