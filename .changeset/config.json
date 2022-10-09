@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.1.1/schema.json",
-  "changelog": ["@changesets/changelog-github", { "repo": "3-shake/3design-ui" }],
+  "changelog": ["@changesets/changelog-github", { "repo": "4-design/four-ui" }],
   "commit": false,
   "fixed": [],
   "linked": [],
