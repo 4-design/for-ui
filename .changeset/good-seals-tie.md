@@ -2,4 +2,4 @@
 "@3design/vite-app": patch
 ---
 
-example: Google Map サンプル実装
+example: Google Maps サンプル実装
