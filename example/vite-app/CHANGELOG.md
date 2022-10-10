@@ -1,5 +1,11 @@
 # @3design/vite-app
 
+## 0.0.12
+
+### Patch Changes
+
+- [#810](https://github.com/4-design/four-ui/pull/810) [`ffd97b4`](https://github.com/4-design/four-ui/commit/ffd97b4caf7ad5338317f0107538fd75eb2e3356) Thanks [@locona](https://github.com/locona)! - example: Google Maps サンプル実装
+
 ## 0.0.11
 
 ### Patch Changes
