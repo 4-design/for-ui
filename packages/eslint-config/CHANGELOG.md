@@ -1,5 +1,11 @@
 # @3design/eslint-config
 
+## 1.0.8
+
+### Patch Changes
+
+- [#814](https://github.com/4-design/four-ui/pull/814) [`afc45a6`](https://github.com/4-design/four-ui/commit/afc45a691c3a8ea92fc797335be8895460802f31) Thanks [@locona](https://github.com/locona)! - fix: https://github.com/francoismassart/eslint-plugin-tailwindcss/issues/155
+
 ## 1.0.7
 
 ### Patch Changes
