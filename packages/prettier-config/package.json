@@ -19,8 +19,7 @@
     "access": "public"
   },
   "dependencies": {
-    "prettier-plugin-sh": "^0.12.0",
-    "prettier-plugin-tailwindcss": "^0.1.13"
+    "prettier-plugin-sh": "^0.12.0"
   },
   "peerDependencies": {
     "prettier": "^2"
