@@ -1,14 +1,14 @@
 {
-  "name": "@3design/3design-ui",
+  "name": "@4design/four-ui",
   "version": "3.4.5",
-  "homepage": "https://github.com/3-shake/3design-ui",
-  "main": "dist/commonjs/3design-ui.js",
-  "module": "dist/esm/3design-ui.esm.js",
+  "homepage": "https://github.com/4-design/four-ui",
+  "main": "dist/commonjs/four-ui.js",
+  "module": "dist/esm/four-ui.esm.js",
   "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/esm/3design-ui.esm.js",
-      "require": "./dist/commonjs/3design-ui.js"
+      "import": "./dist/esm/four-ui.esm.js",
+      "require": "./dist/commonjs/four-ui.js"
     },
     "./tailwind.config.base.js": "./tailwind.config.base.js"
   },
@@ -20,7 +20,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/3-shake/3design-ui.git"
+    "url": "git+https://github.com/4-design/four-ui.git"
   },
   "scripts": {
     "dev": "yarn storybook",

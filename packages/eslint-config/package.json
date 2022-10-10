@@ -1,9 +1,9 @@
 {
-  "name": "@3design/eslint-config",
+  "name": "@4design/eslint-config",
   "version": "1.0.8",
   "description": "3design's shared ESLint config",
   "repository": {
-    "url": "3-shake/3design-ui",
+    "url": "4-design/four-ui",
     "directory": "packages/eslint-config"
   },
   "keywords": [

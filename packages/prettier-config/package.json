@@ -1,10 +1,10 @@
 {
-  "name": "@3design/prettier-config",
+  "name": "@4design/prettier-config",
   "version": "0.0.4",
   "description": "3design's shared Prettier config",
   "repository": {
-    "url": "3-shake/3design-ui",
-    "directory": "packages/eslint-config"
+    "url": "4-design/four-ui",
+    "directory": "packages/prettier-config"
   },
   "keywords": [
     "prettier",

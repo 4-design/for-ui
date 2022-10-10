@@ -1,6 +1,6 @@
 module.exports = {
   important: '#__next',
-  presets: [require('@3design/3design-ui/tailwind.config.base.js')],
+  presets: [require('@4design/four-ui/tailwind.config.base.js')],
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',

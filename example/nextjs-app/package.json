@@ -1,5 +1,5 @@
 {
-  "name": "@3design/nextjs-app",
+  "name": "@4design/nextjs-app",
   "private": true,
   "version": "0.0.10",
   "scripts": {
@@ -9,7 +9,7 @@
     "type-check": "tsc --pretty --noEmit"
   },
   "dependencies": {
-    "@3design/3design-ui": "3.4.5",
+    "@4design/four-ui": "*",
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
     "@mui/lab": "5.0.0-alpha.102",

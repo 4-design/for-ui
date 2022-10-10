@@ -350,8 +350,8 @@ const fontSizes = {
 module.exports = {
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
-    '../../node_modules/@3design/3design-ui/dist/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@3design/3design-ui/dist/**/*.{js,ts,jsx,tsx}',
+    '../../node_modules/@4design/four-ui/dist/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@4design/four-ui/dist/**/*.{js,ts,jsx,tsx}',
   ],
   plugins: [
     plugin(({ matchUtilities, theme, corePlugins }) => {

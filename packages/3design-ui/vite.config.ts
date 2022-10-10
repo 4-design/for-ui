@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => ({
     sourcemap: mode === 'production' ? false : 'inline',
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: '3design-ui',
+      name: 'four-ui',
     },
     rollupOptions: {
       external: regexesOfPackages,

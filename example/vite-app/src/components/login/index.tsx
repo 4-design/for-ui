@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Card, Button } from '@3design/3design-ui';
+import { Text, Card, Button } from '@4design/four-ui';
 
 export const Login: React.FC = () => {
   return (
