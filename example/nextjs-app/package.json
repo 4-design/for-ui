@@ -1,7 +1,7 @@
 {
   "name": "@4design/nextjs-app",
   "private": true,
-  "version": "0.0.10",
+  "version": "1.0.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
