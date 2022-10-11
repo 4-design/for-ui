@@ -1,5 +1,11 @@
 # @3design/prettier-config
 
+## 1.0.0
+
+### Major Changes
+
+- [#816](https://github.com/4-design/for-ui/pull/816) [`49256e9`](https://github.com/4-design/for-ui/commit/49256e932b0c5be205ad584496092eaf24e751a8) Thanks [@locona](https://github.com/locona)! - BREAKING CHANGE: パッケージ名変更 @4design/four-ui @4design/eslint-config @4design/prettier-config
+
 ## 0.0.4
 
 ### Patch Changes
