@@ -7,7 +7,7 @@ module.exports = {
   settings: {
     tailwindcss: {
       // NOTE: eslint の設定はデフォルトに合わせる
-      config: 'packages/3design-ui/tailwindcss.config.js',
+      config: 'packages/for-ui/tailwindcss.config.js',
     },
   },
   rules: {},
