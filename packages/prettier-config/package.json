@@ -3,7 +3,7 @@
   "version": "0.0.4",
   "description": "3design's shared Prettier config",
   "repository": {
-    "url": "4-design/four-ui",
+    "url": "4-design/for-ui",
     "directory": "packages/prettier-config"
   },
   "keywords": [

@@ -1,4 +1,4 @@
-import { Button } from '@4design/four-ui';
+import { Button } from '@4design/for-ui';
 import Link from 'next/link';
 import { Layout } from '../components/Layout';
 

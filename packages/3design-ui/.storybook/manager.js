@@ -5,7 +5,7 @@ import { create } from '@storybook/theming';
 addons.setConfig({
   theme: create({
     base: 'light',
-    brandTitle: '3design-ui',
+    brandTitle: 'for-ui',
   }),
   panelPosition: 'bottom',
 });

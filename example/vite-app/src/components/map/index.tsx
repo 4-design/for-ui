@@ -1,4 +1,4 @@
-import { Checkbox, Menu, Radio, RadioGroup, TextField } from '@4design/four-ui';
+import { Checkbox, Menu, Radio, RadioGroup, TextField } from '@4design/for-ui';
 import { PopoverOrigin } from '@mui/material';
 import { Sidebar } from '@/components/layout/sidebar';
 import { Layout } from '@/components/ui-parts/layout';

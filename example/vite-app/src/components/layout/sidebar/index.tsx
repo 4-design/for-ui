@@ -13,7 +13,7 @@ const Logo: React.FC<{ open: boolean }> = ({ open }) => (
         <div className="flex">
           <img src="/vite.svg" width="24" height="24" alt="logo" className="mr-4" />
           <span className="text-shade-white-default w-44 overflow-x-hidden text-ellipsis whitespace-nowrap text-base">
-            3design,inc
+            4design,inc
           </span>
         </div>
       )}

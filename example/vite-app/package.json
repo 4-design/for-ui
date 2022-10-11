@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@4design/four-ui": "*",
+    "@4design/for-ui": "*",
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
     "@googlemaps/markerclusterer": "^2.0.8",

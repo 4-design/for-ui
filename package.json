@@ -1,6 +1,6 @@
 {
   "name": "4design",
-  "homepage": "https://github.com/4-design/four-ui",
+  "homepage": "https://github.com/4-design/for-ui",
   "private": true,
   "author": "locona <miyamae@youx.co.jp>",
   "engines": {
@@ -9,7 +9,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/4-design/four-ui.git"
+    "url": "git+https://github.com/4-design/for-ui.git"
   },
   "scripts": {
     "dev": "turbo run dev",
