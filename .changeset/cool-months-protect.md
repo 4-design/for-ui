@@ -6,4 +6,4 @@
 "@4design/vite-app": major
 ---
 
-BREAKING CHANGE: package rename
+BREAKING CHANGE: パッケージ名変更 @4design/four-ui @4design/eslint-config @4design/prettier-config
