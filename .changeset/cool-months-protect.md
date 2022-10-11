@@ -1,5 +1,5 @@
 ---
-"@4design/four-ui": major
+"@4design/for-ui": major
 "@4design/eslint-config": major
 "@4design/prettier-config": major
 "@4design/nextjs-app": major
