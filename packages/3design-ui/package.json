@@ -1,6 +1,6 @@
 {
   "name": "@4design/for-ui",
-  "version": "4.0.0",
+  "version": "1.0.0",
   "homepage": "https://github.com/4-design/for-ui",
   "main": "dist/commonjs/for-ui.js",
   "module": "dist/esm/for-ui.esm.js",
@@ -12,7 +12,7 @@
     },
     "./tailwind.config.base.js": "./tailwind.config.base.js"
   },
-  "author": "locona <miyamae@3-shake.com>",
+  "author": "locona <miyamae@youx.co.jp>",
   "sideEffects": false,
   "engines": {
     "node": ">=14.0.0"
