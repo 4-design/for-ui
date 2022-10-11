@@ -76,7 +76,7 @@ Constraints.parameters = {
         <Subtitle>Spacer - 余白や高さ幅に関するドキュメント</Subtitle>
         <Description
           markdown={`
-Tailwind CSS では Spacing と名前がつけられていますが，3design-uiでは違いを明確にするためあえて **Spacer** として違う名前をつけています。
+Tailwind CSS では Spacing と名前がつけられていますが，for-uiでは違いを明確にするためあえて **Spacer** として違う名前をつけています。
 ここでの違いは，Tailwind CSS の Spacing の概念が width や height の概念も含むのに対して，Spacer では margin ・ padding ・ gap にのみ適用される概念となります。
 width や height に関しては，今まで通り https://tailwindcss.com/docs/width や https://tailwindcss.com/docs/height を参照してお使いください。
 

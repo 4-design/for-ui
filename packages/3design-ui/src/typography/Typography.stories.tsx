@@ -50,7 +50,7 @@ Sizes.parameters = {
         <Subtitle>Sizes - タイポグラフィのサイズに関するドキュメント</Subtitle>
         <Description
           markdown={`
-3design-uiでは5サイズのTypographyを使い分けています。
+for-uiでは5サイズのTypographyを使い分けています。
 それぞれ \`text-xs\` \`text-s\` \`text-r\` \`text-xr\` \`text-l\` \`text-xl\` となっており，\`tailwind.config.cjs\` で設定されているため，\`className\`や\`tw\` propsを使って使うことができます。
 一般的なテキストは\`text-r\`を使うことが想定されています。
 Cardのタイトルのように\`text-r\`を含むエリアのタイトルにはそれより少し大きな\`text-l\` (またはカード間のヒエラルキーを表現する場合は \`text-xr\`) を，さらにページ全体のタイトルのようなものには \`text-xl\`を使うことを想定しています。
@@ -129,7 +129,7 @@ Colors.parameters = {
     source: {
       language: 'tsx',
       code: `
-import { Text } from '@3-shake/3design-ui'
+import { Text } from '@4design/for-ui'
 
 ...
 
@@ -195,7 +195,7 @@ Texts.parameters = {
     source: {
       language: 'tsx',
       code: `
-import { Text } from '@3-shake/3design-ui'
+import { Text } from '@4design/for-ui'
 
 ...
 
@@ -208,7 +208,7 @@ ${Object.values(variants)
 
 // Or
 
-import { Text, variants } from '@3-shake/3design-ui'
+import { Text, variants } from '@4design/for-ui'
 
 <Text variant={varianets.p}>テキスト</Text>
 `,
@@ -224,7 +224,7 @@ import { Text, variants } from '@3-shake/3design-ui'
 
 Typographを適切にスタイリングすることはときに冗長なことがあります。そこでよくつかうセットを文字のサイズと文字の色を組み合わせた状態でコンポーネントとして用意しました。
 文字を表現する際に，このコンポーネントの使用を強制するものではありません。ただしデザインのリファクタリングがしやすいよう，決まったところ（ページのタイトルなど）でこのコンポーネントを使用するのは妥当と言えます。
-またinput内などでコンポーネントを使えないときのため，styleのみのexportもされています。\`import { typographyStyles } from '@3-shake/3design-ui'\` で使うことができます
+またinput内などでコンポーネントを使えないときのため，styleのみのexportもされています。\`import { typographyStyles } from '@4design/for-ui'\` で使うことができます
         `}
         />
         <Source />

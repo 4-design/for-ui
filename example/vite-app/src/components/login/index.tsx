@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Card, Button } from '@3design/3design-ui';
+import { Text, Card, Button } from '@4design/for-ui';
 
 export const Login: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ export const Login: React.FC = () => {
               <div className="flex">
                 <img src="/vite.svg" width="36" height="36" alt="logo" className="mr-4" />
                 <span className="text-shade-dark-default overflow-x-hidden text-ellipsis whitespace-nowrap text-xl">
-                  3design,inc
+                  4design,inc
                 </span>
               </div>
             </div>

@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['@3design', '@3design/eslint-config/react'],
+  extends: ['@4design', '@4design/eslint-config/react'],
   env: {
     node: true,
   },

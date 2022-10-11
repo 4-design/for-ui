@@ -1,5 +1,5 @@
 {
-  "name": "@3design/vite-app",
+  "name": "@4design/vite-app",
   "private": true,
   "version": "0.0.12",
   "scripts": {
@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@3design/3design-ui": "3.4.5",
+    "@4design/for-ui": "*",
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
     "@googlemaps/markerclusterer": "^2.0.8",
