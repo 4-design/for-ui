@@ -1,5 +1,14 @@
 # @3design/vite-app
 
+## 1.0.1
+
+### Patch Changes
+
+- [#823](https://github.com/4-design/for-ui/pull/823) [`786f0ef`](https://github.com/4-design/for-ui/commit/786f0ef239bcefa49d7ce829f3ffbba4c72a3acb) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): pin dependencies
+
+- Updated dependencies [[`24bb19c`](https://github.com/4-design/for-ui/commit/24bb19c11799b644b7dd5c0c621e0e48944c17b6)]:
+  - @4design/for-ui@1.0.1
+
 ## 1.0.0
 
 ### Major Changes
