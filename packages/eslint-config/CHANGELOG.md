@@ -1,5 +1,11 @@
 # @3design/eslint-config
 
+## 1.0.1
+
+### Patch Changes
+
+- [#834](https://github.com/4-design/for-ui/pull/834) [`039d5e6`](https://github.com/4-design/for-ui/commit/039d5e62d9095cfbaaf4450032cabf99000e016d) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update all non-major dependencies
+
 ## 2.0.0
 
 ### Major Changes
