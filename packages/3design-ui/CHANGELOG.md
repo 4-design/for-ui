@@ -1,5 +1,11 @@
 # @3design/3design-ui
 
+## 1.0.1
+
+### Patch Changes
+
+- [#829](https://github.com/4-design/for-ui/pull/829) [`a10bc84`](https://github.com/4-design/for-ui/commit/a10bc84f0b22b75c84f1e21aea8da19d506b5fa7) Thanks [@locona](https://github.com/locona)! - fix(for-ui): Checkbox サイズ修正 + props(iconsize)追加
+
 ## 4.0.0
 
 ### Major Changes
