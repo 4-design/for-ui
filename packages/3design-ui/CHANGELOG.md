@@ -1,5 +1,11 @@
 # @3design/3design-ui
 
+## 1.0.2
+
+### Patch Changes
+
+- [`1dab9ef`](https://github.com/4-design/for-ui/commit/1dab9efe0094ce912321c549c77741b509ce07b3) Thanks [@locona](https://github.com/locona)! -
+
 ## 1.0.1
 
 ### Patch Changes
