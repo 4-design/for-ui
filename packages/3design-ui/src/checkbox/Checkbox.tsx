@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import MuiCheckbox, { CheckboxProps as MuiCheckboxProps } from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import clsx from 'clsx';
@@ -8,17 +7,17 @@ export type CheckboxProps = MuiCheckboxProps & {
   label?: string;
   nopadding?: boolean;
   // Checbox SVG Font Size
-  size?: number;
+  iconsize?: number | string;
 };
 
-const _Checkbox: FC<CheckboxProps> = ({ nopadding = false, size = 28, ...rest }) => (
+const _Checkbox = ({ nopadding = false, iconsize = 28, ...rest }: CheckboxProps) => (
   <MuiCheckbox
     classes={{
       root: clsx(['text-shade-medium-default', nopadding ? 'p-0' : 'p-1']),
       checked: clsx(['text-secondary-dark-default']),
       disabled: clsx(['text-shade-dark-disabled']),
     }}
-    sx={{ '& .MuiSvgIcon-root': { fontSize: size } }}
+    sx={{ '& .MuiSvgIcon-root': { fontSize: iconsize } }}
     {...rest}
   />
 );
