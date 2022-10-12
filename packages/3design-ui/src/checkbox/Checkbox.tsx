@@ -7,16 +7,18 @@ import { Typography } from '../typography';
 export type CheckboxProps = MuiCheckboxProps & {
   label?: string;
   nopadding?: boolean;
+  // Checbox SVG Font Size
+  size?: number;
 };
 
-const _Checkbox: FC<CheckboxProps> = ({ nopadding = false, ...rest }) => (
+const _Checkbox: FC<CheckboxProps> = ({ nopadding = false, size = 28, ...rest }) => (
   <MuiCheckbox
-    sx={{ '& .MuiSvgIcon-root': { fontSize: 20 } }}
     classes={{
       root: clsx(['text-shade-medium-default', nopadding ? 'p-0' : 'p-1']),
       checked: clsx(['text-secondary-dark-default']),
       disabled: clsx(['text-shade-dark-disabled']),
     }}
+    sx={{ '& .MuiSvgIcon-root': { fontSize: size } }}
     {...rest}
   />
 );
@@ -28,7 +30,7 @@ export const Checkbox = ({ label, nopadding = false, ...rest }: CheckboxProps) =
         <FormControlLabel
           control={<_Checkbox nopadding={nopadding} {...rest} />}
           label={
-            <Typography variant="body1" disabled={rest.disabled} className="text-s">
+            <Typography variant="body1" disabled={rest.disabled} className="text-s ml-2">
               {label}
             </Typography>
           }
