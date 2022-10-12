@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 
 import { Button } from '../button';
 import { Checkbox } from './Checkbox';
+import { Text } from '../typography';
 
 export default {
   title: 'Form / Checkbox',
@@ -17,14 +18,19 @@ export const Basic = (): JSX.Element => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="mb-2 flex flex-col">
-        <Checkbox value="required" label="チェックボックス A" {...register('sample-a')} />
-        <Checkbox value="required" label="チェックボックス B" {...register('sample-b')} />
-      </div>
+      <div>
+        <div className="border-shade-light-default rounded-md border p-6 pb-8">
+          <Text variant="p" bold className="mb-1">
+            ラベル
+          </Text>
 
-      <div className="mb-4 flex flex-col">
-        <Checkbox disabled value="required" label="チェックボックス A" {...register('sample-a')} />
-        <Checkbox disabled value="required" label="チェックボックス B" {...register('sample-b')} />
+          <div className="grid grid-cols-3">
+            <Checkbox label="テスト A" {...register('sample-a')} />
+            <Checkbox label="テスト B" {...register('sample-a')} />
+            <Checkbox label="テスト C" {...register('sample-a')} />
+            <Checkbox label="テスト D" {...register('sample-a')} />
+          </div>
+        </div>
       </div>
 
       <Button type="submit">登録</Button>
@@ -38,10 +44,19 @@ export const WithNopadding = (): JSX.Element => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col gap-4">
-        <Checkbox nopadding value="required" label="チェックボックス A" {...register('sample-a')} />
+      <div>
+        <div className="border-shade-light-default rounded-md border p-6 pb-8">
+          <Text variant="p" bold className="mb-1">
+            ラベル
+          </Text>
 
-        <Checkbox nopadding value="required" label="チェックボックス A" {...register('sample-a')} />
+          <div className="grid grid-cols-3">
+            <Checkbox nopadding label="テスト A" {...register('sample-a')} />
+            <Checkbox nopadding label="テスト B" {...register('sample-a')} />
+            <Checkbox nopadding label="テスト C" {...register('sample-a')} />
+            <Checkbox nopadding label="テスト D" {...register('sample-a')} />
+          </div>
+        </div>
       </div>
 
       <Button type="submit">登録</Button>
