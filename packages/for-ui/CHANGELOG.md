@@ -1,5 +1,11 @@
 # @3design/3design-ui
 
+## 1.0.1
+
+### Patch Changes
+
+- [#820](https://github.com/4-design/for-ui/pull/820) [`24bb19c`](https://github.com/4-design/for-ui/commit/24bb19c11799b644b7dd5c0c621e0e48944c17b6) Thanks [@locona](https://github.com/locona)! - fix: ディレクトリ名変更 3design-ui -> for-ui
+
 ## 4.0.0
 
 ### Major Changes
