@@ -1,5 +1,17 @@
 # @3design/3design-ui
 
+## 1.0.4
+
+### Patch Changes
+
+- [#847](https://github.com/4-design/for-ui/pull/847) [`22ef07b`](https://github.com/4-design/for-ui/commit/22ef07ba177e855c8f9b5503eef21e1a8f411128) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: 行選択を行クリックでもできるように修正
+
+- [#841](https://github.com/4-design/for-ui/pull/841) [`1b3523b`](https://github.com/4-design/for-ui/commit/1b3523b85d0130c0f15c822b6b74bef4addae7ea) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency vite to v3.1.8
+
+- [#842](https://github.com/4-design/for-ui/pull/842) [`6629018`](https://github.com/4-design/for-ui/commit/662901813553c455986b9f743f9e62b36c51d1d1) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
+- [#838](https://github.com/4-design/for-ui/pull/838) [`3764cfe`](https://github.com/4-design/for-ui/commit/3764cfeeeb8d17393cc8ee2f1aa8a7725b5f7046) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
 ## 1.0.3
 
 ### Patch Changes
