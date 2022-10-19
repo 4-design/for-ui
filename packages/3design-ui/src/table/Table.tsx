@@ -70,7 +70,10 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
                 value="required"
                 checked={row.getIsSelected()}
                 indeterminate={row.getIsSomeSelected()}
-                onChange={row.getToggleSelectedHandler()}
+                onClick={(e) => {
+                  row.getToggleSelectedHandler()(e)
+                  e.stopPropagation()
+                }}
               />
             )}
             {!!props.onSelectRow && (
@@ -79,7 +82,10 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
                 size="small"
                 value="required"
                 checked={row.getIsSelected()}
-                onChange={row.getToggleSelectedHandler()}
+                onClick={(e) => {
+                  row.getToggleSelectedHandler()(e)
+                  e.stopPropagation()
+                }}
               />
             )}
           </TableCell>
@@ -187,6 +193,11 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
                 'border-shade-light-default hover:bg-shade-light-default border-b transition duration-300 ease-in-out',
                 (props.onSelectRow || props.onSelectRows) && 'cursor-pointer',
               ])}
+              onClick={(e) => {
+                if (props.onSelectRow || props.onSelectRows) {
+                  row.getToggleSelectedHandler()(e)
+                }
+              }}
             >
               {row.getVisibleCells().map((cell) => (
                 <React.Fragment key={cell.id}>
