@@ -69,8 +69,8 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
                 checked={row.getIsSelected()}
                 indeterminate={row.getIsSomeSelected()}
                 onClick={(e) => {
-                  row.getToggleSelectedHandler()(e)
-                  e.stopPropagation()
+                  row.getToggleSelectedHandler()(e);
+                  e.stopPropagation();
                 }}
               />
             )}
@@ -81,8 +81,8 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
                 value="required"
                 checked={row.getIsSelected()}
                 onClick={(e) => {
-                  row.getToggleSelectedHandler()(e)
-                  e.stopPropagation()
+                  row.getToggleSelectedHandler()(e);
+                  e.stopPropagation();
                 }}
               />
             )}
@@ -193,14 +193,12 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
               ])}
               onClick={(e) => {
                 if (props.onSelectRow || props.onSelectRows) {
-                  row.getToggleSelectedHandler()(e)
+                  row.getToggleSelectedHandler()(e);
                 }
               }}
             >
               {row.getVisibleCells().map((cell) => (
-                <Fragment key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </Fragment>
+                <Fragment key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</Fragment>
               ))}
             </tr>
           ))}
