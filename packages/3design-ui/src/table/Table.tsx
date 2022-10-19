@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Fragment, useCallback, useState, useMemo } from 'react';
 import {
   ColumnDef,
   ColumnSort,
@@ -31,14 +31,14 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'colu
 
 export const Table = <T extends RowData>(props: TableProps<T>) => {
   const { data, disablePagination, defaultSortColumn } = props;
-  const [sorting, setSorting] = React.useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
-  const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
+  const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
+  const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
 
   if (props.onSelectRow && props.onSelectRows) {
     throw new Error('You cannot specify both onSelectRow and onSelectRows at the same time.');
   }
 
-  const columns = React.useMemo(() => {
+  const columns = useMemo(() => {
     if (props.onSelectRow || props.onSelectRows) {
       const selectColumn: ColumnDef<T> = {
         id: 'select',
@@ -48,25 +48,23 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
           maxWidth: '20px',
         },
         header: ({ table }) => (
-          <React.Fragment>
+          <Fragment>
             {!!props.onSelectRows && (
               <Checkbox
                 nopadding
-                size="small"
                 value="required"
                 checked={table.getIsAllRowsSelected()}
                 indeterminate={table.getIsSomeRowsSelected()}
                 onChange={table.getToggleAllRowsSelectedHandler()}
               />
             )}
-          </React.Fragment>
+          </Fragment>
         ),
         cell: ({ row }) => (
           <TableCell>
             {!!props.onSelectRows && (
               <Checkbox
                 nopadding
-                size="small"
                 value="required"
                 checked={row.getIsSelected()}
                 indeterminate={row.getIsSomeSelected()}
@@ -98,7 +96,7 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
     return props.columns;
   }, [props]);
 
-  const onSelectRow = React.useCallback(
+  const onSelectRow = useCallback(
     (row: RowSelectionState) => {
       const keys = Object.keys(row);
       if (props.onSelectRow) {
@@ -114,7 +112,7 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
     [setRowSelection, props]
   );
 
-  const onRowSelectionChange = React.useCallback<OnChangeFn<RowSelectionState>>(
+  const onRowSelectionChange = useCallback<OnChangeFn<RowSelectionState>>(
     (v) => {
       if (typeof v === 'function') {
         const updateRow = v(rowSelection);
@@ -200,9 +198,9 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
               }}
             >
               {row.getVisibleCells().map((cell) => (
-                <React.Fragment key={cell.id}>
+                <Fragment key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </React.Fragment>
+                </Fragment>
               ))}
             </tr>
           ))}
