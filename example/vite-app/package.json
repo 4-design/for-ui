@@ -1,7 +1,7 @@
 {
   "name": "@4design/vite-app",
   "private": true,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

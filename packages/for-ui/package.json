@@ -1,6 +1,6 @@
 {
   "name": "@4design/for-ui",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "homepage": "https://github.com/4-design/for-ui",
   "main": "dist/commonjs/for-ui.js",
   "module": "dist/esm/for-ui.esm.js",

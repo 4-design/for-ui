@@ -1,5 +1,14 @@
 # @3design/vite-app
 
+## 1.0.4
+
+### Patch Changes
+
+- [#844](https://github.com/4-design/for-ui/pull/844) [`b3a4336`](https://github.com/4-design/for-ui/commit/b3a433647d8bf6c1247a103e198aa5f310da9c5e) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
+- Updated dependencies [[`b3a4336`](https://github.com/4-design/for-ui/commit/b3a433647d8bf6c1247a103e198aa5f310da9c5e), [`bc6286c`](https://github.com/4-design/for-ui/commit/bc6286c61409836052b68d55f47f9725917df5ee)]:
+  - @4design/for-ui@1.0.5
+
 ## 1.0.3
 
 ### Patch Changes
