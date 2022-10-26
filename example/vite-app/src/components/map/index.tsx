@@ -66,8 +66,8 @@ const render = (status: Status): React.ReactElement => {
   return <div></div>;
 };
 
-// const DEFAULT_CENTER: google.maps.LatLngLiteral = { lat: 35.68156736022668, lng: 139.76761832643018 };
-const DEFAULT_CENTER: google.maps.LatLngLiteral = { lat: -28.024, lng: 140.887 };
+const DEFAULT_CENTER: google.maps.LatLngLiteral = { lat: 35.68598803012648, lng: 139.76761832643018 };
+// const DEFAULT_CENTER: google.maps.LatLngLiteral = { lat: -28.024, lng: 140.887 };
 
 const anchorOrigin: PopoverOrigin = {
   vertical: 'bottom',
@@ -99,8 +99,7 @@ const SearchItem = (props: Props) => {
 };
 
 export const Map = () => {
-  const center = DEFAULT_CENTER;
-  const zoom = 3;
+  const zoom = 15;
 
   return (
     <Layout SidebarComponent={Sidebar}>
@@ -363,7 +362,7 @@ export const Map = () => {
         </div>
 
         <Wrapper apiKey={import.meta.env.GOOGLE_MAP_API} render={render}>
-          <GoogleMapsProvider center={center} zoom={zoom}>
+          <GoogleMapsProvider center={DEFAULT_CENTER} zoom={zoom}>
             <MarkerCluster markers={locations} InfoWindowComponent={InfoWindow} />
             <Marker position={{ lat: 35.68156736022668, lng: 139.76761832643018 }} InfoWindowComponent={InfoWindow} />
           </GoogleMapsProvider>

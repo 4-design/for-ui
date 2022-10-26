@@ -2,6 +2,7 @@
 import React from 'react';
 import { isLatLngLiteral } from '@googlemaps/typescript-guards';
 import { createCustomEqual } from 'fast-equals';
+import { isochrone } from '@/components/ui-parts/map/isochrone';
 
 function useDeepCompareEffectForMaps(callback: React.EffectCallback, dependencies: any[]) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,9 +36,18 @@ type UseGoogleMaps = {
 type GoogleMapsContext = UseGoogleMaps;
 
 const useGoogleMaps = (props: Props): UseGoogleMaps => {
-  const { onClick, onIdle, ...mapOptions } = props;
+  const { address = '新宿区', onClick, onIdle, ...mapOptions } = props;
   const ref = React.useRef<HTMLDivElement>(null);
   const [map, setMap] = React.useState<google.maps.Map | null>(null);
+
+  React.useEffect(() => {
+    if (map) {
+      const geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ address }).then((res: google.maps.GeocoderResponse) => {
+        map.setCenter(res.results[0].geometry.location);
+      });
+    }
+  }, [map, address]);
 
   React.useEffect(() => {
     if (ref.current && !map) {
@@ -52,6 +62,8 @@ const useGoogleMaps = (props: Props): UseGoogleMaps => {
   useDeepCompareEffectForMaps(() => {
     if (map) {
       map.setOptions(mapOptions);
+
+      isochrone(map);
     }
   }, [map, mapOptions]);
   // [END maps_react_map_component_options_hook]
@@ -89,6 +101,7 @@ export const useGoogleMapsContext = (): GoogleMapsContext => React.useContext(Go
 
 type Props = React.PropsWithChildren<
   {
+    address?: string;
     onClick?: (e: google.maps.MapMouseEvent) => void;
     onIdle?: (map: google.maps.Map) => void;
   } & google.maps.MapOptions
