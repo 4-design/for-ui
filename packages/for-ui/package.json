@@ -36,14 +36,14 @@
     "clsx": "1.2.1",
     "material-ui-popup-state": "4.1.0",
     "react-dropzone": "14.2.3",
-    "react-number-format": "5.0.1"
+    "react-number-format": "5.1.0"
   },
   "devDependencies": {
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
     "@hookform/resolvers": "2.9.10",
-    "@mui/lab": "5.0.0-alpha.104",
-    "@mui/material": "5.10.10",
+    "@mui/lab": "5.0.0-alpha.105",
+    "@mui/material": "5.10.11",
     "@mui/types": "7.2.0",
     "@storybook/addon-actions": "6.5.13",
     "@storybook/addon-backgrounds": "6.5.13",
@@ -54,7 +54,7 @@
     "@storybook/builder-webpack5": "6.5.13",
     "@storybook/manager-webpack5": "6.5.13",
     "@storybook/react": "6.5.13",
-    "@types/react": "18.0.22",
+    "@types/react": "18.0.23",
     "@types/react-dom": "18.0.7",
     "@vitejs/plugin-react": "2.1.0",
     "autoprefixer": "10.4.12",
