@@ -24,10 +24,18 @@ import { TablePagination } from './TablePagination';
 export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'columns' | 'getRowId'> & {
   disablePagination?: boolean | undefined;
   defaultSortColumn?: ColumnSort;
-
-  onSelectRow?: ((id: string | undefined) => void) | undefined;
-  onSelectRows?: ((ids: string[]) => void) | undefined;
-};
+} & (
+    | {
+        /** If wanting to use selectable table, specify _onSelectRow_ or _onSelectRows_ exclusively */
+        onSelectRow?: ((id: string | undefined) => void) | undefined;
+        onSelectRows?: never;
+      }
+    | {
+        onSelectRow?: never;
+        /** If wanting to use selectable table, specify _onSelectRow_ or _onSelectRows_ exclusively */
+        onSelectRows?: ((ids: string[]) => void) | undefined;
+      }
+  );
 
 export const Table = <T extends RowData>(props: TableProps<T>) => {
   const { data, disablePagination, defaultSortColumn } = props;
