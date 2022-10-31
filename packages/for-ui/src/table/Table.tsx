@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useState, useMemo } from 'react';
+import { Fragment, useCallback, useState, useMemo, useEffect } from 'react';
 import {
   ColumnDef,
   ColumnSort,
@@ -7,12 +7,12 @@ import {
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
-  OnChangeFn,
   RowData,
   RowSelectionState,
   SortingState,
   TableOptions,
   useReactTable,
+  Row,
 } from '@tanstack/react-table';
 import clsx from 'clsx';
 import { MdArrowDownward, MdArrowUpward } from 'react-icons/md';
@@ -38,101 +38,81 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'colu
   );
 
 export const Table = <T extends RowData>(props: TableProps<T>) => {
-  const { data, disablePagination, defaultSortColumn } = props;
+  const { data, disablePagination, defaultSortColumn, onSelectRow, onSelectRows } = props;
   const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
 
-  if (props.onSelectRow && props.onSelectRows) {
-    throw new Error('You cannot specify both onSelectRow and onSelectRows at the same time.');
-  }
+  useEffect(() => {
+    const selectedIds = Object.keys(rowSelection);
+    onSelectRow?.(selectedIds[0]);
+    onSelectRows?.(selectedIds);
+  }, [rowSelection, onSelectRow, onSelectRows]);
+
+  const selectRow = useCallback(
+    (row: Row<T>) => {
+      // If multiply seletable table, using toggle. Or if singly selectable table, not using toggle.
+      row.toggleSelected(onSelectRows ? undefined : true);
+    },
+    [onSelectRows]
+  );
 
   const columns = useMemo(() => {
-    if (props.onSelectRow || props.onSelectRows) {
-      const selectColumn: ColumnDef<T> = {
-        id: 'select',
-        meta: {
-          minWidth: '20px',
-          width: '20px',
-          maxWidth: '20px',
-        },
-        header: ({ table }) => (
-          <Fragment>
-            {!!props.onSelectRows && (
-              <Checkbox
-                nopadding
-                value="required"
-                checked={table.getIsAllRowsSelected()}
-                indeterminate={table.getIsSomeRowsSelected()}
-                onChange={table.getToggleAllRowsSelectedHandler()}
-              />
-            )}
-          </Fragment>
-        ),
-        cell: ({ row }) => (
-          <TableCell>
-            {!!props.onSelectRows && (
-              <Checkbox
-                nopadding
-                value="required"
-                checked={row.getIsSelected()}
-                indeterminate={row.getIsSomeSelected()}
-                onClick={(e) => {
-                  row.getToggleSelectedHandler()(e);
-                  e.stopPropagation();
-                }}
-              />
-            )}
-            {!!props.onSelectRow && (
-              <Radio
-                nopadding
-                size="small"
-                value="required"
-                checked={row.getIsSelected()}
-                onClick={(e) => {
-                  row.getToggleSelectedHandler()(e);
-                  e.stopPropagation();
-                }}
-              />
-            )}
-          </TableCell>
-        ),
-      };
-
-      return [selectColumn, ...props.columns];
+    // Not selectable table
+    if (!(onSelectRow || onSelectRows)) {
+      return props.columns;
     }
 
-    return props.columns;
-  }, [props]);
-
-  const onSelectRow = useCallback(
-    (row: RowSelectionState) => {
-      const keys = Object.keys(row);
-      if (props.onSelectRow) {
-        props.onSelectRow(keys.length > 0 ? keys[0] : undefined);
-      }
-
-      if (props.onSelectRows) {
-        props.onSelectRows(keys);
-      }
-
-      setRowSelection(row);
-    },
-    [setRowSelection, props]
-  );
-
-  const onRowSelectionChange = useCallback<OnChangeFn<RowSelectionState>>(
-    (v) => {
-      if (typeof v === 'function') {
-        const updateRow = v(rowSelection);
-        const oldRow = rowSelection;
-        const newRow = Object.fromEntries(Object.entries(updateRow).filter(([k, _]) => k !== Object.keys(oldRow)[0]));
-        onSelectRow(newRow);
-      } else {
-        throw new Error('You cannot specify both onSelectRow and onSelectRows at the same time.');
-      }
-    },
-    [onSelectRow, rowSelection]
-  );
+    const selectColumn: ColumnDef<T> = {
+      // FIXME: use useId instead
+      id: 'select',
+      meta: {
+        minWidth: '20px',
+        width: '20px',
+        maxWidth: '20px',
+      },
+      header: ({ table }) => (
+        <Fragment>
+          {!!onSelectRows && (
+            <Checkbox
+              nopadding
+              value="required"
+              checked={table.getIsAllRowsSelected()}
+              indeterminate={!table.getIsAllRowsSelected() && table.getIsSomeRowsSelected()}
+              onChange={table.getToggleAllRowsSelectedHandler()}
+            />
+          )}
+        </Fragment>
+      ),
+      cell: ({ row }) => (
+        <TableCell>
+          {!!onSelectRows && (
+            <Checkbox
+              nopadding
+              value="required"
+              checked={row.getIsSelected()}
+              onClick={(e) => {
+                selectRow(row);
+                e.stopPropagation();
+              }}
+            />
+          )}
+          {!!onSelectRow && (
+            <Radio
+              nopadding
+              size="small"
+              value="required"
+              checked={row.getIsSelected()}
+              onClick={(e) => {
+                selectRow(row);
+                e.stopPropagation();
+              }}
+            />
+          )}
+        </TableCell>
+      ),
+    };
+    return [selectColumn, ...props.columns];
+  }, [props, onSelectRow, onSelectRows, selectRow]);
 
   const table = useReactTable({
     data,
@@ -142,12 +122,14 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
       rowSelection,
     },
     getRowId: props.getRowId,
-    onRowSelectionChange,
+    onRowSelectionChange: setRowSelection,
     onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: !disablePagination ? getPaginationRowModel() : undefined,
+    enableRowSelection: !!(onSelectRow || onSelectRows),
+    enableMultiRowSelection: !!onSelectRows,
   });
 
   return (
@@ -197,12 +179,10 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
               key={row.id}
               className={clsx([
                 'border-shade-light-default hover:bg-shade-light-default border-b transition duration-300 ease-in-out',
-                (props.onSelectRow || props.onSelectRows) && 'cursor-pointer',
+                (onSelectRow || onSelectRows) && 'cursor-pointer',
               ])}
-              onClick={(e) => {
-                if (props.onSelectRow || props.onSelectRows) {
-                  row.getToggleSelectedHandler()(e);
-                }
+              onClick={() => {
+                selectRow(row);
               }}
             >
               {row.getVisibleCells().map((cell) => (
