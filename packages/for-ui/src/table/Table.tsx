@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useState, useMemo, useEffect } from 'react';
+import { Fragment, useCallback, useState, useMemo, useEffect, useRef } from 'react';
 import {
   ColumnDef,
   ColumnSort,
@@ -41,8 +41,14 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
   const { data, disablePagination, defaultSortColumn, onSelectRow, onSelectRows } = props;
   const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
+  const prevRowSelection = useRef<RowSelectionState>({});
 
   useEffect(() => {
+    // In case rowSelection is not changed but only onSelectRow or onSelectRows is changed, callback should not be called.
+    if (prevRowSelection.current === rowSelection) {
+      return;
+    }
+    prevRowSelection.current = rowSelection;
     const selectedIds = Object.keys(rowSelection);
     onSelectRow?.(selectedIds[0]);
     onSelectRows?.(selectedIds);
