@@ -41,18 +41,26 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
   const { data, disablePagination, defaultSortColumn, onSelectRow, onSelectRows } = props;
   const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
-  const prevRowSelection = useRef<RowSelectionState>({});
+  const prevRowSelection = useRef({});
 
-  useEffect(() => {
-    // In case rowSelection is not changed but only onSelectRow or onSelectRows is changed, callback should not be called.
-    if (prevRowSelection.current === rowSelection) {
-      return;
-    }
-    prevRowSelection.current = rowSelection;
-    const selectedIds = Object.keys(rowSelection);
-    onSelectRow?.(selectedIds[0]);
-    onSelectRows?.(selectedIds);
-  }, [rowSelection, onSelectRow, onSelectRows]);
+  const onRowSelectionChange: OnChangeFn<RowSelectionState> = useCallback(
+    (updater) => {
+      // updater is designed to be passed to setState like `setState((prev) => updater(prev))`
+      // However, due to the React "state is snapshot" design, it is hard to get current selection without using rowSelection.
+      // This may lead to some bugs if setting state several times in 1 rendering.
+      const row: RowSelectionState = typeof updater === 'function' ? updater(rowSelection) : updater;
+      // If selected the same row (when single selectable table), skip it
+      if (prevRowSelection.current === row) {
+        return;
+      }
+      setRowSelection(row);
+      prevRowSelection.current = row;
+      const selectedIds = Object.keys(row);
+      onSelectRow?.(selectedIds[0]);
+      onSelectRows?.(selectedIds);
+    },
+    [rowSelection, onSelectRow, onSelectRows]
+  );
 
   const selectRow = useCallback(
     (row: Row<T>) => {
@@ -128,7 +136,7 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
       rowSelection,
     },
     getRowId: props.getRowId,
-    onRowSelectionChange: setRowSelection,
+    onRowSelectionChange,
     onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
