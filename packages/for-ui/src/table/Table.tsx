@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useState, useMemo, useEffect, useRef } from 'react';
+import { FC, Fragment, useCallback, useState, useMemo, useRef, MouseEvent } from 'react';
 import {
   ColumnDef,
   ColumnSort,
@@ -12,7 +12,8 @@ import {
   SortingState,
   TableOptions,
   useReactTable,
-  Row,
+  OnChangeFn,
+  Row as RowType,
 } from '@tanstack/react-table';
 import clsx from 'clsx';
 import { MdArrowDownward, MdArrowUpward } from 'react-icons/md';
@@ -24,6 +25,10 @@ import { TablePagination } from './TablePagination';
 export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'columns' | 'getRowId'> & {
   disablePagination?: boolean | undefined;
   defaultSortColumn?: ColumnSort;
+  /** onRowClick is called when each row is clicked regardless of the type of table (selectable or not) */
+  onRowClick?: (e: MouseEvent<HTMLTableRowElement>, row: RowType<T>) => void;
+  /** The component used to render reach row. By default, Row is used. */
+  rowComponent?: FC<RowProps<T>>;
 } & (
     | {
         /** If wanting to use selectable table, specify _onSelectRow_ or _onSelectRows_ exclusively */
@@ -38,7 +43,7 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'colu
   );
 
 export const Table = <T extends RowData>(props: TableProps<T>) => {
-  const { data, disablePagination, defaultSortColumn, onSelectRow, onSelectRows } = props;
+  const { data, disablePagination, defaultSortColumn, onSelectRow, onSelectRows, onRowClick, rowComponent } = props;
   const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
   const prevRowSelection = useRef({});
@@ -63,12 +68,14 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
   );
 
   const selectRow = useCallback(
-    (row: Row<T>) => {
+    (row: RowType<T>) => {
       // If multiply seletable table, using toggle. Or if singly selectable table, not using toggle.
       row.toggleSelected(onSelectRows ? undefined : true);
     },
     [onSelectRows]
   );
+
+  const RowComponent: FC<RowProps<T>> = rowComponent || Row;
 
   const columns = useMemo(() => {
     // Not selectable table
@@ -189,20 +196,15 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
 
         <tbody className="bg-shade-white-default text-shade-dark-default">
           {table.getRowModel().rows.map((row) => (
-            <tr
+            <RowComponent
               key={row.id}
-              className={clsx([
-                'border-shade-light-default hover:bg-shade-light-default border-b transition duration-300 ease-in-out',
-                (onSelectRow || onSelectRows) && 'cursor-pointer',
-              ])}
-              onClick={() => {
+              row={row}
+              selectable={!!(onSelectRow || onSelectRows)}
+              onClick={(e) => {
                 selectRow(row);
+                onRowClick?.(e, row);
               }}
-            >
-              {row.getVisibleCells().map((cell) => (
-                <Fragment key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</Fragment>
-              ))}
-            </tr>
+            />
           ))}
         </tbody>
       </table>
@@ -211,3 +213,24 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
     </>
   );
 };
+
+export type RowProps<T extends RowData> = {
+  row: RowType<T>;
+  selectable: boolean;
+  onClick: (e: MouseEvent<HTMLTableRowElement>, row: RowType<T>) => void;
+};
+
+export const Row = <T extends RowData>({ row, selectable, onClick }: RowProps<T>) => (
+  <tr
+    key={row.id}
+    className={clsx([
+      'border-shade-light-default border-b transition duration-300 ease-in-out',
+      selectable && 'hover:bg-shade-light-default cursor-pointer',
+    ])}
+    onClick={(e) => onClick(e, row)}
+  >
+    {row.getVisibleCells().map((cell) => (
+      <Fragment key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</Fragment>
+    ))}
+  </tr>
+);
