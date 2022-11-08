@@ -46,7 +46,7 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
   const { data, disablePagination, defaultSortColumn, onSelectRow, onSelectRows, onRowClick, rowRenderer } = props;
   const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
-  const prevRowSelection = useRef({});
+  const prevRowSelection = useRef<RowSelectionState>({});
 
   const onRowSelectionChange: OnChangeFn<RowSelectionState> = useCallback(
     (updater) => {
