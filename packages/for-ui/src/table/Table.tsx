@@ -234,3 +234,5 @@ export const Row = <T extends RowData>({ row, selectable, onClick }: RowProps<T>
     ))}
   </tr>
 );
+
+export { createColumnHelper } from '@tanstack/react-table';
