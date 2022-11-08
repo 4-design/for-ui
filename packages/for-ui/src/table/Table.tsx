@@ -28,7 +28,7 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'colu
   /** onRowClick is called when each row is clicked regardless of the type of table (selectable or not) */
   onRowClick?: (e: MouseEvent<HTMLTableRowElement>, row: RowType<T>) => void;
   /** The component used to render reach row. By default, Row is used. */
-  rowComponent?: FC<RowProps<T>>;
+  rowRenderer?: FC<RowProps<T>>;
 } & (
     | {
         /** If wanting to use selectable table, specify _onSelectRow_ or _onSelectRows_ exclusively */
@@ -43,7 +43,7 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'colu
   );
 
 export const Table = <T extends RowData>(props: TableProps<T>) => {
-  const { data, disablePagination, defaultSortColumn, onSelectRow, onSelectRows, onRowClick, rowComponent } = props;
+  const { data, disablePagination, defaultSortColumn, onSelectRow, onSelectRows, onRowClick, rowRenderer } = props;
   const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
   const prevRowSelection = useRef({});
@@ -75,7 +75,7 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
     [onSelectRows]
   );
 
-  const RowComponent: FC<RowProps<T>> = rowComponent || Row;
+  const RowComponent: FC<RowProps<T>> = rowRenderer || Row;
 
   const columns = useMemo(() => {
     // Not selectable table
