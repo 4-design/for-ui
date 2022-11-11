@@ -1,11 +1,18 @@
-<p align="center">
-  <img width="240" src=".github/assets/fui_logo_logotype_light.svg#gh-light-mode-only" alt="For UI Logo">
+<h1 align="center">
+  <img width="240" src=".github/assets/fui_logo_logotype_light.svg#gh-light-mode-only" alt="For UI" title="For UI">
   <img width="240" src=".github/assets/fui_logo_logotype_dark.svg#gh-dark-mode-only">
-</p>
+</h1>
 
-For UIは <a href="https://3-shake.com">株式会社スリーシェイク</a>のデザインシステムFor Design Systemのデザイントークンとコンポーネントライブラリを実装したパッケージです。
+<div align="center">
 
-Reactとtailwindcssを使用しています。
+[![npm version](https://badge.fury.io/js/@4design%2Ffor-ui.svg)](https://badge.fury.io/js/@4design%2Ffor-ui)
+[![CI](https://github.com/4-design/for-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/4-design/for-ui/actions/workflows/ci.yml)
+
+</div>
+
+For UI は <a href="https://3-shake.com">株式会社スリーシェイク</a>のデザインシステム「For Design System」のデザイントークンとコンポーネントライブラリを実装したパッケージです。
+
+React と Tailwind CSS で作られています。
 
 ## インストール
 
@@ -13,7 +20,7 @@ Reactとtailwindcssを使用しています。
 yarn add @4design/for-ui
 ```
 
-Peer dependenciesのインストール
+Peer dependencies のインストール
 
 ```
 yarn add tailwindcss @mui/lab @mui/material @types/react react react-icons
@@ -21,10 +28,10 @@ yarn add tailwindcss @mui/lab @mui/material @types/react react react-icons
 
 ## セットアップ
 
-### 1. Tailwind CSSを導入
+### 1. Tailwind CSS を導入
 
-#### Tailwind CSSのCSSファイルを読み込む
- 
+#### Tailwind CSS の CSS を読み込む
+
 - `global.css` (名前は任意) を作成
   - `@tailwind base;` など必要な項目を記述する
 - `app.tsx` で `global.css` を読み込む
@@ -32,6 +39,7 @@ yarn add tailwindcss @mui/lab @mui/material @types/react react react-icons
 #### `postcss.config.js` の作成
 
 - `postcss.config.js` が存在しない場合は作成する。
+
   - デフォルトの構成を自分で定義する必要があることに注意 ([参考](https://nextjs.org/docs/advanced-features/customizing-postcss-config#customizing-plugins))
 
 - 以下を追加
@@ -44,15 +52,15 @@ plugins: {
 }
 ```
 
-### 2. For UIの設定を読み込む
+### 2. For UI の設定を読み込む
 
-#### presetの読み込み
+#### preset の読み込み
 
 ```js
 preset: [require('@4design/for-ui/tailwind.config.base.js')],
 ```
 
-#### MUIのスタイル上書きのためのimport設定
+#### MUI のスタイル上書きのための import 設定
 
 ```js
 important: #root, // 任意の上位セレクタを指定する
@@ -61,7 +69,7 @@ important: #root, // 任意の上位セレクタを指定する
 または
 
 ```js
-important: true
+important: true;
 ```
 
 を指定
