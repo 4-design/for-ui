@@ -118,62 +118,64 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.
 
     return (
       <div className={clsx(['flex flex-col', className])}>
-        {label && (
-          <label
-            className={clsx([
-              'text-s text-shade-medium-default mb-1 font-bold antialiased',
-              // labelTwin,
-            ])}
-          >
-            {label}
-            {required && <span className="text-negative-medium-default">*</span>}
-          </label>
-        )}
-        <MuiTextField
-          disabled={disabled}
-          error={error}
-          inputRef={validRef}
-          required={required}
-          variant={variant}
-          placeholder={placeholder}
-          sx={{
-            '& .MuiInputBase-input:disabled::placeholder': {
-              '-webkit-text-fill-color': 'currentColor',
-            },
-          }}
-          FormHelperTextProps={{
-            classes: {
-              root: clsx([error && 'text-negative-medium-default m-0 mt-1 text-xs']),
-            },
-          }}
-          InputProps={{
-            classes: {
-              root: clsx(['group bg-shade-white-default text-shade-light-default p-0 antialiased']),
-              disabled: clsx(['bg-shade-white-disabled', 'placeholder:text-shade-light-default']),
-              input: clsx([
-                'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
-              ]),
-              focused: clsx(['border-primary-medium-active']),
-              notchedOutline: clsx([
-                'border',
-                disabled
-                  ? 'border-shade-medium-disabled'
-                  : error
-                  ? 'border-negative-medium-default'
-                  : _focused
-                  ? 'border-primary-medium-active group-hover:border-primary-dark-default'
-                  : 'border-shade-medium-default group-hover:border-primary-dark-default',
-              ]),
-              inputAdornedEnd: clsx(['pr-2']),
-            },
-            ...InputProps,
-            ..._InputProps,
-          }}
-          inputProps={inputProps}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          {...rest}
-        />
+        <label>
+          {label && (
+            <p
+              className={clsx([
+                'text-s text-shade-medium-default mb-1 font-bold antialiased',
+                // labelTwin,
+              ])}
+            >
+              {label}
+              {required && <span className="text-negative-medium-default">*</span>}
+            </p>
+          )}
+          <MuiTextField
+            disabled={disabled}
+            error={error}
+            inputRef={validRef}
+            required={required}
+            variant={variant}
+            placeholder={placeholder}
+            sx={{
+              '& .MuiInputBase-input:disabled::placeholder': {
+                '-webkit-text-fill-color': 'currentColor',
+              },
+            }}
+            FormHelperTextProps={{
+              classes: {
+                root: clsx([error && 'text-negative-medium-default m-0 mt-1 text-xs']),
+              },
+            }}
+            InputProps={{
+              classes: {
+                root: clsx(['group bg-shade-white-default text-shade-light-default p-0 antialiased']),
+                disabled: clsx(['bg-shade-white-disabled', 'placeholder:text-shade-light-default']),
+                input: clsx([
+                  'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
+                ]),
+                focused: clsx(['border-primary-medium-active']),
+                notchedOutline: clsx([
+                  'border',
+                  disabled
+                    ? 'border-shade-medium-disabled'
+                    : error
+                    ? 'border-negative-medium-default'
+                    : _focused
+                    ? 'border-primary-medium-active group-hover:border-primary-dark-default'
+                    : 'border-shade-medium-default group-hover:border-primary-dark-default',
+                ]),
+                inputAdornedEnd: clsx(['pr-2']),
+              },
+              ...InputProps,
+              ..._InputProps,
+            }}
+            inputProps={inputProps}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            {...rest}
+          />
+        </label>
       </div>
     );
   }
