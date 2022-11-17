@@ -3,8 +3,7 @@ import clsx from 'clsx';
 import { useDropzone } from 'react-dropzone';
 import { MdFileUpload } from 'react-icons/md';
 import { Chip } from '../chip';
-
-import { Text } from '../Text';
+import { Text } from '../text';
 
 export type DropzoneProps = {
   files: File[];
