@@ -4,7 +4,7 @@ import { useDropzone } from 'react-dropzone';
 import { MdFileUpload } from 'react-icons/md';
 import { Chip } from '../chip';
 
-import { Text } from '../typography/Typography';
+import { Text } from '../Text';
 
 export type DropzoneProps = {
   files: File[];
@@ -35,7 +35,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({
 
       <div className="text-shade-medium-default flex w-full flex-col items-center py-5 px-3">
         <MdFileUpload size={48} className="text-shade-light-default mb-3" />
-        <Text variant="caption">{message}</Text>
+        <Text size="s">{message}</Text>
       </div>
 
       {files.length > 0 && (

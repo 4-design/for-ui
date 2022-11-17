@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Title, Subtitle, Description, Source, DocsStory } from '@storybook/addon-docs/blocks';
 import { Meta } from '@storybook/react/types-6-0';
 import clsx from 'clsx';
-import { Text } from '../typography';
+import { LegacyText as Text } from '../Typography';
 
 export default {
   title: 'Example / Spacer',

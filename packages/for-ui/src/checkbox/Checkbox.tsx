@@ -1,7 +1,7 @@
 import MuiCheckbox, { CheckboxProps as MuiCheckboxProps } from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import clsx from 'clsx';
-import { Typography } from '../typography';
+import { Text } from '../text';
 
 export type CheckboxProps = MuiCheckboxProps & {
   label?: string;
@@ -22,7 +22,7 @@ const _Checkbox = ({ nopadding = false, iconsize = 28, ...rest }: CheckboxProps)
   />
 );
 
-export const Checkbox = ({ label, nopadding = false, ...rest }: CheckboxProps) => {
+export const Checkbox = ({ label, nopadding = false, disabled, ...rest }: CheckboxProps) => {
   return (
     <>
       {label ? (
@@ -30,9 +30,9 @@ export const Checkbox = ({ label, nopadding = false, ...rest }: CheckboxProps) =
           sx={{ margin: '0px' }}
           control={<_Checkbox nopadding={nopadding} {...rest} />}
           label={
-            <Typography variant="body1" disabled={rest.disabled} className="text-s ml-2">
+            <Text size="s" className={clsx(`text-shade-dark-default ml-2`, disabled && `text-shade-dark-disabled`)}>
               {label}
-            </Typography>
+            </Text>
           }
         />
       ) : (

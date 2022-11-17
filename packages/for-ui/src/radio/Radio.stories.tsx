@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 
-import { Text } from '../typography/Typography';
+import { LegacyText as Text } from '../Typography';
 import { Radio } from './Radio';
 import { RadioGroup } from './RadioGroup';
 

@@ -23,12 +23,13 @@ export default {
 } as Meta;
 
 export const Basic = (): JSX.Element => {
-  const { control, handleSubmit } = useForm<{
-    default1: boolean;
-    default2: boolean;
-    disable1: boolean;
-    disable2: boolean;
-  }>();
+  const { control, handleSubmit } =
+    useForm<{
+      default1: boolean;
+      default2: boolean;
+      disable1: boolean;
+      disable2: boolean;
+    }>();
 
   const onSubmit = (data: unknown) => console.info(data);
 

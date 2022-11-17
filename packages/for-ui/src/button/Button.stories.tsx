@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 
 import { MdAdd, MdEdit } from 'react-icons/md';
-import { Text } from '../typography/Typography';
+import { LegacyText as Text } from '../Typography';
 import { Button } from './Button';
 
 export default {
