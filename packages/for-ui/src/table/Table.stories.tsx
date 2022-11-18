@@ -43,7 +43,7 @@ export const WithSelect: Story = () => (
     columns={columns}
     data={StaticPersonData}
     getRowId={(row) => row.id.toString()}
-    onSelectRow={(rows) => console.info('rows', rows)}
+    onSelectRow={(row) => console.info('Selected row: ', row)}
   />
 );
 
@@ -52,7 +52,7 @@ export const WithSelectMultiple: Story = () => (
     columns={columns}
     data={StaticPersonData}
     getRowId={(row) => row.id.toString()}
-    onSelectRows={(rows) => console.info('rows', rows)}
+    onSelectRows={(rows) => console.info('Selected rows: ', rows)}
   />
 );
 
