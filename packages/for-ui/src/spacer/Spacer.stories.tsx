@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Title, Subtitle, Description, Source, DocsStory } from '@storybook/addon-docs/blocks';
 import { Meta } from '@storybook/react/types-6-0';
-import clsx from 'clsx';
+import { fsx } from '../system/fsx';
 import { Text } from '../typography';
 
 export default {
@@ -26,7 +26,7 @@ export const Constraints = () => {
       {Object.entries(spacers).map(([k, v]) => (
         <Fragment key={k}>
           <Text variant="caption">{k}</Text>
-          <div className={clsx([v, `bg-primary-dark-default`])} />
+          <div className={fsx([v, `bg-primary-dark-default`])} />
         </Fragment>
       ))}
     </Fragment>

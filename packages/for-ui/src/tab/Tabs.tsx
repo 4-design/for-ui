@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import MuiTabs, { TabsProps as MuiTabsProps } from '@mui/material/Tabs';
-import clsx from 'clsx';
+import { fsx } from '../system/fsx';
 
 export interface TabsProps extends MuiTabsProps {
   noBorder?: boolean;
@@ -10,8 +10,8 @@ export interface TabsProps extends MuiTabsProps {
 }
 
 const colorStyle = {
-  primary: clsx`bg-primary-dark-default`,
-  secondary: clsx`bg-secondary-dark-default`,
+  primary: fsx`bg-primary-dark-default`,
+  secondary: fsx`bg-secondary-dark-default`,
 };
 
 export const Tabs: React.FC<TabsProps> = (props) => {
@@ -22,7 +22,7 @@ const BorderedTabs: React.FC<TabsProps> = (props) => (
   <Box className="w-full">
     {!props.noBorder && props.reverse && (
       <div
-        className={clsx(['border-shade-light-default absolute box-border h-0 w-full border-b-[1px] border-solid'])}
+        className={fsx(['border-shade-light-default absolute box-border h-0 w-full border-b-[1px] border-solid'])}
       />
     )}
 
@@ -30,7 +30,7 @@ const BorderedTabs: React.FC<TabsProps> = (props) => (
 
     {!props.noBorder && !props.reverse && (
       <div
-        className={clsx(['border-shade-light-default absolute box-border h-0 w-full border-b-[1px] border-solid'])}
+        className={fsx(['border-shade-light-default absolute box-border h-0 w-full border-b-[1px] border-solid'])}
       />
     )}
   </Box>
@@ -42,8 +42,8 @@ const _Tabs: React.FC<TabsProps> = ({ reverse = false, color = 'secondary', valu
       value={value}
       onChange={onChange}
       classes={{
-        root: clsx(['min-h-[auto]']),
-        indicator: clsx([colorStyle[color], reverse && 'top-0']),
+        root: fsx(['min-h-[auto]']),
+        indicator: fsx([colorStyle[color], reverse && 'top-0']),
       }}
       {...rest}
     >

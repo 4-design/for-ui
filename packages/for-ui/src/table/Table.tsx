@@ -14,7 +14,7 @@ import {
   TableOptions,
   useReactTable,
 } from '@tanstack/react-table';
-import clsx from 'clsx';
+import { fsx } from '../system/fsx';
 import { MdArrowDownward, MdArrowUpward } from 'react-icons/md';
 import { Checkbox } from '../checkbox';
 import { Radio } from '../radio';
@@ -160,7 +160,7 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
                 >
                   {header.column.getCanSort() ? (
                     <div
-                      className={clsx([
+                      className={fsx([
                         'flex items-center',
                         header.column.getCanSort() && 'cursor-pointer select-none',
                       ])}
@@ -187,7 +187,7 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
           {table.getRowModel().rows.map((row) => (
             <tr
               key={row.id}
-              className={clsx([
+              className={fsx([
                 'border-shade-light-default hover:bg-shade-light-default border-b transition duration-300 ease-in-out',
                 (props.onSelectRow || props.onSelectRows) && 'cursor-pointer',
               ])}

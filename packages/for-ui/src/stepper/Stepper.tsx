@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { StepConnector, stepConnectorClasses } from '@mui/material';
 import MuiStepper, { StepperProps as MuiStepperProps } from '@mui/material/Stepper';
-import clsx from 'clsx';
+import { fsx } from '../system/fsx';
 
 export type StepperProps = MuiStepperProps;
 
@@ -15,8 +15,8 @@ export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
         connector={
           <StepConnector
             classes={{
-              root: clsx(['right-[calc(50%+1rem)] left-[calc(-50%+1rem)] top-6 px-0']),
-              line: clsx(['border-t-2']),
+              root: fsx(['right-[calc(50%+1rem)] left-[calc(-50%+1rem)] top-6 px-0']),
+              line: fsx(['border-t-2']),
             }}
             sx={{
               [`&.${stepConnectorClasses.active}`]: {
