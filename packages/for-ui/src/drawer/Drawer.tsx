@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
- 
+
 import React, { useState, useRef, useCallback } from 'react';
 import MuiDrawer, { DrawerProps as MuiDrawerProps } from '@mui/material/Drawer';
 import { fsx } from '../system/fsx';

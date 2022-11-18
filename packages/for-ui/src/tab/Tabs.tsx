@@ -21,17 +21,13 @@ export const Tabs: React.FC<TabsProps> = (props) => {
 const BorderedTabs: React.FC<TabsProps> = (props) => (
   <Box className="w-full">
     {!props.noBorder && props.reverse && (
-      <div
-        className={fsx(['border-shade-light-default absolute box-border h-0 w-full border-b-[1px] border-solid'])}
-      />
+      <div className={fsx(['border-shade-light-default absolute box-border h-0 w-full border-b-[1px] border-solid'])} />
     )}
 
     <_Tabs {...props}>{props.children}</_Tabs>
 
     {!props.noBorder && !props.reverse && (
-      <div
-        className={fsx(['border-shade-light-default absolute box-border h-0 w-full border-b-[1px] border-solid'])}
-      />
+      <div className={fsx(['border-shade-light-default absolute box-border h-0 w-full border-b-[1px] border-solid'])} />
     )}
   </Box>
 );

@@ -160,10 +160,7 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
                 >
                   {header.column.getCanSort() ? (
                     <div
-                      className={fsx([
-                        'flex items-center',
-                        header.column.getCanSort() && 'cursor-pointer select-none',
-                      ])}
+                      className={fsx(['flex items-center', header.column.getCanSort() && 'cursor-pointer select-none'])}
                       onClick={header.column.getToggleSortingHandler()}
                     >
                       {flexRender(header.column.columnDef.header, header.getContext())}
