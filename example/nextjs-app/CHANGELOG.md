@@ -1,5 +1,18 @@
 # @3design/nextjs-app
 
+## 1.0.4
+
+### Patch Changes
+
+- [#858](https://github.com/4-design/for-ui/pull/858) [`c84729b`](https://github.com/4-design/for-ui/commit/c84729bc4fddda69f504b332992d9a9aef436f16) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
+- [#854](https://github.com/4-design/for-ui/pull/854) [`56305ce`](https://github.com/4-design/for-ui/commit/56305ce1ce7eecac93e9eb50399f520c013de06e) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
+- [#883](https://github.com/4-design/for-ui/pull/883) [`3315cc1`](https://github.com/4-design/for-ui/commit/3315cc136ccb24a1617bc95b3a9ee8c01edd6337) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
+- Updated dependencies [[`c84729b`](https://github.com/4-design/for-ui/commit/c84729bc4fddda69f504b332992d9a9aef436f16), [`fe72c0a`](https://github.com/4-design/for-ui/commit/fe72c0ac84b8b75ae62df84b91773b8dbdfdb9b6), [`8617f51`](https://github.com/4-design/for-ui/commit/8617f51454a100ca2b3aa3df0bea9da00896eaed), [`56305ce`](https://github.com/4-design/for-ui/commit/56305ce1ce7eecac93e9eb50399f520c013de06e), [`4238f10`](https://github.com/4-design/for-ui/commit/4238f10eb3308280d00278187959519c9cd9e7a9), [`3315cc1`](https://github.com/4-design/for-ui/commit/3315cc136ccb24a1617bc95b3a9ee8c01edd6337), [`77b4afa`](https://github.com/4-design/for-ui/commit/77b4afafacb7a5c003128e1bfbd2f182697a72b8), [`6c0291f`](https://github.com/4-design/for-ui/commit/6c0291f2899e73d42bec1aa2f5ae79572d388612)]:
+  - @4design/for-ui@1.0.6
+
 ## 1.0.3
 
 ### Patch Changes
