@@ -2,7 +2,7 @@ import React from 'react';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 import MuiRadioGroup, { RadioGroupProps as MuiRadioGroupProps } from '@mui/material/RadioGroup';
-import clsx from 'clsx';
+import { fsx } from '../system/fsx';
 
 export interface RadioGroupProps extends MuiRadioGroupProps {
   children: React.ReactNode;
@@ -36,9 +36,9 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
         name={name}
         defaultValue={defaultValue}
         classes={{
-          error: clsx(['text-negative-medium-default m-0 mt-1']),
+          error: fsx(['text-negative-medium-default m-0 mt-1']),
         }}
-        className={clsx([`flex gap-x-6 gap-y-2`, className])}
+        className={fsx([`flex gap-x-6 gap-y-2`, className])}
         onChange={onChange}
       >
         {children}
@@ -46,8 +46,8 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
       {error && (
         <FormHelperText
           classes={{
-            root: clsx(['text-negative-medium-default']),
-            error: clsx(['text-negative-medium-default m-0 mt-1']),
+            root: fsx(['text-negative-medium-default']),
+            error: fsx(['text-negative-medium-default m-0 mt-1']),
           }}
         >
           {error}

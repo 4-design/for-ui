@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import MuiChip, { ChipProps as MuiChipProps } from '@mui/material/Chip';
-import clsx from 'clsx';
+import { fsx } from '../system/fsx';
 
 type ChipColorType = 'default' | 'negative' | 'white';
 
@@ -21,12 +21,12 @@ export type ChipProps = Omit<MuiChipProps, 'color' | 'icon' | 'deleteIcon' | 'si
 
 const rootStyles = (clickable: boolean) => {
   return {
-    negative: clsx(['bg-negative-light-default', clickable && 'hover:bg-negative-light-hover cursor-pointer']),
-    white: clsx([
+    negative: fsx(['bg-negative-light-default', clickable && 'hover:bg-negative-light-hover cursor-pointer']),
+    white: fsx([
       'border-shade-light-default bg-shade-white-default border-solid',
       clickable && `hover:bg-shade-light-hover cursor-pointer`,
     ]),
-    default: clsx([
+    default: fsx([
       'border-shade-medium-default bg-shade-light-default',
       clickable && `hover:bg-shade-light-hover cursor-pointer`,
     ]),
@@ -35,25 +35,25 @@ const rootStyles = (clickable: boolean) => {
 
 const labelStyles = (_: boolean) => {
   return {
-    negative: clsx(['text-negative-medium-default']),
-    white: clsx(['text-shade-dark-default']),
-    default: clsx(['text-shade-dark-default']),
+    negative: fsx(['text-negative-medium-default']),
+    white: fsx(['text-shade-dark-default']),
+    default: fsx(['text-shade-dark-default']),
   };
 };
 
 const iconStyles = (_: boolean) => {
   return {
-    negative: clsx(['icon-negative-medium-default']),
-    white: clsx(['icon-shade-dark-default']),
-    default: clsx(['icon-shade-dark-default']),
+    negative: fsx(['icon-negative-medium-default']),
+    white: fsx(['icon-shade-dark-default']),
+    default: fsx(['icon-shade-dark-default']),
   };
 };
 
 const deleteIconStyles = (clickable: boolean) => {
   return {
-    negative: clsx(['text-negative-medium-default', clickable && 'hover:opacity-70']),
-    white: clsx(['text-shade-dark-default', clickable && 'hover:icon-primary-dark-hover']),
-    default: clsx(['text-shade-dark-default', clickable && 'hover:icon-primary-dark-hover']),
+    negative: fsx(['text-negative-medium-default', clickable && 'hover:opacity-70']),
+    white: fsx(['text-shade-dark-default', clickable && 'hover:icon-primary-dark-hover']),
+    default: fsx(['text-shade-dark-default', clickable && 'hover:icon-primary-dark-hover']),
   };
 };
 
@@ -71,16 +71,16 @@ export const Chip: FC<ChipProps> = ({
       deleteIcon={trailingIcon}
       onDelete={onDelete}
       classes={{
-        root: clsx([
+        root: fsx([
           'inline-flex h-7 gap-1 border px-3 py-1',
           leadingIcon && 'pl-2',
           (trailingIcon || onDelete) && 'pr-2',
           !onDelete && trailingIcon ? 'flex-row-reverse' : '',
           rootStyles(!!(clickable || onDelete))[color],
         ]),
-        label: clsx(['text-s px-0 font-sans'], labelStyles(!!(clickable || onDelete))[color]),
-        icon: clsx(['m-0', iconStyles(!!(clickable || onDelete))[color]]),
-        deleteIcon: clsx(['m-0', deleteIconStyles(!!(clickable || onDelete))[color]]),
+        label: fsx(['text-s px-0 font-sans'], labelStyles(!!(clickable || onDelete))[color]),
+        icon: fsx(['m-0', iconStyles(!!(clickable || onDelete))[color]]),
+        deleteIcon: fsx(['m-0', deleteIconStyles(!!(clickable || onDelete))[color]]),
       }}
       {...props}
     />

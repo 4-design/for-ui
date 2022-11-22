@@ -1,6 +1,6 @@
 import React, { Children, ReactNode } from 'react';
 import LoadingButton, { LoadingButtonProps } from '@mui/lab/LoadingButton';
-import clsx from 'clsx';
+import { fsx } from '../system/fsx';
 
 export type ButtonProps = Omit<LoadingButtonProps, 'color' | 'variant'> & {
   className?: string;
@@ -67,6 +67,7 @@ export const Button: React.ForwardRefExoticComponent<ButtonProps> = React.forwar
     endIcon,
     children,
     onClick,
+    className,
     ...rest
   } = props;
 
@@ -93,16 +94,17 @@ export const Button: React.ForwardRefExoticComponent<ButtonProps> = React.forwar
       onClick={onClick}
       aria-label={label || props['aria-label'] || 'button'}
       classes={{
-        root: clsx([
-          'h-max-content text-r flex max-w-max cursor-pointer whitespace-nowrap rounded-lg px-6 py-2 font-sans font-medium shadow-none transition hover:shadow-none focus:outline-none disabled:cursor-not-allowed',
+        root: fsx([
+          'h-max-content flex max-w-max cursor-pointer whitespace-nowrap rounded-lg px-6 py-2 font-sans font-medium shadow-none transition hover:shadow-none focus:outline-none disabled:cursor-not-allowed',
           defaultStyles[_variant],
           hoverStyles[_variant],
           sizes[size],
+          className,
         ]),
-        disabled: clsx([disableStyles[_variant], loading && loadingPosition === 'center' && 'text-transparent']),
-        loadingIndicator: clsx([loadingIndicatorStyles[_variant]]),
-        loadingIndicatorStart: clsx([loadingIndicatorStartStyles[_variant]]),
-        loadingIndicatorEnd: clsx([loadingIndicatorEndStyles[_variant]]),
+        disabled: fsx([disableStyles[_variant], loading && loadingPosition === 'center' && 'text-transparent']),
+        loadingIndicator: fsx([loadingIndicatorStyles[_variant]]),
+        loadingIndicatorStart: fsx([loadingIndicatorStartStyles[_variant]]),
+        loadingIndicatorEnd: fsx([loadingIndicatorEndStyles[_variant]]),
       }}
       {...rest}
     >

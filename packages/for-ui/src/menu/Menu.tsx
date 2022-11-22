@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import MuiMenu, { MenuProps as MuiMenuProps } from '@mui/material/Menu';
-import clsx from 'clsx';
+import { fsx } from '../system/fsx';
 import { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { usePopupState } from 'material-ui-popup-state/hooks';
 
@@ -49,9 +49,9 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
           anchorOrigin={anchorOrigin}
           transformOrigin={transformOrigin}
           classes={{
-            root: clsx(['translate-y-2']),
-            paper: clsx(['z-modal shadow-menu  min-w-min rounded-[4px]', nopadding ? 'p-0' : 'p-1']),
-            list: clsx(['divide-shade-light-default grid grid-cols-1 divide-y py-0']),
+            root: fsx(['translate-y-2']),
+            paper: fsx(['z-modal shadow-menu  min-w-min rounded-[4px]', nopadding ? 'p-0' : 'p-1']),
+            list: fsx(['divide-shade-light-default grid grid-cols-1 divide-y py-0']),
             ...rest.classes,
           }}
           {...bindMenu(popupState)}

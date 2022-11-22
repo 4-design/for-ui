@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable tailwindcss/enforces-negative-arbitrary-values */
+
 import React, { useState, useRef, useCallback } from 'react';
 import MuiDrawer, { DrawerProps as MuiDrawerProps } from '@mui/material/Drawer';
-import clsx from 'clsx';
+import { fsx } from '../system/fsx';
 import { MdClose, MdMoreVert } from 'react-icons/md';
 import { Button } from '../button';
 
@@ -80,8 +80,8 @@ export const Drawer: React.FC<Props> = ({
       open={open}
       anchor={anchor}
       classes={{
-        root: clsx(['shadow-drawer z-modal']),
-        paper: clsx(['p-6 [&.MuiBackdrop-root]:bg-transparent']),
+        root: fsx(['shadow-drawer z-modal']),
+        paper: fsx(['p-6 [&.MuiBackdrop-root]:bg-transparent']),
       }}
       PaperProps={{
         sx: {
@@ -103,20 +103,20 @@ export const Drawer: React.FC<Props> = ({
       <div
         onMouseDown={handleMouseDown}
         ref={ref}
-        className={clsx([
+        className={fsx([
           'user-select[none] absolute top-0 h-full w-9 cursor-[ew-resize] px-3',
           anchor === 'left' ? '-right-3' : '-left-3',
         ])}
       >
         <span
-          className={clsx([
+          className={fsx([
             'border-shade-light-default hover:bg-shade-white-hover block h-full w-full',
             anchor === DrawerAnchor.left ? 'border-r' : 'border-l',
           ])}
         >
           <MdMoreVert
             size="24"
-            className={clsx(['relative h-full', anchor === 'left' ? 'right-[6px]' : '-left-[6px]'])}
+            className={fsx(['relative h-full', anchor === 'left' ? 'right-[6px]' : '-left-[6px]'])}
           />
         </span>
       </div>

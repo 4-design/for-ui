@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { UseAutocompleteProps } from '@mui/material';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import MuiPaper, { PaperProps } from '@mui/material/Paper';
-import clsx from 'clsx';
+import { fsx } from '../system/fsx';
 import { MdCheck, MdExpandMore } from 'react-icons/md';
 import { Chip } from '../chip';
 import { MenuItem } from '../menu';
@@ -107,7 +107,7 @@ export const Select: FC<AutocompleteProps> = ({
           <MenuItem
             {...props}
             key={option.inputValue}
-            className={clsx([selected && 'text-primary-dark-default hover:bg-primary-white-hover text-base'])}
+            className={fsx([selected && 'text-primary-dark-default hover:bg-primary-white-hover text-base'])}
           >
             {label}
             {selected && <MdCheck size={20} className="text-primary-medium-default absolute right-4" />}
@@ -115,16 +115,16 @@ export const Select: FC<AutocompleteProps> = ({
         );
       }}
       classes={{
-        root: clsx(['bg-shade-white-default', '']),
-        paper: clsx(['min-w-min translate-y-4 rounded-2xl py-2']),
-        inputRoot: clsx(['group bg-shade-white-default text-shade-light-default p-0 antialiased']),
-        input: clsx([
+        root: fsx(['bg-shade-white-default', '']),
+        paper: fsx(['min-w-min translate-y-4 rounded-2xl py-2']),
+        inputRoot: fsx(['group bg-shade-white-default text-shade-light-default p-0 antialiased']),
+        input: fsx([
           'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
         ]),
-        inputFocused: clsx(['border-primary-medium-active']),
-        focused: clsx(['[&_svg]:!icon-shade-medium-active']),
-        tag: clsx(['bg-shade-light-default [&.MuiChip-deleteIcon]:text-shade-dark-default border-none']),
-        endAdornment: clsx(['[&_svg]:icon-shade-medium-default']),
+        inputFocused: fsx(['border-primary-medium-active']),
+        focused: fsx(['[&_svg]:!icon-shade-medium-active']),
+        tag: fsx(['bg-shade-light-default [&.MuiChip-deleteIcon]:text-shade-dark-default border-none']),
+        endAdornment: fsx(['[&_svg]:icon-shade-medium-default']),
       }}
       renderInput={(params) => {
         return (
