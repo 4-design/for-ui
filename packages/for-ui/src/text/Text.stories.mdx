@@ -1,0 +1,152 @@
+import { Fragment, useState } from 'react'
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Text, sizes } from './Text'
+
+<Meta
+  title="General / Text"
+  component={Text}
+    parameters={{
+    viewMode: 'docs',
+    previewTabs: { 
+      canvas: { hidden: true } 
+     },
+  }}
+/>
+
+# Spec
+
+`Text` はFor Design Systemで定義されているテキストに関するトークンを便利に扱うための、React実装のみに存在するコンポーネントです。
+
+## サイズ
+
+<Canvas>
+  <Story name="Spec / Size">
+    <Text as="label" size="xs" bold className="text-shade-medium-default">text-xs</Text>
+    <Text as="p" size="xs">「For Design System」で叶えるデザインシステムの夢。</Text>
+    <Text as="label" size="xs" bold className="text-shade-medium-default">text-s</Text>
+    <Text as="p" size="s">「For Design System」で叶えるデザインシステムの夢。</Text>
+    <Text as="label" size="xs" bold className="text-shade-medium-default">text-r</Text>
+    <Text as="p" size="r">「For Design System」で叶えるデザインシステムの夢。</Text>
+    <Text as="label" size="xs" bold className="text-shade-medium-default">text-xr</Text>
+    <Text as="p" size="xr">「For Design System」で叶えるデザインシステムの夢。</Text>
+    <Text as="label" size="xs" bold className="text-shade-medium-default">text-l</Text>
+    <Text as="p" size="l">「For Design System」で叶えるデザインシステムの夢。</Text>
+    <Text as="label" size="xs" bold className="text-shade-medium-default">text-xl</Text>
+    <Text as="p" size="xl">「For Design System」で叶えるデザインシステムの夢。</Text>
+  </Story>
+</Canvas>
+
+For Design Systemでは `text-xs` `text-s` `text-r` `text-xr` `text-l` `text-xl` の6サイズのタイポグラフィを使い分けています。  
+サイズは `Text` Componentの `size` prop または Tailwindで設定されている各値を `className` propを使って指定することができます。  
+十分な可読性を確保するため、デフォルトでは `text-r` を使ってください。また本文テキストのサイズを基本として、情報設計に基づき適切な文字サイズを使用してください。  
+
+なお `text-xs` と `text-s` 、`text-s` と `text-r` についてはそのままだとそれぞれの間でのヒエラルキーの表現が十分ではありません。  
+太字や色を使い情報に差をつけるようにしてください。
+
+### 背景
+
+多すぎるサイズの設定はデザインの一貫性を崩してしまい、ページごとに同じレベルの重要度で表示されるべきものが、デザイナーや実装者で異なってしまう可能性があります。
+これを防ぐため、この6種類のみとする制約を定めました。
+
+### 設定値
+
+比較的ニュートラルで表示領域が小さくとも可読性の高いサンセリフ体を基本とします。
+
+<section className="border border-shade-light-default p-6">
+
+#### **標準**
+
+コンポーネントや本文などあらゆる部分に使用します。
+
+| 優先度 | フォント名 | ウェイト (regular, bold) | 説明 |
+| --: | :-- | :-- | :-- |
+| 1 | [`Noto Sans JP`](https://fonts.google.com/noto/specimen/Noto+Sans+JP) | `400`, `700` | 和文用のフォントです。 |
+| 2 | [`Inter`](https://fonts.google.com/specimen/Inter) | `400`, `700` | 欧文用のフォントです。 |
+
+</section>
+
+<section className="border border-shade-light-default p-6">
+
+#### **等幅**
+
+ソースコードの表示部分など、似た文字が混ざると判別しにくい部分に使用します。
+
+| 優先度 | フォント名 | ウェイト (regular, bold) | 説明 |
+| --: | :-- | :-- | :-- |
+| 1 | [`Noto Sans JP`](https://fonts.google.com/noto/specimen/Noto+Sans+JP) | `400`, `700` | 和文用のフォントです。 |
+| 2 | [`Fira Code`](https://fonts.google.com/specimen/Fira+Code) | `400`, `700` | 欧文用のフォントです。 |
+
+</section>
+
+TailwindCSSの設定では上記の優先度に基づいて各種設定がなされていますが、フォントの読み込みは各サービスで行ってもらう必要があります。  
+以下の値をHTMLのheadに挿入してください。(Next.jsの場合は`_document.tsx`)
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
+```
+
+### テキストのスタイルとCSSでの表現の対応表
+
+| Style | Font Size | Line Height | Letter Spacing |
+| :-- | :-- | :-- | :-- |
+| `text-xs` | 12 px (.75 rem) | 16 px (1 rem) | .03 rem |
+| `text-s` | 14 px (.875 rem) | 20 px (1.25 rem) | .03 rem |
+| `text-r` | 16 px (1 rem) | 24 px (1.5 rem) | .03 rem |
+| `text-xr` | 20 px (1.25 rem) | 28 px (1.75 rem) | .03 rem |
+| `text-l` | 24 px (1.5 rem) | 32 px (2 rem) | .03 rem |
+| `text-xl` | 32 px (2 rem) | 40 px (2.5 rem) | .03 rem |
+
+## カラー
+
+<Canvas>
+  <Story name="Spec / Color">
+    {() => {
+      const [intention, setIntention] = useState('shade')
+      const [level, setLevel] = useState('dark')
+      const [state, setState] = useState('default')
+      const color = `text-${intention}-${level}-${state}`
+      return (
+        <Fragment>
+          <Text className={`${color} text-transparent block font-mono`}>{color}</Text>
+          <select defaultValue={intention} onChange={(e) => {setIntention(e.target.value)}}>
+            <option>shade</option>
+            <option>primary</option>
+            <option>secondary</option>
+            <option>positive</option>
+            <option>negative</option>
+            <option>notice</option>
+            <option>informative</option>
+          </select>
+          <select defaultValue={level} onChange={(e) => {setLevel(e.target.value)}}>
+            <option>dark</option>
+            <option>medium</option>
+            <option>light</option>
+            <option>white</option>
+          </select>
+          <select defaultValue={state} onChange={(e) => {setState(e.target.value)}}>
+            <option>default</option>
+            <option>hover</option>
+            <option>active</option>
+            <option>disabled</option>
+          </select>
+        </Fragment>
+      )
+    }}
+  </Story>
+</Canvas>
+
+カラーは `text-` のついた
+
+Typographyと色は厳密には切り離された概念ですが、ここでは便宜上テキストの色としてこのセクションにドキュメントを含めます。
+
+Typographyのサイズと同じく、どの部分を目立たせるかはよく考えて使用する必要があります。大きく異なるのはサイズは `text-r` という中ほどの大きさが普通の状態であるのに対して、カラーはデフォルトが `text-shade-dark-default` です。
+これが何を意味するかと言うと、通常の色が濃く、それより情報量を落としたい部分で薄い色を使うという、少し高度な技術が求められるということです。
+
+もしエラー表現などでない場面でただのテキストを `text-shade-dark-default` より目立たせたければ、唯一の方法は `text-primary-dark-default` を使うことです。
+そのため、あるページを開いたときに `text-primary-dark-default` で表示されているテキストは、本当に重要な部分であることを示すことができます。言い換えれば、そうしなければならず、最大でも4箇所ほどが望ましいでしょう。
+また `text-primary-dark-default` はユーザーが操作可能な、何らかの反応がある部分としての表示色の役割を持っています。この原則を保つため、なるべく強調したいテキストは `font-bold` を用いた表現に留めるのがよいです。
+
+意味を持たない色として、一般的なテキストには `text-shade-dark-default` と `text-shade-medium-default` と `text-low` を用います。これらは伝えたい情報の重さによって使い分けてください。
+この使い分けは「意味を持たない色」であるのでさほど厳密ではありませんが、ページ間で統一することは必要です。例えばあるページではtop-levelのCardのタイトルが `text-shade-dark-default` なのに、またあるページでは `text-low` である、このようなことは避けるべきです。
