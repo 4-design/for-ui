@@ -54,15 +54,14 @@ export type TextProps<P extends ElementType> = ComponentPropsWithoutRef<P> & {
   children?: ReactNode;
 }
 
-
-
-export const Text = <P extends ElementType>(props: TextProps<P>): JSX.Element => {
-  const {
-    as: Component = 'span',
-    className,
-    children,
-    size = 'r',
-    bold = false,
-  } = props;
-  return <Component className={clsx(style(size, bold), className)} {...props}>{children}</Component>;
+export const Text = <P extends ElementType = 'span'>({
+  as,
+  size = 'r',
+  bold = false,
+  className,
+  children,
+  ...rests
+}: TextProps<P>): JSX.Element => {
+  const Component = as || 'span'
+  return <Component className={clsx(style(size, bold), className)} {...rests}>{children}</Component>;
 }
