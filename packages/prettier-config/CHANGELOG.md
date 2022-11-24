@@ -1,5 +1,11 @@
 # @3design/prettier-config
 
+## 1.0.1
+
+### Patch Changes
+
+- [#893](https://github.com/4-design/for-ui/pull/893) [`77b4afa`](https://github.com/4-design/for-ui/commit/77b4afafacb7a5c003128e1bfbd2f182697a72b8) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: class が上書きできない問題を解決
+
 ## 1.0.0
 
 ### Major Changes

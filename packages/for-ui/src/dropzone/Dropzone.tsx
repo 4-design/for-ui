@@ -1,5 +1,5 @@
 import React from 'react';
-import clsx from 'clsx';
+import { fsx } from '../system/fsx';
 import { useDropzone } from 'react-dropzone';
 import { MdFileUpload } from 'react-icons/md';
 import { Chip } from '../chip';
@@ -25,7 +25,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({
   return (
     <div
       {...getRootProps()}
-      className={clsx([
+      className={fsx([
         'flex w-auto cursor-pointer flex-col flex-wrap justify-center py-3 px-5',
         'border-shade-medium-default rounded border border-dashed',
       ])}
