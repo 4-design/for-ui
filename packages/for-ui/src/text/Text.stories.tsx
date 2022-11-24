@@ -9,7 +9,7 @@ export default {
 export const Base = {
   args: {
     size: 'r',
-    children: 'For Design Systemで叶えるデザインシステムの夢。',
+    children: '「For Design System」で叶えるデザインシステムの夢。',
     as: 'span',
   },
 };
