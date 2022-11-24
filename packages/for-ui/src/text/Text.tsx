@@ -14,6 +14,7 @@ export type Size = typeof sizes[keyof typeof sizes];
 
 const style = (size: Size, bold: boolean): string => {
   return clsx(
+    `text-shade-dark-default`,
     bold && `font-bold`,
     {
       xs: `text-xs`,
