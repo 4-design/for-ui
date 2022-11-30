@@ -5,6 +5,6 @@
 
 @layer base {
   body {
-    @apply text-shade-dark-default font-sans antialiased;
+    @apply text-shade-dark-default text-r font-sans antialiased;
   }
 }

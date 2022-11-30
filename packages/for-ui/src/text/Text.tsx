@@ -1,22 +1,15 @@
 import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
 import { fsx } from '../system/fsx';
 
-export const sizes = {
-  xs: 'xs',
-  s: 's',
-  r: 'r',
-  xr: 'xr',
-  l: 'l',
-  xl: 'xl',
-} as const;
+type WithInherit<T> = T | 'inherit';
 
-export type Size = typeof sizes[keyof typeof sizes];
+type Size = 'xs' | 's' | 'r' | 'xr' | 'l' | 'xl';
 
-type Weight = 'inherit' | 'regular' | 'bold';
+type Weight = 'regular' | 'bold';
 
-type Typeface = 'inherit' | 'sansSerif' | 'monospaced';
+type Typeface = 'sansSerif' | 'monospaced';
 
-const style = (size: Size, weight: Weight, typeface: Typeface): string => {
+const style = (size: WithInherit<Size>, weight: WithInherit<Weight>, typeface: WithInherit<Typeface>): string => {
   return fsx(
     {
       inherit: ``,
@@ -29,6 +22,7 @@ const style = (size: Size, weight: Weight, typeface: Typeface): string => {
       monospaced: `font-mono`,
     }[typeface],
     {
+      inherit: ``,
       xs: `text-xs`,
       s: `text-s`,
       r: `text-r`,
@@ -48,21 +42,21 @@ export type TextProps<P extends ElementType> = ComponentPropsWithoutRef<P> & {
 
   /**
    * テキストのサイズを指定
-   * @default r
+   * @default inherit
    */
-  size?: Size;
+  size?: WithInherit<Size>;
 
   /**
    * 表示するテキストのウェイトを指定
    * @default inherit
    */
-  weight?: Weight;
+  weight?: WithInherit<Weight>;
 
   /**
    * 表示する書体の種別を指定
    * @default inherit
    */
-  typeface?: Typeface;
+  typeface?: WithInherit<Typeface>;
 
   className?: string;
 
@@ -74,7 +68,7 @@ export type TextProps<P extends ElementType> = ComponentPropsWithoutRef<P> & {
 
 export const Text = <P extends ElementType = 'span'>({
   as,
-  size = 'r',
+  size = 'inherit',
   weight = 'inherit',
   typeface = 'inherit',
   className,
