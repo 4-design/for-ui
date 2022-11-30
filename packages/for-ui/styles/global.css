@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+
+@layer base {
+  body {
+    @apply text-shade-dark-default font-sans antialiased;
+  }
+}
