@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
-import clsx from 'clsx';
+import { fsx } from '../system/fsx';
 
 export const sizes = {
   xs: 'xs',
@@ -12,10 +12,22 @@ export const sizes = {
 
 export type Size = typeof sizes[keyof typeof sizes];
 
-const style = (size: Size, bold: boolean): string => {
-  return clsx(
-    `text-shade-dark-default`,
-    bold && `font-bold`,
+type Weight = 'inherit' | 'regular' | 'bold';
+
+type Typeface = 'inherit' | 'sansSerif' | 'monospaced';
+
+const style = (size: Size, weight: Weight, typeface: Typeface): string => {
+  return fsx(
+    {
+      inherit: ``,
+      regular: `font-normal`,
+      bold: `font-bold`,
+    }[weight],
+    {
+      inherit: ``,
+      sansSerif: `font-sans`,
+      monospaced: `font-mono`,
+    }[typeface],
     {
       xs: `text-xs`,
       s: `text-s`,
@@ -41,27 +53,38 @@ export type TextProps<P extends ElementType> = ComponentPropsWithoutRef<P> & {
   size?: Size;
 
   /**
-   * 太字にする場合は指定 (classNameにfont-boldを指定するのと同値)
-   * @default false
+   * 表示するテキストのウェイトを指定
+   * @default inherit
    */
-  bold?: boolean;
+  weight?: Weight;
+
+  /**
+   * 表示する書体の種別を指定
+   * @default inherit
+   */
+  typeface?: Typeface;
 
   className?: string;
 
   /**
    * 文字列またはstrong等のコンポーネント (HTML的にvalidになるようにしてください)
    */
-  children?: ReactNode;
-}
+  children: ReactNode;
+};
 
 export const Text = <P extends ElementType = 'span'>({
   as,
   size = 'r',
-  bold = false,
+  weight = 'inherit',
+  typeface = 'inherit',
   className,
   children,
   ...rests
 }: TextProps<P>): JSX.Element => {
-  const Component = as || 'span'
-  return <Component className={clsx(style(size, bold), className)} {...rests}>{children}</Component>;
-}
+  const Component = as || 'span';
+  return (
+    <Component className={fsx(style(size, weight, typeface), className)} {...rests}>
+      {children}
+    </Component>
+  );
+};
