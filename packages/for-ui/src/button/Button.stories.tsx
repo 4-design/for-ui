@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 
 import { MdAdd, MdEdit } from 'react-icons/md';
-import { LegacyText as Text } from '../Typography';
+import { Text } from '../Text';
 import { Button } from './Button';
 
 export default {
@@ -25,7 +25,9 @@ export const Filled = (): JSX.Element => (
   <div className="flex flex-col gap-8">
     <div>
       <div className="mb-4 border-b">
-        <Text variant="h3">Button/Filled/Large</Text>
+        <Text as="h3" size="l" weight="bold">
+          Button/Filled/Large
+        </Text>
       </div>
 
       <div className="flex flex-row gap-8">
@@ -73,7 +75,9 @@ export const Filled = (): JSX.Element => (
 
     <div>
       <div className="mb-4 border-b">
-        <Text variant="h3">Button/Contained/Medium</Text>
+        <Text as="h3" size="l" weight="bold">
+          Button/Contained/Medium
+        </Text>
       </div>
 
       <div className="flex flex-row gap-8">
@@ -127,7 +131,9 @@ export const Contained = (): JSX.Element => (
   <div className="flex flex-col gap-8">
     <div>
       <div className="mb-4 border-b">
-        <Text variant="h3">Button/Contained/Large</Text>
+        <Text as="h3" size="l" weight="bold">
+          Button/Contained/Large
+        </Text>
       </div>
 
       <div className="flex flex-row gap-8">
@@ -175,7 +181,9 @@ export const Contained = (): JSX.Element => (
 
     <div>
       <div className="mb-4 border-b">
-        <Text variant="h3">Button/Contained/Medium</Text>
+        <Text as="h3" size="l" weight="bold">
+          Button/Contained/Medium
+        </Text>
       </div>
 
       <div className="flex flex-row gap-8">
@@ -229,7 +237,9 @@ export const Outlined = (): JSX.Element => (
   <div className="flex flex-col gap-8">
     <div>
       <div className="mb-4 border-b">
-        <Text variant="h3">Button/Outlined/Large</Text>
+        <Text as="h3" size="l" weight="bold">
+          Button/Outlined/Large
+        </Text>
       </div>
 
       <div className="flex flex-row gap-8">
@@ -277,7 +287,9 @@ export const Outlined = (): JSX.Element => (
 
     <div>
       <div className="mb-4 border-b">
-        <Text variant="h3">Button/Outlined/Medium</Text>
+        <Text as="h3" size="l" weight="bold">
+          Button/Outlined/Medium
+        </Text>
       </div>
 
       <div className="flex flex-row gap-8">
@@ -331,7 +343,9 @@ export const _Text = (): JSX.Element => (
   <div className="flex flex-col gap-8">
     <div>
       <div className="mb-4 border-b">
-        <Text variant="h3">Button/Text/Large</Text>
+        <Text as="h3" size="l" weight="bold">
+          Button/Text/Large
+        </Text>
       </div>
 
       <div className="flex flex-row gap-8">
@@ -379,7 +393,9 @@ export const _Text = (): JSX.Element => (
 
     <div>
       <div className="mb-4 border-b">
-        <Text variant="h3">Button/Text/Medium</Text>
+        <Text as="h3" size="l" weight="bold">
+          Button/Text/Medium
+        </Text>
       </div>
 
       <div className="flex flex-row gap-8">
@@ -429,7 +445,9 @@ export const _Text = (): JSX.Element => (
 
     <div>
       <div className="mb-4 border-b">
-        <Text variant="h3">Button/Text/Small</Text>
+        <Text as="h3" size="l" weight="bold">
+          Button/Text/Small
+        </Text>
       </div>
 
       <div className="flex flex-row gap-8">
