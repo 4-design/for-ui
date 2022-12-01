@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import InputAdornment from '@mui/material/InputAdornment';
 import MuiTextField, { TextFieldProps as MuiTextFieldProps } from '@mui/material/TextField';
-import { fsx } from '../system/fsx';
+import clsx from 'clsx';
 import { NumericFormat } from 'react-number-format';
 
 export type TextFieldProps = MuiTextFieldProps & {
@@ -26,7 +26,7 @@ const NumberFormatCustom: React.ForwardRefExoticComponent<NumberFormatCustomProp
     return (
       <NumericFormat
         {...other}
-        className={fsx([other.className, 'text-right'])}
+        className={clsx([other.className, 'text-right'])}
         getInputRef={ref}
         onValueChange={(values) => {
           onChange({
@@ -45,6 +45,7 @@ const NumberFormatCustom: React.ForwardRefExoticComponent<NumberFormatCustomProp
 export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.forwardRef(
   (
     {
+      size,
       label,
       variant = 'outlined',
       className,
@@ -79,7 +80,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.
         endAdornment: (
           <InputAdornment
             classes={{
-              root: fsx(['text-r text-shade-dark-default mr-3 font-sans antialiased']),
+              root: clsx(['text-r text-shade-dark-default mr-3 font-sans antialiased']),
             }}
             position="start"
             disableTypography
@@ -117,12 +118,15 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.
     );
 
     return (
-      <div className={fsx(['flex flex-col', className])}>
+      <div className={clsx(['flex  flex-col', className])}>
         <label>
           {label && (
             <p
-              className={fsx([
-                'text-s text-shade-medium-default mb-1 font-bold antialiased',
+              className={clsx([
+                'text-shade-medium-default mb-1 font-bold antialiased',
+                size === undefined && 'text-s',
+                size === 'medium' && 'text-s',
+                size === 'small' && 'text-xs',
                 // labelTwin,
               ])}
             >
@@ -131,6 +135,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.
             </p>
           )}
           <MuiTextField
+            size={size}
             disabled={disabled}
             error={error}
             inputRef={validRef}
@@ -144,18 +149,21 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.
             }}
             FormHelperTextProps={{
               classes: {
-                root: fsx([error && 'text-negative-medium-default m-0 mt-1 text-xs']),
+                root: clsx([error && 'text-negative-medium-default m-0 mt-1 text-xs']),
               },
             }}
             InputProps={{
               classes: {
-                root: fsx(['group bg-shade-white-default text-shade-light-default p-0 antialiased']),
-                disabled: fsx(['bg-shade-white-disabled', 'placeholder:text-shade-light-default']),
-                input: fsx([
+                root: clsx(['group bg-shade-white-default text-shade-light-default p-0 antialiased']),
+                disabled: clsx(['bg-shade-white-disabled', 'placeholder:text-shade-light-default']),
+                input: clsx([
                   'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
+                  size === undefined && 'text-s py-2 px-4',
+                  size === 'medium' && 'text-s py-2 px-4',
+                  size === 'small' && 'py-1.5 px-2 text-xs',
                 ]),
-                focused: fsx(['border-primary-medium-active']),
-                notchedOutline: fsx([
+                focused: clsx(['border-primary-medium-active']),
+                notchedOutline: clsx([
                   'border',
                   disabled
                     ? 'border-shade-medium-disabled'
@@ -165,7 +173,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.
                     ? 'border-primary-medium-active group-hover:border-primary-dark-default'
                     : 'border-shade-medium-default group-hover:border-primary-dark-default',
                 ]),
-                inputAdornedEnd: fsx(['pr-2']),
+                inputAdornedEnd: clsx(['pr-2']),
               },
               ...InputProps,
               ..._InputProps,

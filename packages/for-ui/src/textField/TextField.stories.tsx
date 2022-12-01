@@ -37,102 +37,208 @@ export const Outlined = (): JSX.Element => {
   const onSubmit = (data: unknown) => console.info(data);
 
   return (
-    <form className="w-96" onSubmit={handleSubmit(onSubmit)}>
-      <h1 className="mb-4">Text Field (default styles)</h1>
-      <div className="mb-4">
-        <TextField
-          required
-          fullWidth
-          variant="outlined"
-          autoComplete="on"
-          type="email"
-          label="メールアドレス"
-          placeholder="example@lancepod.com"
-          {...register('email')}
-        />
-      </div>
-      <div className="mb-4">
-        <TextField
-          error
-          required
-          fullWidth
-          variant="outlined"
-          autoComplete="on"
-          type="email"
-          label="メールアドレス Error"
-          placeholder="example@lancepod.com"
-          helperText="ヘルパーテキスト"
-          {...register('email')}
-        />
-      </div>
+    <div className="grid grid-cols-2 gap-2">
+      <form className="w-96" onSubmit={handleSubmit(onSubmit)}>
+        <h1 className="mb-4">Text Field (default styles)</h1>
+        <div className="mb-4">
+          <TextField
+            required
+            fullWidth
+            variant="outlined"
+            autoComplete="on"
+            type="email"
+            label="メールアドレス"
+            placeholder="example@lancepod.com"
+            {...register('email')}
+          />
+        </div>
+        <div className="mb-4">
+          <TextField
+            error
+            required
+            fullWidth
+            variant="outlined"
+            autoComplete="on"
+            type="email"
+            label="メールアドレス Error"
+            placeholder="example@lancepod.com"
+            helperText="ヘルパーテキスト"
+            {...register('email')}
+          />
+        </div>
 
-      <div className="mb-4">
-        <TextField
-          type="password"
-          label="パスワード"
-          placeholder="example@lancepod.com"
-          error={errors && !!errors['password']}
-          {...register('password')}
-        />
-      </div>
+        <div className="mb-4">
+          <TextField
+            type="password"
+            label="パスワード"
+            placeholder="example@lancepod.com"
+            error={errors && !!errors['password']}
+            {...register('password')}
+          />
+        </div>
 
-      <div className="mb-4">
-        <TextField
-          label="金額"
-          placeholder="3"
-          unitLabel="万円"
-          isPriceFormat
-          error={errors && !!errors['price']}
-          {...register('price')}
-        />
-      </div>
-      <div className="mb-4">
-        <TextField
-          disabled
-          required
-          fullWidth
-          multiline
-          rows={3}
-          variant="outlined"
-          autoComplete="on"
-          type="email"
-          label="メールアドレス"
-          placeholder="example@lancepod.com"
-          error={errors && !!errors['email']}
-          {...register('email')}
-        />
-      </div>
-      <div className="mb-4">
-        <TextField
-          required
-          multiline
-          variant="outlined"
-          autoComplete="on"
-          type="email"
-          label="マルチライン"
-          placeholder="example@lancepod.com"
-          error={errors && !!errors['email']}
-          {...register('email')}
-        />
-      </div>
-      <div className="mb-4">
-        <TextField
-          error
-          fullWidth
-          multiline
-          rows={3}
-          variant="outlined"
-          autoComplete="on"
-          type="email"
-          label="エラー"
-          placeholder="example@lancepod.com"
-          {...register('email')}
-        />
-      </div>
+        <div className="mb-4">
+          <TextField
+            label="金額"
+            placeholder="3"
+            unitLabel="万円"
+            isPriceFormat
+            error={errors && !!errors['price']}
+            {...register('price')}
+          />
+        </div>
+        <div className="mb-4">
+          <TextField
+            disabled
+            required
+            fullWidth
+            multiline
+            rows={3}
+            variant="outlined"
+            autoComplete="on"
+            type="email"
+            label="メールアドレス"
+            placeholder="example@lancepod.com"
+            error={errors && !!errors['email']}
+            {...register('email')}
+          />
+        </div>
+        <div className="mb-4">
+          <TextField
+            required
+            multiline
+            variant="outlined"
+            autoComplete="on"
+            type="email"
+            label="マルチライン"
+            placeholder="example@lancepod.com"
+            error={errors && !!errors['email']}
+            {...register('email')}
+          />
+        </div>
+        <div className="mb-4">
+          <TextField
+            error
+            fullWidth
+            multiline
+            rows={3}
+            variant="outlined"
+            autoComplete="on"
+            type="email"
+            label="エラー"
+            placeholder="example@lancepod.com"
+            {...register('email')}
+          />
+        </div>
 
-      <div className="mt-8">
-        <Button type="submit">登録する</Button>
-      </div>
-    </form>
+        <div className="mt-8">
+          <Button type="submit">登録する</Button>
+        </div>
+      </form>
+      <form className="w-96" onSubmit={handleSubmit(onSubmit)}>
+        <h1 className="mb-4">Text Field (default styles)</h1>
+        <div className="mb-4">
+          <TextField
+            size="small"
+            required
+            fullWidth
+            variant="outlined"
+            autoComplete="on"
+            type="email"
+            label="メールアドレス"
+            placeholder="example@lancepod.com"
+            {...register('email')}
+          />
+        </div>
+        <div className="mb-4">
+          <TextField
+            size="small"
+            error
+            required
+            fullWidth
+            variant="outlined"
+            autoComplete="on"
+            type="email"
+            label="メールアドレス Error"
+            placeholder="example@lancepod.com"
+            helperText="ヘルパーテキスト"
+            {...register('email')}
+          />
+        </div>
+
+        <div className="mb-4">
+          <TextField
+            size="small"
+            type="password"
+            label="パスワード"
+            placeholder="example@lancepod.com"
+            error={errors && !!errors['password']}
+            {...register('password')}
+          />
+        </div>
+
+        <div className="mb-4">
+          <TextField
+            size="small"
+            label="金額"
+            placeholder="3"
+            unitLabel="万円"
+            isPriceFormat
+            error={errors && !!errors['price']}
+            {...register('price')}
+          />
+        </div>
+        <div className="mb-4">
+          <TextField
+            size="small"
+            disabled
+            required
+            fullWidth
+            multiline
+            rows={3}
+            variant="outlined"
+            autoComplete="on"
+            type="email"
+            label="メールアドレス"
+            placeholder="example@lancepod.com"
+            error={errors && !!errors['email']}
+            {...register('email')}
+          />
+        </div>
+        <div className="mb-4">
+          <TextField
+            size="small"
+            required
+            multiline
+            variant="outlined"
+            autoComplete="on"
+            type="email"
+            label="マルチライン"
+            placeholder="example@lancepod.com"
+            error={errors && !!errors['email']}
+            {...register('email')}
+          />
+        </div>
+        <div className="mb-4">
+          <TextField
+            size="small"
+            error
+            fullWidth
+            multiline
+            rows={3}
+            variant="outlined"
+            autoComplete="on"
+            type="email"
+            label="エラー"
+            placeholder="example@lancepod.com"
+            {...register('email')}
+          />
+        </div>
+
+        <div className="mt-8">
+          <Button type="submit">登録する</Button>
+        </div>
+      </form>
+    </div>
   );
 };
