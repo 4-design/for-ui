@@ -3,7 +3,7 @@ import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import { Meta } from '@storybook/react/types-6-0';
 
-import { LegacyText as Text, LegacyTypography as Typography } from '../Typography';
+import { LegacyText as Text, LegacyTypography as Typography } from '../typography';
 import { Skeleton, SkeletonX } from './Skeleton';
 
 export default {

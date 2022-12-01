@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta, Args } from '@storybook/react/types-6-0';
 import { MdCheck } from 'react-icons/md';
 
-import { LegacyText as Text } from '../Typography';
+import { LegacyText as Text } from '../typography';
 import { Chip } from './Chip';
 
 export default {

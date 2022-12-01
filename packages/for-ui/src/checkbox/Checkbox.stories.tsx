@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 
 import { Button } from '../button';
 import { Checkbox } from './Checkbox';
-import { LegacyText as Text } from '../Typography';
+import { LegacyText as Text } from '../typography';
 
 export default {
   title: 'Form / Checkbox',
