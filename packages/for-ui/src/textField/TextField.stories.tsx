@@ -139,7 +139,7 @@ export const Outlined = (): JSX.Element => {
         <h1 className="mb-4">Text Field (default styles)</h1>
         <div className="mb-4">
           <TextField
-            fontSize="medium"
+            size="medium"
             required
             fullWidth
             variant="outlined"
@@ -152,7 +152,7 @@ export const Outlined = (): JSX.Element => {
         </div>
         <div className="mb-4">
           <TextField
-            fontSize="medium"
+            size="medium"
             error
             required
             fullWidth
@@ -168,7 +168,7 @@ export const Outlined = (): JSX.Element => {
 
         <div className="mb-4">
           <TextField
-            fontSize="medium"
+            size="medium"
             type="password"
             label="パスワード"
             placeholder="example@lancepod.com"
@@ -179,7 +179,7 @@ export const Outlined = (): JSX.Element => {
 
         <div className="mb-4">
           <TextField
-            fontSize="medium"
+            size="medium"
             label="金額"
             placeholder="3"
             unitLabel="万円"
@@ -190,7 +190,7 @@ export const Outlined = (): JSX.Element => {
         </div>
         <div className="mb-4">
           <TextField
-            fontSize="medium"
+            size="medium"
             disabled
             required
             fullWidth
@@ -207,7 +207,7 @@ export const Outlined = (): JSX.Element => {
         </div>
         <div className="mb-4">
           <TextField
-            fontSize="medium"
+            size="medium"
             required
             multiline
             variant="outlined"
@@ -221,7 +221,7 @@ export const Outlined = (): JSX.Element => {
         </div>
         <div className="mb-4">
           <TextField
-            fontSize="medium"
+            size="medium"
             error
             fullWidth
             multiline
