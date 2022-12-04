@@ -92,29 +92,29 @@ export const Filled = (): JSX.Element => (
         </div>
 
         <div className="flex flex-col gap-4">
-          <Button size="medium" variant="contained" startIcon={<MdAdd size={20} />}>
+          <Button size="medium" variant="contained" startIcon={<MdAdd size={16} />}>
             登録する
           </Button>
 
-          <Button size="medium" variant="contained" startIcon={<MdAdd size={20} />} disabled>
+          <Button size="medium" variant="contained" startIcon={<MdAdd size={16} />} disabled>
             登録する
           </Button>
 
-          <Button size="medium" variant="contained" startIcon={<MdAdd size={20} />} loadingPosition="start" loading>
+          <Button size="medium" variant="contained" startIcon={<MdAdd size={16} />} loadingPosition="start" loading>
             登録する
           </Button>
         </div>
 
         <div className="flex flex-col gap-4">
-          <Button size="medium" variant="contained" endIcon={<MdEdit size={20} />}>
+          <Button size="medium" variant="contained" endIcon={<MdEdit size={16} />}>
             登録する
           </Button>
 
-          <Button size="medium" variant="contained" endIcon={<MdEdit size={20} />} disabled>
+          <Button size="medium" variant="contained" endIcon={<MdEdit size={16} />} disabled>
             登録する
           </Button>
 
-          <Button size="medium" variant="contained" endIcon={<MdEdit size={20} />} loadingPosition="end" loading>
+          <Button size="medium" variant="contained" endIcon={<MdEdit size={16} />} loadingPosition="end" loading>
             登録する
           </Button>
         </div>
@@ -194,29 +194,29 @@ export const Contained = (): JSX.Element => (
         </div>
 
         <div className="flex flex-col gap-4">
-          <Button size="medium" variant="contained" startIcon={<MdAdd size={20} />}>
+          <Button size="medium" variant="contained" startIcon={<MdAdd size={16} />}>
             登録する
           </Button>
 
-          <Button size="medium" variant="contained" startIcon={<MdAdd size={20} />} disabled>
+          <Button size="medium" variant="contained" startIcon={<MdAdd size={16} />} disabled>
             登録する
           </Button>
 
-          <Button size="medium" variant="contained" startIcon={<MdAdd size={20} />} loadingPosition="start" loading>
+          <Button size="medium" variant="contained" startIcon={<MdAdd size={16} />} loadingPosition="start" loading>
             登録する
           </Button>
         </div>
 
         <div className="flex flex-col gap-4">
-          <Button size="medium" variant="contained" endIcon={<MdEdit size={20} />}>
+          <Button size="medium" variant="contained" endIcon={<MdEdit size={16} />}>
             登録する
           </Button>
 
-          <Button size="medium" variant="contained" endIcon={<MdEdit size={20} />} disabled>
+          <Button size="medium" variant="contained" endIcon={<MdEdit size={16} />} disabled>
             登録する
           </Button>
 
-          <Button size="medium" variant="contained" endIcon={<MdEdit size={20} />} loadingPosition="end" loading>
+          <Button size="medium" variant="contained" endIcon={<MdEdit size={16} />} loadingPosition="end" loading>
             登録する
           </Button>
         </div>
@@ -296,29 +296,29 @@ export const Outlined = (): JSX.Element => (
         </div>
 
         <div className="flex flex-col gap-4">
-          <Button size="medium" variant="outlined" startIcon={<MdAdd size={20} />}>
+          <Button size="medium" variant="outlined" startIcon={<MdAdd size={16} />}>
             登録する
           </Button>
 
-          <Button size="medium" variant="outlined" startIcon={<MdAdd size={20} />} disabled>
+          <Button size="medium" variant="outlined" startIcon={<MdAdd size={16} />} disabled>
             登録する
           </Button>
 
-          <Button size="medium" variant="outlined" startIcon={<MdAdd size={20} />} loadingPosition="start" loading>
+          <Button size="medium" variant="outlined" startIcon={<MdAdd size={16} />} loadingPosition="start" loading>
             登録する
           </Button>
         </div>
 
         <div className="flex flex-col gap-4">
-          <Button size="medium" variant="outlined" endIcon={<MdEdit size={20} />}>
+          <Button size="medium" variant="outlined" endIcon={<MdEdit size={16} />}>
             登録する
           </Button>
 
-          <Button size="medium" variant="outlined" endIcon={<MdEdit size={20} />} disabled>
+          <Button size="medium" variant="outlined" endIcon={<MdEdit size={16} />} disabled>
             登録する
           </Button>
 
-          <Button size="medium" variant="outlined" endIcon={<MdEdit size={20} />} loadingPosition="end" loading>
+          <Button size="medium" variant="outlined" endIcon={<MdEdit size={16} />} loadingPosition="end" loading>
             登録する
           </Button>
         </div>
@@ -398,79 +398,29 @@ export const _Text = (): JSX.Element => (
         </div>
 
         <div className="flex flex-col gap-4">
-          <Button size="medium" variant="text" startIcon={<MdAdd size={20} />}>
+          <Button size="medium" variant="text" startIcon={<MdAdd size={16} />}>
             登録する
           </Button>
 
-          <Button size="medium" variant="text" startIcon={<MdAdd size={20} />} disabled>
+          <Button size="medium" variant="text" startIcon={<MdAdd size={16} />} disabled>
             登録する
           </Button>
 
-          <Button size="medium" variant="text" startIcon={<MdAdd size={20} />} loadingPosition="start" loading>
-            登録する
-          </Button>
-        </div>
-
-        <div className="flex flex-col gap-4">
-          <Button size="medium" variant="text" endIcon={<MdEdit size={20} />}>
-            登録する
-          </Button>
-
-          <Button size="medium" variant="text" endIcon={<MdEdit size={20} />} disabled>
-            登録する
-          </Button>
-
-          <Button size="medium" variant="text" endIcon={<MdEdit size={20} />} loadingPosition="end" loading>
-            登録する
-          </Button>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div className="mb-4 border-b">
-        <Text variant="h3">Button/Text/Small</Text>
-      </div>
-
-      <div className="flex flex-row gap-8">
-        <div className="flex flex-col gap-4">
-          <Button variant="text" size="small">
-            登録する
-          </Button>
-
-          <Button variant="text" size="small" disabled>
-            登録する
-          </Button>
-
-          <Button variant="text" size="small" loading>
+          <Button size="medium" variant="text" startIcon={<MdAdd size={16} />} loadingPosition="start" loading>
             登録する
           </Button>
         </div>
 
         <div className="flex flex-col gap-4">
-          <Button variant="text" size="small" startIcon={<MdAdd size={20} />}>
+          <Button size="medium" variant="text" endIcon={<MdEdit size={16} />}>
             登録する
           </Button>
 
-          <Button variant="text" size="small" startIcon={<MdAdd size={20} />} disabled>
+          <Button size="medium" variant="text" endIcon={<MdEdit size={16} />} disabled>
             登録する
           </Button>
 
-          <Button variant="text" size="small" startIcon={<MdAdd size={20} />} loadingPosition="start" loading>
-            登録する
-          </Button>
-        </div>
-
-        <div className="flex flex-col gap-4">
-          <Button variant="text" size="small" endIcon={<MdEdit size={20} />}>
-            登録する
-          </Button>
-
-          <Button variant="text" size="small" endIcon={<MdEdit size={20} />} disabled>
-            登録する
-          </Button>
-
-          <Button variant="text" size="small" endIcon={<MdEdit size={20} />} loadingPosition="end" loading>
+          <Button size="medium" variant="text" endIcon={<MdEdit size={16} />} loadingPosition="end" loading>
             登録する
           </Button>
         </div>
