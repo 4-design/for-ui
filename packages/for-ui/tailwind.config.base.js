@@ -304,45 +304,45 @@ const colors = {
 
 const fontSizes = {
   xs: [
-    '.75rem',
+    '.625rem',
     {
       lineHeight: '1rem',
-      letterSpacing: '.03rem',
+      letterSpacing: '.03em',
     },
   ],
   s: [
-    '.875rem',
+    '.75rem',
     {
       lineHeight: '1.25rem',
-      letterSpacing: '.03rem',
+      letterSpacing: '.03em',
     },
   ],
   r: [
-    '1rem',
+    '.875rem',
     {
       lineHeight: '1.5rem',
-      letterSpacing: '.03rem',
+      letterSpacing: '0',
     },
   ],
   xr: [
-    '1.25rem',
+    '1rem',
     {
       lineHeight: '1.75rem',
-      letterSpacing: '.03rem',
+      letterSpacing: '0',
     },
   ],
   l: [
-    '1.5rem',
+    '1.25rem',
     {
       lineHeight: '2rem',
-      letterSpacing: '.03rem',
+      letterSpacing: '0',
     },
   ],
   xl: [
     '2rem',
     {
       lineHeight: '2.5rem',
-      letterSpacing: '.03rem',
+      letterSpacing: '0',
     },
   ],
 };
