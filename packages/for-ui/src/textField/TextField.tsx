@@ -120,26 +120,15 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.
     );
 
     return (
-      <div className={fsx(['flex  flex-col', className])}>
+      <div className={fsx(['flex flex-col', className])}>
         <label>
           {label && (
-            <p
-              className={fsx([
-                'text-shade-medium-default mb-1 font-bold antialiased',
-                {
-                  large: 'text-r',
-                  medium: 'text-s',
-                }[size],
-                // labelTwin,
-              ])}
-            >
+            <p className={fsx(['text-s text-shade-medium-default mb-1 font-bold'])}>
               {label}
               {required && <span className="text-negative-medium-default">*</span>}
             </p>
           )}
           <MuiTextField
-            // MuiTextFieldのpropsに対応する
-            size={size === 'medium' ? 'small' : 'medium'}
             disabled={disabled}
             error={error}
             inputRef={validRef}
@@ -163,8 +152,8 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.
                 input: fsx([
                   'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
                   {
-                    large: 'text-s py-2 px-4',
-                    medium: 'py-1.5 px-2 text-xs',
+                    large: 'text-r py-2 px-4',
+                    medium: 'py-1.5 px-2 text-s',
                   }[size],
                 ]),
                 focused: fsx(['border-primary-medium-active']),
