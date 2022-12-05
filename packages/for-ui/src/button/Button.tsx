@@ -12,12 +12,13 @@ export type ButtonProps = Omit<LoadingButtonProps, 'color' | 'variant' | 'size'>
   color?: 'primary' | 'secondary' | 'default';
 
   // duplicated
-  size?: 'large' | 'medium';
+  size?: 'large' | 'medium' | 'small';
 };
 
 const sizes = {
   large: `px-6 py-2 text-r font-bold`,
   medium: `px-4 py-1 text-s font-bold`,
+  small: `px-2 py-0 text-s hover:bg-transparent`,
 };
 
 const defaultStyles = {
