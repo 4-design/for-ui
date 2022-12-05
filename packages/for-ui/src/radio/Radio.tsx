@@ -12,8 +12,8 @@ export interface RadioProps extends MuiRadioProps {
 const Indicator: FC<{ checked: boolean; disabled: boolean }> = ({ checked, disabled }) => (
   <span
     className={fsx([
-      'bg-shade-white-default h-5 w-5 rounded-full transition-[border-width] duration-100',
-      checked ? 'border-7' : 'group-hover:border-3 group-hover:border-secondary-dark-default border-2',
+      'bg-shade-white-default h-4 w-4 rounded-full transition-[border-width] duration-100',
+      checked ? 'border-[5px]' : 'group-hover:border-secondary-dark-default border-2',
       disabled
         ? 'border-shade-medium-disabled'
         : checked
@@ -30,7 +30,7 @@ const _Radio: FC<RadioProps> = memo(({ nopadding, disabled, ref, ...rest }) => (
     checkedIcon={<Indicator checked={true} disabled={!!disabled} />}
     disabled={disabled}
     classes={{
-      root: fsx(['group hover:bg-transparent', nopadding ? 'p-0' : 'p-1']),
+      root: fsx(['group hover:bg-transparent', nopadding ? 'p-0' : 'p-6']),
     }}
     inputRef={ref}
     {...rest}
@@ -48,7 +48,7 @@ export const Radio: FC<RadioProps> = forwardRef(({ label, value, disabled, ...re
           control={<_Radio value={value} disabled={disabled} ref={ref} {...rest} />}
           ref={ref}
           classes={{
-            root: fsx(['group m-0 flex gap-2']),
+            root: fsx(['group m-0 flex gap-1']),
             label: fsx(['text-s text-shade-dark-default font-sans']),
             disabled: fsx(['text-shade-dark-disabled']),
           }}
