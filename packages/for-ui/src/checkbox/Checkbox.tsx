@@ -8,6 +8,8 @@ export type CheckboxProps = MuiCheckboxProps & {
   nopadding?: boolean;
   // Checbox SVG Font Size
   iconsize?: number | string;
+  icon?: 'checked' | 'intermediate';
+  // onChange?: ChangeEventHandler<HTMLInputElement>;
 };
 
 const _Checkbox = ({ nopadding = false, iconsize = 28, ...rest }: CheckboxProps) => (
@@ -27,10 +29,11 @@ export const Checkbox = ({ label, nopadding = false, ...rest }: CheckboxProps) =
     <>
       {label ? (
         <FormControlLabel
+          className="gap-1"
           sx={{ margin: '0px' }}
           control={<_Checkbox nopadding={nopadding} {...rest} />}
           label={
-            <Typography variant="body1" disabled={rest.disabled} className="text-s ml-2">
+            <Typography variant="body1" disabled={rest.disabled} className="text-r">
               {label}
             </Typography>
           }
