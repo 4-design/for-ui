@@ -4,6 +4,7 @@ import { MdCheck } from 'react-icons/md';
 
 import { Text } from '../typography/Typography';
 import { Chip } from './Chip';
+import { Button } from '../button'
 
 export default {
   title: 'Form / Chip',
@@ -55,3 +56,37 @@ export const Base = (args: Args) => (
     </div>
   </div>
 );
+
+export const LineUp = (args: Args) => {
+  const [collapsed, setCollapsed] = React.useState(true)
+  return (
+    <div>
+      <div className={`flex flex-wrap gap-1 w-80 bg-shade-dark-default ${collapsed ? 'max-h-16 overflow-hidden' : ''}`}>
+        <Chip label="hello world" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+        <Chip label="hello" />
+      </div>
+      <Button onClick={() => {setCollapsed((v) => !v)}}>{ collapsed ? 'もっと見る' : '閉じる'}</Button>
+    </div>
+  )
+}
