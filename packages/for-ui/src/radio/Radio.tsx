@@ -13,7 +13,7 @@ const Indicator: FC<{ checked: boolean; disabled: boolean }> = ({ checked, disab
   <span
     className={fsx([
       'bg-shade-white-default h-4 w-4 rounded-full transition-[border-width] duration-100',
-      checked ? 'border-6' : 'group-hover:border-3 group-hover:border-secondary-dark-default border-2',
+      checked ? 'border-6' : 'group-hover:border-secondary-dark-default border-2',
       disabled
         ? 'border-shade-medium-disabled'
         : checked
@@ -30,7 +30,7 @@ const _Radio: FC<RadioProps> = memo(({ nopadding, disabled, ref, ...rest }) => (
     checkedIcon={<Indicator checked={true} disabled={!!disabled} />}
     disabled={disabled}
     classes={{
-      root: fsx(['group hover:bg-transparent', nopadding ? 'p-0' : 'p-6']),
+      root: fsx(['group hover:bg-transparent', nopadding ? 'p-0' : 'p-1']),
     }}
     inputRef={ref}
     {...rest}
