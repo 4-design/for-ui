@@ -8,6 +8,8 @@ export type CheckboxProps = MuiCheckboxProps & {
   nopadding?: boolean;
   // Checbox SVG Font Size
   iconsize?: number | string;
+  icon?: 'checked' | 'intermediate';
+  // onChange?: ChangeEventHandler<HTMLInputElement>;
 };
 
 const _Checkbox = ({ nopadding = false, iconsize = 28, ...rest }: CheckboxProps) => (
