@@ -27,10 +27,11 @@ export const Checkbox = ({ label, nopadding = false, ...rest }: CheckboxProps) =
     <>
       {label ? (
         <FormControlLabel
+          className="gap-1"
           sx={{ margin: '0px' }}
           control={<_Checkbox nopadding={nopadding} {...rest} />}
           label={
-            <Typography variant="body1" disabled={rest.disabled} className="text-s ml-2">
+            <Typography variant="body1" disabled={rest.disabled} className="text-r">
               {label}
             </Typography>
           }
