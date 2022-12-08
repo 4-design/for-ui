@@ -132,7 +132,7 @@ export const Select: FC<AutocompleteProps> = ({
         return (
           <TextField
             {...params}
-            size={size === 'medium' ? 'medium' : 'large'}
+            size={size === 'medium' ? 'small' : 'medium'}
             autoComplete="off"
             name={name}
             required={required}
