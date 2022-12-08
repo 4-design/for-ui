@@ -19,7 +19,7 @@ export type SelectOption = {
 
 const filter = createFilterOptions<SelectOption>();
 
-export type AutocompleteProps = UseAutocompleteProps<SelectOption, boolean, boolean, boolean> & {
+export type AutocompleteProps = Omit<UseAutocompleteProps<SelectOption, boolean, boolean, boolean>, 'size'> & {
   name: string;
   label?: string;
   placeholder?: string;
@@ -27,10 +27,12 @@ export type AutocompleteProps = UseAutocompleteProps<SelectOption, boolean, bool
   fullWidth?: boolean;
   loadingText?: React.ReactNode;
   disabled?: boolean;
+  size?: 'large' | 'medium';
 };
 
 export const Select: FC<AutocompleteProps> = ({
   name,
+  size = 'large',
   options = [],
   label,
   required = false,
@@ -130,6 +132,7 @@ export const Select: FC<AutocompleteProps> = ({
         return (
           <TextField
             {...params}
+            size={size === 'medium' ? 'medium' : 'large'}
             autoComplete="off"
             name={name}
             required={required}
