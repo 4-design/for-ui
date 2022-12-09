@@ -81,7 +81,13 @@ export const typographyStyles: { [key in Variant]: string } = {
   [variants.caption]: fsx`text-s text-shade-medium-default`,
 } as const;
 
-export const Typography: React.FC<Props> = ({ className, children, bold = false, variant = 'p', disabled = false }) => {
+export const LegacyTypography: React.FC<Props> = ({
+  className,
+  children,
+  bold = false,
+  variant = 'p',
+  disabled = false,
+}) => {
   const ElementType: React.ElementType = mapVariantToTag[variant];
   return (
     <ElementType
@@ -98,4 +104,4 @@ export const Typography: React.FC<Props> = ({ className, children, bold = false,
   );
 };
 
-export const Text = Typography;
+export const LegacyText = LegacyTypography;

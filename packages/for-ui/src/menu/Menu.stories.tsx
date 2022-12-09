@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 
 import { Button } from '../button/Button';
-import { Text } from '../typography/Typography';
+import { LegacyText as Text } from '../typography';
 import { Menu } from './Menu';
 import { MenuItem } from './MenuItem';
 

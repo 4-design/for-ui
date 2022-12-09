@@ -1,0 +1,197 @@
+import { Fragment, useState } from 'react';
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Text } from './Text';
+import { Select } from '../select';
+
+<Meta
+  title="General / Text"
+  component={Text}
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+# Spec
+
+`Text` は For Design System で定義されているテキストに関するトークンを便利に扱うための、React 実装のみに存在するコンポーネントです。
+
+## サイズ
+
+<Canvas>
+  <Story name="Spec / Size">
+    <Text as="label" size="xs" bold className="text-shade-medium-default">
+      text-xs
+    </Text>
+    <Text as="p" size="xs">
+      「For Design System」で叶えるデザインシステムの夢。
+    </Text>
+    <Text as="label" size="xs" bold className="text-shade-medium-default">
+      text-s
+    </Text>
+    <Text as="p" size="s">
+      「For Design System」で叶えるデザインシステムの夢。
+    </Text>
+    <Text as="label" size="xs" bold className="text-shade-medium-default">
+      text-r
+    </Text>
+    <Text as="p" size="r">
+      「For Design System」で叶えるデザインシステムの夢。
+    </Text>
+    <Text as="label" size="xs" bold className="text-shade-medium-default">
+      text-xr
+    </Text>
+    <Text as="p" size="xr">
+      「For Design System」で叶えるデザインシステムの夢。
+    </Text>
+    <Text as="label" size="xs" bold className="text-shade-medium-default">
+      text-l
+    </Text>
+    <Text as="p" size="l">
+      「For Design System」で叶えるデザインシステムの夢。
+    </Text>
+    <Text as="label" size="xs" bold className="text-shade-medium-default">
+      text-xl
+    </Text>
+    <Text as="p" size="xl">
+      「For Design System」で叶えるデザインシステムの夢。
+    </Text>
+  </Story>
+</Canvas>
+
+For Design System では `text-xs` `text-s` `text-r` `text-xr` `text-l` `text-xl` の 6 サイズのタイポグラフィを使い分けています。  
+サイズは `Text` Component の `size` prop または Tailwind で設定されている各値を `className` prop を使って指定することができます。  
+十分な可読性を確保するため、デフォルトでは `text-r` を使ってください。また本文テキストのサイズを基本として、情報設計に基づき適切な文字サイズを使用してください。
+
+なお `text-xs` と `text-s` 、`text-s` と `text-r` についてはそのままだとそれぞれの間でのヒエラルキーの表現が十分ではありません。  
+太字や色を使い情報に差をつけるようにしてください。
+
+### 背景
+
+多すぎるサイズの設定はデザインの一貫性を崩してしまい、ページごとに同じレベルの重要度で表示されるべきものが、デザイナーや実装者で異なってしまう可能性があります。
+これを防ぐため、この 6 種類のみとする制約を定めました。
+
+### 設定値
+
+比較的ニュートラルで表示領域が小さくとも可読性の高いサンセリフ体を基本とします。
+
+<section className="border border-shade-light-default p-6">
+
+#### **標準**
+
+コンポーネントや本文などあらゆる部分に使用します。
+
+| 優先度 | フォント名                                                            | ウェイト (regular, bold) | 説明                   |
+| -----: | :-------------------------------------------------------------------- | :----------------------- | :--------------------- |
+|      1 | [`Noto Sans JP`](https://fonts.google.com/noto/specimen/Noto+Sans+JP) | `400`, `700`             | 和文用のフォントです。 |
+|      2 | [`Inter`](https://fonts.google.com/specimen/Inter)                    | `400`, `700`             | 欧文用のフォントです。 |
+
+</section>
+
+<section className="border border-shade-light-default p-6">
+
+#### **等幅**
+
+ソースコードの表示部分など、似た文字が混ざると判別しにくい部分に使用します。
+
+| 優先度 | フォント名                                                            | ウェイト (regular, bold) | 説明                   |
+| -----: | :-------------------------------------------------------------------- | :----------------------- | :--------------------- |
+|      1 | [`Noto Sans JP`](https://fonts.google.com/noto/specimen/Noto+Sans+JP) | `400`, `700`             | 和文用のフォントです。 |
+|      2 | [`Fira Code`](https://fonts.google.com/specimen/Fira+Code)            | `400`, `700`             | 欧文用のフォントです。 |
+
+</section>
+
+TailwindCSS の設定では上記の優先度に基づいて各種設定がなされていますが、フォントの読み込みは各サービスで行ってもらう必要があります。  
+以下の値を HTML の head に挿入してください。(Next.js の場合は`_document.tsx`)
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap"
+/>
+```
+
+### テキストのスタイルと CSS での表現の対応表
+
+| Style     | Font Size        | Line Height      | Letter Spacing |
+| :-------- | :--------------- | :--------------- | :------------- |
+| `text-xs` | 12 px (.75 rem)  | 16 px (1 rem)    | .03 rem        |
+| `text-s`  | 14 px (.875 rem) | 20 px (1.25 rem) | .03 rem        |
+| `text-r`  | 16 px (1 rem)    | 24 px (1.5 rem)  | .03 rem        |
+| `text-xr` | 20 px (1.25 rem) | 28 px (1.75 rem) | .03 rem        |
+| `text-l`  | 24 px (1.5 rem)  | 32 px (2 rem)    | .03 rem        |
+| `text-xl` | 32 px (2 rem)    | 40 px (2.5 rem)  | .03 rem        |
+
+## カラー
+
+<Canvas>
+  <Story name="Spec / Color">
+    {() => {
+      const [intention, setIntention] = useState('shade');
+      const [level, setLevel] = useState('dark');
+      const [state, setState] = useState('default');
+      const color = `text-${intention}-${level}-${state}`;
+      return (
+        <section className={`flex py-16 gap-2 items-center text-transparent`}>
+          <Text className={`p-4 w-[40rem] ${color} block font-mono bg-[url('/transparent.svg')]`} size="l">
+            {color}
+            <br />
+            こんにちは
+          </Text>
+          <form className="flex flex-col gap-2 flex-1">
+            <Select
+              label="intention"
+              value={intention}
+              onChange={(_, option) => {
+                setIntention(option);
+              }}
+              options={['shade', 'primary', 'secondary', 'positive', 'negative', 'notice', 'informative']}
+              isOptionEqualToValue={(option, value) => option === value}
+            />
+            <Select
+              label="level"
+              value={level}
+              onChange={(_, option) => {
+                setLevel(option);
+              }}
+              options={['dark', 'medium', 'light', 'white']}
+              isOptionEqualToValue={(option, value) => option === value}
+            />
+            <Select
+              label="state"
+              value={state}
+              onChange={(_, option) => {
+                setState(option);
+              }}
+              options={['default', 'hover', 'active', 'disabled']}
+              isOptionEqualToValue={(option, value) => option === value}
+            />
+          </form>
+        </section>
+      );
+    }}
+  </Story>
+</Canvas>
+
+テキストの色はカラートークンに設定されているものを使用して適用します。`text-`ではじまるトークンのみを指定するようにしてください。  
+カラートークンは `intention`, `usage`, `level`, `state` の 4 つ組で構成されていて、Figma と TailwindCSS で `intention`と `usage` の指定の順番が異なりますが本質的には同じものです。
+
+- Figma: `intention` / `usage` / `level` - `state`
+- TailwindCSS: `usage` - `intention` - `level` - `state`
+
+以下がそれぞれの 4 つ組の意味です。
+
+- `usage` はテキストなのか背景なのか枠線なのかを示します。
+- `level` や `intention` は伝えたい情報の強さによって使い分けてください。通常 `intention` は一般的に色が示す意味を、`level` は同一 `intention` 内でのヒエラルキーを示します。
+- `state` はさらに状態に依存する変化を担保します。注意すべき点として、テキストが hover の状態にならないと hover という色を使えないということではなく、たとえば Button 自体が hover しているときにその中の labal に `text-shade-dark-hover` を使うのは問題がありません。ただし hover ではないのに hover という state の色を使うこと等はしないでください。
+
+デフォルトでは `text-shade-dark-default` を使用します。これは `global.css` で body に対して設定されているのでリセットする意図以外では指定する必要はありません。
+この使い分けは「意味を持たない色」であるのでさほど厳密ではありませんが、ページ間で統一することは必要です。例えばあるページでは top-level の Card のタイトルが `text-shade-dark-default` なのに、またあるページでは `text-low` である、このようなことは避けるべきです。
+
+どのカラートークンが設定されているかについては、上にプレイグラウンドを用意したので実際にそれぞれの値を設定してみて表示されるものを確認してください。表示されなければそのトークンは設定されていません。
+
+_TODO: いずれトークン全体の概要を設置予定_

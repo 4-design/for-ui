@@ -14,7 +14,7 @@ export * from './select';
 export * from './skeleton';
 export * from './stepper';
 export * from './switch';
-export * from './typography';
+export * from './text';
 export * from './textField';
 export * from './tab';
 export * from './table';

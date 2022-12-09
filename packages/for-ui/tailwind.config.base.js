@@ -509,6 +509,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['YakuHanJP', 'Inter', 'Noto Sans JP', ...defaultTheme.fontFamily.sans],
+        mono: ['Fira Code', 'Noto Sans JP', ...defaultTheme.fontFamily.mono],
       },
       gridTemplateColumns: {
         'auto-1': 'repeat(auto-fill, minmax(80px, 1fr))',
