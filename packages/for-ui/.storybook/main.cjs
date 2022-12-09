@@ -19,6 +19,5 @@ module.exports = {
   framework: '@storybook/react',
   features: {
     storyStoreV7: true,
-    previewMdx2: true,
   },
 };
