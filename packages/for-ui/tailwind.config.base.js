@@ -437,6 +437,7 @@ module.exports = {
       },
       borderWidth: {
         3: '3px',
+        6: '6px',
         7: '7px',
       },
       spacing: {
