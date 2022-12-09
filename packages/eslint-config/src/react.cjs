@@ -22,6 +22,11 @@ module.exports = {
         'react/react-in-jsx-scope': 'off', // import of React is no longer required starting from react@17
         'tailwindcss/no-custom-classname': 'off',
       },
+      settings: {
+        react: {
+          version: 'detect',
+        },
+      },
     },
     {
       files: [
