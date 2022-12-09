@@ -2,7 +2,7 @@ import React, { Children, ReactNode } from 'react';
 import LoadingButton, { LoadingButtonProps } from '@mui/lab/LoadingButton';
 import { fsx } from '../system/fsx';
 
-export type ButtonProps = Omit<LoadingButtonProps, 'color' | 'variant'> & {
+export type ButtonProps = Omit<LoadingButtonProps, 'color' | 'variant' | 'size'> & {
   className?: string;
 
   // NOTE: duplicated "contained"
@@ -10,11 +10,14 @@ export type ButtonProps = Omit<LoadingButtonProps, 'color' | 'variant'> & {
 
   // duplicated
   color?: 'primary' | 'secondary' | 'default';
+
+  // duplicated
+  size?: 'large' | 'medium' | 'small';
 };
 
 const sizes = {
-  large: `px-6 py-2 text-r`,
-  medium: `px-4 py-1 text-s`,
+  large: `px-6 py-2 text-r font-bold`,
+  medium: `px-4 py-1 text-s font-bold`,
   small: `px-2 py-0 text-s hover:bg-transparent`,
 };
 
