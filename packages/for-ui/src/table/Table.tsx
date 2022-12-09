@@ -215,14 +215,16 @@ export type RowProps<T extends RowData> = {
   row: RowType<T>;
   selectable: boolean;
   onClick: (e: MouseEvent<HTMLTableRowElement>, row: RowType<T>) => void;
+  className?: string;
 };
 
-export const Row = <T extends RowData>({ row, selectable, onClick }: RowProps<T>) => (
+export const Row = <T extends RowData>({ row, selectable, onClick, className }: RowProps<T>) => (
   <tr
     key={row.id}
     className={fsx([
       'border-shade-light-default border-b transition duration-300 ease-in-out',
       selectable && 'hover:bg-shade-light-default cursor-pointer',
+      className,
     ])}
     onClick={(e) => onClick(e, row)}
   >
