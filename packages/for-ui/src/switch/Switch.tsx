@@ -10,6 +10,10 @@ export type SwitchProps = Omit<FormControlLabelProps, 'control'> & {
 export const Switch: React.FC<SwitchProps> = ({ value, checked, disabled, ...rest }) => {
   return (
     <FormControlLabel
+      classes={{
+        root: fsx(['m-0 flex gap-1']),
+        label: fsx(['text-r text-shade-dark-default font-sans']),
+      }}
       control={
         <MuiSwitch
           value={value}
