@@ -347,6 +347,28 @@ const fontSizes = {
   ],
 };
 
+const borderColors = {
+  transparent: 'transparent',
+  shade: colors.shade.border,
+  primary: colors.primary.border,
+  secondary: colors.secondary.border,
+  negative: colors.negative.border,
+  positive: colors.positive.border,
+  notice: colors.notice.border,
+  informative: colors.notice.border,
+}
+
+const iconColors = {
+  transparent: 'transparent',
+  shade: colors.shade.icon,
+  primary: colors.primary.icon,
+  secondary: colors.secondary.icon,
+  positive: colors.positive.icon,
+  notice: colors.notice.icon,
+  informative: colors.notice.icon,
+  negative: colors.negative.icon,
+}
+
 module.exports = {
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
@@ -396,26 +418,10 @@ module.exports = {
       notice: colors.notice.background,
       informative: colors.notice.background,
     },
-    borderColor: {
-      transparent: 'transparent',
-      shade: colors.shade.border,
-      primary: colors.primary.border,
-      secondary: colors.secondary.border,
-      negative: colors.negative.border,
-      positive: colors.positive.border,
-      notice: colors.notice.border,
-      informative: colors.notice.border,
-    },
-    iconColor: {
-      transparent: 'transparent',
-      shade: colors.shade.icon,
-      primary: colors.primary.icon,
-      secondary: colors.secondary.icon,
-      positive: colors.positive.icon,
-      notice: colors.notice.icon,
-      informative: colors.notice.icon,
-      negative: colors.negative.icon,
-    },
+    borderColor: borderColors,
+    ringColor: borderColors,
+    iconColor: iconColors,
+    fillColor: iconColors,
     fontSize: {
       xs: fontSizes.s,
       sm: fontSizes.s,
