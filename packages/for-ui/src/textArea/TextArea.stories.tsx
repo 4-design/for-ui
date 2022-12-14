@@ -6,6 +6,7 @@ import * as yup from 'yup';
 
 import { Button } from '../button/Button';
 import { TextArea } from './TextArea';
+import { Text } from '../text';
 
 export default {
   title: 'Form / TextArea',
@@ -26,7 +27,7 @@ const schema = yup.object().shape({
   password: yup.string().required(),
 });
 
-export const Outlined = (): JSX.Element => {
+export const Default = (): JSX.Element => {
   const {
     register,
     handleSubmit,
@@ -37,42 +38,52 @@ export const Outlined = (): JSX.Element => {
   const onSubmit = (data: unknown) => console.info(data);
 
   return (
-    <form className="w-96" onSubmit={handleSubmit(onSubmit)}>
-      <h1 className="mb-4">Text Field (default styles)</h1>
-      <div className="mb-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+      <Text as="h3" size="l" weight="bold">
+        TextArea
+      </Text>
+      <Text as="label" size="s" weight="bold" className="text-shade-medium-default flex flex-col gap-1">
+        3行固定TextArea
         <TextArea
-          required
           rows={3}
           autoComplete="on"
-          label="メールアドレス"
-          placeholder="example@lancepod.com"
-          error={errors && !!errors['email']}
+          placeholder="4design@example.com"
+          error={!!errors['email']}
           {...register('email')}
         />
-      </div>
-      <div className="mb-4">
+      </Text>
+      <Text as="label" size="s" weight="bold" className="text-shade-medium-default flex flex-col gap-1">
+        改行すると行が増えるTextArea
         <TextArea
           required
           autoComplete="on"
-          label="マルチライン"
-          placeholder="example@lancepod.com"
-          error={errors && !!errors['email']}
+          placeholder="4design@example.com"
+          error={!!errors['email']}
           {...register('email')}
         />
-      </div>
-      <div className="mb-4">
+      </Text>
+      <Text as="label" size="s" weight="bold" className="text-shade-medium-default flex flex-col gap-1">
+        最小2行 最大4行 TextArea
         <TextArea
-          error
+          required
+          minRows={2}
+          maxRows={4}
           autoComplete="on"
-          label="エラー"
-          placeholder="example@lancepod.com"
+          placeholder="4design@example.com"
+          error={!!errors['email']}
           {...register('email')}
         />
-      </div>
-
-      <div className="mt-8">
-        <Button type="submit">登録する</Button>
-      </div>
+      </Text>
+      <Text as="label" size="s" weight="bold" className="text-shade-medium-default flex flex-col gap-1">
+        <Text>
+          エラー
+          <Text className="text-negative-medium-default" weight="regular">
+            *
+          </Text>
+        </Text>
+        <TextArea error autoComplete="on" placeholder="4design@example.com" {...register('email')} />
+      </Text>
+      <Button type="submit">登録する</Button>
     </form>
   );
 };
