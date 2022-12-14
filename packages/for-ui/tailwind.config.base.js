@@ -356,7 +356,7 @@ const borderColors = {
   positive: colors.positive.border,
   notice: colors.notice.border,
   informative: colors.notice.border,
-}
+};
 
 const iconColors = {
   transparent: 'transparent',
@@ -367,7 +367,7 @@ const iconColors = {
   notice: colors.notice.icon,
   informative: colors.notice.icon,
   negative: colors.negative.icon,
-}
+};
 
 module.exports = {
   content: [
