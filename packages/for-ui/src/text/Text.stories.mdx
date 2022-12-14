@@ -22,31 +22,31 @@ import { Select } from '../select';
 
 <Canvas>
   <Story name="Spec / Size">
-    <Text as="label" size="xs" bold className="text-shade-medium-default">
+    <Text as="label" size="xs" weight="bold" className="text-shade-medium-default">
       text-xs
     </Text>
     <Text as="p" size="xs">
       「For Design System」で叶えるデザインシステムの夢。
     </Text>
-    <Text as="label" size="xs" bold className="text-shade-medium-default">
+    <Text as="label" size="xs" weight="bold" className="text-shade-medium-default">
       text-s
     </Text>
     <Text as="p" size="s">
       「For Design System」で叶えるデザインシステムの夢。
     </Text>
-    <Text as="label" size="xs" bold className="text-shade-medium-default">
+    <Text as="label" size="xs" weight="bold" className="text-shade-medium-default">
       text-r
     </Text>
     <Text as="p" size="r">
       「For Design System」で叶えるデザインシステムの夢。
     </Text>
-    <Text as="label" size="xs" bold className="text-shade-medium-default">
+    <Text as="label" size="xs" weight="bold" className="text-shade-medium-default">
       text-xr
     </Text>
     <Text as="p" size="xr">
       「For Design System」で叶えるデザインシステムの夢。
     </Text>
-    <Text as="label" size="xs" bold className="text-shade-medium-default">
+    <Text as="label" size="xs" weight="bold" className="text-shade-medium-default">
       text-l
     </Text>
     <Text as="p" size="l">
@@ -115,16 +115,23 @@ TailwindCSS の設定では上記の優先度に基づいて各種設定がな�
 />
 ```
 
-### テキストのスタイルと CSS での表現の対応表
+### Tailwind の Class と Figma の Text Styles と設定値の対応表
 
-| Style     | Font Size        | Line Height      | Letter Spacing |
-| :-------- | :--------------- | :--------------- | :------------- |
-| `text-xs` | 12 px (.75 rem)  | 16 px (1 rem)    | .03 rem        |
-| `text-s`  | 14 px (.875 rem) | 20 px (1.25 rem) | .03 rem        |
-| `text-r`  | 16 px (1 rem)    | 24 px (1.5 rem)  | .03 rem        |
-| `text-xr` | 20 px (1.25 rem) | 28 px (1.75 rem) | .03 rem        |
-| `text-l`  | 24 px (1.5 rem)  | 32 px (2 rem)    | .03 rem        |
-| `text-xl` | 32 px (2 rem)    | 40 px (2.5 rem)  | .03 rem        |
+Figma Text Styleについて、
+
+- `*/bold` に関しては `weight` props または `font-bold` TailwindCSS class
+- `*/*-link` に関しては `underline` TailwindCSS class
+
+を使用してください。
+
+| TailwindCSS Class     | Figma Text Styles | Font Size        | Line Height      | Letter Spacing |
+| :-------- | :-- | :--------------- | :--------------- | :------------- |
+| `text-xs` | `xs/regular`, `xs/bold`, `xs/regular-link`, `xs/bold-link` | 12 px (.75 rem)  | 16 px (1 rem)    | .03 rem        |
+| `text-s`  | `s/regular`, `s/bold`, `s/regular-link`, `s/bold-link` | 14 px (.875 rem) | 20 px (1.25 rem) | .03 rem        |
+| `text-r`  | `r/regular`, `r/bold`, `r/regular-link`, `r/bold-link` | 16 px (1 rem)    | 24 px (1.5 rem)  | .03 rem        |
+| `text-xr` | `xr/regular`, `xr/bold`, `xr/regular-link`, `xr/bold-link` | 20 px (1.25 rem) | 28 px (1.75 rem) | .03 rem        |
+| `text-l`  | `l/regular`, `l/bold`, `l/regular-link`, `l/bold-link` | 24 px (1.5 rem)  | 32 px (2 rem)    | .03 rem        |
+| `text-xl` | `xl/regular`, `xl/bold`, `xl/regular-link`, `xl/bold-link` | 32 px (2 rem)    | 40 px (2.5 rem)  | .03 rem        |
 
 ## カラー
 
