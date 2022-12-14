@@ -102,11 +102,6 @@ const colors = {
       light: {
         default: 'var(--primary-text-light-default)',
       },
-      white: {
-        default: 'var(--primary-text-white-default)',
-        hover: 'var(--primary-text-white-hover)',
-        disabled: 'var(--primary-text-white-disabled)',
-      },
     },
 
     background: {

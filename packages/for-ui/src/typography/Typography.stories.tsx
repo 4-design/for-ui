@@ -105,7 +105,6 @@ const colors = {
   'text-shade-dark-disabled': `text-shade-dark-disabled`,
   'text-primary-dark-default': `text-primary-dark-default`,
   'text-negative-medium-default': `text-negative-medium-default`,
-  'text-primary-white-default': `text-primary-white-default`,
 };
 
 export const Colors = (): JSX.Element => {
