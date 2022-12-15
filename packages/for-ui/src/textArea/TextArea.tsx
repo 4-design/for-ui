@@ -3,16 +3,39 @@ import { forwardRef } from 'react';
 import { fsx } from '../system/fsx';
 
 export type TextAreaProps = TextareaAutosizeProps & {
-  className?: string;
+  /**
+   * エラーが発生していることを示したい場合に指定
+   * @default false
+   */
   error?: boolean;
+
+  className?: string;
 } & (
     | {
+        /**
+         * 最小の行数を指定 (入力行が何行でもminRows未満にはならない)
+         */
         minRows?: TextareaAutosizeProps['minRows'];
+
+        /**
+         * 最大の行数を指定 (入力行が何行でもmaxRowsより多くはならない)
+         */
         maxRows?: TextareaAutosizeProps['maxRows'];
+
+        /**
+         * minRows, maxRowsと組み合わせて使うことはできません
+         */
         rows?: never;
       }
     | {
+        /**
+         * rowsと組み合わせて使うことはできません
+         */
         minRows?: never;
+
+        /**
+         * rowsと組み合わせて使うことはできません
+         */
         maxRows?: never;
         rows?: number;
       }
