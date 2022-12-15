@@ -11,9 +11,6 @@ import { Text } from '../text';
 export default {
   title: 'Form / TextArea',
   component: TextArea,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
 } as Meta;
 
 type FieldValue = {
@@ -83,7 +80,32 @@ export const Default = (): JSX.Element => {
         </Text>
         <TextArea error autoComplete="on" placeholder="4design@example.com" {...register('email')} />
       </Text>
+      <Text as="label" size="s" weight="bold" className="text-shade-medium-default flex flex-col gap-1">
+        disabled
+        <TextArea
+          rows={3}
+          autoComplete="on"
+          placeholder="4design@example.com"
+          error={!!errors['email']}
+          disabled
+          {...register('email')}
+        />
+      </Text>
       <Button type="submit">登録する</Button>
     </form>
   );
+};
+
+export const Playground = {
+  args: {
+    rows: undefined,
+    minRows: undefined,
+    maxRows: undefined,
+    disabled: undefined,
+    placeholder: '',
+    error: undefined,
+    defaultValue: undefined,
+    value: undefined,
+    className: undefined,
+  },
 };
