@@ -1,5 +1,5 @@
-import TextareaAutosize, { TextareaAutosizeProps } from '@mui/base/TextareaAutosize';
 import { forwardRef } from 'react';
+import TextareaAutosize, { TextareaAutosizeProps } from '@mui/base/TextareaAutosize';
 import { fsx } from '../system/fsx';
 
 export type TextAreaProps = Omit<TextareaAutosizeProps, 'disabled' | 'className' | 'minRows' | 'maxRows'> & {
