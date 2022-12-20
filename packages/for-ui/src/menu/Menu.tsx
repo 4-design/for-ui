@@ -7,6 +7,7 @@ import { usePopupState } from 'material-ui-popup-state/hooks';
 export type MenuProps = Omit<MuiMenuProps, 'open'> & {
   TriggerComponent: React.ReactNode;
   nopadding?: boolean;
+  className?: string;
 };
 
 export const Menu = forwardRef<HTMLDivElement, MenuProps>(
@@ -23,6 +24,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
       children,
       TriggerComponent,
       nopadding = false,
+      className,
       ...rest
     },
     ref
@@ -49,7 +51,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
           anchorOrigin={anchorOrigin}
           transformOrigin={transformOrigin}
           classes={{
-            root: fsx(['translate-y-2']),
+            root: fsx('translate-y-2', className),
             paper: fsx(['z-modal shadow-menu  min-w-min rounded-[4px]', nopadding ? 'p-0' : 'p-1']),
             list: fsx(['divide-shade-light-default grid grid-cols-1 divide-y py-0']),
             ...rest.classes,

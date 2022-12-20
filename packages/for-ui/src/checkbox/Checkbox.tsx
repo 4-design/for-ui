@@ -8,26 +8,27 @@ export type CheckboxProps = MuiCheckboxProps & {
   nopadding?: boolean;
   // Checbox SVG Font Size
   iconsize?: number | string;
+  className?: string;
 };
 
-const _Checkbox = ({ nopadding = false, iconsize = 28, ...rest }: CheckboxProps) => (
+const _Checkbox = ({ nopadding = false, iconsize = 28, className, ...rest }: CheckboxProps) => (
   <MuiCheckbox
     classes={{
-      root: fsx(['text-shade-medium-default', nopadding ? 'p-0' : 'p-1']),
-      checked: fsx(['text-secondary-dark-default']),
-      disabled: fsx(['text-shade-dark-disabled']),
+      root: fsx('text-shade-medium-default', className, nopadding ? 'p-0' : 'p-1'),
+      checked: fsx('text-secondary-dark-default'),
+      disabled: fsx('text-shade-dark-disabled'),
     }}
     sx={{ '& .MuiSvgIcon-root': { fontSize: iconsize } }}
     {...rest}
   />
 );
 
-export const Checkbox = ({ label, nopadding = false, disabled, ...rest }: CheckboxProps) => {
+export const Checkbox = ({ label, nopadding = false, disabled, className, ...rest }: CheckboxProps) => {
   return (
     <>
       {label ? (
         <FormControlLabel
-          sx={{ margin: '0px' }}
+          className={fsx(`m-0`, className)}
           control={<_Checkbox nopadding={nopadding} {...rest} />}
           label={
             <Text size="s" className={fsx(`text-shade-dark-default ml-2`, disabled && `text-shade-dark-disabled`)}>
@@ -36,7 +37,7 @@ export const Checkbox = ({ label, nopadding = false, disabled, ...rest }: Checkb
           }
         />
       ) : (
-        <_Checkbox nopadding={nopadding} {...rest} />
+        <_Checkbox nopadding={nopadding} className={className} {...rest} />
       )}
     </>
   );

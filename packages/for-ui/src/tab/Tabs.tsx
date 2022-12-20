@@ -7,6 +7,7 @@ export interface TabsProps extends MuiTabsProps {
   noBorder?: boolean;
   reverse?: boolean;
   color?: 'primary' | 'secondary';
+  className?: string;
 }
 
 const colorStyle = {
@@ -32,14 +33,14 @@ const BorderedTabs: React.FC<TabsProps> = (props) => (
   </Box>
 );
 
-const _Tabs: React.FC<TabsProps> = ({ reverse = false, color = 'secondary', value, onChange, children, ...rest }) => {
+const _Tabs: React.FC<TabsProps> = ({ reverse = false, color = 'secondary', value, onChange, children, className, ...rest }) => {
   return (
     <MuiTabs
       value={value}
       onChange={onChange}
       classes={{
-        root: fsx(['min-h-[auto]']),
-        indicator: fsx([colorStyle[color], reverse && 'top-0']),
+        root: fsx('min-h-[auto]', className),
+        indicator: fsx(colorStyle[color], reverse && 'top-0'),
       }}
       {...rest}
     >

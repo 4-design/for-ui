@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, forwardRef } from 'react';
 import { UseAutocompleteProps } from '@mui/material';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import MuiPaper, { PaperProps } from '@mui/material/Paper';
@@ -27,24 +27,25 @@ export type AutocompleteProps = UseAutocompleteProps<SelectOption, boolean, bool
   fullWidth?: boolean;
   loadingText?: React.ReactNode;
   disabled?: boolean;
+  className?: string;
 };
 
-export const Select: FC<AutocompleteProps> = ({
+export const Select: FC<AutocompleteProps> = forwardRef<HTMLInputElement, AutocompleteProps>(({
   name,
   options = [],
   label,
   required = false,
-  // twin,
-  // inputTwin,
+  className,
   placeholder,
   multiple,
   freeSolo,
   onChange,
   disabled = false,
   ...rest
-}) => {
+}, ref) => {
   return (
     <Autocomplete
+      ref={ref}
       disablePortal
       disableCloseOnSelect={multiple}
       disableClearable
@@ -115,7 +116,7 @@ export const Select: FC<AutocompleteProps> = ({
         );
       }}
       classes={{
-        root: fsx(['bg-shade-white-default', '']),
+        root: fsx(['bg-shade-white-default', className]),
         paper: fsx(['min-w-min translate-y-4 rounded-2xl py-2']),
         inputRoot: fsx(['group bg-shade-white-default text-shade-light-default p-0 antialiased']),
         input: fsx([
@@ -143,4 +144,4 @@ export const Select: FC<AutocompleteProps> = ({
       {...rest}
     />
   );
-};
+})
