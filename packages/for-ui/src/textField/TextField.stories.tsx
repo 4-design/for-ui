@@ -6,7 +6,7 @@ import * as yup from 'yup';
 
 import { Button } from '../button/Button';
 import { TextField } from './TextField';
-import { Text } from '../text'
+import { Text } from '../text';
 
 export default {
   title: 'Form / TextField',
@@ -19,7 +19,7 @@ const schema = yup.object({
   price: yup.number().min(2).optional(),
 });
 
-type FieldValue = yup.InferType<typeof schema>
+type FieldValue = yup.InferType<typeof schema>;
 
 export const Outlined = (): JSX.Element => {
   const {
@@ -29,11 +29,15 @@ export const Outlined = (): JSX.Element => {
   } = useForm<FieldValue>({
     resolver: yupResolver(schema),
   });
-  const onSubmit = useCallback((data: unknown) => { console.info(data); }, [])
+  const onSubmit = useCallback((data: unknown) => {
+    console.info(data);
+  }, []);
 
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
-      <Text as="h3" size="l" weight="bold">Text Field</Text>
+      <Text as="h3" size="l" weight="bold">
+        Text Field
+      </Text>
       <div className="flex flex-col gap-1">
         <TextField
           required
@@ -46,7 +50,11 @@ export const Outlined = (): JSX.Element => {
           placeholder="example@example.com"
           {...register('email')}
         />
-        {errors['email'] && <Text size="s" className="text-negative-medium-default">メールアドレスは必須です</Text>}
+        {errors['email'] && (
+          <Text size="s" className="text-negative-medium-default">
+            メールアドレスは必須です
+          </Text>
+        )}
       </div>
 
       <div>
@@ -58,7 +66,11 @@ export const Outlined = (): JSX.Element => {
           error={!!errors['password']}
           {...register('password')}
         />
-        {errors['password'] && <Text size="s" className="text-negative-medium-default">パスワードは必須です</Text>}
+        {errors['password'] && (
+          <Text size="s" className="text-negative-medium-default">
+            パスワードは必須です
+          </Text>
+        )}
       </div>
 
       <div>
@@ -70,7 +82,11 @@ export const Outlined = (): JSX.Element => {
           error={!!errors['price']}
           {...register('price')}
         />
-        {errors['price'] && <Text size="s" className="text-negative-medium-default">金額は2万円以上を入力してください</Text>}
+        {errors['price'] && (
+          <Text size="s" className="text-negative-medium-default">
+            金額は2万円以上を入力してください
+          </Text>
+        )}
       </div>
 
       <Button type="submit">登録する</Button>
