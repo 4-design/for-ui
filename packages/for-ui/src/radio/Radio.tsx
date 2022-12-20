@@ -38,25 +38,27 @@ const _Radio: FC<RadioProps> = memo(({ nopadding, disabled, ref, ...rest }) => (
   />
 ));
 
-export const Radio: FC<RadioProps> = forwardRef<HTMLButtonElement, RadioProps>(({ label, value, disabled, className, ...rest }, ref) => {
-  return (
-    <Fragment>
-      {label ? (
-        <FormControlLabel
-          disabled={disabled}
-          value={value}
-          label={label}
-          control={<_Radio value={value} disabled={disabled} ref={ref} {...rest} />}
-          ref={ref}
-          classes={{
-            root: fsx('group m-0 flex gap-2', className),
-            label: fsx('text-s text-shade-dark-default font-sans'),
-            disabled: fsx('text-shade-dark-disabled'),
-          }}
-        />
-      ) : (
-        <_Radio value={value} disabled={disabled} ref={ref} {...rest} />
-      )}
-    </Fragment>
-  );
-});
+export const Radio: FC<RadioProps> = forwardRef<HTMLButtonElement, RadioProps>(
+  ({ label, value, disabled, className, ...rest }, ref) => {
+    return (
+      <Fragment>
+        {label ? (
+          <FormControlLabel
+            disabled={disabled}
+            value={value}
+            label={label}
+            control={<_Radio value={value} disabled={disabled} ref={ref} {...rest} />}
+            ref={ref}
+            classes={{
+              root: fsx('group m-0 flex gap-2', className),
+              label: fsx('text-s text-shade-dark-default font-sans'),
+              disabled: fsx('text-shade-dark-disabled'),
+            }}
+          />
+        ) : (
+          <_Radio value={value} disabled={disabled} ref={ref} {...rest} />
+        )}
+      </Fragment>
+    );
+  }
+);

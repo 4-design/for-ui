@@ -33,7 +33,15 @@ const BorderedTabs: React.FC<TabsProps> = (props) => (
   </Box>
 );
 
-const _Tabs: React.FC<TabsProps> = ({ reverse = false, color = 'secondary', value, onChange, children, className, ...rest }) => {
+const _Tabs: React.FC<TabsProps> = ({
+  reverse = false,
+  color = 'secondary',
+  value,
+  onChange,
+  children,
+  className,
+  ...rest
+}) => {
   return (
     <MuiTabs
       value={value}

@@ -5,7 +5,7 @@ import { fsx } from '../system/fsx';
 
 export type StepperProps = MuiStepperProps & {
   className?: string;
-}
+};
 
 export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
   ({ activeStep, alternativeLabel, children, className, ...rest }, ref) => {

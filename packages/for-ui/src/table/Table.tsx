@@ -43,7 +43,18 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'colu
       }
   );
 
-export const Table = <T extends RowData>({ data, disablePagination, defaultSortColumn, onSelectRow, onSelectRows, onRowClick, rowRenderer, getRowId, columns, className }: TableProps<T>) => {
+export const Table = <T extends RowData>({
+  data,
+  disablePagination,
+  defaultSortColumn,
+  onSelectRow,
+  onSelectRows,
+  onRowClick,
+  rowRenderer,
+  getRowId,
+  columns,
+  className,
+}: TableProps<T>) => {
   // const { data, disablePagination, defaultSortColumn, onSelectRow, onSelectRows, onRowClick, rowRenderer } = props;
   const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
@@ -156,7 +167,12 @@ export const Table = <T extends RowData>({ data, disablePagination, defaultSortC
 
   return (
     <>
-      <table className={fsx('border-shade-light-default w-full border-separate border-spacing-0 rounded-sm border', className)}>
+      <table
+        className={fsx(
+          'border-shade-light-default w-full border-separate border-spacing-0 rounded-sm border',
+          className
+        )}
+      >
         <thead className="bg-shade-light-default table-header-group">
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id} className="table-row align-middle">
