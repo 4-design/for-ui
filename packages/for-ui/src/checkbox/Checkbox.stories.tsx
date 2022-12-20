@@ -12,6 +12,12 @@ export default {
   decorators: [(Story) => <Story />],
 } as Meta;
 
+export const Playground = {
+  args: {
+    label: '',
+  },
+};
+
 export const Basic = (): JSX.Element => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data: unknown) => console.error(data);
