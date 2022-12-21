@@ -22,8 +22,8 @@ const Indicator: FC<{ state: 'default' | 'checked' | 'mixed' }> = ({ state }) =>
     {
       {
         default: null,
-        checked: <MdCheck className="fill-shade-white-default" />,
-        mixed: <MdRemove className="fill-shade-white-default" />,
+        checked: <MdCheck size={16} className="fill-shade-white-default" />,
+        mixed: <MdRemove size={16} className="fill-shade-white-default" />,
       }[state]
     }
   </span>
@@ -34,23 +34,23 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
     <FormControlLabel
       control={
         <MuiCheckbox
-          classes={{
-            root: fsx(nopadding ? 'p-0' : 'p-1'),
-          }}
           icon={<Indicator state="default" />}
           checkedIcon={<Indicator state="checked" />}
           indeterminateIcon={<Indicator state="mixed" />}
+          className={fsx(nopadding ? 'p-0' : 'p-1')}
           ref={ref}
           {...rest}
         />
       }
       label={
-        <Text size="r" className={fsx(`text-shade-dark-default`, disabled && `text-shade-dark-disabled`)}>
-          {label}
-        </Text>
+        label && (
+          <Text size="r" className={fsx(`text-shade-dark-default`, disabled && `text-shade-dark-disabled`)}>
+            {label}
+          </Text>
+        )
       }
       ref={ref}
-      className={fsx(`m-0 flex gap-1`, className)}
+      className={fsx(`m-0 inline-flex gap-1`, className)}
     />
   )
 );
