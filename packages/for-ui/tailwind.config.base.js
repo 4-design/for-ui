@@ -334,7 +334,7 @@ const fontSizes = {
     },
   ],
   xl: [
-    '2rem',
+    '1.5rem',
     {
       lineHeight: '2.5rem',
       letterSpacing: '0',
