@@ -1,6 +1,6 @@
 {
   "name": "@4design/eslint-config",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "3design's shared ESLint config",
   "repository": {
     "url": "4-design/for-ui",
@@ -26,8 +26,8 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-sonarjs": "^0.16.0",
-    "eslint-plugin-tailwindcss": "3.6.2",
+    "eslint-plugin-sonarjs": "^0.17.0",
+    "eslint-plugin-tailwindcss": "3.7.1",
     "eslint-plugin-unicorn": "^44.0.0"
   },
   "optionalDependencies": {

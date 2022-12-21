@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Title, Subtitle, Description, Source, DocsStory } from '@storybook/addon-docs/blocks';
 import { Meta } from '@storybook/react/types-6-0';
-import { Text, Variant, variants, texts } from './Typography';
+import { LegacyText as Text, Variant, variants, texts } from './Typography';
 
 export default {
   title: 'Example / Typography',
@@ -105,7 +105,6 @@ const colors = {
   'text-shade-dark-disabled': `text-shade-dark-disabled`,
   'text-primary-dark-default': `text-primary-dark-default`,
   'text-negative-medium-default': `text-negative-medium-default`,
-  'text-primary-white-default': `text-primary-white-default`,
 };
 
 export const Colors = (): JSX.Element => {
