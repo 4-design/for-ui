@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { BadgeProps } from '@mui/material/Badge';
 import MuiBadge from '@mui/material/Badge';
 
-interface Props extends BadgeProps {
+export interface Props extends BadgeProps {
   className?: string;
   children: ReactNode;
 }
