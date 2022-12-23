@@ -183,7 +183,6 @@ export const Map = () => {
               <div className="flex items-center p-3">
                 <TextField
                   required
-                  variant="outlined"
                   autoComplete="on"
                   placeholder="3"
                   unitLabel="万円"
@@ -194,7 +193,6 @@ export const Map = () => {
 
                 <TextField
                   required
-                  variant="outlined"
                   autoComplete="on"
                   placeholder="3"
                   unitLabel="万円"

@@ -139,7 +139,6 @@ export const Select: FC<AutocompleteProps> = forwardRef<HTMLInputElement, Autoco
               name={name}
               required={required}
               label={label}
-              variant="outlined"
               // inputTwin={inputTwin}
               placeholder={placeholder}
             />

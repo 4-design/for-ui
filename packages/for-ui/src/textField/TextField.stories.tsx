@@ -47,7 +47,6 @@ export const Outlined = (): JSX.Element => {
         <TextField
           required
           fullWidth
-          variant="outlined"
           error={!!errors['email']}
           autoComplete="on"
           type="email"
