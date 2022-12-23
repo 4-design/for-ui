@@ -206,7 +206,7 @@ const colors = {
   positive: {
     text: {
       medium: {
-        default: 'var(--postive-text-medium-default)',
+        default: 'var(--positive-text-medium-default)',
       },
       light: {
         default: 'var(--positive-text-light-default)',
