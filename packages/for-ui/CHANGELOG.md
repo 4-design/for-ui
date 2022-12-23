@@ -1,5 +1,19 @@
 # @3design/3design-ui
 
+## 1.0.8
+
+### Patch Changes
+
+- [#939](https://github.com/4-design/for-ui/pull/939) [`e98cbda`](https://github.com/4-design/for-ui/commit/e98cbdabdabca82dcf5f99ed96ab5bfe8de16717) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: `className` prop が抜けているコンポーネントに追加
+
+- [#931](https://github.com/4-design/for-ui/pull/931) [`6bb1914`](https://github.com/4-design/for-ui/commit/6bb191447486ef5d6baa0c1a6f2f1c21b483c59a) Thanks [@Qs-F](https://github.com/Qs-F)! - feat(TextArea): TextArea を追加
+
+- [#917](https://github.com/4-design/for-ui/pull/917) [`86a452f`](https://github.com/4-design/for-ui/commit/86a452fe38215defc82f00263db0e9c83ef0d75e) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
+- [#940](https://github.com/4-design/for-ui/pull/940) [`ca50161`](https://github.com/4-design/for-ui/commit/ca50161618c0dfe2ed90223f439bae3cf6d50190) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Badge): `BadgeProps` を export
+
+- [#938](https://github.com/4-design/for-ui/pull/938) [`5d2787a`](https://github.com/4-design/for-ui/commit/5d2787a21daa4bed8629838df3ce12b760dbc403) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextField): Storybook を改修
+
 ## 1.0.7
 
 ### Patch Changes

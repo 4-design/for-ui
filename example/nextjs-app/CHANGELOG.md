@@ -1,5 +1,14 @@
 # @3design/nextjs-app
 
+## 1.0.6
+
+### Patch Changes
+
+- [#917](https://github.com/4-design/for-ui/pull/917) [`86a452f`](https://github.com/4-design/for-ui/commit/86a452fe38215defc82f00263db0e9c83ef0d75e) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
+- Updated dependencies [[`e98cbda`](https://github.com/4-design/for-ui/commit/e98cbdabdabca82dcf5f99ed96ab5bfe8de16717), [`6bb1914`](https://github.com/4-design/for-ui/commit/6bb191447486ef5d6baa0c1a6f2f1c21b483c59a), [`86a452f`](https://github.com/4-design/for-ui/commit/86a452fe38215defc82f00263db0e9c83ef0d75e), [`ca50161`](https://github.com/4-design/for-ui/commit/ca50161618c0dfe2ed90223f439bae3cf6d50190), [`5d2787a`](https://github.com/4-design/for-ui/commit/5d2787a21daa4bed8629838df3ce12b760dbc403)]:
+  - @4design/for-ui@1.0.8
+
 ## 1.0.5
 
 ### Patch Changes
