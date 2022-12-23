@@ -29,6 +29,7 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'colu
   onRowClick?: (e: MouseEvent<HTMLTableRowElement>, row: RowType<T>) => void;
   /** The component used to render reach row. By default, Row is used. */
   rowRenderer?: FC<RowProps<T>>;
+  className?: string;
 } & (
     | {
         /** If wanting to use selectable table, specify _onSelectRow_ or _onSelectRows_ exclusively */
@@ -42,8 +43,19 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'colu
       }
   );
 
-export const Table = <T extends RowData>(props: TableProps<T>) => {
-  const { data, disablePagination, defaultSortColumn, onSelectRow, onSelectRows, onRowClick, rowRenderer } = props;
+export const Table = <T extends RowData>({
+  data,
+  disablePagination,
+  defaultSortColumn,
+  onSelectRow,
+  onSelectRows,
+  onRowClick,
+  rowRenderer,
+  getRowId,
+  columns,
+  className,
+}: TableProps<T>) => {
+  // const { data, disablePagination, defaultSortColumn, onSelectRow, onSelectRows, onRowClick, rowRenderer } = props;
   const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
   const prevRowSelection = useRef<RowSelectionState>({});
@@ -77,10 +89,10 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
 
   const RowComponent: FC<RowProps<T>> = rowRenderer || Row;
 
-  const columns = useMemo(() => {
+  const selectableColumns = useMemo(() => {
     // Not selectable table
     if (!(onSelectRow || onSelectRows)) {
-      return props.columns;
+      return columns;
     }
 
     const selectColumn: ColumnDef<T> = {
@@ -132,17 +144,17 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
         </TableCell>
       ),
     };
-    return [selectColumn, ...props.columns];
-  }, [props, onSelectRow, onSelectRows, selectRow]);
+    return [selectColumn, ...columns];
+  }, [onSelectRow, onSelectRows, selectRow, columns]);
 
   const table = useReactTable({
     data,
-    columns,
+    columns: selectableColumns,
     state: {
       sorting,
       rowSelection,
     },
-    getRowId: props.getRowId,
+    getRowId,
     onRowSelectionChange,
     onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
@@ -155,7 +167,12 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
 
   return (
     <>
-      <table className="border-shade-light-default w-full border-separate border-spacing-0 rounded-sm border">
+      <table
+        className={fsx(
+          'border-shade-light-default w-full border-separate border-spacing-0 rounded-sm border',
+          className
+        )}
+      >
         <thead className="bg-shade-light-default table-header-group">
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id} className="table-row align-middle">

@@ -5,8 +5,8 @@ import { fsx } from '../system/fsx';
 type ChipColorType = 'default' | 'negative' | 'white';
 
 export type ChipProps = Omit<MuiChipProps, 'color' | 'icon' | 'deleteIcon' | 'size'> & {
-  // twin?: TwStyle[]
   color?: ChipColorType;
+  className?: string;
 } & (
     | {
         leadingIcon: MuiChipProps['icon'];
@@ -63,6 +63,7 @@ export const Chip: FC<ChipProps> = ({
   trailingIcon,
   clickable,
   onDelete,
+  className,
   ...props
 }) => {
   return (
@@ -77,6 +78,7 @@ export const Chip: FC<ChipProps> = ({
           (trailingIcon || onDelete) && 'pr-2',
           !onDelete && trailingIcon ? 'flex-row-reverse' : '',
           rootStyles(!!(clickable || onDelete))[color],
+          className,
         ]),
         label: fsx(['text-s px-0 font-sans'], labelStyles(!!(clickable || onDelete))[color]),
         icon: fsx(['m-0', iconStyles(!!(clickable || onDelete))[color]]),
