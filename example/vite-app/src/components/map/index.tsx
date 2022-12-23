@@ -181,23 +181,11 @@ export const Map = () => {
               </div>
 
               <div className="flex items-center p-3">
-                <TextField
-                  required
-                  autoComplete="on"
-                  placeholder="3"
-                  unitLabel="万円"
-                  isPriceFormat
-                />
+                <TextField required autoComplete="on" placeholder="3" unitLabel="万円" isPriceFormat />
 
                 <div className="px-3">~</div>
 
-                <TextField
-                  required
-                  autoComplete="on"
-                  placeholder="3"
-                  unitLabel="万円"
-                  isPriceFormat
-                />
+                <TextField required autoComplete="on" placeholder="3" unitLabel="万円" isPriceFormat />
               </div>
             </div>
           </Menu>
