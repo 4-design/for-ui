@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Meta } from '@storybook/react/types-6-0';
 import { useForm } from 'react-hook-form';
@@ -6,25 +6,20 @@ import * as yup from 'yup';
 
 import { Button } from '../button/Button';
 import { TextField } from './TextField';
+import { Text } from '../text';
 
 export default {
   title: 'Form / TextField',
   component: TextField,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
 } as Meta;
 
-type FieldValue = {
-  email: string;
-  password: string;
-  price: string;
-};
-
-const schema = yup.object().shape({
+const schema = yup.object({
   email: yup.string().required(),
   password: yup.string().required(),
+  price: yup.number().min(2).optional(),
 });
+
+type FieldValue = yup.InferType<typeof schema>;
 
 export const Outlined = (): JSX.Element => {
   const {
@@ -34,105 +29,67 @@ export const Outlined = (): JSX.Element => {
   } = useForm<FieldValue>({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data: unknown) => console.info(data);
+  const onSubmit = useCallback((data: unknown) => {
+    console.info(data);
+  }, []);
 
   return (
-    <form className="w-96" onSubmit={handleSubmit(onSubmit)}>
-      <h1 className="mb-4">Text Field (default styles)</h1>
-      <div className="mb-4">
+    <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+      <Text as="h3" size="l" weight="bold">
+        Text Field
+      </Text>
+      <div className="flex flex-col gap-1">
         <TextField
           required
           fullWidth
           variant="outlined"
+          error={!!errors['email']}
           autoComplete="on"
           type="email"
           label="メールアドレス"
-          placeholder="example@lancepod.com"
+          placeholder="example@example.com"
           {...register('email')}
         />
-      </div>
-      <div className="mb-4">
-        <TextField
-          error
-          required
-          fullWidth
-          variant="outlined"
-          autoComplete="on"
-          type="email"
-          label="メールアドレス Error"
-          placeholder="example@lancepod.com"
-          helperText="ヘルパーテキスト"
-          {...register('email')}
-        />
+        {errors['email'] && (
+          <Text size="s" className="text-negative-medium-default">
+            メールアドレスは必須です
+          </Text>
+        )}
       </div>
 
-      <div className="mb-4">
+      <div>
         <TextField
+          required
           type="password"
           label="パスワード"
-          placeholder="example@lancepod.com"
-          error={errors && !!errors['password']}
+          placeholder="********"
+          error={!!errors['password']}
           {...register('password')}
         />
+        {errors['password'] && (
+          <Text size="s" className="text-negative-medium-default">
+            パスワードは必須です
+          </Text>
+        )}
       </div>
 
-      <div className="mb-4">
+      <div>
         <TextField
-          label="金額"
-          placeholder="3"
+          label="金額 (2万円以上)"
+          placeholder="2"
           unitLabel="万円"
           isPriceFormat
-          error={errors && !!errors['price']}
+          error={!!errors['price']}
           {...register('price')}
         />
-      </div>
-      <div className="mb-4">
-        <TextField
-          disabled
-          required
-          fullWidth
-          multiline
-          rows={3}
-          variant="outlined"
-          autoComplete="on"
-          type="email"
-          label="メールアドレス"
-          placeholder="example@lancepod.com"
-          error={errors && !!errors['email']}
-          {...register('email')}
-        />
-      </div>
-      <div className="mb-4">
-        <TextField
-          required
-          multiline
-          variant="outlined"
-          autoComplete="on"
-          type="email"
-          label="マルチライン"
-          placeholder="example@lancepod.com"
-          error={errors && !!errors['email']}
-          {...register('email')}
-        />
-      </div>
-      <div className="mb-4">
-        <TextField
-          error
-          fullWidth
-          multiline
-          rows={3}
-          variant="outlined"
-          autoComplete="on"
-          type="email"
-          label="エラー"
-          placeholder="example@lancepod.com"
-          {...register('email')}
-        />
+        {errors['price'] && (
+          <Text size="s" className="text-negative-medium-default">
+            金額は2万円以上を入力してください
+          </Text>
+        )}
       </div>
 
-      <div className="mt-8">
-        <Button type="submit">登録する</Button>
-      </div>
+      <Button type="submit">登録する</Button>
     </form>
   );
 };

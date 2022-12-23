@@ -22,7 +22,6 @@ type NumberFormatCustomProps = {
 
 const NumberFormatCustom: React.ForwardRefExoticComponent<NumberFormatCustomProps> = React.forwardRef(
   ({ onChange, name, ...other }, ref) => {
-    console.info(other);
     return (
       <NumericFormat
         {...other}
