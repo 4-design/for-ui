@@ -23,8 +23,8 @@ const schema = yup.object({
 type FieldValue = yup.InferType<typeof schema>;
 
 export const Playground = {
-  prefix: "",
-}
+  prefix: '',
+};
 
 export const Outlined = (): JSX.Element => {
   const {

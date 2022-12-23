@@ -3,7 +3,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import MuiTextField, { TextFieldProps as MuiTextFieldProps } from '@mui/material/TextField';
 import { NumericFormat } from 'react-number-format';
 import { fsx } from '../system/fsx';
-import { Text } from '../text'
+import { Text } from '../text';
 
 export type TextFieldProps = Omit<MuiTextFieldProps, 'variant' | 'multiline' | 'rows' | 'margin'> & {
   /**
@@ -157,9 +157,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             }}
             InputProps={{
               classes: {
-                root: fsx([
-                  `group bg-shade-white-default text-shade-light-default p-0 antialiased`,
-                ]),
+                root: fsx([`group bg-shade-white-default text-shade-light-default p-0 antialiased`]),
                 disabled: fsx(['bg-shade-white-disabled', 'placeholder:text-shade-light-default']),
                 input: fsx([
                   'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
@@ -178,11 +176,15 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
                 inputAdornedEnd: fsx(['pr-2']),
               },
               startAdornment: prefix && (
-                <InputAdornment position="start" classes={{ root: "border-r border-shade-light-default bg-shade-light-default max-h-[fit-content] h-full py-2.5 px-3 m-0" }}>
-                  <Text className="text-shade-dark-default inline-flex">
-                    {prefix}
-                  </Text>
-                </InputAdornment>),
+                <InputAdornment
+                  position="start"
+                  classes={{
+                    root: 'border-r border-shade-light-default bg-shade-light-default max-h-[fit-content] h-full py-2.5 px-3 m-0',
+                  }}
+                >
+                  <Text className="text-shade-dark-default inline-flex">{prefix}</Text>
+                </InputAdornment>
+              ),
               ...InputProps,
               ..._InputProps,
             }}
