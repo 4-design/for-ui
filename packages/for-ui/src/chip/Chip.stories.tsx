@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react/types-6-0';
 
 import { Text } from '../typography/Typography';
 import { Chip } from './Chip';
-import { BsPaperclip } from 'react-icons/bs';
+import { MdAttachFile } from 'react-icons/md';
 
 export default {
   title: 'Form / Chip',
@@ -39,10 +39,10 @@ export const Base = () => (
           <Chip label="yuzuna_kanda.pdf" clickable color="white" />
         </div>
         <div>
-          <Chip label="yuzuna_kanda.pdf" color="white" leadingIcon={<BsPaperclip size={16} />} />
+          <Chip label="yuzuna_kanda.pdf" color="white" leadingIcon={<MdAttachFile size={16} />} />
         </div>
         <div>
-          <Chip label="yuzuna_kanda.pdf" clickable color="white" leadingIcon={<BsPaperclip size={16} />} />
+          <Chip label="yuzuna_kanda.pdf" clickable color="white" leadingIcon={<MdAttachFile size={16} />} />
         </div>
 
         <div>
@@ -52,10 +52,10 @@ export const Base = () => (
           <Chip label="yuzuna_kanda.pdf" clickable color="default" />
         </div>
         <div>
-          <Chip label="yuzuna_kanda.pdf" color="default" leadingIcon={<BsPaperclip size={16} />} />
+          <Chip label="yuzuna_kanda.pdf" color="default" leadingIcon={<MdAttachFile size={16} />} />
         </div>
         <div>
-          <Chip label="yuzuna_kanda.pdf" clickable color="default" leadingIcon={<BsPaperclip size={16} />} />
+          <Chip label="yuzuna_kanda.pdf" clickable color="default" leadingIcon={<MdAttachFile size={16} />} />
         </div>
 
         <div>
@@ -65,10 +65,10 @@ export const Base = () => (
           <Chip label="yuzuna_kanda.pdf" clickable color="negative" />
         </div>
         <div>
-          <Chip label="yuzuna_kanda.pdf" color="negative" leadingIcon={<BsPaperclip size={16} />} />
+          <Chip label="yuzuna_kanda.pdf" color="negative" leadingIcon={<MdAttachFile size={16} />} />
         </div>
         <div>
-          <Chip label="yuzuna_kanda.pdf" clickable color="negative" leadingIcon={<BsPaperclip size={16} />} />
+          <Chip label="yuzuna_kanda.pdf" clickable color="negative" leadingIcon={<MdAttachFile size={16} />} />
         </div>
       </div>
       <div className="flex flex-col gap-4">
@@ -98,7 +98,7 @@ export const Base = () => (
               console.info('ondelete');
             }}
             color="white"
-            leadingIcon={<BsPaperclip size={16} />}
+            leadingIcon={<MdAttachFile size={16} />}
           />
         </div>
         <div>
@@ -109,7 +109,7 @@ export const Base = () => (
             }}
             clickable
             color="white"
-            leadingIcon={<BsPaperclip size={16} />}
+            leadingIcon={<MdAttachFile size={16} />}
           />
         </div>
 
@@ -139,7 +139,7 @@ export const Base = () => (
               console.info('ondelete');
             }}
             color="default"
-            leadingIcon={<BsPaperclip size={16} />}
+            leadingIcon={<MdAttachFile size={16} />}
           />
         </div>
         <div>
@@ -150,7 +150,7 @@ export const Base = () => (
             }}
             clickable
             color="default"
-            leadingIcon={<BsPaperclip size={16} />}
+            leadingIcon={<MdAttachFile size={16} />}
           />
         </div>
 
@@ -180,7 +180,7 @@ export const Base = () => (
               console.info('ondelete');
             }}
             color="negative"
-            leadingIcon={<BsPaperclip size={16} />}
+            leadingIcon={<MdAttachFile size={16} />}
           />
         </div>
         <div>
@@ -191,7 +191,7 @@ export const Base = () => (
             }}
             clickable
             color="negative"
-            leadingIcon={<BsPaperclip size={16} />}
+            leadingIcon={<MdAttachFile size={16} />}
           />
         </div>
       </div>

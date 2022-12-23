@@ -27,6 +27,9 @@ export const Chip: FC<ChipProps> = ({ label, leadingIcon, onDelete, clickable, c
         color === 'default' && 'border-[#42BCEF] bg-[#E0F4FD] text-[#005093] hover:bg-[#AFE2F8]',
         color === 'white' && 'border-[#B3BCC1] bg-[#FFFFFF] text-shade-dark-default hover:bg-[#F7F8F8]',
         color === 'negative' && 'border-[#F05F87] bg-[#FBEEF1] text-[#C00F50] hover:bg-[#F8DEE2]',
+        color === 'default' && onDelete && 'hover:bg-[#E0F4FD]',
+        color === 'white' && onDelete && 'hover:bg-[#FFFFFF]',
+        color === 'negative' && onDelete && 'hover:bg-[#FBEEF1]',
         clickable && 'cursor-pointer',
         !onDelete ? 'px-2' : 'pl-2',
       ])}
