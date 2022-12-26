@@ -15,6 +15,7 @@ export * from './skeleton';
 export * from './stepper';
 export * from './switch';
 export * from './text';
+export * from './textArea';
 export * from './textField';
 export * from './tab';
 export * from './table';
