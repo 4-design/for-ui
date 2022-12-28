@@ -1,6 +1,7 @@
-import { forwardRef } from 'react';
+import { forwardRef, Fragment, isValidElement, ReactNode } from 'react';
 import TextareaAutosize, { TextareaAutosizeProps } from '@mui/base/TextareaAutosize';
 import { fsx } from '../system/fsx';
+import { Text } from '../text';
 
 export type TextAreaProps = Omit<TextareaAutosizeProps, 'disabled' | 'className' | 'minRows' | 'maxRows'> & {
   /**
@@ -14,6 +15,20 @@ export type TextAreaProps = Omit<TextareaAutosizeProps, 'disabled' | 'className'
    * @default false
    */
   disabled?: boolean;
+
+  /**
+   * エラーメッセージ等の副次的内容をユーザーに示すときに指定
+   *
+   * 文字列の場合はデフォルトのスタイルが適用され、ValidなReactElementを渡すと渡したものがそのまま描画されます。
+   */
+  helperText?: ReactNode;
+
+  /**
+   * ラベルを表示するときに指定
+   *
+   * 文字列の場合はデフォルトのスタイルが適用され、ValidなReactElementを渡すと渡したものがそのまま描画されます。
+   */
+  label?: ReactNode;
 
   className?: string;
 } & (
@@ -64,22 +79,53 @@ export type TextAreaProps = Omit<TextareaAutosizeProps, 'disabled' | 'className'
   );
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  ({ className, minRows, maxRows, rows, error, disabled, ...props }, ref) => {
+  ({ className, minRows, maxRows, rows, error, disabled, helperText, label, required, ...props }, ref) => {
     return (
-      <TextareaAutosize
-        {...props}
-        disabled={disabled}
-        minRows={rows || minRows}
-        maxRows={rows || maxRows}
-        className={fsx([
-          `w-full bg-shade-white-default ring-shade-medium-default ring-inset ring-1 text-r text-shade-dark-default placeholder:text-shade-light-default rounded h-auto py-2.5 px-3 font-sans font-normal placeholder:opacity-100  focus-visible:outline-none focus-visible:ring-primary-medium-active focus-visible:ring-2`,
-          error && `ring-negative-medium-default focus-visible:ring-negative-medium-default`,
-          disabled &&
-            `bg-shade-white-disabled ring-shade-medium-disabled text-shade-dark-disabled placeholder:text-shade-light-disabled cursor-not-allowed`,
-          className,
-        ])}
-        ref={ref}
-      />
+      <div className={fsx(`flex flex-col gap-1`)}>
+        <Text as="label" size="s" weight="bold" className="text-shade-medium-default flex flex-col gap-1">
+          <Fragment>
+            {isValidElement(label) ? (
+              <Fragment>{label}</Fragment>
+            ) : (
+              <Text>
+                {label}
+                {required && (
+                  <Text className="text-negative-medium-default" weight="regular">
+                    *
+                  </Text>
+                )}
+              </Text>
+            )}
+          </Fragment>
+          <TextareaAutosize
+            {...props}
+            disabled={disabled}
+            minRows={rows || minRows}
+            maxRows={rows || maxRows}
+            className={fsx([
+              `w-full bg-shade-white-default ring-shade-medium-default ring-inset ring-1 text-r text-shade-dark-default placeholder:text-shade-light-default rounded h-auto py-2.5 px-3 font-sans font-normal placeholder:opacity-100  focus-visible:outline-none focus-visible:ring-primary-medium-active focus-visible:ring-2`,
+              error && `ring-negative-medium-default focus-visible:ring-negative-medium-default`,
+              disabled &&
+                `bg-shade-white-disabled ring-shade-medium-disabled text-shade-dark-disabled placeholder:text-shade-light-disabled cursor-not-allowed`,
+              className,
+            ])}
+            ref={ref}
+          />
+        </Text>
+        <Fragment>
+          {isValidElement(label) ? (
+            <Fragment>{helperText}</Fragment>
+          ) : (
+            <Text
+              size="s"
+              weight="regular"
+              className={fsx([`text-shade-dark-default`, error && `text-negative-medium-default`])}
+            >
+              {helperText}
+            </Text>
+          )}
+        </Fragment>
+      </div>
     );
   }
 );
