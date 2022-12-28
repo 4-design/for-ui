@@ -1,17 +1,16 @@
 import React, { ReactNode } from 'react';
 
-import { MdError } from 'react-icons/md';
 import { fsx } from '../system/fsx';
 
 type Props = {
   color?: 'white' | 'gray' | 'primary' | 'native';
   icon?: ReactNode;
-  type?: 'constant' | 'text' | 'outline';
+  variant?: 'constant' | 'text' | 'outline';
   label: string;
 };
 
-export const Badge: React.FC<Props> = ({ color = 'white', icon, type = 'constant', label }) => {
-  switch (type) {
+export const Badge: React.FC<Props> = ({ color = 'white', icon, variant = 'constant', label }) => {
+  switch (variant) {
     case 'constant':
       return (
         <div
@@ -22,9 +21,7 @@ export const Badge: React.FC<Props> = ({ color = 'white', icon, type = 'constant
             color === 'native' && 'text-[#C00F50]',
           ])}
         >
-          <div className="flex h-6 w-4 flex-row items-start py-1">
-            <MdError className="h-4 w-4" />
-          </div>
+          <div className="flex h-6 w-4 flex-row items-start py-1">{icon}</div>
           <span className="text-r font-bold">{label}</span>
         </div>
       );
@@ -82,7 +79,5 @@ export const Badge: React.FC<Props> = ({ color = 'white', icon, type = 'constant
           <span>{label}</span>
         </div>
       );
-    default:
-      return null;
   }
 };
