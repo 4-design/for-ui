@@ -1,5 +1,11 @@
 # @3design/3design-ui
 
+## 1.0.10
+
+### Patch Changes
+
+- [#957](https://github.com/4-design/for-ui/pull/957) [`994e05d`](https://github.com/4-design/for-ui/commit/994e05d9258f28a8926fbe653c7b60c62fcd48f0) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextArea): `helperText` と `label` props を追加
+
 ## 1.0.9
 
 ### Patch Changes
