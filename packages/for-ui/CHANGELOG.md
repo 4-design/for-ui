@@ -1,5 +1,13 @@
 # @3design/3design-ui
 
+## 1.0.9
+
+### Patch Changes
+
+- [#951](https://github.com/4-design/for-ui/pull/951) [`bffaaa5`](https://github.com/4-design/for-ui/commit/bffaaa5b48d972945fd407370e68c16fc55e1d1f) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: `tailwind.config.base.js`の typo を修正
+
+- [#953](https://github.com/4-design/for-ui/pull/953) [`f69485e`](https://github.com/4-design/for-ui/commit/f69485eb26ce537470fed7999b60d68be7d940e7) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextArea): packge から export するように修正
+
 ## 1.0.8
 
 ### Patch Changes
