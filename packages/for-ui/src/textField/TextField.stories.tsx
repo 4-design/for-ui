@@ -17,9 +17,14 @@ const schema = yup.object({
   email: yup.string().required(),
   password: yup.string().required(),
   price: yup.number().min(2).optional(),
+  account: yup.string().optional(),
 });
 
 type FieldValue = yup.InferType<typeof schema>;
+
+export const Playground = {
+  prefix: '',
+};
 
 export const Outlined = (): JSX.Element => {
   const {
@@ -42,7 +47,6 @@ export const Outlined = (): JSX.Element => {
         <TextField
           required
           fullWidth
-          variant="outlined"
           error={!!errors['email']}
           autoComplete="on"
           type="email"
@@ -85,6 +89,20 @@ export const Outlined = (): JSX.Element => {
         {errors['price'] && (
           <Text size="s" className="text-negative-medium-default">
             金額は2万円以上を入力してください
+          </Text>
+        )}
+      </div>
+
+      <div>
+        <TextField
+          label="アカウント名"
+          prefix="https://example.com/accounts/"
+          error={!!errors['account']}
+          {...register('account')}
+        />
+        {errors['account'] && (
+          <Text size="s" className="text-negative-medium-default">
+            エラーです
           </Text>
         )}
       </div>
