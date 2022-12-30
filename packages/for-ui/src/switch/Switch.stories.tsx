@@ -28,7 +28,9 @@ export const Basic = (): JSX.Element => {
     default2: boolean;
     disable1: boolean;
     disable2: boolean;
-  }>();
+  }>({
+    reValidateMode: 'onChange',
+  });
 
   const onSubmit = (data: unknown) => console.info(data);
 
