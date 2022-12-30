@@ -1,36 +1,40 @@
-import React from 'react';
+import { forwardRef } from 'react';
 import FormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel';
-import MuiSwitch from '@mui/material/Switch';
 import { fsx } from '../system/fsx';
 
 export type SwitchProps = Omit<FormControlLabelProps, 'control'> & {
   value?: unknown;
-  disable?: boolean;
 };
 
-export const Switch: React.FC<SwitchProps> = ({ value, checked, disabled, ...rest }) => {
+export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({ disabled, checked, ...rest }, ref) => {
   return (
     <FormControlLabel
+      classes={{
+        root: fsx(['m-0 flex gap-1']),
+        label: fsx(['text-r text-shade-dark-default font-sans']),
+      }}
+      className={fsx([disabled && 'cursor-not-allowed'])}
+      inputRef={ref}
       control={
-        <MuiSwitch
-          value={value}
-          checked={checked}
-          disabled={disabled}
-          classes={{
-            root: fsx(['my-2 mr-2 h-6 w-11 p-0']),
-            track: fsx([
-              'bg-primary-dark-default block h-full w-full rounded-xl opacity-100',
-              checked && 'bg-secondary-dark-default opacity-100',
-              disabled && 'bg-primary-dark-disabled opacity-100',
-              checked && disabled && 'bg-secondary-dark-disabled opacity-100',
-            ]),
-            thumb: fsx([
-              'bg-shade-white-default absolute top-1 left-1 h-4 w-4 rounded-2xl transition-all duration-200 ease-in',
-            ]),
-          }}
-        />
+        <div
+          className={fsx([
+            'flex relative items-center rounded-full p-0.5 w-8 h-5',
+            checked && disabled && 'bg-[#AFE2F8]',
+            !checked && disabled && 'bg-[#DDE1E3]',
+            checked && !disabled && 'bg-[#006FB4]',
+            !checked && !disabled && 'bg-[#B3BCC1]',
+          ])}
+        >
+          <input type="checkbox" disabled={disabled} className="absolute z-[1] opacity-0" />
+          <span
+            className={fsx([
+              'bg-[#fff] rounded-full transition-transform transform w-4 h-4',
+              checked ? 'translate-x-3' : 'translate-x-0',
+            ])}
+          />
+        </div>
       }
       {...rest}
     />
   );
-};
+});
