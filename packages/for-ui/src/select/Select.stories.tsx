@@ -84,8 +84,8 @@ export const Basic: Story = () => {
   const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)} className="mb-10">
+    <div className="flex flex-col gap-10">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name="country"
           control={control}
@@ -134,6 +134,57 @@ export const Basic: Story = () => {
           登録
         </Button>
       </form>
+      <form onSubmit={handleSubmit(onSubmit)} className="mb-10">
+        <Controller
+          name="country"
+          control={control}
+          render={({ field: { name, onChange } }) => {
+            return (
+              <Select
+                name={name}
+                size="medium"
+                placeholder="国名"
+                options={options}
+                onChange={(e, option) => {
+                  onChange((option as SelectOption)?.inputValue);
+                }}
+              />
+            );
+          }}
+        />
+
+        <Button type="submit" className="mt-4">
+          登録
+        </Button>
+      </form>
+
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="country"
+          control={control}
+          render={({ field: { name, onChange } }) => {
+            return (
+              <>
+                <Select
+                  name={name}
+                  size="medium"
+                  required
+                  placeholder="国名"
+                  options={options}
+                  onChange={(e, option) => {
+                    onChange((option as SelectOption)?.inputValue);
+                  }}
+                />
+                <FormHelperText error>入力してください</FormHelperText>
+              </>
+            );
+          }}
+        />
+
+        <Button type="submit" className="mt-4">
+          登録
+        </Button>
+      </form>
     </div>
   );
 };
@@ -147,28 +198,53 @@ export const Single: Story = () => {
   const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller
-        name="country"
-        control={control}
-        render={({ field: { onChange, ...fields } }) => {
-          return (
-            <Select
-              name={fields.name}
-              placeholder="国名"
-              options={options}
-              onChange={(e, option) => {
-                onChange((option as SelectOption)?.inputValue);
-              }}
-            />
-          );
-        }}
-      />
+    <div className="flex flex-col gap-10">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="country"
+          control={control}
+          render={({ field: { onChange, ...fields } }) => {
+            return (
+              <Select
+                name={fields.name}
+                placeholder="国名"
+                options={options}
+                onChange={(e, option) => {
+                  onChange((option as SelectOption)?.inputValue);
+                }}
+              />
+            );
+          }}
+        />
 
-      <Button type="submit" className="mt-4">
-        登録
-      </Button>
-    </form>
+        <Button type="submit" className="mt-4">
+          登録
+        </Button>
+      </form>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="country"
+          control={control}
+          render={({ field: { onChange, ...fields } }) => {
+            return (
+              <Select
+                name={fields.name}
+                size="medium"
+                placeholder="国名"
+                options={options}
+                onChange={(e, option) => {
+                  onChange((option as SelectOption)?.inputValue);
+                }}
+              />
+            );
+          }}
+        />
+
+        <Button type="submit" className="mt-4">
+          登録
+        </Button>
+      </form>
+    </div>
   );
 };
 
@@ -181,29 +257,55 @@ export const Disabled: Story = () => {
   const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller
-        name="country"
-        control={control}
-        render={({ field: { onChange, ...fields } }) => {
-          return (
-            <Select
-              disabled
-              name={fields.name}
-              placeholder="国名"
-              options={options}
-              onChange={(e, option) => {
-                onChange((option as SelectOption)?.inputValue);
-              }}
-            />
-          );
-        }}
-      />
+    <div className="flex flex-col gap-10">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="country"
+          control={control}
+          render={({ field: { onChange, ...fields } }) => {
+            return (
+              <Select
+                disabled
+                name={fields.name}
+                placeholder="国名"
+                options={options}
+                onChange={(e, option) => {
+                  onChange((option as SelectOption)?.inputValue);
+                }}
+              />
+            );
+          }}
+        />
 
-      <Button type="submit" className="mt-4">
-        登録
-      </Button>
-    </form>
+        <Button type="submit" className="mt-4">
+          登録
+        </Button>
+      </form>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="country"
+          control={control}
+          render={({ field: { onChange, ...fields } }) => {
+            return (
+              <Select
+                disabled
+                size="medium"
+                name={fields.name}
+                placeholder="国名"
+                options={options}
+                onChange={(e, option) => {
+                  onChange((option as SelectOption)?.inputValue);
+                }}
+              />
+            );
+          }}
+        />
+
+        <Button type="submit" className="mt-4">
+          登録
+        </Button>
+      </form>
+    </div>
   );
 };
 
@@ -216,8 +318,8 @@ export const Multiple: Story = () => {
   const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)} className="mb-10">
+    <div className="flex flex-col gap-10">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name="country"
           control={control}
@@ -269,6 +371,61 @@ export const Multiple: Story = () => {
           登録
         </Button>
       </form>
+
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="country"
+          control={control}
+          render={({ field: { onChange, ...fields } }) => {
+            return (
+              <Select
+                multiple
+                name={fields.name}
+                size="medium"
+                label="国名"
+                placeholder="未定"
+                options={options}
+                onChange={(e, option) => {
+                  onChange((option as SelectOption)?.inputValue);
+                }}
+              />
+            );
+          }}
+        />
+
+        <Button type="submit" className="mt-4">
+          登録
+        </Button>
+      </form>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="country"
+          control={control}
+          render={({ field: { onChange, ...fields } }) => {
+            return (
+              <>
+                <Select
+                  multiple
+                  required
+                  name={fields.name}
+                  size="medium"
+                  label="国名"
+                  placeholder="未定"
+                  options={options}
+                  onChange={(e, option) => {
+                    onChange((option as SelectOption)?.inputValue);
+                  }}
+                />
+                <FormHelperText error>入力してください</FormHelperText>
+              </>
+            );
+          }}
+        />
+
+        <Button type="submit" className="mt-4">
+          登録
+        </Button>
+      </form>
     </div>
   );
 };
@@ -292,33 +449,64 @@ export const MultipleFreeSolo: Story = () => {
   }, [reset]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Controller
-        name="country"
-        control={control}
-        render={({ field: { name, value, onChange } }) => {
-          console.info(value);
-          return (
-            <Select
-              freeSolo
-              multiple
-              autoComplete
-              placeholder="未設定"
-              name={name}
-              value={value}
-              options={skillOptions}
-              onChange={(e, option) => {
-                onChange(option);
-                // onChange((option as SelectOption)?.inputValue)
-              }}
-            />
-          );
-        }}
-      />
+    <div className="flex flex-col gap-10">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="country"
+          control={control}
+          render={({ field: { name, value, onChange } }) => {
+            console.info(value);
+            return (
+              <Select
+                freeSolo
+                multiple
+                autoComplete
+                placeholder="未設定"
+                name={name}
+                value={value}
+                options={skillOptions}
+                onChange={(e, option) => {
+                  onChange(option);
+                  // onChange((option as SelectOption)?.inputValue)
+                }}
+              />
+            );
+          }}
+        />
 
-      <Button type="submit" className="mt-4">
-        登録
-      </Button>
-    </form>
+        <Button type="submit" className="mt-4">
+          登録
+        </Button>
+      </form>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="country"
+          control={control}
+          render={({ field: { name, value, onChange } }) => {
+            console.info(value);
+            return (
+              <Select
+                freeSolo
+                multiple
+                size="medium"
+                autoComplete
+                placeholder="未設定"
+                name={name}
+                value={value}
+                options={skillOptions}
+                onChange={(e, option) => {
+                  onChange(option);
+                  // onChange((option as SelectOption)?.inputValue)
+                }}
+              />
+            );
+          }}
+        />
+
+        <Button type="submit" className="mt-4">
+          登録
+        </Button>
+      </form>
+    </div>
   );
 };
