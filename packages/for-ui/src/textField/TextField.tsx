@@ -157,7 +157,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             }}
             InputProps={{
               classes: {
-                root: fsx([`group bg-shade-white-default text-shade-light-default p-0 antialiased`]),
+                root: fsx(['group bg-shade-white-default text-shade-light-default px-0 antialiased']),
                 disabled: fsx(['bg-shade-white-disabled', 'placeholder:text-shade-light-default']),
                 input: fsx([
                   'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',

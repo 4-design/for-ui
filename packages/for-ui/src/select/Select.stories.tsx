@@ -141,24 +141,26 @@ export const Basic: Story = () => {
 export const Single: Story = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      country: options[0],
+      country: '',
     },
   });
   const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="text-transparent">
       <Controller
         name="country"
         control={control}
         render={({ field: { onChange, ...fields } }) => {
           return (
             <Select
+              {...fields}
               name={fields.name}
-              placeholder="国名"
+              label="国名"
+              placeholder="未定"
               options={options}
               onChange={(e, option) => {
-                onChange((option as SelectOption)?.inputValue);
+                onChange(option as SelectOption);
               }}
             />
           );
@@ -190,6 +192,7 @@ export const Disabled: Story = () => {
             <Select
               disabled
               name={fields.name}
+              label="国名"
               placeholder="国名"
               options={options}
               onChange={(e, option) => {
@@ -302,7 +305,7 @@ export const MultipleFreeSolo: Story = () => {
             <Select
               freeSolo
               multiple
-              autoComplete
+              disableFilter
               placeholder="未設定"
               name={name}
               value={value}
