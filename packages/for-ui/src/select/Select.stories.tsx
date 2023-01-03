@@ -305,7 +305,6 @@ export const MultipleFreeSolo: Story = () => {
             <Select
               freeSolo
               multiple
-              disableFilter
               placeholder="未設定"
               name={name}
               value={value}
@@ -313,6 +312,43 @@ export const MultipleFreeSolo: Story = () => {
               onChange={(e, option) => {
                 onChange(option);
                 // onChange((option as SelectOption)?.inputValue)
+              }}
+            />
+          );
+        }}
+      />
+
+      <Button type="submit" className="mt-4">
+        登録
+      </Button>
+    </form>
+  );
+};
+
+export const DisabledFilter: Story = () => {
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      country: '',
+    },
+  });
+  const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="text-transparent">
+      <Controller
+        name="country"
+        control={control}
+        render={({ field: { onChange, ...fields } }) => {
+          return (
+            <Select
+              {...fields}
+              disableFilter
+              name={fields.name}
+              label="国名"
+              placeholder="未定"
+              options={options}
+              onChange={(e, option) => {
+                onChange(option as SelectOption);
               }}
             />
           );
