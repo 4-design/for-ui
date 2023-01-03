@@ -74,56 +74,6 @@ export const Select: FC<AutocompleteProps> = forwardRef<HTMLInputElement, Autoco
           // Suggest the creation of a new value
           const isExisting = options.some((option) => {
             return typeof option === 'string' ? inputValue === option : inputValue === option.inputValue;
-
-            // export const Select: FC<AutocompleteProps> = ({
-            //   name,
-            //   options = [],
-            //   label,
-            //   required = false,
-            //   // twin,
-            //   // inputTwin,
-            //   placeholder,
-            //   multiple,
-            //   freeSolo = false,
-            //   onChange,
-            //   disabled = false,
-            //   autoComplete = true,
-            //   ...rest
-            // }) => {
-            //   return (
-            //     <Autocomplete
-            //       disablePortal
-            //       disableCloseOnSelect={multiple}
-            //       disableClearable
-            //       autoHighlight
-            //       clearOnBlur
-            //       disabled={disabled}
-            //       includeInputInList
-            //       handleHomeEndKeys
-            //       multiple={multiple}
-            //       freeSolo={freeSolo}
-            //       options={options}
-            //       onChange={onChange}
-            //       PaperComponent={Paper}
-            //       noOptionsText="データが見つかりません"
-            //       popupIcon={<MdExpandMore size={24} />}
-            //       filterOptions={(options, params) => {
-            //         const filtered = filter(options, params);
-            //         const { inputValue } = params;
-            //         // Suggest the creation of a new value
-            //         const isExisting = options.some((option) => {
-            //           return typeof option === 'string' ? inputValue === option : inputValue === option.inputValue;
-            //         });
-
-            //         if (!freeSolo && !isExisting) {
-            //           return filtered;
-            //         }
-
-            //         if (inputValue !== '' && !isExisting) {
-            //           filtered.push({
-            //             inputValue,
-            //             label: inputValue,
-            // >>>>>>> Stashed changes
           });
 
           if (!freeSolo && !isExisting) {
@@ -174,19 +124,14 @@ export const Select: FC<AutocompleteProps> = forwardRef<HTMLInputElement, Autoco
         classes={{
           root: fsx(['bg-shade-white-default', className]),
           paper: fsx(['min-w-min translate-y-4 rounded-2xl py-2']),
-          // inputRoot: fsx(['group bg-shade-white-default text-shade-light-default p-0 antialiased']),
-          // input: fsx([
-          //   'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
-          // ]),
-
           inputRoot: fsx([
-            'group bg-shade-white-default text-shade-light-default p-0 antialiased',
-            // 'group bg-shade-white-default text-shade-light-default antialiased !py-2',
+            // 'group bg-shade-white-default text-shade-light-default p-0 antialiased',
+            'group bg-shade-white-default text-shade-light-default antialiased !py-2',
             disableFilter && 'cursor-pointer',
           ]),
           input: fsx([
-            'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
-            // 'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto  font-sans placeholder:opacity-100 focus:shadow-none !p-0',
+            // 'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
+            'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto font-sans placeholder:opacity-100 focus:shadow-none !p-0',
             disableFilter && 'cursor-pointer caret-transparent',
           ]),
           inputFocused: fsx(['border-primary-medium-active']),
