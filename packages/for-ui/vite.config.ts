@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 
 import pkg from './package.json';
 
-const externalPackages = [...Object.keys(pkg.peerDependencies || {})];
+const externalPackages = Object.keys(pkg.peerDependencies || {});
 
 const regexesOfPackages = externalPackages.map((packageName) => new RegExp(`^${packageName}(/.*)?`));
 
