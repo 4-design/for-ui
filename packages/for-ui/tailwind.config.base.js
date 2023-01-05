@@ -416,7 +416,7 @@ module.exports = {
     borderColor: borderColors,
     ringColor: borderColors,
     iconColor: iconColors,
-    fillColor: iconColors,
+    fill: iconColors,
     fontSize: {
       xs: fontSizes.s,
       sm: fontSizes.s,
