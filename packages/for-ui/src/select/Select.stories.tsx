@@ -93,6 +93,7 @@ export const Basic: Story = () => {
             return (
               <Select
                 name={name}
+                label="国名"
                 placeholder="国名"
                 options={options}
                 onChange={(e, option) => {
