@@ -61,8 +61,6 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       className,
       focused,
       placeholder,
-      // labelTwin,
-      // inputTwin,
       disabled,
       inputProps,
       required,
@@ -127,16 +125,11 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     return (
       <div className={fsx('flex flex-col w-full', className)}>
         <label>
-          {label && (
-            <p
-              className={fsx([
-                'text-s text-shade-medium-default mb-1 font-bold antialiased',
-                // labelTwin,
-              ])}
-            >
+          {(label || required) && (
+            <Text as="label" className={fsx(['text-s text-shade-medium-default mb-1 font-bold antialiased'])}>
               {label}
-              {required && <span className="text-negative-medium-default">*</span>}
-            </p>
+              {required && <Text className="text-negative-medium-default">*</Text>}
+            </Text>
           )}
           <MuiTextField
             disabled={disabled}
@@ -150,9 +143,10 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
                 '-webkit-text-fill-color': 'currentColor',
               },
             }}
+            className={fsx(`w-full flex flex-col gap-1`)}
             FormHelperTextProps={{
               classes: {
-                root: fsx([error && 'text-negative-medium-default m-0 mt-1 text-xs']),
+                root: fsx([error && 'text-negative-medium-default m-0 text-s']),
               },
             }}
             InputProps={{
