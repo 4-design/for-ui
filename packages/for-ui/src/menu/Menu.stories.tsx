@@ -24,11 +24,13 @@ export default {
 export const Base = () => {
   return (
     <div className="flex flex-col gap-8">
-      <Text as="h3" size="xl" className="border-b">Menu</Text>
+      <Text as="h3" size="xl" className="border-b">
+        Menu
+      </Text>
 
       <Menu
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-        transformOrigin={{vertical: 'top', horizontal: 'center'}}
+        transformOrigin={{ vertical: 'top', horizontal: 'center' }}
         TriggerComponent={<Button variant="contained">プロジェクト</Button>}
       >
         <MenuItem>
@@ -48,11 +50,13 @@ export const Base = () => {
 export const WithIcon = () => {
   return (
     <div className="flex flex-col gap-8">
-      <Text as="h3" size="xl" className="border-b">Menu</Text>
+      <Text as="h3" size="xl" className="border-b">
+        Menu
+      </Text>
 
       <Menu
         anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-        transformOrigin={{vertical: 'top', horizontal: 'left'}}
+        transformOrigin={{ vertical: 'top', horizontal: 'left' }}
         TriggerComponent={<Button>メニューを開く</Button>}
       >
         <MenuItem icon={<MdOutlineEdit />}>編集</MenuItem>

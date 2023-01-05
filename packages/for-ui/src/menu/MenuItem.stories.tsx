@@ -6,11 +6,11 @@ import { MdDeleteOutline, MdOutlineEdit, MdOutlinePhone, MdOutlineMail } from 'r
 
 const sampleIcons = {
   undefined,
-  MdDeleteOutline: <MdDeleteOutline />, 
+  MdDeleteOutline: <MdDeleteOutline />,
   MdOutlineEdit: <MdOutlineEdit />,
   MdOutlinePhone: <MdOutlinePhone />,
-  MdOutlineMail: <MdOutlineMail />
-}
+  MdOutlineMail: <MdOutlineMail />,
+};
 
 export default {
   title: 'Navigation / Menu / MenuItem',
@@ -35,6 +35,6 @@ export const Playground = {
     children: 'メニューアイテム',
     intention: 'shade',
     icon: MdDeleteOutline,
-    description: '説明文'
-  }
-}
+    description: '説明文',
+  },
+};

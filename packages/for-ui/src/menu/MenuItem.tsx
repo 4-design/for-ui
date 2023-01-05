@@ -37,8 +37,8 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
           `bg-shade-white-default text-r hover:bg-shade-white-hover whitespace-nowrap px-4 py-1 font-sans flex flex-row gap-2 focus-visible:bg-shade-white-active items-start`,
           icon && `pl-2`,
           {
-            'shade': `text-shade-dark-default`,
-            'negative': `text-negative-medium-default`
+            shade: `text-shade-dark-default`,
+            negative: `text-negative-medium-default`,
           }[intention],
           disabled && `text-shade-dark-disabled opacity-100 [&.opacity-100]:opacity-100`,
           className,
@@ -51,8 +51,8 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
           className={fsx([
             `h-4 w-4 [&>svg]:h-full [&>svg]:w-full my-1 shrink-0`,
             {
-              'shade': `[&_svg]:fill-shade-medium-default`,
-              'negative': `[&_svg]:fill-negative-medium-default`,
+              shade: `[&_svg]:fill-shade-medium-default`,
+              negative: `[&_svg]:fill-negative-medium-default`,
             }[intention],
             disabled && `[&_svg]:fill-shade-medium-disabled`,
           ])}

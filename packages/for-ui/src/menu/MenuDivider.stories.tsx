@@ -15,4 +15,4 @@ export default {
   ],
 } as Meta;
 
-export const Playground = {}
+export const Playground = {};
