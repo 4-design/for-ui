@@ -112,7 +112,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           />
         </Text>
         <Fragment>
-          {isValidElement(label) ? (
+          {isValidElement(helperText) ? (
             <Fragment>{helperText}</Fragment>
           ) : (
             <Text
