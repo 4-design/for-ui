@@ -11,7 +11,7 @@ export const PageTitle: FC<PageTitleProps> = ({ breadcrumbs, subtitle, children 
   return (
     <div
       className={clsx([
-        'z-header border-shade-light-default bg-shade-white-default relative flex h-[52px] shrink-0 items-center border border-b px-6',
+        'z-header border-shade-light-default bg-shade-white-default relative flex h-[52px] shrink-0 items-center border px-6',
       ])}
     >
       <PageTitleLeft>
