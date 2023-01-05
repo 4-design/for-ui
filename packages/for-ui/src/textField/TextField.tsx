@@ -5,7 +5,7 @@ import { NumericFormat } from 'react-number-format';
 import { fsx } from '../system/fsx';
 import { Text } from '../text';
 
-export type TextFieldProps = Omit<MuiTextFieldProps, 'variant' | 'multiline' | 'rows' | 'margin'> & {
+export type TextFieldProps = Omit<MuiTextFieldProps, 'variant' | 'multiline' | 'rows' | 'margin' | 'fullWidth'> & {
   /**
    * 単位を表示する場合に指定してください。
    */
@@ -125,7 +125,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     );
 
     return (
-      <div className={fsx(['flex flex-col', className])}>
+      <div className={fsx('flex flex-col w-full', className)}>
         <label>
           {label && (
             <p
