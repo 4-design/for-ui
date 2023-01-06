@@ -325,7 +325,7 @@ export const MultipleFreeSolo: Story = () => {
   );
 };
 
-export const DisabledFilter: Story = () => {
+export const DisableFilter: Story = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
       country: '',
