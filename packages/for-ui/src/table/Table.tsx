@@ -21,6 +21,7 @@ import { Checkbox } from '../checkbox';
 import { Radio } from '../radio';
 import { TableCell } from './TableCell';
 import { TablePagination } from './TablePagination';
+import { Text } from '../typography';
 
 export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'columns' | 'getRowId'> & {
   disablePagination?: boolean | undefined;
@@ -155,7 +156,7 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
 
   return (
     <>
-      <table className="border-shade-light-default w-full border-separate border-spacing-0 rounded-sm border">
+      <table className="border-shade-light-default w-full border-separate border-spacing-0 rounded border">
         <thead className="bg-shade-light-default table-header-group">
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id} className="table-row align-middle">
@@ -182,6 +183,9 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
                     </div>
                   ) : (
                     <div className="flex items-center">
+                      <Text size="s" weight="regular">
+                        ヘッダ
+                      </Text>
                       {flexRender(header.column.columnDef.header, header.getContext())}
                     </div>
                   )}
