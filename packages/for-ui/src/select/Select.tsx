@@ -143,6 +143,16 @@ export const Select: FC<AutocompleteProps> = forwardRef<HTMLInputElement, Autoco
           return (
             <TextField
               {...params}
+              inputProps={
+                disableFilter
+                  ? {
+                      ...params.inputProps,
+                      onChange: () => {
+                        // Ignore inputs if not searchable
+                      },
+                    }
+                  : params.inputProps
+              }
               autoComplete="off"
               name={name}
               required={required}
