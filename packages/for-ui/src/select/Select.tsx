@@ -19,7 +19,7 @@ export type SelectOption = {
 
 const filter = createFilterOptions<SelectOption>();
 
-export type AutocompleteProps = UseAutocompleteProps<SelectOption, boolean, boolean, boolean> & {
+export type AutocompleteProps = Omit<UseAutocompleteProps<SelectOption, boolean, boolean, boolean>, 'autoComplete'> & {
   name: string;
   label?: string;
   placeholder?: string;
@@ -28,6 +28,7 @@ export type AutocompleteProps = UseAutocompleteProps<SelectOption, boolean, bool
   loadingText?: React.ReactNode;
   disabled?: boolean;
   className?: string;
+  disableFilter?: boolean;
 };
 
 export const Select: FC<AutocompleteProps> = forwardRef<HTMLInputElement, AutocompleteProps>(
@@ -43,6 +44,7 @@ export const Select: FC<AutocompleteProps> = forwardRef<HTMLInputElement, Autoco
       freeSolo,
       onChange,
       disabled = false,
+      disableFilter = false,
       ...rest
     },
     ref
@@ -122,9 +124,15 @@ export const Select: FC<AutocompleteProps> = forwardRef<HTMLInputElement, Autoco
         classes={{
           root: fsx(['bg-shade-white-default', className]),
           paper: fsx(['min-w-min translate-y-4 rounded-2xl py-2']),
-          inputRoot: fsx(['group bg-shade-white-default text-shade-light-default p-0 antialiased']),
+          inputRoot: fsx([
+            'group bg-shade-white-default text-shade-light-default p-0 antialiased',
+            // 'group bg-shade-white-default text-shade-light-default antialiased !py-2',
+            disableFilter && 'cursor-pointer',
+          ]),
           input: fsx([
             'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
+            // 'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto font-sans placeholder:opacity-100 focus:shadow-none !p-0',
+            disableFilter && 'cursor-pointer caret-transparent',
           ]),
           inputFocused: fsx(['border-primary-medium-active']),
           focused: fsx(['[&_svg]:!icon-shade-medium-active']),
@@ -135,6 +143,16 @@ export const Select: FC<AutocompleteProps> = forwardRef<HTMLInputElement, Autoco
           return (
             <TextField
               {...params}
+              inputProps={
+                disableFilter
+                  ? {
+                      ...params.inputProps,
+                      onChange: () => {
+                        // Ignore inputs if not searchable
+                      },
+                    }
+                  : params.inputProps
+              }
               autoComplete="off"
               name={name}
               required={required}
