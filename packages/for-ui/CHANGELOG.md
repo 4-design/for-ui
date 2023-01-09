@@ -1,5 +1,17 @@
 # @3design/3design-ui
 
+## 1.0.11
+
+### Patch Changes
+
+- [#972](https://github.com/4-design/for-ui/pull/972) [`ddef34c`](https://github.com/4-design/for-ui/commit/ddef34c79aee083a857ab09f90ee27a42e85558f) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: `fullWidth` props を削除しデフォルトで `w-full` になるように修正
+
+- [#971](https://github.com/4-design/for-ui/pull/971) [`cd2a170`](https://github.com/4-design/for-ui/commit/cd2a1702fefc544b4eae904e5b1eaa74506e83f6) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextArea): className を root の div に渡るように修正
+
+- [#949](https://github.com/4-design/for-ui/pull/949) [`8e74647`](https://github.com/4-design/for-ui/commit/8e746477fb28504d02187252537cf021d3a6d11c) Thanks [@Qs-F](https://github.com/Qs-F)! - feat(TextField): `TextField / URL` を実装
+
+- [#964](https://github.com/4-design/for-ui/pull/964) [`9694e2c`](https://github.com/4-design/for-ui/commit/9694e2c6e2cc405527085917c3a3c78953e659ea) Thanks [@locona](https://github.com/locona)! - fix(Select): 純粋な Select を使用できるように変更 (disableFilter 追加)
+
 ## 1.0.10
 
 ### Patch Changes
