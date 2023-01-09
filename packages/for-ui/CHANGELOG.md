@@ -1,5 +1,11 @@
 # @3design/3design-ui
 
+## 1.0.12
+
+### Patch Changes
+
+- [#977](https://github.com/4-design/for-ui/pull/977) [`870ade1`](https://github.com/4-design/for-ui/commit/870ade15dcd751c26a9b6cb24f17f89bdc26a3d1) Thanks [@locona](https://github.com/locona)! - fix(Table): ページサイズを設定可能にする
+
 ## 1.0.11
 
 ### Patch Changes
