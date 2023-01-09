@@ -81,7 +81,7 @@ export type TextAreaProps = Omit<TextareaAutosizeProps, 'disabled' | 'className'
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ className, minRows, maxRows, rows, error, disabled, helperText, label, required, ...props }, ref) => {
     return (
-      <div className={fsx(`flex flex-col gap-1`)}>
+      <div className={fsx(`w-full flex flex-col gap-1`, className)}>
         <Text as="label" size="s" weight="bold" className="text-shade-medium-default flex flex-col gap-1">
           <Fragment>
             {isValidElement(label) ? (
@@ -107,13 +107,12 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
               error && `ring-negative-medium-default focus-visible:ring-negative-medium-default`,
               disabled &&
                 `bg-shade-white-disabled ring-shade-medium-disabled text-shade-dark-disabled placeholder:text-shade-light-disabled cursor-not-allowed`,
-              className,
             ])}
             ref={ref}
           />
         </Text>
         <Fragment>
-          {isValidElement(label) ? (
+          {isValidElement(helperText) ? (
             <Fragment>{helperText}</Fragment>
           ) : (
             <Text
