@@ -24,7 +24,6 @@ export type AutocompleteProps = Omit<UseAutocompleteProps<SelectOption, boolean,
   label?: string;
   placeholder?: string;
   required?: boolean;
-  fullWidth?: boolean;
   loadingText?: React.ReactNode;
   disabled?: boolean;
   className?: string;
@@ -122,7 +121,7 @@ export const Select: FC<AutocompleteProps> = forwardRef<HTMLInputElement, Autoco
           );
         }}
         classes={{
-          root: fsx(['bg-shade-white-default', className]),
+          root: fsx(['bg-shade-white-default w-full', className]),
           paper: fsx(['min-w-min translate-y-4 rounded-2xl py-2']),
           inputRoot: fsx([
             'group bg-shade-white-default text-shade-light-default p-0 antialiased',

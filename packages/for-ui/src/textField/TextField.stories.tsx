@@ -43,69 +43,44 @@ export const Outlined = (): JSX.Element => {
       <Text as="h3" size="l" weight="bold">
         Text Field
       </Text>
-      <div className="flex flex-col gap-1">
-        <TextField
-          required
-          fullWidth
-          error={!!errors['email']}
-          autoComplete="on"
-          type="email"
-          label="メールアドレス"
-          placeholder="example@example.com"
-          {...register('email')}
-        />
-        {errors['email'] && (
-          <Text size="s" className="text-negative-medium-default">
-            メールアドレスは必須です
-          </Text>
-        )}
-      </div>
 
-      <div>
-        <TextField
-          required
-          type="password"
-          label="パスワード"
-          placeholder="********"
-          error={!!errors['password']}
-          {...register('password')}
-        />
-        {errors['password'] && (
-          <Text size="s" className="text-negative-medium-default">
-            パスワードは必須です
-          </Text>
-        )}
-      </div>
+      <TextField
+        required
+        error={!!errors['email']}
+        autoComplete="on"
+        type="email"
+        label="メールアドレス"
+        placeholder="example@example.com"
+        helperText={errors['email'] && `メールアドレスは必須です`}
+        {...register('email')}
+      />
+      <TextField
+        required
+        type="password"
+        label="パスワード"
+        placeholder="********"
+        error={!!errors['password']}
+        helperText={errors['password'] && `パスワードは必須です`}
+        {...register('password')}
+      />
 
-      <div>
-        <TextField
-          label="金額 (2万円以上)"
-          placeholder="2"
-          unitLabel="万円"
-          isPriceFormat
-          error={!!errors['price']}
-          {...register('price')}
-        />
-        {errors['price'] && (
-          <Text size="s" className="text-negative-medium-default">
-            金額は2万円以上を入力してください
-          </Text>
-        )}
-      </div>
+      <TextField
+        label="金額 (2万円以上)"
+        placeholder="2"
+        unitLabel="万円"
+        isPriceFormat
+        error={!!errors['price']}
+        helperText={errors['price'] && `金額は2万円以上を入力してください`}
+        {...register('price')}
+      />
 
-      <div>
-        <TextField
-          label="アカウント名"
-          prefix="https://example.com/accounts/"
-          error={!!errors['account']}
-          {...register('account')}
-        />
-        {errors['account'] && (
-          <Text size="s" className="text-negative-medium-default">
-            エラーです
-          </Text>
-        )}
-      </div>
+      <TextField
+        label="アカウント名"
+        prefix="https://example.com/accounts/"
+        error={!!errors['account']}
+        helperText={errors['account'] && `エラーが発生しました`}
+        {...register('account')}
+      />
 
       <Button type="submit">登録する</Button>
     </form>
