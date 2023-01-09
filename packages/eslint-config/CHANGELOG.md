@@ -1,5 +1,11 @@
 # @3design/eslint-config
 
+## 1.0.4
+
+### Patch Changes
+
+- [#967](https://github.com/4-design/for-ui/pull/967) [`d152330`](https://github.com/4-design/for-ui/commit/d152330daccb501698555741952bce8d12ff3f17) Thanks [@locona](https://github.com/locona)! - fix(eslint-config): Upgrade version of eslint-plugin-unicorn.
+
 ## 1.0.3
 
 ### Patch Changes
