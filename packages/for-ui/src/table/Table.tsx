@@ -1,4 +1,4 @@
-import { FC, Fragment, useCallback, useState, useMemo, useRef, MouseEvent } from 'react';
+import { FC, Fragment, useCallback, useState, useMemo, useRef, MouseEvent, useLayoutEffect } from 'react';
 import {
   ColumnDef,
   ColumnSort,
@@ -30,6 +30,7 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'colu
   /** The component used to render reach row. By default, Row is used. */
   rowRenderer?: FC<RowProps<T>>;
   className?: string;
+  pageSize?: number;
 } & (
     | {
         /** If wanting to use selectable table, specify _onSelectRow_ or _onSelectRows_ exclusively */
@@ -53,6 +54,7 @@ export const Table = <T extends RowData>({
   rowRenderer,
   getRowId,
   columns,
+  pageSize = 20,
   className,
 }: TableProps<T>) => {
   // const { data, disablePagination, defaultSortColumn, onSelectRow, onSelectRows, onRowClick, rowRenderer } = props;
@@ -164,6 +166,10 @@ export const Table = <T extends RowData>({
     enableRowSelection: !!(onSelectRow || onSelectRows),
     enableMultiRowSelection: !!onSelectRows,
   });
+
+  useLayoutEffect(() => {
+    table.setPageSize(pageSize);
+  }, [table, pageSize]);
 
   return (
     <>
