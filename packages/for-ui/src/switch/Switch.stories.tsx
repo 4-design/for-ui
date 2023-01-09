@@ -5,21 +5,13 @@ import { Controller, useForm } from 'react-hook-form';
 import { Button } from '../button';
 import { Switch } from './Switch';
 import { SwitchGroup } from './SwitchGroup';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 export default {
   title: 'Form / Switch',
   component: Switch,
-  decorators: [
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (Story: any) => (
-      <div className="mt-10 flex h-screen w-screen flex-col gap-4">
-        <Story />
-      </div>
-    ),
-  ],
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+  argTypes: {},
 } as Meta;
 
 export const Basic = (): JSX.Element => {
@@ -77,5 +69,27 @@ export const Basic = (): JSX.Element => {
         </div>
       </form>
     </div>
+  );
+};
+
+const schema = yup.object({
+  autosave: yup.string().required(),
+});
+
+type FieldValue = yup.InferType<typeof schema>;
+
+export const WithReactHookForm = () => {
+  const { register, handleSubmit } = useForm<FieldValue>({
+    resolver: yupResolver(schema),
+  });
+  const onSubmit = (data: unknown) => {
+    console.info(data);
+  };
+
+  return (
+    <form className="w-96" onSubmit={handleSubmit(onSubmit)}>
+      <Switch label="自動保存" {...register('autosave')} />
+      <Button type="submit">送信</Button>
+    </form>
   );
 };
