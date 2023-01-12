@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import MuiTabs, { TabsProps as MuiTabsProps } from '@mui/material/Tabs';
 import { tabWrapperStyle } from './style';
-import { fsx } from '../system/fsx'
+import { fsx } from '../system/fsx';
 
 export interface TabsProps extends MuiTabsProps {
   noBorder?: boolean;

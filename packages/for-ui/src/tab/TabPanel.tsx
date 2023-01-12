@@ -4,9 +4,6 @@ import { fsx } from '../system/fsx';
 
 export type TabPanelProps = MuiTabPanelProps;
 
-export const TabPanel: FC<TabPanelProps> = ({ className, ...rest }) =>  (
-    <MuiTabPanel
-      className={fsx(`px-0`, className)}
-      {...rest}
-    />
-  );
+export const TabPanel: FC<TabPanelProps> = ({ className, ...rest }) => (
+  <MuiTabPanel className={fsx(`px-0`, className)} {...rest} />
+);
