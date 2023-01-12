@@ -18,7 +18,7 @@ jobs:
           cache: npm
 
       - name: install
-        run: npm i
+        run: npm install --no-save turbo-linux-64 && npm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
