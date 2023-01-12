@@ -43,8 +43,6 @@ yarn-error.log*
 *-debug.log
 */*-debug.log
 
-package-lock.json
-
 .yalc
 yalc.lock
 .env

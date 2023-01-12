@@ -38,10 +38,7 @@
     "node": "16.19.0",
     "yarn": "1.22.19"
   },
-  "workspaces": {
-    "packages": [
-      "packages/*",
-      "example/*"
-    ]
-  }
+  "workspaces": [
+    "packages/*"
+  ]
 }
