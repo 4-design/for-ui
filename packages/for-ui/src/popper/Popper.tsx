@@ -30,15 +30,6 @@ export const Popper = (props: PopperProps) => {
     });
   }
 
-  // const childrenWithProps = React.Children.map(props.children, (child) => {
-  //   // Checking isValidElement is the safe way and avoids a
-  //   // typescript error too.
-  //   if (React.isValidElement(child)) {
-  //     return React.cloneElement(child, { ...trigger });
-  //   }
-  //   return child;
-  // });
-
   return (
     <React.Fragment>
       {_TriggerComponent}
