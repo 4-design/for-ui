@@ -10,6 +10,7 @@ export * from './icon';
 export * from './menu';
 export * from './modal';
 export * from './radio';
+export * from './popper';
 export * from './select';
 export * from './skeleton';
 export * from './stepper';
