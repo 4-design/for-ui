@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { Tab } from './Tab';
@@ -6,14 +6,15 @@ import { TabContext } from './TabContext';
 import { TabList } from './TabList';
 import { TabPanel } from './TabPanel';
 import { Tabs } from './Tabs';
+import { Text } from '../text';
 
 export default {
   title: 'Navigation / Tab',
   component: Tabs,
 } as Meta;
 
-const Template: Story = () => {
-  const [value, setValue] = React.useState('1');
+export const DefaultTab: Story = () => {
+  const [value, setValue] = useState('1');
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -21,7 +22,9 @@ const Template: Story = () => {
 
   return (
     <div className="flex flex-col">
-      <h1>Tab</h1>
+      <Text size="l" weight="bold">
+        Tab
+      </Text>
 
       <div className="mt-8 flex flex-col">
         <TabContext value={value}>
@@ -86,8 +89,8 @@ const Template: Story = () => {
   );
 };
 
-const Template2: Story = () => {
-  const [value, setValue] = React.useState('1');
+export const ReverseTab: Story = () => {
+  const [value, setValue] = useState('1');
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -158,9 +161,6 @@ const Template2: Story = () => {
     </div>
   );
 };
-
-export const DefaultTab = Template.bind({});
-export const ReverseTab = Template2.bind({});
 
 export const WithTabList: Story = () => {
   const [value, setValue] = React.useState('1');
