@@ -25,7 +25,7 @@ const Template: Story = () => {
 
       <div className="mt-8 flex flex-col">
         <TabContext value={value}>
-          <Tabs value={value} onChange={handleChange}>
+          <Tabs value={value} onChange={handleChange} color="primary">
             <Tab value="1" label="Item One" minWidth={0} />
             <Tab value="2" label="Item Two" />
             <Tab value="3" label="Item Three" />
@@ -45,7 +45,7 @@ const Template: Story = () => {
 
       <div className="mt-8 flex flex-col">
         <TabContext value={value}>
-          <Tabs value={value} onChange={handleChange} color="primary">
+          <Tabs value={value} onChange={handleChange} color="secondary">
             <Tab value="1" label="Item One" minWidth={0} />
             <Tab value="2" label="Item Two" />
             <Tab value="3" label="Item Three" />
@@ -98,7 +98,7 @@ const Template2: Story = () => {
       <h1>Reverse Tab</h1>
       <div className="mt-8 flex flex-col">
         <TabContext value={value}>
-          <Tabs value={value} onChange={handleChange} reverse>
+          <Tabs value={value} onChange={handleChange} color="primary" reverse>
             <Tab value="1" label="Item One" minWidth={0} />
             <Tab value="2" label="Item Two" />
             <Tab value="3" label="Item Three" />
@@ -118,7 +118,7 @@ const Template2: Story = () => {
 
       <div className="mt-8 flex flex-col">
         <TabContext value={value}>
-          <Tabs value={value} onChange={handleChange} color="primary" reverse>
+          <Tabs value={value} onChange={handleChange} color="secondary" reverse>
             <Tab value="1" label="Item One" minWidth={0} />
             <Tab value="2" label="Item Two" />
             <Tab value="3" label="Item Three" />
@@ -138,27 +138,7 @@ const Template2: Story = () => {
 
       <div className="mt-8 flex flex-col">
         <TabContext value={value}>
-          <Tabs value={value} onChange={handleChange} color="shade" reverse>
-            <Tab value="1" label="Item One" minWidth={0} />
-            <Tab value="2" label="Item Two" />
-            <Tab value="3" label="Item Three" />
-          </Tabs>
-
-          <TabPanel value="1">
-            <h1>shade 1</h1>
-          </TabPanel>
-          <TabPanel value="2">
-            <h1>shade 2</h1>
-          </TabPanel>
-          <TabPanel value="3">
-            <h1>shade 3</h1>
-          </TabPanel>
-        </TabContext>
-      </div>
-
-      <div className="mt-8 flex flex-col">
-        <TabContext value={value}>
-          <Tabs value={value} onChange={handleChange} color="shade" reverse noBorder>
+          <Tabs value={value} onChange={handleChange} color="primary" reverse noBorder>
             <Tab value="1" label="Item One" minWidth={0} />
             <Tab value="2" label="Item Two" />
             <Tab value="3" label="Item Three" />
@@ -195,7 +175,7 @@ export const WithTabList: Story = () => {
 
       <div className="mt-8 flex flex-col">
         <TabContext value={value}>
-          <TabList onChange={handleChange}>
+          <TabList onChange={handleChange} color="primary">
             <Tab value="1" label="Item One" minWidth={0} />
             <Tab value="2" label="Item Two" />
             <Tab value="3" label="Item Three" />
@@ -215,7 +195,7 @@ export const WithTabList: Story = () => {
 
       <div className="mt-8 flex flex-col">
         <TabContext value={value}>
-          <TabList onChange={handleChange} color="primary">
+          <TabList onChange={handleChange} color="secondary">
             <Tab value="1" label="Item One" minWidth={0} />
             <Tab value="2" label="Item Two" />
             <Tab value="3" label="Item Three" />
@@ -235,27 +215,7 @@ export const WithTabList: Story = () => {
 
       <div className="mt-8 flex flex-col">
         <TabContext value={value}>
-          <TabList onChange={handleChange} color="shade">
-            <Tab value="1" label="Item One" minWidth={0} />
-            <Tab value="2" label="Item Two" />
-            <Tab value="3" label="Item Three" />
-          </TabList>
-
-          <TabPanel value="1">
-            <h1>shade 1</h1>
-          </TabPanel>
-          <TabPanel value="2">
-            <h1>shade 2</h1>
-          </TabPanel>
-          <TabPanel value="3">
-            <h1>shade 3</h1>
-          </TabPanel>
-        </TabContext>
-      </div>
-
-      <div className="mt-8 flex flex-col">
-        <TabContext value={value}>
-          <TabList onChange={handleChange} color="shade" noBorder>
+          <TabList onChange={handleChange} color="primary" noBorder>
             <Tab value="1" label="Item One" minWidth={0} />
             <Tab value="2" label="Item Two" />
             <Tab value="3" label="Item Three" />
