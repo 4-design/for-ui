@@ -23,7 +23,7 @@
     "url": "git+https://github.com/4-design/for-ui.git"
   },
   "scripts": {
-    "dev": "yarn storybook",
+    "dev": "run-p storybook",
     "type-check": "tsc --pretty",
     "build:types": "tsc",
     "build:js": "NODE_ENV=production vite build",
@@ -95,7 +95,6 @@
     "tailwind.config.base.js"
   ],
   "volta": {
-    "node": "16.19.0",
-    "yarn": "1.22.19"
+    "node": "16.19.0"
   }
 }
