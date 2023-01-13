@@ -124,13 +124,11 @@ export const Select: FC<AutocompleteProps> = forwardRef<HTMLInputElement, Autoco
           root: fsx(['bg-shade-white-default w-full', className]),
           paper: fsx(['min-w-min translate-y-4 rounded-2xl py-2']),
           inputRoot: fsx([
-            'group bg-shade-white-default text-shade-light-default p-0 antialiased',
-            // 'group bg-shade-white-default text-shade-light-default antialiased !py-2',
+            'group bg-shade-white-default text-shade-light-default antialiased !py-2.5 !px-3',
             disableFilter && 'cursor-pointer',
           ]),
           input: fsx([
-            'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
-            // 'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto font-sans placeholder:opacity-100 focus:shadow-none !p-0',
+            'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto font-sans placeholder:opacity-100 focus:shadow-none !p-0',
             disableFilter && 'cursor-pointer caret-transparent',
           ]),
           inputFocused: fsx(['border-primary-medium-active']),
