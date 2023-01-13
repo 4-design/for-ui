@@ -1,5 +1,11 @@
 # @3design/eslint-config
 
+## 1.0.5
+
+### Patch Changes
+
+- [#984](https://github.com/4-design/for-ui/pull/984) [`ceb5b43`](https://github.com/4-design/for-ui/commit/ceb5b4391aeff167466388bdabb610f1360a0910) Thanks [@locona](https://github.com/locona)! - fix(eslint-config): Ignore import/no-default-export pattern of '\*.graphql.ts'
+
 ## 1.0.4
 
 ### Patch Changes

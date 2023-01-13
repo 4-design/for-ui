@@ -1,5 +1,19 @@
 # @3design/3design-ui
 
+## 1.0.13
+
+### Patch Changes
+
+- [#982](https://github.com/4-design/for-ui/pull/982) [`c48c40d`](https://github.com/4-design/for-ui/commit/c48c40dfe88fdbbae04ee83a36a7c5aa4cc7387a) Thanks [@locona](https://github.com/locona)! - feat(Popper): Popper 実装
+
+- [#993](https://github.com/4-design/for-ui/pull/993) [`7c35340`](https://github.com/4-design/for-ui/commit/7c3534002a18100f9d9532b92f0ef8f694c7a666) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: `tailwind.config.js` の important の記述を修正
+
+- [#988](https://github.com/4-design/for-ui/pull/988) [`549187c`](https://github.com/4-design/for-ui/commit/549187ce88584e208195eeb80d795bb92952f40d) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Tabs): Tabs の divider を border を使うように変更する
+
+- [#995](https://github.com/4-design/for-ui/pull/995) [`4c50daa`](https://github.com/4-design/for-ui/commit/4c50daab8a04df7bd4cd263070197617e50a4a44) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextField, TextArea): required の表示を label が存在するときのみ表示するように修正
+
+- [#990](https://github.com/4-design/for-ui/pull/990) [`1647212`](https://github.com/4-design/for-ui/commit/16472125d0b3e45d00d325a661d9ec302ccbf6e1) Thanks [@locona](https://github.com/locona)! - chore: Upgrade vite v3 -> v4 and use vite/plugin-react-swc
+
 ## 1.0.12
 
 ### Patch Changes
