@@ -125,7 +125,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     return (
       <div className={fsx('flex flex-col w-full', className)}>
         <label>
-          {(label || required) && (
+          {label && (
             <Text as="label" className={fsx(['text-s text-shade-medium-default mb-1 font-bold antialiased'])}>
               {label}
               {required && <Text className="text-negative-medium-default">*</Text>}
