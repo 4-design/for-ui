@@ -89,7 +89,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             ) : (
               <Text>
                 {label}
-                {(label && required) && (
+                {label && required && (
                   <Text className="text-negative-medium-default" weight="regular">
                     *
                   </Text>
