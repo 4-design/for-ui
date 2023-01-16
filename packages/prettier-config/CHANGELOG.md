@@ -1,5 +1,11 @@
 # @3design/prettier-config
 
+## 1.0.4
+
+### Patch Changes
+
+- [#935](https://github.com/4-design/for-ui/pull/935) [`aaa34c6`](https://github.com/4-design/for-ui/commit/aaa34c66c1ac44d1fcba3347b2d9b46a86af0069) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update all non-major dependencies
+
 ## 1.0.3
 
 ### Patch Changes
