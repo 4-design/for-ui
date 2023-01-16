@@ -22,7 +22,7 @@ export const DrawerAnchor = {
   left: 'left',
   right: 'right',
 } as const;
-export type DrawerAnchor = typeof DrawerAnchor[keyof typeof DrawerAnchor];
+export type DrawerAnchor = (typeof DrawerAnchor)[keyof typeof DrawerAnchor];
 
 export const Drawer: React.FC<Props> = ({
   open,

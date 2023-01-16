@@ -10,7 +10,7 @@ export const sizes = {
   xl: 'xl',
 } as const;
 
-export type Size = typeof sizes[keyof typeof sizes];
+export type Size = (typeof sizes)[keyof typeof sizes];
 
 // See https://www.figma.com/file/6lYya5bf9katRbZsIFZTYv/3design?node-id=1833%3A4192
 // In tailwind.css, 1rem = 16px
@@ -39,7 +39,7 @@ export const variants = {
   caption: 'caption',
 } as const;
 
-export type Variant = typeof variants[keyof typeof variants];
+export type Variant = (typeof variants)[keyof typeof variants];
 
 interface Props {
   className?: string;
