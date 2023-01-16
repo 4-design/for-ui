@@ -1,5 +1,17 @@
 # @3design/3design-ui
 
+## 1.0.14
+
+### Patch Changes
+
+- [#1000](https://github.com/4-design/for-ui/pull/1000) [`75dfdd4`](https://github.com/4-design/for-ui/commit/75dfdd4f3a3be0bb73777008de9a6041d88b4d61) Thanks [@locona](https://github.com/locona)! - fix: eslint / prettier ライブラリアップデート
+
+- [#935](https://github.com/4-design/for-ui/pull/935) [`aaa34c6`](https://github.com/4-design/for-ui/commit/aaa34c66c1ac44d1fcba3347b2d9b46a86af0069) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update all non-major dependencies
+
+- [`75a1a14`](https://github.com/4-design/for-ui/commit/75a1a1479b0e08dc7c66b41e74c6d2fcedf8ff13) Thanks [@locona](https://github.com/locona)! - fix: Remove babel/core
+
+- [#997](https://github.com/4-design/for-ui/pull/997) [`e3ddac9`](https://github.com/4-design/for-ui/commit/e3ddac9f90f704cce4d633ff1847984ddbb733fe) Thanks [@locona](https://github.com/locona)! - fix(Button): html elemnt の変更を受け止めるようにする
+
 ## 1.0.13
 
 ### Patch Changes

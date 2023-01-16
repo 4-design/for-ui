@@ -1,5 +1,11 @@
 # @3design/eslint-config
 
+## 1.0.6
+
+### Patch Changes
+
+- [#1000](https://github.com/4-design/for-ui/pull/1000) [`75dfdd4`](https://github.com/4-design/for-ui/commit/75dfdd4f3a3be0bb73777008de9a6041d88b4d61) Thanks [@locona](https://github.com/locona)! - fix: eslint / prettier ライブラリアップデート
+
 ## 1.0.5
 
 ### Patch Changes
