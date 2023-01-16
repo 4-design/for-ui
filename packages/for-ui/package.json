@@ -39,7 +39,6 @@
     "tailwind-merge": "1.8.1"
   },
   "devDependencies": {
-    "@babel/core": "7.20.5",
     "@emotion/react": "11.10.5",
     "@emotion/styled": "11.10.5",
     "@hookform/resolvers": "2.9.10",
