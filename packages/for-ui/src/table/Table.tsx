@@ -183,9 +183,7 @@ export const Table = <T extends RowData>(props: TableProps<T>) => {
                     </div>
                   ) : (
                     <div className="flex items-center">
-                      <Text size="s" weight="regular">
-                        ヘッダ
-                      </Text>
+                      <Text className="text-sm font-medium">ヘッダ</Text>
                       {flexRender(header.column.columnDef.header, header.getContext())}
                     </div>
                   )}
