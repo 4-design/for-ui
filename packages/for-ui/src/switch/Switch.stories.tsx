@@ -1,12 +1,11 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-
-import { Controller, useForm } from 'react-hook-form';
 import { Button } from '../button';
 import { Switch } from './Switch';
 import { SwitchGroup } from './SwitchGroup';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Controller, useForm } from 'react-hook-form';
 
 export default {
   title: 'Form / Switch',
