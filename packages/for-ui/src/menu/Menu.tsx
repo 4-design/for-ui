@@ -1,12 +1,13 @@
-import React, { forwardRef } from 'react';
+import { forwardRef, cloneElement, ReactElement, Fragment } from 'react';
 import MuiMenu, { MenuProps as MuiMenuProps } from '@mui/material/Menu';
 import { fsx } from '../system/fsx';
 import { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { usePopupState } from 'material-ui-popup-state/hooks';
 
 export type MenuProps = Omit<MuiMenuProps, 'open'> & {
-  TriggerComponent: React.ReactNode;
-  nopadding?: boolean;
+  TriggerComponent: ReactElement;
+
+  className?: string;
 };
 
 export const Menu = forwardRef<HTMLDivElement, MenuProps>(
@@ -22,7 +23,8 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
       },
       children,
       TriggerComponent,
-      nopadding = false,
+      classes,
+      className,
       ...rest
     },
     ref
@@ -32,16 +34,12 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
       popupId: undefined,
     });
 
-    let _TriggerComponent = <></>;
-
-    if (React.isValidElement<unknown>(TriggerComponent)) {
-      _TriggerComponent = React.cloneElement(TriggerComponent, {
-        ...bindTrigger(popupState),
-      });
-    }
+    const _TriggerComponent = cloneElement(TriggerComponent, {
+      ...bindTrigger(popupState),
+    });
 
     return (
-      <React.Fragment>
+      <Fragment>
         {_TriggerComponent}
 
         <MuiMenu
@@ -49,17 +47,19 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
           anchorOrigin={anchorOrigin}
           transformOrigin={transformOrigin}
           classes={{
-            root: fsx(['translate-y-2']),
-            paper: fsx(['z-modal shadow-menu  min-w-min rounded-[4px]', nopadding ? 'p-0' : 'p-1']),
-            list: fsx(['divide-shade-light-default grid grid-cols-1 divide-y py-0']),
-            ...rest.classes,
+            paper: fsx([
+              `z-modal shadow-[rgba(0,0,0,.1)_0_8px_24px] rounded py-1 border border-shade-light-default`,
+              className,
+            ]),
+            list: fsx(['py-0']),
+            ...classes,
           }}
           {...bindMenu(popupState)}
           {...rest}
         >
           {children}
         </MuiMenu>
-      </React.Fragment>
+      </Fragment>
     );
   }
 );

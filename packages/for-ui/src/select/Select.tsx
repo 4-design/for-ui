@@ -109,7 +109,7 @@ export const Select: FC<AutocompleteProps> = ({
           <MenuItem
             {...props}
             key={option.inputValue}
-            className={fsx([selected && 'text-primary-dark-default hover:bg-primary-white-hover text-base'])}
+            className={fsx([selected && 'text-primary-dark-default hover:bg-shade-white-hover text-base'])}
           >
             {label}
             {selected && <MdCheck size={20} className="text-primary-medium-default absolute right-4" />}

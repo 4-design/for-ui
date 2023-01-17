@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '../typography/Typography';
+import { Text } from '../text';
 
 export interface CardTitleProps {
   children: React.ReactNode | string;
@@ -22,9 +22,9 @@ interface CardActionProps {
 }
 
 export const CardTitle: React.FC<CardTitleProps> = ({ children }) => (
-  <Typography variant="h4" className="text-shade-dark-default border-none font-sans font-bold">
+  <Text as="h4" className="text-shade-dark-default border-none font-sans font-bold">
     {children}
-  </Typography>
+  </Text>
 );
 
 export const CardAction: React.FC<CardActionProps> = ({ children }) => <div>{children}</div>;

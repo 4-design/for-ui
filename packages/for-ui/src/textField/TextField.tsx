@@ -4,7 +4,7 @@ import MuiTextField, { TextFieldProps as MuiTextFieldProps } from '@mui/material
 import { fsx } from '../system/fsx';
 import { NumericFormat } from 'react-number-format';
 
-export type TextFieldProps = Omit<MuiTextFieldProps, 'size'> & {
+export type TextFieldProps = Omit<MuiTextFieldProps, 'size' | 'multiline' | 'rows'> & {
   unitLabel?: string;
   isPriceFormat?: boolean;
   variant?: 'outlined';

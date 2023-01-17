@@ -102,11 +102,6 @@ const colors = {
       light: {
         default: 'var(--primary-text-light-default)',
       },
-      white: {
-        default: 'var(--primary-text-white-default)',
-        hover: 'var(--primary-text-white-hover)',
-        disabled: 'var(--primary-text-white-disabled)',
-      },
     },
 
     background: {
@@ -339,12 +334,34 @@ const fontSizes = {
     },
   ],
   xl: [
-    '2rem',
+    '1.5rem',
     {
       lineHeight: '2.5rem',
       letterSpacing: '0',
     },
   ],
+};
+
+const borderColors = {
+  transparent: 'transparent',
+  shade: colors.shade.border,
+  primary: colors.primary.border,
+  secondary: colors.secondary.border,
+  negative: colors.negative.border,
+  positive: colors.positive.border,
+  notice: colors.notice.border,
+  informative: colors.notice.border,
+};
+
+const iconColors = {
+  transparent: 'transparent',
+  shade: colors.shade.icon,
+  primary: colors.primary.icon,
+  secondary: colors.secondary.icon,
+  positive: colors.positive.icon,
+  notice: colors.notice.icon,
+  informative: colors.notice.icon,
+  negative: colors.negative.icon,
 };
 
 module.exports = {
@@ -396,26 +413,10 @@ module.exports = {
       notice: colors.notice.background,
       informative: colors.notice.background,
     },
-    borderColor: {
-      transparent: 'transparent',
-      shade: colors.shade.border,
-      primary: colors.primary.border,
-      secondary: colors.secondary.border,
-      negative: colors.negative.border,
-      positive: colors.positive.border,
-      notice: colors.notice.border,
-      informative: colors.notice.border,
-    },
-    iconColor: {
-      transparent: 'transparent',
-      shade: colors.shade.icon,
-      primary: colors.primary.icon,
-      secondary: colors.secondary.icon,
-      positive: colors.positive.icon,
-      notice: colors.notice.icon,
-      informative: colors.notice.icon,
-      negative: colors.negative.icon,
-    },
+    borderColor: borderColors,
+    ringColor: borderColors,
+    iconColor: iconColors,
+    fill: iconColors,
     fontSize: {
       xs: fontSizes.s,
       sm: fontSizes.s,
@@ -510,6 +511,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['YakuHanJP', 'Inter', 'Noto Sans JP', ...defaultTheme.fontFamily.sans],
+        mono: ['Fira Code', 'Noto Sans JP', ...defaultTheme.fontFamily.mono],
       },
       gridTemplateColumns: {
         'auto-1': 'repeat(auto-fill, minmax(80px, 1fr))',

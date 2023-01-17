@@ -1,5 +1,5 @@
 module.exports = {
-  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)', '../src/**/*.stories.mdx'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -19,5 +19,6 @@ module.exports = {
   framework: '@storybook/react',
   features: {
     storyStoreV7: true,
+    // previewMdx2: true,
   },
 };
