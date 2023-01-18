@@ -3,6 +3,8 @@ import LoadingButton, { LoadingButtonProps } from '@mui/lab/LoadingButton';
 import { fsx } from '../system/fsx';
 
 export type ButtonProps = Omit<LoadingButtonProps, 'color' | 'variant' | 'size'> & {
+  component?: React.ElementType;
+
   className?: string;
 
   // NOTE: duplicated "contained"
@@ -59,7 +61,7 @@ const loadingIndicatorEndStyles = {
 
 export const Button: React.ForwardRefExoticComponent<ButtonProps> = React.forwardRef((props, ref) => {
   const {
-    type = 'button',
+    component = 'button',
     variant = 'filled',
     size = 'large',
     color = 'primary',
@@ -86,8 +88,8 @@ export const Button: React.ForwardRefExoticComponent<ButtonProps> = React.forwar
 
   return (
     <LoadingButton
+      component={component}
       ref={ref}
-      type={type}
       variant={_variant}
       startIcon={startIcon}
       endIcon={endIcon}

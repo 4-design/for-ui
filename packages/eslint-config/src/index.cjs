@@ -64,5 +64,11 @@ module.exports = {
         'import/no-default-export': 'off',
       },
     },
+    {
+      files: ['*.graphql.ts'],
+      rules: {
+        'import/no-default-export': 'off',
+      },
+    },
   ],
 };
