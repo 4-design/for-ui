@@ -11,19 +11,19 @@ export type CheckboxProps = MuiCheckboxProps & {
   className?: string;
 };
 
-const Indicator: FC<{ state: 'default' | 'checked' | 'mixed' }> = ({ state }) => (
+const Indicator: FC<{ state: 'default' | 'checked' | 'intermediate' }> = ({ state }) => (
   <span
     className={fsx([
       `h-4 w-4 rounded transition duration-100`,
       state === 'default' && `border-shade-medium-default border-2`,
-      (state === 'checked' || state === 'mixed') && `bg-primary-dark-default`,
+      (state === 'checked' || state === 'intermediate') && `bg-primary-dark-default`,
     ])}
   >
     {
       {
         default: null,
         checked: <MdCheck size={16} className="fill-shade-white-default" />,
-        mixed: <MdRemove size={16} className="fill-shade-white-default" />,
+        intermediate: <MdRemove size={16} className="fill-shade-white-default" />,
       }[state]
     }
   </span>
@@ -36,7 +36,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
         <MuiCheckbox
           icon={<Indicator state="default" />}
           checkedIcon={<Indicator state="checked" />}
-          indeterminateIcon={<Indicator state="mixed" />}
+          indeterminateIcon={<Indicator state="intermediate" />}
           className={fsx(nopadding ? 'p-0' : 'p-1')}
           ref={ref}
           {...rest}
