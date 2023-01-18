@@ -6,8 +6,8 @@ import { MdClose } from 'react-icons/md';
 type ChipColorType = 'default' | 'negative' | 'white';
 
 export type ChipProps = Omit<MuiChipProps, 'color' | 'icon' | 'deleteIcon' | 'size'> & {
-  // twin?: TwStyle[]
   color?: ChipColorType;
+  className?: string;
 } & (
     | {
         leadingIcon: MuiChipProps['icon'];
@@ -19,7 +19,7 @@ export type ChipProps = Omit<MuiChipProps, 'color' | 'icon' | 'deleteIcon' | 'si
       }
   );
 
-export const Chip: FC<ChipProps> = ({ label, leadingIcon, onDelete, clickable, color = 'default' }) => {
+export const Chip: FC<ChipProps> = ({ label, leadingIcon, onDelete, clickable, color = 'default', className }) => {
   return (
     <div
       className={fsx([
@@ -32,6 +32,7 @@ export const Chip: FC<ChipProps> = ({ label, leadingIcon, onDelete, clickable, c
         color === 'negative' && onDelete && 'hover:bg-[#FBEEF1]',
         clickable && 'cursor-pointer',
         !onDelete ? 'px-2' : 'pl-2',
+        className,
       ])}
     >
       {leadingIcon && leadingIcon}

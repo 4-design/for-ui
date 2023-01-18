@@ -13,6 +13,7 @@ type Props = MuiDrawerProps & {
   minWidth?: number;
   minHeight?: number;
   onClose?: () => void;
+  className?: string;
 };
 
 const _minWidth = 240;
@@ -21,7 +22,7 @@ export const DrawerAnchor = {
   left: 'left',
   right: 'right',
 } as const;
-export type DrawerAnchor = typeof DrawerAnchor[keyof typeof DrawerAnchor];
+export type DrawerAnchor = (typeof DrawerAnchor)[keyof typeof DrawerAnchor];
 
 export const Drawer: React.FC<Props> = ({
   open,
@@ -31,6 +32,7 @@ export const Drawer: React.FC<Props> = ({
   minWidth = _minWidth,
   children,
   onClose,
+  className,
   ...rest
 }) => {
   const ref = useRef(null);
@@ -80,8 +82,8 @@ export const Drawer: React.FC<Props> = ({
       open={open}
       anchor={anchor}
       classes={{
-        root: fsx(['shadow-drawer z-modal']),
-        paper: fsx(['p-6 [&.MuiBackdrop-root]:bg-transparent']),
+        root: fsx('shadow-drawer z-modal', className),
+        paper: fsx('p-6 [&.MuiBackdrop-root]:bg-transparent'),
       }}
       PaperProps={{
         sx: {

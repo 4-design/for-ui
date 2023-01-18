@@ -6,7 +6,6 @@ import { usePopupState } from 'material-ui-popup-state/hooks';
 
 export type MenuProps = Omit<MuiMenuProps, 'open'> & {
   TriggerComponent: ReactElement;
-
   className?: string;
 };
 
@@ -47,6 +46,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
           anchorOrigin={anchorOrigin}
           transformOrigin={transformOrigin}
           classes={{
+            root: fsx(className),
             paper: fsx([
               `z-modal shadow-[rgba(0,0,0,.1)_0_8px_24px] rounded py-1 border border-shade-light-default`,
               className,

@@ -76,3 +76,7 @@ export const WithTableScroller: Story = () => (
     <Table<PersonData> columns={columns} data={StaticPersonData} disablePagination />
   </TableScroller>
 );
+
+export const WithTablePageSize: Story = () => (
+  <Table<PersonData> columns={columns} data={StaticPersonData} pageSize={10} />
+);

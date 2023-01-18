@@ -11,6 +11,7 @@ export type DropzoneProps = {
   multiple?: boolean;
   onDrop: (acceptedFiles: File[]) => void;
   onRemove: (file: File) => (e: React.MouseEvent<HTMLButtonElement>) => void;
+  className?: string;
 };
 
 export const Dropzone: React.FC<DropzoneProps> = ({
@@ -19,6 +20,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({
   onRemove,
   message = 'ここにファイルをドロップしてアップロード',
   multiple = false,
+  className,
 }) => {
   const { getRootProps, getInputProps } = useDropzone({ onDrop, multiple });
 
@@ -28,6 +30,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({
       className={fsx([
         'flex w-auto cursor-pointer flex-col flex-wrap justify-center py-3 px-5',
         'border-shade-medium-default rounded border border-dashed',
+        className,
       ])}
     >
       <input {...getInputProps()} />

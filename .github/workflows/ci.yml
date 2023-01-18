@@ -15,15 +15,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: yarn
+          cache: npm
 
       - name: install
-        run: yarn install --ignore-engines --frozen-lockfile --immutable
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm install --no-save turbo-linux-64 && npm install
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Check lint
-        run: yarn lint
+        run: npm run lint
