@@ -2,20 +2,19 @@ import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 
 import { Button } from '../button/Button';
-import { Text } from '../typography/Typography';
+import { Text } from '../text';
 import { Menu } from './Menu';
+import { MenuDivider } from './MenuDivider';
 import { MenuItem } from './MenuItem';
+import { MdDeleteOutline, MdOutlineEdit, MdOutlinePhone, MdOutlineMail } from 'react-icons/md';
 
 export default {
   title: 'Navigation / Menu',
   component: Menu,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (Story: any) => (
-      <div className="mt-10 flex h-screen w-screen flex-col gap-4">
+      <div className="m-4 flex flex-col gap-4">
         <Story />
       </div>
     ),
@@ -25,11 +24,15 @@ export default {
 export const Base = () => {
   return (
     <div className="flex flex-col gap-8">
-      <div className="mb-4 border-b">
-        <Text variant="h3">Menu</Text>
-      </div>
+      <Text as="h3" size="xl" className="border-b">
+        Menu
+      </Text>
 
-      <Menu TriggerComponent={<Button variant="contained">プロジェクト</Button>}>
+      <Menu
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'center' }}
+        TriggerComponent={<Button variant="contained">プロジェクト</Button>}
+      >
         <MenuItem>
           <a href="#">プロフィール</a>
         </MenuItem>
@@ -38,6 +41,44 @@ export const Base = () => {
         </MenuItem>
         <MenuItem>
           <a href="#">プロフィール</a>
+        </MenuItem>
+      </Menu>
+    </div>
+  );
+};
+
+export const WithIcon = () => {
+  return (
+    <div className="flex flex-col gap-8">
+      <Text as="h3" size="xl" className="border-b">
+        Menu
+      </Text>
+
+      <Menu
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+        TriggerComponent={<Button>メニューを開く</Button>}
+      >
+        <MenuItem icon={<MdOutlineEdit />}>編集</MenuItem>
+        <MenuItem intention="negative" icon={<MdDeleteOutline />}>
+          削除
+        </MenuItem>
+        <MenuDivider />
+        <MenuItem
+          disabled
+          description={
+            <Text>
+              電話での問い合わせは今年度末のリリース予定しています。
+              <br />
+              使用可能になり次第、ダッシュボードでお知らせします。
+            </Text>
+          }
+          icon={<MdOutlinePhone />}
+        >
+          電話で問い合わせ
+        </MenuItem>
+        <MenuItem description="デフォルトのメーラーが開きます。" icon={<MdOutlineMail />}>
+          メールで問い合わせ
         </MenuItem>
       </Menu>
     </div>

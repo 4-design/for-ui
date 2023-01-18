@@ -1,6 +1,6 @@
 {
   "name": "@4design/eslint-config",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "description": "3design's shared ESLint config",
   "repository": {
     "url": "4-design/for-ui",
@@ -21,19 +21,19 @@
   },
   "dependencies": {
     "@rushstack/eslint-patch": "^1.1.3",
-    "@typescript-eslint/eslint-plugin": "^5.23.0",
-    "@typescript-eslint/parser": "^5.23.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
+    "@typescript-eslint/eslint-plugin": "5.48.1",
+    "@typescript-eslint/parser": "5.48.1",
+    "eslint-config-prettier": "8.6.0",
+    "eslint-plugin-import": "2.27.4",
     "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-sonarjs": "^0.16.0",
-    "eslint-plugin-tailwindcss": "3.6.2",
-    "eslint-plugin-unicorn": "^44.0.0"
+    "eslint-plugin-sonarjs": "^0.18.0",
+    "eslint-plugin-tailwindcss": "3.8.0",
+    "eslint-plugin-unicorn": "^45.0.0"
   },
   "optionalDependencies": {
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-mdx": "^2.0.0",
-    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react": "7.32.0",
     "eslint-plugin-react-hooks": "^4.5.0"
   },
   "peerDependencies": {

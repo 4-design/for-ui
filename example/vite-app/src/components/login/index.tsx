@@ -16,7 +16,7 @@ export const Login: React.FC = () => {
               </div>
             </div>
 
-            <Text variant="h1" className="text-shade-medium-default mt-3 text-center text-base font-bold">
+            <Text as="h1" className="text-shade-medium-default mt-3 text-center text-base font-bold">
               ログイン
             </Text>
           </div>

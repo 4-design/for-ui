@@ -1,7 +1,7 @@
 import MuiCheckbox, { CheckboxProps as MuiCheckboxProps } from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { fsx } from '../system/fsx';
-import { Typography } from '../typography';
+import { Text } from '../text';
 
 export type CheckboxProps = MuiCheckboxProps & {
   label?: string;
@@ -10,36 +10,36 @@ export type CheckboxProps = MuiCheckboxProps & {
   iconsize?: number | string;
   icon?: 'checked' | 'intermediate';
   // onChange?: ChangeEventHandler<HTMLInputElement>;
+  className?: string;
 };
 
-const _Checkbox = ({ nopadding = false, iconsize = 28, ...rest }: CheckboxProps) => (
+const _Checkbox = ({ nopadding = false, iconsize = 28, className, ...rest }: CheckboxProps) => (
   <MuiCheckbox
     classes={{
-      root: fsx(['text-shade-medium-default', nopadding ? 'p-0' : 'p-1']),
-      checked: fsx(['text-secondary-dark-default']),
-      disabled: fsx(['text-shade-dark-disabled']),
+      root: fsx('text-shade-medium-default', className, nopadding ? 'p-0' : 'p-1'),
+      checked: fsx('text-secondary-dark-default'),
+      disabled: fsx('text-shade-dark-disabled'),
     }}
     sx={{ '& .MuiSvgIcon-root': { fontSize: iconsize } }}
     {...rest}
   />
 );
 
-export const Checkbox = ({ label, nopadding = false, ...rest }: CheckboxProps) => {
+export const Checkbox = ({ label, nopadding = false, disabled, className, ...rest }: CheckboxProps) => {
   return (
     <>
       {label ? (
         <FormControlLabel
-          className="gap-1"
-          sx={{ margin: '0px' }}
+          className={fsx(`gap-1 m-0`, className)}
           control={<_Checkbox nopadding={nopadding} {...rest} />}
           label={
-            <Typography variant="body1" disabled={rest.disabled} className="text-r">
+            <Text size="s" className={fsx(`text-shade-dark-default ml-2`, disabled && `text-shade-dark-disabled`)}>
               {label}
-            </Typography>
+            </Text>
           }
         />
       ) : (
-        <_Checkbox nopadding={nopadding} {...rest} />
+        <_Checkbox nopadding={nopadding} className={className} {...rest} />
       )}
     </>
   );

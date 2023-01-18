@@ -1,13 +1,29 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import { ReactNode, FocusEvent, forwardRef, useCallback, useMemo, useState } from 'react';
 import InputAdornment from '@mui/material/InputAdornment';
 import MuiTextField, { TextFieldProps as MuiTextFieldProps } from '@mui/material/TextField';
-import { fsx } from '../system/fsx';
 import { NumericFormat } from 'react-number-format';
+import { fsx } from '../system/fsx';
+import { Text } from '../text';
 
-export type TextFieldProps = Omit<MuiTextFieldProps, 'size'> & {
+export type TextFieldProps = Omit<
+  MuiTextFieldProps,
+  'size' | 'variant' | 'multiline' | 'rows' | 'margin' | 'fullWidth'
+> & {
+  /**
+   * 単位を表示する場合に指定してください。
+   */
   unitLabel?: string;
+
+  /**
+   * 3桁区切りの金額表示をする場合に指定してください。入力値はnumberのみ許可されます。
+   */
   isPriceFormat?: boolean;
-  variant?: 'outlined';
+
+  /**
+   * URLの先頭部分など期待する入力値にユーザーが入力しない部分があることを明示的にしたい場合、prefixを指定してください。
+   */
+  prefix?: string;
+
   className?: string;
   size?: 'large' | 'medium';
 };
@@ -17,17 +33,16 @@ type NumberFormatCustomProps = {
   name: string;
   className?: string;
   other: {
-    children?: React.ReactNode;
+    children?: ReactNode;
   };
 };
 
-const NumberFormatCustom: React.ForwardRefExoticComponent<NumberFormatCustomProps> = React.forwardRef(
-  ({ onChange, name, ...other }, ref) => {
-    console.info(other);
+const NumberFormatCustom = forwardRef<HTMLInputElement, NumberFormatCustomProps>(
+  ({ onChange, name, className, ...rest }, ref) => {
     return (
       <NumericFormat
-        {...other}
-        className={fsx([other.className, 'text-right'])}
+        {...rest}
+        className={fsx(['text-right', className])}
         getInputRef={ref}
         onValueChange={(values) => {
           onChange({
@@ -43,18 +58,14 @@ const NumberFormatCustom: React.ForwardRefExoticComponent<NumberFormatCustomProp
   }
 );
 
-export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.forwardRef(
+export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   (
     {
       size = 'large',
       label,
-      variant = 'outlined',
       className,
       focused,
       placeholder,
-
-      // labelTwin,
-      // inputTwin,
       disabled,
       inputProps,
       required,
@@ -62,6 +73,7 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.
       error,
       unitLabel = '',
       isPriceFormat = false,
+      prefix = '',
       InputProps,
       onFocus,
       onBlur,
@@ -101,53 +113,50 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.
 
     const [_focused, setFocused] = useState<boolean>(focused || false);
     const handleFocus = useCallback(
-      (e: React.FocusEvent<HTMLInputElement>) => {
+      (e: FocusEvent<HTMLInputElement>) => {
         setFocused(true);
-        if (onFocus) {
-          onFocus(e);
-        }
+        onFocus?.(e);
       },
       [setFocused, onFocus]
     );
     const handleBlur = useCallback(
-      (e: React.FocusEvent<HTMLInputElement>) => {
+      (e: FocusEvent<HTMLInputElement>) => {
         setFocused(false);
-        if (onBlur) {
-          onBlur(e);
-        }
+        onBlur?.(e);
       },
       [setFocused, onBlur]
     );
 
     return (
-      <div className={fsx(['flex flex-col', className])}>
+      <div className={fsx('flex flex-col w-full', className)}>
         <label>
           {label && (
-            <p className={fsx(['text-s text-shade-medium-default mb-1 font-bold'])}>
+            <Text as="label" className={fsx(['text-s text-shade-medium-default mb-1 font-bold'])}>
               {label}
-              {required && <span className="text-negative-medium-default">*</span>}
-            </p>
+              {required && <Text className="text-negative-medium-default">*</Text>}
+            </Text>
           )}
           <MuiTextField
             disabled={disabled}
             error={error}
             inputRef={validRef}
             required={required}
-            variant={variant}
+            variant="outlined"
             placeholder={placeholder}
             sx={{
               '& .MuiInputBase-input:disabled::placeholder': {
                 '-webkit-text-fill-color': 'currentColor',
               },
             }}
+            className={fsx(`w-full flex flex-col gap-1`)}
             FormHelperTextProps={{
               classes: {
-                root: fsx([error && 'text-negative-medium-default m-0 mt-1 text-xs']),
+                root: fsx([error && 'text-negative-medium-default m-0 text-s']),
               },
             }}
             InputProps={{
               classes: {
-                root: fsx(['group bg-shade-white-default text-shade-light-default p-0 antialiased']),
+                root: fsx(['group bg-shade-white-default text-shade-light-default px-0 antialiased']),
                 disabled: fsx(['bg-shade-white-disabled', 'placeholder:text-shade-light-default']),
                 input: fsx([
                   'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
@@ -164,11 +173,21 @@ export const TextField: React.ForwardRefExoticComponent<TextFieldProps> = React.
                     : error
                     ? 'border-negative-medium-default'
                     : _focused
-                    ? 'border-primary-medium-active group-hover:border-primary-dark-default'
+                    ? 'border-2 border-primary-medium-active group-hover:border-primary-dark-default'
                     : 'border-shade-medium-default group-hover:border-primary-dark-default',
                 ]),
                 inputAdornedEnd: fsx(['pr-2']),
               },
+              startAdornment: prefix && (
+                <InputAdornment
+                  position="start"
+                  classes={{
+                    root: 'border-r border-shade-light-default bg-shade-light-default max-h-[fit-content] h-full py-2.5 px-3 m-0',
+                  }}
+                >
+                  <Text className="text-shade-dark-default inline-flex">{prefix}</Text>
+                </InputAdornment>
+              ),
               ...InputProps,
               ..._InputProps,
             }}

@@ -1,5 +1,25 @@
 # @3design/vite-app
 
+## 1.0.7
+
+### Patch Changes
+
+- [#917](https://github.com/4-design/for-ui/pull/917) [`86a452f`](https://github.com/4-design/for-ui/commit/86a452fe38215defc82f00263db0e9c83ef0d75e) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
+- Updated dependencies [[`e98cbda`](https://github.com/4-design/for-ui/commit/e98cbdabdabca82dcf5f99ed96ab5bfe8de16717), [`6bb1914`](https://github.com/4-design/for-ui/commit/6bb191447486ef5d6baa0c1a6f2f1c21b483c59a), [`86a452f`](https://github.com/4-design/for-ui/commit/86a452fe38215defc82f00263db0e9c83ef0d75e), [`ca50161`](https://github.com/4-design/for-ui/commit/ca50161618c0dfe2ed90223f439bae3cf6d50190), [`5d2787a`](https://github.com/4-design/for-ui/commit/5d2787a21daa4bed8629838df3ce12b760dbc403)]:
+  - @4design/for-ui@1.0.8
+
+## 1.0.6
+
+### Patch Changes
+
+- [#884](https://github.com/4-design/for-ui/pull/884) [`7889f97`](https://github.com/4-design/for-ui/commit/7889f97c01a4df82c2f6fd855393277e197422dd) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
+- [#891](https://github.com/4-design/for-ui/pull/891) [`f33803f`](https://github.com/4-design/for-ui/commit/f33803f1eb0c449477838f7252bfaa8556d39ed3) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Text): props から`variant`とデフォルトのテキスト色を削除
+
+- Updated dependencies [[`b7655a8`](https://github.com/4-design/for-ui/commit/b7655a8d6d5ca9b3b7fcd6c845850146c136dde1), [`1518d83`](https://github.com/4-design/for-ui/commit/1518d8325f8b1f635d1b34d8a2f5efe2c5104464), [`7889f97`](https://github.com/4-design/for-ui/commit/7889f97c01a4df82c2f6fd855393277e197422dd), [`f33803f`](https://github.com/4-design/for-ui/commit/f33803f1eb0c449477838f7252bfaa8556d39ed3), [`12f920d`](https://github.com/4-design/for-ui/commit/12f920dcebca696aa93f38f8b2e556f585ab2141), [`de18667`](https://github.com/4-design/for-ui/commit/de186674044c9ee1ae638187148a57eb89b370cc)]:
+  - @4design/for-ui@1.0.7
+
 ## 1.0.5
 
 ### Patch Changes

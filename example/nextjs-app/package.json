@@ -1,7 +1,7 @@
 {
   "name": "@4design/nextjs-app",
   "private": true,
-  "version": "1.0.4",
+  "version": "1.0.6",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -12,32 +12,30 @@
     "@4design/for-ui": "*",
     "@emotion/react": "11.10.5",
     "@emotion/styled": "11.10.5",
-    "@mui/lab": "5.0.0-alpha.106",
-    "@mui/material": "5.10.12",
+    "@mui/lab": "5.0.0-alpha.115",
+    "@mui/material": "5.11.4",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "4.6.0",
+    "react-icons": "4.7.1",
     "react-table": "7.8.0"
   },
   "devDependencies": {
-    "@babel/core": "7.19.6",
-    "@emotion/babel-plugin": "11.10.5",
     "@types/node": "12.20.55",
-    "@types/react": "18.0.24",
-    "@types/react-dom": "18.0.8",
-    "@types/react-table": "7.7.12",
+    "@types/react": "18.0.26",
+    "@types/react-dom": "18.0.10",
+    "@types/react-table": "7.7.14",
     "autoprefixer": "10.4.13",
     "next-transpile-modules": "9.1.0",
-    "postcss": "8.4.18",
-    "tailwindcss": "3.2.1",
-    "typescript": "4.8.4"
+    "postcss": "8.4.21",
+    "tailwindcss": "3.2.4",
+    "typescript": "4.9.4"
   },
   "resolutions": {
-    "@types/react": "18.0.24",
-    "@types/react-dom": "18.0.8"
+    "@types/react": "18.0.26",
+    "@types/react-dom": "18.0.10"
   },
   "volta": {
-    "node": "14.21.0"
+    "node": "14.21.2"
   }
 }

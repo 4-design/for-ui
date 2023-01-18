@@ -3,6 +3,8 @@ import LoadingButton, { LoadingButtonProps } from '@mui/lab/LoadingButton';
 import { fsx } from '../system/fsx';
 
 export type ButtonProps = Omit<LoadingButtonProps, 'color' | 'variant' | 'size'> & {
+  component?: React.ElementType;
+
   className?: string;
 
   // NOTE: duplicated "contained"
@@ -22,21 +24,21 @@ const sizes = {
 };
 
 const defaultStyles = {
-  contained: 'text-primary-white-default bg-primary-dark-default',
-  outlined: 'bg-primary-white-default text-primary-dark-default border-primary-dark-default',
-  text: 'text-primary-dark-default bg-primary-white-default',
+  contained: 'text-shade-white-default bg-primary-dark-default',
+  outlined: 'bg-shade-white-default text-primary-dark-default border-primary-dark-default',
+  text: 'text-primary-dark-default bg-shade-white-default',
 };
 
 const hoverStyles = {
-  contained: 'hover:text-primary-white-default hover:bg-primary-dark-hover',
-  outlined: 'hover:bg-primary-white-hover hover:text-primary-dark-hover hover:border-primary-dark-hover',
-  text: 'hover:text-primary-dark-hover hover:bg-primary-white-hover',
+  contained: 'hover:text-shade-white-default hover:bg-primary-dark-hover',
+  outlined: 'hover:bg-shade-white-hover hover:text-primary-dark-hover hover:border-primary-dark-hover',
+  text: 'hover:text-primary-dark-hover hover:bg-shade-white-hover',
 };
 
 const disableStyles = {
-  contained: 'text-primary-white-disabled bg-primary-dark-disabled',
-  outlined: 'bg-primary-white-disabled text-primary-dark-disabled border-primary-dark-disabled',
-  text: 'text-primary-dark-disabled bg-primary-white-disabled',
+  contained: 'text-shade-white-disabled bg-primary-dark-disabled',
+  outlined: 'bg-shade-white-disabled text-primary-dark-disabled border-primary-dark-disabled',
+  text: 'text-primary-dark-disabled bg-shade-white-disabled',
 };
 
 const loadingIndicatorStyles = {
@@ -46,20 +48,20 @@ const loadingIndicatorStyles = {
 };
 
 const loadingIndicatorStartStyles = {
-  contained: 'text-primary-white-disabled',
+  contained: 'text-shade-white-disabled',
   outlined: '',
   text: '',
 };
 
 const loadingIndicatorEndStyles = {
-  contained: 'text-primary-white-disabled',
+  contained: 'text-shade-white-disabled',
   outlined: '',
   text: '',
 };
 
 export const Button: React.ForwardRefExoticComponent<ButtonProps> = React.forwardRef((props, ref) => {
   const {
-    type = 'button',
+    component = 'button',
     variant = 'filled',
     size = 'large',
     color = 'primary',
@@ -86,8 +88,8 @@ export const Button: React.ForwardRefExoticComponent<ButtonProps> = React.forwar
 
   return (
     <LoadingButton
+      component={component}
       ref={ref}
-      type={type}
       variant={_variant}
       startIcon={startIcon}
       endIcon={endIcon}
@@ -98,7 +100,7 @@ export const Button: React.ForwardRefExoticComponent<ButtonProps> = React.forwar
       aria-label={label || props['aria-label'] || 'button'}
       classes={{
         root: fsx([
-          'h-max-content flex max-w-max cursor-pointer whitespace-nowrap rounded-lg px-6 py-2 font-sans font-medium shadow-none transition hover:shadow-none focus:outline-none disabled:cursor-not-allowed',
+          'h-max-content flex max-w-max cursor-pointer whitespace-nowrap rounded-lg px-6 py-2 font-sans font-bold shadow-none transition hover:shadow-none focus:outline-none disabled:cursor-not-allowed',
           defaultStyles[_variant],
           hoverStyles[_variant],
           sizes[size],

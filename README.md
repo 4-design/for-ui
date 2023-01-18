@@ -17,13 +17,14 @@ React と Tailwind CSS で作られています。
 ## インストール
 
 ```
-yarn add @4design/for-ui
+npm i @4design/for-ui
 ```
 
 Peer dependencies のインストール
 
 ```
-yarn add tailwindcss @mui/lab @mui/material @types/react react react-icons
+npm i tailwindcss @mui/lab @mui/material react-icons react
+npm i --save-dev @types/react
 ```
 
 ## セットアップ

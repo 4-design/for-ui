@@ -93,6 +93,7 @@ export const Basic: Story = () => {
             return (
               <Select
                 name={name}
+                label="国名"
                 placeholder="国名"
                 options={options}
                 onChange={(e, option) => {
@@ -192,7 +193,7 @@ export const Basic: Story = () => {
 export const Single: Story = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      country: options[0],
+      country: '',
     },
   });
   const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
@@ -216,7 +217,6 @@ export const Single: Story = () => {
             );
           }}
         />
-
         <Button type="submit" className="mt-4">
           登録
         </Button>
@@ -276,7 +276,6 @@ export const Disabled: Story = () => {
             );
           }}
         />
-
         <Button type="submit" className="mt-4">
           登録
         </Button>
@@ -460,7 +459,7 @@ export const MultipleFreeSolo: Story = () => {
               <Select
                 freeSolo
                 multiple
-                autoComplete
+                // autoComplete
                 placeholder="未設定"
                 name={name}
                 value={value}
@@ -473,7 +472,6 @@ export const MultipleFreeSolo: Story = () => {
             );
           }}
         />
-
         <Button type="submit" className="mt-4">
           登録
         </Button>
@@ -489,7 +487,7 @@ export const MultipleFreeSolo: Story = () => {
                 freeSolo
                 multiple
                 size="medium"
-                autoComplete
+                // autoComplete
                 placeholder="未設定"
                 name={name}
                 value={value}
@@ -508,5 +506,42 @@ export const MultipleFreeSolo: Story = () => {
         </Button>
       </form>
     </div>
+  );
+};
+
+export const DisableFilter: Story = () => {
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      country: '',
+    },
+  });
+  const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="text-transparent">
+      <Controller
+        name="country"
+        control={control}
+        render={({ field: { onChange, ...fields } }) => {
+          return (
+            <Select
+              {...fields}
+              disableFilter
+              name={fields.name}
+              label="国名"
+              placeholder="未定"
+              options={options}
+              onChange={(e, option) => {
+                onChange(option as SelectOption);
+              }}
+            />
+          );
+        }}
+      />
+
+      <Button type="submit" className="mt-4">
+        登録
+      </Button>
+    </form>
   );
 };
