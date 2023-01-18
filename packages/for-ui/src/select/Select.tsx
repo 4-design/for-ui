@@ -19,7 +19,10 @@ export type SelectOption = {
 
 const filter = createFilterOptions<SelectOption>();
 
-export type AutocompleteProps = Omit<UseAutocompleteProps<SelectOption, boolean, boolean, boolean>, 'autoComplete' | 'size'> & {
+export type AutocompleteProps = Omit<
+  UseAutocompleteProps<SelectOption, boolean, boolean, boolean>,
+  'autoComplete' | 'size'
+> & {
   name: string;
   label?: string;
   placeholder?: string;
@@ -29,7 +32,7 @@ export type AutocompleteProps = Omit<UseAutocompleteProps<SelectOption, boolean,
   size?: 'large' | 'medium';
   className?: string;
   disableFilter?: boolean;
-}
+};
 
 export const Select: FC<AutocompleteProps> = forwardRef<HTMLInputElement, AutocompleteProps>(
   (
@@ -50,7 +53,7 @@ export const Select: FC<AutocompleteProps> = forwardRef<HTMLInputElement, Autoco
       className,
       ...rest
     },
-    ref,
+    ref
   ) => {
     return (
       <Autocomplete
@@ -87,12 +90,11 @@ export const Select: FC<AutocompleteProps> = forwardRef<HTMLInputElement, Autoco
             filtered.push({
               inputValue,
               label: inputValue,
-            })
+            });
           }
 
           return filtered;
         }}
-
         getOptionLabel={(option) => {
           // Value selected with enter, right from the input
           if (typeof option === 'string') {
@@ -141,32 +143,32 @@ export const Select: FC<AutocompleteProps> = forwardRef<HTMLInputElement, Autoco
           tag: fsx(['bg-shade-light-default [&.MuiChip-deleteIcon]:text-shade-dark-default border-none']),
           endAdornment: fsx(['[&_svg]:icon-shade-medium-default']),
         }}
-  
-      renderInput={(params) => {
-        return (
-          <TextField
-            {...params}
-            inputProps={
-              disableFilter
-                ? {
-                    ...params.inputProps,
-                    onChange: () => {
-                      // Ignore inputs if not searchable
-                    },
-                  }
-                : params.inputProps
-            }
-            size={size}
-            autoComplete="off"
-            name={name}
-            required={required}
-            label={label}
-            // inputTwin={inputTwin}
-            placeholder={placeholder}
-          />
-        );
-      }}
-      {...rest}
-    />
-  );
-})
+        renderInput={(params) => {
+          return (
+            <TextField
+              {...params}
+              inputProps={
+                disableFilter
+                  ? {
+                      ...params.inputProps,
+                      onChange: () => {
+                        // Ignore inputs if not searchable
+                      },
+                    }
+                  : params.inputProps
+              }
+              size={size}
+              autoComplete="off"
+              name={name}
+              required={required}
+              label={label}
+              // inputTwin={inputTwin}
+              placeholder={placeholder}
+            />
+          );
+        }}
+        {...rest}
+      />
+    );
+  }
+);

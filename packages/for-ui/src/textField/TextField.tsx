@@ -5,7 +5,10 @@ import { NumericFormat } from 'react-number-format';
 import { fsx } from '../system/fsx';
 import { Text } from '../text';
 
-export type TextFieldProps = Omit<MuiTextFieldProps, 'size' | 'variant' | 'multiline' | 'rows' | 'margin' | 'fullWidth'> & {
+export type TextFieldProps = Omit<
+  MuiTextFieldProps,
+  'size' | 'variant' | 'multiline' | 'rows' | 'margin' | 'fullWidth'
+> & {
   /**
    * 単位を表示する場合に指定してください。
    */
