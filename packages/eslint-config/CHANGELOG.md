@@ -1,5 +1,29 @@
 # @3design/eslint-config
 
+## 1.0.6
+
+### Patch Changes
+
+- [#1000](https://github.com/4-design/for-ui/pull/1000) [`75dfdd4`](https://github.com/4-design/for-ui/commit/75dfdd4f3a3be0bb73777008de9a6041d88b4d61) Thanks [@locona](https://github.com/locona)! - fix: eslint / prettier ライブラリアップデート
+
+## 1.0.5
+
+### Patch Changes
+
+- [#984](https://github.com/4-design/for-ui/pull/984) [`ceb5b43`](https://github.com/4-design/for-ui/commit/ceb5b4391aeff167466388bdabb610f1360a0910) Thanks [@locona](https://github.com/locona)! - fix(eslint-config): Ignore import/no-default-export pattern of '\*.graphql.ts'
+
+## 1.0.4
+
+### Patch Changes
+
+- [#967](https://github.com/4-design/for-ui/pull/967) [`d152330`](https://github.com/4-design/for-ui/commit/d152330daccb501698555741952bce8d12ff3f17) Thanks [@locona](https://github.com/locona)! - fix(eslint-config): Upgrade version of eslint-plugin-unicorn.
+
+## 1.0.3
+
+### Patch Changes
+
+- [#917](https://github.com/4-design/for-ui/pull/917) [`86a452f`](https://github.com/4-design/for-ui/commit/86a452fe38215defc82f00263db0e9c83ef0d75e) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update all non-major dependencies
+
 ## 1.0.2
 
 ### Patch Changes

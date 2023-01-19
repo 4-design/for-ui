@@ -13,6 +13,8 @@ export type ModalProps = Omit<MuiModalProps, 'children'> & {
 
   /** Handler that is called when the 'cancel' button of a dismissable Dialog is clicked. */
   onClose?(event: React.MouseEvent | React.KeyboardEvent): void;
+
+  className?: string;
 };
 
 const Backdrop: React.FC<BackdropProps> = ({ open, children, onClick }) => {
@@ -29,14 +31,19 @@ const Backdrop: React.FC<BackdropProps> = ({ open, children, onClick }) => {
   );
 };
 
-export const Modal: React.FC<ModalProps> = forwardRef(({ open, onClose, children, ...props }, ref) => {
+export const Modal: React.FC<ModalProps> = forwardRef(({ open, onClose, children, className, ...props }, ref) => {
   return (
     <MuiModal
       ref={ref}
       open={open}
       onClose={onClose}
-      BackdropComponent={Backdrop}
-      BackdropProps={{ onClick: onClose }}
+      slots={{
+        backdrop: Backdrop,
+      }}
+      slotProps={{
+        backdrop: { onClick: onClose },
+      }}
+      className={className}
       {...props}
     >
       <div className="flex min-h-screen justify-center focus-visible:outline-none focus-visible:ring-0">

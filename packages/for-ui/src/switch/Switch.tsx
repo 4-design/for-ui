@@ -5,9 +5,10 @@ import { fsx } from '../system/fsx';
 
 export type SwitchProps = Omit<FormControlLabelProps, 'control'> & {
   value?: unknown;
+  className?: string;
 };
 
-export const Switch: React.FC<SwitchProps> = ({ value, checked, disabled, ...rest }) => {
+export const Switch: React.FC<SwitchProps> = ({ value, checked, disabled, className, ...rest }) => {
   return (
     <FormControlLabel
       classes={{
@@ -21,7 +22,7 @@ export const Switch: React.FC<SwitchProps> = ({ value, checked, disabled, ...res
           disabled={disabled}
           // toggleの可動域を狭めるために、trackのサイズを変更する
           classes={{
-            root: fsx('p-0 flex m-0 w-auto h-auto'),
+            root: fsx('p-0 flex m-0 w-auto h-auto', className),
             track: fsx([
               'bg-primary-dark-default block h-full w-full rounded-xl opacity-100 h-5 w-8',
               checked && 'bg-secondary-dark-default opacity-100',

@@ -3,10 +3,12 @@ import { StepConnector, stepConnectorClasses } from '@mui/material';
 import MuiStepper, { StepperProps as MuiStepperProps } from '@mui/material/Stepper';
 import { fsx } from '../system/fsx';
 
-export type StepperProps = MuiStepperProps;
+export type StepperProps = MuiStepperProps & {
+  className?: string;
+};
 
 export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
-  ({ activeStep, alternativeLabel, children, ...rest }, ref) => {
+  ({ activeStep, alternativeLabel, children, className, ...rest }, ref) => {
     return (
       <MuiStepper
         ref={ref}
@@ -15,8 +17,8 @@ export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
         connector={
           <StepConnector
             classes={{
-              root: fsx(['right-[calc(50%+1rem)] left-[calc(-50%+1rem)] top-6 px-0']),
-              line: fsx(['border-t-2']),
+              root: fsx('right-[calc(50%+1rem)] left-[calc(-50%+1rem)] top-6 px-0', className),
+              line: fsx('border-t-2'),
             }}
             sx={{
               [`&.${stepConnectorClasses.active}`]: {

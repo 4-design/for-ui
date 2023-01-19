@@ -44,7 +44,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       }
       label={
         label && (
-          <Text size="r" className={fsx(`text-shade-dark-default`, disabled && `text-shade-dark-disabled`)}>
+          <Text as="label" size="r" className={fsx(`text-shade-dark-default`, disabled && `text-shade-dark-disabled`)}>
             {label}
           </Text>
         )

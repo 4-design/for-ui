@@ -7,6 +7,7 @@ export interface RadioProps extends MuiRadioProps {
   label?: string;
   error?: string;
   nopadding?: boolean;
+  className?: string;
 }
 
 const Indicator: FC<{ checked: boolean; disabled: boolean }> = ({ checked, disabled }) => (
@@ -37,7 +38,7 @@ const _Radio: FC<RadioProps> = memo(({ nopadding, disabled, ref, ...rest }) => (
   />
 ));
 
-export const Radio: FC<RadioProps> = forwardRef(({ label, value, disabled, ...rest }, ref) => {
+export const Radio: FC<RadioProps> = forwardRef(({ label, value, disabled, className, ...rest }, ref) => {
   return (
     <Fragment>
       {label ? (
@@ -48,7 +49,7 @@ export const Radio: FC<RadioProps> = forwardRef(({ label, value, disabled, ...re
           control={<_Radio value={value} disabled={disabled} ref={ref} {...rest} />}
           ref={ref}
           classes={{
-            root: fsx(['group m-0 flex gap-1']),
+            root: fsx(['group m-0 flex gap-1', className]),
             label: fsx(['text-r text-shade-dark-default font-sans']),
             disabled: fsx(['text-shade-dark-disabled']),
           }}
