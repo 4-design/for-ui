@@ -212,7 +212,7 @@ export const Disabled: Story = () => {
 };
 
 export const Multiple: Story = () => {
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit } = useForm<{ country: SelectOption[] }>({
     defaultValues: {
       country: options,
     },
@@ -229,13 +229,12 @@ export const Multiple: Story = () => {
             return (
               <Select
                 multiple
+                // freeSolo={false}
                 name={fields.name}
                 label="国名"
                 placeholder="未定"
                 options={options}
-                onChange={(e, option) => {
-                  onChange((option as SelectOption)?.inputValue);
-                }}
+                onChange={onChange}
               />
             );
           }}
