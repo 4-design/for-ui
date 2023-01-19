@@ -1,46 +1,56 @@
+import { FC, forwardRef, ReactNode } from 'react';
 import MuiCheckbox, { CheckboxProps as MuiCheckboxProps } from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { fsx } from '../system/fsx';
 import { Text } from '../text';
+import { MdCheck, MdRemove } from 'react-icons/md';
 
 export type CheckboxProps = MuiCheckboxProps & {
-  label?: string;
+  label?: ReactNode;
   nopadding?: boolean;
-  // Checbox SVG Font Size
-  iconsize?: number | string;
-  icon?: 'checked' | 'intermediate';
-  // onChange?: ChangeEventHandler<HTMLInputElement>;
   className?: string;
 };
 
-const _Checkbox = ({ nopadding = false, iconsize = 28, className, ...rest }: CheckboxProps) => (
-  <MuiCheckbox
-    classes={{
-      root: fsx('text-shade-medium-default', className, nopadding ? 'p-0' : 'p-1'),
-      checked: fsx('text-secondary-dark-default'),
-      disabled: fsx('text-shade-dark-disabled'),
-    }}
-    sx={{ '& .MuiSvgIcon-root': { fontSize: iconsize } }}
-    {...rest}
-  />
+const Indicator: FC<{ state: 'default' | 'checked' | 'intermediate' }> = ({ state }) => (
+  <span
+    className={fsx([
+      `h-4 w-4 rounded transition duration-100`,
+      state === 'default' && `border-shade-medium-default border-2`,
+      (state === 'checked' || state === 'intermediate') && `bg-primary-dark-default`,
+    ])}
+  >
+    {
+      {
+        default: null,
+        checked: <MdCheck size={16} className="fill-shade-white-default" />,
+        intermediate: <MdRemove size={16} className="fill-shade-white-default" />,
+      }[state]
+    }
+  </span>
 );
 
-export const Checkbox = ({ label, nopadding = false, disabled, className, ...rest }: CheckboxProps) => {
-  return (
-    <>
-      {label ? (
-        <FormControlLabel
-          className={fsx(`gap-1 m-0`, className)}
-          control={<_Checkbox nopadding={nopadding} {...rest} />}
-          label={
-            <Text size="s" className={fsx(`text-shade-dark-default ml-2`, disabled && `text-shade-dark-disabled`)}>
-              {label}
-            </Text>
-          }
+export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
+  ({ label, nopadding = false, disabled, className, ...rest }, ref) => (
+    <FormControlLabel
+      control={
+        <MuiCheckbox
+          icon={<Indicator state="default" />}
+          checkedIcon={<Indicator state="checked" />}
+          indeterminateIcon={<Indicator state="intermediate" />}
+          className={fsx(nopadding ? 'p-0' : 'p-1')}
+          ref={ref}
+          {...rest}
         />
-      ) : (
-        <_Checkbox nopadding={nopadding} className={className} {...rest} />
-      )}
-    </>
-  );
-};
+      }
+      label={
+        label && (
+          <Text as="label" size="r" className={fsx(`text-shade-dark-default`, disabled && `text-shade-dark-disabled`)}>
+            {label}
+          </Text>
+        )
+      }
+      ref={ref}
+      className={fsx(`m-0 inline-flex gap-1`, className)}
+    />
+  )
+);

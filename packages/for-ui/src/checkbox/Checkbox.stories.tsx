@@ -12,9 +12,15 @@ export default {
   decorators: [(Story) => <Story />],
 } as Meta;
 
+export const Playground = {
+  args: {
+    label: '',
+  },
+};
+
 export const Basic = (): JSX.Element => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data: unknown) => console.error(data);
+  const onSubmit = (data: unknown) => console.info(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -26,9 +32,9 @@ export const Basic = (): JSX.Element => {
 
           <div className="grid grid-cols-3">
             <Checkbox label="テスト A" {...register('sample-a')} />
-            <Checkbox label="テスト B" {...register('sample-a')} />
-            <Checkbox label="テスト C" {...register('sample-a')} />
-            <Checkbox label="テスト D" {...register('sample-a')} />
+            <Checkbox label="テスト B" {...register('sample-b')} />
+            <Checkbox label="テスト C" {...register('sample-c')} />
+            <Checkbox label="テスト D" {...register('sample-d')} />
           </div>
         </div>
       </div>
@@ -40,7 +46,7 @@ export const Basic = (): JSX.Element => {
 
 export const WithNopadding = (): JSX.Element => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data: unknown) => console.error(data);
+  const onSubmit = (data: unknown) => console.info(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -52,9 +58,9 @@ export const WithNopadding = (): JSX.Element => {
 
           <div className="grid grid-cols-3">
             <Checkbox nopadding label="テスト A" {...register('sample-a')} />
-            <Checkbox nopadding label="テスト B" {...register('sample-a')} />
-            <Checkbox nopadding label="テスト C" {...register('sample-a')} />
-            <Checkbox nopadding label="テスト D" {...register('sample-a')} />
+            <Checkbox nopadding label="テスト B" {...register('sample-b')} />
+            <Checkbox nopadding label="テスト C" {...register('sample-c')} />
+            <Checkbox nopadding label="テスト D" {...register('sample-d')} />
           </div>
         </div>
       </div>
