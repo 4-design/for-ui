@@ -9,7 +9,6 @@ import { MdCheck, MdExpandMore } from 'react-icons/md';
 import { Chip } from '../chip';
 import { MenuItem } from '../menu';
 import { TextField } from '../textField';
-import { _Menu } from '../menu';
 
 const Paper = (props: PaperProps) => {
   return <MuiPaper {...props} className="rounded-md shadow-lg" />;
@@ -76,7 +75,6 @@ const _Select = <
     options={options}
     onChange={onChange}
     PaperComponent={Paper}
-    // PaperComponent={_Menu}
     isOptionEqualToValue={(option, v) =>
       typeof option === 'string' ? option === v : option.inputValue === v.inputValue
     }
