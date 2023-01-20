@@ -6,7 +6,7 @@ export const MenuList = forwardRef<HTMLUListElement, MenuListProps>(({ className
   <MuiMenuList
     ref={ref}
     className={fsx(
-      `z-modal shadow-menu w-full rounded p-1 divide-shade-light-default grid grid-cols-1 divide-y`,
+      `z-modal bg-shade-white-default shadow-menu w-full rounded p-1 divide-shade-light-default grid grid-cols-1 divide-y`,
       className
     )}
     {...rest}
