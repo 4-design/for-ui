@@ -4,6 +4,7 @@ import { Meta } from '@storybook/react/types-6-0';
 import { Button } from '../button/Button';
 import { LegacyText as Text } from '../typography';
 import { Menu } from './Menu';
+import { MenuList } from './MenuList';
 import { MenuItem } from './MenuItem';
 
 export default {
@@ -15,7 +16,7 @@ export default {
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (Story: any) => (
-      <div className="mt-10 flex h-screen w-screen flex-col gap-4">
+      <div className="flex h-full w-full flex-col gap-4">
         <Story />
       </div>
     ),
@@ -43,3 +44,11 @@ export const Base = () => {
     </div>
   );
 };
+
+export const Uncontrolled = () => (
+  <MenuList>
+    <MenuItem>プロフィール</MenuItem>
+    <MenuItem>設定</MenuItem>
+    <MenuItem>コンタクト</MenuItem>
+  </MenuList>
+);
