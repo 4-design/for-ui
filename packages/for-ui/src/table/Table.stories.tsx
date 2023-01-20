@@ -82,5 +82,12 @@ export const WithTablePageSize: Story = () => (
 );
 
 export const WithClickRow: Story = () => (
-  <Table<PersonData> columns={columns} data={StaticPersonData} disablePagination onRowClick={(_, row) => { console.info(row) }} />
-)
+  <Table<PersonData>
+    columns={columns}
+    data={StaticPersonData}
+    disablePagination
+    onRowClick={(_, row) => {
+      console.info(row);
+    }}
+  />
+);

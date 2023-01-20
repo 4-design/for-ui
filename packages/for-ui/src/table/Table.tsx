@@ -220,10 +220,13 @@ export const Table = <T extends RowData>({
               key={row.id}
               row={row}
               selectable={!!(onSelectRow || onSelectRows)}
-              onClick={(onSelectRow || onSelectRows || onRowClick) && ((e, row) => {
-                selectRow(row);
-                onRowClick?.(e, row);
-              })}
+              onClick={
+                (onSelectRow || onSelectRows || onRowClick) &&
+                ((e, row) => {
+                  selectRow(row);
+                  onRowClick?.(e, row);
+                })
+              }
             />
           ))}
         </tbody>
