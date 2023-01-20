@@ -3,10 +3,10 @@ import MuiMenu, { MenuProps as MuiMenuProps } from '@mui/material/Menu';
 import { fsx } from '../system/fsx';
 import { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { usePopupState } from 'material-ui-popup-state/hooks';
+import { style } from './style';
 
 export type MenuProps = Omit<MuiMenuProps, 'open'> & {
   TriggerComponent: React.ReactNode;
-  nopadding?: boolean;
   className?: string;
 };
 
@@ -23,7 +23,6 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
       },
       children,
       TriggerComponent,
-      nopadding = false,
       className,
       ...rest
     },
@@ -51,9 +50,9 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
           anchorOrigin={anchorOrigin}
           transformOrigin={transformOrigin}
           classes={{
-            root: fsx('translate-y-2', className),
-            paper: fsx(['z-modal shadow-menu  min-w-min rounded-[4px]', nopadding ? 'p-0' : 'p-1']),
-            list: fsx(['divide-shade-light-default grid grid-cols-1 divide-y py-0']),
+            root: fsx('-translate-x-2', className),
+            paper: fsx(`shadow-none overflow-visible p-0`),
+            list: fsx(style),
             ...rest.classes,
           }}
           {...bindMenu(popupState)}
