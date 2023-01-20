@@ -26,7 +26,6 @@
     "dev": "run-p storybook",
     "lint:type-check": "tsc --pretty",
     "lint": "run-p lint:*",
-    "prebuild": "run-p lint",
     "build:types": "tsc -p tsconfig.build.json",
     "build:js": "NODE_ENV=production vite build",
     "build": "run-p build:'*'",
