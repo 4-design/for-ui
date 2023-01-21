@@ -21,7 +21,7 @@ import { Checkbox } from '../checkbox';
 import { Radio } from '../radio';
 import { TableCell } from './TableCell';
 import { TablePagination } from './TablePagination';
-import { LegacyText } from '../typography';
+import { Text } from '../text';
 
 export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'columns' | 'getRowId'> & {
   disablePagination?: boolean | undefined;
@@ -203,7 +203,7 @@ export const Table = <T extends RowData>({
                     </div>
                   ) : (
                     <div className="flex items-center">
-                      <LegacyText className="text-sm font-medium">ヘッダ</LegacyText>
+                      <Text className="text-sm font-medium">ヘッダ</Text>
                       {flexRender(header.column.columnDef.header, header.getContext())}
                     </div>
                   )}
