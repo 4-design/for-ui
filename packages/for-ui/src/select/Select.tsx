@@ -1,4 +1,4 @@
-import React, { Fragment, ReactNode, forwardRef, Ref } from 'react';
+import { Fragment, ReactNode, forwardRef, Ref } from 'react';
 import Autocomplete, {
   AutocompleteProps as MuiAutocompleteProps,
   createFilterOptions,
@@ -19,19 +19,18 @@ export type SelectOption = {
   inputValue: string;
 };
 
-// const filter = createFilterOptions<SelectOption>();
-
 export type AutocompleteProps<
   Value extends SelectOption,
   Multiple extends boolean | undefined,
   FreeSolo extends boolean | undefined
 > = Omit<MuiAutocompleteProps<Value, Multiple, true, FreeSolo, 'div'>, 'autoComplete' | 'renderInput'> & {
-  // export type AutocompleteProps<T extends Object> = MuiAutocompleteProps<T, T, boolean ,boolean> & {
   name: string;
   label?: ReactNode;
   placeholder?: string;
   required?: boolean;
   loadingText?: ReactNode;
+  error?: boolean;
+  helperText?: ReactNode;
   disabled?: boolean;
   className?: string;
   disableFilter?: boolean;
@@ -52,6 +51,8 @@ const _Select = <
   multiple,
   freeSolo,
   onChange,
+  error,
+  helperText,
   disabled = false,
   disableFilter = false,
   inputRef,
@@ -138,22 +139,20 @@ const _Select = <
       );
     }}
     classes={{
-      root: fsx(['bg-shade-white-default w-full', className]),
-      paper: fsx(['min-w-min translate-y-4 rounded-2xl py-2']),
+      root: fsx(`bg-shade-white-default w-full`, className),
+      paper: fsx(`min-w-min translate-y-4 rounded-2xl py-2`),
       inputRoot: fsx([
-        'group bg-shade-white-default text-shade-light-default p-0 antialiased',
-        // 'group bg-shade-white-default text-shade-light-default antialiased !py-2',
-        disableFilter && 'cursor-pointer',
+        `group bg-shade-white-default text-shade-light-default p-0 antialiased`,
+        disableFilter && `cursor-pointer`,
       ]),
       input: fsx([
-        'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
-        // 'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto font-sans placeholder:opacity-100 focus:shadow-none !p-0',
-        disableFilter && 'cursor-pointer caret-transparent',
+        `text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none`,
+        disableFilter && `cursor-pointer caret-transparent`,
       ]),
-      inputFocused: fsx(['border-primary-medium-active']),
-      focused: fsx(['[&_svg]:!icon-shade-medium-active']),
-      tag: fsx(['bg-shade-light-default [&.MuiChip-deleteIcon]:text-shade-dark-default border-none']),
-      endAdornment: fsx(['[&_svg]:icon-shade-medium-default']),
+      inputFocused: fsx(`border-primary-medium-active`),
+      focused: fsx(`[&_svg]:!icon-shade-medium-active`),
+      tag: fsx(`bg-shade-light-default [&.MuiChip-deleteIcon]:text-shade-dark-default border-none`),
+      endAdornment: fsx(`[&_svg]:icon-shade-medium-default`),
     }}
     renderInput={(params) => {
       return (
@@ -173,8 +172,9 @@ const _Select = <
           name={name}
           required={required}
           label={label}
-          // inputTwin={inputTwin}
           placeholder={placeholder}
+          error={error}
+          helperText={helperText}
         />
       );
     }}
