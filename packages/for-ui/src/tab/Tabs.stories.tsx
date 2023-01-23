@@ -69,7 +69,7 @@ export const DefaultTabs: Story = () => {
         <TabContext value={value}>
           <Tabs value={value} onChange={handleChange} color="secondary">
             <Tab value="1" label="Item One" minWidth={0} />
-            { /* TODO: replace badge color primary with secondary */ }
+            {/* TODO: replace badge color primary with secondary */}
             <Tab value="2" label="Item Two" badge={<Badge label="99+" variant="text" color="primary" />} />
             <Tab value="4" label="Item Two disabled" disabled />
             <Tab value="3" label="Item Three" />
@@ -84,7 +84,7 @@ export const DefaultTabs: Story = () => {
             <h1>secondary 3</h1>
           </TabPanel>
         </TabContext>
-        </div>
+      </div>
     </div>
   );
 };
@@ -128,7 +128,7 @@ export const WithTabList: Story = () => {
         <TabContext value={value}>
           <TabList onChange={handleChange} color="secondary">
             <Tab value="1" label="Item One" minWidth={0} />
-            { /* TODO: replace badge color primary with secondary */ }
+            {/* TODO: replace badge color primary with secondary */}
             <Tab value="2" label="Item Two" badge={<Badge label="99+" variant="text" color="primary" />} />
             <Tab value="4" label="Item Two disabled" disabled />
             <Tab value="3" label="Item Three" />
@@ -143,7 +143,7 @@ export const WithTabList: Story = () => {
             <h1>secondary 3</h1>
           </TabPanel>
         </TabContext>
-        </div>
+      </div>
     </div>
   );
 };
