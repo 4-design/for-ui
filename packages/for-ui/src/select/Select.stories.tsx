@@ -115,18 +115,17 @@ export const Basic: Story = () => {
           control={control}
           render={({ field: { name, onChange } }) => {
             return (
-              <>
-                <Select
-                  name={name}
-                  required
-                  placeholder="国名"
-                  options={options}
-                  onChange={(e, option) => {
-                    onChange((option as SelectOption)?.inputValue);
-                  }}
-                />
-                <FormHelperText error>入力してください</FormHelperText>
-              </>
+              <Select
+                name={name}
+                required
+                placeholder="国名"
+                options={options}
+                onChange={(e, option) => {
+                  onChange((option as SelectOption)?.inputValue);
+                }}
+                error
+                helperText="入力してください"
+              />
             );
           }}
         />
