@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import { Meta } from '@storybook/react/types-6-0';
@@ -203,4 +203,4 @@ export const WithNest = () => {
   );
 };
 
-const Row = ({ children }) => <div className="flex flex-col gap-2">{children}</div>;
+const Row: FC<{ children: ReactNode }> = ({ children }) => <div className="flex flex-col gap-2">{children}</div>;

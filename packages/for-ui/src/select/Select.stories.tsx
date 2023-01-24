@@ -30,7 +30,7 @@ const options: SelectOption[] = [
   },
 ];
 
-const SKILL = {
+const SKILL: Record<string, string> = {
   // C#
   csharp: 'csharp',
   // C++
@@ -96,7 +96,7 @@ export const Basic: Story = () => {
                 label="国名"
                 placeholder="国名"
                 options={options}
-                onChange={(e, option) => {
+                onChange={(_, option) => {
                   onChange((option as SelectOption)?.inputValue);
                 }}
               />
@@ -120,7 +120,7 @@ export const Basic: Story = () => {
                 required
                 placeholder="国名"
                 options={options}
-                onChange={(e, option) => {
+                onChange={(_, option) => {
                   onChange((option as SelectOption)?.inputValue);
                 }}
                 error
@@ -159,7 +159,7 @@ export const Single: Story = () => {
               label="国名"
               placeholder="未定"
               options={options}
-              onChange={(e, option) => {
+              onChange={(_, option) => {
                 onChange(option as SelectOption);
               }}
             />
@@ -195,7 +195,7 @@ export const Disabled: Story = () => {
               label="国名"
               placeholder="国名"
               options={options}
-              onChange={(e, option) => {
+              onChange={(_, option) => {
                 onChange((option as SelectOption)?.inputValue);
               }}
             />
@@ -257,9 +257,7 @@ export const Multiple: Story = () => {
                   label="国名"
                   placeholder="未定"
                   options={options}
-                  onChange={(e, option) => {
-                    onChange((option as SelectOption)?.inputValue);
-                  }}
+                  onChange={onChange}
                 />
                 <FormHelperText error>入力してください</FormHelperText>
               </>
@@ -308,7 +306,7 @@ export const MultipleFreeSolo: Story = () => {
               name={name}
               value={value}
               options={skillOptions}
-              onChange={(e, option) => {
+              onChange={(_, option) => {
                 onChange(option);
                 // onChange((option as SelectOption)?.inputValue)
               }}
@@ -346,7 +344,7 @@ export const DisableFilter: Story = () => {
               label="国名"
               placeholder="未定"
               options={options}
-              onChange={(e, option) => {
+              onChange={(_, option) => {
                 onChange(option as SelectOption);
               }}
             />

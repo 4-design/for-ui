@@ -24,8 +24,9 @@
   },
   "scripts": {
     "dev": "run-p storybook",
-    "type-check": "tsc --pretty",
-    "build:types": "tsc",
+    "lint:type-check": "tsc --pretty",
+    "lint": "run-p lint:*",
+    "build:types": "tsc -p tsconfig.build.json",
     "build:js": "NODE_ENV=production vite build",
     "build": "run-p build:'*'",
     "storybook": "start-storybook --no-manager-cache -p 6006 -s public",
