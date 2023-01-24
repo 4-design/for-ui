@@ -80,3 +80,14 @@ export const WithTableScroller: Story = () => (
 export const WithTablePageSize: Story = () => (
   <Table<PersonData> columns={columns} data={StaticPersonData} pageSize={10} />
 );
+
+export const WithClickRow: Story = () => (
+  <Table<PersonData>
+    columns={columns}
+    data={StaticPersonData}
+    disablePagination
+    onRowClick={(_, row) => {
+      console.info(row);
+    }}
+  />
+);
