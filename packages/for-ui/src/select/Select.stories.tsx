@@ -120,7 +120,7 @@ export const Basic: Story = () => {
                 required
                 placeholder="国名"
                 options={options}
-                onChange={(e, option) => {
+                onChange={(_, option) => {
                   onChange((option as SelectOption)?.inputValue);
                 }}
                 error
@@ -257,9 +257,7 @@ export const Multiple: Story = () => {
                   label="国名"
                   placeholder="未定"
                   options={options}
-                  onChange={(_, option) => {
-                    onChange((option as SelectOption)?.inputValue);
-                  }}
+                  onChange={onChange}
                 />
                 <FormHelperText error>入力してください</FormHelperText>
               </>
