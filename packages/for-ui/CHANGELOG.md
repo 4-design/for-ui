@@ -1,5 +1,15 @@
 # @3design/3design-ui
 
+## 1.0.15
+
+### Patch Changes
+
+- [#1015](https://github.com/4-design/for-ui/pull/1015) [`5c1cdc8`](https://github.com/4-design/for-ui/commit/5c1cdc82a5de6b4f02aca810297fba150088c8d4) Thanks [@Qs-F](https://github.com/Qs-F)! - feat(Menu): `MenuList`コンポーネントを追加
+
+- [#1014](https://github.com/4-design/for-ui/pull/1014) [`134191f`](https://github.com/4-design/for-ui/commit/134191f688bfa02c676585c3391b74343a8e708b) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Select): 型パラメータの指定ができるように修正
+
+- [#1018](https://github.com/4-design/for-ui/pull/1018) [`3af825a`](https://github.com/4-design/for-ui/commit/3af825ac8b8818ffac06d3f4b43c002862c7ae7d) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Table): `onRowClick` が与えられているときに hover 時のスタイルを適用
+
 ## 1.0.14
 
 ### Patch Changes
