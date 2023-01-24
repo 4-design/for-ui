@@ -9,10 +9,6 @@ export interface TabListProps extends MuiTabListProps {
   color?: 'primary' | 'secondary';
 }
 
-export const TabList: FC<TabListProps> = ({
-  color = 'primary',
-  noBorder = false,
-  reverse = false,
-  className,
-  ...rest
-}) => <MuiTabList className={fsx(tabWrapperStyle(color, noBorder, reverse), className)} {...rest} />;
+export const TabList: FC<TabListProps> = ({ color = 'primary', className, ...rest }) => (
+  <MuiTabList className={fsx(tabWrapperStyle(color), className)} {...rest} />
+);
