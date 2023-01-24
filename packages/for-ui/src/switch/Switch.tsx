@@ -1,41 +1,30 @@
-import React from 'react';
+import { forwardRef } from 'react';
 import FormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel';
-import MuiSwitch from '@mui/material/Switch';
 import { fsx } from '../system/fsx';
 
-export type SwitchProps = Omit<FormControlLabelProps, 'control'> & {
-  value?: unknown;
-  className?: string;
+export type SwitchProps<Value = unknown> = Omit<FormControlLabelProps, 'control'> & {
+  value?: Value;
 };
 
-export const Switch: React.FC<SwitchProps> = ({ value, checked, disabled, className, ...rest }) => {
-  return (
-    <FormControlLabel
-      classes={{
-        root: fsx(['m-0 flex gap-1']),
-        label: fsx(['text-r text-shade-dark-default font-sans']),
-      }}
-      control={
-        <MuiSwitch
-          value={value}
-          checked={checked}
-          disabled={disabled}
-          // toggleの可動域を狭めるために、trackのサイズを変更する
-          classes={{
-            root: fsx('p-0 flex m-0 w-auto h-auto', className),
-            track: fsx([
-              'bg-primary-dark-default block h-full w-full rounded-xl opacity-100 h-5 w-8',
-              checked && 'bg-secondary-dark-default opacity-100',
-              disabled && 'bg-primary-dark-disabled opacity-100',
-              checked && disabled && 'bg-secondary-dark-disabled opacity-100',
-            ]),
-            thumb: fsx(['bg-shade-white-default h-4 w-4 rounded-2xl shadow-none']),
-            switchBase: fsx(['m-0.5 p-0 transition-all duration-100 ease-in-out']),
-            checked: fsx(['transform-none pl-3']),
-          }}
-        />
-      }
-      {...rest}
-    />
-  );
-};
+export const Switch = forwardRef<HTMLInputElement, SwitchProps>((props, ref) => (
+  <FormControlLabel
+    classes={{
+      root: fsx(['m-0 flex gap-1']),
+      label: fsx(['text-r text-shade-dark-default font-sans']),
+    }}
+    control={
+      <input
+        type="checkbox"
+        ref={ref}
+        className={fsx([
+          `appearance-none bg-shade-medium-default rounded-full h-5 w-8 p-0.5 transition-all duration-100 cursor-pointer`,
+          `before:content-[''] before:block before:h-4 before:w-4 before:bg-shade-white-default before:rounded-full`,
+          `checked:bg-primary-dark-default checked:pl-3.5`,
+          `disabled:cursor-not-allowed disabled:bg-shade-medium-disabled`,
+          `disabled:checked:bg-primary-dark-disabled`,
+        ])}
+      />
+    }
+    {...props}
+  />
+));
