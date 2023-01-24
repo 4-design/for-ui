@@ -1,5 +1,17 @@
 # @3design/3design-ui
 
+## 1.0.16
+
+### Patch Changes
+
+- [#1023](https://github.com/4-design/for-ui/pull/1023) [`5645e12`](https://github.com/4-design/for-ui/commit/5645e12095745f55a011c762c578480a5c586184) Thanks [@Qs-F](https://github.com/Qs-F)! - feat: `min-w`, `min-h`, `max-w`, `max-h`, `rounded` の値を追加
+
+- [#1021](https://github.com/4-design/for-ui/pull/1021) [`5a40b33`](https://github.com/4-design/for-ui/commit/5a40b33f009a2e8478173c4af55aa16fcce48b0c) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Select): `error` と `helperText` props に対応
+
+- [#1019](https://github.com/4-design/for-ui/pull/1019) [`773949d`](https://github.com/4-design/for-ui/commit/773949dd6dec6d0d9854c2353702a88436a12934) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: Storybook への lint を導入
+
+- [#1020](https://github.com/4-design/for-ui/pull/1020) [`81c282f`](https://github.com/4-design/for-ui/commit/81c282fd887137c588484e978f8a25b49ca0d207) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Select): `MenuList` コンポーネントを使うように修正
+
 ## 1.0.15
 
 ### Patch Changes

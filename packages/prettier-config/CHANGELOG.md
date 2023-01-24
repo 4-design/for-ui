@@ -1,5 +1,11 @@
 # @3design/prettier-config
 
+## 1.0.5
+
+### Patch Changes
+
+- [#1019](https://github.com/4-design/for-ui/pull/1019) [`773949d`](https://github.com/4-design/for-ui/commit/773949dd6dec6d0d9854c2353702a88436a12934) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: Storybook への lint を導入
+
 ## 1.0.4
 
 ### Patch Changes
