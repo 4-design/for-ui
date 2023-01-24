@@ -3,16 +3,11 @@ import Autocomplete, {
   AutocompleteProps as MuiAutocompleteProps,
   createFilterOptions,
 } from '@mui/material/Autocomplete';
-import MuiPaper, { PaperProps } from '@mui/material/Paper';
 import { fsx } from '../system/fsx';
 import { MdCheck, MdExpandMore } from 'react-icons/md';
 import { Chip } from '../chip';
-import { MenuItem } from '../menu';
+import { MenuItem, MenuList } from '../menu';
 import { TextField } from '../textField';
-
-const Paper = (props: PaperProps) => {
-  return <MuiPaper {...props} className="rounded-md shadow-lg" />;
-};
 
 export type SelectOption = {
   label: string;
@@ -75,7 +70,7 @@ const _Select = <
     freeSolo={freeSolo}
     options={options}
     onChange={onChange}
-    PaperComponent={Paper}
+    PaperComponent={MenuList}
     isOptionEqualToValue={(option, v) =>
       typeof option === 'string' ? option === v : option.inputValue === v.inputValue
     }
@@ -139,8 +134,8 @@ const _Select = <
       );
     }}
     classes={{
-      root: fsx(`bg-shade-white-default w-full`, className),
-      paper: fsx(`min-w-min translate-y-4 rounded-2xl py-2`),
+      root: fsx(`bg-shade-white-default w-full p-0`, className),
+      paper: fsx(`min-w-min p-0`),
       inputRoot: fsx([
         `group bg-shade-white-default text-shade-light-default p-0 antialiased`,
         disableFilter && `cursor-pointer`,
