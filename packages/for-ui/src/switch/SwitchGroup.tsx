@@ -1,10 +1,9 @@
-import React, { forwardRef, ReactNode, Children, isValidElement, cloneElement, ComponentProps } from 'react';
+import { forwardRef, ReactNode } from 'react';
 import FormControl from '@mui/material/FormControl';
 import FormGroup, { FormGroupProps } from '@mui/material/FormGroup';
 import { Text } from '../text';
 import { fsx } from '../system/fsx';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
-import { Switch } from './Switch';
 
 export type SwitchGroupProps = Omit<FormGroupProps, 'defaultValue' | 'defaultChecked'> & {
   name?: string;
@@ -19,7 +18,7 @@ export type SwitchGroupProps = Omit<FormGroupProps, 'defaultValue' | 'defaultChe
 };
 
 export const SwitchGroup = forwardRef<HTMLInputElement, SwitchGroupProps>(
-  ({ required, disabled, label, error, row, children, helperText, className, ...rest }, ref) => {
+  ({ required, disabled, label, error, row, helperText, className, ...rest }, ref) => {
     return (
       <FormControl
         component="fieldset"
@@ -42,19 +41,10 @@ export const SwitchGroup = forwardRef<HTMLInputElement, SwitchGroupProps>(
         />
         <FormGroup
           row={row}
-          className={fsx(`flex flex-wrap gap-x-6 gap-y-1`, row && `flex-row`, className)}
-          {...rest}
+          className={fsx(`flex flex-wrap gap-x-6 gap-y-1`, row && `flex-row`)}
           ref={ref}
-        >
-          {
-            // Pass ref to children (Radio) if provided to RadioGroup
-            Children.map(children, (child) =>
-              isValidElement<ComponentProps<typeof Switch>>(child)
-                ? cloneElement(child, { ref: ref ? ref : undefined })
-                : child
-            )
-          }
-        </FormGroup>
+          {...rest}
+        />
         <TextDefaultStyler
           content={helperText}
           defaultRenderer={(props) => (
