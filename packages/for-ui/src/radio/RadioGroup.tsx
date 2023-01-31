@@ -54,9 +54,9 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
         name={name}
         row={row}
         defaultValue={defaultValue}
-        className={fsx(`flex flex-wrap gap-x-6 gap-y-2`, row && `flex-row`, className)}
-        {...rest}
+        className={fsx(`flex flex-wrap gap-x-6 gap-y-2`, row && `flex-row`)}
         ref={ref}
+        {...rest}
       >
         {
           // Pass ref to children (Radio) if provided to RadioGroup
