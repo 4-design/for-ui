@@ -4,7 +4,7 @@ import { fsx } from '../system/fsx';
 
 export type ButtonProps<As extends ElementType> = Omit<
   LoadingButtonProps,
-  'href' | keyof ComponentPropsWithoutRef<As>
+  'href' | 'color' | 'variant' | keyof ComponentPropsWithoutRef<As>
 > &
   ComponentPropsWithoutRef<As> & {
     /**
