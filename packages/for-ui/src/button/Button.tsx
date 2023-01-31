@@ -1,18 +1,39 @@
-import React, { Children, ReactNode } from 'react';
+import { forwardRef, ComponentPropsWithoutRef, ElementType, Children, ReactNode, Ref } from 'react';
 import LoadingButton, { LoadingButtonProps } from '@mui/lab/LoadingButton';
 import { fsx } from '../system/fsx';
 
-export type ButtonProps = Omit<LoadingButtonProps, 'color' | 'variant'> & {
-  component?: React.ElementType;
+export type ButtonProps<As extends ElementType> = Omit<
+  LoadingButtonProps,
+  'href' | 'color' | 'variant' | keyof ComponentPropsWithoutRef<As>
+> &
+  ComponentPropsWithoutRef<As> & {
+    /**
+     * 種類を指定
+     * _deprecated: contained_
+     * @default filled
+     */
+    variant?: 'filled' | 'contained' | 'outlined' | 'text';
 
-  className?: string;
+    /**
+     * 色を指定
+     * @default primary
+     */
+    color?: 'primary' | 'secondary' | 'default';
 
-  // NOTE: duplicated "contained"
-  variant?: 'filled' | 'contained' | 'outlined' | 'text';
+    /**
+     * サイズを指定
+     * @default large
+     */
+    size?: 'large' | 'medium' | 'small';
 
-  // duplicated
-  color?: 'primary' | 'secondary' | 'default';
-};
+    /**
+     * レンダリングするコンポーネントを指定 (例: button, a, input)
+     * @default button
+     */
+    as?: As | undefined;
+
+    className?: string;
+  };
 
 const sizes = {
   large: `px-6 py-2 text-r`,
@@ -56,24 +77,23 @@ const loadingIndicatorEndStyles = {
   text: '',
 };
 
-export const Button: React.ForwardRefExoticComponent<ButtonProps> = React.forwardRef((props, ref) => {
-  const {
-    component = 'button',
-    variant = 'filled',
-    size = 'large',
-    color = 'primary',
-    loadingPosition = 'center',
-    disabled = false,
-    loading = false,
-    startIcon,
-    endIcon,
-    children,
-    onClick,
-    className,
-    ...rest
-  } = props;
-
-  const label: string = Children.toArray(props.children).reduce<string>((acc: string, child: ReactNode): string => {
+const _Button = <As extends ElementType = 'button'>({
+  as,
+  variant = 'filled',
+  size = 'large',
+  color = 'primary',
+  loadingPosition = 'center',
+  disabled = false,
+  loading = false,
+  startIcon,
+  endIcon,
+  children,
+  onClick,
+  _ref,
+  className,
+  ...rest
+}: { _ref?: Ref<As> } & ButtonProps<As>): JSX.Element => {
+  const label: string = Children.toArray(children).reduce<string>((acc: string, child: ReactNode): string => {
     if (typeof child === 'string' || typeof child === 'number') {
       return acc.concat(child.toString());
     }
@@ -83,10 +103,14 @@ export const Button: React.ForwardRefExoticComponent<ButtonProps> = React.forwar
 
   const _variant = variant === 'filled' ? 'contained' : variant;
 
+  const component = as || 'button';
+
   return (
     <LoadingButton
       component={component}
-      ref={ref}
+      // FIXME: LoadingButton does not support generic component switch (e.g. Even if set component="a", href prop is invalid).
+      // Therefore generic _ref should be casted to HTMLButtonElement.
+      ref={_ref as Ref<HTMLButtonElement>}
       variant={_variant}
       startIcon={startIcon}
       endIcon={endIcon}
@@ -94,7 +118,7 @@ export const Button: React.ForwardRefExoticComponent<ButtonProps> = React.forwar
       loadingPosition={loadingPosition}
       disabled={disabled}
       onClick={onClick}
-      aria-label={label || props['aria-label'] || 'button'}
+      aria-label={label || rest['aria-label'] || 'button'}
       classes={{
         root: fsx([
           'h-max-content flex max-w-max cursor-pointer whitespace-nowrap rounded-lg px-6 py-2 font-sans font-bold shadow-none transition hover:shadow-none focus:outline-none disabled:cursor-not-allowed',
@@ -113,4 +137,8 @@ export const Button: React.ForwardRefExoticComponent<ButtonProps> = React.forwar
       {children}
     </LoadingButton>
   );
-});
+};
+
+export const Button = forwardRef((props: ButtonProps<ElementType>, ref: Ref<ElementType>) => (
+  <_Button _ref={ref} {...props} />
+)) as <As extends ElementType = 'button'>(props: ButtonProps<As>) => JSX.Element;
