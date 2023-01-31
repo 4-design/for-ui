@@ -2,4 +2,4 @@
 "@4design/for-ui": patch
 ---
 
-Fix/error helpertext spec@1005
+fix(Radio, Switch, Checkbox, TextArea): `label`, `error`, `helperText` propsの仕様を揃える
