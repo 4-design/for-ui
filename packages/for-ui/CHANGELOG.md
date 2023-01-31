@@ -1,5 +1,13 @@
 # @3design/3design-ui
 
+## 1.0.17
+
+### Patch Changes
+
+- [#1034](https://github.com/4-design/for-ui/pull/1034) [`3597d78`](https://github.com/4-design/for-ui/commit/3597d78a5aa0c2da60d61f784b8feba251c9ca21) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Button): `as` props で描画に使う要素を指定できるように修正
+
+- [#1035](https://github.com/4-design/for-ui/pull/1035) [`2303f35`](https://github.com/4-design/for-ui/commit/2303f355d414dacc4636e1fd7a81ddf72116da0b) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: Vite 3.2.5 に rollback
+
 ## 1.0.16
 
 ### Patch Changes
