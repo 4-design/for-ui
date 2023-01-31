@@ -1,7 +1,8 @@
-import { forwardRef, Fragment, isValidElement, ReactNode } from 'react';
+import { forwardRef, ReactNode } from 'react';
 import TextareaAutosize, { TextareaAutosizeProps } from '@mui/base/TextareaAutosize';
 import { fsx } from '../system/fsx';
 import { Text } from '../text';
+import { TextDefaultStyler } from '../system/TextDefaultStyler';
 
 export type TextAreaProps = Omit<TextareaAutosizeProps, 'disabled' | 'className' | 'minRows' | 'maxRows'> & {
   /**
@@ -82,21 +83,20 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ className, minRows, maxRows, rows, error, disabled, helperText, label, required, ...props }, ref) => {
     return (
       <div className={fsx(`w-full flex flex-col gap-1`, className)}>
-        <Text as="label" size="s" weight="bold" className="text-shade-medium-default flex flex-col gap-1">
-          <Fragment>
-            {isValidElement(label) ? (
-              <Fragment>{label}</Fragment>
-            ) : (
-              <Text>
-                {label}
-                {label && required && (
-                  <Text className="text-negative-medium-default" weight="regular">
+        <Text as="label" className={fsx(`flex flex-col gap-1`)}>
+          <TextDefaultStyler
+            content={label}
+            defaultRenderer={({ children, ...props }) => (
+              <Text {...props} size="s" weight="bold" className={fsx(`text-shade-medium-default`)}>
+                {children}
+                {children && required && (
+                  <Text className={fsx(`text-negative-medium-default`)} weight="regular">
                     *
                   </Text>
                 )}
               </Text>
             )}
-          </Fragment>
+          />
           <TextareaAutosize
             {...props}
             disabled={disabled}
@@ -111,19 +111,17 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             ref={ref}
           />
         </Text>
-        <Fragment>
-          {isValidElement(helperText) ? (
-            <Fragment>{helperText}</Fragment>
-          ) : (
+        <TextDefaultStyler
+          content={helperText}
+          defaultRenderer={(props) => (
             <Text
               size="s"
               weight="regular"
-              className={fsx([`text-shade-dark-default`, error && `text-negative-medium-default`])}
-            >
-              {helperText}
-            </Text>
+              className={fsx(`text-shade-dark-default`, error && `text-negative-medium-default`)}
+              {...props}
+            />
           )}
-        </Fragment>
+        />
       </div>
     );
   }
