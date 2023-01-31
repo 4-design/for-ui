@@ -16,7 +16,7 @@ export default {
 export const DefaultTab: Story = () => {
   const [value, setValue] = useState('1');
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (_: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
@@ -92,7 +92,7 @@ export const DefaultTab: Story = () => {
 export const ReverseTab: Story = () => {
   const [value, setValue] = useState('1');
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (_: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
@@ -165,7 +165,7 @@ export const ReverseTab: Story = () => {
 export const WithTabList: Story = () => {
   const [value, setValue] = React.useState('1');
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (_: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 

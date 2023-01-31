@@ -16,8 +16,8 @@
     "skipLibCheck": true,
     "declaration": true,
     "declarationDir": "dist/types",
-    "noEmit": true
+    "emitDeclarationOnly": true
   },
   "include": ["./src", "./types"],
-  "exclude": ["./node_modules", "./dist"]
+  "exclude": ["./node_modules", "./dist", "./src/**/*.stories.tsx"]
 }

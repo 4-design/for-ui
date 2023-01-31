@@ -18,6 +18,7 @@
     "lint": "run-p lint:'*'",
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check .",
+    "lint:packages": "turbo run lint",
     "fmt": "run-p fmt:'*'",
     "fmt:eslint": "eslint . --fix",
     "fmt:prettier": "prettier --write --list-different .",
