@@ -111,5 +111,11 @@ export const WithCheckboxGroup = () => {
 };
 
 export const CustomLabel = () => (
-  <Checkbox label={<Text size="xl" weight="bold" className="text-shade-medium-default">ラベル</Text>} />
-)
+  <Checkbox
+    label={
+      <Text size="xl" weight="bold" className="text-shade-medium-default">
+        ラベル
+      </Text>
+    }
+  />
+);

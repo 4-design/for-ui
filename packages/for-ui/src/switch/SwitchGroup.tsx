@@ -39,12 +39,7 @@ export const SwitchGroup = forwardRef<HTMLInputElement, SwitchGroupProps>(
             </Text>
           )}
         />
-        <FormGroup
-          row={row}
-          className={fsx(`flex flex-wrap gap-x-6 gap-y-1`, row && `flex-row`)}
-          ref={ref}
-          {...rest}
-        />
+        <FormGroup row={row} className={fsx(`flex flex-wrap gap-x-6 gap-y-1`, row && `flex-row`)} ref={ref} {...rest} />
         <TextDefaultStyler
           content={helperText}
           defaultRenderer={(props) => (

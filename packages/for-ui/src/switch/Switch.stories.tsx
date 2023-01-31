@@ -7,7 +7,7 @@ import { fsx } from '../system/fsx';
 import { Switch } from './Switch';
 import { SwitchGroup } from './SwitchGroup';
 import { Button } from '../button';
-import { Text } from '../text'
+import { Text } from '../text';
 
 export default {
   title: 'Form / Switch',
@@ -78,5 +78,11 @@ export const WithSwitchGroup = () => {
 };
 
 export const CustomLabel = () => (
-  <Switch label={<Text size="xl" weight="bold" className="text-shade-medium-default">ラベル</Text>} />
-)
+  <Switch
+    label={
+      <Text size="xl" weight="bold" className="text-shade-medium-default">
+        ラベル
+      </Text>
+    }
+  />
+);
