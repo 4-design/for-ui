@@ -33,7 +33,7 @@ export const Playground = {
 export const DefaultTabs: Story = () => {
   const [value, setValue] = useState('1');
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (_: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
@@ -92,7 +92,7 @@ export const DefaultTabs: Story = () => {
 export const WithTabList: Story = () => {
   const [value, setValue] = React.useState('1');
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (_: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
@@ -148,7 +148,7 @@ export const WithTabList: Story = () => {
   );
 };
 
-function* range(start, end) {
+function* range(start: number, end: number) {
   for (let i = start; i < end; i++) {
     yield i;
   }

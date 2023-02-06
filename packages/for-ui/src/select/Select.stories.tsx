@@ -30,7 +30,7 @@ const options: SelectOption[] = [
   },
 ];
 
-const SKILL = {
+const SKILL: Record<string, string> = {
   // C#
   csharp: 'csharp',
   // C++
@@ -96,7 +96,7 @@ export const Basic: Story = () => {
                 label="国名"
                 placeholder="国名"
                 options={options}
-                onChange={(e, option) => {
+                onChange={(_, option) => {
                   onChange((option as SelectOption)?.inputValue);
                 }}
               />
@@ -115,18 +115,17 @@ export const Basic: Story = () => {
           control={control}
           render={({ field: { name, onChange } }) => {
             return (
-              <>
-                <Select
-                  name={name}
-                  required
-                  placeholder="国名"
-                  options={options}
-                  onChange={(e, option) => {
-                    onChange((option as SelectOption)?.inputValue);
-                  }}
-                />
-                <FormHelperText error>入力してください</FormHelperText>
-              </>
+              <Select
+                name={name}
+                required
+                placeholder="国名"
+                options={options}
+                onChange={(_, option) => {
+                  onChange((option as SelectOption)?.inputValue);
+                }}
+                error
+                helperText="入力してください"
+              />
             );
           }}
         />
@@ -200,18 +199,20 @@ export const Single: Story = () => {
 
   return (
     <div className="flex flex-col gap-10">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="text-transparent">
         <Controller
           name="country"
           control={control}
           render={({ field: { onChange, ...fields } }) => {
             return (
               <Select
+                {...fields}
                 name={fields.name}
-                placeholder="国名"
+                label="国名"
+                placeholder="未定"
                 options={options}
-                onChange={(e, option) => {
-                  onChange((option as SelectOption)?.inputValue);
+                onChange={(_, option) => {
+                  onChange(option as SelectOption);
                 }}
               />
             );
@@ -221,25 +222,27 @@ export const Single: Story = () => {
           登録
         </Button>
       </form>
-      <form onSubmit={handleSubmit(onSubmit)}>
+
+      <form onSubmit={handleSubmit(onSubmit)} className="text-transparent">
         <Controller
           name="country"
           control={control}
           render={({ field: { onChange, ...fields } }) => {
             return (
               <Select
+                {...fields}
                 name={fields.name}
                 size="medium"
-                placeholder="国名"
+                label="国名"
+                placeholder="未定"
                 options={options}
-                onChange={(e, option) => {
-                  onChange((option as SelectOption)?.inputValue);
+                onChange={(_, option) => {
+                  onChange(option as SelectOption);
                 }}
               />
             );
           }}
         />
-
         <Button type="submit" className="mt-4">
           登録
         </Button>
@@ -267,9 +270,10 @@ export const Disabled: Story = () => {
               <Select
                 disabled
                 name={fields.name}
+                label="国名"
                 placeholder="国名"
                 options={options}
-                onChange={(e, option) => {
+                onChange={(_, option) => {
                   onChange((option as SelectOption)?.inputValue);
                 }}
               />
@@ -288,18 +292,18 @@ export const Disabled: Story = () => {
             return (
               <Select
                 disabled
-                size="medium"
                 name={fields.name}
+                size="medium"
+                label="国名"
                 placeholder="国名"
                 options={options}
-                onChange={(e, option) => {
+                onChange={(_, option) => {
                   onChange((option as SelectOption)?.inputValue);
                 }}
               />
             );
           }}
         />
-
         <Button type="submit" className="mt-4">
           登録
         </Button>
@@ -309,7 +313,7 @@ export const Disabled: Story = () => {
 };
 
 export const Multiple: Story = () => {
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit } = useForm<{ country: SelectOption[] }>({
     defaultValues: {
       country: options,
     },
@@ -326,13 +330,12 @@ export const Multiple: Story = () => {
             return (
               <Select
                 multiple
+                // freeSolo={false}
                 name={fields.name}
                 label="国名"
                 placeholder="未定"
                 options={options}
-                onChange={(e, option) => {
-                  onChange((option as SelectOption)?.inputValue);
-                }}
+                onChange={onChange}
               />
             );
           }}
@@ -356,9 +359,7 @@ export const Multiple: Story = () => {
                   label="国名"
                   placeholder="未定"
                   options={options}
-                  onChange={(e, option) => {
-                    onChange((option as SelectOption)?.inputValue);
-                  }}
+                  onChange={onChange}
                 />
                 <FormHelperText error>入力してください</FormHelperText>
               </>
@@ -377,16 +378,14 @@ export const Multiple: Story = () => {
           control={control}
           render={({ field: { onChange, ...fields } }) => {
             return (
-              <Select
+              <Select<SelectOption, true, false>
                 multiple
                 name={fields.name}
                 size="medium"
                 label="国名"
                 placeholder="未定"
                 options={options}
-                onChange={(e, option) => {
-                  onChange((option as SelectOption)?.inputValue);
-                }}
+                onChange={onChange}
               />
             );
           }}
@@ -403,7 +402,7 @@ export const Multiple: Story = () => {
           render={({ field: { onChange, ...fields } }) => {
             return (
               <>
-                <Select
+                <Select<SelectOption, true, false>
                   multiple
                   required
                   name={fields.name}
@@ -411,9 +410,7 @@ export const Multiple: Story = () => {
                   label="国名"
                   placeholder="未定"
                   options={options}
-                  onChange={(e, option) => {
-                    onChange((option as SelectOption)?.inputValue);
-                  }}
+                  onChange={onChange}
                 />
                 <FormHelperText error>入力してください</FormHelperText>
               </>
@@ -459,12 +456,11 @@ export const MultipleFreeSolo: Story = () => {
               <Select
                 freeSolo
                 multiple
-                // autoComplete
                 placeholder="未設定"
                 name={name}
                 value={value}
                 options={skillOptions}
-                onChange={(e, option) => {
+                onChange={(_, option) => {
                   onChange(option);
                   // onChange((option as SelectOption)?.inputValue)
                 }}
@@ -487,12 +483,11 @@ export const MultipleFreeSolo: Story = () => {
                 freeSolo
                 multiple
                 size="medium"
-                // autoComplete
                 placeholder="未設定"
                 name={name}
                 value={value}
                 options={skillOptions}
-                onChange={(e, option) => {
+                onChange={(_, option) => {
                   onChange(option);
                   // onChange((option as SelectOption)?.inputValue)
                 }}
@@ -500,7 +495,6 @@ export const MultipleFreeSolo: Story = () => {
             );
           }}
         />
-
         <Button type="submit" className="mt-4">
           登録
         </Button>
@@ -531,7 +525,7 @@ export const DisableFilter: Story = () => {
               label="国名"
               placeholder="未定"
               options={options}
-              onChange={(e, option) => {
+              onChange={(_, option) => {
                 onChange(option as SelectOption);
               }}
             />

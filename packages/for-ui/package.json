@@ -1,6 +1,6 @@
 {
   "name": "@4design/for-ui",
-  "version": "1.0.14",
+  "version": "1.0.16",
   "homepage": "https://github.com/4-design/for-ui",
   "main": "dist/commonjs/for-ui.js",
   "module": "dist/esm/for-ui.esm.js",
@@ -24,8 +24,9 @@
   },
   "scripts": {
     "dev": "run-p storybook",
-    "type-check": "tsc --pretty",
-    "build:types": "tsc",
+    "lint:type-check": "tsc --pretty",
+    "lint": "run-p lint:*",
+    "build:types": "tsc -p tsconfig.build.json",
     "build:js": "NODE_ENV=production vite build",
     "build": "run-p build:'*'",
     "storybook": "start-storybook --no-manager-cache -p 6006 -s public",

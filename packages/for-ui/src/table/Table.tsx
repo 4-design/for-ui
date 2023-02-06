@@ -219,10 +219,13 @@ export const Table = <T extends RowData>({
               key={row.id}
               row={row}
               selectable={!!(onSelectRow || onSelectRows)}
-              onClick={(e) => {
-                selectRow(row);
-                onRowClick?.(e, row);
-              }}
+              onClick={
+                (onSelectRow || onSelectRows || onRowClick) &&
+                ((e, row) => {
+                  selectRow(row);
+                  onRowClick?.(e, row);
+                })
+              }
             />
           ))}
         </tbody>
@@ -236,7 +239,7 @@ export const Table = <T extends RowData>({
 export type RowProps<T extends RowData> = {
   row: RowType<T>;
   selectable: boolean;
-  onClick: (e: MouseEvent<HTMLTableRowElement>, row: RowType<T>) => void;
+  onClick?: (e: MouseEvent<HTMLTableRowElement>, row: RowType<T>) => void;
   className?: string;
 };
 
@@ -244,11 +247,11 @@ export const Row = <T extends RowData>({ row, selectable, onClick, className }: 
   <tr
     key={row.id}
     className={fsx([
-      'border-shade-light-default border-b transition duration-300 ease-in-out',
-      selectable && 'hover:bg-shade-light-default cursor-pointer',
+      'border-shade-light-default border-b transition-[background] duration-100',
+      (selectable || onClick) && 'hover:bg-shade-light-default cursor-pointer',
       className,
     ])}
-    onClick={(e) => onClick(e, row)}
+    onClick={(e) => onClick?.(e, row)}
   >
     {row.getVisibleCells().map((cell) => (
       <Fragment key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</Fragment>

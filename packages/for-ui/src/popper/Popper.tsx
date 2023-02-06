@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { MouseEvent, isValidElement, cloneElement, Fragment, ReactElement, ReactNode } from 'react';
 import MuiPopper from '@mui/material/Popper';
 import { bindPopper, bindTrigger } from 'material-ui-popup-state';
 import Fade from '@mui/material/Fade';
@@ -6,17 +6,17 @@ import Paper from '@mui/material/Paper';
 import { usePopupState } from 'material-ui-popup-state/hooks';
 import { fsx } from '../system/fsx';
 
-type PoppeChildrenProps = {
-  onClick: (e: React.MouseEvent<any>) => void;
+type PoppeChildrenProps<Element extends HTMLElement> = {
+  onClick: (e: MouseEvent<Element>) => void;
 };
 
-export type PopperProps = {
-  TriggerComponent: React.ReactNode;
+export type PopperProps<Element extends HTMLElement> = {
+  TriggerComponent: ReactNode;
 
-  children: React.ReactElement | ((props: PoppeChildrenProps) => React.ReactElement);
+  children: ReactElement | ((props: PoppeChildrenProps<Element>) => ReactElement);
 };
 
-export const Popper = (props: PopperProps) => {
+export const Popper = <Element extends HTMLElement>(props: PopperProps<Element>) => {
   const popupState = usePopupState({
     variant: 'popover',
     popupId: undefined,
@@ -24,14 +24,14 @@ export const Popper = (props: PopperProps) => {
 
   const trigger = bindTrigger(popupState);
   let _TriggerComponent = <></>;
-  if (React.isValidElement<unknown>(props.TriggerComponent)) {
-    _TriggerComponent = React.cloneElement(props.TriggerComponent, {
+  if (isValidElement<unknown>(props.TriggerComponent)) {
+    _TriggerComponent = cloneElement(props.TriggerComponent, {
       ...trigger,
     });
   }
 
   return (
-    <React.Fragment>
+    <Fragment>
       {_TriggerComponent}
 
       <MuiPopper {...bindPopper(popupState)} transition>
@@ -47,6 +47,6 @@ export const Popper = (props: PopperProps) => {
           </Fade>
         )}
       </MuiPopper>
-    </React.Fragment>
+    </Fragment>
   );
 };

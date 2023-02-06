@@ -47,7 +47,7 @@ export const WithCustomClose = () => {
         <Text variant="h3">Popper</Text>
       </div>
 
-      <Popper TriggerComponent={<Button variant="contained">プロジェクト</Button>}>
+      <Popper<HTMLLIElement> TriggerComponent={<Button variant="contained">プロジェクト</Button>}>
         {({ onClick }) => (
           <div>
             <MenuItem>プロフィール</MenuItem>

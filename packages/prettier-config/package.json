@@ -1,7 +1,7 @@
 {
   "name": "@4design/prettier-config",
-  "version": "1.0.4",
-  "description": "3design's shared Prettier config",
+  "version": "1.0.5",
+  "description": "4-design's shared Prettier config",
   "repository": {
     "url": "4-design/for-ui",
     "directory": "packages/prettier-config"

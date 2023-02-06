@@ -94,7 +94,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
         endAdornment: (
           <InputAdornment
             classes={{
-              root: fsx(['text-r text-shade-dark-default mr-3 font-sans antialiased']),
+              root: fsx(['text-r text-shade-dark-default mr-3 font-sans']),
             }}
             position="start"
             disableTypography
@@ -131,7 +131,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       <div className={fsx('flex flex-col w-full', className)}>
         <label>
           {label && (
-            <Text as="label" className={fsx(['text-s text-shade-medium-default mb-1 font-bold'])}>
+            <Text as="label" className={fsx(['text-s text-shade-medium-default mb-1 font-bold antialiased'])}>
               {label}
               {required && <Text className="text-negative-medium-default">*</Text>}
             </Text>

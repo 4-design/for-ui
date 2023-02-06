@@ -41,6 +41,7 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
             negative: `text-negative-medium-default`,
           }[intention],
           disabled && `text-shade-dark-disabled opacity-100 [&.opacity-100]:opacity-100`,
+          // `bg-shade-white-default text-r text-shade-dark-default hover:bg-shade-white-hover whitespace-nowrap border-solid py-2 pl-6 pr-12 font-sans focus-visible:bg-shade-white-active [&.Mui-focused]:bg-shade-white-active`,
           className,
         ]),
       }}

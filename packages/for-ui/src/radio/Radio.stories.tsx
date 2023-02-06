@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 
 import { LegacyText as Text } from '../typography';
@@ -53,8 +53,8 @@ export const Base = (): JSX.Element => {
 };
 
 export const WithLabel = (): JSX.Element => {
-  const handleRadioChange = (e) => {
-    console.error(e.target.value);
+  const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.info(e.target.value);
   };
 
   return (
@@ -83,7 +83,7 @@ export const WithLabel = (): JSX.Element => {
 };
 
 export const WithNopadding = (): JSX.Element => {
-  const handleRadioChange = (e) => {
+  const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.info(e.target.value);
   };
 

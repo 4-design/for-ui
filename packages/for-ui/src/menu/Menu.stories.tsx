@@ -5,6 +5,7 @@ import { Button } from '../button/Button';
 import { Text } from '../text';
 import { Menu } from './Menu';
 import { MenuDivider } from './MenuDivider';
+import { MenuList } from './MenuList';
 import { MenuItem } from './MenuItem';
 import { MdDeleteOutline, MdOutlineEdit, MdOutlinePhone, MdOutlineMail } from 'react-icons/md';
 
@@ -14,7 +15,7 @@ export default {
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (Story: any) => (
-      <div className="m-4 flex flex-col gap-4">
+      <div className="flex h-full w-full flex-col gap-4">
         <Story />
       </div>
     ),
@@ -84,3 +85,11 @@ export const WithIcon = () => {
     </div>
   );
 };
+
+export const WithMenuList = () => (
+  <MenuList>
+    <MenuItem>プロフィール</MenuItem>
+    <MenuItem>設定</MenuItem>
+    <MenuItem>コンタクト</MenuItem>
+  </MenuList>
+);
