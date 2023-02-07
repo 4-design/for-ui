@@ -126,11 +126,11 @@ export const WithSwitchGroup = () => {
         error={!!errors['preferences']}
         helperText={errors['preferences'] && '必須です'}
       >
-        <Switch label="春" value={true} {...register('preferences.spring')} />
-        <Switch label="夏" value={true} {...register('preferences.summer')} />
-        <Switch label="秋" value={true} {...register('preferences.autumn')} />
-        <Switch label="冬" value={true} {...register('preferences.winter')} />
-        <Switch label="雨季" value={true} disabled />
+        <Switch label="春" {...register('preferences.spring')} />
+        <Switch label="夏" {...register('preferences.summer')} />
+        <Switch label="秋" {...register('preferences.autumn')} />
+        <Switch label="冬" {...register('preferences.winter')} />
+        <Switch label="雨季" disabled />
       </SwitchGroup>
       <Button type="submit">保存</Button>
     </form>
