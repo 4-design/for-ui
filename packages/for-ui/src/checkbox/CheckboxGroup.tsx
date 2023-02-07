@@ -5,7 +5,7 @@ import { Text } from '../text';
 import { fsx } from '../system/fsx';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
 
-export type SwitchGroupProps = Omit<FormGroupProps, 'defaultValue' | 'defaultChecked'> & {
+export type CheckboxGroupProps = Omit<FormGroupProps, 'defaultValue' | 'defaultChecked'> & {
   name?: string;
   row?: boolean;
   required?: boolean;
@@ -17,7 +17,7 @@ export type SwitchGroupProps = Omit<FormGroupProps, 'defaultValue' | 'defaultChe
   children: ReactNode;
 };
 
-export const SwitchGroup = forwardRef<HTMLInputElement, SwitchGroupProps>(
+export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
   ({ required, disabled, label, error, row, helperText, className, ...rest }, ref) => {
     return (
       <FormControl

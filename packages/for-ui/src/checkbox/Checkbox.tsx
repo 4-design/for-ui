@@ -1,9 +1,9 @@
 import { FC, forwardRef, ReactNode } from 'react';
 import MuiCheckbox, { CheckboxProps as MuiCheckboxProps } from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import { fsx } from '../system/fsx';
 import { Text } from '../text';
 import { MdCheck, MdRemove } from 'react-icons/md';
+import { TextDefaultStyler } from '../system/TextDefaultStyler';
 
 export type CheckboxProps = MuiCheckboxProps & {
   label?: ReactNode;
@@ -29,28 +29,28 @@ const Indicator: FC<{ state: 'default' | 'checked' | 'intermediate' }> = ({ stat
   </span>
 );
 
-export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ label, nopadding = false, disabled, className, ...rest }, ref) => (
-    <FormControlLabel
-      control={
-        <MuiCheckbox
-          icon={<Indicator state="default" />}
-          checkedIcon={<Indicator state="checked" />}
-          indeterminateIcon={<Indicator state="intermediate" />}
-          className={fsx(nopadding ? 'p-0' : 'p-1')}
-          ref={ref}
-          {...rest}
-        />
-      }
-      label={
-        label && (
-          <Text as="label" size="r" className={fsx(`text-shade-dark-default`, disabled && `text-shade-dark-disabled`)}>
-            {label}
-          </Text>
-        )
-      }
-      ref={ref}
-      className={fsx(`m-0 inline-flex gap-1`, className)}
-    />
+    <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row gap-1 items-center`, className)}>
+      <MuiCheckbox
+        icon={<Indicator state="default" />}
+        checkedIcon={<Indicator state="checked" />}
+        indeterminateIcon={<Indicator state="intermediate" />}
+        disabled={disabled}
+        className={fsx(nopadding ? 'p-0' : 'p-1')}
+        inputRef={ref}
+        {...rest}
+      />
+      <TextDefaultStyler
+        content={label}
+        defaultRenderer={(props) => (
+          <Text
+            size="r"
+            className={fsx(`text-shade-dark-default`, disabled && `text-shade-dark-disabled`)}
+            {...props}
+          />
+        )}
+      />
+    </Text>
   )
 );

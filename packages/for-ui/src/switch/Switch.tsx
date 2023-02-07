@@ -1,30 +1,33 @@
-import { forwardRef } from 'react';
-import FormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel';
+import { forwardRef, ReactNode, ComponentPropsWithRef } from 'react';
 import { fsx } from '../system/fsx';
+import { Text } from '../text';
+import { TextDefaultStyler } from '../system/TextDefaultStyler';
 
-export type SwitchProps<Value = unknown> = Omit<FormControlLabelProps, 'control'> & {
-  value?: Value;
+export type SwitchProps = ComponentPropsWithRef<'input'> & {
+  label?: ReactNode;
+  className?: string;
 };
 
-export const Switch = forwardRef<HTMLInputElement, SwitchProps>((props, ref) => (
-  <FormControlLabel
-    classes={{
-      root: fsx(['m-0 flex gap-1']),
-      label: fsx(['text-r text-shade-dark-default font-sans']),
-    }}
-    control={
-      <input
-        type="checkbox"
-        ref={ref}
-        className={fsx([
-          `appearance-none bg-shade-medium-default rounded-full h-5 w-8 p-0.5 transition-all duration-100 cursor-pointer`,
-          `before:content-[''] before:block before:h-4 before:w-4 before:bg-shade-white-default before:rounded-full`,
-          `checked:bg-primary-dark-default checked:pl-3.5`,
-          `disabled:cursor-not-allowed disabled:bg-shade-medium-disabled`,
-          `disabled:checked:bg-primary-dark-disabled`,
-        ])}
-      />
-    }
-    {...props}
-  />
+export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({ label, disabled, className, ...rest }, ref) => (
+  <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row gap-1 items-center`, className)}>
+    <input
+      type="checkbox"
+      ref={ref}
+      className={fsx([
+        `appearance-none bg-shade-medium-default rounded-full h-5 w-8 p-0.5 transition-all duration-100 cursor-pointer`,
+        `before:content-[''] before:block before:h-4 before:w-4 before:bg-shade-white-default before:rounded-full`,
+        `checked:bg-primary-dark-default checked:pl-3.5`,
+        `disabled:cursor-not-allowed disabled:bg-shade-medium-disabled`,
+        `disabled:checked:bg-primary-dark-disabled`,
+      ])}
+      disabled={disabled}
+      {...rest}
+    />
+    <TextDefaultStyler
+      content={label}
+      defaultRenderer={(props) => (
+        <Text size="r" className={fsx(`text-shade-dark-default`, disabled && `text-shade-dark-disabled`)} {...props} />
+      )}
+    />
+  </Text>
 ));

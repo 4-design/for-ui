@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { Button } from '../button';
-import { Switch } from './Switch';
-import { SwitchGroup } from './SwitchGroup';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
+import { fsx } from '../system/fsx';
+import { Switch } from './Switch';
+import { SwitchGroup } from './SwitchGroup';
+import { Button } from '../button';
+import { Text } from '../text';
 
 export default {
   title: 'Form / Switch',
@@ -71,13 +73,12 @@ export const Basic = (): JSX.Element => {
   );
 };
 
-const schema = yup.object({
-  autosave: yup.string().required(),
-});
-
-type FieldValue = yup.InferType<typeof schema>;
-
 export const WithReactHookForm = () => {
+  const schema = yup.object({
+    autosave: yup.string().required(),
+  });
+  type FieldValue = yup.InferType<typeof schema>;
+
   const { register, handleSubmit } = useForm<FieldValue>({
     resolver: yupResolver(schema),
   });
@@ -86,9 +87,62 @@ export const WithReactHookForm = () => {
   };
 
   return (
-    <form className="w-96" onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Switch label="自動保存" {...register('autosave')} />
       <Button type="submit">送信</Button>
     </form>
   );
 };
+
+export const WithSwitchGroup = () => {
+  const allPreferences = {
+    spring: '春',
+    summer: '夏',
+    autumn: '秋',
+    winter: '冬',
+  } as const;
+
+  const schema = yup.object({
+    preferences: yup.object(Object.fromEntries(Object.keys(allPreferences).map((k) => [k, yup.boolean()]))),
+  });
+
+  type FieldValue = yup.InferType<typeof schema>;
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FieldValue>({
+    resolver: yupResolver(schema),
+  });
+  const onSubmit = useCallback((data: unknown) => {
+    console.info(data);
+  }, []);
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className={fsx(`flex flex-col gap-8`)}>
+      <SwitchGroup
+        required
+        label="好きな季節"
+        error={!!errors['preferences']}
+        helperText={errors['preferences'] && '必須です'}
+      >
+        <Switch label="春" value={true} {...register('preferences.spring')} />
+        <Switch label="夏" value={true} {...register('preferences.summer')} />
+        <Switch label="秋" value={true} {...register('preferences.autumn')} />
+        <Switch label="冬" value={true} {...register('preferences.winter')} />
+        <Switch label="雨季" value={true} disabled />
+      </SwitchGroup>
+      <Button type="submit">保存</Button>
+    </form>
+  );
+};
+
+export const CustomLabel = () => (
+  <Switch
+    label={
+      <Text size="xl" weight="bold" className="text-shade-medium-default">
+        ラベル
+      </Text>
+    }
+  />
+);
