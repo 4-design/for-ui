@@ -145,7 +145,7 @@ export const Basic: Story = () => {
                 size="medium"
                 placeholder="国名"
                 options={options}
-                onChange={(e, option) => {
+                onChange={(_, option) => {
                   onChange((option as SelectOption)?.inputValue);
                 }}
               />
@@ -171,7 +171,7 @@ export const Basic: Story = () => {
                   required
                   placeholder="国名"
                   options={options}
-                  onChange={(e, option) => {
+                  onChange={(_, option) => {
                     onChange((option as SelectOption)?.inputValue);
                   }}
                 />
