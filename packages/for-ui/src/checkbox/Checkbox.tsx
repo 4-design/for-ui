@@ -1,44 +1,41 @@
+import { forwardRef, ReactNode } from 'react';
 import MuiCheckbox, { CheckboxProps as MuiCheckboxProps } from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import { fsx } from '../system/fsx';
 import { Text } from '../text';
+import { TextDefaultStyler } from '../system/TextDefaultStyler';
 
 export type CheckboxProps = MuiCheckboxProps & {
-  label?: string;
+  label?: ReactNode;
   nopadding?: boolean;
   // Checbox SVG Font Size
   iconsize?: number | string;
   className?: string;
 };
 
-const _Checkbox = ({ nopadding = false, iconsize = 28, className, ...rest }: CheckboxProps) => (
-  <MuiCheckbox
-    classes={{
-      root: fsx('text-shade-medium-default', className, nopadding ? 'p-0' : 'p-1'),
-      checked: fsx('text-secondary-dark-default'),
-      disabled: fsx('text-shade-dark-disabled'),
-    }}
-    sx={{ '& .MuiSvgIcon-root': { fontSize: iconsize } }}
-    {...rest}
-  />
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
+  ({ label, iconsize, nopadding = false, disabled, className, ...rest }, ref) => (
+    <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row gap-2 items-center`, className)}>
+      <MuiCheckbox
+        classes={{
+          root: fsx('text-shade-medium-default', nopadding ? 'p-0' : 'p-1'),
+          checked: fsx('text-secondary-dark-default'),
+          disabled: fsx('text-shade-dark-disabled'),
+        }}
+        disabled={disabled}
+        sx={{ '& .MuiSvgIcon-root': { fontSize: iconsize } }}
+        inputRef={ref}
+        {...rest}
+      />
+      <TextDefaultStyler
+        content={label}
+        defaultRenderer={(props) => (
+          <Text
+            size="s"
+            className={fsx(`text-shade-dark-default`, disabled && `text-shade-dark-disabled`)}
+            {...props}
+          />
+        )}
+      />
+    </Text>
+  )
 );
-
-export const Checkbox = ({ label, nopadding = false, disabled, className, ...rest }: CheckboxProps) => {
-  return (
-    <>
-      {label ? (
-        <FormControlLabel
-          className={fsx(`m-0`, className)}
-          control={<_Checkbox nopadding={nopadding} {...rest} />}
-          label={
-            <Text size="s" className={fsx(`text-shade-dark-default ml-2`, disabled && `text-shade-dark-disabled`)}>
-              {label}
-            </Text>
-          }
-        />
-      ) : (
-        <_Checkbox nopadding={nopadding} className={className} {...rest} />
-      )}
-    </>
-  );
-};
