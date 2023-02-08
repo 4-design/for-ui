@@ -6,16 +6,16 @@ import { BadgeProps } from './Badge';
 export const OutlinedBadge: FC<Omit<BadgeProps, 'variant'>> = ({ intention = 'subtle', icon, label, className }) => (
   <span
     className={fsx([
-      `flex flex-row items-center gap-1 w-fit justify-center rounded px-2 border`,
+      `flex flex-row items-center gap-1 w-fit justify-center rounded px-2 ring ring-1 ring-inset`,
       {
-        subtle: `bg-shade-light-default text-shade-dark-default border-shade-light-default`,
-        shade: `bg-shade-white-default text-shade-dark-default border-shade-light-default`,
-        primary: `bg-primary-light-default text-primary-dark-default border-primary-light-default`,
-        secondary: `bg-secondary-light-default text-secondary-dark-default border-secondary-light-default`,
-        positive: `bg-positive-light-default text-positive-dark-default border-positive-light-default`,
-        negative: `bg-negative-light-default text-negative-dark-default border-negative-light-default`,
-        notice: `bg-notice-light-default text-notice-dark-default border-notice-light-default`,
-        informative: `bg-informative-light-default text-informative-dark-default border-informative-light-default`,
+        subtle: `bg-shade-light-default text-shade-dark-default ring-shade-light-default`,
+        shade: `bg-shade-white-default text-shade-dark-default ring-shade-light-default`,
+        primary: `bg-primary-light-default text-primary-dark-default ring-primary-light-default`,
+        secondary: `bg-secondary-light-default text-secondary-dark-default ring-secondary-light-default`,
+        positive: `bg-positive-light-default text-positive-dark-default ring-positive-light-default`,
+        negative: `bg-negative-light-default text-negative-dark-default ring-negative-light-default`,
+        notice: `bg-notice-light-default text-notice-dark-default ring-notice-light-default`,
+        informative: `bg-informative-light-default text-informative-dark-default ring-informative-light-default`,
       }[intention],
       className,
     ])}
