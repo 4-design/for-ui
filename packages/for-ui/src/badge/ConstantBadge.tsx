@@ -3,7 +3,12 @@ import { fsx } from '../system/fsx';
 import { ConstantBadgeProps } from './Badge';
 import { Text } from '../text';
 
-export const ConstantBadge: FC<Omit<ConstantBadgeProps, 'variant'>> = ({ intention = 'subtle', icon, label, className }) => (
+export const ConstantBadge: FC<Omit<ConstantBadgeProps, 'variant'>> = ({
+  intention = 'subtle',
+  icon,
+  label,
+  className,
+}) => (
   <span
     className={fsx([
       `flex flex-row items-start gap-1`,
