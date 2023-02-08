@@ -1,63 +1,86 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { MdPersonOutline } from 'react-icons/md';
 import { Badge } from './Badge';
-import { MdError } from 'react-icons/md';
+import {
+  MdPriorityHigh,
+  MdPersonOutline,
+  MdDeleteOutline,
+  MdOutlineEdit,
+  MdOutlinePhone,
+  MdOutlineMail,
+} from 'react-icons/md';
+
+const sampleIcons = {
+  undefined,
+  MdDeleteOutline: <MdDeleteOutline />,
+  MdOutlineEdit: <MdOutlineEdit />,
+  MdOutlinePhone: <MdOutlinePhone />,
+  MdOutlineMail: <MdOutlineMail />,
+  MdPersonOutline: <MdPersonOutline />,
+  MdPriorityHigh: <MdPriorityHigh />,
+};
 
 export default {
-  title: 'Example / Badge',
+  title: 'Data Display / Badge',
   component: Badge,
+  argTypes: {
+    icon: {
+      options: Object.keys(sampleIcons),
+      mapping: sampleIcons,
+    },
+  },
 } as Meta;
 
-const ConstantBadgeTemplate: Story = () => (
+export const Playground = {
+  args: {
+    label: 'バッジ',
+    variant: 'text',
+    intention: 'subtle',
+    icon: MdDeleteOutline,
+  },
+};
+
+export const Constant: Story = () => (
   <div className="flex flex-row gap-8">
     <div className="flex flex-col gap-4">
-      <Badge label="注意書き" icon={<MdError className="h-4 w-4" />} />
-      <Badge label="注意書き" icon={<MdError className="h-4 w-4" />} color="primary" />
-      <Badge label="注意書き" icon={<MdError className="h-4 w-4" />} color="native" />
+      <Badge variant="constant" intention="subtle" label="注意書き" icon={<MdPriorityHigh />} />
+      <Badge variant="constant" intention="shade" label="注意書き" icon={<MdPriorityHigh />} />
+      <Badge variant="constant" intention="primary" label="注意書き" icon={<MdPriorityHigh />} />
+      <Badge variant="constant" intention="secondary" label="注意書き" icon={<MdPriorityHigh />} />
+      <Badge variant="constant" intention="positive" label="注意書き" icon={<MdPriorityHigh />} />
+      <Badge variant="constant" intention="negative" label="注意書き" icon={<MdPriorityHigh />} />
+      <Badge variant="constant" intention="notice" label="注意書き" icon={<MdPriorityHigh />} />
+      <Badge variant="constant" intention="informative" label="注意書き" icon={<MdPriorityHigh />} />
     </div>
   </div>
 );
 
-const TextBadgeTemplate: Story = () => {
-  return (
-    <div className="flex flex-row gap-8">
-      <div className="flex flex-col gap-4">
-        <Badge label="神田 柚奈" color="white" variant="text" icon={<MdPersonOutline className="h-4 w-4" />} />
-        <Badge label="神田 柚奈" color="white" variant="text" />
-        <Badge label="神田 柚奈" color="gray" variant="text" icon={<MdPersonOutline className="h-4 w-4" />} />
-        <Badge label="神田 柚奈" color="gray" variant="text" />
-        <Badge label="神田 柚奈" color="primary" variant="text" icon={<MdPersonOutline className="h-4 w-4" />} />
-        <Badge label="神田 柚奈" color="primary" variant="text" />
-        <Badge label="神田 柚奈" color="native" variant="text" icon={<MdPersonOutline className="h-4 w-4" />} />
-        <Badge label="神田 柚奈" color="native" variant="text" />
-      </div>
+export const Text: Story = () => (
+  <div className="flex flex-row gap-8">
+    <div className="flex flex-col gap-4">
+      <Badge variant="text" intention="subtle" label="神田 柚奈" icon={<MdPersonOutline />} />
+      <Badge variant="text" intention="shade" label="神田 柚奈" icon={<MdPersonOutline />} />
+      <Badge variant="text" intention="primary" label="神田 柚奈" icon={<MdPersonOutline />} />
+      <Badge variant="text" intention="secondary" label="神田 柚奈" icon={<MdPersonOutline />} />
+      <Badge variant="text" intention="positive" label="神田 柚奈" icon={<MdPersonOutline />} />
+      <Badge variant="text" intention="negative" label="神田 柚奈" icon={<MdPersonOutline />} />
+      <Badge variant="text" intention="notice" label="神田 柚奈" icon={<MdPersonOutline />} />
+      <Badge variant="text" intention="informative" label="神田 柚奈" icon={<MdPersonOutline />} />
     </div>
-  );
-};
+  </div>
+);
 
-const OutlineBadgeTemplate: Story = () => {
-  return (
-    <div className="flex flex-row gap-8">
-      <div className="flex flex-col gap-4">
-        <Badge label="神田 柚奈" color="white" variant="outline" icon={<MdPersonOutline className="h-4 w-4" />} />
-        <Badge label="神田 柚奈" color="white" variant="outline" />
-        <Badge label="神田 柚奈" color="gray" variant="outline" icon={<MdPersonOutline className="h-4 w-4" />} />
-        <Badge label="神田 柚奈" color="gray" variant="outline" />
-        <Badge label="神田 柚奈" color="primary" variant="outline" icon={<MdPersonOutline className="h-4 w-4" />} />
-        <Badge label="神田 柚奈" color="primary" variant="outline" />
-        <Badge label="神田 柚奈" color="native" variant="outline" icon={<MdPersonOutline className="h-4 w-4" />} />
-        <Badge label="神田 柚奈" color="native" variant="outline" />
-      </div>
+export const Outlined: Story = () => (
+  <div className="flex flex-row gap-8">
+    <div className="flex flex-col gap-4">
+      <Badge variant="outlined" intention="subtle" label="神田 柚奈" icon={<MdPersonOutline />} />
+      <Badge variant="outlined" intention="shade" label="神田 柚奈" icon={<MdPersonOutline />} />
+      <Badge variant="outlined" intention="primary" label="神田 柚奈" icon={<MdPersonOutline />} />
+      <Badge variant="outlined" intention="secondary" label="神田 柚奈" icon={<MdPersonOutline />} />
+      <Badge variant="outlined" intention="positive" label="神田 柚奈" icon={<MdPersonOutline />} />
+      <Badge variant="outlined" intention="negative" label="神田 柚奈" icon={<MdPersonOutline />} />
+      <Badge variant="outlined" intention="notice" label="神田 柚奈" icon={<MdPersonOutline />} />
+      <Badge variant="outlined" intention="informative" label="神田 柚奈" icon={<MdPersonOutline />} />
     </div>
-  );
-};
-
-export const DefaultBadge = ConstantBadgeTemplate.bind({});
-DefaultBadge.args = {};
-
-export const TextBadge = TextBadgeTemplate.bind({});
-TextBadge.args = {};
-
-export const OutlineBadge = OutlineBadgeTemplate.bind({});
-OutlineBadge.args = {};
+  </div>
+);

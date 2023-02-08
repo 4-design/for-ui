@@ -1,28 +1,61 @@
-import React, { ReactNode } from 'react';
-
+import { FC, ReactNode } from 'react';
 import { ConstantBadge } from './ConstantBadge';
-import { OutlineBadge } from './OutlineBadge';
+import { OutlinedBadge } from './OutlinedBadge';
 import { TextBadge } from './TextBadge';
 
-export type BadgeProps = {
-  color?: 'white' | 'gray' | 'primary' | 'native';
-  icon?: ReactNode;
+type BadgeInterface = {
+  /**
+   * ユーザーに提示したい意図 (e.g. エラーならばnegative) を指定
+   *
+   * @default shade
+   */
+  intention?: 'subtle' | 'shade' | 'primary' | 'secondary' | 'positive' | 'negative' | 'notice' | 'informative';
+
+  /**
+   * 表示されるlabelを指定
+   */
   label: string;
+
   className?: string;
 };
 
-export const Badge: React.FC<BadgeProps & { variant?: 'constant' | 'text' | 'outline' }> = ({
-  color = 'white',
-  icon,
-  variant = 'constant',
-  label,
-}) => {
+export type ConstantBadgeProps = BadgeInterface & {
+  /**
+   * variantを指定
+   *
+   * @default text
+   */
+  variant: 'constant';
+
+  /**
+   * iconを指定
+   */
+  icon: ReactNode;
+};
+
+export type DyanmicBadgeProps = BadgeInterface & {
+  /**
+   * variantを指定
+   *
+   * @default text
+   */
+  variant?: 'text' | 'outlined';
+
+  /**
+   * iconを指定
+   */
+  icon?: ReactNode;
+};
+
+export type BadgeProps = ConstantBadgeProps | DyanmicBadgeProps;
+
+export const Badge: FC<BadgeProps> = ({ variant = 'text', icon, ...rest }) => {
   switch (variant) {
-    case 'constant':
-      return <ConstantBadge color={color} icon={icon} label={label} />;
     case 'text':
-      return <TextBadge color={color} icon={icon} label={label} />;
-    case 'outline':
-      return <OutlineBadge color={color} icon={icon} label={label} />;
+      return <TextBadge icon={icon} {...rest} />;
+    case 'outlined':
+      return <OutlinedBadge icon={icon} {...rest} />;
+    case 'constant':
+      return <ConstantBadge icon={icon} {...rest} />;
   }
 };
