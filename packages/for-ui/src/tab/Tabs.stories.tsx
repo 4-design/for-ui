@@ -23,7 +23,7 @@ export const Playground = {
         value={k}
         label={`Tab ${k}`}
         disabled={k % 3 === 0 ? true : false}
-        badge={k % 4 === 0 ? <Badge label="99+" variant="text" color="primary" /> : undefined}
+        badge={k % 4 === 0 ? <Badge label="99+" variant="text" intention="primary" /> : undefined}
       />
     )),
     value: 1,
@@ -46,7 +46,7 @@ export const DefaultTabs: Story = () => {
         <TabContext value={value}>
           <Tabs value={value} onChange={handleChange} color="primary">
             <Tab value="1" label="Item One" minWidth={0} />
-            <Tab value="2" label="Item Two" badge={<Badge label="99+" variant="text" color="primary" />} />
+            <Tab value="2" label="Item Two" badge={<Badge label="99+" variant="text" intention="primary" />} />
             <Tab value="4" label="Item Two disabled" disabled />
             <Tab value="3" label="Item Three" />
           </Tabs>
@@ -69,8 +69,7 @@ export const DefaultTabs: Story = () => {
         <TabContext value={value}>
           <Tabs value={value} onChange={handleChange} color="secondary">
             <Tab value="1" label="Item One" minWidth={0} />
-            {/* TODO: replace badge color primary with secondary */}
-            <Tab value="2" label="Item Two" badge={<Badge label="99+" variant="text" color="primary" />} />
+            <Tab value="2" label="Item Two" badge={<Badge label="99+" variant="text" intention="secondary" />} />
             <Tab value="4" label="Item Two disabled" disabled />
             <Tab value="3" label="Item Three" />
           </Tabs>
@@ -105,7 +104,7 @@ export const WithTabList: Story = () => {
         <TabContext value={value}>
           <TabList onChange={handleChange} color="primary">
             <Tab value="1" label="Item One" minWidth={0} />
-            <Tab value="2" label="Item Two" badge={<Badge label="99+" variant="text" color="primary" />} />
+            <Tab value="2" label="Item Two" badge={<Badge label="99+" variant="text" intention="primary" />} />
             <Tab value="4" label="Item Two disabled" disabled />
             <Tab value="3" label="Item Three" />
           </TabList>
@@ -128,8 +127,7 @@ export const WithTabList: Story = () => {
         <TabContext value={value}>
           <TabList onChange={handleChange} color="secondary">
             <Tab value="1" label="Item One" minWidth={0} />
-            {/* TODO: replace badge color primary with secondary */}
-            <Tab value="2" label="Item Two" badge={<Badge label="99+" variant="text" color="primary" />} />
+            <Tab value="2" label="Item Two" badge={<Badge label="99+" variant="text" intention="secondary" />} />
             <Tab value="4" label="Item Two disabled" disabled />
             <Tab value="3" label="Item Three" />
           </TabList>
