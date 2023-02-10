@@ -583,6 +583,7 @@ module.exports = {
         image: '0 16px 23px 0 rgba(191, 71, 0, 0.06)',
         menu: '0px 6px 32px rgba(82, 95, 95, 0.12)',
         modal: '0px 8px 32px rgba(0, 0, 0, 0.05)',
+        attractive: '0px 2px 2px rgba(0, 0, 0, 0.05)',
       },
       fontFamily: {
         sans: ['YakuHanJP', 'Inter', 'Noto Sans JP', ...defaultTheme.fontFamily.sans],
