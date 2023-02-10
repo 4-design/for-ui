@@ -350,7 +350,7 @@ const borderColors = {
   negative: colors.negative.border,
   positive: colors.positive.border,
   notice: colors.notice.border,
-  informative: colors.notice.border,
+  informative: colors.informative.border,
 };
 
 const iconColors = {
@@ -360,7 +360,7 @@ const iconColors = {
   secondary: colors.secondary.icon,
   positive: colors.positive.icon,
   notice: colors.notice.icon,
-  informative: colors.notice.icon,
+  informative: colors.informative.icon,
   negative: colors.negative.icon,
 };
 
@@ -401,7 +401,7 @@ module.exports = {
       negative: colors.negative.text,
       positive: colors.positive.text,
       notice: colors.notice.text,
-      informative: colors.notice.text,
+      informative: colors.informative.text,
     },
     backgroundColor: {
       transparent: 'transparent',
@@ -411,7 +411,7 @@ module.exports = {
       negative: colors.negative.background,
       positive: colors.positive.background,
       notice: colors.notice.background,
-      informative: colors.notice.background,
+      informative: colors.informative.background,
     },
     borderColor: borderColors,
     ringColor: borderColors,
