@@ -11,7 +11,7 @@ export default {
 export const Playground = {
   args: {
     label: 'ラベル',
-    badge: <Badge label="99+" variant="text" color="primary" />,
+    badge: <Badge label="99+" variant="text" intention="primary" />,
     disabled: false,
   } satisfies TabProps,
 };
