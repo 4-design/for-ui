@@ -32,6 +32,10 @@ export type TextAreaProps = Omit<TextareaAutosizeProps, 'disabled' | 'className'
   label?: ReactNode;
 
   className?: string;
+
+  // FIXME: ライブラリインポート側でonReizeとonResizeCaptureがrequiredになってしまうバグがあり、その暫定修正
+  onResize?: TextareaAutosizeProps['onResize']
+  onResizeCapture?: TextareaAutosizeProps['onResizeCapture']
 } & (
     | {
         /**
