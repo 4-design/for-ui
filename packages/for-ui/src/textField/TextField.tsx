@@ -1,4 +1,4 @@
-import { ReactNode, FocusEvent, forwardRef, useCallback, useMemo, useState } from 'react';
+import { ReactNode, FocusEvent, forwardRef, useCallback, useMemo, useState, useId } from 'react';
 import InputAdornment from '@mui/material/InputAdornment';
 import MuiTextField, { TextFieldProps as MuiTextFieldProps } from '@mui/material/TextField';
 import { NumericFormat } from 'react-number-format';
@@ -77,6 +77,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       InputProps,
       onFocus,
       onBlur,
+      id: passedId,
       ...rest
     },
     ref
@@ -127,16 +128,26 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       [setFocused, onBlur]
     );
 
+    const innerId = useId();
+    const id = passedId || innerId;
+
     return (
       <div className={fsx('flex flex-col w-full', className)}>
-        <label>
+        <fieldset className={fsx(`contents`)}>
           {label && (
-            <Text as="label" className={fsx(['text-s text-shade-medium-default mb-1 font-bold antialiased'])}>
-              {label}
-              {required && <Text className="text-negative-medium-default">*</Text>}
-            </Text>
+            <legend>
+              <Text
+                as="label"
+                htmlFor={id}
+                className={fsx(['text-s text-shade-medium-default mb-1 font-bold antialiased'])}
+              >
+                {label}
+                {required && <Text className="text-negative-medium-default">*</Text>}
+              </Text>
+            </legend>
           )}
           <MuiTextField
+            id={id}
             disabled={disabled}
             error={error}
             inputRef={validRef}
@@ -196,7 +207,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             onBlur={handleBlur}
             {...rest}
           />
-        </label>
+        </fieldset>
       </div>
     );
   }
