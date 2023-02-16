@@ -2,6 +2,7 @@ import { forwardRef, ReactNode } from 'react';
 import MuiMenuItem, { MenuItemProps as MuiMenuItemProps } from '@mui/material/MenuItem';
 import { fsx } from '../system/fsx';
 import { Text } from '../text';
+import { MdCheck } from 'react-icons/md';
 
 export type MenuItemProps = Omit<MuiMenuItemProps, 'divider'> & {
   /**
@@ -23,25 +24,34 @@ export type MenuItemProps = Omit<MuiMenuItemProps, 'divider'> & {
    */
   intention?: 'shade' | 'negative';
 
+  /**
+   * MenuItemがMenuやMenuListの開閉に関わらず有効な状態であることを示す場合に指定
+   *
+   * 通常、Selectで対象の選択肢を選択中であることを示すために使います
+   *
+   * @default false
+   */
+  selected?: boolean;
+
   className?: string;
 };
 
 export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
-  ({ icon, description, intention = 'shade', disabled, className, children, ...rest }, ref) => (
+  ({ icon, description, intention = 'shade', disabled, className, children, selected, ...rest }, ref) => (
     <MuiMenuItem
       disableRipple
       ref={ref}
       disabled={disabled}
       classes={{
         root: fsx([
-          `bg-shade-white-default text-r hover:bg-shade-white-hover whitespace-nowrap px-4 py-1 font-sans flex flex-row gap-2 focus-visible:bg-shade-white-active items-start`,
+          `bg-shade-white-default text-r hover:bg-shade-white-hover whitespace-nowrap px-4 py-1 font-sans flex flex-row gap-2 focus-visible:bg-shade-white-active [&.Mui-focused]:bg-shade-white-active items-start`,
           icon && `pl-2`,
+          selected && `pr-2`,
           {
             shade: `text-shade-dark-default`,
             negative: `text-negative-medium-default`,
           }[intention],
           disabled && `text-shade-dark-disabled opacity-100 [&.opacity-100]:opacity-100`,
-          // `bg-shade-white-default text-r text-shade-dark-default hover:bg-shade-white-hover whitespace-nowrap border-solid py-2 pl-6 pr-12 font-sans focus-visible:bg-shade-white-active [&.Mui-focused]:bg-shade-white-active`,
           className,
         ]),
       }}
@@ -61,17 +71,31 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
           {icon}
         </figure>
       )}
-      <Text className={fsx(`flex flex-col`)}>
-        <Text className={fsx(`whitespace-pre-wrap`)}>{children}</Text>
+      <Text className={fsx(`flex flex-col w-full`)}>
+        <Text weight={selected ? 'bold' : 'inherit'} className={fsx(`whitespace-pre-wrap`)}>
+          {children}
+        </Text>
         <Text
-          className={fsx([
-            `text-s text-shade-medium-default whitespace-pre-wrap`,
-            disabled && `text-shade-dark-disabled`,
-          ])}
+          size="s"
+          className={fsx([`text-shade-medium-default whitespace-pre-wrap`, disabled && `text-shade-dark-disabled`])}
         >
           {description}
         </Text>
       </Text>
+      {selected && (
+        <figure
+          className={fsx([
+            `h-4 w-4 [&>svg]:h-full [&>svg]:w-full my-1 shrink-0`,
+            {
+              shade: `[&_svg]:fill-shade-dark-default`,
+              negative: `[&_svg]:fill-negative-dark-default`,
+            }[intention],
+            disabled && `[&_svg]:fill-shade-dark-disabled`,
+          ])}
+        >
+          <MdCheck />
+        </figure>
+      )}
     </MuiMenuItem>
   )
 );
