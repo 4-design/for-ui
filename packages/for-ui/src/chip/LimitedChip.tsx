@@ -6,7 +6,7 @@ import { ChipProps } from './Chip';
 
 export const LimitedChip: FC<Omit<ChipProps, 'clickableArea'>> = ({
   label,
-  icon,
+  icon = <MdClose />,
   intention = 'shade',
   onClick,
   className,
@@ -59,7 +59,7 @@ export const LimitedChip: FC<Omit<ChipProps, 'clickableArea'>> = ({
       ])}
       {...rest}
     >
-      {icon || <MdClose />}
+      {icon}
     </button>
   </span>
 );
