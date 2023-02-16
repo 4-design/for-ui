@@ -1,10 +1,10 @@
-import { Fragment, ReactNode, forwardRef, Ref } from 'react';
+import { ReactNode, forwardRef, Ref } from 'react';
 import Autocomplete, {
   AutocompleteProps as MuiAutocompleteProps,
   createFilterOptions,
 } from '@mui/material/Autocomplete';
 import { fsx } from '../system/fsx';
-import { MdCheck, MdExpandMore } from 'react-icons/md';
+import { MdExpandMore } from 'react-icons/md';
 import { Chip } from '../chip';
 import { MenuItem, MenuList } from '../menu';
 import { TextField } from '../textField';
@@ -72,7 +72,10 @@ const _Select = <
     freeSolo={freeSolo}
     options={options}
     onChange={onChange}
-    PaperComponent={MenuList}
+    PaperComponent={(props) => (
+      <div {...props} className={fsx(`overflow-visible -translate-y-0.5 bg-shade-white-default`)} />
+    )}
+    ListboxComponent={MenuList}
     isOptionEqualToValue={(option, v) =>
       typeof option === 'string' ? option === v : option.inputValue === v.inputValue
     }
@@ -114,68 +117,73 @@ const _Select = <
       return option.inputValue;
     }}
     renderTags={(values, getTagProps) => (
-      <Fragment>
+      <ul
+        aria-label="選択済みアイテム"
+        className={fsx([
+          `inline-flex flex-row gap-1 w-min-content flex-wrap py-2`,
+          { large: `py-2`, medium: `py-1` }[size],
+        ])}
+      >
         {values.map((option, index) => {
-          const tagProps = getTagProps({ index });
+          const { onDelete, key, ...tagProps } = getTagProps({ index });
           const label = typeof option === 'string' ? option : option.label;
-          return <Chip {...tagProps} key={tagProps.key} label={label} />;
+          return (
+            <li key={key} className={fsx(`inline-flex`)}>
+              <Chip onClick={onDelete} label={label} clickableArea="limited" {...tagProps} />
+            </li>
+          );
         })}
-      </Fragment>
+      </ul>
     )}
     renderOption={(props, option, { selected }) => {
       const label = typeof option === 'string' ? option : option.label;
       return (
-        <MenuItem
-          {...props}
-          key={option.inputValue}
-          className={fsx([selected && 'text-primary-dark-default hover:bg-shade-white-hover text-base'])}
-        >
+        <MenuItem {...props} key={option.inputValue} selected={selected}>
           {label}
-          {selected && <MdCheck size={20} className="text-primary-medium-default absolute right-4" />}
         </MenuItem>
       );
     }}
     classes={{
-      root: fsx(`bg-shade-white-default w-full p-0`, className),
-      paper: fsx(`min-w-min p-0`),
+      root: fsx(`w-full p-0`, className),
       inputRoot: fsx([
-        `group bg-shade-white-default text-shade-light-default p-0 antialiased`,
+        `p-0`,
+        {
+          large: `pl-2`,
+          medium: `pl-1`,
+        }[size],
         disableFilter && `cursor-pointer`,
       ]),
+      tag: fsx(`m-0 max-w-[none]`),
       input: fsx([
-        `text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none`,
+        `min-w-20`,
+        {
+          large: `pl-2`,
+          medium: `pl-1`,
+        }[size],
         disableFilter && `cursor-pointer caret-transparent`,
       ]),
-      inputFocused: fsx(`border-primary-medium-active`),
-      focused: fsx(`[&_svg]:!icon-shade-medium-active`),
-      tag: fsx(`bg-shade-light-default [&.MuiChip-deleteIcon]:text-shade-dark-default border-none`),
-      endAdornment: fsx(`[&_svg]:icon-shade-medium-default`),
     }}
-    renderInput={(params) => {
-      return (
-        <TextField
-          {...params}
-          size={size}
-          inputProps={
-            disableFilter
-              ? {
-                  ...params.inputProps,
-                  onChange: () => {
-                    // Ignore inputs if not searchable
-                  },
-                }
-              : params.inputProps
-          }
-          autoComplete="off"
-          name={name}
-          required={required}
-          label={label}
-          placeholder={placeholder}
-          error={error}
-          helperText={helperText}
-        />
-      );
-    }}
+    renderInput={(params) => (
+      <TextField
+        {...params}
+        size={size}
+        inputProps={{
+          ...params.inputProps,
+          onChange: disableFilter
+            ? () => {
+                // Ignore inputs if not searchable
+              }
+            : params.inputProps.onChange,
+        }}
+        autoComplete="off"
+        name={name}
+        required={required}
+        label={label}
+        placeholder={placeholder}
+        error={error}
+        helperText={helperText}
+      />
+    )}
     {...rest}
   />
 );
