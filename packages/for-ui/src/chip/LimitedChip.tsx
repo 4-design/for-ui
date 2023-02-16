@@ -46,15 +46,15 @@ export const LimitedChip: FC<Omit<ChipProps, 'clickableArea'>> = ({
     <button
       onClick={onClick}
       className={fsx([
-        `flex flex-row items-start border-l p-1 rounded-r w-6 h-6 [&_svg]:w-full [&_svg]:h-full`,
+        `flex flex-row items-start border-l p-1 rounded-r w-6 h-6 [&_svg]:w-full [&_svg]:h-full focus-visible:outline-none`,
         {
-          shade: `icon-shade-dark-default bg-shade-white-default hover:bg-shade-white-hover border-shade-light-default hover:border-shade-medium-default`,
-          primary: `icon-primary-dark-default bg-primary-light-default hover:bg-primary-light-hover border-primary-light-default hover:border-primary-medium-default`,
-          secondary: `icon-secondary-dark-default bg-secondary-light-default hover:bg-secondary-light-hover border-secondary-light-default hover:border-secondary-medium-default`,
-          positive: `icon-positive-dark-default bg-positive-light-default hover:bg-positive-light-hover border-positive-light-default hover:border-positive-medium-default`,
-          negative: `icon-negative-dark-default bg-negative-light-default hover:bg-negative-light-hover border-negative-light-default hover:border-negative-medium-default`,
-          notice: `icon-notice-dark-default bg-notice-light-default hover:bg-notice-light-hover border-notice-light-default hover:border-notice-medium-default`,
-          informative: `icon-informative-dark-default bg-informative-light-default hover:bg-informative-light-hover border-informative-light-default hover:border-informative-medium-default`,
+          shade: `icon-shade-dark-default hover:bg-shade-white-hover focus-visible:bg-shade-white-hover border-shade-light-default hover:border-shade-medium-default focus-visible:border-shade-medium-default`,
+          primary: `icon-primary-dark-default hover:bg-primary-light-hover focus-visible:bg-primary-light-hover border-primary-light-default hover:border-primary-medium-default focus-visible:border-primary-medium-default`,
+          secondary: `icon-secondary-dark-default hover:bg-secondary-light-hover border-secondary-light-default hover:border-secondary-medium-default focus-visible:border-secondary-medium-default`,
+          positive: `icon-positive-dark-default hover:bg-positive-light-hover focus-visible:bg-positive-light-hover border-positive-light-default hover:border-positive-medium-default focus-visible:border-positive-medium-default`,
+          negative: `icon-negative-dark-default hover:bg-negative-light-hover focus-visible:bg-negative-light-hover border-negative-light-default hover:border-negative-medium-default focus-visible:border-negative-medium-default`,
+          notice: `icon-notice-dark-default hover:bg-notice-light-hover focus-visible:bg-notice-light-hover border-notice-light-default hover:border-notice-medium-default focus-visible:border-notice-medium-default`,
+          informative: `icon-informative-dark-default hover:bg-informative-light-hover focus-visible:bg-informative-light-hover border-informative-light-default hover:border-informative-medium-default focus-visible:border-informative-medium-default`,
         }[intention],
       ])}
       {...rest}
