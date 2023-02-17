@@ -415,6 +415,7 @@ module.exports = {
     },
     borderColor: borderColors,
     ringColor: borderColors,
+    outlineColor: borderColors,
     iconColor: iconColors,
     fill: iconColors,
     fontSize: {
