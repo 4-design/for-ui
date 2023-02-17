@@ -3,11 +3,18 @@ import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import { Meta } from '@storybook/react/types-6-0';
 
-import { LegacyText as Text, LegacyTypography as Typography } from '../typography';
+import { Text } from '../text';
 import { Skeleton, SkeletonX } from './Skeleton';
 
+export const Playground = {
+  args: {
+    loading: true,
+    children: undefined,
+  },
+};
+
 export default {
-  title: 'Example / Skeleton',
+  title: 'Feedback / Skeleton',
   component: Skeleton,
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -32,22 +39,34 @@ export const WithText = () => {
   return (
     <div className="flex flex-col">
       <Skeleton loading={loading}>
-        <Typography variant="h1">H1. Heading</Typography>
+        <Text size="xl" as="h1">
+          H1. Heading
+        </Text>
       </Skeleton>
       <Skeleton loading={loading}>
-        <Typography variant="h2">H2. Heading</Typography>
+        <Text size="l" as="h2">
+          H2. Heading
+        </Text>
       </Skeleton>
       <Skeleton loading={loading}>
-        <Typography variant="h3">H3. Heading</Typography>
+        <Text size="xr" as="h3">
+          H3. Heading
+        </Text>
       </Skeleton>
       <Skeleton loading={loading}>
-        <Typography variant="h4">H4. Heading</Typography>
+        <Text size="r" as="h4">
+          H4. Heading
+        </Text>
       </Skeleton>
       <Skeleton loading={loading}>
-        <Typography variant="h5">H5. Heading</Typography>
+        <Text size="s" as="h5">
+          H5. Heading
+        </Text>
       </Skeleton>
       <Skeleton loading={loading}>
-        <Typography variant="h6">H6. Heading</Typography>
+        <Text size="xs" as="h6">
+          H6. Heading
+        </Text>
       </Skeleton>
     </div>
   );
@@ -121,8 +140,12 @@ export const WithCount = () => {
   return (
     <div className="flex flex-col">
       <Skeleton loading={loading} count={10}>
-        <Typography variant="h1">H1. Heading</Typography>
-        <Typography variant="h1">H1. Heading</Typography>
+        <Text size="xl" as="h1">
+          H1. Heading
+        </Text>
+        <Text size="xl" as="h1">
+          H1. Heading
+        </Text>
       </Skeleton>
     </div>
   );
@@ -140,63 +163,53 @@ export const WithNest = () => {
     <div className="flex flex-col">
       <SkeletonX loading={loading} variant="text">
         <Row>
-          <Text bold variant="caption" className="text-shade-dark-default mb-2">
+          <Text weight="bold" className="text-shade-dark-default mb-2">
             サービス名
           </Text>
 
-          <Text variant="caption" className="text-shade-dark-default">
-            {undefined}
-          </Text>
+          <Text className="text-shade-dark-default">{undefined}</Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" className="text-shade-dark-default">
+          <Text weight="bold" className="text-shade-dark-default">
             サービス概要
           </Text>
 
-          <Text variant="caption" className="text-shade-dark-default">
+          <Text className="text-shade-dark-default">
             「Reckoner」は、個人が簡単にモノの売り買いが楽しめるフリマアプリです。AIによる不正の監視や独自の入金システムにより、誰でも安心・安全な取引が行えます。
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" className="text-shade-dark-default">
+          <Text weight="bold" className="text-shade-dark-default">
             使用中のインフラサービス
           </Text>
 
-          <Text variant="caption" className="text-shade-dark-default">
-            Google Cloud
-          </Text>
+          <Text className="text-shade-dark-default">Google Cloud</Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" className="text-shade-dark-default">
+          <Text weight="bold" className="text-shade-dark-default">
             停止の際の影響範囲
           </Text>
 
-          <Text variant="caption" className="text-shade-dark-default">
-            顧客がReckoner上で取引が出来ない
-          </Text>
+          <Text className="text-shade-dark-default">顧客がReckoner上で取引が出来ない</Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" className="text-shade-dark-default">
+          <Text weight="bold" className="text-shade-dark-default">
             構成図リンク
           </Text>
 
-          <Text variant="caption" className="text-shade-dark-default">
-            https://3-shake.com
-          </Text>
+          <Text className="text-shade-dark-default">https://3-shake.com</Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" className="text-shade-dark-default">
+          <Text weight="bold" className="text-shade-dark-default">
             トラフィック·ピーク時間帯
           </Text>
 
-          <Text variant="caption" className="text-shade-dark-default">
-            00:00 ~ 24:00
-          </Text>
+          <Text className="text-shade-dark-default">00:00 ~ 24:00</Text>
         </Row>
       </SkeletonX>
     </div>

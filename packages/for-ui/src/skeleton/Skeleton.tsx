@@ -1,5 +1,6 @@
-import React from 'react';
+import { FC, ReactNode, Children, isValidElement, cloneElement, Fragment } from 'react';
 import MuiSkeleton, { SkeletonProps as MuiSkeletonProps } from '@mui/material/Skeleton';
+import { fsx } from '../system/fsx';
 
 export type SkeletonProps = MuiSkeletonProps & {
   loading?: boolean;
@@ -7,58 +8,61 @@ export type SkeletonProps = MuiSkeletonProps & {
   count?: number;
 };
 
-export const Skeleton: React.FC<SkeletonProps> = ({ loading = false, count = 1, className, children, ...rest }) => {
+export const Skeleton: FC<SkeletonProps> = ({ loading = false, count = 1, className, children, ...rest }) => {
   if (loading) {
     return (
       <>
         {[...Array(count)].map((_, idx) => (
-          <MuiSkeleton className={className} {...rest} key={idx}>
-            {React.Children.count(children) > 0 && React.Children.toArray(children)[0]}
+          <MuiSkeleton className={fsx(`bg-shade-medium-disabled`, className)} {...rest} key={idx}>
+            {Children.count(children) > 0 && Children.toArray(children)[0]}
           </MuiSkeleton>
         ))}
       </>
     );
   }
-
-  return children as React.ReactElement;
+  if (isValidElement(children)) {
+    return children;
+  }
+  return <Fragment>{children}</Fragment>;
 };
 
-const recursiveChildren = (children: React.ReactNode, empty: React.ReactNode): React.ReactNode => {
+const recursiveChildren = (children: ReactNode, empty: ReactNode): ReactNode => {
   if (!children) return <></>;
 
-  return React.Children.map(children, (child: React.ReactNode) => {
-    if (!React.isValidElement<unknown>(child)) {
+  return Children.map(children, (child: ReactNode) => {
+    if (!isValidElement<unknown>(child)) {
       return child;
     }
 
-    if (!React.isValidElement<unknown>(empty)) {
+    if (!isValidElement<unknown>(empty)) {
       return empty;
     }
 
-    if (React.Children.count(child.props.children) > 1) {
+    if (Children.count(child.props.children) > 1) {
       return recursiveChildren(child.props.children, empty);
     }
-    if (React.Children.count(child.props.children) === 0) {
-      return <MuiSkeleton>{React.cloneElement(empty, empty.props)}</MuiSkeleton>;
+    if (Children.count(child.props.children) === 0) {
+      return <MuiSkeleton className={fsx(`bg-shade-medium-disabled`)}>{cloneElement(empty, empty.props)}</MuiSkeleton>;
     }
-    return <MuiSkeleton>{React.cloneElement(child, child.props)}</MuiSkeleton>;
+    return <MuiSkeleton className={fsx(`bg-shade-medium-disabled`)}>{cloneElement(child, child.props)}</MuiSkeleton>;
   });
 };
 
 type SkeletonXProps = MuiSkeletonProps & {
   loading?: boolean;
-  empty?: React.ReactNode;
+  empty?: ReactNode;
 };
 
-export const SkeletonX: React.FC<SkeletonXProps> = ({
+export const SkeletonX: FC<SkeletonXProps> = ({
   loading = false,
-  empty = <div>xxxxxxxxxxxxxxx</div>,
+  empty = <div aria-hidden>xxxxxxxxxxxxxxx</div>,
   children,
 }) => {
   if (loading) {
-    const childs = recursiveChildren(children, empty);
-
-    return <>{childs}</>;
+    return <Fragment>{recursiveChildren(children, empty)}</Fragment>;
   }
-  return children as React.ReactElement;
+  if (isValidElement(children)) {
+    return children;
+  }
+  return <Fragment>{children}</Fragment>;
 };
