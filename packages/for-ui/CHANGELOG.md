@@ -1,5 +1,15 @@
 # @3design/3design-ui
 
+## 1.0.18
+
+### Patch Changes
+
+- [#1049](https://github.com/4-design/for-ui/pull/1049) [`477a7d6`](https://github.com/4-design/for-ui/commit/477a7d646c68d4763537fc8a11eba505c21a30b0) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Skeleton): 戻り値の不正なパスを修正
+
+- [#1048](https://github.com/4-design/for-ui/pull/1048) [`0cee467`](https://github.com/4-design/for-ui/commit/0cee46768e24398e78e68cd5c3a19f1f44ce5b1b) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextArea): 自動サイズ調整が効かないバグの修正
+
+- [#1038](https://github.com/4-design/for-ui/pull/1038) [`0c151ac`](https://github.com/4-design/for-ui/commit/0c151acf8111bb65c13e7527fc0709d677af430e) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Radio, Switch, Checkbox, TextArea): `label`, `error`, `helperText` props の仕様を揃える
+
 ## 1.0.17
 
 ### Patch Changes
