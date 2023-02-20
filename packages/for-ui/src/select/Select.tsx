@@ -8,6 +8,7 @@ import { MdCheck, MdExpandMore } from 'react-icons/md';
 import { Chip } from '../chip';
 import { MenuItem, MenuList } from '../menu';
 import { TextField } from '../textField';
+import { Text } from '../text';
 
 export type SelectOption = {
   label: string;
@@ -52,7 +53,7 @@ const _Select = <
   disabled = false,
   disableFilter = false,
   inputRef,
-  noOptionsText = 'データが見つかりません',
+  noOptionsText = '選択肢がありません',
   className,
   ...rest
 }: AutocompleteProps<Value, Multiple, FreeSolo> & {
@@ -65,6 +66,7 @@ const _Select = <
     disableClearable
     autoHighlight
     clearOnBlur
+    openOnFocus
     disabled={disabled}
     includeInputInList
     handleHomeEndKeys
@@ -72,12 +74,22 @@ const _Select = <
     freeSolo={freeSolo}
     options={options}
     onChange={onChange}
-    PaperComponent={MenuList}
+    PaperComponent={(props) => <MenuList as="div" {...props} />}
+    ListboxComponent={(props) => <ul {...props} className={fsx(`p-0`)} />}
     isOptionEqualToValue={(option, v) =>
       typeof option === 'string' ? option === v : option.inputValue === v.inputValue
     }
-    noOptionsText={noOptionsText}
+    noOptionsText={
+      <Text typeface="sansSerif" size="r" className={fsx(`flex py-1 px-4 text-shade-medium-default`)}>
+        {noOptionsText}
+      </Text>
+    }
     popupIcon={<MdExpandMore size={24} />}
+    componentsProps={{
+      popupIndicator: {
+        disableRipple: true,
+      },
+    }}
     filterOptions={(options, params) => {
       const filtered = createFilterOptions<Value>()(options, params);
       const { inputValue } = params;
@@ -113,15 +125,6 @@ const _Select = <
       // Regular option
       return option.inputValue;
     }}
-    renderTags={(values, getTagProps) => (
-      <Fragment>
-        {values.map((option, index) => {
-          const tagProps = getTagProps({ index });
-          const label = typeof option === 'string' ? option : option.label;
-          return <Chip {...tagProps} key={tagProps.key} label={label} />;
-        })}
-      </Fragment>
-    )}
     renderOption={(props, option, { selected }) => {
       const label = typeof option === 'string' ? option : option.label;
       return (
@@ -135,21 +138,38 @@ const _Select = <
         </MenuItem>
       );
     }}
+    renderTags={(values, getTagProps) => (
+      <Fragment>
+        {values.map((option, index) => {
+          const tagProps = getTagProps({ index });
+          const label = typeof option === 'string' ? option : option.label;
+          return <Chip {...tagProps} key={tagProps.key} label={label} />;
+        })}
+      </Fragment>
+    )}
     classes={{
       root: fsx(`bg-shade-white-default w-full p-0`, className),
-      paper: fsx(`min-w-min p-0`),
+      paper: fsx(`min-w-min`),
       inputRoot: fsx([
         `group bg-shade-white-default text-shade-light-default p-0 antialiased`,
         disableFilter && `cursor-pointer`,
       ]),
+      noOptions: fsx(`p-0`),
       input: fsx([
-        `text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none`,
+        `text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 pr-0 font-sans placeholder:opacity-100 focus:shadow-none`,
         disableFilter && `cursor-pointer caret-transparent`,
       ]),
       inputFocused: fsx(`border-primary-medium-active`),
       focused: fsx(`[&_svg]:!icon-shade-medium-active`),
       tag: fsx(`bg-shade-light-default [&.MuiChip-deleteIcon]:text-shade-dark-default border-none`),
-      endAdornment: fsx(`[&_svg]:icon-shade-medium-default`),
+      endAdornment: fsx([
+        `static flex [&_svg]:icon-shade-dark-default border-x border-shade-light-default`,
+        {
+          large: `px-2`,
+          medium: `px-1`,
+        }[size],
+      ]),
+      popupIndicator: fsx(`p-0 m-0`),
     }}
     renderInput={(params) => {
       return (
