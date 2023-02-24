@@ -215,7 +215,7 @@ const _Button = <As extends ElementType = 'button'>({
       {endIcon}
       {loading && (
         <div className={fsx(`absolute grid place-items-center inset-0 w-full h-full`)}>
-          <Loader className={fsx(`fill-shade-dark-default [&:is(svg)]:w-6 [&:is(svg)]:h-6`)} />
+          <Loader className={fsx(`[&:is(svg)]:fill-shade-dark-default [&:is(svg)]:w-6 [&:is(svg)]:h-6`)} />
         </div>
       )}
     </MuiButton>
