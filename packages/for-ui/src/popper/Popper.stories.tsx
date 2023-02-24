@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 
-import { LegacyText as Text } from '../typography';
+import { Text } from '../text';
 import { Button } from '../button/Button';
 import { Popper } from './Popper';
 import { MenuItem } from '../menu';
@@ -26,7 +26,9 @@ export const Base = () => {
   return (
     <div className="flex flex-col gap-8">
       <div className="mb-4 border-b">
-        <Text variant="h3">Popper</Text>
+        <Text as="h3" size="l" weight="bold">
+          Popper
+        </Text>
       </div>
 
       <Popper TriggerComponent={<Button variant="contained">プロジェクト</Button>}>
@@ -44,7 +46,9 @@ export const WithCustomClose = () => {
   return (
     <div className="flex flex-col gap-8">
       <div className="mb-4 border-b">
-        <Text variant="h3">Popper</Text>
+        <Text as="h3" size="l" weight="bold">
+          Popper
+        </Text>
       </div>
 
       <Popper<HTMLLIElement> TriggerComponent={<Button variant="contained">プロジェクト</Button>}>

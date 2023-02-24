@@ -1,9 +1,7 @@
 export * from './badge';
 export * from './button';
-export * from './card';
 export * from './checkbox';
 export * from './chip';
-export * from './divider';
 export * from './drawer';
 export * from './dropzone';
 export * from './icon';
@@ -20,4 +18,3 @@ export * from './textArea';
 export * from './textField';
 export * from './tab';
 export * from './table';
-export * from './tag';
