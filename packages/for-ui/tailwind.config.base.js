@@ -415,8 +415,12 @@ module.exports = {
     },
     borderColor: borderColors,
     ringColor: borderColors,
+    outlineColor: borderColors,
     iconColor: iconColors,
-    fill: iconColors,
+    fill: {
+      inherit: 'inherit',
+      ...iconColors,
+    },
     fontSize: {
       xs: fontSizes.s,
       sm: fontSizes.s,
@@ -436,6 +440,7 @@ module.exports = {
       borderRadius: {
         modal: '2rem',
         1: '.25rem',
+        1.5: '.375rem',
         2: '.5rem',
         4: '1rem',
         8: '2rem',
