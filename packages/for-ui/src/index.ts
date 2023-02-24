@@ -6,7 +6,6 @@ export * from './chip';
 export * from './divider';
 export * from './drawer';
 export * from './dropzone';
-export * from './icon';
 export * from './menu';
 export * from './modal';
 export * from './radio';
