@@ -4,7 +4,6 @@ export * from './checkbox';
 export * from './chip';
 export * from './drawer';
 export * from './dropzone';
-export * from './icon';
 export * from './menu';
 export * from './modal';
 export * from './radio';
