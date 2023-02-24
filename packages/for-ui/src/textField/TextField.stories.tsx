@@ -7,11 +7,38 @@ import * as yup from 'yup';
 import { Button } from '../button/Button';
 import { TextField } from './TextField';
 import { Text } from '../text';
+import { MdOutlineSearch } from 'react-icons/md';
+import { MdDeleteOutline, MdOutlineEdit, MdOutlinePhone, MdOutlineMail } from 'react-icons/md';
+
+const sampleIcons = {
+  undefined,
+  MdOutlineSearch: <MdOutlineSearch />,
+  MdDeleteOutline: <MdDeleteOutline />,
+  MdOutlineEdit: <MdOutlineEdit />,
+  MdOutlinePhone: <MdOutlinePhone />,
+  MdOutlineMail: <MdOutlineMail />,
+};
 
 export default {
   title: 'Form / TextField',
   component: TextField,
+  argTypes: {
+    icon: {
+      options: Object.keys(sampleIcons),
+      mapping: sampleIcons,
+    },
+  },
 } as Meta;
+
+export const Playground = {
+  args: {
+    prefix: '',
+    suffix: '',
+    label: 'ラベル',
+    required: false,
+    disabled: false,
+  },
+};
 
 const schema = yup.object({
   email: yup.string().required(),
@@ -22,11 +49,7 @@ const schema = yup.object({
 
 type FieldValue = yup.InferType<typeof schema>;
 
-export const Playground = {
-  prefix: '',
-};
-
-export const Outlined = (): JSX.Element => {
+export const Base = (): JSX.Element => {
   const {
     register,
     handleSubmit,
@@ -55,6 +78,7 @@ export const Outlined = (): JSX.Element => {
           helperText={errors['email'] && `メールアドレスは必須です`}
           {...register('email')}
         />
+
         <TextField
           required
           type="password"
@@ -68,7 +92,7 @@ export const Outlined = (): JSX.Element => {
         <TextField
           label="金額 (2万円以上)"
           placeholder="2"
-          unitLabel="万円"
+          suffix="万円"
           isPriceFormat
           error={!!errors['price']}
           helperText={errors['price'] && `金額は2万円以上を入力してください`}
@@ -117,7 +141,7 @@ export const Outlined = (): JSX.Element => {
           size="medium"
           label="金額 (2万円以上)"
           placeholder="2"
-          unitLabel="万円"
+          suffix="万円"
           isPriceFormat
           error={!!errors['price']}
           helperText={errors['price'] && `金額は2万円以上を入力してください`}
@@ -138,3 +162,5 @@ export const Outlined = (): JSX.Element => {
     </div>
   );
 };
+
+export const WithIcon = () => <TextField icon={<MdOutlineSearch />} />;
