@@ -29,7 +29,7 @@ export const Base = () => {
         <Text variant="h3">Popper</Text>
       </div>
 
-      <Popper TriggerComponent={<Button variant="contained">プロジェクト</Button>}>
+      <Popper TriggerComponent={<Button variant="filled">プロジェクト</Button>}>
         <div className="w-80">
           <div>こんにちは</div>
           <div>こんにちは</div>
@@ -47,7 +47,7 @@ export const WithCustomClose = () => {
         <Text variant="h3">Popper</Text>
       </div>
 
-      <Popper<HTMLLIElement> TriggerComponent={<Button variant="contained">プロジェクト</Button>}>
+      <Popper<HTMLLIElement> TriggerComponent={<Button variant="filled">プロジェクト</Button>}>
         {({ onClick }) => (
           <div>
             <MenuItem>プロフィール</MenuItem>

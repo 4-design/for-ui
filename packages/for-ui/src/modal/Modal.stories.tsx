@@ -24,7 +24,7 @@ export const ModalDefault = (): JSX.Element => {
     <div className="flex flex-col">
       <h1>Default Modal</h1>
       <div className="mt-4 flex flex-col">
-        <Button className="w-48" color="default" variant="contained" onClick={() => setShowModal(true)}>
+        <Button className="w-48" color="default" variant="filled" onClick={() => setShowModal(true)}>
           確認
         </Button>
 
@@ -36,7 +36,7 @@ export const ModalDefault = (): JSX.Element => {
             </p>
           </ModalContent>
           <ModalFooter>
-            <Button type="submit" variant="contained" color="primary" className="ml-8" onClick={onSubmit}>
+            <Button type="submit" variant="filled" color="primary" className="ml-8" onClick={onSubmit}>
               登録
             </Button>
             <Button variant="text" color="default" onClick={() => setShowModal(false)}>
