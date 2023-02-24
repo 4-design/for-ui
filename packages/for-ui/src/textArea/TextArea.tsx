@@ -33,11 +33,10 @@ export type TextAreaProps = Omit<TextareaAutosizeProps, 'disabled' | 'className'
 
   /**
    * サイズを指定
-   * 
+   *
    * @default large
    */
   size?: 'large' | 'medium';
-
 
   className?: string;
 } & (
@@ -88,7 +87,10 @@ export type TextAreaProps = Omit<TextareaAutosizeProps, 'disabled' | 'className'
   );
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  ({ className, size = 'large', minRows, maxRows, rows, error, disabled, helperText, label, required, ...props }, ref) => {
+  (
+    { className, size = 'large', minRows, maxRows, rows, error, disabled, helperText, label, required, ...props },
+    ref
+  ) => {
     return (
       <div className={fsx(`w-full flex flex-col gap-1`, className)}>
         <Text as="label" className={fsx(`flex flex-col gap-1`)}>
@@ -111,7 +113,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             minRows={rows || minRows}
             maxRows={rows || maxRows}
             className={fsx([
-              `w-full bg-shade-white-default ring-shade-medium-default ring-inset ring-1 text-r text-shade-dark-default placeholder:text-shade-light-default rounded h-auto py-2.5 px-3 font-sans font-normal placeholder:opacity-100  focus-visible:outline-none focus-visible:ring-primary-medium-active focus-visible:ring-2`,
+              `w-full bg-shade-white-default ring-shade-medium-default ring-inset ring-1 text-r text-shade-dark-default placeholder:text-shade-light-default rounded h-auto font-sans font-normal placeholder:opacity-100  focus-visible:outline-none focus-visible:ring-primary-medium-active focus-visible:ring-2`,
               {
                 large: `py-2 px-4`,
                 medium: `py-1 px-2`,
