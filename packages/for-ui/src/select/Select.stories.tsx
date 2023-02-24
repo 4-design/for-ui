@@ -539,3 +539,5 @@ export const DisableFilter: Story = () => {
     </form>
   );
 };
+
+export const NoData = () => <Select name="hello" open options={[]} />;
