@@ -191,7 +191,7 @@ const _Select = <
   />
 );
 
-export const Select = forwardRef((props, ref: Ref<HTMLInputElement>) => <_Select inputRef={ref} {...props} />) as <
+export const Select = forwardRef((props, ref: Ref<HTMLInputElement>) => <_Select ref={ref} {...props} />) as <
   Value extends SelectOption,
   Multiple extends boolean | undefined,
   FreeSolo extends boolean | undefined
