@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 
-import { LegacyText as Text } from '../typography';
+import { Text } from '../text';
 import { Chip } from './Chip';
 import { MdAttachFile } from 'react-icons/md';
 
@@ -27,7 +27,9 @@ export default {
 export const Base = () => (
   <div className="flex flex-col">
     <div className="mb-4 border-b">
-      <Text variant="h3">Chip</Text>
+      <Text as="h3" size="l" weight="bold">
+        Chip
+      </Text>
     </div>
 
     <div className="flex flex-row gap-8">

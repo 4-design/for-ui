@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { LegacyText as Text } from '../typography';
+import { Text } from '../text';
 import { Step } from './Step';
 import { Stepper } from './Stepper';
 
@@ -27,7 +27,9 @@ const Template: Story = (args) => {
   return (
     <div>
       <div className="mb-4 border-b">
-        <Text variant="h3">Stepper</Text>
+        <Text as="h3" size="l" weight="bold">
+          Stepper
+        </Text>
       </div>
       <Stepper alternativeLabel={true} activeStep={0} {...args}>
         {steps.map((step, index) => (

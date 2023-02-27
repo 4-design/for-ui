@@ -3,7 +3,7 @@ import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import { Meta } from '@storybook/react/types-6-0';
 
-import { LegacyText as Text, LegacyTypography as Typography } from '../typography';
+import { Text } from '../text';
 import { Skeleton, SkeletonX } from './Skeleton';
 
 export default {
@@ -32,22 +32,34 @@ export const WithText = () => {
   return (
     <div className="flex flex-col">
       <Skeleton loading={loading}>
-        <Typography variant="h1">H1. Heading</Typography>
+        <Text as="h1" size="xl" weight="bold">
+          H1. Heading
+        </Text>
       </Skeleton>
       <Skeleton loading={loading}>
-        <Typography variant="h2">H2. Heading</Typography>
+        <Text as="h2" size="xl">
+          H2. Heading
+        </Text>
       </Skeleton>
       <Skeleton loading={loading}>
-        <Typography variant="h3">H3. Heading</Typography>
+        <Text as="h3" size="xr" weight="bold">
+          H3. Heading
+        </Text>
       </Skeleton>
       <Skeleton loading={loading}>
-        <Typography variant="h4">H4. Heading</Typography>
+        <Text as="h4" size="xr">
+          H4. Heading
+        </Text>
       </Skeleton>
       <Skeleton loading={loading}>
-        <Typography variant="h5">H5. Heading</Typography>
+        <Text as="h5" size="r" weight="bold">
+          H5. Heading
+        </Text>
       </Skeleton>
       <Skeleton loading={loading}>
-        <Typography variant="h6">H6. Heading</Typography>
+        <Text as="h6" size="r">
+          H6. Heading
+        </Text>
       </Skeleton>
     </div>
   );
@@ -121,8 +133,12 @@ export const WithCount = () => {
   return (
     <div className="flex flex-col">
       <Skeleton loading={loading} count={10}>
-        <Typography variant="h1">H1. Heading</Typography>
-        <Typography variant="h1">H1. Heading</Typography>
+        <Text as="h1" size="xl" weight="bold">
+          H1. Heading
+        </Text>
+        <Text as="h1" size="xl" weight="bold">
+          H1. Heading
+        </Text>
       </Skeleton>
     </div>
   );
@@ -140,61 +156,61 @@ export const WithNest = () => {
     <div className="flex flex-col">
       <SkeletonX loading={loading} variant="text">
         <Row>
-          <Text bold variant="caption" className="text-shade-dark-default mb-2">
+          <Text size="r" weight="bold" className="text-shade-dark-default mb-2">
             サービス名
           </Text>
 
-          <Text variant="caption" className="text-shade-dark-default">
+          <Text size="r" weight="bold" className="text-shade-dark-default">
             {undefined}
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" className="text-shade-dark-default">
+          <Text size="r" weight="bold" className="text-shade-dark-default">
             サービス概要
           </Text>
 
-          <Text variant="caption" className="text-shade-dark-default">
+          <Text size="r" className="text-shade-dark-default">
             「Reckoner」は、個人が簡単にモノの売り買いが楽しめるフリマアプリです。AIによる不正の監視や独自の入金システムにより、誰でも安心・安全な取引が行えます。
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" className="text-shade-dark-default">
+          <Text size="r" weight="bold" className="text-shade-dark-default">
             使用中のインフラサービス
           </Text>
 
-          <Text variant="caption" className="text-shade-dark-default">
+          <Text size="r" className="text-shade-dark-default">
             Google Cloud
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" className="text-shade-dark-default">
+          <Text size="r" weight="bold" className="text-shade-dark-default">
             停止の際の影響範囲
           </Text>
 
-          <Text variant="caption" className="text-shade-dark-default">
+          <Text size="r" className="text-shade-dark-default">
             顧客がReckoner上で取引が出来ない
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" className="text-shade-dark-default">
+          <Text size="r" weight="bold" className="text-shade-dark-default">
             構成図リンク
           </Text>
 
-          <Text variant="caption" className="text-shade-dark-default">
+          <Text size="r" className="text-shade-dark-default">
             https://3-shake.com
           </Text>
         </Row>
 
         <Row>
-          <Text bold variant="caption" className="text-shade-dark-default">
+          <Text size="r" weight="bold" className="text-shade-dark-default">
             トラフィック·ピーク時間帯
           </Text>
 
-          <Text variant="caption" className="text-shade-dark-default">
+          <Text size="r" className="text-shade-dark-default">
             00:00 ~ 24:00
           </Text>
         </Row>
