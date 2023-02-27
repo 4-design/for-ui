@@ -127,7 +127,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     const id = passedId || innerId;
 
     return (
-      <div className={fsx(`w-full flex flex-col gap-1`, className)} ref={ref}>
+      <div className={fsx(`w-full flex flex-col gap-1`, className)}>
         <fieldset className={fsx(`contents`)}>
           {label && (
             <legend className={fsx(`contents`)}>
