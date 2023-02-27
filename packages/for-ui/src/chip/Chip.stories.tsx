@@ -1,202 +1,151 @@
 import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
-
-import { Text } from '../text';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import { action } from '@storybook/addon-actions';
 import { Chip } from './Chip';
-import { MdAttachFile } from 'react-icons/md';
+import { Text } from '../text';
+import {
+  MdAttachFile,
+  MdDeleteOutline,
+  MdOutlineEdit,
+  MdOutlinePhone,
+  MdOutlineMail,
+  MdOutlineDownload,
+} from 'react-icons/md';
+
+const sampleIcons = {
+  undefined,
+  MdAttachFile: <MdAttachFile />,
+  MdDeleteOutline: <MdDeleteOutline />,
+  MdOutlineEdit: <MdOutlineEdit />,
+  MdOutlinePhone: <MdOutlinePhone />,
+  MdOutlineMail: <MdOutlineMail />,
+};
 
 export default {
   title: 'Form / Chip',
   component: Chip,
   decorators: [
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (Story: any) => (
-      <div className="mt-10 flex h-screen w-screen flex-col gap-4">
+    (Story: Story) => (
+      <div className="flex h-full w-full flex-col gap-4">
         <Story />
       </div>
     ),
   ],
   argTypes: {
-    backgroundColor: { control: 'color' },
-    label: { control: 'text', defaultValue: 'ラベル' },
-    color: { control: 'select', options: ['default', 'negative', 'white'] },
-    onDelete: { action: 'onDelete' },
+    icon: {
+      options: Object.keys(sampleIcons),
+      mapping: sampleIcons,
+    },
+    onClick: {
+      control: 'select',
+      options: ['action'],
+      mapping: { action: action('chip') },
+    },
   },
 } as Meta;
 
+export const Playground = {
+  args: {
+    label: 'ラベル',
+    onClick: 'action',
+  },
+};
+
 export const Base = () => (
-  <div className="flex flex-col">
-    <div className="mb-4 border-b">
-      <Text as="h3" size="l" weight="bold">
-        Chip
-      </Text>
+  <div className="flex flex-col gap-4">
+    <Text as="h3" weight="bold" size="l">
+      Chip
+    </Text>
+    <div className="flex flex-col gap-4">
+      <Text weight="bold">Shade</Text>
+      <Chip label="yuzuna_kanda.pdf" intention="shade" onClick={action('chip')} />
+      <Chip label="yuzuna_kanda.pdf" intention="shade" onClick={action('chip')} icon={<MdAttachFile />} />
+      <Chip label="yuzuna_kanda.pdf" intention="shade" onClick={action('chip')} clickableArea="limited" />
+      <Chip
+        label="yuzuna_kanda.pdf"
+        intention="shade"
+        onClick={action('chip')}
+        clickableArea="limited"
+        icon={<MdOutlineDownload />}
+      />
     </div>
-
-    <div className="flex flex-row gap-8">
-      <div className="flex flex-col gap-4">
-        <div>
-          <Chip label="yuzuna_kanda.pdf" color="white" />
-        </div>
-        <div>
-          <Chip label="yuzuna_kanda.pdf" clickable color="white" />
-        </div>
-        <div>
-          <Chip label="yuzuna_kanda.pdf" color="white" leadingIcon={<MdAttachFile size={16} />} />
-        </div>
-        <div>
-          <Chip label="yuzuna_kanda.pdf" clickable color="white" leadingIcon={<MdAttachFile size={16} />} />
-        </div>
-
-        <div>
-          <Chip label="yuzuna_kanda.pdf" color="default" />
-        </div>
-        <div>
-          <Chip label="yuzuna_kanda.pdf" clickable color="default" />
-        </div>
-        <div>
-          <Chip label="yuzuna_kanda.pdf" color="default" leadingIcon={<MdAttachFile size={16} />} />
-        </div>
-        <div>
-          <Chip label="yuzuna_kanda.pdf" clickable color="default" leadingIcon={<MdAttachFile size={16} />} />
-        </div>
-
-        <div>
-          <Chip label="yuzuna_kanda.pdf" color="negative" />
-        </div>
-        <div>
-          <Chip label="yuzuna_kanda.pdf" clickable color="negative" />
-        </div>
-        <div>
-          <Chip label="yuzuna_kanda.pdf" color="negative" leadingIcon={<MdAttachFile size={16} />} />
-        </div>
-        <div>
-          <Chip label="yuzuna_kanda.pdf" clickable color="negative" leadingIcon={<MdAttachFile size={16} />} />
-        </div>
-      </div>
-      <div className="flex flex-col gap-4">
-        <div>
-          <Chip
-            label="yuzuna_kanda.pdf"
-            onDelete={() => {
-              console.info('ondelete');
-            }}
-            color="white"
-          />
-        </div>
-        <div>
-          <Chip
-            label="yuzuna_kanda.pdf"
-            onDelete={() => {
-              console.info('ondelete');
-            }}
-            clickable
-            color="white"
-          />
-        </div>
-        <div>
-          <Chip
-            label="yuzuna_kanda.pdf"
-            onDelete={() => {
-              console.info('ondelete');
-            }}
-            color="white"
-            leadingIcon={<MdAttachFile size={16} />}
-          />
-        </div>
-        <div>
-          <Chip
-            label="yuzuna_kanda.pdf"
-            onDelete={() => {
-              console.info('ondelete');
-            }}
-            clickable
-            color="white"
-            leadingIcon={<MdAttachFile size={16} />}
-          />
-        </div>
-
-        <div>
-          <Chip
-            label="yuzuna_kanda.pdf"
-            onDelete={() => {
-              console.info('ondelete');
-            }}
-            color="default"
-          />
-        </div>
-        <div>
-          <Chip
-            label="yuzuna_kanda.pdf"
-            onDelete={() => {
-              console.info('ondelete');
-            }}
-            clickable
-            color="default"
-          />
-        </div>
-        <div>
-          <Chip
-            label="yuzuna_kanda.pdf"
-            onDelete={() => {
-              console.info('ondelete');
-            }}
-            color="default"
-            leadingIcon={<MdAttachFile size={16} />}
-          />
-        </div>
-        <div>
-          <Chip
-            label="yuzuna_kanda.pdf"
-            onDelete={() => {
-              console.info('ondelete');
-            }}
-            clickable
-            color="default"
-            leadingIcon={<MdAttachFile size={16} />}
-          />
-        </div>
-
-        <div>
-          <Chip
-            label="yuzuna_kanda.pdf"
-            onDelete={() => {
-              console.info('ondelete');
-            }}
-            color="negative"
-          />
-        </div>
-        <div>
-          <Chip
-            label="yuzuna_kanda.pdf"
-            onDelete={() => {
-              console.info('ondelete');
-            }}
-            clickable
-            color="negative"
-          />
-        </div>
-        <div>
-          <Chip
-            label="yuzuna_kanda.pdf"
-            onDelete={() => {
-              console.info('ondelete');
-            }}
-            color="negative"
-            leadingIcon={<MdAttachFile size={16} />}
-          />
-        </div>
-        <div>
-          <Chip
-            label="yuzuna_kanda.pdf"
-            onDelete={() => {
-              console.info('ondelete');
-            }}
-            clickable
-            color="negative"
-            leadingIcon={<MdAttachFile size={16} />}
-          />
-        </div>
-      </div>
+    <div className="flex flex-col gap-4">
+      <Text weight="bold">Primary</Text>
+      <Chip label="yuzuna_kanda.pdf" intention="primary" onClick={action('chip')} />
+      <Chip label="yuzuna_kanda.pdf" intention="primary" onClick={action('chip')} icon={<MdAttachFile />} />
+      <Chip label="yuzuna_kanda.pdf" intention="primary" onClick={action('chip')} clickableArea="limited" />
+      <Chip
+        label="yuzuna_kanda.pdf"
+        intention="primary"
+        onClick={action('chip')}
+        clickableArea="limited"
+        icon={<MdOutlineDownload />}
+      />
+    </div>
+    <div className="flex flex-col gap-4">
+      <Text weight="bold">Secondary</Text>
+      <Chip label="yuzuna_kanda.pdf" intention="secondary" onClick={action('chip')} />
+      <Chip label="yuzuna_kanda.pdf" intention="secondary" onClick={action('chip')} icon={<MdAttachFile />} />
+      <Chip label="yuzuna_kanda.pdf" intention="secondary" onClick={action('chip')} clickableArea="limited" />
+      <Chip
+        label="yuzuna_kanda.pdf"
+        intention="secondary"
+        onClick={action('chip')}
+        clickableArea="limited"
+        icon={<MdOutlineDownload />}
+      />
+    </div>
+    <div className="flex flex-col gap-4">
+      <Text weight="bold">Positive</Text>
+      <Chip label="yuzuna_kanda.pdf" intention="positive" onClick={action('chip')} />
+      <Chip label="yuzuna_kanda.pdf" intention="positive" onClick={action('chip')} icon={<MdAttachFile />} />
+      <Chip label="yuzuna_kanda.pdf" intention="positive" onClick={action('chip')} clickableArea="limited" />
+      <Chip
+        label="yuzuna_kanda.pdf"
+        intention="positive"
+        onClick={action('chip')}
+        clickableArea="limited"
+        icon={<MdOutlineDownload />}
+      />
+    </div>
+    <div className="flex flex-col gap-4">
+      <Text weight="bold">Negative</Text>
+      <Chip label="yuzuna_kanda.pdf" intention="negative" onClick={action('chip')} />
+      <Chip label="yuzuna_kanda.pdf" intention="negative" onClick={action('chip')} icon={<MdAttachFile />} />
+      <Chip label="yuzuna_kanda.pdf" intention="negative" onClick={action('chip')} clickableArea="limited" />
+      <Chip
+        label="yuzuna_kanda.pdf"
+        intention="negative"
+        onClick={action('chip')}
+        clickableArea="limited"
+        icon={<MdOutlineDownload />}
+      />
+    </div>
+    <div className="flex flex-col gap-4">
+      <Text weight="bold">Notice</Text>
+      <Chip label="yuzuna_kanda.pdf" intention="notice" onClick={action('chip')} />
+      <Chip label="yuzuna_kanda.pdf" intention="notice" onClick={action('chip')} icon={<MdAttachFile />} />
+      <Chip label="yuzuna_kanda.pdf" intention="notice" onClick={action('chip')} clickableArea="limited" />
+      <Chip
+        label="yuzuna_kanda.pdf"
+        intention="notice"
+        onClick={action('chip')}
+        clickableArea="limited"
+        icon={<MdOutlineDownload />}
+      />
+    </div>
+    <div className="flex flex-col gap-4">
+      <Text weight="bold">Informative</Text>
+      <Chip label="yuzuna_kanda.pdf" intention="informative" onClick={action('chip')} />
+      <Chip label="yuzuna_kanda.pdf" intention="informative" onClick={action('chip')} icon={<MdAttachFile />} />
+      <Chip label="yuzuna_kanda.pdf" intention="informative" onClick={action('chip')} clickableArea="limited" />
+      <Chip
+        label="yuzuna_kanda.pdf"
+        intention="informative"
+        onClick={action('chip')}
+        clickableArea="limited"
+        icon={<MdOutlineDownload />}
+      />
     </div>
   </div>
 );

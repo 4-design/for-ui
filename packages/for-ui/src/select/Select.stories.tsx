@@ -18,7 +18,7 @@ const options: SelectOption[] = [
   },
   {
     label: 'アメリカ',
-    inputValue: 'america',
+    inputValue: 'usa',
   },
   {
     label: 'イギリス',

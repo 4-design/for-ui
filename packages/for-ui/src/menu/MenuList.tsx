@@ -20,7 +20,9 @@ const _MenuList = <P extends ElementType = 'ul'>({
   ...rest
 }: MenuListProps<P> & {
   _ref: Ref<P | null | unknown>;
-}) => <MuiMenuList component={as || 'ul'} inputRef={_ref} className={fsx(style, className)} {...rest} />;
+}) => (
+  <MuiMenuList component={as || 'ul'} ref={_ref as Ref<HTMLUListElement>} className={fsx(style, className)} {...rest} />
+);
 
 export const MenuList = forwardRef((props, ref) => <_MenuList _ref={ref} {...props} />) as unknown as <
   P extends ElementType = 'ul'

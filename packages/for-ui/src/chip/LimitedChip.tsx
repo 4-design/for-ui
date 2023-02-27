@@ -1,0 +1,65 @@
+import { FC } from 'react';
+import { fsx } from '../system/fsx';
+import { MdClose } from 'react-icons/md';
+import { Text } from '../text';
+import { ChipProps } from './Chip';
+
+export const LimitedChip: FC<Omit<ChipProps, 'clickableArea'>> = ({
+  label,
+  icon = <MdClose />,
+  intention = 'shade',
+  onClick,
+  className,
+  ...rest
+}) => (
+  <span
+    className={fsx([
+      `inline-flex flex-row gap-1 items-center justify-center rounded outline -outline-offset-1 outline-1 px-2 w-min break-keep pr-0 shadow-attractive`,
+      {
+        shade: `bg-shade-white-default outline-shade-medium-default`,
+        primary: `bg-primary-light-default outline-primary-medium-default`,
+        secondary: `bg-secondary-light-default outline-secondary-medium-default`,
+        positive: `bg-positive-light-default outline-positive-medium-default`,
+        negative: `bg-negative-light-default outline-negative-medium-default`,
+        notice: `bg-notice-light-default outline-notice-medium-default`,
+        informative: `bg-informative-light-default outline-informative-medium-default`,
+      }[intention],
+      className,
+    ])}
+  >
+    <Text
+      className={fsx([
+        `flex items-center`,
+        {
+          shade: `text-shade-dark-default`,
+          primary: `text-primary-dark-default`,
+          secondary: `text-secondary-dark-default`,
+          positive: `text-positive-dark-default`,
+          negative: `text-negative-dark-default`,
+          notice: `text-notice-dark-default`,
+          informative: `text-informative-dark-default`,
+        }[intention],
+      ])}
+    >
+      {label}
+    </Text>
+    <button
+      onClick={onClick}
+      className={fsx([
+        `flex flex-row items-start outline -outline-offset-1 outline-1 p-1 rounded-r w-6 h-6 [&_svg]:w-full [&_svg]:h-full`,
+        {
+          shade: `icon-shade-dark-default hover:bg-shade-white-hover focus-visible:bg-shade-white-hover outline-shade-light-default hover:outline-shade-medium-default focus-visible:outline-shade-medium-default`,
+          primary: `icon-primary-dark-default hover:bg-primary-light-hover focus-visible:bg-primary-light-hover outline-primary-light-default hover:outline-primary-medium-default focus-visible:outline-primary-medium-default`,
+          secondary: `icon-secondary-dark-default hover:bg-secondary-light-hover outline-secondary-light-default hover:outline-secondary-medium-default focus-visible:outline-secondary-medium-default`,
+          positive: `icon-positive-dark-default hover:bg-positive-light-hover focus-visible:bg-positive-light-hover outline-positive-light-default hover:outline-positive-medium-default focus-visible:outline-positive-medium-default`,
+          negative: `icon-negative-dark-default hover:bg-negative-light-hover focus-visible:bg-negative-light-hover outline-negative-light-default hover:outline-negative-medium-default focus-visible:outline-negative-medium-default`,
+          notice: `icon-notice-dark-default hover:bg-notice-light-hover focus-visible:bg-notice-light-hover outline-notice-light-default hover:outline-notice-medium-default focus-visible:outline-notice-medium-default`,
+          informative: `icon-informative-dark-default hover:bg-informative-light-hover focus-visible:bg-informative-light-hover outline-informative-light-default hover:outline-informative-medium-default focus-visible:outline-informative-medium-default`,
+        }[intention],
+      ])}
+      {...rest}
+    >
+      {icon}
+    </button>
+  </span>
+);

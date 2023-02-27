@@ -43,7 +43,7 @@ export const Dropzone: React.FC<DropzoneProps> = ({
       {files.length > 0 && (
         <div className="flex w-full flex-wrap justify-start gap-2">
           {files.map((file) => (
-            <Chip key={file.name} label={file.name} onDelete={(e) => onRemove(file)(e)} />
+            <Chip key={file.name} label={file.name} clickableArea="limited" onClick={(e) => onRemove(file)(e)} />
           ))}
         </div>
       )}
