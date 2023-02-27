@@ -89,6 +89,13 @@ export type ButtonProps<As extends ElementType = 'button'> = MuiButtonProps<As> 
      */
     loadingPosition?: LoadingButtonProps['loadingPosition'];
 
+    /**
+     * colorを指定する場合に指定
+     *
+     * @deprecated intention propsを使ってください
+     */
+    color?: 'primary' | 'secondary' | 'default';
+
     className?: string;
   };
 
@@ -110,12 +117,13 @@ type Structure = (typeof structures)[number];
 const _Button = <As extends ElementType = 'button'>({
   as,
   variant = 'outlined',
-  intention = 'subtle',
+  intention: passedIntention = 'subtle',
   size = 'large',
   disabled = false,
   loading = false,
   startIcon,
   endIcon,
+  color,
   children,
   _ref,
   className,
@@ -136,6 +144,16 @@ const _Button = <As extends ElementType = 'button'>({
     }
     return 'text';
   }, [startIcon, endIcon, children, childTexts]);
+
+  // Legacy support for color props
+  // If not needed, rename the passedIntention to intention.
+  const intention =
+    {
+      primary: 'primary',
+      secondary: 'secondary',
+      default: 'primary',
+      '': '',
+    }[color || ''] || passedIntention;
 
   return (
     <MuiButton<As>
