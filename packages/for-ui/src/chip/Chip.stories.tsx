@@ -9,7 +9,7 @@ import {
   MdOutlineEdit,
   MdOutlinePhone,
   MdOutlineMail,
-  MdExpandMore,
+  MdOutlineDownload,
 } from 'react-icons/md';
 
 const sampleIcons = {
@@ -66,7 +66,7 @@ export const Base = () => (
         intention="shade"
         onClick={action('chip')}
         clickableArea="limited"
-        icon={<MdExpandMore />}
+        icon={<MdOutlineDownload />}
       />
     </div>
     <div className="flex flex-col gap-4">
@@ -79,7 +79,7 @@ export const Base = () => (
         intention="primary"
         onClick={action('chip')}
         clickableArea="limited"
-        icon={<MdExpandMore />}
+        icon={<MdOutlineDownload />}
       />
     </div>
     <div className="flex flex-col gap-4">
@@ -92,7 +92,7 @@ export const Base = () => (
         intention="secondary"
         onClick={action('chip')}
         clickableArea="limited"
-        icon={<MdExpandMore />}
+        icon={<MdOutlineDownload />}
       />
     </div>
     <div className="flex flex-col gap-4">
@@ -105,7 +105,7 @@ export const Base = () => (
         intention="positive"
         onClick={action('chip')}
         clickableArea="limited"
-        icon={<MdExpandMore />}
+        icon={<MdOutlineDownload />}
       />
     </div>
     <div className="flex flex-col gap-4">
@@ -118,7 +118,7 @@ export const Base = () => (
         intention="negative"
         onClick={action('chip')}
         clickableArea="limited"
-        icon={<MdExpandMore />}
+        icon={<MdOutlineDownload />}
       />
     </div>
     <div className="flex flex-col gap-4">
@@ -131,7 +131,7 @@ export const Base = () => (
         intention="notice"
         onClick={action('chip')}
         clickableArea="limited"
-        icon={<MdExpandMore />}
+        icon={<MdOutlineDownload />}
       />
     </div>
     <div className="flex flex-col gap-4">
@@ -144,7 +144,7 @@ export const Base = () => (
         intention="informative"
         onClick={action('chip')}
         clickableArea="limited"
-        icon={<MdExpandMore />}
+        icon={<MdOutlineDownload />}
       />
     </div>
   </div>
