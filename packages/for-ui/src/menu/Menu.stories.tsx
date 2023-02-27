@@ -32,7 +32,7 @@ export const Base = () => {
       <Menu
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         transformOrigin={{ vertical: 'top', horizontal: 'center' }}
-        TriggerComponent={<Button variant="contained">プロジェクト</Button>}
+        TriggerComponent={<Button variant="filled">プロジェクト</Button>}
       >
         <MenuItem>
           <a href="#">プロフィール</a>
