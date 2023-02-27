@@ -147,13 +147,16 @@ const _Button = <As extends ElementType = 'button'>({
 
   // Legacy support for color props
   // If not needed, rename the passedIntention to intention.
-  const intention =
-    {
-      primary: 'primary',
-      secondary: 'secondary',
-      default: 'primary',
-      '': '',
-    }[color || ''] || passedIntention;
+
+  const intention = color
+    ? (
+        {
+          primary: 'primary',
+          secondary: 'secondary',
+          default: 'primary',
+        } as const
+      )[color]
+    : passedIntention;
 
   return (
     <MuiButton<As>
