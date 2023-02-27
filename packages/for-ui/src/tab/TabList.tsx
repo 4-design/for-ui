@@ -6,9 +6,9 @@ import { fsx } from '../system/fsx';
 export interface TabListProps extends MuiTabListProps {
   noBorder?: boolean;
   reverse?: boolean;
-  color?: 'primary' | 'secondary';
+  intention?: 'primary' | 'secondary';
 }
 
-export const TabList: FC<TabListProps> = ({ color = 'primary', className, ...rest }) => (
-  <MuiTabList className={fsx(tabWrapperStyle(color), className)} {...rest} />
+export const TabList: FC<TabListProps> = ({ intention = 'primary', className, ...rest }) => (
+  <MuiTabList className={fsx(tabWrapperStyle(intention), className)} {...rest} />
 );

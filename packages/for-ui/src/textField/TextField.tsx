@@ -1,6 +1,6 @@
-import { forwardRef, useMemo, FC, ReactNode } from 'react';
-import { InputBaseComponentProps } from '@mui/material/InputBase';
+import { FC, ReactNode, forwardRef, useId } from 'react';
 import OutlinedInput, { OutlinedInputProps } from '@mui/material/OutlinedInput';
+import { InputBaseComponentProps } from '@mui/material/InputBase';
 import { NumericFormat, NumericFormatProps } from 'react-number-format';
 import { fsx } from '../system/fsx';
 import { Text } from '../text';
@@ -118,46 +118,61 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       prefix,
       suffix,
       icon,
+      id: passedId,
       ...rest
     },
     ref
   ) => {
-    /**
-     * react-hook-form : v6 ~> inputRef   v7 ~> ref
-     * TODO: react-hook-form v7で統合されたらrefを直接インラインで使用
-     */
-    const validRef = useMemo(() => {
-      return inputRef ? inputRef : ref;
-    }, [ref, inputRef]);
+    const innerId = useId();
+    const id = passedId || innerId;
 
     return (
       <div className={fsx(`w-full flex flex-col gap-1`, className)}>
-        <Text as="label" className={fsx('flex flex-col w-full gap-1')}>
-          <TextDefaultStyler
-            content={label}
-            defaultRenderer={({ children, ...rest }) => (
-              <Text className={fsx(['text-s text-shade-medium-default font-bold antialiased'])} {...rest}>
-                {children}
-                {required && <Text className="text-negative-medium-default">*</Text>}
-              </Text>
-            )}
-          />
+        <fieldset className={fsx(`contents`)}>
+          {label && (
+            <legend className={fsx(`contents`)}>
+              <TextDefaultStyler
+                content={label}
+                defaultRenderer={({ children, ...rest }) => (
+                  <Text
+                    as="label"
+                    htmlFor={id}
+                    weight="bold"
+                    size="s"
+                    className={fsx(`text-shade-medium-default`)}
+                    {...rest}
+                  >
+                    {children}
+                    {required && <Text className="text-negative-medium-default">*</Text>}
+                  </Text>
+                )}
+              />
+            </legend>
+          )}
           <OutlinedInput
+            id={id}
             disabled={disabled}
             error={error}
-            inputRef={validRef}
+            inputRef={inputRef}
+            ref={ref}
             required={required}
             placeholder={placeholder}
             classes={{
-              root: fsx(`bg-shade-white-default px-0 w-full flex`),
+              root: fsx([
+                `bg-shade-white-default p-0 w-full flex flex-wrap gap-1`,
+                {
+                  large: [`py-2 pl-2`, prefix && `py-0 pl-0`, suffix && `py-0 pr-0`],
+                  medium: [`py-1 pl-1`, prefix && `py-0 pl-0`, suffix && `py-0 pr-0`],
+                }[size],
+              ]),
               disabled: fsx(
                 `bg-shade-white-disabled placeholder:text-shade-light-default [-webkit-text-fill-color:currentColor_!important] text-shade-light-disabled cursor-not-allowed`
               ),
               input: fsx([
-                `font-sans text-r text-shade-dark-default placeholder:text-shade-light-default h-auto placeholder:opacity-100 focus:shadow-none`,
+                `font-sans text-r text-shade-dark-default placeholder:text-shade-light-default h-auto placeholder:opacity-100 focus:shadow-none p-0 w-auto grow`,
                 {
-                  large: [`py-2 px-4`, icon && `pl-1`],
-                  medium: [`py-1 px-2`, icon && `pl-1`],
+                  large: [`px-2`, icon && `pl-1`],
+                  medium: [`px-1`, icon && `pl-1`],
                 }[size],
               ]),
               notchedOutline: fsx([
@@ -184,7 +199,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             inputComponent={isPriceFormat ? NumberFormatCustom : 'input'}
             {...rest}
           />
-        </Text>
+        </fieldset>
         <TextDefaultStyler
           content={helperText}
           defaultRenderer={(props) => (

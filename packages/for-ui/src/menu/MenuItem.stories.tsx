@@ -34,7 +34,7 @@ export const Playground = {
   args: {
     children: 'メニューアイテム',
     intention: 'shade',
-    icon: MdDeleteOutline,
+    icon: <MdDeleteOutline />,
     description: '説明文',
   },
 };
