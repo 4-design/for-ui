@@ -13,6 +13,13 @@ export default {
   component: TextArea,
 } as Meta;
 
+export const Playground = {
+  args: {
+    label: '',
+    placeholder: '',
+  },
+};
+
 type FieldValue = {
   email: string;
   password: string;
@@ -117,18 +124,4 @@ export const Default = (): JSX.Element => {
       <Button type="submit">登録する</Button>
     </form>
   );
-};
-
-export const Playground = {
-  args: {
-    rows: undefined,
-    minRows: undefined,
-    maxRows: undefined,
-    disabled: undefined,
-    placeholder: '',
-    error: undefined,
-    defaultValue: undefined,
-    value: undefined,
-    className: undefined,
-  },
 };
