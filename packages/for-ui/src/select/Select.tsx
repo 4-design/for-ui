@@ -47,35 +47,30 @@ const _Select = <
   placeholder,
   multiple,
   freeSolo,
-  onChange,
   error,
   helperText,
-  disabled = false,
   disableFilter = false,
-  inputRef,
   noOptionsText = '選択肢がありません',
   className,
+  _ref,
   ...rest
 }: AutocompleteProps<Value, Multiple, FreeSolo> & {
-  inputRef?: Ref<HTMLInputElement | null>;
+  _ref?: Ref<HTMLInputElement | null>;
 }): JSX.Element => (
   <Autocomplete<Value, Multiple, true, FreeSolo>
-    ref={inputRef}
+    ref={_ref}
     disablePortal
     disableCloseOnSelect={multiple}
     disableClearable
     autoHighlight
     clearOnBlur
     openOnFocus
-    disabled={disabled}
     includeInputInList
     handleHomeEndKeys
     multiple={multiple}
     freeSolo={freeSolo}
     options={options}
-    onChange={onChange}
     PaperComponent={(props) => <MenuList as="div" {...props} />}
-    ListboxComponent={(props) => <ul {...props} className={fsx(`p-0`)} />}
     isOptionEqualToValue={(option, v) =>
       typeof option === 'string' ? option === v : option.inputValue === v.inputValue
     }
@@ -129,7 +124,7 @@ const _Select = <
       <ul
         aria-label="選択済みアイテム"
         className={fsx([
-          `inline-flex flex-row gap-1 w-min-content flex-wrap py-2`,
+          `contents flex-row gap-1 w-min-content flex-wrap py-2`,
           { large: `py-2`, medium: `py-1` }[size],
         ])}
       >
@@ -155,23 +150,10 @@ const _Select = <
     classes={{
       root: fsx(`bg-shade-white-default w-full p-0`, className),
       paper: fsx(`min-w-min`),
-      inputRoot: fsx([
-        `p-0`,
-        {
-          large: `pl-2`,
-          medium: `pl-1`,
-        }[size],
-        disableFilter && `cursor-pointer`,
-      ]),
+      inputRoot: fsx(`p-0`),
       tag: fsx(`m-0 max-w-[none]`),
-      input: fsx([
-        `min-w-20`,
-        {
-          large: `pl-2`,
-          medium: `pl-1`,
-        }[size],
-        disableFilter && `cursor-pointer caret-transparent`,
-      ]),
+      listbox: fsx(`p-0`),
+      input: fsx([`min-w-20`, disableFilter && `cursor-pointer caret-transparent`]),
       noOptions: fsx(`p-0`),
       endAdornment: fsx([
         `static flex [&_svg]:icon-shade-dark-default border-x border-shade-light-default`,
@@ -195,6 +177,7 @@ const _Select = <
               }
             : params.inputProps.onChange,
         }}
+        inputRef={params.InputProps.ref}
         autoComplete="off"
         name={name}
         required={required}
