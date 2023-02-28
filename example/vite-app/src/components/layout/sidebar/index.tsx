@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { MdGroup, MdChevronLeft, MdDashboard, MdMap } from 'react-icons/md';
+import { MdChevronLeft, MdDashboard, MdGroup, MdMap } from 'react-icons/md';
 import { Sidebar as UISidebar } from '@/components/ui-parts/layout/sidebar';
 import { SidebarContext } from '@/components/ui-parts/layout/sidebar/SidebarContext';
 import { SidebarMenu, SidebarMenuItem } from '@/components/ui-parts/layout/sidebar/SidebarMenu';
