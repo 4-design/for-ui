@@ -1,44 +1,72 @@
-import { FocusEvent, forwardRef, ReactNode, useCallback, useMemo, useState } from 'react';
-import { NumericFormat } from 'react-number-format';
-import InputAdornment from '@mui/material/InputAdornment';
-import MuiTextField, { TextFieldProps as MuiTextFieldProps } from '@mui/material/TextField';
+import { FC, forwardRef, ReactNode, useId } from 'react';
+import { NumericFormat, NumericFormatProps } from 'react-number-format';
+import { InputBaseComponentProps } from '@mui/material/InputBase';
+import OutlinedInput, { OutlinedInputProps } from '@mui/material/OutlinedInput';
 import { fsx } from '../system/fsx';
+import { TextDefaultStyler } from '../system/TextDefaultStyler';
 import { Text } from '../text';
 
-export type TextFieldProps = Omit<MuiTextFieldProps, 'variant' | 'multiline' | 'rows' | 'margin' | 'fullWidth'> & {
+export type TextFieldProps = Omit<OutlinedInputProps, 'size' | 'multiline' | 'rows' | 'margin' | 'fullWidth'> & {
   /**
-   * 単位を表示する場合に指定してください。
-   */
-  unitLabel?: string;
-
-  /**
-   * 3桁区切りの金額表示をする場合に指定してください。入力値はnumberのみ許可されます。
+   * 3桁区切りの金額表示をする場合に指定
+   *
+   * trueにすることでTextFieldへの入力値はnumberのみ許可されます
    */
   isPriceFormat?: boolean;
 
   /**
-   * URLの先頭部分など期待する入力値にユーザーが入力しない部分があることを明示的にしたい場合、prefixを指定してください。
+   * URLの先頭部分など期待する入力値にユーザーが入力しない部分があることを明示的にしたい場合に指定
    */
   prefix?: string;
 
+  /**
+   * 単位など期待する入力値にユーザーが入力しない部分があることを明示的にしたい場合に指定
+   */
+  suffix?: string;
+
+  /**
+   * サイズを指定
+   *
+   * @default large
+   */
+  size?: 'large' | 'medium';
+
+  /**
+   * アイコンを表示する場合に指定
+   *
+   * prefixまたはsuffixと同時に使用することはできません
+   */
+  icon?: ReactNode;
+
+  /**
+   * ラベルを表示するときに指定
+   *
+   * 文字列の場合はデフォルトのスタイルが適用され、ValidなReactElementを渡すと渡したものがそのまま描画されます。
+   */
+  label?: ReactNode;
+
+  /**
+   * エラーメッセージ等の副次的内容をユーザーに示すときに指定
+   *
+   * 文字列の場合はデフォルトのスタイルが適用され、ValidなReactElementを渡すと渡したものがそのまま描画されます。
+   */
+  helperText?: ReactNode;
+
   className?: string;
 };
 
-type NumberFormatCustomProps = {
-  onChange: (event: { target: { name: string; value: string } }) => void;
-  name: string;
-  className?: string;
-  other: {
-    children?: ReactNode;
+type NumberFormatCustomProps = InputBaseComponentProps &
+  NumericFormatProps & {
+    onChange: (event: { target: { name: string; value: string } }) => void;
+    name: string;
   };
-};
 
 const NumberFormatCustom = forwardRef<HTMLInputElement, NumberFormatCustomProps>(
   ({ onChange, name, className, ...rest }, ref) => {
     return (
       <NumericFormat
         {...rest}
-        className={fsx(['text-right', className])}
+        className={fsx(className)}
         getInputRef={ref}
         onValueChange={(values) => {
           onChange({
@@ -54,139 +82,136 @@ const NumberFormatCustom = forwardRef<HTMLInputElement, NumberFormatCustomProps>
   },
 );
 
+const Adornment: FC<{ size: 'large' | 'medium'; className?: string; children: string }> = ({
+  size,
+  className,
+  ...rest
+}) => (
+  <Text
+    size="r"
+    typeface="sansSerif"
+    className={fsx([
+      `border-shade-light-default bg-shade-light-default max-h-[fit-content] h-full m-0 cursor-default text-shade-medium-default inline-flex break-keep`,
+      {
+        large: `py-2 px-4`,
+        medium: `py-1 px-2`,
+      }[size],
+      className,
+    ])}
+    {...rest}
+  />
+);
+
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   (
     {
+      size = 'large',
       label,
       className,
-      focused,
       placeholder,
       disabled,
-      inputProps,
       required,
       inputRef,
       error,
-      unitLabel = '',
+      helperText,
       isPriceFormat = false,
-      prefix = '',
-      InputProps,
-      onFocus,
-      onBlur,
+      prefix,
+      suffix,
+      icon,
+      id: passedId,
       ...rest
     },
     ref,
   ) => {
-    /**
-     * react-hook-form : v6 ~> inputRef   v7 ~> ref
-     * TODO: react-hook-form v7で統合されたらrefを直接インラインで使用
-     */
-    const validRef = useMemo(() => {
-      return inputRef ? inputRef : ref;
-    }, [ref, inputRef]);
-
-    const _InputProps = useMemo(() => {
-      const unitLabelProps = {
-        endAdornment: (
-          <InputAdornment
-            classes={{
-              root: fsx(['text-r text-shade-dark-default mr-3 font-sans']),
-            }}
-            position="start"
-            disableTypography
-          >
-            {unitLabel}
-          </InputAdornment>
-        ),
-      };
-      const priceFormatProps = { inputComponent: NumberFormatCustom as any }; // eslint-disable-line
-
-      return {
-        ...(unitLabel ? unitLabelProps : {}),
-        ...(isPriceFormat ? priceFormatProps : {}),
-      };
-    }, [unitLabel, isPriceFormat]);
-
-    const [_focused, setFocused] = useState<boolean>(focused || false);
-    const handleFocus = useCallback(
-      (e: FocusEvent<HTMLInputElement>) => {
-        setFocused(true);
-        onFocus?.(e);
-      },
-      [setFocused, onFocus],
-    );
-    const handleBlur = useCallback(
-      (e: FocusEvent<HTMLInputElement>) => {
-        setFocused(false);
-        onBlur?.(e);
-      },
-      [setFocused, onBlur],
-    );
+    const innerId = useId();
+    const id = passedId || innerId;
 
     return (
-      <Text as="label" className={fsx('flex flex-col w-full gap-1', className)}>
-        {label && (
-          <Text className={fsx(['text-s text-shade-medium-default font-bold'])}>
-            {label}
-            {required && <Text className="text-negative-medium-default">*</Text>}
-          </Text>
-        )}
-        <MuiTextField
-          disabled={disabled}
-          error={error}
-          inputRef={validRef}
-          required={required}
-          variant="outlined"
-          placeholder={placeholder}
-          sx={{
-            '& .MuiInputBase-input:disabled::placeholder': {
-              '-webkit-text-fill-color': 'currentColor',
-            },
-          }}
-          className={fsx(`w-full flex flex-col gap-1`)}
-          FormHelperTextProps={{
-            classes: {
-              root: fsx([error && 'text-negative-medium-default m-0 text-s']),
-            },
-          }}
-          InputProps={{
-            classes: {
-              root: fsx(['group bg-shade-white-default text-shade-light-default px-0 antialiased']),
-              disabled: fsx(['bg-shade-white-disabled', 'placeholder:text-shade-light-default']),
+      <div className={fsx(`w-full flex flex-col gap-1`, className)}>
+        <fieldset className={fsx(`contents`)}>
+          {label && (
+            <legend className={fsx(`contents`)}>
+              <TextDefaultStyler
+                content={label}
+                defaultRenderer={({ children, ...rest }) => (
+                  <Text
+                    as="label"
+                    htmlFor={id}
+                    weight="bold"
+                    size="s"
+                    className={fsx(`text-shade-medium-default`)}
+                    {...rest}
+                  >
+                    {children}
+                    {required && <Text className="text-negative-dark-default">*</Text>}
+                  </Text>
+                )}
+              />
+            </legend>
+          )}
+          <OutlinedInput
+            id={id}
+            disabled={disabled}
+            error={error}
+            inputRef={inputRef}
+            ref={ref}
+            required={required}
+            placeholder={placeholder}
+            classes={{
+              root: fsx([
+                `bg-shade-white-default p-0 w-full flex flex-wrap gap-1`,
+                {
+                  large: [`py-2 pl-2`, prefix && `py-0 pl-0`, suffix && `py-0 pr-0`],
+                  medium: [`py-1 pl-1`, prefix && `py-0 pl-0`, suffix && `py-0 pr-0`],
+                }[size],
+              ]),
+              disabled: fsx(
+                `bg-shade-white-disabled placeholder:text-shade-light-default [-webkit-text-fill-color:currentColor_!important] text-shade-light-disabled cursor-not-allowed`,
+              ),
               input: fsx([
-                'text-r text-shade-dark-default placeholder:text-shade-light-default h-auto py-2.5 px-3 font-sans placeholder:opacity-100 focus:shadow-none',
+                `font-sans text-r text-shade-dark-default placeholder:text-shade-light-default h-auto placeholder:opacity-100 focus:shadow-none p-0 w-auto grow`,
+                {
+                  large: [`px-2`, icon && `pl-1`],
+                  medium: [`px-1`, icon && `pl-1`],
+                }[size],
               ]),
-              focused: fsx(['border-primary-medium-active']),
               notchedOutline: fsx([
-                'border',
-                disabled
-                  ? 'border-shade-medium-disabled'
-                  : error
-                  ? 'border-negative-medium-default'
-                  : _focused
-                  ? 'border-2 border-primary-medium-active group-hover:border-primary-dark-default'
-                  : 'border-shade-medium-default group-hover:border-primary-dark-default',
+                `border border-shade-medium-default [.Mui-focused_&]:border-2 [.Mui-focused_&]:border-primary-medium-active`,
+                error && `border-negative-medium-default`,
+                disabled && `border-shade-medium-disabled`,
               ]),
-              inputAdornedEnd: fsx(['pr-2']),
-            },
-            startAdornment: prefix && (
-              <InputAdornment
-                position="start"
-                classes={{
-                  root: 'border-r border-shade-light-default bg-shade-light-default max-h-[fit-content] h-full py-2.5 px-3 m-0',
-                }}
-              >
-                <Text className="text-shade-dark-default inline-flex">{prefix}</Text>
-              </InputAdornment>
-            ),
-            ...InputProps,
-            ..._InputProps,
-          }}
-          inputProps={inputProps}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          {...rest}
+            }}
+            startAdornment={
+              (prefix && (
+                <Adornment size={size} className="border-r">
+                  {prefix}
+                </Adornment>
+              )) ||
+              (icon && <span className="[&_svg]:fill-shade-medium-default pl-2">{icon}</span>)
+            }
+            endAdornment={
+              suffix && (
+                <Adornment size={size} className="border-l">
+                  {suffix}
+                </Adornment>
+              )
+            }
+            inputComponent={isPriceFormat ? NumberFormatCustom : 'input'}
+            {...rest}
+          />
+        </fieldset>
+        <TextDefaultStyler
+          content={helperText}
+          defaultRenderer={(props) => (
+            <Text
+              size="s"
+              weight="regular"
+              className={fsx(`text-shade-dark-default`, error && `text-negative-dark-default`)}
+              {...props}
+            />
+          )}
         />
-      </Text>
+      </div>
     );
   },
 );

@@ -1,25 +1,61 @@
-import React, { ReactNode } from 'react';
-import { BadgeProps } from '@mui/material/Badge';
-import MuiBadge from '@mui/material/Badge';
+import { FC, ReactNode } from 'react';
+import { ConstantBadge } from './ConstantBadge';
+import { OutlinedBadge } from './OutlinedBadge';
+import { TextBadge } from './TextBadge';
 
-export interface Props extends BadgeProps {
+type BadgeInterface = {
+  /**
+   * ユーザーに提示したい意図 (e.g. エラーならばnegative) を指定
+   *
+   * @default shade
+   */
+  intention?: 'subtle' | 'shade' | 'primary' | 'secondary' | 'positive' | 'negative' | 'notice' | 'informative';
+
+  /**
+   * 表示されるlabelを指定
+   */
+  label: string;
+
   className?: string;
-  children: ReactNode;
-}
+};
 
-export const Badge: React.FC<Props> = ({ className, badgeContent, children, ...rest }) => {
-  return (
-    <MuiBadge
-      badgeContent={badgeContent}
-      color="primary"
-      componentsProps={{
-        root: {
-          className: `text-shade-dark-default ${className}`,
-        },
-      }}
-      {...rest}
-    >
-      {children}
-    </MuiBadge>
-  );
+export type ConstantBadgeProps = BadgeInterface & {
+  /**
+   * variantを指定
+   *
+   * @default text
+   */
+  variant: 'constant';
+
+  /**
+   * iconを指定
+   */
+  icon: ReactNode;
+};
+
+export type DyanmicBadgeProps = BadgeInterface & {
+  /**
+   * variantを指定
+   *
+   * @default text
+   */
+  variant?: 'text' | 'outlined';
+
+  /**
+   * iconを指定
+   */
+  icon?: ReactNode;
+};
+
+export type BadgeProps = ConstantBadgeProps | DyanmicBadgeProps;
+
+export const Badge: FC<BadgeProps> = ({ variant = 'text', icon, ...rest }) => {
+  switch (variant) {
+    case 'text':
+      return <TextBadge icon={icon} {...rest} />;
+    case 'outlined':
+      return <OutlinedBadge icon={icon} {...rest} />;
+    case 'constant':
+      return <ConstantBadge icon={icon} {...rest} />;
+  }
 };

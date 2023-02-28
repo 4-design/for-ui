@@ -94,7 +94,7 @@ export const Drawer: React.FC<Props> = ({
       {...rest}
     >
       <div className="flex items-center">
-        <Button variant="text" size="small" startIcon={<MdClose size={16} />} onClick={handleClose}>
+        <Button variant="text" size="medium" startIcon={<MdClose size={16} />} onClick={handleClose}>
           閉じる
         </Button>
 

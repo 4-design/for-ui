@@ -13,20 +13,20 @@ export type RadioProps = Omit<MuiRadioProps, 'ref'> & {
 const Indicator: FC<{ checked: boolean; disabled: boolean }> = ({ checked, disabled }) => (
   <span
     className={fsx([
-      `bg-shade-white-default h-5 w-5 rounded-full transition-[border-width] duration-100`,
-      checked ? `border-7` : `border-2`,
+      'bg-shade-white-default h-4 w-4 rounded-full transition-[border-width,border-color] duration-100',
+      checked ? 'border-6' : 'group-hover:border-primary-dark-default border-2',
       disabled
         ? `border-shade-medium-disabled`
         : checked
-        ? `border-secondary-dark-default`
-        : `border-shade-medium-default group-hover:border-3 group-hover:border-secondary-dark-default`,
+        ? `border-primary-dark-default`
+        : `border-shade-medium-default group-hover:border-2 group-hover:border-primary-dark-default`,
     ])}
   />
 );
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
   ({ nopadding, label, value, disabled, className, ...rest }, ref) => (
-    <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row gap-2 items-center`, className)}>
+    <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row gap-1 items-center`, className)}>
       <MuiRadio
         disableRipple
         value={value}
@@ -43,7 +43,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         content={label}
         defaultRenderer={(props) => (
           <Text
-            size="s"
+            size="r"
             className={fsx(`text-shade-dark-default`, disabled && `text-shade-dark-disabled`)}
             {...props}
           />

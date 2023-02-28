@@ -39,7 +39,7 @@ export const Popper = <Element extends HTMLElement>(props: PopperProps<Element>)
           <Fade {...TransitionProps} timeout={350}>
             <Paper
               classes={{
-                root: fsx(['z-modal shadow-menu  min-w-min rounded-[4px] p-1 translate-y-2']),
+                root: fsx(['z-modal shadow-more  min-w-min rounded-[4px] p-1 translate-y-2']),
               }}
             >
               {typeof props.children === 'function' ? props.children({ onClick: popupState.close }) : props.children}

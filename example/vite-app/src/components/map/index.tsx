@@ -121,7 +121,6 @@ export const Map = () => {
       <div className="h-screen w-full">
         <div className="border-shade-light-default flex w-full min-w-[1024px] border-b border-solid">
           <Menu
-            nopadding
             TriggerComponent={<SearchItem title="物件情報" subtitle="指定なし" />}
             anchorOrigin={anchorOrigin}
             transformOrigin={transformOrigin}
@@ -140,7 +139,6 @@ export const Map = () => {
           </Menu>
 
           <Menu
-            nopadding
             TriggerComponent={<SearchItem title="駅徒歩" subtitle="指定なし" />}
             anchorOrigin={anchorOrigin}
             transformOrigin={transformOrigin}
@@ -173,7 +171,6 @@ export const Map = () => {
               vertical: 'top',
               horizontal: 'center',
             }}
-            nopadding
           >
             <div className="bg-shade-white-default w-80">
               <div className="bg-shade-light-default w-full p-2 ">
@@ -191,7 +188,6 @@ export const Map = () => {
           </Menu>
 
           <Menu
-            nopadding
             TriggerComponent={<SearchItem title="建物情報" subtitle="指定なし" />}
             anchorOrigin={anchorOrigin}
             transformOrigin={transformOrigin}
@@ -245,7 +241,6 @@ export const Map = () => {
           </Menu>
 
           <Menu
-            nopadding
             TriggerComponent={<SearchItem title="間取り・面積" subtitle="指定なし" />}
             anchorOrigin={anchorOrigin}
             transformOrigin={transformOrigin}
@@ -299,7 +294,6 @@ export const Map = () => {
           </Menu>
 
           <Menu
-            nopadding
             TriggerComponent={<SearchItem title="土地権利" subtitle="指定なし" />}
             anchorOrigin={anchorOrigin}
             transformOrigin={transformOrigin}

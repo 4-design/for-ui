@@ -6,13 +6,9 @@ import { tabWrapperStyle } from './style';
 export interface TabListProps extends MuiTabListProps {
   noBorder?: boolean;
   reverse?: boolean;
-  color?: 'primary' | 'secondary';
+  intention?: 'primary' | 'secondary';
 }
 
-export const TabList: FC<TabListProps> = ({
-  color = 'primary',
-  noBorder = false,
-  reverse = false,
-  className,
-  ...rest
-}) => <MuiTabList className={fsx(tabWrapperStyle(color, noBorder, reverse), className)} {...rest} />;
+export const TabList: FC<TabListProps> = ({ intention = 'primary', className, ...rest }) => (
+  <MuiTabList className={fsx(tabWrapperStyle(intention), className)} {...rest} />
+);

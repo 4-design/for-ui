@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { cloneElement, forwardRef, Fragment, ReactElement } from 'react';
 import { bindMenu, bindTrigger } from 'material-ui-popup-state';
 import { usePopupState } from 'material-ui-popup-state/hooks';
 import MuiMenu, { MenuProps as MuiMenuProps } from '@mui/material/Menu';
@@ -6,7 +6,7 @@ import { fsx } from '../system/fsx';
 import { style } from './style';
 
 export type MenuProps = Omit<MuiMenuProps, 'open'> & {
-  TriggerComponent: React.ReactNode;
+  TriggerComponent: ReactElement;
   className?: string;
 };
 
@@ -33,16 +33,12 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
       popupId: undefined,
     });
 
-    let _TriggerComponent = <></>;
-
-    if (React.isValidElement<unknown>(TriggerComponent)) {
-      _TriggerComponent = React.cloneElement(TriggerComponent, {
-        ...bindTrigger(popupState),
-      });
-    }
+    const _TriggerComponent = cloneElement(TriggerComponent, {
+      ...bindTrigger(popupState),
+    });
 
     return (
-      <React.Fragment>
+      <Fragment>
         {_TriggerComponent}
 
         <MuiMenu
@@ -50,17 +46,16 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
           anchorOrigin={anchorOrigin}
           transformOrigin={transformOrigin}
           classes={{
-            root: fsx('-translate-x-2', className),
-            paper: fsx(`shadow-none overflow-visible p-0`),
+            root: fsx(className),
+            paper: fsx(`p-0 shadow-none overflow-visible`),
             list: fsx(style),
-            ...rest.classes,
           }}
           {...bindMenu(popupState)}
           {...rest}
         >
           {children}
         </MuiMenu>
-      </React.Fragment>
+      </Fragment>
     );
   },
 );

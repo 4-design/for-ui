@@ -1,4 +1,5 @@
-import { forwardRef, ReactNode } from 'react';
+import { FC, forwardRef, ReactNode } from 'react';
+import { MdCheck, MdRemove } from 'react-icons/md';
 import MuiCheckbox, { CheckboxProps as MuiCheckboxProps } from '@mui/material/Checkbox';
 import { fsx } from '../system/fsx';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
@@ -7,22 +8,36 @@ import { Text } from '../text';
 export type CheckboxProps = MuiCheckboxProps & {
   label?: ReactNode;
   nopadding?: boolean;
-  // Checbox SVG Font Size
-  iconsize?: number | string;
   className?: string;
 };
 
+const Indicator: FC<{ state: 'default' | 'checked' | 'intermediate' }> = ({ state }) => (
+  <span
+    className={fsx([
+      `h-4 w-4 rounded transition duration-100`,
+      state === 'default' && `border-shade-medium-default border-2`,
+      (state === 'checked' || state === 'intermediate') && `bg-primary-dark-default`,
+    ])}
+  >
+    {
+      {
+        default: null,
+        checked: <MdCheck size={16} className="fill-shade-white-default" />,
+        intermediate: <MdRemove size={16} className="fill-shade-white-default" />,
+      }[state]
+    }
+  </span>
+);
+
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ label, iconsize, nopadding = false, disabled, className, ...rest }, ref) => (
-    <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row gap-2 items-center`, className)}>
+  ({ label, nopadding = false, disabled, className, ...rest }, ref) => (
+    <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row gap-1 items-center`, className)}>
       <MuiCheckbox
-        classes={{
-          root: fsx('text-shade-medium-default', nopadding ? 'p-0' : 'p-1'),
-          checked: fsx('text-secondary-dark-default'),
-          disabled: fsx('text-shade-dark-disabled'),
-        }}
+        icon={<Indicator state="default" />}
+        checkedIcon={<Indicator state="checked" />}
+        indeterminateIcon={<Indicator state="intermediate" />}
         disabled={disabled}
-        sx={{ '& .MuiSvgIcon-root': { fontSize: iconsize } }}
+        className={fsx(nopadding ? 'p-0' : 'p-1')}
         inputRef={ref}
         {...rest}
       />
@@ -30,7 +45,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         content={label}
         defaultRenderer={(props) => (
           <Text
-            size="s"
+            size="r"
             className={fsx(`text-shade-dark-default`, disabled && `text-shade-dark-disabled`)}
             {...props}
           />

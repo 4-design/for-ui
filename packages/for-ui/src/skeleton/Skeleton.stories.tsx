@@ -5,15 +5,8 @@ import { Meta } from '@storybook/react/types-6-0';
 import { Text } from '../text';
 import { Skeleton, SkeletonX } from './Skeleton';
 
-export const Playground = {
-  args: {
-    loading: true,
-    children: undefined,
-  },
-};
-
 export default {
-  title: 'Feedback / Skeleton',
+  title: 'Example / Skeleton',
   component: Skeleton,
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -38,32 +31,32 @@ export const WithText = () => {
   return (
     <div className="flex flex-col">
       <Skeleton loading={loading}>
-        <Text size="xl" as="h1">
+        <Text as="h1" size="xl" weight="bold">
           H1. Heading
         </Text>
       </Skeleton>
       <Skeleton loading={loading}>
-        <Text size="l" as="h2">
+        <Text as="h2" size="xl">
           H2. Heading
         </Text>
       </Skeleton>
       <Skeleton loading={loading}>
-        <Text size="xr" as="h3">
+        <Text as="h3" size="xr" weight="bold">
           H3. Heading
         </Text>
       </Skeleton>
       <Skeleton loading={loading}>
-        <Text size="r" as="h4">
+        <Text as="h4" size="xr">
           H4. Heading
         </Text>
       </Skeleton>
       <Skeleton loading={loading}>
-        <Text size="s" as="h5">
+        <Text as="h5" size="r" weight="bold">
           H5. Heading
         </Text>
       </Skeleton>
       <Skeleton loading={loading}>
-        <Text size="xs" as="h6">
+        <Text as="h6" size="r">
           H6. Heading
         </Text>
       </Skeleton>
@@ -139,10 +132,10 @@ export const WithCount = () => {
   return (
     <div className="flex flex-col">
       <Skeleton loading={loading} count={10}>
-        <Text size="xl" as="h1">
+        <Text as="h1" size="xl" weight="bold">
           H1. Heading
         </Text>
-        <Text size="xl" as="h1">
+        <Text as="h1" size="xl" weight="bold">
           H1. Heading
         </Text>
       </Skeleton>
@@ -162,53 +155,63 @@ export const WithNest = () => {
     <div className="flex flex-col">
       <SkeletonX loading={loading} variant="text">
         <Row>
-          <Text weight="bold" className="text-shade-dark-default mb-2">
+          <Text size="r" weight="bold" className="text-shade-dark-default mb-2">
             サービス名
           </Text>
 
-          <Text className="text-shade-dark-default">{undefined}</Text>
+          <Text size="r" weight="bold" className="text-shade-dark-default">
+            {undefined}
+          </Text>
         </Row>
 
         <Row>
-          <Text weight="bold" className="text-shade-dark-default">
+          <Text size="r" weight="bold" className="text-shade-dark-default">
             サービス概要
           </Text>
 
-          <Text className="text-shade-dark-default">
+          <Text size="r" className="text-shade-dark-default">
             「Reckoner」は、個人が簡単にモノの売り買いが楽しめるフリマアプリです。AIによる不正の監視や独自の入金システムにより、誰でも安心・安全な取引が行えます。
           </Text>
         </Row>
 
         <Row>
-          <Text weight="bold" className="text-shade-dark-default">
+          <Text size="r" weight="bold" className="text-shade-dark-default">
             使用中のインフラサービス
           </Text>
 
-          <Text className="text-shade-dark-default">Google Cloud</Text>
+          <Text size="r" className="text-shade-dark-default">
+            Google Cloud
+          </Text>
         </Row>
 
         <Row>
-          <Text weight="bold" className="text-shade-dark-default">
+          <Text size="r" weight="bold" className="text-shade-dark-default">
             停止の際の影響範囲
           </Text>
 
-          <Text className="text-shade-dark-default">顧客がReckoner上で取引が出来ない</Text>
+          <Text size="r" className="text-shade-dark-default">
+            顧客がReckoner上で取引が出来ない
+          </Text>
         </Row>
 
         <Row>
-          <Text weight="bold" className="text-shade-dark-default">
+          <Text size="r" weight="bold" className="text-shade-dark-default">
             構成図リンク
           </Text>
 
-          <Text className="text-shade-dark-default">https://3-shake.com</Text>
+          <Text size="r" className="text-shade-dark-default">
+            https://3-shake.com
+          </Text>
         </Row>
 
         <Row>
-          <Text weight="bold" className="text-shade-dark-default">
+          <Text size="r" weight="bold" className="text-shade-dark-default">
             トラフィック·ピーク時間帯
           </Text>
 
-          <Text className="text-shade-dark-default">00:00 ~ 24:00</Text>
+          <Text size="r" className="text-shade-dark-default">
+            00:00 ~ 24:00
+          </Text>
         </Row>
       </SkeletonX>
     </div>

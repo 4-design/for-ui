@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { Drawer, DrawerAnchor } from '.';
-import { LegacyText as Text } from '../typography';
+import { Text } from '../text';
 
 export default {
   title: 'Feedback / Drawer',
@@ -16,7 +16,9 @@ export default {
     (Story: Story) => (
       <div className="w-184">
         <div className="mb-4 border-b">
-          <Text variant="h3">Drawer</Text>
+          <Text as="h3" size="l" weight="bold">
+            Drawer
+          </Text>
         </div>
 
         <Story />
@@ -27,7 +29,9 @@ export default {
 
 const Template: Story = (args) => (
   <Drawer open={args.open} {...args}>
-    <Text variant="h4">Title</Text>
+    <Text as="h4" size="xr" weight="bold">
+      Title
+    </Text>
     <Text>Children</Text>
     <Text>Children1/Children2</Text>
   </Drawer>
@@ -42,7 +46,11 @@ Base.args = {
 export const WithHeaderChildren = Template.bind({});
 WithHeaderChildren.args = {
   open: true,
-  headerChildren: <Text variant="h2">Header</Text>,
+  headerChildren: (
+    <Text as="h2" size="l" weight="bold">
+      Header
+    </Text>
+  ),
 };
 
 export const AnchorLeft = Template.bind({});
