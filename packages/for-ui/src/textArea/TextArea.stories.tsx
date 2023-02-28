@@ -1,12 +1,11 @@
 import React from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { Meta } from '@storybook/react/types-6-0';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Meta } from '@storybook/react/types-6-0';
 import { Button } from '../button/Button';
-import { TextArea } from './TextArea';
 import { Text } from '../text';
+import { TextArea } from './TextArea';
 
 export default {
   title: 'Form / TextArea',

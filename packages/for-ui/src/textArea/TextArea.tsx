@@ -1,8 +1,8 @@
 import { forwardRef, ReactNode } from 'react';
 import TextareaAutosize, { TextareaAutosizeProps } from '@mui/base/TextareaAutosize';
 import { fsx } from '../system/fsx';
-import { Text } from '../text';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
+import { Text } from '../text';
 
 export type TextAreaProps = Omit<TextareaAutosizeProps, 'disabled' | 'className' | 'minRows' | 'maxRows'> & {
   /**
@@ -124,5 +124,5 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         />
       </div>
     );
-  }
+  },
 );

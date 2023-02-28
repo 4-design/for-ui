@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
+import { bindMenu, bindTrigger } from 'material-ui-popup-state';
+import { usePopupState } from 'material-ui-popup-state/hooks';
 import MuiMenu, { MenuProps as MuiMenuProps } from '@mui/material/Menu';
 import { fsx } from '../system/fsx';
-import { bindTrigger, bindMenu } from 'material-ui-popup-state';
-import { usePopupState } from 'material-ui-popup-state/hooks';
 import { style } from './style';
 
 export type MenuProps = Omit<MuiMenuProps, 'open'> & {
@@ -26,7 +26,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
       className,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const popupState = usePopupState({
       variant: 'popover',
@@ -62,5 +62,5 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
         </MuiMenu>
       </React.Fragment>
     );
-  }
+  },
 );

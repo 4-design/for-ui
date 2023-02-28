@@ -1,11 +1,10 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-
 import { Button } from '../button/Button';
 import { LegacyText as Text } from '../typography';
 import { Menu } from './Menu';
-import { MenuList } from './MenuList';
 import { MenuItem } from './MenuItem';
+import { MenuList } from './MenuList';
 
 export default {
   title: 'Navigation / Menu',

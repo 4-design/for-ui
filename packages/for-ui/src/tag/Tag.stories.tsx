@@ -1,6 +1,5 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-
 import { Tag } from './Tag';
 
 export default {

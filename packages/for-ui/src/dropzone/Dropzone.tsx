@@ -1,8 +1,8 @@
 import React from 'react';
-import { fsx } from '../system/fsx';
 import { useDropzone } from 'react-dropzone';
 import { MdFileUpload } from 'react-icons/md';
 import { Chip } from '../chip';
+import { fsx } from '../system/fsx';
 import { Text } from '../text';
 
 export type DropzoneProps = {

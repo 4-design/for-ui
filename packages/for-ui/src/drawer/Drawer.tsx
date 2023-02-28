@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-
-import React, { useState, useRef, useCallback } from 'react';
-import MuiDrawer, { DrawerProps as MuiDrawerProps } from '@mui/material/Drawer';
-import { fsx } from '../system/fsx';
+import React, { useCallback, useRef, useState } from 'react';
 import { MdClose, MdMoreVert } from 'react-icons/md';
+import MuiDrawer, { DrawerProps as MuiDrawerProps } from '@mui/material/Drawer';
 import { Button } from '../button';
+import { fsx } from '../system/fsx';
 
 type Props = MuiDrawerProps & {
   headerChildren?: React.ReactNode;
@@ -64,7 +63,7 @@ export const Drawer: React.FC<Props> = ({
         }
       }
     },
-    [anchor]
+    [anchor],
   );
 
   const handleMouseUp = useCallback(() => {

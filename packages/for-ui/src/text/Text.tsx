@@ -29,7 +29,7 @@ const style = (size: WithInherit<Size>, weight: WithInherit<Weight>, typeface: W
       xr: `text-xr`,
       l: `text-l`,
       xl: `text-xl`,
-    }[size]
+    }[size],
   );
 };
 

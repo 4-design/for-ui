@@ -1,8 +1,8 @@
 import { forwardRef, ReactNode } from 'react';
 import MuiSwitch, { SwitchProps as MuiSwitchProps } from '@mui/material/Switch';
 import { fsx } from '../system/fsx';
-import { Text } from '../text';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
+import { Text } from '../text';
 
 export type SwitchProps = Omit<MuiSwitchProps, 'control'> & {
   label?: ReactNode;
@@ -25,10 +25,10 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
             // Otherwise uncontrolled switch does not perform as expected to show active state.
             `[.Mui-checked+&]:bg-secondary-dark-default`,
             disabled && 'bg-primary-dark-disabled opacity-100',
-            checked && disabled && 'bg-secondary-dark-disabled opacity-100'
+            checked && disabled && 'bg-secondary-dark-disabled opacity-100',
           ),
           thumb: fsx(
-            'bg-shade-white-default absolute top-1 left-1 h-4 w-4 rounded-2xl transition-all duration-200 ease-in'
+            'bg-shade-white-default absolute top-1 left-1 h-4 w-4 rounded-2xl transition-all duration-200 ease-in',
           ),
         }}
         {...rest}
@@ -44,5 +44,5 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
         )}
       />
     </Text>
-  )
+  ),
 );

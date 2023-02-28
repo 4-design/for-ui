@@ -2,7 +2,6 @@ import React, { FC, ReactNode } from 'react';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import { Meta } from '@storybook/react/types-6-0';
-
 import { Text } from '../text';
 import { Skeleton, SkeletonX } from './Skeleton';
 

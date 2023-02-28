@@ -388,7 +388,7 @@ module.exports = {
             });
           },
         },
-        { values: flattenColorPalette(theme('iconColor')), type: 'color' }
+        { values: flattenColorPalette(theme('iconColor')), type: 'color' },
       );
     }),
   ],

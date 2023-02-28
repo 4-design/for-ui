@@ -6,25 +6,27 @@
     "url": "4-design/for-ui",
     "directory": "packages/prettier-config"
   },
-  "keywords": [
-    "prettier",
-    "prettier-config"
-  ],
   "author": "locona (https://github.com/locona)",
   "license": "MIT",
   "exports": {
     ".": "./src/index.cjs"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "prettier-plugin-sh": "^0.12.0"
-  },
+  "keywords": [
+    "prettier",
+    "prettier-config"
+  ],
   "peerDependencies": {
     "prettier": "^2"
   },
+  "dependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
+    "prettier-plugin-pkg": "^0.17.1",
+    "prettier-plugin-sh": "^0.12.0"
+  },
   "devDependencies": {
     "prettier": "2.8.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

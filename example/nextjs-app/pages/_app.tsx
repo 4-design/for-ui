@@ -1,9 +1,7 @@
 import React from 'react';
-import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material';
-
 import { NextPage } from 'next';
 import { AppProps } from 'next/app';
-
+import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material';
 import '../styles/index.css';
 
 const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {

@@ -1,8 +1,8 @@
 import { forwardRef, ReactNode } from 'react';
 import MuiCheckbox, { CheckboxProps as MuiCheckboxProps } from '@mui/material/Checkbox';
 import { fsx } from '../system/fsx';
-import { Text } from '../text';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
+import { Text } from '../text';
 
 export type CheckboxProps = MuiCheckboxProps & {
   label?: ReactNode;
@@ -37,5 +37,5 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         )}
       />
     </Text>
-  )
+  ),
 );
