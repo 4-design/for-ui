@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeProvider, StyledEngineProvider, createTheme } from '@mui/material/styles';
 
 import '../styles/global.css';
-import '../styles/tailwind.v2.css';
+import '../styles/forty.css';
 
 export const parameters = {
   layout: 'fullscreen',
