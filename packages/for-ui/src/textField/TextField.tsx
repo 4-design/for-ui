@@ -1,7 +1,7 @@
-import { ReactNode, FocusEvent, forwardRef, useCallback, useMemo, useState } from 'react';
+import { FocusEvent, forwardRef, ReactNode, useCallback, useMemo, useState } from 'react';
+import { NumericFormat } from 'react-number-format';
 import InputAdornment from '@mui/material/InputAdornment';
 import MuiTextField, { TextFieldProps as MuiTextFieldProps } from '@mui/material/TextField';
-import { NumericFormat } from 'react-number-format';
 import { fsx } from '../system/fsx';
 import { Text } from '../text';
 
@@ -51,7 +51,7 @@ const NumberFormatCustom = forwardRef<HTMLInputElement, NumberFormatCustomProps>
         thousandSeparator
       />
     );
-  }
+  },
 );
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
@@ -74,7 +74,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       onBlur,
       ...rest
     },
-    ref
+    ref,
   ) => {
     /**
      * react-hook-form : v6 ~> inputRef   v7 ~> ref
@@ -112,14 +112,14 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
         setFocused(true);
         onFocus?.(e);
       },
-      [setFocused, onFocus]
+      [setFocused, onFocus],
     );
     const handleBlur = useCallback(
       (e: FocusEvent<HTMLInputElement>) => {
         setFocused(false);
         onBlur?.(e);
       },
-      [setFocused, onBlur]
+      [setFocused, onBlur],
     );
 
     return (
@@ -188,5 +188,5 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
         />
       </Text>
     );
-  }
+  },
 );

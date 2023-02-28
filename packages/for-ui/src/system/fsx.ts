@@ -1,5 +1,4 @@
 // fsx merges tailwind classes and other classes along with For Design System Token.
-
 import clsx, { ClassValue } from 'clsx';
 import { extendTailwindMerge } from 'tailwind-merge';
 

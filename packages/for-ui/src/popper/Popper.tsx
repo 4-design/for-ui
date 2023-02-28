@@ -1,9 +1,9 @@
-import { MouseEvent, isValidElement, cloneElement, Fragment, ReactElement, ReactNode } from 'react';
-import MuiPopper from '@mui/material/Popper';
+import { cloneElement, Fragment, isValidElement, MouseEvent, ReactElement, ReactNode } from 'react';
 import { bindPopper, bindTrigger } from 'material-ui-popup-state';
+import { usePopupState } from 'material-ui-popup-state/hooks';
 import Fade from '@mui/material/Fade';
 import Paper from '@mui/material/Paper';
-import { usePopupState } from 'material-ui-popup-state/hooks';
+import MuiPopper from '@mui/material/Popper';
 import { fsx } from '../system/fsx';
 
 type PoppeChildrenProps<Element extends HTMLElement> = {

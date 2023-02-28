@@ -1,4 +1,5 @@
-import { FC, Fragment, useCallback, useState, useMemo, useRef, MouseEvent, useLayoutEffect } from 'react';
+import { FC, Fragment, MouseEvent, useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { MdArrowDownward, MdArrowUpward } from 'react-icons/md';
 import {
   ColumnDef,
   ColumnSort,
@@ -7,18 +8,17 @@ import {
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  OnChangeFn,
   RowData,
   RowSelectionState,
+  Row as RowType,
   SortingState,
   TableOptions,
   useReactTable,
-  OnChangeFn,
-  Row as RowType,
 } from '@tanstack/react-table';
-import { fsx } from '../system/fsx';
-import { MdArrowDownward, MdArrowUpward } from 'react-icons/md';
 import { Checkbox } from '../checkbox';
 import { Radio } from '../radio';
+import { fsx } from '../system/fsx';
 import { TableCell } from './TableCell';
 import { TablePagination } from './TablePagination';
 
@@ -78,7 +78,7 @@ export const Table = <T extends RowData>({
       onSelectRow?.(selectedIds[0]);
       onSelectRows?.(selectedIds);
     },
-    [rowSelection, onSelectRow, onSelectRows]
+    [rowSelection, onSelectRow, onSelectRows],
   );
 
   const selectRow = useCallback(
@@ -86,7 +86,7 @@ export const Table = <T extends RowData>({
       // If multiply seletable table, using toggle. Or if singly selectable table, not using toggle.
       row.toggleSelected(onSelectRows ? undefined : true);
     },
-    [onSelectRows]
+    [onSelectRows],
   );
 
   const RowComponent: FC<RowProps<T>> = rowRenderer || Row;
@@ -176,7 +176,7 @@ export const Table = <T extends RowData>({
       <table
         className={fsx(
           'border-shade-light-default w-full border-separate border-spacing-0 rounded-sm border',
-          className
+          className,
         )}
       >
         <thead className="bg-shade-light-default table-header-group">

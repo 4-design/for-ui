@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, Card, Button } from '@4design/for-ui';
+import { Card, Text } from '@4design/for-ui';
+import { Button } from '@mui/material';
 
 export const Login: React.FC = () => {
   return (

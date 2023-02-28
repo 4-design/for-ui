@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
-import { Title, Subtitle, Description, Source, DocsStory } from '@storybook/addon-docs/blocks';
+import { Description, DocsStory, Source, Subtitle, Title } from '@storybook/addon-docs/blocks';
 import { Meta } from '@storybook/react/types-6-0';
-import { LegacyText as Text, Variant, variants, texts } from './Typography';
+import { LegacyText as Text, texts, Variant, variants } from './Typography';
 
 export default {
   title: 'Example / Typography',
@@ -135,7 +135,7 @@ import { Text } from '@4design/for-ui'
 ${Object.keys(colors)
   .map(
     (v) => `<Text variant="p" className="${v}">Freelance エンジニアに「いい案件」を。</Text>
-`
+`,
   )
   .join('')}
 `,
@@ -201,7 +201,7 @@ import { Text } from '@4design/for-ui'
 ${Object.values(variants)
   .map(
     (v) => `<Text variant="${v}">Freelance エンジニアに「いい案件」を。</Text>
-`
+`,
   )
   .join('')}
 

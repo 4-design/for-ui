@@ -1,10 +1,10 @@
 {
   "name": "@4design/nextjs-app",
-  "private": true,
   "version": "1.0.6",
+  "private": true,
   "scripts": {
-    "dev": "next",
     "build": "next build",
+    "dev": "next",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit"
   },

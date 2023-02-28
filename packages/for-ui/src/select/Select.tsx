@@ -1,12 +1,12 @@
-import { Fragment, ReactNode, forwardRef, Ref } from 'react';
-import Autocomplete, {
-  AutocompleteProps as MuiAutocompleteProps,
-  createFilterOptions,
-} from '@mui/material/Autocomplete';
-import { fsx } from '../system/fsx';
+import { forwardRef, Fragment, ReactNode, Ref } from 'react';
 import { MdCheck, MdExpandMore } from 'react-icons/md';
+import Autocomplete, {
+  createFilterOptions,
+  AutocompleteProps as MuiAutocompleteProps,
+} from '@mui/material/Autocomplete';
 import { Chip } from '../chip';
 import { MenuItem, MenuList } from '../menu';
+import { fsx } from '../system/fsx';
 import { TextField } from '../textField';
 
 export type SelectOption = {
@@ -17,7 +17,7 @@ export type SelectOption = {
 export type AutocompleteProps<
   Value extends SelectOption,
   Multiple extends boolean | undefined,
-  FreeSolo extends boolean | undefined
+  FreeSolo extends boolean | undefined,
 > = Omit<MuiAutocompleteProps<Value, Multiple, true, FreeSolo, 'div'>, 'autoComplete' | 'renderInput'> & {
   name: string;
   label?: ReactNode;
@@ -35,7 +35,7 @@ export type AutocompleteProps<
 const _Select = <
   Value extends SelectOption,
   Multiple extends boolean | undefined,
-  FreeSolo extends boolean | undefined
+  FreeSolo extends boolean | undefined,
 >({
   name,
   options = [],
@@ -180,7 +180,7 @@ const _Select = <
 export const Select = forwardRef((props, ref: Ref<HTMLInputElement>) => <_Select inputRef={ref} {...props} />) as <
   Value extends SelectOption,
   Multiple extends boolean | undefined,
-  FreeSolo extends boolean | undefined
+  FreeSolo extends boolean | undefined,
 >(
-  props: AutocompleteProps<Value, Multiple, FreeSolo>
+  props: AutocompleteProps<Value, Multiple, FreeSolo>,
 ) => JSX.Element;

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { isLatLngLiteral } from '@googlemaps/typescript-guards';
 import { createCustomEqual } from 'fast-equals';
+import { isLatLngLiteral } from '@googlemaps/typescript-guards';
 
 function useDeepCompareEffectForMaps(callback: React.EffectCallback, dependencies: any[]) {
   // eslint-disable-next-line react-hooks/exhaustive-deps

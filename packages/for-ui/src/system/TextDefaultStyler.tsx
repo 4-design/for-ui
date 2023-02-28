@@ -1,4 +1,4 @@
-import { FC, isValidElement, ReactNode, ReactElement } from 'react';
+import { FC, isValidElement, ReactElement, ReactNode } from 'react';
 
 export type TextDefaultStylerProps = {
   content: ReactNode;

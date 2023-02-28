@@ -1,6 +1,6 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
 import { MdMail } from 'react-icons/md';
+import { Meta, Story } from '@storybook/react/types-6-0';
 import { Badge } from './Badge';
 
 export default {

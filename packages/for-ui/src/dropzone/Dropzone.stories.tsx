@@ -26,7 +26,7 @@ export const Basic = (): JSX.Element => {
       }
       setFilesState((prevState) => [...prevState, ...files]);
     },
-    [multiple, filesState.length]
+    [multiple, filesState.length],
   );
 
   const onRemove = React.useCallback(
@@ -38,7 +38,7 @@ export const Basic = (): JSX.Element => {
         return [...newState];
       });
     },
-    []
+    [],
   );
 
   return <Dropzone multiple={multiple} onDrop={onDrop} onRemove={onRemove} files={filesState} />;

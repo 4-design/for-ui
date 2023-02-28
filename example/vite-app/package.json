@@ -1,10 +1,10 @@
 {
   "name": "@4design/vite-app",
-  "private": true,
   "version": "1.0.7",
+  "private": true,
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
+    "dev": "vite",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,8 +17,8 @@
     "@googlemaps/typescript-guards": "2.0.3",
     "@mui/lab": "5.0.0-alpha.115",
     "@mui/material": "5.11.4",
-    "fast-equals": "3.0.3",
     "clsx": "1.2.1",
+    "fast-equals": "3.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "4.7.1",

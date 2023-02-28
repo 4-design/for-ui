@@ -1,7 +1,6 @@
 import React from 'react';
-import { Meta, Args } from '@storybook/react/types-6-0';
 import { MdCheck } from 'react-icons/md';
-
+import { Args, Meta } from '@storybook/react/types-6-0';
 import { LegacyText as Text } from '../typography';
 import { Chip } from './Chip';
 

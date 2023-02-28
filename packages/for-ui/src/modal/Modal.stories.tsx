@@ -1,12 +1,11 @@
 import React from 'react';
 import { useState } from '@storybook/addons';
 import { Meta } from '@storybook/react/types-6-0';
-
+import { Modal } from '.';
 import { Button } from '../button';
 import { ModalContent } from './ModalContent';
 import { ModalFooter } from './ModalFooter';
 import { ModalHeader } from './ModalHeader';
-import { Modal } from '.';
 
 export default {
   title: 'Feedback / Modal',
