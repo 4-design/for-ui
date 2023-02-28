@@ -1,6 +1,5 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-
 import { Button } from '../button/Button';
 import { Text } from '../text';
 import { Menu } from './Menu';

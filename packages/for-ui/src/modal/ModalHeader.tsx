@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-
 import { Text } from '../text';
 
 type Props = {

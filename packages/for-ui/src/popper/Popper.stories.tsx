@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-
 import { Text } from '../text';
 import { Button } from '../button/Button';
-import { Popper } from './Popper';
 import { MenuItem } from '../menu';
+import { Popper } from './Popper';
 
 export default {
   title: 'Navigation / Popper',

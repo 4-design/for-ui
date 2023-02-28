@@ -1,11 +1,9 @@
 import React, { useCallback } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { Meta } from '@storybook/react/types-6-0';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Meta } from '@storybook/react/types-6-0';
 import { Button } from '../button/Button';
-import { TextField } from './TextField';
 import { Text } from '../text';
 import { MdOutlineSearch } from 'react-icons/md';
 import { MdDeleteOutline, MdOutlineEdit, MdOutlinePhone, MdOutlineMail } from 'react-icons/md';
@@ -18,6 +16,7 @@ const sampleIcons = {
   MdOutlinePhone: <MdOutlinePhone />,
   MdOutlineMail: <MdOutlineMail />,
 };
+import { TextField } from './TextField';
 
 export default {
   title: 'Form / TextField',

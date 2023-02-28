@@ -1,9 +1,9 @@
-import { forwardRef, ReactNode, PropsWithoutRef, Children, isValidElement, cloneElement, ComponentProps } from 'react';
+import { Children, cloneElement, ComponentProps, forwardRef, isValidElement, PropsWithoutRef, ReactNode } from 'react';
 import FormControl from '@mui/material/FormControl';
 import MuiRadioGroup, { RadioGroupProps as MuiRadioGroupProps } from '@mui/material/RadioGroup';
-import { Text } from '../text';
 import { fsx } from '../system/fsx';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
+import { Text } from '../text';
 import { Radio } from './Radio';
 
 export type RadioGroupProps = Omit<PropsWithoutRef<MuiRadioGroupProps>, 'color'> & {
@@ -21,7 +21,7 @@ export type RadioGroupProps = Omit<PropsWithoutRef<MuiRadioGroupProps>, 'color'>
 export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
   (
     { className, name, label, row, defaultValue, error, helperText, children, required = false, disabled, ...rest },
-    ref
+    ref,
   ) => (
     <FormControl
       component="fieldset"
@@ -55,7 +55,7 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
           Children.map(children, (child) =>
             isValidElement<ComponentProps<typeof Radio>>(child)
               ? cloneElement(child, { ref: ref ? ref : undefined })
-              : child
+              : child,
           )
         }
       </MuiRadioGroup>
@@ -71,5 +71,5 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
         )}
       />
     </FormControl>
-  )
+  ),
 );

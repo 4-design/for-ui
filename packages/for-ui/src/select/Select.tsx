@@ -37,7 +37,7 @@ export type AutocompleteProps<
 const _Select = <
   Value extends SelectOption,
   Multiple extends boolean | undefined,
-  FreeSolo extends boolean | undefined
+  FreeSolo extends boolean | undefined,
 >({
   name,
   size = 'large',
@@ -194,7 +194,7 @@ const _Select = <
 export const Select = forwardRef((props, ref: Ref<HTMLInputElement>) => <_Select ref={ref} {...props} />) as <
   Value extends SelectOption,
   Multiple extends boolean | undefined,
-  FreeSolo extends boolean | undefined
+  FreeSolo extends boolean | undefined,
 >(
-  props: AutocompleteProps<Value, Multiple, FreeSolo>
+  props: AutocompleteProps<Value, Multiple, FreeSolo>,
 ) => JSX.Element;

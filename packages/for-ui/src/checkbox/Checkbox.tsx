@@ -52,5 +52,5 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         )}
       />
     </Text>
-  )
+  ),
 );

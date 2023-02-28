@@ -1,5 +1,5 @@
-import { Button } from '@4design/for-ui';
 import Link from 'next/link';
+import { Button } from '@4design/for-ui';
 import { Layout } from '../components/Layout';
 
 const IndexPage = () => (

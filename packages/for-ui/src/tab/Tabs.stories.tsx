@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
-
+import { Meta, Story } from '@storybook/react/types-6-0';
+import { Text } from '../text';
 import { Tab } from './Tab';
 import { TabContext } from './TabContext';
 import { TabList } from './TabList';
 import { TabPanel } from './TabPanel';
-import { Tabs } from './Tabs';
-import { Text } from '../text';
 import { Badge } from '../badge';
 import { TabsProps } from '@mui/material';
+import { Tabs } from './Tabs';
 
 export default {
   title: 'Navigation / Tabs',

@@ -46,5 +46,5 @@ export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
         {children}
       </MuiStepper>
     );
-  }
+  },
 );

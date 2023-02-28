@@ -1,29 +1,32 @@
 {
   "name": "4design",
-  "homepage": "https://github.com/4-design/for-ui",
-  "private": true,
-  "author": "locona <miyamae@youx.co.jp>",
-  "engines": {
-    "node": ">=14.0.0"
-  },
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/4-design/for-ui.git"
   },
+  "homepage": "https://github.com/4-design/for-ui",
+  "author": "locona <miyamae@youx.co.jp>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "scripts": {
-    "dev": "turbo run dev",
     "build": "turbo run build",
-    "type-check": "turbo run type-check",
-    "lint": "run-p lint:'*'",
-    "lint:eslint": "eslint .",
-    "lint:prettier": "prettier --check .",
-    "lint:packages": "turbo run lint",
+    "dev": "turbo run dev",
     "fmt": "run-p fmt:'*'",
     "fmt:eslint": "eslint . --fix",
     "fmt:prettier": "prettier --write --list-different .",
-    "version-packages": "changeset version",
-    "release": "run-p build && changeset publish"
+    "lint": "run-p lint:'*'",
+    "lint:eslint": "eslint .",
+    "lint:packages": "turbo run lint",
+    "lint:prettier": "prettier --check .",
+    "release": "run-p build && changeset publish",
+    "type-check": "turbo run type-check",
+    "version-packages": "changeset version"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.8",
@@ -32,13 +35,10 @@
     "lint-staged": "13.1.0",
     "npm-run-all": "4.1.5",
     "prettier": "2.8.3",
-    "typescript": "4.9.4",
-    "turbo": "1.7.0"
+    "turbo": "1.7.0",
+    "typescript": "4.9.4"
   },
   "volta": {
     "node": "16.19.0"
-  },
-  "workspaces": [
-    "packages/*"
-  ]
+  }
 }

@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-
 import MuiBackdrop, { BackdropProps as MuiBackdropProps } from '@mui/material/Backdrop';
 import MuiModal, { ModalProps as MuiModalProps } from '@mui/material/Modal';
 

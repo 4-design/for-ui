@@ -1,9 +1,9 @@
 import { forwardRef, ReactNode } from 'react';
 import FormControl from '@mui/material/FormControl';
 import FormGroup, { FormGroupProps } from '@mui/material/FormGroup';
-import { Text } from '../text';
 import { fsx } from '../system/fsx';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
+import { Text } from '../text';
 
 export type SwitchGroupProps = Omit<FormGroupProps, 'defaultValue' | 'defaultChecked'> & {
   name?: string;
@@ -53,5 +53,5 @@ export const SwitchGroup = forwardRef<HTMLInputElement, SwitchGroupProps>(
         />
       </FormControl>
     );
-  }
+  },
 );

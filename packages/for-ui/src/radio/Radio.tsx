@@ -1,8 +1,8 @@
 import { FC, forwardRef, ReactNode } from 'react';
 import MuiRadio, { RadioProps as MuiRadioProps } from '@mui/material/Radio';
 import { fsx } from '../system/fsx';
-import { Text } from '../text';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
+import { Text } from '../text';
 
 export type RadioProps = Omit<MuiRadioProps, 'ref'> & {
   label?: ReactNode;
@@ -50,5 +50,5 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         )}
       />
     </Text>
-  )
+  ),
 );

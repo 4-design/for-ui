@@ -1,7 +1,7 @@
 import { forwardRef, ReactNode, ComponentPropsWithRef } from 'react';
 import { fsx } from '../system/fsx';
-import { Text } from '../text';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
+import { Text } from '../text';
 
 export type SwitchProps = ComponentPropsWithRef<'input'> & {
   label?: ReactNode;

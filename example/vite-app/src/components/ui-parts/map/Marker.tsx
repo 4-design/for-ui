@@ -1,6 +1,6 @@
 import React from 'react';
-import { useGoogleMapsContext } from '@/components/ui-parts/map/GoogleMapsProvider';
 import { renderToString } from 'react-dom/server';
+import { useGoogleMapsContext } from '@/components/ui-parts/map/GoogleMapsProvider';
 
 type Props = google.maps.MarkerOptions & {
   InfoWindowComponent?: React.ElementType;

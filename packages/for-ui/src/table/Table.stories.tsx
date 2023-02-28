@@ -1,6 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
-
+import { Meta, Story } from '@storybook/react/types-6-0';
 import { PersonData, StaticPersonData } from '../utils/makeData';
 import { ColumnDef } from './ColumnDef';
 import { Table } from './Table';

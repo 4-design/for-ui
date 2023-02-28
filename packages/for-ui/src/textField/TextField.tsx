@@ -79,7 +79,7 @@ const NumberFormatCustom = forwardRef<HTMLInputElement, NumberFormatCustomProps>
         thousandSeparator
       />
     );
-  }
+  },
 );
 
 const Adornment: FC<{ size: 'large' | 'medium'; className?: string; children: string }> = ({
@@ -121,7 +121,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       id: passedId,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const innerId = useId();
     const id = passedId || innerId;
@@ -213,5 +213,5 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
         />
       </div>
     );
-  }
+  },
 );

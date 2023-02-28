@@ -1,4 +1,4 @@
-import { ReactElement, PropsWithChildren } from 'react';
+import { PropsWithChildren, ReactElement } from 'react';
 
 type Props = PropsWithChildren<{
   SidebarComponent: React.ElementType;
