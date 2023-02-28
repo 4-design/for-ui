@@ -23,7 +23,7 @@ const Backdrop: React.FC<BackdropProps> = ({ open, children, onClick }) => {
       open={open}
       onClick={onClick}
       classes={{
-        root: 'bg-[#001f3333]',
+        root: 'bg-[#0000004D]',
       }}
     >
       {children}
@@ -47,7 +47,7 @@ export const Modal: React.FC<ModalProps> = forwardRef(({ open, onClose, children
       {...props}
     >
       <div className="flex min-h-screen justify-center focus-visible:outline-none focus-visible:ring-0">
-        <div className="z-modal bg-shade-white-default shadow-modal m-auto flex flex-col break-all rounded-lg transition-all">
+        <div className="z-modal bg-shade-white-default shadow-more m-auto flex flex-col break-all rounded-lg transition-all">
           {children}
         </div>
       </div>
