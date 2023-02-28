@@ -14,12 +14,12 @@ const Indicator: FC<{ checked: boolean; disabled: boolean }> = ({ checked, disab
   <span
     className={fsx([
       'bg-shade-white-default h-4 w-4 rounded-full transition-[border-width,border-color] duration-100',
-      checked ? 'border-6' : 'group-hover:border-secondary-dark-default border-2',
+      checked ? 'border-6' : 'group-hover:border-primary-dark-default border-2',
       disabled
         ? `border-shade-medium-disabled`
         : checked
-        ? `border-secondary-dark-default`
-        : `border-shade-medium-default group-hover:border-2 group-hover:border-secondary-dark-default`,
+        ? `border-primary-dark-default`
+        : `border-shade-medium-default group-hover:border-2 group-hover:border-primary-dark-default`,
     ])}
   />
 );
