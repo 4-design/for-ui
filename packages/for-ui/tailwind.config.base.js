@@ -105,7 +105,7 @@ const colors = {
       },
       light: {
         default: 'var(--primary-border-light-default)',
-      }
+      },
     },
     icon: {
       dark: {
@@ -268,7 +268,7 @@ const colors = {
     },
     background: {
       dark: {
-        default: 'var(--informative-background-dark-default)'
+        default: 'var(--informative-background-dark-default)',
       },
       light: {
         default: 'var(--informative-background-light-default)',
