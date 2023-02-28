@@ -1,5 +1,11 @@
 # @3design/prettier-config
 
+## 1.0.6
+
+### Patch Changes
+
+- [#1073](https://github.com/4-design/for-ui/pull/1073) [`d073e4d`](https://github.com/4-design/for-ui/commit/d073e4d65bfaed589292c0552b1ee1391b754468) Thanks [@locona](https://github.com/locona)! - fix(prettier-config): prettier-plugin-pkg / @trivago/prettier-plugin-sort-imports 追加
+
 ## 1.0.5
 
 ### Patch Changes
