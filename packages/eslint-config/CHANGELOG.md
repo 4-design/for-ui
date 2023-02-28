@@ -1,5 +1,11 @@
 # @3design/eslint-config
 
+## 1.0.8
+
+### Patch Changes
+
+- [#1065](https://github.com/4-design/for-ui/pull/1065) [`d8df4fd`](https://github.com/4-design/for-ui/commit/d8df4fd26bfcc4c85af0fd987bf5474e5a70d264) Thanks [@locona](https://github.com/locona)! - feat: prettier-plugin-pkg / @trivago/prettier-plugin-sort-imports 追加
+
 ## 1.0.7
 
 ### Patch Changes
