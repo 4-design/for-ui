@@ -159,9 +159,6 @@ const colors = {
       dark: {
         default: 'var(--negative-text-dark-default)',
       },
-      medium: {
-        default: 'var(--negative-text-medium-default)',
-      },
     },
     background: {
       dark: {
