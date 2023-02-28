@@ -1,5 +1,67 @@
 # @3design/3design-ui
 
+## 1.1.0
+
+### Minor Changes
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextArea): size props の追加と size=medium の追加
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Switch): Switch コンポーネンの新デザイン実装
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - テーブルのサイズを変更
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Radio): テキストのサイズダウンに伴うスタイル修正
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Checkbox): テキストのサイズダウンに伴うスタイル修正 2
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: Tailwind の Text token を修正
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Checkbox): テキストのサイズダウンに伴うスタイル修正
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Badge): Badge コンポーネントのデザイン実装
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Token): Shadow token の新規定義と不要なトークンの削除
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: テキストのサイズダウンと随伴する各所調整
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Tabs): テキストのサイズダウンに伴うスタイル修正
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Menu): Menu コンポーネントの新デザイン実装
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Badge): カラートークンの指定と `className` props を受け取るように修正
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Select): テキストのサイズダウンに伴うスタイル修正
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Switch): テキストのサイズダウンに伴うスタイル修正
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - feat(Button): small を追加, 新しい intention を追加, children に寄せるように修正
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Chip): `leadingIcon` と `trailingIcon` の廃止と `clickableArea` と `icon` の追加
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextField): テキストのサイズダウンに伴うスタイル修正
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Button): テキストのサイズダウンに伴うスタイル修正
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextField): `suffix` と `icon` props の追加と prefix と suffix のデザイン修正
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Tab): color props を intention props に修正
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Select): divider の追加とオプションが無いときの表示を修正
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Token): Color token の新規定義と不要なトークンの削除
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: 必要ないコンポーネントを削除
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Radio): primary color を使うように修正
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - feat: Chip コンポーネントの新デザイン実装
+
+- [#902](https://github.com/4-design/for-ui/pull/902) [`2be4aea`](https://github.com/4-design/for-ui/commit/2be4aea0759d0f492b8db54a5e5d8ad0f96ad1b2) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: `xl` のサイズを修正
+
+### Patch Changes
+
+- [#1065](https://github.com/4-design/for-ui/pull/1065) [`d8df4fd`](https://github.com/4-design/for-ui/commit/d8df4fd26bfcc4c85af0fd987bf5474e5a70d264) Thanks [@locona](https://github.com/locona)! - feat: prettier-plugin-pkg / @trivago/prettier-plugin-sort-imports 追加
+
 ## 1.0.18
 
 ### Patch Changes
