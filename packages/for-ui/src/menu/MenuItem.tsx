@@ -49,7 +49,7 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
           selected && `pr-2`,
           {
             shade: `text-shade-dark-default`,
-            negative: `text-negative-medium-default`,
+            negative: `text-negative-dark-default`,
           }[intention],
           disabled && `text-shade-dark-disabled opacity-100 [&.opacity-100]:opacity-100`,
           className,
