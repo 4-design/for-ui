@@ -63,7 +63,7 @@ export const Default = (): JSX.Element => {
             <Text
               weight="regular"
               size="xs"
-              className="border-negative-medium-default text-negative-medium-default ml-1 rounded-full border px-1"
+              className="border-negative-medium-default text-negative-dark-default ml-1 rounded-full border px-1"
             >
               必須
             </Text>
@@ -92,7 +92,7 @@ export const Default = (): JSX.Element => {
         label={
           <Text size="l" weight="regular" className="text-shade-light-default">
             エラー
-            <Text className="text-negative-medium-default" weight="regular">
+            <Text className="text-negative-dark-default" weight="regular">
               *
             </Text>
           </Text>

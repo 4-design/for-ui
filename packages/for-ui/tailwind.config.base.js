@@ -18,7 +18,6 @@ const colors = {
       },
       medium: {
         default: 'var(--shade-text-medium-default)',
-        active: 'var(--shade-text-medium-active)',
       },
       light: {
         default: 'var(--shade-text-light-default)',
@@ -29,7 +28,6 @@ const colors = {
         disabled: 'var(--shade-text-white-disabled)',
       },
     },
-
     background: {
       dark: {
         default: 'var(--shade-background-dark-default)',
@@ -51,24 +49,19 @@ const colors = {
         disabled: 'var(--shade-background-white-disabled)',
       },
     },
-
     border: {
       dark: {
         default: 'var(--shade-border-dark-default)',
-        hover: 'var(--shade-border-dark-hover)',
         disabled: 'var(--shade-border-dark-disabled)',
       },
       medium: {
         default: 'var(--shade-border-medium-default)',
-        active: 'var(--shade-border-medium-active)',
         disabled: 'var(--shade-border-medium-disabled)',
       },
       light: {
         default: 'var(--shade-border-light-default)',
-        active: 'var(--shade-border-light-active)',
       },
     },
-
     icon: {
       dark: {
         default: 'var(--shade-icon-dark-default)',
@@ -76,11 +69,7 @@ const colors = {
       },
       medium: {
         default: 'var(--shade-icon-medium-default)',
-        active: 'var(--shade-icon-medium-active)',
-      },
-      light: {
-        default: 'var(--shade-icon-light-default)',
-        hover: 'var(--shade-icon-medium-hover)',
+        disabled: 'var(--shade-icon-medium-disabled)',
       },
       white: {
         default: 'var(--shade-icon-white-default)',
@@ -88,63 +77,42 @@ const colors = {
     },
   },
 
-  // TODO
   primary: {
     text: {
       dark: {
         default: 'var(--primary-text-dark-default)',
-        hover: 'var(--primary-text-dark-hover)',
-        disabled: 'var(--primary-text-dark-disabled)',
-      },
-      medium: {
-        default: 'var(--primary-text-medium-default)',
-      },
-      light: {
-        default: 'var(--primary-text-light-default)',
       },
     },
-
     background: {
       dark: {
         default: 'var(--primary-background-dark-default)',
         hover: 'var(--primary-background-dark-hover)',
         disabled: 'var(--primary-background-dark-disabled)',
-        active: 'var(--primary-background-dark-active)',
-      },
-      medium: {
-        default: 'var(--primary-background-medium-default)',
       },
       light: {
         default: 'var(--primary-background-light-default)',
-      },
-      white: {
-        default: 'var(--primary-background-white-default)',
-        hover: 'var(--primary-background-white-hover)',
-        disabled: 'var(--primary-background-white-disabled)',
+        hover: 'var(--primary-background-light-hover)',
       },
     },
-
     border: {
       dark: {
         default: 'var(--primary-border-dark-default)',
-        hover: 'var(--primary-border-dark-hover)',
         disabled: 'var(--primary-border-dark-disabled)',
       },
       medium: {
+        default: 'var(--primary-border-medium-default)',
         active: 'var(--primary-border-medium-active)',
       },
+      light: {
+        default: 'var(--primary-border-light-default)',
+      },
     },
-
     icon: {
       dark: {
         default: 'var(--primary-icon-dark-default)',
-        hover: 'var(--primary-icon-dark-hover)',
-        disabled: 'var(--primary-icon-dark-disabled)',
       },
-      white: {
-        default: 'var(--primary-icon-white-default)',
-        hover: 'var(--primary-icon-white-hover)',
-        disabled: 'var(--primary-icon-white-disabled)',
+      medium: {
+        default: 'var(--primary-icon-medium-default)',
       },
     },
   },
@@ -153,37 +121,46 @@ const colors = {
     text: {
       dark: {
         default: 'var(--secondary-text-dark-default)',
-        disabled: 'var(--secondary-text-dark-disabled)',
       },
     },
     background: {
       dark: {
         default: 'var(--secondary-background-dark-default)',
-        disabled: 'var(--secondary-background-dark-disabled)',
+        hover: 'var(--secondary-background-dark-hover)',
+      },
+      light: {
+        default: 'var(--secondary-background-light-default)',
+        hover: 'var(--secondary-background-light-hover)',
       },
     },
     border: {
+      medium: {
+        default: 'var(--secondary-border-medium-default)',
+      },
+      light: {
+        default: 'var(--secondary-border-light-default)',
+      },
+    },
+    icon: {
       dark: {
-        default: 'var(--secondary-border-dark-default)',
+        default: 'var(--secondary-icon-dark-default)',
       },
       medium: {
-        active: 'var(--secondary-border-medium-active)',
+        default: 'var(--secondary-icon-medium-default)',
       },
     },
   },
 
   negative: {
     text: {
-      medium: {
-        default: 'var(--negative-text-medium-default)',
-      },
-      light: {
-        default: 'var(--negative-text-light-default)',
+      dark: {
+        default: 'var(--negative-text-dark-default)',
       },
     },
     background: {
-      medium: {
-        default: 'var(--negative-background-medium-default)',
+      dark: {
+        default: 'var(--negative-background-dark-default)',
+        hover: 'var(--negative-background-dark-hover)',
       },
       light: {
         default: 'var(--negative-background-light-default)',
@@ -191,33 +168,39 @@ const colors = {
       },
     },
     border: {
+      dark: {
+        default: 'var(--negative-border-dark-default)',
+      },
       medium: {
         default: 'var(--negative-border-medium-default)',
       },
+      light: {
+        default: 'var(--negative-border-light-default)',
+      },
     },
     icon: {
+      dark: {
+        default: 'var(--negative-icon-dark-default)',
+      },
       medium: {
         default: 'var(--negative-icon-medium-default)',
-        hover: 'var(--negative-icon-medium-hover)',
       },
     },
   },
 
   positive: {
     text: {
-      medium: {
-        default: 'var(--positive-text-medium-default)',
-      },
-      light: {
-        default: 'var(--positive-text-light-default)',
+      dark: {
+        default: 'var(--positive-text-dark-default)',
       },
     },
     background: {
-      medium: {
-        default: 'var(--positive-background-medium-default)',
+      dark: {
+        default: 'var(--positive-background-dark-default)',
       },
       light: {
         default: 'var(--positive-background-light-default)',
+        hover: 'var(--positive-background-light-hover)',
       },
     },
     border: {
@@ -229,30 +212,28 @@ const colors = {
       },
     },
     icon: {
+      dark: {
+        default: 'var(--positive-icon-dark-default)',
+      },
       medium: {
         default: 'var(--positive-icon-medium-default)',
-      },
-      light: {
-        default: 'var(--positive-icon-light-default)',
       },
     },
   },
 
   notice: {
     text: {
-      medium: {
-        default: 'var(--notice-text-medium-default)',
-      },
-      light: {
-        default: 'var(--notice-text-light-default)',
+      dark: {
+        default: 'var(--notice-text-dark-default)',
       },
     },
     background: {
-      medium: {
-        default: 'var(--notice-background-medium-default)',
+      dark: {
+        default: 'var(--notice-background-dark-default)',
       },
       light: {
         default: 'var(--notice-background-light-default)',
+        hover: 'var(--notice-background-light-hover)',
       },
     },
     border: {
@@ -264,32 +245,42 @@ const colors = {
       },
     },
     icon: {
+      dark: {
+        default: 'var(--notice-icon-dark-default)',
+      },
       medium: {
         default: 'var(--notice-icon-medium-default)',
-      },
-      light: {
-        default: 'var(--notice-icon-light-default)',
       },
     },
   },
 
   informative: {
     text: {
-      medium: {
-        default: 'var(--informative-text-medium-default)',
+      dark: {
+        default: 'var(--informative-text-dark-default)',
       },
     },
     background: {
-      medium: {
-        default: 'var(--informative-background-medium-default)',
+      dark: {
+        default: 'var(--informative-background-dark-default)',
+      },
+      light: {
+        default: 'var(--informative-background-light-default)',
+        hover: 'var(--informative-background-light-hover)',
       },
     },
     border: {
       medium: {
         default: 'var(--informative-border-medium-default)',
       },
+      light: {
+        default: 'var(--informative-border-light-default)',
+      },
     },
     icon: {
+      dark: {
+        default: 'var(--informative-icon-dark-default)',
+      },
       medium: {
         default: 'var(--informative-icon-medium-default)',
       },

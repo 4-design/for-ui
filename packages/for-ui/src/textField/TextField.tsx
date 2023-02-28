@@ -143,7 +143,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
                     {...rest}
                   >
                     {children}
-                    {required && <Text className="text-negative-medium-default">*</Text>}
+                    {required && <Text className="text-negative-dark-default">*</Text>}
                   </Text>
                 )}
               />
@@ -206,7 +206,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             <Text
               size="s"
               weight="regular"
-              className={fsx(`text-shade-dark-default`, error && `text-negative-medium-default`)}
+              className={fsx(`text-shade-dark-default`, error && `text-negative-dark-default`)}
               {...props}
             />
           )}

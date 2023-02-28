@@ -100,7 +100,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
               <Text {...props} size="s" weight="bold" className={fsx(`text-shade-medium-default`)}>
                 {children}
                 {children && required && (
-                  <Text className={fsx(`text-negative-medium-default`)} weight="regular">
+                  <Text className={fsx(`text-negative-dark-default`)} weight="regular">
                     *
                   </Text>
                 )}
@@ -131,7 +131,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             <Text
               size="s"
               weight="regular"
-              className={fsx(`text-shade-dark-default`, error && `text-negative-medium-default`)}
+              className={fsx(`text-shade-dark-default`, error && `text-negative-dark-default`)}
               {...props}
             />
           )}

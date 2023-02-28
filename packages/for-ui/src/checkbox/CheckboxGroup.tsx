@@ -34,7 +34,7 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
               {/* due to the CSS bug, legend element cannot be styled if contents not specified. But contents makes difficult to style, so wrap by Text. */}
               <Text>
                 {children}
-                {required && <Text className={fsx(`text-negative-medium-default`)}>*</Text>}
+                {required && <Text className={fsx(`text-negative-dark-default`)}>*</Text>}
               </Text>
             </Text>
           )}
@@ -46,7 +46,7 @@ export const CheckboxGroup = forwardRef<HTMLInputElement, CheckboxGroupProps>(
             <Text
               size="s"
               weight="regular"
-              className={fsx(`text-shade-dark-default`, error && `text-negative-medium-default`)}
+              className={fsx(`text-shade-dark-default`, error && `text-negative-dark-default`)}
               {...props}
             />
           )}
