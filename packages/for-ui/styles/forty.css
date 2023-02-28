@@ -1,60 +1,60 @@
 /* Tonal Values */
 
 :root {
-  --shade-10: #FFFFFF;
-  --shade-20: #F7F8F8;
-  --shade-30: #EEF0F1;
-  --shade-40: #DDE1E3;
-  --shade-50: #B3BCC1;
-  --shade-60: #76858F;
-  --shade-70: #535E65;
-  --shade-80: #373E43;
+  --shade-10: #ffffff;
+  --shade-20: #f7f8f8;
+  --shade-30: #eef0f1;
+  --shade-40: #dde1e3;
+  --shade-50: #b3bcc1;
+  --shade-60: #76858f;
+  --shade-70: #535e65;
+  --shade-80: #373e43;
   --shade-90: #202427;
-  --shade-100: #0B0D0E;
+  --shade-100: #0b0d0e;
 
-  --blue-10: #E0F4FD;
-  --blue-20: #AFE2F8;
-  --blue-30: #7ACFF4;
-  --blue-40: #42BCEF;
-  --blue-50: #00AEED;
-  --blue-60: #00A0EA;
-  --blue-70: #0092DB;
-  --blue-80: #0080C8;
-  --blue-90: #006FB4;
+  --blue-10: #e0f4fd;
+  --blue-20: #afe2f8;
+  --blue-30: #7acff4;
+  --blue-40: #42bcef;
+  --blue-50: #00aeed;
+  --blue-60: #00a0ea;
+  --blue-70: #0092db;
+  --blue-80: #0080c8;
+  --blue-90: #006fb4;
   --blue-100: #005093;
 
-  --green-10: #E1F4EF;
-  --green-20: #B5E3D6;
-  --green-30: #85D1BD;
-  --green-40: #54BFA3;
-  --green-50: #30B090;
-  --green-60: #12A17E;
-  --green-70: #0F9472;
+  --green-10: #e1f4ef;
+  --green-20: #b5e3d6;
+  --green-30: #85d1bd;
+  --green-40: #54bfa3;
+  --green-50: #30b090;
+  --green-60: #12a17e;
+  --green-70: #0f9472;
   --green-80: #098362;
   --green-90: #007354;
   --green-100: #005739;
 
-  --red-10: #FCE3EA;
-  --red-20: #F9BACB;
-  --red-30: #F58DA9;
-  --red-40: #F05F87;
-  --red-50: #EB3C6E;
-  --red-60: #E61856;
-  --red-70: #D61354;
-  --red-80: #C00F50;
-  --red-90: #AC084D;
+  --red-10: #fce3ea;
+  --red-20: #f9bacb;
+  --red-30: #f58da9;
+  --red-40: #f05f87;
+  --red-50: #eb3c6e;
+  --red-60: #e61856;
+  --red-70: #d61354;
+  --red-80: #c00f50;
+  --red-90: #ac084d;
   --red-100: #880047;
 
-  --yellow-10: #FFFDE5;
-  --yellow-20: #FFF9BF;
-  --yellow-30: #FFF493;
-  --yellow-40: #FFF066;
-  --yellow-50: #FFEA00;
-  --yellow-60: #FED600;
-  --yellow-70: #FDEB3D;
-  --yellow-80: #FCC605;
-  --yellow-90: #EFBD09;
-  --yellow-100: #C69A00;
+  --yellow-10: #fffde5;
+  --yellow-20: #fff9bf;
+  --yellow-30: #fff493;
+  --yellow-40: #fff066;
+  --yellow-50: #ffea00;
+  --yellow-60: #fed600;
+  --yellow-70: #fdeb3d;
+  --yellow-80: #fcc605;
+  --yellow-90: #efbd09;
+  --yellow-100: #c69a00;
 }
 
 /* Token Values */
@@ -86,7 +86,7 @@
   --shade-icon-dark-default: var(--shade-90);
   --shade-icon-dark-disabled: var(--shade-40);
   --shade-icon-medium-default: var(--shade-50);
-  --shade-icon-medium-disabled: var(--shade-40);  
+  --shade-icon-medium-disabled: var(--shade-40);
   --shade-icon-white-default: var(--shade-10);
 
   --primary-text-dark-default: var(--blue-100);
@@ -108,7 +108,6 @@
   --secondary-background-dark-hover: var(--green-100);
   --secondary-background-light-default: var(--green-10);
   --secondary-background-light-hover: var(--green-20);
-  --secondary-border-dark-default: var(--green-90);
   --secondary-border-medium-default: var(--green-40);
   --secondary-border-light-default: var(--green-20);
   --secondary-icon-dark-default: var(--green-90);
