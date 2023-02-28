@@ -1,12 +1,12 @@
 import React from 'react';
+import { MdDeleteOutline, MdOutlineEdit, MdOutlineMail, MdOutlinePhone } from 'react-icons/md';
 import { Meta } from '@storybook/react/types-6-0';
 import { Button } from '../button/Button';
 import { Text } from '../text';
 import { Menu } from './Menu';
 import { MenuDivider } from './MenuDivider';
-import { MenuList } from './MenuList';
 import { MenuItem } from './MenuItem';
-import { MdDeleteOutline, MdOutlineEdit, MdOutlinePhone, MdOutlineMail } from 'react-icons/md';
+import { MenuList } from './MenuList';
 
 export default {
   title: 'Navigation / Menu',

@@ -89,7 +89,7 @@ export type TextAreaProps = Omit<TextareaAutosizeProps, 'disabled' | 'className'
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
     { className, size = 'large', minRows, maxRows, rows, error, disabled, helperText, label, required, ...props },
-    ref
+    ref,
   ) => {
     return (
       <div className={fsx(`w-full flex flex-col gap-1`, className)}>

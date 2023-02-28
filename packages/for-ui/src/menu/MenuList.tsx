@@ -1,4 +1,4 @@
-import { forwardRef, ElementType, Ref } from 'react';
+import { ElementType, forwardRef, Ref } from 'react';
 import MuiMenuList, { MenuListProps as MuiMenuListProps } from '@mui/material/MenuList';
 import { fsx } from '../system/fsx';
 import { style } from './style';
@@ -25,7 +25,7 @@ const _MenuList = <P extends ElementType = 'ul'>({
 );
 
 export const MenuList = forwardRef((props, ref) => <_MenuList _ref={ref} {...props} />) as unknown as <
-  P extends ElementType = 'ul'
+  P extends ElementType = 'ul',
 >(
-  props: MenuListProps<P>
+  props: MenuListProps<P>,
 ) => JSX.Element;

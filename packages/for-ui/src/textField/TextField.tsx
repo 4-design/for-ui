@@ -1,10 +1,10 @@
-import { FC, ReactNode, forwardRef, useId } from 'react';
-import OutlinedInput, { OutlinedInputProps } from '@mui/material/OutlinedInput';
-import { InputBaseComponentProps } from '@mui/material/InputBase';
+import { FC, forwardRef, ReactNode, useId } from 'react';
 import { NumericFormat, NumericFormatProps } from 'react-number-format';
+import { InputBaseComponentProps } from '@mui/material/InputBase';
+import OutlinedInput, { OutlinedInputProps } from '@mui/material/OutlinedInput';
 import { fsx } from '../system/fsx';
-import { Text } from '../text';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
+import { Text } from '../text';
 
 export type TextFieldProps = Omit<OutlinedInputProps, 'size' | 'multiline' | 'rows' | 'margin' | 'fullWidth'> & {
   /**
@@ -166,7 +166,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
                 }[size],
               ]),
               disabled: fsx(
-                `bg-shade-white-disabled placeholder:text-shade-light-default [-webkit-text-fill-color:currentColor_!important] text-shade-light-disabled cursor-not-allowed`
+                `bg-shade-white-disabled placeholder:text-shade-light-default [-webkit-text-fill-color:currentColor_!important] text-shade-light-disabled cursor-not-allowed`,
               ),
               input: fsx([
                 `font-sans text-r text-shade-dark-default placeholder:text-shade-light-default h-auto placeholder:opacity-100 focus:shadow-none p-0 w-auto grow`,

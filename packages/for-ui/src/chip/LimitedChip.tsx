@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { fsx } from '../system/fsx';
 import { MdClose } from 'react-icons/md';
+import { fsx } from '../system/fsx';
 import { Text } from '../text';
 import { ChipProps } from './Chip';
 

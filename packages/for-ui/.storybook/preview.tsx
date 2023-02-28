@@ -1,7 +1,7 @@
 import React from 'react';
 import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
-import '../styles/global.css';
 import '../styles/forty.css';
+import '../styles/global.css';
 
 export const parameters = {
   layout: 'fullscreen',

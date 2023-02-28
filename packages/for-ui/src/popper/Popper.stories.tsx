@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { Text } from '../text';
 import { Button } from '../button/Button';
 import { MenuItem } from '../menu';
+import { Text } from '../text';
 import { Popper } from './Popper';
 
 export default {

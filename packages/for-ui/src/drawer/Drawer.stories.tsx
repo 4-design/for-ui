@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Text } from '../text';
 import { Drawer, DrawerAnchor } from '.';
+import { Text } from '../text';
 
 export default {
   title: 'Feedback / Drawer',

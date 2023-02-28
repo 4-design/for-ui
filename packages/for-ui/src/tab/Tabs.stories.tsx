@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
+import { TabsProps } from '@mui/material';
 import { Meta, Story } from '@storybook/react/types-6-0';
+import { Badge } from '../badge';
 import { Text } from '../text';
 import { Tab } from './Tab';
 import { TabContext } from './TabContext';
 import { TabList } from './TabList';
 import { TabPanel } from './TabPanel';
-import { Badge } from '../badge';
-import { TabsProps } from '@mui/material';
 import { Tabs } from './Tabs';
 
 export default {

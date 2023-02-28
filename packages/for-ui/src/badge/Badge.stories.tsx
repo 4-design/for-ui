@@ -1,14 +1,14 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
-import { Badge } from './Badge';
 import {
-  MdPriorityHigh,
-  MdPersonOutline,
   MdDeleteOutline,
   MdOutlineEdit,
-  MdOutlinePhone,
   MdOutlineMail,
+  MdOutlinePhone,
+  MdPersonOutline,
+  MdPriorityHigh,
 } from 'react-icons/md';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import { Badge } from './Badge';
 
 const sampleIcons = {
   undefined,

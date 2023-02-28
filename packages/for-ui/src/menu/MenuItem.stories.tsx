@@ -1,8 +1,7 @@
 import React from 'react';
+import { MdDeleteOutline, MdOutlineEdit, MdOutlineMail, MdOutlinePhone } from 'react-icons/md';
 import { Meta, Story } from '@storybook/react/types-6-0';
-
 import { MenuItem } from './MenuItem';
-import { MdDeleteOutline, MdOutlineEdit, MdOutlinePhone, MdOutlineMail } from 'react-icons/md';
 
 const sampleIcons = {
   undefined,

@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, ComponentPropsWithRef } from 'react';
+import { ComponentPropsWithRef, forwardRef, ReactNode } from 'react';
 import { fsx } from '../system/fsx';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
 import { Text } from '../text';

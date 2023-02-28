@@ -3,8 +3,8 @@ import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Meta } from '@storybook/react/types-6-0';
-import { fsx } from '../system/fsx'
-import { Button } from '../button';;
+import { Button } from '../button';
+import { fsx } from '../system/fsx';
 import { Text } from '../text';
 import { Switch } from './Switch';
 import { SwitchGroup } from './SwitchGroup';

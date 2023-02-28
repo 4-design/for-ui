@@ -1,8 +1,8 @@
 import { forwardRef, ReactNode } from 'react';
+import { MdCheck } from 'react-icons/md';
 import MuiMenuItem, { MenuItemProps as MuiMenuItemProps } from '@mui/material/MenuItem';
 import { fsx } from '../system/fsx';
 import { Text } from '../text';
-import { MdCheck } from 'react-icons/md';
 
 export type MenuItemProps = Omit<MuiMenuItemProps, 'divider'> & {
   /**
@@ -97,5 +97,5 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
         </figure>
       )}
     </MuiMenuItem>
-  )
+  ),
 );

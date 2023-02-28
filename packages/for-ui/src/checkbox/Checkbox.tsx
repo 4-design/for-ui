@@ -1,9 +1,9 @@
 import { FC, forwardRef, ReactNode } from 'react';
+import { MdCheck, MdRemove } from 'react-icons/md';
 import MuiCheckbox, { CheckboxProps as MuiCheckboxProps } from '@mui/material/Checkbox';
 import { fsx } from '../system/fsx';
-import { Text } from '../text';
-import { MdCheck, MdRemove } from 'react-icons/md';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
+import { Text } from '../text';
 
 export type CheckboxProps = MuiCheckboxProps & {
   label?: ReactNode;

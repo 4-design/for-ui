@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { Tab, TabProps } from './Tab';
 import { Badge } from '../badge';
+import { Tab, TabProps } from './Tab';
 
 export default {
   title: 'Navigation / Tabs / Tab',

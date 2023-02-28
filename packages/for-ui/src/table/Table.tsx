@@ -19,9 +19,9 @@ import {
 import { Checkbox } from '../checkbox';
 import { Radio } from '../radio';
 import { fsx } from '../system/fsx';
+import { Text } from '../text';
 import { TableCell } from './TableCell';
 import { TablePagination } from './TablePagination';
-import { Text } from '../text';
 
 export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'columns' | 'getRowId'> & {
   disablePagination?: boolean | undefined;

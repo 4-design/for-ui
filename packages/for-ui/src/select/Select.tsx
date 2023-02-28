@@ -1,14 +1,14 @@
-import { ReactNode, forwardRef, Ref } from 'react';
-import Autocomplete, {
-  AutocompleteProps as MuiAutocompleteProps,
-  createFilterOptions,
-} from '@mui/material/Autocomplete';
-import { fsx } from '../system/fsx';
+import { forwardRef, ReactNode, Ref } from 'react';
 import { MdExpandMore } from 'react-icons/md';
+import Autocomplete, {
+  createFilterOptions,
+  AutocompleteProps as MuiAutocompleteProps,
+} from '@mui/material/Autocomplete';
 import { Chip } from '../chip';
 import { MenuItem, MenuList } from '../menu';
-import { TextField } from '../textField';
+import { fsx } from '../system/fsx';
 import { Text } from '../text';
+import { TextField } from '../textField';
 
 export type SelectOption = {
   label: string;
@@ -18,7 +18,7 @@ export type SelectOption = {
 export type AutocompleteProps<
   Value extends SelectOption,
   Multiple extends boolean | undefined,
-  FreeSolo extends boolean | undefined
+  FreeSolo extends boolean | undefined,
 > = Omit<MuiAutocompleteProps<Value, Multiple, true, FreeSolo, 'div'>, 'autoComplete' | 'renderInput' | 'size'> & {
   name: string;
   label?: ReactNode;

@@ -1,4 +1,4 @@
-import { ReactNode, Children, isValidElement } from 'react';
+import { Children, isValidElement, ReactNode } from 'react';
 
 // walkChildren visits children recursively for given ReactNode root.
 // If given f returns true, it will stop walking at the node (no more seeking children recursively).

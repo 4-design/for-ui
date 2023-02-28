@@ -1,16 +1,16 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
-import { action } from '@storybook/addon-actions';
-import { Chip } from './Chip';
-import { Text } from '../text';
 import {
   MdAttachFile,
   MdDeleteOutline,
-  MdOutlineEdit,
-  MdOutlinePhone,
-  MdOutlineMail,
   MdOutlineDownload,
+  MdOutlineEdit,
+  MdOutlineMail,
+  MdOutlinePhone,
 } from 'react-icons/md';
+import { action } from '@storybook/addon-actions';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import { Text } from '../text';
+import { Chip } from './Chip';
 
 const sampleIcons = {
   undefined,

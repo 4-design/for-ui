@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Meta } from '@storybook/react/types-6-0';
-
 import { MdCheck, MdSync } from 'react-icons/md';
+import { Meta } from '@storybook/react/types-6-0';
 import { Text } from '../text';
 import { Button, ButtonProps } from './Button';
 

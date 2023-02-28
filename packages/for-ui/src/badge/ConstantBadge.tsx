@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { fsx } from '../system/fsx';
-import { ConstantBadgeProps } from './Badge';
 import { Text } from '../text';
+import { ConstantBadgeProps } from './Badge';
 
 export const ConstantBadge: FC<Omit<ConstantBadgeProps, 'variant'>> = ({
   intention = 'subtle',
