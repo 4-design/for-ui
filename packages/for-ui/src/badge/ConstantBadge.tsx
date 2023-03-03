@@ -27,7 +27,7 @@ export const ConstantBadge: FC<Omit<ConstantBadgeProps, 'variant'>> = ({
   >
     <span
       className={fsx([
-        `flex w-4 flex-row items-start my-1 p-0.5 rounded-full icon-shade-white-default [&>svg]:w-full [&>svg]:h-full`,
+        `icon-shade-white-default my-1 flex w-4 flex-row items-start rounded-full p-0.5 [&>svg]:h-full [&>svg]:w-full`,
         {
           subtle: `bg-shade-medium-default`,
           shade: `bg-shade-dark-default`,

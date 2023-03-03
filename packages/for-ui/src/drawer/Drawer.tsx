@@ -117,7 +117,7 @@ export const Drawer: React.FC<Props> = ({
         >
           <MdMoreVert
             size="24"
-            className={fsx(['relative h-full', anchor === 'left' ? 'right-[6px]' : '-left-[6px]'])}
+            className={fsx(['relative h-full', anchor === 'left' ? 'right-[6px]' : 'left-[-6px]'])}
           />
         </span>
       </div>

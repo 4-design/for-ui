@@ -156,4 +156,4 @@ export const WithRadioGroup = () => {
   );
 };
 
-export const CustomLabel = () => <Radio label={<p className={fsx(`text-xl text-shade-medium-default`)}>hello</p>} />;
+export const CustomLabel = () => <Radio label={<p className={fsx(`text-shade-medium-default text-xl`)}>hello</p>} />;

@@ -31,7 +31,7 @@ const Indicator: FC<{ state: 'default' | 'checked' | 'intermediate' }> = ({ stat
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ label, nopadding = false, disabled, className, ...rest }, ref) => (
-    <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row gap-1 items-center`, className)}>
+    <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row items-center gap-1`, className)}>
       <MuiCheckbox
         icon={<Indicator state="default" />}
         checkedIcon={<Indicator state="checked" />}

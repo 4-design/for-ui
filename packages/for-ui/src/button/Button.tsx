@@ -166,7 +166,7 @@ const _Button = <As extends ElementType = 'button'>({
       aria-label={label || rest['aria-label'] || 'button'}
       aria-busy={loading}
       className={fsx([
-        `flex flex-row items-center justify-items-center relative rounded-1.5 font-sans w-fit h-fit outline-none [&_svg]:fill-inherit disabled:cursor-not-allowed`,
+        `rounded-1.5 relative flex h-fit w-fit flex-row items-center justify-items-center font-sans outline-none disabled:cursor-not-allowed [&_svg]:fill-inherit`,
         {
           text: {
             large: `px-4 py-2 gap-1`,
@@ -235,8 +235,8 @@ const _Button = <As extends ElementType = 'button'>({
       {children}
       {endIcon}
       {loading && (
-        <div className={fsx(`absolute grid place-items-center inset-0 w-full h-full`)}>
-          <Loader className={fsx(`[&:is(svg)]:fill-shade-dark-default [&:is(svg)]:w-6 [&:is(svg)]:h-6`)} />
+        <div className={fsx(`absolute inset-0 grid h-full w-full place-items-center`)}>
+          <Loader className={fsx(`[&:is(svg)]:fill-shade-dark-default [&:is(svg)]:h-6 [&:is(svg)]:w-6`)} />
         </div>
       )}
     </MuiButton>

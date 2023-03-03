@@ -9,15 +9,15 @@ export type SwitchProps = ComponentPropsWithRef<'input'> & {
 };
 
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({ label, disabled, className, ...rest }, ref) => (
-  <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row gap-1 items-center`, className)}>
+  <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row items-center gap-1`, className)}>
     <input
       type="checkbox"
       ref={ref}
       className={fsx([
-        `appearance-none bg-shade-medium-default rounded-full h-5 w-8 p-0.5 transition-all duration-100 cursor-pointer`,
-        `before:content-[''] before:block before:h-4 before:w-4 before:bg-shade-white-default before:rounded-full`,
+        `bg-shade-medium-default h-5 w-8 cursor-pointer appearance-none rounded-full p-0.5 transition-all duration-100`,
+        `before:bg-shade-white-default before:block before:h-4 before:w-4 before:rounded-full before:content-['']`,
         `checked:bg-primary-dark-default checked:pl-3.5`,
-        `disabled:cursor-not-allowed disabled:bg-shade-medium-disabled`,
+        `disabled:bg-shade-medium-disabled disabled:cursor-not-allowed`,
         `disabled:checked:bg-primary-dark-disabled`,
       ])}
       disabled={disabled}
