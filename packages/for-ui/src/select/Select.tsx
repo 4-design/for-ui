@@ -148,7 +148,7 @@ const _Select = <
       );
     }}
     classes={{
-      root: fsx(`bg-shade-white-default w-full p-0`, className),
+      root: fsx(`w-full p-0`, className),
       paper: fsx(`min-w-min`),
       inputRoot: fsx(`p-0`),
       tag: fsx(`m-0 max-w-[none]`),
