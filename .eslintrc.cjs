@@ -8,6 +8,7 @@ module.exports = {
     tailwindcss: {
       // NOTE: eslint の設定はデフォルトに合わせる
       config: 'packages/for-ui/tailwindcss.config.js',
+      callees: ['fsx'],
     },
   },
   rules: {},
