@@ -33,6 +33,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ label, nopadding = false, disabled, className, ...rest }, ref) => (
     <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row gap-1 items-center`, className)}>
       <MuiCheckbox
+        disableRipple
         icon={<Indicator state="default" />}
         checkedIcon={<Indicator state="checked" />}
         indeterminateIcon={<Indicator state="intermediate" />}
