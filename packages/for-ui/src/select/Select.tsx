@@ -156,7 +156,7 @@ const _Select = <
       input: fsx([`min-w-20`, disableFilter && `cursor-pointer caret-transparent`]),
       noOptions: fsx(`p-0`),
       endAdornment: fsx([
-        `static flex [&_svg]:icon-shade-dark-default border-x border-shade-light-default`,
+        `static flex [&_svg]:icon-shade-dark-default border-x border-shade-light-default [input:disabled+&_svg]:icon-shade-dark-disabled`,
         {
           large: `px-2`,
           medium: `px-1`,
