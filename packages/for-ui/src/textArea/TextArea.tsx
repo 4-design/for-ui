@@ -92,7 +92,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     ref,
   ) => {
     return (
-      <div className={fsx(`w-full flex flex-col gap-1`, className)}>
+      <div className={fsx(`flex w-full flex-col gap-1`, className)}>
         <Text as="label" className={fsx(`flex flex-col gap-1`)}>
           <TextDefaultStyler
             content={label}
@@ -113,7 +113,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             minRows={rows || minRows}
             maxRows={rows || maxRows}
             className={fsx([
-              `w-full bg-shade-white-default ring-shade-medium-default ring-inset ring-1 text-r text-shade-dark-default placeholder:text-shade-light-default rounded font-sans font-normal placeholder:opacity-100 focus-visible:outline-none focus-visible:ring-primary-medium-active focus-visible:ring-2`,
+              `bg-shade-white-default ring-shade-medium-default text-r text-shade-dark-default placeholder:text-shade-light-default focus-visible:ring-primary-medium-active w-full rounded font-sans font-normal ring-1 ring-inset placeholder:opacity-100 focus-visible:outline-none focus-visible:ring-2`,
               {
                 large: `py-2 px-4`,
                 medium: `py-1 px-2`,

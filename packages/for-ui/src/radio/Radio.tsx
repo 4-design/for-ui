@@ -19,14 +19,14 @@ const Indicator: FC<{ checked: boolean; disabled: boolean }> = ({ checked, disab
         ? `border-shade-medium-disabled`
         : checked
         ? `border-primary-dark-default`
-        : `border-shade-medium-default group-hover:border-2 group-hover:border-primary-dark-default`,
+        : `border-shade-medium-default group-hover:border-primary-dark-default group-hover:border-2`,
     ])}
   />
 );
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
   ({ nopadding, label, value, disabled, className, ...rest }, ref) => (
-    <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row gap-1 items-center`, className)}>
+    <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row items-center gap-1`, className)}>
       <MuiRadio
         disableRipple
         value={value}

@@ -47,7 +47,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
           transformOrigin={transformOrigin}
           classes={{
             root: fsx(className),
-            paper: fsx(`p-0 shadow-none overflow-visible`),
+            paper: fsx(`overflow-visible p-0 shadow-none`),
             list: fsx(style),
           }}
           {...bindMenu(popupState)}

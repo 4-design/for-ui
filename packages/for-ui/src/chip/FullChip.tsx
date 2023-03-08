@@ -14,7 +14,7 @@ export const FullChip: FC<Omit<ChipProps, 'clickableArea'>> = ({
   <button
     onClick={onClick}
     className={fsx([
-      `inline-flex flex-row gap-1 items-center justify-center rounded outline -outline-offset-1 outline-1 px-2 w-min break-keep shadow-attractive focus-visible:outline-none`,
+      `shadow-attractive inline-flex w-min flex-row items-center justify-center gap-1 break-keep rounded px-2 outline outline-1 -outline-offset-1 focus-visible:outline-none`,
       {
         shade: `bg-shade-white-default outline-shade-medium-default hover:bg-shade-white-hover focus-visible:bg-shade-white-hover`,
         primary: `bg-primary-light-default outline-primary-medium-default hover:bg-primary-light-hover focus-visible:bg-primary-light-hover`,
@@ -31,7 +31,7 @@ export const FullChip: FC<Omit<ChipProps, 'clickableArea'>> = ({
     {icon && (
       <span
         className={fsx([
-          `w-4 h-4 [&_svg]:w-full [&_svg]:h-full`,
+          `h-4 w-4 [&_svg]:h-full [&_svg]:w-full`,
           {
             shade: `icon-shade-dark-default`,
             primary: `icon-primary-dark-default`,

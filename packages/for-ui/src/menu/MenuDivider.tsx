@@ -10,7 +10,7 @@ export const MenuDivider = forwardRef<HTMLLIElement, MenuDividerProps>(({ classN
   <MuiMenuDivider
     ref={ref}
     component="li"
-    className={fsx(`border-shade-light-default m-0 [&.m-0]:m-0 border-b list-none`, className)}
+    className={fsx(`border-shade-light-default m-0 list-none border-b [&.m-0]:m-0`, className)}
     {...rest}
   />
 ));

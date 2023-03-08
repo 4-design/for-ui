@@ -14,7 +14,7 @@ export const LimitedChip: FC<Omit<ChipProps, 'clickableArea'>> = ({
 }) => (
   <span
     className={fsx([
-      `inline-flex flex-row gap-1 items-center justify-center rounded outline -outline-offset-1 outline-1 px-2 w-min break-keep pr-0 shadow-attractive`,
+      `shadow-attractive inline-flex w-min flex-row items-center justify-center gap-1 break-keep rounded px-2 pr-0 outline outline-1 -outline-offset-1`,
       {
         shade: `bg-shade-white-default outline-shade-medium-default`,
         primary: `bg-primary-light-default outline-primary-medium-default`,
@@ -46,7 +46,7 @@ export const LimitedChip: FC<Omit<ChipProps, 'clickableArea'>> = ({
     <button
       onClick={onClick}
       className={fsx([
-        `flex flex-row items-start outline -outline-offset-1 outline-1 p-1 rounded-r w-6 h-6 [&_svg]:w-full [&_svg]:h-full`,
+        `flex h-6 w-6 flex-row items-start rounded-r p-1 outline outline-1 -outline-offset-1 [&_svg]:h-full [&_svg]:w-full`,
         {
           shade: `icon-shade-dark-default hover:bg-shade-white-hover focus-visible:bg-shade-white-hover outline-shade-light-default hover:outline-shade-medium-default focus-visible:outline-shade-medium-default`,
           primary: `icon-primary-dark-default hover:bg-primary-light-hover focus-visible:bg-primary-light-hover outline-primary-light-default hover:outline-primary-medium-default focus-visible:outline-primary-medium-default`,

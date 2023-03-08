@@ -44,7 +44,7 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
       disabled={disabled}
       classes={{
         root: fsx([
-          `bg-shade-white-default text-r hover:bg-shade-white-hover whitespace-nowrap px-4 py-1 font-sans flex flex-row gap-2 focus-visible:bg-shade-white-active [&.Mui-focused]:bg-shade-white-active items-start`,
+          `bg-shade-white-default text-r hover:bg-shade-white-hover focus-visible:bg-shade-white-active [&.Mui-focused]:bg-shade-white-active flex flex-row items-start gap-2 whitespace-nowrap px-4 py-1 font-sans`,
           icon && `pl-2`,
           selected && `pr-2`,
           {
@@ -60,7 +60,7 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
       {icon && (
         <figure
           className={fsx([
-            `h-4 w-4 [&>svg]:h-full [&>svg]:w-full my-1 shrink-0`,
+            `my-1 h-4 w-4 shrink-0 [&>svg]:h-full [&>svg]:w-full`,
             {
               shade: `[&_svg]:fill-shade-medium-default`,
               negative: `[&_svg]:fill-negative-medium-default`,
@@ -71,7 +71,7 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
           {icon}
         </figure>
       )}
-      <Text className={fsx(`flex flex-col w-full`)}>
+      <Text className={fsx(`flex w-full flex-col`)}>
         <Text weight={selected ? 'bold' : 'inherit'} className={fsx(`whitespace-pre-wrap`)}>
           {children}
         </Text>
@@ -85,7 +85,7 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
       {selected && (
         <figure
           className={fsx([
-            `h-4 w-4 [&>svg]:h-full [&>svg]:w-full my-1 shrink-0`,
+            `my-1 h-4 w-4 shrink-0 [&>svg]:h-full [&>svg]:w-full`,
             {
               shade: `[&_svg]:fill-shade-dark-default`,
               negative: `[&_svg]:fill-negative-dark-default`,

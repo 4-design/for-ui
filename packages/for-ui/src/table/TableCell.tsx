@@ -13,7 +13,7 @@ export const TableCell = ({ component = 'td', className, children, ...rest }: Ta
       {component === 'td' ? (
         <td
           className={fsx([
-            'border-shade-light-default text-shade-dark-default border-b py-2 px-3 text-left text-r font-normal',
+            'border-shade-light-default text-shade-dark-default text-r border-b py-2 px-3 text-left font-normal',
             className,
           ])}
           {...rest}
@@ -23,7 +23,7 @@ export const TableCell = ({ component = 'td', className, children, ...rest }: Ta
       ) : (
         <th
           className={fsx([
-            'border-shade-light-default text-shade-dark-default border-b py-2 px-3 text-left text-r font-normal',
+            'border-shade-light-default text-shade-dark-default text-r border-b py-2 px-3 text-left font-normal',
             className,
           ])}
           {...rest}

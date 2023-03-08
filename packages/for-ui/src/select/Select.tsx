@@ -75,7 +75,7 @@ const _Select = <
       typeof option === 'string' ? option === v : option.inputValue === v.inputValue
     }
     noOptionsText={
-      <Text typeface="sansSerif" size="r" className={fsx(`flex py-1 px-4 text-shade-medium-default`)}>
+      <Text typeface="sansSerif" size="r" className={fsx(`text-shade-medium-default flex py-1 px-4`)}>
         {noOptionsText}
       </Text>
     }
@@ -124,7 +124,7 @@ const _Select = <
       <ul
         aria-label="選択済みアイテム"
         className={fsx([
-          `contents flex-row gap-1 w-min-content flex-wrap py-2`,
+          `w-min-content contents flex-row flex-wrap gap-1 py-2`,
           { large: `py-2`, medium: `py-1` }[size],
         ])}
       >
@@ -156,13 +156,13 @@ const _Select = <
       input: fsx([`min-w-20`, disableFilter && `cursor-pointer caret-transparent`]),
       noOptions: fsx(`p-0`),
       endAdornment: fsx([
-        `static flex [&_svg]:icon-shade-dark-default border-x border-shade-light-default [input:disabled+&_svg]:icon-shade-dark-disabled`,
+        `[&_svg]:icon-shade-dark-default border-shade-light-default [input:disabled+&_svg]:icon-shade-dark-disabled static flex border-x`,
         {
           large: `px-2`,
           medium: `px-1`,
         }[size],
       ]),
-      popupIndicator: fsx(`p-0 m-0`),
+      popupIndicator: fsx(`m-0 p-0`),
     }}
     renderInput={(params) => (
       <TextField

@@ -91,7 +91,7 @@ const Adornment: FC<{ size: 'large' | 'medium'; className?: string; children: st
     size="r"
     typeface="sansSerif"
     className={fsx([
-      `border-shade-light-default bg-shade-light-default max-h-[fit-content] h-full m-0 cursor-default text-shade-medium-default inline-flex break-keep`,
+      `border-shade-light-default bg-shade-light-default text-shade-medium-default m-0 inline-flex h-full max-h-[fit-content] cursor-default break-keep`,
       {
         large: `py-2 px-4`,
         medium: `py-1 px-2`,
@@ -127,7 +127,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     const id = passedId || innerId;
 
     return (
-      <div className={fsx(`w-full flex flex-col gap-1`, className)}>
+      <div className={fsx(`flex w-full flex-col gap-1`, className)}>
         <fieldset className={fsx(`contents`)}>
           {label && (
             <legend className={fsx(`contents`)}>
@@ -159,24 +159,24 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             placeholder={placeholder}
             classes={{
               root: fsx([
-                `bg-shade-white-default p-0 w-full flex flex-wrap gap-1`,
+                `bg-shade-white-default flex w-full flex-wrap gap-1 p-0`,
                 {
                   large: [`py-2 pl-2`, prefix && `py-0 pl-0`, suffix && `py-0 pr-0`],
                   medium: [`py-1 pl-1`, prefix && `py-0 pl-0`, suffix && `py-0 pr-0`],
                 }[size],
               ]),
               disabled: fsx(
-                `bg-shade-white-disabled placeholder:text-shade-light-default [-webkit-text-fill-color:currentColor_!important] text-shade-light-disabled cursor-not-allowed`,
+                `bg-shade-white-disabled placeholder:text-shade-light-default text-shade-light-disabled cursor-not-allowed [-webkit-text-fill-color:currentColor_!important]`,
               ),
               input: fsx([
-                `font-sans text-r text-shade-dark-default placeholder:text-shade-light-default h-auto placeholder:opacity-100 focus:shadow-none p-0 w-auto grow`,
+                `text-r text-shade-dark-default placeholder:text-shade-light-default h-auto w-auto grow p-0 font-sans placeholder:opacity-100 focus:shadow-none`,
                 {
                   large: [`px-2`, icon && `pl-1`],
                   medium: [`px-1`, icon && `pl-1`],
                 }[size],
               ]),
               notchedOutline: fsx([
-                `border border-shade-medium-default [.Mui-focused_&]:border-2 [.Mui-focused_&]:border-primary-medium-active`,
+                `border-shade-medium-default [.Mui-focused_&]:border-primary-medium-active border [.Mui-focused_&]:border-2`,
                 error && `border-negative-medium-default`,
                 disabled && `border-shade-medium-disabled`,
               ]),
