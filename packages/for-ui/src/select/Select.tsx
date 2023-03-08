@@ -148,7 +148,7 @@ const _Select = <
       );
     }}
     classes={{
-      root: fsx(`bg-shade-white-default w-full p-0`, className),
+      root: fsx(`w-full p-0`, className),
       paper: fsx(`min-w-min`),
       inputRoot: fsx(`p-0`),
       tag: fsx(`m-0 max-w-[none]`),
@@ -156,7 +156,7 @@ const _Select = <
       input: fsx([`min-w-20`, disableFilter && `cursor-pointer caret-transparent`]),
       noOptions: fsx(`p-0`),
       endAdornment: fsx([
-        `[&_svg]:icon-shade-dark-default border-shade-light-default static flex border-x`,
+        `[&_svg]:icon-shade-dark-default border-shade-light-default [input:disabled+&_svg]:icon-shade-dark-disabled static flex border-x`,
         {
           large: `px-2`,
           medium: `px-1`,
