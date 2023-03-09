@@ -36,6 +36,7 @@ export const Playground = {
     label: 'ラベル',
     required: false,
     disabled: false,
+    error: false,
   },
 };
 

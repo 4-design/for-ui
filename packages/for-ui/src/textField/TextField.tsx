@@ -131,22 +131,21 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
         <fieldset className={fsx(`contents`)}>
           {label && (
             <legend className={fsx(`contents`)}>
-              <TextDefaultStyler
-                content={label}
-                defaultRenderer={({ children, ...rest }) => (
-                  <Text
-                    as="label"
-                    htmlFor={id}
-                    weight="bold"
-                    size="s"
-                    className={fsx(`text-shade-medium-default`)}
-                    {...rest}
-                  >
-                    {children}
-                    {required && <Text className="text-negative-dark-default">*</Text>}
-                  </Text>
-                )}
-              />
+              <Text as="label" htmlFor={id} className="w-fit">
+                <TextDefaultStyler
+                  content={label}
+                  defaultRenderer={({ children, ...rest }) => (
+                    <Text weight="bold" size="s" className={fsx(`text-shade-medium-default`)} {...rest}>
+                      {children}
+                      {required && (
+                        <Text as="abbr" title="必須" className="text-negative-dark-default no-underline">
+                          *
+                        </Text>
+                      )}
+                    </Text>
+                  )}
+                />
+              </Text>
             </legend>
           )}
           <OutlinedInput
