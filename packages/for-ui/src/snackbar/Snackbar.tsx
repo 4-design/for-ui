@@ -70,9 +70,9 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
           <SnackbarContent
             message={message}
             className={fsx(
-              `rounded-2 bg-shade-dark-default shadow-more text-shade-white-default text-r flex w-[40rem] items-center justify-between gap-4 p-4`,
+              `rounded-2 bg-shade-dark-default shadow-more text-shade-white-default text-r flex w-[40rem] flex-nowrap items-center justify-between gap-4 p-4 font-sans`,
               `[&_.MuiSnackbarContent-message]:m-0 [&_.MuiSnackbarContent-message]:py-1`,
-              `[&_.MuiSnackbarContent-action]:m-0 [&_.MuiSnackbarContent-action]:p-0`,
+              `[&_.MuiSnackbarContent-action]:m-0 [&_.MuiSnackbarContent-action]:shrink-0 [&_.MuiSnackbarContent-action]:p-0`,
             )}
             action={
               action ||
