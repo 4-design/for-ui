@@ -564,6 +564,7 @@ module.exports = {
         none: 'none',
         attractive: '0px 2px 2px rgba(0, 0, 0, 0.05)',
         more: '0px 8px 24px rgba(0, 0, 0, 0.1)',
+        focus: '0 0 0 2px rgba(0, 0, 0, .12)',
       },
       fontFamily: {
         sans: ['YakuHanJP', 'Inter', 'Noto Sans JP', ...defaultTheme.fontFamily.sans],
