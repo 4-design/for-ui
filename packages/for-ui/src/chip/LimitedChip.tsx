@@ -46,7 +46,7 @@ export const LimitedChip: FC<Omit<ChipProps, 'clickableArea'>> = ({
     <button
       onClick={onClick}
       className={fsx([
-        `flex h-6 w-6 flex-row items-start rounded-r p-1 outline outline-1 -outline-offset-1 [&_svg]:h-full [&_svg]:w-full`,
+        `focus-visible:shadow-focus flex h-6 w-6 flex-row items-start rounded-r p-1 outline outline-1 -outline-offset-1 [&_svg]:h-full [&_svg]:w-full`,
         {
           shade: `icon-shade-dark-default hover:bg-shade-white-hover focus-visible:bg-shade-white-hover outline-shade-light-default hover:outline-shade-medium-default focus-visible:outline-shade-medium-default`,
           primary: `icon-primary-dark-default hover:bg-primary-light-hover focus-visible:bg-primary-light-hover outline-primary-light-default hover:outline-primary-medium-default focus-visible:outline-primary-medium-default`,

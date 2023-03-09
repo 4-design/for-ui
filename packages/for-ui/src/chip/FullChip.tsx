@@ -14,7 +14,7 @@ export const FullChip: FC<Omit<ChipProps, 'clickableArea'>> = ({
   <button
     onClick={onClick}
     className={fsx([
-      `shadow-attractive inline-flex w-min flex-row items-center justify-center gap-1 break-keep rounded px-2 outline outline-1 -outline-offset-1 focus-visible:outline-none`,
+      `shadow-attractive focus-visible:shadow-focus inline-flex w-min flex-row items-center justify-center gap-1 break-keep rounded px-2 outline outline-1 -outline-offset-1`,
       {
         shade: `bg-shade-white-default outline-shade-medium-default hover:bg-shade-white-hover focus-visible:bg-shade-white-hover`,
         primary: `bg-primary-light-default outline-primary-medium-default hover:bg-primary-light-hover focus-visible:bg-primary-light-hover`,

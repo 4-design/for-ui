@@ -14,7 +14,7 @@ export type CheckboxProps = MuiCheckboxProps & {
 const Indicator: FC<{ state: 'default' | 'checked' | 'intermediate' }> = ({ state }) => (
   <span
     className={fsx([
-      `h-4 w-4 rounded transition duration-100`,
+      `[.Mui-focusVisible_&]:shadow-focus h-4 w-4 rounded transition duration-100`,
       state === 'default' && `border-shade-medium-default border-2`,
       (state === 'checked' || state === 'intermediate') && `bg-primary-dark-default`,
     ])}
@@ -31,7 +31,7 @@ const Indicator: FC<{ state: 'default' | 'checked' | 'intermediate' }> = ({ stat
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ label, nopadding = false, disabled, className, ...rest }, ref) => (
-    <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row items-center gap-1`, className)}>
+    <Text as="label" className={fsx(`inline-flex w-[max-content] flex-row items-center gap-1`, className)}>
       <MuiCheckbox
         disableRipple
         icon={<Indicator state="default" />}
