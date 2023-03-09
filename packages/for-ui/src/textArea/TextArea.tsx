@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode } from 'react';
+import { forwardRef, ReactNode, useId } from 'react';
 import TextareaAutosize, { TextareaAutosizeProps } from '@mui/base/TextareaAutosize';
 import { fsx } from '../system/fsx';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
@@ -88,27 +88,37 @@ export type TextAreaProps = Omit<TextareaAutosizeProps, 'disabled' | 'className'
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
-    { className, size = 'large', minRows, maxRows, rows, error, disabled, helperText, label, required, ...props },
+    { className, size = 'large', minRows, maxRows, rows, error, disabled, helperText, label, required, id: passedId, ...props },
     ref,
   ) => {
+    const innerId = useId()
+    const id = passedId || innerId
     return (
       <div className={fsx(`flex w-full flex-col gap-1`, className)}>
-        <Text as="label" className={fsx(`flex flex-col gap-1`)}>
-          <TextDefaultStyler
-            content={label}
-            defaultRenderer={({ children, ...props }) => (
-              <Text {...props} size="s" weight="bold" className={fsx(`text-shade-medium-default`)}>
-                {children}
-                {children && required && (
-                  <Text className={fsx(`text-negative-dark-default`)} weight="regular">
-                    *
-                  </Text>
-                )}
+        <fieldset className={fsx(`contents`)}>
+          {label && (
+            <legend className={fsx(`contents`)}>
+              <Text as="label" htmlFor={id} className="w-fit">
+                <TextDefaultStyler
+                  content={label}
+                  defaultRenderer={({ children, ...rest }) => (
+                    <Text
+                      weight="bold"
+                      size="s"
+                      className={fsx(`text-shade-medium-default`)}
+                      {...rest}
+                    >
+                      {children}
+                      {required && <Text as="abbr" title="必須" className="text-negative-dark-default no-underline">*</Text>}
+                    </Text>
+                  )}
+                />
               </Text>
-            )}
-          />
+            </legend>
+          )}
           <TextareaAutosize
             {...props}
+            id={id}
             disabled={disabled}
             minRows={rows || minRows}
             maxRows={rows || maxRows}
@@ -124,7 +134,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             ])}
             ref={ref}
           />
-        </Text>
+        </fieldset>
         <TextDefaultStyler
           content={helperText}
           defaultRenderer={(props) => (
