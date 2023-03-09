@@ -88,11 +88,24 @@ export type TextAreaProps = Omit<TextareaAutosizeProps, 'disabled' | 'className'
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
-    { className, size = 'large', minRows, maxRows, rows, error, disabled, helperText, label, required, id: passedId, ...props },
+    {
+      className,
+      size = 'large',
+      minRows,
+      maxRows,
+      rows,
+      error,
+      disabled,
+      helperText,
+      label,
+      required,
+      id: passedId,
+      ...props
+    },
     ref,
   ) => {
-    const innerId = useId()
-    const id = passedId || innerId
+    const innerId = useId();
+    const id = passedId || innerId;
     return (
       <div className={fsx(`flex w-full flex-col gap-1`, className)}>
         <fieldset className={fsx(`contents`)}>
@@ -102,14 +115,13 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
                 <TextDefaultStyler
                   content={label}
                   defaultRenderer={({ children, ...rest }) => (
-                    <Text
-                      weight="bold"
-                      size="s"
-                      className={fsx(`text-shade-medium-default`)}
-                      {...rest}
-                    >
+                    <Text weight="bold" size="s" className={fsx(`text-shade-medium-default`)} {...rest}>
                       {children}
-                      {required && <Text as="abbr" title="必須" className="text-negative-dark-default no-underline">*</Text>}
+                      {required && (
+                        <Text as="abbr" title="必須" className="text-negative-dark-default no-underline">
+                          *
+                        </Text>
+                      )}
                     </Text>
                   )}
                 />

@@ -135,14 +135,13 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
                 <TextDefaultStyler
                   content={label}
                   defaultRenderer={({ children, ...rest }) => (
-                    <Text
-                      weight="bold"
-                      size="s"
-                      className={fsx(`text-shade-medium-default`)}
-                      {...rest}
-                    >
+                    <Text weight="bold" size="s" className={fsx(`text-shade-medium-default`)} {...rest}>
                       {children}
-                      {required && <Text as="abbr" title="必須" className="text-negative-dark-default no-underline">*</Text>}
+                      {required && (
+                        <Text as="abbr" title="必須" className="text-negative-dark-default no-underline">
+                          *
+                        </Text>
+                      )}
                     </Text>
                   )}
                 />
