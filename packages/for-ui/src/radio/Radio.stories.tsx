@@ -12,15 +12,9 @@ import { RadioGroup } from './RadioGroup';
 export default {
   title: 'Form / Radio',
   component: Radio,
-  decorators: [
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (Story: any) => (
-      <div className="mt-10 flex h-screen w-screen flex-col gap-4">
-        <Story />
-      </div>
-    ),
-  ],
 } as Meta;
+
+export const Playground = {};
 
 export const Base = (): JSX.Element => {
   const [selected, setSelected] = React.useState<string>();
@@ -65,7 +59,7 @@ export const WithLabel = (): JSX.Element => {
       <div className="mb-4 border-b">
         <Text as="h3" weight="bold" size="l">
           Radio
-        </Text>{' '}
+        </Text>
       </div>
 
       <div>
