@@ -18,6 +18,9 @@ export default {
 export const Playground = {
   args: {
     label: '',
+    disabled: false,
+    checked: false,
+    indeterminate: false,
   },
 };
 
