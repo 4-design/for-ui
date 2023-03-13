@@ -13,20 +13,16 @@ export type RadioProps = Omit<MuiRadioProps, 'ref'> & {
 const Indicator: FC<{ checked: boolean; disabled: boolean }> = ({ checked, disabled }) => (
   <span
     className={fsx([
-      'bg-shade-white-default h-4 w-4 rounded-full transition-[border-width,border-color] duration-100',
-      checked ? 'border-6' : 'group-hover:border-primary-dark-default border-2',
-      disabled
-        ? `border-shade-medium-disabled`
-        : checked
-        ? `border-primary-dark-default`
-        : `border-shade-medium-default group-hover:border-primary-dark-default group-hover:border-2`,
+      `bg-shade-white-default border-shade-medium-default h-4 w-4 rounded-full border-2 transition-[border-width,border-color] duration-100`,
+      checked && `border-primary-dark-default border-6`,
+      disabled && `border-shade-medium-disabled`,
     ])}
   />
 );
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
   ({ nopadding, label, value, disabled, className, ...rest }, ref) => (
-    <Text as="label" className={fsx(`group inline-flex w-[max-content] flex-row items-center gap-1`, className)}>
+    <Text as="label" className={fsx(`inline-flex w-fit flex-row items-center gap-1`, className)}>
       <MuiRadio
         disableRipple
         value={value}
@@ -35,7 +31,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         icon={<Indicator checked={false} disabled={!!disabled} />}
         checkedIcon={<Indicator checked={true} disabled={!!disabled} />}
         classes={{
-          root: fsx(`group hover:bg-transparent`, nopadding ? `p-0` : `p-1`),
+          root: fsx(nopadding ? `p-0` : `p-1`),
         }}
         {...rest}
       />
