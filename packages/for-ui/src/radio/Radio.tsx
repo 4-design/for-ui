@@ -13,7 +13,7 @@ export type RadioProps = Omit<MuiRadioProps, 'ref'> & {
 const Indicator: FC<{ checked: boolean; disabled: boolean }> = ({ checked, disabled }) => (
   <span
     className={fsx([
-      `bg-shade-white-default [.Mui-focusVisible_&]:shadow-focus h-4 w-4 rounded-full transition-[border-width,border-color] duration-100`,
+      `bg-shade-white-default [.Mui-focusVisible_&]:shadow-focused h-4 w-4 rounded-full transition-[border-width,border-color] duration-100`,
       checked ? `border-6` : `group-hover:border-primary-dark-default border-2`,
       disabled
         ? `border-shade-medium-disabled group-hover:border-shade-medium-disabled`

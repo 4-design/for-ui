@@ -585,7 +585,7 @@ module.exports = {
         disabled: '.4',
       },
       outline: {
-        focus: ['1px solid var(--primary-border-dark-default)', '1px'],
+        focused: ['1px solid var(--primary-border-dark-default)', '1px'],
       },
       zIndex: {
         '-1': '-1',
