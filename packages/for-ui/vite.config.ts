@@ -8,9 +8,7 @@ const externalPackages = Object.keys(pkg.peerDependencies || {});
 const regexesOfPackages = externalPackages.map((packageName) => new RegExp(`^${packageName}(/.*)?`));
 
 export default defineConfig(({ mode }) => ({
-  plugins: [
-    react() as PluginOption,
-  ],
+  plugins: [react() as PluginOption],
   build: {
     sourcemap: mode === 'production' ? false : 'inline',
     lib: {
