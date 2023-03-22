@@ -48,6 +48,7 @@ module.exports = {
         'promise/no-nesting': 'error',
 
         'import/no-default-export': 'error',
+        'import/no-extraneous-dependencies': 'error',
         'import/prefer-default-export': 'off', // disable opposite of 'import/no-default-export'
         '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
       },

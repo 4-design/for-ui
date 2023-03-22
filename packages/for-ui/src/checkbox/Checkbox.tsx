@@ -11,12 +11,15 @@ export type CheckboxProps = MuiCheckboxProps & {
   className?: string;
 };
 
-const Indicator: FC<{ state: 'default' | 'checked' | 'intermediate' }> = ({ state }) => (
+const Indicator: FC<{ state: 'default' | 'checked' | 'intermediate'; disabled: boolean }> = ({ state, disabled }) => (
   <span
     className={fsx([
-      `[.Mui-focusVisible_&]:shadow-focused h-4 w-4 rounded transition duration-100`,
-      state === 'default' && `border-shade-medium-default border-2`,
-      (state === 'checked' || state === 'intermediate') && `bg-primary-dark-default`,
+      `[.Mui-focusVisible_&]:shadow-focused bg-shade-white-default h-4 w-4 rounded transition duration-100`,
+      {
+        default: [`border-shade-medium-default border-2`, disabled && `border-shade-medium-disabled`],
+        checked: [`bg-primary-dark-default`, disabled && `bg-primary-dark-disabled`],
+        intermediate: [`bg-primary-dark-default`, disabled && `bg-primary-dark-disabled`],
+      }[state],
     ])}
   >
     {
@@ -31,12 +34,12 @@ const Indicator: FC<{ state: 'default' | 'checked' | 'intermediate' }> = ({ stat
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ label, nopadding = false, disabled, className, ...rest }, ref) => (
-    <Text as="label" className={fsx(`inline-flex w-[max-content] flex-row items-center gap-1`, className)}>
+    <Text as="label" className={fsx(`group inline-flex w-fit flex-row items-center gap-1`, className)}>
       <MuiCheckbox
         disableRipple
-        icon={<Indicator state="default" />}
-        checkedIcon={<Indicator state="checked" />}
-        indeterminateIcon={<Indicator state="intermediate" />}
+        icon={<Indicator state="default" disabled={!!disabled} />}
+        checkedIcon={<Indicator state="checked" disabled={!!disabled} />}
+        indeterminateIcon={<Indicator state="intermediate" disabled={!!disabled} />}
         disabled={disabled}
         className={fsx(nopadding ? 'p-0' : 'p-1')}
         inputRef={ref}
