@@ -20,8 +20,11 @@ jobs:
       - name: install
         run: npm install --no-save turbo-linux-64 && npm install
 
-      - name: Build
-        run: npm run build
-
       - name: Check lint
         run: npm run lint
+
+      - name: Test
+        run: npm run test
+
+      - name: Build
+        run: npm run build

@@ -19,5 +19,5 @@
     "emitDeclarationOnly": true
   },
   "include": ["./src", "./types"],
-  "exclude": ["./node_modules", "./dist", "./src/**/*.stories.tsx"]
+  "exclude": ["./node_modules", "./dist", "./src/**/*.stories.tsx", "./src/**/*.test.tsx"]
 }
