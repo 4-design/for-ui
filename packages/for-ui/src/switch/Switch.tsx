@@ -14,7 +14,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({ label, disabl
       type="checkbox"
       ref={ref}
       className={fsx([
-        `bg-shade-medium-default h-5 w-8 cursor-pointer appearance-none rounded-full p-0.5 transition-all duration-100`,
+        `bg-shade-medium-default focus-visible:shadow-focused h-5 w-8 cursor-pointer appearance-none rounded-full p-0.5 transition-all duration-100 focus-visible:outline-none`,
         `before:bg-shade-white-default before:block before:h-4 before:w-4 before:rounded-full before:content-['']`,
         `checked:bg-primary-dark-default checked:pl-3.5`,
         `disabled:bg-shade-medium-disabled disabled:cursor-not-allowed`,
