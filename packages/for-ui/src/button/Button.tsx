@@ -166,7 +166,7 @@ const _Button = <As extends ElementType = 'button'>({
       aria-label={label || rest['aria-label'] || 'button'}
       aria-busy={loading}
       className={fsx([
-        `rounded-1.5 relative flex h-fit w-fit flex-row items-center justify-items-center font-sans outline-none disabled:cursor-not-allowed [&_svg]:fill-inherit`,
+        `rounded-1.5 relative flex h-fit w-fit shrink-0 flex-row items-center justify-center font-sans outline-none disabled:cursor-not-allowed [&_svg]:fill-inherit`,
         {
           text: {
             large: `px-4 py-2 gap-1`,
