@@ -1,8 +1,9 @@
-import { cloneElement, forwardRef, Fragment, isValidElement, ReactElement, useState } from 'react';
+import { cloneElement, forwardRef, Fragment, isValidElement, ReactElement, useId, useState } from 'react';
 import MuiSnackbar, { SnackbarProps as MuiSnackbarProps } from '@mui/material/Snackbar';
 import SnackbarContent from '@mui/material/SnackbarContent';
 import { Button } from '../button';
 import { fsx } from '../system/fsx';
+import { Text } from '../text';
 
 export type SnackbarProps = MuiSnackbarProps & {
   /**
@@ -28,6 +29,7 @@ export type SnackbarProps = MuiSnackbarProps & {
 
 export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
   ({ TriggerComponent, autoHideDuration, onClose, onClick, message, action, className, ...rest }, ref) => {
+    const messageId = useId();
     const [open, setOpen] = useState(false);
     const Trigger =
       isValidElement(TriggerComponent) &&
@@ -68,7 +70,9 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
           {...rest}
         >
           <SnackbarContent
-            message={message}
+            aria-describedby={messageId}
+            role={autoHideDuration ? 'alert' : 'alertdialog'}
+            message={<Text id={messageId}>{message}</Text>}
             className={fsx(
               `rounded-2 bg-shade-dark-default shadow-more text-shade-white-default text-r flex w-[40rem] flex-nowrap items-center justify-between gap-4 p-4 font-sans`,
               `[&_.MuiSnackbarContent-message]:m-0 [&_.MuiSnackbarContent-message]:py-1`,
