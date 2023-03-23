@@ -14,7 +14,7 @@ export type CheckboxProps = MuiCheckboxProps & {
 const Indicator: FC<{ state: 'default' | 'checked' | 'intermediate'; disabled: boolean }> = ({ state, disabled }) => (
   <span
     className={fsx([
-      `bg-shade-white-default h-4 w-4 rounded transition duration-100`,
+      `[.Mui-focusVisible_&]:shadow-focused bg-shade-white-default h-4 w-4 rounded transition duration-100`,
       {
         default: [`border-shade-medium-default border-2`, disabled && `border-shade-medium-disabled`],
         checked: [`bg-primary-dark-default`, disabled && `bg-primary-dark-disabled`],
