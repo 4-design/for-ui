@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 import { Button } from '../button';
 import { Snackbar, SnackbarProps } from './Snackbar';
+import { SnackbarProvider } from './SnackbarContext';
 
 export default {
   title: 'Feedback / Snackbar',
@@ -53,3 +54,11 @@ export const StatefulAutoHide = () => {
     </Fragment>
   );
 };
+
+export const WithContext = () => (
+  <SnackbarProvider>
+    <Snackbar TriggerComponent={<Button>開く1</Button>} autoHideDuration={10} message="操作が完了しました1" />
+    <Snackbar TriggerComponent={<Button>開く2</Button>} message="操作が完了しました2" />
+    <Snackbar TriggerComponent={<Button>開く3</Button>} message="操作が完了しました3" />
+  </SnackbarProvider>
+);

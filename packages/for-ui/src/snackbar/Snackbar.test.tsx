@@ -4,6 +4,7 @@ import { render, screen, waitForElementToBeRemoved } from '@testing-library/reac
 import userEvent from '@testing-library/user-event';
 import { Button } from '../button';
 import { Snackbar } from './Snackbar';
+import { SnackbarProvider } from './SnackbarContext';
 
 describe('Snackbar with close button', () => {
   beforeAll(() => {
@@ -36,6 +37,21 @@ describe('Snackbar with close button', () => {
       timeout: 1000,
     });
   });
+  it('is immediately closed once other Snackbar is enqueued under SnackbarProvider', async () => {
+    const user = userEvent.setup();
+    render(
+      <SnackbarProvider>
+        <Snackbar TriggerComponent={<Button aria-haspopup="dialog">Snackbar1を開く</Button>} message="Snackbar1" />
+        <Snackbar TriggerComponent={<Button aria-haspopup="dialog">Snackbar2を開く</Button>} message="Snackbar2" />
+      </SnackbarProvider>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Snackbar1を開く' }));
+    expect(screen.queryByRole('alertdialog', { description: 'Snackbar1' })).toBeInTheDocument();
+    expect(screen.queryByRole('alertdialog', { description: 'Snackbar2' })).not.toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Snackbar2を開く' }));
+    expect(screen.queryByRole('alertdialog', { description: 'Snackbar1' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('alertdialog', { description: 'Snackbar2' })).toBeInTheDocument();
+  });
 });
 
 describe('Snackbar with auto close configuration', () => {
@@ -64,7 +80,7 @@ describe('Snackbar with auto close configuration', () => {
       />,
     );
     await user.click(screen.getByRole('button', { name: '開く' }));
-    expect(screen.getByRole('alert', { description: '操作が完了しました' })).toBeInTheDocument();
+    expect(screen.queryByRole('alert', { description: '操作が完了しました' })).toBeInTheDocument();
   });
   it('is closed after autoHideDuration passes', async () => {
     const user = userEvent.setup();

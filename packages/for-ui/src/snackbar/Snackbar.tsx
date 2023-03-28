@@ -1,9 +1,24 @@
-import { cloneElement, forwardRef, Fragment, isValidElement, ReactElement, useId, useState } from 'react';
-import MuiSnackbar, { SnackbarProps as MuiSnackbarProps } from '@mui/material/Snackbar';
-import SnackbarContent from '@mui/material/SnackbarContent';
+import {
+  cloneElement,
+  forwardRef,
+  Fragment,
+  isValidElement,
+  ReactElement,
+  SyntheticEvent,
+  useId,
+  useState,
+} from 'react';
+import {
+  SnackbarContent as NotistackSnackbarContent,
+  SnackbarContentProps as NotistackSnackbarContentProps,
+  SnackbarKey,
+} from 'notistack';
+import MuiSnackbar, { SnackbarProps as MuiSnackbarProps, SnackbarCloseReason } from '@mui/material/Snackbar';
+import MuiSnackbarContent, { SnackbarContentProps as MuiSnackbarContentProps } from '@mui/material/SnackbarContent';
 import { Button } from '../button';
 import { fsx } from '../system/fsx';
 import { Text } from '../text';
+import { useSnackbar } from './SnackbarContext';
 
 export type SnackbarProps = MuiSnackbarProps & {
   /**
@@ -21,6 +36,8 @@ export type SnackbarProps = MuiSnackbarProps & {
 
   /**
    * 操作の起点となるコンポーネントを指定
+   *
+   * ボタンを押すと即座に表示のように使うことができますが、通常はユーザーの操作と処理の完了は完全に同義ではないため、そのような場面では使用は非推奨です。
    */
   TriggerComponent?: ReactElement<{ onClick: () => void }>;
 
@@ -29,14 +46,30 @@ export type SnackbarProps = MuiSnackbarProps & {
 
 export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
   ({ TriggerComponent, autoHideDuration, onClose, onClick, message, action, className, ...rest }, ref) => {
-    const messageId = useId();
+    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+    const [key, setKey] = useState<SnackbarKey | undefined>();
     const [open, setOpen] = useState(false);
+    const handleClose = (e: Event | SyntheticEvent<HTMLDivElement, Event>, reason: SnackbarCloseReason) => {
+      onClose?.(e, reason);
+      closeSnackbar?.(key);
+      setOpen(false);
+    };
+    const handleOpen = () => {
+      const key = enqueueSnackbar?.(message, {
+        autoHide: !!autoHideDuration,
+        persist: !autoHideDuration,
+        onClose: handleClose,
+      });
+      if (key) {
+        setKey(key);
+        return;
+      }
+      setOpen(true);
+    };
     const Trigger =
       isValidElement(TriggerComponent) &&
       cloneElement(TriggerComponent, {
-        onClick() {
-          setOpen(true);
-        },
+        onClick: handleOpen,
       });
     return (
       <Fragment>
@@ -57,46 +90,63 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
               undefined;
             },
           }}
-          onClose={(e, reason) => {
-            onClose?.(e, reason);
-            setOpen(false);
-          }}
+          onClose={handleClose}
           // If autoHideDuration is specified, closable when clicking the snackbar
           onClick={(e) => {
             onClick?.(e);
-            autoHideDuration && onClose?.(e, 'escapeKeyDown');
-            autoHideDuration && setOpen(false);
+            autoHideDuration && handleClose(e, 'escapeKeyDown');
           }}
           {...rest}
         >
-          <SnackbarContent
-            aria-describedby={messageId}
-            role={autoHideDuration ? 'alert' : 'alertdialog'}
-            message={<Text id={messageId}>{message}</Text>}
-            className={fsx(
-              `rounded-2 bg-shade-dark-default shadow-more text-shade-white-default text-r flex w-[40rem] flex-nowrap items-center justify-between gap-4 p-4 font-sans`,
-              `[&_.MuiSnackbarContent-message]:m-0 [&_.MuiSnackbarContent-message]:py-1`,
-              `[&_.MuiSnackbarContent-action]:m-0 [&_.MuiSnackbarContent-action]:shrink-0 [&_.MuiSnackbarContent-action]:p-0`,
-            )}
-            action={
-              action ||
-              (!autoHideDuration && (
-                <Button
-                  intention="shade"
-                  variant="filled"
-                  size="medium"
-                  onClick={(e) => {
-                    onClose?.(e, 'escapeKeyDown');
-                    setOpen(false);
-                  }}
-                >
-                  閉じる
-                </Button>
-              ))
-            }
-          />
+          <SnackbarContent autoHide={!!autoHideDuration} message={message} onClose={handleClose} action={action} />
         </MuiSnackbar>
       </Fragment>
+    );
+  },
+);
+
+export type SnackbarContentProps = NotistackSnackbarContentProps & {
+  autoHide?: boolean;
+  onClose?: SnackbarProps['onClose'];
+  message?: MuiSnackbarContentProps['message'];
+  action?: MuiSnackbarContentProps['action'];
+};
+
+export const SnackbarContent = forwardRef<HTMLDivElement, SnackbarContentProps>(
+  ({ autoHide, message, action, onClose, onClick, className, ...rest }, ref) => {
+    const messageId = useId();
+    return (
+      <NotistackSnackbarContent
+        ref={ref}
+        aria-describedby={messageId}
+        role={autoHide ? 'alert' : 'alertdialog'}
+        className={fsx(
+          `rounded-2 bg-shade-dark-default shadow-more text-shade-white-default text-r flex w-[40rem] flex-nowrap items-center justify-between gap-4 p-4 font-sans`,
+          `[&_.MuiSnackbarContent-message]:m-0 [&_.MuiSnackbarContent-message]:py-1`,
+          `[&_.MuiSnackbarContent-action]:m-0 [&_.MuiSnackbarContent-action]:shrink-0 [&_.MuiSnackbarContent-action]:p-0`,
+          className,
+        )}
+        onClick={(e) => {
+          onClick?.(e);
+          autoHide && onClose?.(e, 'escapeKeyDown');
+        }}
+        {...rest}
+      >
+        <Text id={messageId}>{message}</Text>
+        {action ||
+          (!autoHide && (
+            <Button
+              intention="shade"
+              variant="filled"
+              size="medium"
+              onClick={(e) => {
+                onClose?.(e, 'escapeKeyDown');
+              }}
+            >
+              閉じる
+            </Button>
+          ))}
+      </NotistackSnackbarContent>
     );
   },
 );
