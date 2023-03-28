@@ -33,7 +33,7 @@ export type ConstantBadgeProps = BadgeInterface & {
   icon: ReactNode;
 };
 
-export type DyanmicBadgeProps = BadgeInterface & {
+export type DynamicBadgeProps = BadgeInterface & {
   /**
    * variantを指定
    *
@@ -47,7 +47,7 @@ export type DyanmicBadgeProps = BadgeInterface & {
   icon?: ReactNode;
 };
 
-export type BadgeProps = ConstantBadgeProps | DyanmicBadgeProps;
+export type BadgeProps = ConstantBadgeProps | DynamicBadgeProps;
 
 export const Badge: FC<BadgeProps> = ({ variant = 'text', icon, ...rest }) => {
   switch (variant) {

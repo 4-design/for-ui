@@ -6,7 +6,7 @@ const { default: withAlphaVariable } = require('tailwindcss/lib/util/withAlphaVa
 
 const plugin = require('tailwindcss/plugin');
 
-// fontSizes is separeted for the legacy support of fontSizes.
+// fontSizes is separated for the legacy support of fontSizes.
 // Once repalcing done, this should be written in config directly.
 
 const colors = {

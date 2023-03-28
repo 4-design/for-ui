@@ -112,7 +112,7 @@
 
 - [`75a1a14`](https://github.com/4-design/for-ui/commit/75a1a1479b0e08dc7c66b41e74c6d2fcedf8ff13) Thanks [@locona](https://github.com/locona)! - fix: Remove babel/core
 
-- [#997](https://github.com/4-design/for-ui/pull/997) [`e3ddac9`](https://github.com/4-design/for-ui/commit/e3ddac9f90f704cce4d633ff1847984ddbb733fe) Thanks [@locona](https://github.com/locona)! - fix(Button): html elemnt の変更を受け止めるようにする
+- [#997](https://github.com/4-design/for-ui/pull/997) [`e3ddac9`](https://github.com/4-design/for-ui/commit/e3ddac9f90f704cce4d633ff1847984ddbb733fe) Thanks [@locona](https://github.com/locona)! - fix(Button): html element の変更を受け止めるようにする
 
 ## 1.0.13
 
@@ -124,7 +124,7 @@
 
 - [#988](https://github.com/4-design/for-ui/pull/988) [`549187c`](https://github.com/4-design/for-ui/commit/549187ce88584e208195eeb80d795bb92952f40d) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Tabs): Tabs の divider を border を使うように変更する
 
-- [#995](https://github.com/4-design/for-ui/pull/995) [`4c50daa`](https://github.com/4-design/for-ui/commit/4c50daab8a04df7bd4cd263070197617e50a4a44) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextField, TextArea): required の表示を label が存在するときのみ表示するように修正
+- [#995](https://github.com/4-design/for-ui/pull/995) [`4c50data`](https://github.com/4-design/for-ui/commit/4c50daab8a04df7bd4cd263070197617e50a4a44) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextField, TextArea): required の表示を label が存在するときのみ表示するように修正
 
 - [#990](https://github.com/4-design/for-ui/pull/990) [`1647212`](https://github.com/4-design/for-ui/commit/16472125d0b3e45d00d325a661d9ec302ccbf6e1) Thanks [@locona](https://github.com/locona)! - chore: Upgrade vite v3 -> v4 and use vite/plugin-react-swc
 
@@ -158,7 +158,7 @@
 
 - [#951](https://github.com/4-design/for-ui/pull/951) [`bffaaa5`](https://github.com/4-design/for-ui/commit/bffaaa5b48d972945fd407370e68c16fc55e1d1f) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: `tailwind.config.base.js`の typo を修正
 
-- [#953](https://github.com/4-design/for-ui/pull/953) [`f69485e`](https://github.com/4-design/for-ui/commit/f69485eb26ce537470fed7999b60d68be7d940e7) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextArea): packge から export するように修正
+- [#953](https://github.com/4-design/for-ui/pull/953) [`f69485e`](https://github.com/4-design/for-ui/commit/f69485eb26ce537470fed7999b60d68be7d940e7) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextArea): package から export するように修正
 
 ## 1.0.8
 
