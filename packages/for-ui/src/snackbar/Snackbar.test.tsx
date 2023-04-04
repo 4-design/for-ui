@@ -38,6 +38,12 @@ describe('Snackbar with close button', () => {
       timeout: 1000,
     });
   });
+  it('is not closed body of Snackbar is clicked', async () => {
+    const user = userEvent.setup();
+    render(<Snackbar TriggerComponent={<Button>開く</Button>} autoHide={false} message="操作が完了しました" />);
+    user.click(screen.getByRole('alertdialog', { description: '操作が完了しました' }));
+    await expect(screen.queryByRole('alertdialog', { description: '操作が完了しました' })).toBeInTheDocument();
+  });
   it('is opened under SnackbarProvider', async () => {
     const user = userEvent.setup();
     const Inner = () => {
@@ -139,6 +145,21 @@ describe('Snackbar with auto hiding configuration', () => {
       />,
     );
     await user.click(screen.getByRole('button', { name: '開く' }));
+    await waitForElementToBeRemoved(screen.queryByRole('alert', { description: '操作が完了しました' }), {
+      timeout: 1000,
+    });
+  });
+  it('is closed body of Snackbar is clicked', async () => {
+    const user = userEvent.setup();
+    render(
+      <Snackbar
+        TriggerComponent={<Button>開く</Button>}
+        message="操作が完了しました"
+        autoHide
+        autoHideDuration={100}
+      />,
+    );
+    user.click(screen.getByRole('alert', { description: '操作が完了しました' }));
     await waitForElementToBeRemoved(screen.queryByRole('alert', { description: '操作が完了しました' }), {
       timeout: 1000,
     });
