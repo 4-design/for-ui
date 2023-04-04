@@ -25,13 +25,27 @@ describe('Snackbar with close button', () => {
   });
   it('appears when TriggerComponent is pushed', async () => {
     const user = userEvent.setup();
-    render(<Snackbar TriggerComponent={<Button aria-haspopup="dialog">開く</Button>} autoHide={false} autoHideDuration={100} message="操作が完了しました" />);
+    render(
+      <Snackbar
+        TriggerComponent={<Button aria-haspopup="dialog">開く</Button>}
+        autoHide={false}
+        autoHideDuration={100}
+        message="操作が完了しました"
+      />,
+    );
     await user.click(screen.getByRole('button', { name: '開く' }));
     expect(screen.getByRole('alertdialog', { description: '操作が完了しました' })).toBeInTheDocument();
   });
   it('is closed when clicking close button', async () => {
     const user = userEvent.setup();
-    render(<Snackbar TriggerComponent={<Button aria-haspopup="dialog">開く</Button>} autoHide={false} autoHideDuration={100} message="操作が完了しました" />);
+    render(
+      <Snackbar
+        TriggerComponent={<Button aria-haspopup="dialog">開く</Button>}
+        autoHide={false}
+        autoHideDuration={100}
+        message="操作が完了しました"
+      />,
+    );
     await user.click(screen.getByRole('button', { name: '開く' }));
     user.click(screen.getByRole('button', { name: '閉じる' }));
     await waitForElementToBeRemoved(screen.queryByRole('alertdialog', { description: '操作が完了しました' }), {
@@ -40,13 +54,27 @@ describe('Snackbar with close button', () => {
   });
   it('is not closed after autoHideDuration passes', async () => {
     const user = userEvent.setup();
-    render(<Snackbar TriggerComponent={<Button>開く</Button>} autoHide={false} autoHideDuration={0} message="操作が完了しました" />);
+    render(
+      <Snackbar
+        TriggerComponent={<Button>開く</Button>}
+        autoHide={false}
+        autoHideDuration={0}
+        message="操作が完了しました"
+      />,
+    );
     await user.click(screen.getByRole('button', { name: '開く' }));
     await expect(screen.queryByRole('alertdialog', { description: '操作が完了しました' })).toBeInTheDocument();
   });
   it('is not closed when body of Snackbar is clicked', async () => {
     const user = userEvent.setup();
-    render(<Snackbar TriggerComponent={<Button>開く</Button>} autoHide={false} autoHideDuration={100} message="操作が完了しました" />);
+    render(
+      <Snackbar
+        TriggerComponent={<Button>開く</Button>}
+        autoHide={false}
+        autoHideDuration={100}
+        message="操作が完了しました"
+      />,
+    );
     await user.click(screen.getByRole('button', { name: '開く' }));
     user.click(screen.getByRole('alertdialog', { description: '操作が完了しました' }));
     await expect(screen.queryByRole('alertdialog', { description: '操作が完了しました' })).toBeInTheDocument();
@@ -90,7 +118,7 @@ describe('Snackbar with close button', () => {
               openSnackbar({
                 message: 'Snackbar1',
                 autoHide: false,
-                autoHideDuration: 100,  
+                autoHideDuration: 100,
               });
             }}
           >
@@ -102,7 +130,7 @@ describe('Snackbar with close button', () => {
               openSnackbar({
                 message: 'Snackbar2',
                 autoHide: false,
-                autoHideDuration: 100,  
+                autoHideDuration: 100,
               });
             }}
           >

@@ -1,9 +1,9 @@
 import { Fragment, useState } from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 import { Button } from '../button';
+import { Text } from '../text';
 import { Snackbar, SnackbarProps } from './Snackbar';
 import { SnackbarProvider, useSnackbar } from './SnackbarContext';
-import { Text } from '../text';
 
 export default {
   title: 'Feedback / Snackbar',
@@ -73,7 +73,9 @@ export const WithContext = () => {
   };
   return (
     <SnackbarProvider>
-      <Text>Snackbarは1画面に1つのみ表示することを強く推奨しています。この挙動はSnackbarProviderを使うことで簡単に実現できます。</Text>
+      <Text>
+        Snackbarは1画面に1つのみ表示することを強く推奨しています。この挙動はSnackbarProviderを使うことで簡単に実現できます。
+      </Text>
       <App />
     </SnackbarProvider>
   );
