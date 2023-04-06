@@ -10,6 +10,7 @@ export * from './radio';
 export * from './popper';
 export * from './select';
 export * from './skeleton';
+export * from './snackbar';
 export * from './stepper';
 export * from './switch';
 export * from './text';
