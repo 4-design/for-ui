@@ -1,5 +1,11 @@
 # @3design/eslint-config
 
+## 1.0.9
+
+### Patch Changes
+
+- [#1103](https://github.com/4-design/for-ui/pull/1103) [`43e0e14`](https://github.com/4-design/for-ui/commit/43e0e148d8076d55d20cca0dd93ab5719fb10dd4) Thanks [@Qs-F](https://github.com/Qs-F)! - feat: 暗黙的に import されている dependencies をエラーにする
+
 ## 1.0.8
 
 ### Patch Changes
