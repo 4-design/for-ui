@@ -69,6 +69,7 @@ const colors = {
       },
       medium: {
         default: 'var(--shade-icon-medium-default)',
+        active: 'var(--shade-icon-medium-active)',
         disabled: 'var(--shade-icon-medium-disabled)',
       },
       white: {
