@@ -65,10 +65,7 @@ type Props = MuiDrawerProps & {
 
 const defaultMinWidth = 320;
 
-const DragHandle: FC<{ dragging: boolean } & ButtonHTMLAttributes<HTMLButtonElement>> = ({
-  dragging,
-  ...rest
-}) => (
+const DragHandle: FC<{ dragging: boolean } & ButtonHTMLAttributes<HTMLButtonElement>> = ({ dragging, ...rest }) => (
   <button
     {...rest}
     aria-label="左右にドラッグしてドロワーのサイズを調整"
@@ -129,7 +126,7 @@ export const Drawer: FC<Props> = ({
         Root: 'aside',
       }}
       classes={{
-        root: fsx([`z-modal [&_.MuiBackdrop-root]:bg-[#0000004D]`, dragging && `cursor-[ew-resize]`, className]), 
+        root: fsx([`z-modal [&_.MuiBackdrop-root]:bg-[#0000004D]`, dragging && `cursor-[ew-resize]`, className]),
         paper: fsx([
           `shadow-more border-shade-light-default flex h-full max-w-[calc(100%_-_16px)] flex-row`,
           {
@@ -153,9 +150,7 @@ export const Drawer: FC<Props> = ({
       transitionDuration={200}
       {...rest}
     >
-      {!fixedWidth && anchor === 'right' && (
-        <DragHandle onPointerDown={onDragStart} dragging={dragging} />
-      )}
+      {!fixedWidth && anchor === 'right' && <DragHandle onPointerDown={onDragStart} dragging={dragging} />}
       <div className={fsx(`flex w-full flex-col`)}>
         <nav
           className={fsx(
@@ -170,9 +165,7 @@ export const Drawer: FC<Props> = ({
         </nav>
         <article className={fsx(`flex flex-col gap-1 p-4`)}>{children}</article>
       </div>
-      {!fixedWidth && anchor === 'left' && (
-        <DragHandle onPointerDown={onDragStart} dragging={dragging} />
-      )}
+      {!fixedWidth && anchor === 'left' && <DragHandle onPointerDown={onDragStart} dragging={dragging} />}
     </MuiDrawer>
   );
 };

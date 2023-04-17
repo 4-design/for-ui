@@ -1,11 +1,7 @@
-import React, { Fragment, useState } from 'react';
-import { MdOutlineHistory, MdOutlineShare } from 'react-icons/md';
+import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Drawer, drawerAnchorPositions } from '.';
-import { Badge } from '../badge';
-import { Button } from '../button';
 import { Text } from '../text';
-import { fsx } from '../system/fsx';
+import { Drawer, drawerAnchorPositions } from './Drawer';
 
 export default {
   title: 'Feedback / Drawer',
