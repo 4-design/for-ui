@@ -86,6 +86,7 @@
   --shade-icon-dark-default: var(--shade-90);
   --shade-icon-dark-disabled: var(--shade-40);
   --shade-icon-medium-default: var(--shade-50);
+  --shade-icon-medium-active: var(--shade-60);
   --shade-icon-medium-disabled: var(--shade-40);
   --shade-icon-white-default: var(--shade-10);
 
