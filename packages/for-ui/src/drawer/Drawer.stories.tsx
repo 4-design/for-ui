@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
+import { MdOutlineHistory, MdOutlineShare } from 'react-icons/md';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Drawer, DrawerAnchor } from '.';
+import { Drawer, drawerAnchorPositions } from '.';
+import { Badge } from '../badge';
+import { Button } from '../button';
 import { Text } from '../text';
+import { fsx } from '../system/fsx';
 
 export default {
   title: 'Feedback / Drawer',
@@ -14,7 +18,7 @@ export default {
   },
   decorators: [
     (Story: Story) => (
-      <div className="w-184">
+      <div className="w-full">
         <div className="mb-4 border-b">
           <Text as="h3" size="l" weight="bold">
             Drawer
@@ -56,11 +60,25 @@ WithHeaderChildren.args = {
 export const AnchorLeft = Template.bind({});
 AnchorLeft.args = {
   open: true,
-  anchor: DrawerAnchor.left,
+  anchor: drawerAnchorPositions.left,
 };
 
 export const AnchorRight = Template.bind({});
 AnchorRight.args = {
   open: true,
-  anchor: DrawerAnchor.right,
+  anchor: drawerAnchorPositions.right,
+};
+
+export const FixedWidthLeft = Template.bind({});
+FixedWidthLeft.args = {
+  open: true,
+  width: 640,
+  anchor: drawerAnchorPositions.left,
+};
+
+export const FixedWidthRight = Template.bind({});
+FixedWidthRight.args = {
+  open: true,
+  width: 640,
+  anchor: drawerAnchorPositions.right,
 };
