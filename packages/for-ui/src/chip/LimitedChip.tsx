@@ -14,7 +14,7 @@ export const LimitedChip: FC<Omit<ChipProps, 'clickableArea'>> = ({
 }) => (
   <span
     className={fsx([
-      `shadow-attractive inline-flex w-min flex-row items-center justify-center gap-1 break-keep rounded px-2 pr-0 outline outline-1 -outline-offset-1`,
+      `shadow-attractive inline-flex h-fit w-fit flex-row items-center justify-center gap-1 break-keep rounded px-2 pr-0 outline outline-1 -outline-offset-1`,
       {
         shade: `bg-shade-white-default outline-shade-medium-default`,
         primary: `bg-primary-light-default outline-primary-medium-default`,
