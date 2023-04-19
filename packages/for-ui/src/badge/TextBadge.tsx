@@ -6,7 +6,7 @@ import { BadgeProps } from './Badge';
 export const TextBadge: FC<Omit<BadgeProps, 'variant'>> = ({ intention = 'subtle', icon, label, className }) => (
   <span
     className={fsx([
-      `flex w-fit flex-row items-center justify-center gap-1 rounded px-2`,
+      `flex h-fit w-fit flex-row items-center justify-center gap-1 rounded px-2`,
       {
         subtle: `bg-shade-light-default text-shade-dark-default`,
         shade: `bg-shade-white-default text-shade-dark-default`,
