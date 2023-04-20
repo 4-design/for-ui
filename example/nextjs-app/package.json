@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@4design/for-ui": "*",
-    "@emotion/react": "11.10.5",
-    "@emotion/styled": "11.10.5",
+    "@emotion/react": "11.10.6",
+    "@emotion/styled": "11.10.6",
     "@mui/lab": "5.0.0-alpha.127",
     "@mui/material": "5.12.1",
     "next": "latest",

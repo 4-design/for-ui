@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@4design/for-ui": "1.0.13",
-    "@emotion/react": "11.10.5",
-    "@emotion/styled": "11.10.5",
+    "@emotion/react": "11.10.6",
+    "@emotion/styled": "11.10.6",
     "@googlemaps/markerclusterer": "2.0.15",
     "@googlemaps/markerwithlabel": "2.0.14",
     "@googlemaps/react-wrapper": "1.1.35",
