@@ -3,7 +3,7 @@ import { FC, isValidElement, ReactElement, ReactNode } from 'react';
 export type TextDefaultStylerProps = {
   /**
    * 適用されるラベル等を指定
-   * 
+   *
    * contentがstringやnumberなどReactElementではない場合にdefaultRendererを用いて描画されます。
    * contentがReactElementの場合はdefaultRendererを用いずにそのまま描画されます。
    */
