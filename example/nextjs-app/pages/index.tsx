@@ -26,7 +26,7 @@ const IndexPage = () => (
         <MenuItem>オプション B</MenuItem>
       </Menu>
     </div>
-    <Dropzone files={[]} onDrop={() => void 0} onRemove={() => void 0} />
+    <Dropzone files={[]} onDrop={() => void 0} onRemove={() => () => void 0} />
     <Button variant="filled" intention="primary">
       <MdOutlineCheck />
       完了
