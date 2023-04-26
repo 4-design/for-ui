@@ -26,6 +26,9 @@ jobs:
       run:
         working-directory: example/vite-app
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
       - run: npm install --no-save turbo-linux-64
       - run: npm ci
       - run: npx yalc link @4design/for-ui
@@ -39,6 +42,9 @@ jobs:
       run:
         working-directory: example/nextjs-app
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
       - run: npm install --no-save turbo-linux-64
       - run: npm ci
       - run: npx yalc link @4design/for-ui
