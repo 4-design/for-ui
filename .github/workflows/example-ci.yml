@@ -1,0 +1,46 @@
+name: CI for Example
+on: [pull_request]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+      - run: npm install --no-save turbo-linux-64
+      - run: npm ci
+      - run: npm run build
+        working-directory: packages/for-ui
+      - run: npx yalc publish 
+        working-directory: packages/for-ui
+
+  build-vite:
+    runs-on: ubuntu-latest
+    needs: setup
+    defaults:
+      run:
+        working-directory: example/vite-app
+    steps:
+      - run: npm install --no-save turbo-linux-64
+      - run: npm ci
+      - run: npx yalc link @4design/for-ui
+      - run: npx yalc update
+      - run: npm run build
+
+  build-nextjs:
+    runs-on: ubuntu-latest
+    needs: setup
+    defaults:
+      run:
+        working-directory: example/nextjs-app
+    steps:
+      - run: npm install --no-save turbo-linux-64
+      - run: npm ci
+      - run: npx yalc link @4design/for-ui
+      - run: npx yalc update
+      - run: npm run build
