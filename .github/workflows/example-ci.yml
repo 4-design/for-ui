@@ -16,7 +16,7 @@ jobs:
       - run: npm ci
       - run: npm run build
         working-directory: packages/for-ui
-      - run: npx yalc publish 
+      - run: npx yalc publish
         working-directory: packages/for-ui
 
   build-vite:
