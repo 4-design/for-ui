@@ -23,7 +23,7 @@ jobs:
       - run: npx yalc update
         working-directory: example/vite-app
       - run: npm ci
-        working-directory: example/nextjs-app
+        working-directory: example/vite-app
       - run: npm run build
         working-directory: example/vite-app
 
