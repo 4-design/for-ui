@@ -86,7 +86,7 @@ describe('Uncontrolled Checkbox with RHF', () => {
     });
     render(<Form />);
     await user.click(screen.getByRole('checkbox', { name: 'checkbox' }));
-    await submit(user);
+    await submit();
     expect(onSubmit).toHaveReturnedWith({
       checkbox: true,
     });
@@ -104,7 +104,6 @@ describe('Uncontrolled Checkbox with RHF', () => {
     );
   });
   it('is checked if defaultValue is checked', async () => {
-    const user = userEvent.setup();
     const onSubmit = vi.fn((value) => value);
     const { Form, submit } = withRHF<{ checkbox: boolean }>({
       onSubmit,
@@ -116,7 +115,7 @@ describe('Uncontrolled Checkbox with RHF', () => {
       Component: ({ register }) => <Checkbox label="checkbox" {...register('checkbox')} />,
     });
     render(<Form />);
-    await submit(user);
+    await submit();
     expect(onSubmit).toHaveReturnedWith({
       checkbox: true,
     });

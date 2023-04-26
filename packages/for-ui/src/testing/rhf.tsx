@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { FieldValues, useForm, UseFormProps, UseFormRegister } from 'react-hook-form';
 import { act, fireEvent, screen } from '@testing-library/react';
-import { UserEvent } from '@testing-library/user-event/dist/types/setup/setup';
 
 export const withRHF = <Value extends FieldValues>({
   useFormOptions,
@@ -13,7 +12,7 @@ export const withRHF = <Value extends FieldValues>({
   Component: FC<{ register: UseFormRegister<Value> }>;
 }): {
   Form: FC;
-  submit: (user: UserEvent) => Promise<void>;
+  submit: () => Promise<void>;
 } => {
   return {
     Form: (): JSX.Element => {
