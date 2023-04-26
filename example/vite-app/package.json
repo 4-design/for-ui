@@ -1,6 +1,6 @@
 {
   "name": "@4design/vite-app",
-  "version": "1.0.7",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "tsc && vite build",
@@ -37,6 +37,10 @@
     "prettier": "2.8.8",
     "tailwindcss": "3.3.1",
     "typescript": "4.9.5",
-    "vite": "3.2.5"
+    "vite": "3.2.5",
+    "yalc": "^1.0.0-pre.53"
+  },
+  "volta": {
+    "node": "16.20.0"
   }
 }
