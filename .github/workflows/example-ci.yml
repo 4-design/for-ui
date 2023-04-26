@@ -22,6 +22,8 @@ jobs:
         working-directory: example/vite-app
       - run: npx yalc update
         working-directory: example/vite-app
+      - run: npm ci
+        working-directory: example/nextjs-app
       - run: npm run build
         working-directory: example/vite-app
 
@@ -44,6 +46,8 @@ jobs:
       - run: npx yalc link @4design/for-ui
         working-directory: example/nextjs-app
       - run: npx yalc update
+        working-directory: example/nextjs-app
+      - run: npm ci
         working-directory: example/nextjs-app
       - run: npm run build
         working-directory: example/nextjs-app
