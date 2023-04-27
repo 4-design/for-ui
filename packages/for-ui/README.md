@@ -79,7 +79,10 @@ preset: [require('@4design/for-ui/tailwind.config.base.js')],
 #### 共通フォントの読み込み
 
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
 ```
 
 またはこれに相当するものを置いてください
@@ -98,7 +101,7 @@ important: true;
 
 を指定
 
-(複数のimportantが必要な場合は[こちら](https://github.com/4-design/for-ui/discussions/1093)を参考にしてください)
+(複数の important が必要な場合は[こちら](https://github.com/4-design/for-ui/discussions/1093)を参考にしてください)
 
 #### `tailwind.config.js` 設定例
 
