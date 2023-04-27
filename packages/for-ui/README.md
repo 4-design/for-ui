@@ -1,6 +1,6 @@
 <h1 align="center">
-  <img width="240" src=".github/assets/fui_logo_logotype_light.svg#gh-light-mode-only" alt="For UI" title="For UI">
-  <img width="240" src=".github/assets/fui_logo_logotype_dark.svg#gh-dark-mode-only">
+  <img width="240" src="/.github/assets/fui_logo_logotype_light.svg#gh-light-mode-only" alt="For UI" title="For UI">
+  <img width="240" src="/.github/assets/fui_logo_logotype_dark.svg#gh-dark-mode-only">
 </h1>
 
 <div align="center">
@@ -12,7 +12,7 @@
 
 For UI は <a href="https://3-shake.com">株式会社スリーシェイク</a>のデザインシステム「For Design System」のデザイントークンとコンポーネントライブラリを実装したパッケージです。
 
-React と Tailwind CSS で作られています。
+React と MUI と Tailwind CSS で作られています。
 
 ## インストール
 
@@ -34,8 +34,10 @@ npm i --save-dev @types/react
 #### Tailwind CSS の CSS を読み込む
 
 - `global.css` (名前は任意) を作成
+
   - 以下の内容を置く
-    ```css
+
+```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -46,7 +48,8 @@ npm i --save-dev @types/react
     @apply text-shade-dark-default text-r font-sans antialiased;
   }
 }
-    ```
+```
+
 - `app.tsx` で `global.css` を読み込む
 
 #### `postcss.config.js` の作成
@@ -73,6 +76,14 @@ plugins: {
 preset: [require('@4design/for-ui/tailwind.config.base.js')],
 ```
 
+#### 共通フォントの読み込み
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+```
+
+またはこれに相当するものを置いてください
+
 #### MUI のスタイル上書きのための import 設定
 
 ```js
@@ -86,6 +97,8 @@ important: true;
 ```
 
 を指定
+
+(複数のimportantが必要な場合は[こちら](https://github.com/4-design/for-ui/discussions/1093)を参考にしてください)
 
 #### `tailwind.config.js` 設定例
 
