@@ -87,7 +87,7 @@ preset: [require('@4design/for-ui/tailwind.config.base.js')],
 
 またはこれに相当するものを置いてください
 
-#### MUI のスタイル上書きのための import 設定
+#### MUI のスタイル上書きのための important 設定
 
 ```js
 important: #root, // 任意の上位セレクタを指定する
