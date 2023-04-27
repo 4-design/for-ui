@@ -23,7 +23,7 @@ npm i @4design/for-ui
 Peer dependencies のインストール
 
 ```
-npm i tailwindcss @mui/lab @mui/material react-icons react
+npm i tailwindcss @mui/lab @mui/material @mui/base react-icons react @tanstack/react-table
 npm i --save-dev @types/react
 ```
 
@@ -34,7 +34,19 @@ npm i --save-dev @types/react
 #### Tailwind CSS の CSS を読み込む
 
 - `global.css` (名前は任意) を作成
-  - `@tailwind base;` など必要な項目を記述する
+  - 以下の内容を置く
+    ```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+  body {
+    @apply text-shade-dark-default text-r font-sans antialiased;
+  }
+}
+    ```
 - `app.tsx` で `global.css` を読み込む
 
 #### `postcss.config.js` の作成
@@ -79,12 +91,13 @@ important: true;
 
 ```js
 module.exports = {
-  important: '#__next',
+  important: ':is(#__next, .MuiPopover-root)',
   presets: [require('@4design/for-ui/tailwind.config.base.js')],
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  theme: {
-    extend: {},
-  },
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@4design/for-ui/dist/**/*.js',
+  ],
   plugins: [],
 };
 ```
