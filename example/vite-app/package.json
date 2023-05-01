@@ -12,7 +12,7 @@
     "@emotion/react": "11.10.6",
     "@emotion/styled": "11.10.6",
     "@googlemaps/markerclusterer": "2.0.15",
-    "@googlemaps/markerwithlabel": "2.0.14",
+    "@googlemaps/markerwithlabel": "2.0.21",
     "@googlemaps/react-wrapper": "1.1.35",
     "@googlemaps/typescript-guards": "2.0.3",
     "@mui/lab": "5.0.0-alpha.127",
