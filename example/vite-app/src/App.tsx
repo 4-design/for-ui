@@ -1,6 +1,5 @@
 import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material';
 import { Router } from './router';
-import './styles/tailwindcss.css';
 
 export const App = () => {
   const rootElement = window.document.getElementById('root');
