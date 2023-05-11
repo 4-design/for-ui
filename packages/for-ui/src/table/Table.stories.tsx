@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { PersonData, StaticPersonData } from '../utils/makeData';
 import { ColumnDef } from './ColumnDef';
@@ -76,9 +76,29 @@ export const WithTableScroller: Story = () => (
   </TableScroller>
 );
 
-export const WithTablePageSize: Story = () => (
-  <Table<PersonData> columns={columns} data={StaticPersonData} pageSize={10} />
-);
+export const WithTablePageSize: Story = () => {
+  // 実際の親でははuseSearchParamsを使う
+  const [params, setParams] = useState<number | undefined>(undefined);
+  console.info({
+    params,
+  });
+  const onChangePagination = (page: number) => {
+    console.info({
+      page,
+    });
+    setParams(page);
+  };
+
+  return (
+    <Table<PersonData>
+      defaultPage={1}
+      onChangePagination={onChangePagination}
+      columns={columns}
+      data={StaticPersonData}
+      pageSize={10}
+    />
+  );
+};
 
 export const WithClickRow: Story = () => (
   <Table<PersonData>

@@ -32,6 +32,8 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'colu
   rowRenderer?: FC<RowProps<T>>;
   className?: string;
   pageSize?: number;
+  defaultPage?: number;
+  onChangePagination?: (page: number) => void;
 } & (
     | {
         /** If wanting to use selectable table, specify _onSelectRow_ or _onSelectRows_ exclusively */
@@ -57,6 +59,8 @@ export const Table = <T extends RowData>({
   columns,
   pageSize = 20,
   className,
+  defaultPage = 1,
+  onChangePagination,
 }: TableProps<T>) => {
   // const { data, disablePagination, defaultSortColumn, onSelectRow, onSelectRows, onRowClick, rowRenderer } = props;
   const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
@@ -231,7 +235,9 @@ export const Table = <T extends RowData>({
         </tbody>
       </table>
 
-      {!disablePagination && <TablePagination table={table} />}
+      {!disablePagination && (
+        <TablePagination defaultPage={defaultPage} onChangePagination={onChangePagination} table={table} />
+      )}
     </>
   );
 };
