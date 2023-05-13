@@ -17,7 +17,7 @@ module.exports = {
         'no-lonely-if': 'error',
         // Disallows the use of console
         // https://eslint.org/docs/rules/no-console
-        'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
+        'no-console': ['error', { allow: ['info', 'warn', 'error', 'trace'] }],
         // Requires method and property shorthand syntax for object literals
         // https://eslint.org/docs/rules/object-shorthand
         'object-shorthand': ['error', 'always'],
