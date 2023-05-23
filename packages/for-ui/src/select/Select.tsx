@@ -164,7 +164,7 @@ const _Select = <
       ]),
       popupIndicator: fsx(`m-0 p-0`),
     }}
-    renderInput={({inputProps, InputProps, InputLabelProps, ...params}) => (
+    renderInput={({ inputProps, InputProps, InputLabelProps, ...params }) => (
       <TextField
         {...params}
         {...InputProps}
