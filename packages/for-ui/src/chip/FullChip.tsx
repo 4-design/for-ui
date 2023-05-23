@@ -47,6 +47,7 @@ export const FullChip: FC<Omit<ChipProps, 'clickableArea'>> = ({
       </span>
     )}
     <Text
+      size="r"
       className={fsx([
         `flex items-center`,
         {

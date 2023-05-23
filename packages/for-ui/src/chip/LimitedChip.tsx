@@ -28,6 +28,7 @@ export const LimitedChip: FC<Omit<ChipProps, 'clickableArea'>> = ({
     ])}
   >
     <Text
+      size="r"
       className={fsx([
         `flex items-center`,
         {
