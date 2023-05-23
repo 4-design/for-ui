@@ -164,21 +164,22 @@ const _Select = <
       ]),
       popupIndicator: fsx(`m-0 p-0`),
     }}
-    renderInput={(params) => (
+    renderInput={({inputProps, InputProps, InputLabelProps, ...params}) => (
       <TextField
         {...params}
-        {...params.InputProps}
-        size={size}
+        {...InputProps}
+        id={InputLabelProps.id}
         inputProps={{
-          ...params.inputProps,
+          ...inputProps,
           onChange: disableFilter
             ? () => {
                 // Ignore inputs if not searchable
               }
-            : params.inputProps.onChange,
+            : inputProps.onChange,
         }}
-        inputRef={params.InputProps.ref}
+        inputRef={InputProps.ref}
         autoComplete="off"
+        size={size}
         name={name}
         required={required}
         label={label}
