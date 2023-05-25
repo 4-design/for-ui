@@ -118,6 +118,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       prefix,
       suffix,
       icon,
+      inputProps,
       id: passedId,
       ...rest
     },
@@ -125,6 +126,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   ) => {
     const innerId = useId();
     const id = passedId || innerId;
+
+    const helperTextId = useId();
 
     return (
       <div className={fsx(`flex w-full flex-col gap-1`, className)}>
@@ -196,6 +199,11 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
               )
             }
             inputComponent={isPriceFormat ? NumberFormatCustom : 'input'}
+            inputProps={{
+              "aria-errormessage": error ? helperTextId : undefined,
+              "aria-describedby": !error ? helperTextId : undefined,
+              ...inputProps,
+            }}
             {...rest}
           />
         </fieldset>
@@ -203,6 +211,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           content={helperText}
           defaultRenderer={(props) => (
             <Text
+              id={helperTextId}
               size="s"
               weight="regular"
               className={fsx(`text-shade-dark-default`, error && `text-negative-dark-default`)}
