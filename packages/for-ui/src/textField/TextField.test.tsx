@@ -57,19 +57,19 @@ describe('TextField', () => {
   it('with error is invalid', async () => {
     // const user = userEvent.setup();
     render(<TextField label="TextField" error />);
-    expect(screen.getByRole('textbox', { name: 'TextField' })).toBeInvalid()
+    expect(screen.getByRole('textbox', { name: 'TextField' })).toBeInvalid();
   });
   it('with required shows error when value is empty', async () => {
     render(<TextField label="TextField" required />);
-    expect(screen.getByRole('textbox', { name: 'TextField *' })).toBeInvalid()
+    expect(screen.getByRole('textbox', { name: 'TextField *' })).toBeInvalid();
   });
   it('with helperText shows description', async () => {
     render(<TextField label="TextField" helperText="Description" />);
-    expect(screen.getByRole('textbox', { name: 'TextField' })).toHaveAccessibleDescription("Description")
+    expect(screen.getByRole('textbox', { name: 'TextField' })).toHaveAccessibleDescription('Description');
   });
   it('with error and helperText shows error message', async () => {
     render(<TextField label="TextField" error helperText="Something wrong" />);
-    expect(screen.getByRole('textbox', { name: 'TextField' })).toHaveErrorMessage("Something wrong")
+    expect(screen.getByRole('textbox', { name: 'TextField' })).toHaveErrorMessage('Something wrong');
   });
 });
 
