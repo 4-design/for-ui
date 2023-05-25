@@ -158,7 +158,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             placeholder={placeholder}
             classes={{
               root: fsx([
-                `bg-shade-white-default flex w-full flex-wrap gap-1 p-0`,
+                `bg-shade-white-default text-r flex w-full flex-wrap gap-1 p-0`,
                 {
                   large: [`py-2 pl-2`, prefix && `py-0 pl-0`, suffix && `py-0 pr-0`],
                   medium: [`py-1 pl-1`, prefix && `py-0 pl-0`, suffix && `py-0 pr-0`],
