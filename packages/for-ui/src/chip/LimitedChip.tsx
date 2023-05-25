@@ -32,6 +32,7 @@ export const LimitedChip: LimitedChipComponent = forwardRef(
         ])}
       >
         <Text
+          size="r"
           className={fsx([
             `flex items-center`,
             {

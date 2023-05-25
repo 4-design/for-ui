@@ -49,6 +49,7 @@ export const FullChip: FullChipComponent = forwardRef(
           </span>
         )}
         <Text
+          size="r"
           className={fsx([
             `flex items-center`,
             {
