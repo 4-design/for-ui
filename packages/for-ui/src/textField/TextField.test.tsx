@@ -40,6 +40,17 @@ describe('TextField', () => {
     await user.type(textField, 'Hello World');
     expect(textField).not.toHaveValue('Hello World');
   });
+  it('does not accpect multiple lines', async () => {
+    const user = userEvent.setup();
+    render(<TextField label="TextField" />);
+    const textField = screen.getByRole('textbox', { name: 'TextField' });
+    await user.type(
+      textField,
+      `Hello
+World`,
+    );
+    expect(textField).toHaveValue('HelloWorld');
+  });
   it('with isPriceFormat does not accept value except for numbers', async () => {
     const user = userEvent.setup();
     render(<TextField label="TextField" isPriceFormat />);
@@ -55,7 +66,6 @@ describe('TextField', () => {
     expect(textField).toHaveValue('');
   });
   it('with error is invalid', async () => {
-    // const user = userEvent.setup();
     render(<TextField label="TextField" error />);
     expect(screen.getByRole('textbox', { name: 'TextField' })).toBeInvalid();
   });
