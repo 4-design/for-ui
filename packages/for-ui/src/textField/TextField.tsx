@@ -119,6 +119,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       suffix,
       icon,
       inputProps,
+      'aria-errormessage': ariaErrormessage,
+      'aria-describedby': ariaDescribedby,
       id: passedId,
       ...rest
     },
@@ -200,8 +202,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             }
             inputComponent={isPriceFormat ? NumberFormatCustom : 'input'}
             inputProps={{
-              "aria-errormessage": error ? helperTextId : undefined,
-              "aria-describedby": !error ? helperTextId : undefined,
+              'aria-errormessage': error && helperText ? helperTextId : ariaErrormessage,
+              'aria-describedby': !error && helperText ? helperTextId : ariaDescribedby,
               ...inputProps,
             }}
             {...rest}
