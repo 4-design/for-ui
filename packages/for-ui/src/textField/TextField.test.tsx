@@ -40,7 +40,7 @@ describe('TextField', () => {
     await user.type(textField, 'Hello World');
     expect(textField).not.toHaveValue('Hello World');
   });
-  it('does not accpect multiple lines', async () => {
+  it('does not accpect line breaks', async () => {
     const user = userEvent.setup();
     render(<TextField label="TextField" />);
     const textField = screen.getByRole('textbox', { name: 'TextField' });
