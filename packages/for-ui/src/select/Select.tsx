@@ -75,7 +75,7 @@ const _Select = <
       typeof option === 'string' ? option === v : option.inputValue === v.inputValue
     }
     noOptionsText={
-      <Text typeface="sansSerif" size="r" className={fsx(`text-shade-medium-default flex py-1 px-4`)}>
+      <Text typeface="sansSerif" size="r" className={fsx(`text-shade-medium-default flex px-4 py-1`)}>
         {noOptionsText}
       </Text>
     }
