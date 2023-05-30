@@ -153,7 +153,7 @@ const _Select = <
       inputRoot: fsx(`p-0`),
       tag: fsx(`m-0 max-w-[none]`),
       listbox: fsx(`p-0`),
-      input: fsx([`min-w-20`, disableFilter && `cursor-pointer caret-transparent`]),
+      input: fsx([multiple && `min-w-20`, disableFilter && `cursor-pointer caret-transparent`]),
       noOptions: fsx(`p-0`),
       endAdornment: fsx([
         `[&_svg]:icon-shade-dark-default border-shade-light-default [input:disabled+&_svg]:icon-shade-dark-disabled static flex border-x`,
