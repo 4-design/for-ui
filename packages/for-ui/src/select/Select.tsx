@@ -150,7 +150,7 @@ const _Select = <
     classes={{
       root: fsx(`w-full p-0`, className),
       paper: fsx(`min-w-min`),
-      inputRoot: fsx(`p-0`),
+      inputRoot: fsx(`p-0 [&_.MuiInputBase-root]:flex-wrap`),
       tag: fsx(`m-0 max-w-[none]`),
       listbox: fsx(`p-0`),
       input: fsx([multiple && `min-w-20`, disableFilter && `cursor-pointer caret-transparent`]),
