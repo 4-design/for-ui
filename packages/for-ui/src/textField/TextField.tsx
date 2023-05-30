@@ -158,7 +158,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             placeholder={placeholder}
             classes={{
               root: fsx([
-                `bg-shade-white-default text-r flex w-full flex-wrap gap-1 p-0`,
+                `bg-shade-white-default text-r flex w-full flex-nowrap gap-1 p-0`,
                 {
                   large: [`py-2 pl-2`, prefix && `py-0 pl-0`, suffix && `py-0 pr-0`],
                   medium: [`py-1 pl-1`, prefix && `py-0 pl-0`, suffix && `py-0 pr-0`],
@@ -168,7 +168,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
                 `bg-shade-white-disabled placeholder:text-shade-light-default text-shade-light-disabled cursor-not-allowed [-webkit-text-fill-color:currentColor_!important]`,
               ),
               input: fsx([
-                `text-r text-shade-dark-default placeholder:text-shade-light-default h-auto w-auto grow p-0 font-sans placeholder:opacity-100 focus:shadow-none`,
+                `text-r text-shade-dark-default placeholder:text-shade-light-default h-auto grow p-0 font-sans placeholder:opacity-100 focus:shadow-none`,
                 {
                   large: [`px-2`, icon && `pl-1`],
                   medium: [`px-1`, icon && `pl-1`],
