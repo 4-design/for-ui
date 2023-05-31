@@ -97,7 +97,7 @@
     "typescript": "5.0.4",
     "vite": "3.2.5",
     "vitest": "0.31.0",
-    "webpack": "5.76.0",
+    "webpack": "5.85.0",
     "yup": "1.1.1"
   },
   "overrides": {
