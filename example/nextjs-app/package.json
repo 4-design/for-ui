@@ -9,7 +9,7 @@
     "type-check": "tsc --pretty --noEmit"
   },
   "dependencies": {
-    "@4design/for-ui": "1.1.1",
+    "@4design/for-ui": "1.1.2",
     "@emotion/react": "11.10.6",
     "@emotion/styled": "11.10.6",
     "@mui/base": "5.0.0-alpha.127",
