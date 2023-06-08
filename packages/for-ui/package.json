@@ -98,7 +98,7 @@
     "vite": "3.2.5",
     "vitest": "0.31.4",
     "webpack": "5.76.0",
-    "yup": "1.1.1"
+    "yup": "1.2.0"
   },
   "overrides": {
     "@mdx-js/react": {
