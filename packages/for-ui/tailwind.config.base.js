@@ -135,6 +135,9 @@ const colors = {
       },
     },
     border: {
+      dark: {
+        default: 'var(--secondary-border-dark-default)',
+      },
       medium: {
         default: 'var(--secondary-border-medium-default)',
       },

@@ -86,7 +86,6 @@
   --shade-icon-dark-default: var(--shade-90);
   --shade-icon-dark-disabled: var(--shade-40);
   --shade-icon-medium-default: var(--shade-50);
-  --shade-icon-medium-active: var(--shade-60);
   --shade-icon-medium-disabled: var(--shade-40);
   --shade-icon-white-default: var(--shade-10);
 
@@ -109,7 +108,6 @@
   --secondary-background-dark-hover: var(--green-100);
   --secondary-background-light-default: var(--green-10);
   --secondary-background-light-hover: var(--green-20);
-  --secondary-border-dark-default: var(--green-90);
   --secondary-border-medium-default: var(--green-40);
   --secondary-border-light-default: var(--green-20);
   --secondary-icon-dark-default: var(--green-90);

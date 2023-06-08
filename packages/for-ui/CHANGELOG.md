@@ -1,5 +1,35 @@
 # @3design/3design-ui
 
+## 1.1.2
+
+### Patch Changes
+
+- [#1193](https://github.com/4-design/for-ui/pull/1193) [`539c483`](https://github.com/4-design/for-ui/commit/539c483a7effaec7cb7a257527e4e6bc82f4ef2e) Thanks [@Qs-F](https://github.com/Qs-F)! - chore: README の修正
+
+- [#1229](https://github.com/4-design/for-ui/pull/1229) [`abb1deb`](https://github.com/4-design/for-ui/commit/abb1debf951a6c001f8cc347639ffb898cd8d33e) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: Tailwind CSS のクラス名の順序を修正
+
+- [#1240](https://github.com/4-design/for-ui/pull/1240) [`aaed813`](https://github.com/4-design/for-ui/commit/aaed81315cff3b716c3d7d818a8d3a0bd9d00e33) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Chip): ラベルのテキストサイズを修正
+
+- [#1241](https://github.com/4-design/for-ui/pull/1241) [`6161ffa`](https://github.com/4-design/for-ui/commit/6161ffa90faa0ad4cbe51447fba506f5043af4f6) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextField): 入力欄のテキストサイズを修正
+
+- [#1217](https://github.com/4-design/for-ui/pull/1217) [`5f9a92a`](https://github.com/4-design/for-ui/commit/5f9a92a5d4c8391938abf6b5b26c4480c08902f8) Thanks [@kotobuki562](https://github.com/kotobuki562)! - fix(TablePagination): デフォルトページの設定 + ページ変更時の callback 追加
+
+- [#1230](https://github.com/4-design/for-ui/pull/1230) [`893d8fc`](https://github.com/4-design/for-ui/commit/893d8fcb54e40f05cfe8b8404c0dace56cb30133) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Chip): `as` props を追加
+
+- [#1181](https://github.com/4-design/for-ui/pull/1181) [`8e308cc`](https://github.com/4-design/for-ui/commit/8e308ccdb3e4e213bb61c0d2d84d1b69f3dbf102) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(system): ReactNode と isValidElement の ReactElement 型の差異を解消
+
+- [#1251](https://github.com/4-design/for-ui/pull/1251) [`eaf1cf5`](https://github.com/4-design/for-ui/commit/eaf1cf5021765f51bb068128c857751327e7c0f0) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Select): 横幅を縮めたときに表示が崩れるのを修正
+
+- [#1227](https://github.com/4-design/for-ui/pull/1227) [`84a9488`](https://github.com/4-design/for-ui/commit/84a9488d103b37f3ddb1a7cb5dcf0a7c680eeaf0) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: 依存パッケージのアップデート
+
+- [#1224](https://github.com/4-design/for-ui/pull/1224) [`574c8c7`](https://github.com/4-design/for-ui/commit/574c8c7b779cee668c3a4cd94e7a691bc16b59b0) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: secondary-border-dark-default が抜けていたのを修正
+
+- [#1222](https://github.com/4-design/for-ui/pull/1222) [`e289c2a`](https://github.com/4-design/for-ui/commit/e289c2a5cf52fa63e03efc31512bb1478fbb91cc) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: React v17 以下のサポートを終了
+
+- [#1120](https://github.com/4-design/for-ui/pull/1120) [`942a528`](https://github.com/4-design/for-ui/commit/942a528db474e9bd75fdc2d26b327c9241b8ff25) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Badge): レイアウト修正
+
+- [#1124](https://github.com/4-design/for-ui/pull/1124) [`f216230`](https://github.com/4-design/for-ui/commit/f216230888d716dcef31361a365596df8e93dc0f) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Chip): ラベルが改行可能な場合表示が崩れる問題を修正
+
 ## 1.1.1
 
 ### Patch Changes

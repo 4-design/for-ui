@@ -28,14 +28,14 @@ export const Dropzone: React.FC<DropzoneProps> = ({
     <div
       {...getRootProps()}
       className={fsx([
-        'flex w-auto cursor-pointer flex-col flex-wrap justify-center py-3 px-5',
+        'flex w-auto cursor-pointer flex-col flex-wrap justify-center px-5 py-3',
         'border-shade-medium-default rounded border border-dashed',
         className,
       ])}
     >
       <input {...getInputProps()} />
 
-      <div className="text-shade-medium-default flex w-full flex-col items-center py-5 px-3">
+      <div className="text-shade-medium-default flex w-full flex-col items-center px-3 py-5">
         <MdFileUpload size={48} className="text-shade-light-default mb-3" />
         <Text size="s">{message}</Text>
       </div>

@@ -11,7 +11,7 @@ export const ConstantBadge: FC<Omit<ConstantBadgeProps, 'variant'>> = ({
 }) => (
   <span
     className={fsx([
-      `flex flex-row items-start gap-1`,
+      `flex h-fit w-fit flex-row items-start gap-1`,
       {
         shade: `text-shade-dark-default`,
         subtle: `text-shade-medium-default`,

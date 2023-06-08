@@ -1,6 +1,6 @@
 {
   "name": "@4design/for-ui",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/4-design/for-ui.git"
@@ -42,28 +42,28 @@
     "@mui/lab": ">=5.0.0-alpha.73",
     "@mui/material": ">=5.9.3",
     "@tanstack/react-table": ">=8.5.22",
-    "@types/react": ">=17.0.11",
-    "react": ">=17.0.2",
+    "@types/react": ">=18.0.0",
+    "react": ">=18.0.0",
     "react-icons": ">=4.3.0",
     "tailwindcss": ">=3.0.0"
   },
   "dependencies": {
     "clsx": "1.2.1",
-    "material-ui-popup-state": "4.1.0",
+    "material-ui-popup-state": "5.0.8",
     "react-dropzone": "14.2.3",
-    "react-number-format": "5.1.3",
+    "react-number-format": "5.1.4",
     "react-transition-group": "4.4.5",
-    "tailwind-merge": "1.8.1"
+    "tailwind-merge": "1.13.0"
   },
   "devDependencies": {
-    "@emotion/react": "11.10.5",
-    "@emotion/styled": "11.10.5",
-    "@hookform/resolvers": "2.9.10",
+    "@emotion/react": "11.10.6",
+    "@emotion/styled": "11.10.6",
+    "@hookform/resolvers": "3.1.0",
     "@mdx-js/react": "1.6.22",
-    "@mui/base": "5.0.0-alpha.120",
-    "@mui/lab": "5.0.0-alpha.115",
-    "@mui/material": "5.11.4",
-    "@mui/types": "7.2.3",
+    "@mui/base": "5.0.0-alpha.126",
+    "@mui/lab": "5.0.0-alpha.127",
+    "@mui/material": "5.12.1",
+    "@mui/types": "7.2.4",
     "@storybook/addon-actions": "6.5.15",
     "@storybook/addon-backgrounds": "6.5.15",
     "@storybook/addon-essentials": "6.5.15",
@@ -76,29 +76,29 @@
     "@storybook/mdx2-csf": "0.0.3",
     "@storybook/react": "6.5.15",
     "@storybook/theming": "6.5.16",
-    "@tanstack/react-table": "8.7.6",
+    "@tanstack/react-table": "8.8.5",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.4.3",
-    "@types/react": "18.0.26",
+    "@types/react": "18.0.38",
     "@types/react-dom": "18.0.9",
-    "@types/testing-library__jest-dom": "^5.14.5",
+    "@types/testing-library__jest-dom": "5.14.5",
     "@vitejs/plugin-react": "2.2.0",
-    "autoprefixer": "10.4.13",
+    "autoprefixer": "10.4.14",
     "babel-loader": "9.1.0",
-    "jsdom": "21.1.1",
+    "jsdom": "22.0.0",
     "npm-run-all": "4.1.5",
-    "postcss": "8.4.21",
+    "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "7.42.1",
-    "react-icons": "4.7.1",
-    "tailwindcss": "3.2.4",
-    "typescript": "4.9.4",
+    "react-hook-form": "7.43.9",
+    "react-icons": "4.8.0",
+    "tailwindcss": "3.3.2",
+    "typescript": "5.0.4",
     "vite": "3.2.5",
-    "vitest": "0.29.3",
-    "webpack": "5.75.0",
-    "yup": "0.32.11"
+    "vitest": "0.31.4",
+    "webpack": "5.76.0",
+    "yup": "1.1.1"
   },
   "overrides": {
     "@mdx-js/react": {
@@ -108,6 +108,6 @@
   },
   "sideEffects": false,
   "volta": {
-    "node": "16.19.0"
+    "node": "16.20.0"
   }
 }

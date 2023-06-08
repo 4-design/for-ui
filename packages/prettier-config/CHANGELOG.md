@@ -1,5 +1,11 @@
 # @3design/prettier-config
 
+## 1.0.7
+
+### Patch Changes
+
+- [#1227](https://github.com/4-design/for-ui/pull/1227) [`84a9488`](https://github.com/4-design/for-ui/commit/84a9488d103b37f3ddb1a7cb5dcf0a7c680eeaf0) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: 依存パッケージのアップデート
+
 ## 1.0.6
 
 ### Patch Changes

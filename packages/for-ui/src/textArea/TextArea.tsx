@@ -99,6 +99,9 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       helperText,
       label,
       required,
+      'aria-describedby': ariaDescribedby,
+      'aria-invalid': ariaInvalid,
+      'aria-errormessage': ariaErrormessage,
       id: passedId,
       ...props
     },
@@ -106,6 +109,8 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ) => {
     const innerId = useId();
     const id = passedId || innerId;
+    const helperTextId = useId();
+
     return (
       <div className={fsx(`flex w-full flex-col gap-1`, className)}>
         <fieldset className={fsx(`contents`)}>
@@ -130,7 +135,11 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           )}
           <TextareaAutosize
             {...props}
+            aria-invalid={ariaInvalid || error}
+            aria-errormessage={error && helperText ? helperTextId : ariaErrormessage}
+            aria-describedby={!error && helperText ? helperTextId : ariaDescribedby}
             id={id}
+            required={required}
             disabled={disabled}
             minRows={rows || minRows}
             maxRows={rows || maxRows}
@@ -151,6 +160,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           content={helperText}
           defaultRenderer={(props) => (
             <Text
+              id={helperTextId}
               size="s"
               weight="regular"
               className={fsx(`text-shade-dark-default`, error && `text-negative-dark-default`)}

@@ -17,7 +17,7 @@ export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
         connector={
           <StepConnector
             classes={{
-              root: fsx('right-[calc(50%+1rem)] left-[calc(-50%+1rem)] top-6 px-0', className),
+              root: fsx('left-[calc(-50%+1rem)] right-[calc(50%+1rem)] top-6 px-0', className),
               line: fsx('border-t-2'),
             }}
             sx={{

@@ -1,6 +1,6 @@
 {
   "name": "@4design/prettier-config",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "4-design's shared Prettier config",
   "repository": {
     "url": "4-design/for-ui",
@@ -24,7 +24,7 @@
     "prettier-plugin-sh": "^0.12.0"
   },
   "devDependencies": {
-    "prettier": "2.8.3"
+    "prettier": "2.8.8"
   },
   "publishConfig": {
     "access": "public"
