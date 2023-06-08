@@ -51,7 +51,7 @@
     "clsx": "1.2.1",
     "material-ui-popup-state": "5.0.8",
     "react-dropzone": "14.2.3",
-    "react-number-format": "5.1.4",
+    "react-number-format": "5.2.2",
     "react-transition-group": "4.4.5",
     "tailwind-merge": "1.13.0"
   },
