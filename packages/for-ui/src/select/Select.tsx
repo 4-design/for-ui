@@ -150,10 +150,10 @@ const _Select = <
     classes={{
       root: fsx(`w-full p-0`, className),
       paper: fsx(`min-w-min`),
-      inputRoot: fsx(`p-0`),
+      inputRoot: fsx(`p-0 [&_.MuiInputBase-root]:flex-wrap`),
       tag: fsx(`m-0 max-w-[none]`),
       listbox: fsx(`p-0`),
-      input: fsx([`min-w-20`, disableFilter && `cursor-pointer caret-transparent`]),
+      input: fsx([multiple && `min-w-20`, disableFilter && `cursor-pointer caret-transparent`]),
       noOptions: fsx(`p-0`),
       endAdornment: fsx([
         `[&_svg]:icon-shade-dark-default border-shade-light-default [input:disabled+&_svg]:icon-shade-dark-disabled static flex border-x`,
@@ -164,21 +164,22 @@ const _Select = <
       ]),
       popupIndicator: fsx(`m-0 p-0`),
     }}
-    renderInput={(params) => (
+    renderInput={({ inputProps, InputProps, InputLabelProps, ...params }) => (
       <TextField
         {...params}
-        {...params.InputProps}
-        size={size}
+        {...InputProps}
+        id={InputLabelProps.id}
         inputProps={{
-          ...params.inputProps,
+          ...inputProps,
           onChange: disableFilter
             ? () => {
                 // Ignore inputs if not searchable
               }
-            : params.inputProps.onChange,
+            : inputProps.onChange,
         }}
-        inputRef={params.InputProps.ref}
+        inputRef={InputProps.ref}
         autoComplete="off"
+        size={size}
         name={name}
         required={required}
         label={label}
