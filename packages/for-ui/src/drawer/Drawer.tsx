@@ -29,8 +29,15 @@ type Props = MuiDrawerProps & {
 
   /**
    * ヘッダー部分に置くコンテンツを指定
+   *
+   * @deprecated かわりにnavigationを使ってください
    */
   headerChildren?: ReactNode;
+
+  /**
+   * ナビゲーションエリアに表示するコンテンツを指定
+   */
+  navigation?: ReactNode;
 
   /**
    * Drawerの固定の横幅を指定
@@ -83,6 +90,7 @@ const DragHandle: FC<{ dragging: boolean } & ButtonHTMLAttributes<HTMLButtonElem
 export const Drawer: FC<Props> = ({
   anchor = drawerAnchorPositions.right,
   headerChildren,
+  navigation,
   defaultWidth = defaultMinWidth,
   minWidth = `fit-content`,
   width: fixedWidth,
@@ -161,7 +169,9 @@ export const Drawer: FC<Props> = ({
             <MdClose />
             閉じる
           </Button>
-          {headerChildren && <div className={fsx(`flex items-center gap-2`)}>{headerChildren}</div>}
+          {(navigation || headerChildren) && (
+            <div className={fsx(`flex items-center gap-2`)}>{navigation || headerChildren}</div>
+          )}
         </nav>
         <article className={fsx(`flex flex-col gap-1 p-4`)}>{children}</article>
       </div>
