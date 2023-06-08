@@ -1,5 +1,13 @@
 # @3design/eslint-config
 
+## 1.0.10
+
+### Patch Changes
+
+- [#1220](https://github.com/4-design/for-ui/pull/1220) [`e76499c`](https://github.com/4-design/for-ui/commit/e76499c3337c85e8182fcdf6570ba2657a76f5af) Thanks [@locona](https://github.com/locona)! - fix(eslint-config): Allow console.trace in no-console
+
+- [#1227](https://github.com/4-design/for-ui/pull/1227) [`84a9488`](https://github.com/4-design/for-ui/commit/84a9488d103b37f3ddb1a7cb5dcf0a7c680eeaf0) Thanks [@Qs-F](https://github.com/Qs-F)! - fix: 依存パッケージのアップデート
+
 ## 1.0.9
 
 ### Patch Changes
