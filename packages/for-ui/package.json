@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "clsx": "1.2.1",
-    "material-ui-popup-state": "5.0.8",
+    "material-ui-popup-state": "5.0.9",
     "react-dropzone": "14.2.3",
     "react-number-format": "5.2.2",
     "react-transition-group": "4.4.5",
