@@ -18,6 +18,7 @@ import {
 import { Checkbox } from '../checkbox';
 import { Radio } from '../radio';
 import { fsx } from '../system/fsx';
+import { Text } from '../text';
 import { SortableTableCellHead, TableCell } from './TableCell';
 import { TablePagination } from './TablePagination';
 
@@ -112,6 +113,11 @@ export const Table = <T extends RowData>({
         <Fragment>
           {!!onSelectRows && (
             <Checkbox
+              label={
+                <Text aria-hidden={false} className={fsx(`hidden`)}>
+                  すべての行を選択
+                </Text>
+              }
               className={fsx(`flex`)}
               checked={table.getIsAllRowsSelected()}
               indeterminate={!table.getIsAllRowsSelected() && table.getIsSomeRowsSelected()}
@@ -121,9 +127,14 @@ export const Table = <T extends RowData>({
         </Fragment>
       ),
       cell: ({ row }) => (
-        <TableCell>
+        <TableCell as="th" scope="row">
           {!!onSelectRows && (
             <Checkbox
+              label={
+                <Text aria-hidden={false} className={fsx(`hidden`)}>
+                  行を選択
+                </Text>
+              }
               className={fsx(`flex`)}
               checked={row.getIsSelected()}
               onClick={(e) => {
@@ -134,6 +145,11 @@ export const Table = <T extends RowData>({
           )}
           {!!onSelectRow && (
             <Radio
+              label={
+                <Text aria-hidden={false} className={fsx(`hidden`)}>
+                  行を選択
+                </Text>
+              }
               className={fsx(`flex`)}
               checked={row.getIsSelected()}
               onClick={(e) => {
