@@ -1,5 +1,4 @@
-import { FC, Fragment, MouseEvent, useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { MdArrowDownward, MdArrowUpward } from 'react-icons/md';
+import { FC, forwardRef, Fragment, MouseEvent, useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import {
   ColumnDef,
   ColumnSort,
@@ -19,8 +18,7 @@ import {
 import { Checkbox } from '../checkbox';
 import { Radio } from '../radio';
 import { fsx } from '../system/fsx';
-import { Text } from '../text';
-import { TableCell } from './TableCell';
+import { SortableTableCellHead, TableCell } from './TableCell';
 import { TablePagination } from './TablePagination';
 
 export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'columns' | 'getRowId'> & {
@@ -114,8 +112,7 @@ export const Table = <T extends RowData>({
         <Fragment>
           {!!onSelectRows && (
             <Checkbox
-              nopadding
-              value="required"
+              className={fsx(`flex`)}
               checked={table.getIsAllRowsSelected()}
               indeterminate={!table.getIsAllRowsSelected() && table.getIsSomeRowsSelected()}
               onChange={table.getToggleAllRowsSelectedHandler()}
@@ -127,8 +124,7 @@ export const Table = <T extends RowData>({
         <TableCell>
           {!!onSelectRows && (
             <Checkbox
-              nopadding
-              value="required"
+              className={fsx(`flex`)}
               checked={row.getIsSelected()}
               onClick={(e) => {
                 selectRow(row);
@@ -138,9 +134,7 @@ export const Table = <T extends RowData>({
           )}
           {!!onSelectRow && (
             <Radio
-              nopadding
-              size="small"
-              value="required"
+              className={fsx(`flex`)}
               checked={row.getIsSelected()}
               onClick={(e) => {
                 selectRow(row);
@@ -177,47 +171,30 @@ export const Table = <T extends RowData>({
   }, [table, pageSize]);
 
   return (
-    <>
-      <table
-        className={fsx('border-shade-light-default w-full border-separate border-spacing-0 rounded border', className)}
-      >
-        <thead className="bg-shade-light-default table-header-group">
+    <Fragment>
+      <TableFrame className={className}>
+        <TableHead>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id} className="table-row align-middle">
+            <TableRow key={headerGroup.id} className="table-row">
               {headerGroup.headers.map((header) => (
-                <th
+                <SortableTableCellHead
                   key={header.id}
-                  className="border-shade-light-default text-shade-dark-default z-30 whitespace-nowrap border-b p-3 text-left text-base"
                   scope="col"
+                  nextSortingOrder={header.column.getNextSortingOrder()}
+                  sortable={header.column.getCanSort()}
+                  sorted={header.column.getIsSorted()}
+                  onClick={header.column.getToggleSortingHandler()}
                   style={{
                     width: header.column.columnDef.meta?.width,
-                    cursor: header.column.getIsSorted() ? 'pointer' : 'auto',
                   }}
                 >
-                  {header.column.getCanSort() ? (
-                    <div
-                      className={fsx(['flex items-center', header.column.getCanSort() && 'cursor-pointer select-none'])}
-                      onClick={header.column.getToggleSortingHandler()}
-                    >
-                      {flexRender(header.column.columnDef.header, header.getContext())}
-                      {{
-                        asc: <MdArrowUpward className="ml-1" />,
-                        desc: <MdArrowDownward className="ml-1" />,
-                      }[header.column.getIsSorted() as string] ?? null}
-                    </div>
-                  ) : (
-                    <div className="flex items-center">
-                      <Text className="text-sm font-medium">ヘッダ</Text>
-                      {flexRender(header.column.columnDef.header, header.getContext())}
-                    </div>
-                  )}
-                </th>
+                  {flexRender(header.column.columnDef.header, header.getContext())}
+                </SortableTableCellHead>
               ))}
-            </tr>
+            </TableRow>
           ))}
-        </thead>
-
-        <tbody className="bg-shade-white-default text-shade-dark-default">
+        </TableHead>
+        <TableBody>
           {table.getRowModel().rows.map((row) => (
             <RowComponent
               key={row.id}
@@ -232,15 +209,56 @@ export const Table = <T extends RowData>({
               }
             />
           ))}
-        </tbody>
-      </table>
-
+        </TableBody>
+      </TableFrame>
       {!disablePagination && (
         <TablePagination defaultPage={defaultPage} onChangePagination={onChangePage} table={table} />
       )}
-    </>
+    </Fragment>
   );
 };
+
+export const TableFrame = forwardRef<HTMLTableElement, JSX.IntrinsicElements['table']>(
+  ({ className, ...props }, ref) => (
+    <div className={fsx(`border-shade-light-default h-full w-full overflow-scroll rounded border`, className)}>
+      <table
+        className={fsx(`ring-shade-light-default w-full border-separate border-spacing-0 ring-1`)}
+        ref={ref}
+        {...props}
+      />
+    </div>
+  ),
+);
+
+export const TableBody = forwardRef<HTMLTableSectionElement, JSX.IntrinsicElements['tbody']>(
+  ({ className, ...props }, ref) => (
+    <tbody className={fsx(`text-shade-dark-default bg-shade-white-default`, className)} ref={ref} {...props} />
+  ),
+);
+
+export const TableHead = forwardRef<HTMLTableSectionElement, JSX.IntrinsicElements['thead']>(
+  ({ className, ...props }, ref) => (
+    <thead
+      className={fsx(
+        `bg-shade-light-default border-shade-light-default z-table sticky top-0 table-header-group border-b`,
+        className,
+      )}
+      ref={ref}
+      {...props}
+    />
+  ),
+);
+
+export const TableRow = forwardRef<HTMLTableRowElement, JSX.IntrinsicElements['tr']>(({ className, ...props }, ref) => (
+  <tr
+    className={fsx(
+      `table-row [&:first-of-type>td]:border-t-0 [&:first-of-type>th]:border-t-0 [thead>&:last-of-type>td]:border-b [thead>&:last-of-type>th]:border-b`,
+      className,
+    )}
+    ref={ref}
+    {...props}
+  />
+));
 
 export type RowProps<T extends RowData> = {
   row: RowType<T>;
@@ -250,10 +268,10 @@ export type RowProps<T extends RowData> = {
 };
 
 export const Row = <T extends RowData>({ row, selectable, onClick, className }: RowProps<T>) => (
-  <tr
+  <TableRow
     key={row.id}
     className={fsx([
-      'border-shade-light-default border-b transition-[background] duration-100',
+      `transition-[background] duration-100`,
       (selectable || onClick) && 'hover:bg-shade-light-default cursor-pointer',
       className,
     ])}
@@ -262,7 +280,7 @@ export const Row = <T extends RowData>({ row, selectable, onClick, className }: 
     {row.getVisibleCells().map((cell) => (
       <Fragment key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</Fragment>
     ))}
-  </tr>
+  </TableRow>
 );
 
 export { createColumnHelper } from '@tanstack/react-table';
