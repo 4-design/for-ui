@@ -1,5 +1,7 @@
 import React from 'react';
+import { MdOutlineEdit } from 'react-icons/md';
 import { Meta, Story } from '@storybook/react/types-6-0';
+import { Button } from '../button';
 import { Text } from '../text';
 import { Drawer, drawerAnchorPositions } from './Drawer';
 
@@ -43,38 +45,52 @@ Base.args = {
   backgroundcolor: '#fff',
 };
 
-export const WithHeaderChildren = Template.bind({});
-WithHeaderChildren.args = {
+export const WithNavigation = Template.bind({});
+WithNavigation.args = {
   open: true,
-  headerChildren: (
-    <Text as="h2" size="l" weight="bold">
-      Header
-    </Text>
+  navigation: (
+    <Button size="medium">
+      <MdOutlineEdit />
+      編集
+    </Button>
   ),
 };
 
-export const AnchorLeft = Template.bind({});
-AnchorLeft.args = {
+export const AnchorLeading = Template.bind({});
+AnchorLeading.args = {
   open: true,
-  anchor: drawerAnchorPositions.left,
+  anchor: drawerAnchorPositions.leading,
 };
 
-export const AnchorRight = Template.bind({});
-AnchorRight.args = {
+export const AnchorTrailing = Template.bind({});
+AnchorTrailing.args = {
   open: true,
-  anchor: drawerAnchorPositions.right,
+  anchor: drawerAnchorPositions.trailing,
 };
 
-export const FixedWidthLeft = Template.bind({});
-FixedWidthLeft.args = {
+export const FixedWidthLeading = Template.bind({});
+FixedWidthLeading.args = {
   open: true,
   width: 640,
-  anchor: drawerAnchorPositions.left,
+  anchor: drawerAnchorPositions.leading,
 };
 
-export const FixedWidthRight = Template.bind({});
-FixedWidthRight.args = {
+export const FixedWidthTrailing = Template.bind({});
+FixedWidthTrailing.args = {
   open: true,
   width: 640,
-  anchor: drawerAnchorPositions.right,
+  anchor: drawerAnchorPositions.trailing,
+};
+
+export const WithTriggerComponent = Template.bind({});
+WithTriggerComponent.args = {
+  TriggerComponent: <Button>開く</Button>,
+  onClose: undefined,
+};
+
+export const WithoutBackdrop = Template.bind({});
+WithoutBackdrop.args = {
+  TriggerComponent: <Button>開く</Button>,
+  onClose: undefined,
+  hideBackdrop: true,
 };
