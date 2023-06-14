@@ -24,7 +24,7 @@ export const drawerAnchorPositions = {
 
 export type DrawerAnchorPosition = (typeof drawerAnchorPositions)[keyof typeof drawerAnchorPositions];
 
-type Props = MuiDrawerProps & {
+export type DrawerProps = MuiDrawerProps & {
   /**
    * Drawerが開く起点となる方向を指定
    *
@@ -115,7 +115,7 @@ const DragHandle: FC<{ dragging: boolean } & ButtonHTMLAttributes<HTMLButtonElem
   </button>
 );
 
-export const Drawer: FC<Props> = ({
+export const Drawer: FC<DrawerProps> = ({
   anchor = drawerAnchorPositions.trailing,
   headerChildren,
   navigation,
@@ -225,12 +225,10 @@ export const Drawer: FC<Props> = ({
               variant="text"
               size="medium"
               intention="subtle"
-              onClick={
-                onClose ??
-                (() => {
-                  setInternalOpen(false);
-                })
-              }
+              onClick={(e) => {
+                onClose?.(e, 'escapeKeyDown');
+                setInternalOpen(false);
+              }}
             >
               <MdClose />
               閉じる
