@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "typeRoots": [],
     "sourceMap": true,
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
