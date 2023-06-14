@@ -1,4 +1,4 @@
-import { ElementType, forwardRef } from 'react';
+import { ElementType, forwardRef, ReactNode } from 'react';
 import { MdClose } from 'react-icons/md';
 import { fsx } from '../system/fsx';
 import { Ref } from '../system/polyComponent';
@@ -7,7 +7,7 @@ import { ChipProps } from './Chip';
 
 type LimitedChipProps<As extends ElementType = 'span'> = Omit<ChipProps<As>, 'clickableArea'>;
 
-type LimitedChipComponent = <As extends ElementType = 'span'>(props: LimitedChipProps<As>) => JSX.Element | null;
+type LimitedChipComponent = <As extends ElementType = 'span'>(props: LimitedChipProps<As>) => ReactNode;
 
 export const LimitedChip: LimitedChipComponent = forwardRef(
   <As extends ElementType = 'span'>(props: LimitedChipProps<As>, ref: Ref<As>): JSX.Element => {

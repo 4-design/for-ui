@@ -46,7 +46,7 @@ export type ChipProps<As extends ElementType = 'button'> = ComponentProps<
   As
 >;
 
-type ChipComponent = <As extends ElementType = 'button'>(props: ChipProps<As>) => JSX.Element | null;
+type ChipComponent = <As extends ElementType = 'button'>(props: ChipProps<As>) => ReactNode;
 
 export const Chip: ChipComponent = forwardRef(
   <As extends ElementType = 'button'>({ clickableArea = 'full', ...props }: ChipProps<As>, ref?: Ref<As>) =>
