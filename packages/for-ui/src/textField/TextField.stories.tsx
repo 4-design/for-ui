@@ -47,14 +47,12 @@ const schema = yup.object({
   account: yup.string().optional(),
 });
 
-type FieldValue = yup.InferType<typeof schema>;
-
 export const Base = (): JSX.Element => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FieldValue>({
+  } = useForm({
     resolver: yupResolver(schema),
   });
   const onSubmit = useCallback((data: unknown) => {

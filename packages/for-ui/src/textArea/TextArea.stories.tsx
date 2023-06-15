@@ -19,12 +19,6 @@ export const Playground = {
   },
 };
 
-type FieldValue = {
-  email: string;
-  password: string;
-  price: string;
-};
-
 const schema = yup.object().shape({
   email: yup.string().required(),
   password: yup.string().required(),
@@ -35,7 +29,7 @@ export const Default = (): JSX.Element => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FieldValue>({
+  } = useForm({
     resolver: yupResolver(schema),
   });
   const onSubmit = (data: unknown) => console.info(data);
