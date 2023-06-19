@@ -1,5 +1,15 @@
 # @3design/eslint-config
 
+## 1.0.11
+
+### Patch Changes
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(deps): update typescript-eslint monorepo to v5.59.8
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(deps): update typescript-eslint monorepo to v5.59.9
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(deps): update dependency eslint-plugin-tailwindcss to v3.12.1
+
 ## 1.0.10
 
 ### Patch Changes

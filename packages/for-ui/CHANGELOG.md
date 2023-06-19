@@ -1,5 +1,63 @@
 # @3design/3design-ui
 
+## 1.1.3
+
+### Patch Changes
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - chore(deps): update react monorepo
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(SwitchGroup): export 忘れを解消
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(deps): update dependency tailwind-merge to v1.13.2
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Table): 選択可能な Table のバグ修正とヘッダの高さ等を整える修正
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - chore(deps): update react monorepo
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(deps): update dependency material-ui-popup-state to v5.0.9
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - chore(deps): update dependency @hookform/resolvers to v3.1.1
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - chore(deps): update dependency postcss to v8.4.24
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(deps): update dependency react-number-format to v5.2.2
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Stepper): デザイン改善
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(deps): TypeScript v5.1.3 にアップデート
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - chore(deps): update dependency @tanstack/react-table to v8.9.2
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - chore(deps): update dependency vitest to v0.32.0
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Drawer): デザイン改善
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextArea): アクセシビリティ的問題を修正
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Tabs): レイアウトの修正
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - chore(deps): update dependency jsdom to v22.1.0
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(CheckboxGroup): export 忘れを解消
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - chore(deps): update dependency @types/testing-library\_\_jest-dom to v5.14.6
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - chore(deps): update dependency react-hook-form to v7.44.3
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - chore(deps): update emotion monorepo
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(deps): update dependency tailwind-merge to v1.13.1
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - chore(deps): update dependency react-icons to v4.9.0
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - chore(deps): update dependency vitest to v0.31.4
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - chore(deps): update dependency @tanstack/react-table to v8.9.1
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - chore(deps): update dependency yup to v1.2.0
+
+- [#1328](https://github.com/4-design/for-ui/pull/1328) [`d511b45`](https://github.com/4-design/for-ui/commit/d511b459127663a04220aa1b2bad8af8ea2d39a9) Thanks [@Qs-F](https://github.com/Qs-F)! - chore(deps): update dependency vitest to v0.32.2
+
 ## 1.1.2
 
 ### Patch Changes
