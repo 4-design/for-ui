@@ -1,7 +1,9 @@
 import React from 'react';
+import { MdOutlineEdit } from 'react-icons/md';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Drawer, DrawerAnchor } from '.';
+import { Button } from '../button';
 import { Text } from '../text';
+import { Drawer, drawerAnchorPositions } from './Drawer';
 
 export default {
   title: 'Feedback / Drawer',
@@ -14,7 +16,7 @@ export default {
   },
   decorators: [
     (Story: Story) => (
-      <div className="w-184">
+      <div className="w-full">
         <div className="mb-4 border-b">
           <Text as="h3" size="l" weight="bold">
             Drawer
@@ -43,24 +45,52 @@ Base.args = {
   backgroundcolor: '#fff',
 };
 
-export const WithHeaderChildren = Template.bind({});
-WithHeaderChildren.args = {
+export const WithNavigation = Template.bind({});
+WithNavigation.args = {
   open: true,
-  headerChildren: (
-    <Text as="h2" size="l" weight="bold">
-      Header
-    </Text>
+  navigation: (
+    <Button size="medium">
+      <MdOutlineEdit />
+      編集
+    </Button>
   ),
 };
 
-export const AnchorLeft = Template.bind({});
-AnchorLeft.args = {
+export const AnchorLeading = Template.bind({});
+AnchorLeading.args = {
   open: true,
-  anchor: DrawerAnchor.left,
+  anchor: drawerAnchorPositions.leading,
 };
 
-export const AnchorRight = Template.bind({});
-AnchorRight.args = {
+export const AnchorTrailing = Template.bind({});
+AnchorTrailing.args = {
   open: true,
-  anchor: DrawerAnchor.right,
+  anchor: drawerAnchorPositions.trailing,
+};
+
+export const FixedWidthLeading = Template.bind({});
+FixedWidthLeading.args = {
+  open: true,
+  width: 640,
+  anchor: drawerAnchorPositions.leading,
+};
+
+export const FixedWidthTrailing = Template.bind({});
+FixedWidthTrailing.args = {
+  open: true,
+  width: 640,
+  anchor: drawerAnchorPositions.trailing,
+};
+
+export const WithTriggerComponent = Template.bind({});
+WithTriggerComponent.args = {
+  TriggerComponent: <Button>開く</Button>,
+  onClose: undefined,
+};
+
+export const WithoutBackdrop = Template.bind({});
+WithoutBackdrop.args = {
+  TriggerComponent: <Button>開く</Button>,
+  onClose: undefined,
+  hideBackdrop: true,
 };
