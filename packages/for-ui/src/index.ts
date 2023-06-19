@@ -16,5 +16,5 @@ export * from './switch';
 export * from './text';
 export * from './textArea';
 export * from './textField';
-export * from './tab';
+export * from './tabs';
 export * from './table';
