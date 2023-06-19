@@ -1,50 +1,44 @@
 import { forwardRef } from 'react';
-import { StepConnector, stepConnectorClasses } from '@mui/material';
+import { StepConnector } from '@mui/material';
 import MuiStepper, { StepperProps as MuiStepperProps } from '@mui/material/Stepper';
 import { fsx } from '../system/fsx';
 
-export type StepperProps = MuiStepperProps & {
+export type StepperProps = Omit<MuiStepperProps, 'alternativeLabel'> & {
+  /**
+   * ラベルを表示する位置を指定
+   *
+   * @default 'bottom'
+   */
+  labelPosition?: 'bottom' | 'trailing';
+
+  /**
+   * @deprecated labelPositionを使用してください
+   */
+  alternativeLabel?: MuiStepperProps['alternativeLabel'];
+
   className?: string;
 };
 
 export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
-  ({ activeStep, alternativeLabel, children, className, ...rest }, ref) => {
-    return (
-      <MuiStepper
-        ref={ref}
-        activeStep={activeStep}
-        alternativeLabel={alternativeLabel}
-        connector={
-          <StepConnector
-            classes={{
-              root: fsx('left-[calc(-50%+1rem)] right-[calc(50%+1rem)] top-6 px-0', className),
-              line: fsx('border-t-2'),
-            }}
-            sx={{
-              [`&.${stepConnectorClasses.active}`]: {
-                [`& .${stepConnectorClasses.line}`]: {
-                  borderColor: 'var(--shade-border-dark-default)',
-                },
-              },
-
-              [`&.${stepConnectorClasses.completed}`]: {
-                [`& .${stepConnectorClasses.line}`]: {
-                  borderColor: 'var(--shade-border-dark-default)',
-                },
-              },
-
-              [`&.${stepConnectorClasses.disabled}`]: {
-                [`& .${stepConnectorClasses.line}`]: {
-                  borderColor: 'var(--shade-border-dark-disabled)',
-                },
-              },
-            }}
-          />
-        }
-        {...rest}
-      >
-        {children}
-      </MuiStepper>
-    );
-  },
+  ({ activeStep, alternativeLabel, labelPosition = 'bottom', children, className, ...rest }, ref) => (
+    <MuiStepper
+      ref={ref}
+      activeStep={activeStep}
+      alternativeLabel={alternativeLabel || { bottom: true, trailing: false }[labelPosition]}
+      connector={
+        <StepConnector
+          classes={{
+            root: fsx(
+              `[&:is(.Mui-active,.Mui-completed)>.MuiStepConnector-line]:border-primary-dark-default -left-2/4 right-0 top-0 flex h-6 w-full items-center px-0 [&.MuiStepConnector-alternativeLabel]:pl-3 [&.MuiStepConnector-alternativeLabel]:pr-4`,
+            ),
+            line: fsx(`border-shade-dark-disabled w-full border-t-2`),
+          }}
+        />
+      }
+      className={fsx(`gap-1`, className)}
+      {...rest}
+    >
+      {children}
+    </MuiStepper>
+  ),
 );

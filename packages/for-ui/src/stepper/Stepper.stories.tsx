@@ -12,51 +12,63 @@ export default {
     alternativeLabel: { control: 'boolean' },
     backgroundColor: { control: 'color' },
   },
-  decorators: [
-    (Story: Story) => (
-      <div className="mt-10">
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [(Story: Story) => <Story />],
 } as Meta;
 
 const steps = ['First', 'Second', 'Third', 'Last'];
 
-const Template: Story = (args) => {
-  return (
-    <div>
-      <div className="mb-4 border-b">
-        <Text as="h3" size="l" weight="bold">
-          Stepper
-        </Text>
-      </div>
-      <Stepper alternativeLabel={true} activeStep={0} {...args}>
-        {steps.map((step, index) => (
-          <Step key={index}>{step}</Step>
-        ))}
-      </Stepper>
-      <Stepper alternativeLabel={true} activeStep={1} {...args}>
-        {steps.map((step, index) => (
-          <Step key={index}>{step}</Step>
-        ))}
-      </Stepper>
-      <Stepper alternativeLabel={true} activeStep={2} {...args}>
-        {steps.map((step, index) => (
-          <Step key={index}>{step}</Step>
-        ))}
-      </Stepper>
-      <Stepper alternativeLabel={true} activeStep={3} {...args}>
-        {steps.map((step, index) => (
-          <Step key={index}>{step}</Step>
-        ))}
-      </Stepper>
-    </div>
-  );
-};
+export const LabelBottom: Story = (args) => (
+  <div className="flex flex-col gap-6">
+    <Text as="h3" size="l" weight="bold">
+      Stepper
+    </Text>
+    <Stepper labelPosition="bottom" activeStep={0} {...args}>
+      {steps.map((step, index) => (
+        <Step key={index}>{step}</Step>
+      ))}
+    </Stepper>
+    <Stepper labelPosition="bottom" activeStep={1} {...args}>
+      {steps.map((step, index) => (
+        <Step key={index}>{step}</Step>
+      ))}
+    </Stepper>
+    <Stepper labelPosition="bottom" activeStep={2} {...args}>
+      {steps.map((step, index) => (
+        <Step key={index}>{step}</Step>
+      ))}
+    </Stepper>
+    <Stepper labelPosition="bottom" activeStep={3} {...args}>
+      {steps.map((step, index) => (
+        <Step key={index}>{step}</Step>
+      ))}
+    </Stepper>
+  </div>
+);
 
-export const Basic = Template.bind({});
-
-Basic.args = {
-  alternativeLabel: true,
-};
+export const LabelTrailing: Story = (args) => (
+  <div className="flex flex-col gap-6">
+    <Text as="h3" size="l" weight="bold">
+      Stepper
+    </Text>
+    <Stepper labelPosition="trailing" activeStep={0} {...args}>
+      {steps.map((step, index) => (
+        <Step key={index}>{step}</Step>
+      ))}
+    </Stepper>
+    <Stepper labelPosition="trailing" activeStep={1} {...args}>
+      {steps.map((step, index) => (
+        <Step key={index}>{step}</Step>
+      ))}
+    </Stepper>
+    <Stepper labelPosition="trailing" activeStep={2} {...args}>
+      {steps.map((step, index) => (
+        <Step key={index}>{step}</Step>
+      ))}
+    </Stepper>
+    <Stepper labelPosition="trailing" activeStep={3} {...args}>
+      {steps.map((step, index) => (
+        <Step key={index}>{step}</Step>
+      ))}
+    </Stepper>
+  </div>
+);

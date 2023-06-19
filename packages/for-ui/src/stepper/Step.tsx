@@ -1,51 +1,47 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
+import { MdOutlineDone } from 'react-icons/md';
 import MuiStep, { StepProps as MuiStepProps } from '@mui/material/Step';
 import { StepIconProps as MuiStepIconProps } from '@mui/material/StepIcon';
 import MuiStepLabel, { StepLabelProps as MuiStepLabelProps } from '@mui/material/StepLabel';
 import { fsx } from '../system/fsx';
+import { Text } from '../text';
 
 export type StepProps = MuiStepProps;
 
 export type StepLabelProps = MuiStepLabelProps;
 
-export const Step = forwardRef<HTMLDivElement, StepProps & StepLabelProps>((props, ref) => {
-  const { children, ...rest } = props;
-  return (
-    <MuiStep ref={ref} {...rest}>
-      <MuiStepLabel
-        ref={ref}
-        StepIconComponent={Icon}
-        classes={{
-          root: fsx(['mt-0']),
-          label: fsx(['text-r text-shade-dark-default mt-2 font-normal']),
-          completed: fsx(['text-r text-shade-dark-default font-normal']),
-          active: fsx(['text-r text-shade-dark-default font-normal']),
-          iconContainer: fsx(['mt-2']),
-        }}
-      >
+export const Step = forwardRef<HTMLDivElement, StepProps>(({ children, active, className, ...rest }, ref) => (
+  <MuiStep ref={ref} active={active} className={fsx(`p-0`, className)} {...rest}>
+    <MuiStepLabel
+      className={fsx(`m-0 flex gap-1`)}
+      StepIconComponent={Icon}
+      classes={{
+        label: fsx(`m-0 font-sans`),
+        iconContainer: fsx(`p-0`),
+        active: fsx(`font-bold`),
+      }}
+    >
+      <Text size="r" className="text-shade-dark-default">
         {children}
-      </MuiStepLabel>
-    </MuiStep>
-  );
-});
+      </Text>
+    </MuiStepLabel>
+  </MuiStep>
+));
 
-const Icon = (props: Partial<MuiStepIconProps>) => {
-  const { completed, active, icon } = props;
-
-  return (
-    <>
-      <span
-        className={fsx([
-          'text-r relative h-8 w-8 rounded-full  border-2 font-bold',
-          active
-            ? 'border-primary-dark-default bg-shade-white-default text-primary-dark-default border-2'
-            : completed
-            ? 'bg-primary-dark-default text-shade-white-default border-0'
-            : 'border-primary-dark-disabled bg-shade-white-disabled text-shade-dark-disabled',
-        ])}
-      >
-        <span className={fsx(['absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4'])}>{icon}</span>
-      </span>
-    </>
-  );
-};
+const Icon = ({ completed, active, icon }: Partial<MuiStepIconProps>) => (
+  <span
+    className={fsx([
+      `grid h-6 w-6 place-content-center rounded-full`,
+      completed && `bg-primary-dark-default [&_svg]:fill-shade-white-default [&_svg]:h-4 [&_svg]:w-4`,
+      active && `border-primary-dark-default border-2`,
+      !active && !completed && `border-shade-dark-disabled border-2`,
+    ])}
+  >
+    <Text
+      weight={active ? 'bold' : 'regular'}
+      className={fsx([active && `text-primary-dark-default`, !active && !completed && `text-shade-dark-default`])}
+    >
+      {completed ? <MdOutlineDone /> : icon}
+    </Text>
+  </span>
+);
