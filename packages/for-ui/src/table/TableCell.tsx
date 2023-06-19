@@ -16,7 +16,7 @@ export type TableCellProps<As extends 'th' | 'td' = 'td'> = ComponentProps<
   As
 >;
 
-type TableCellComponent = <As extends 'th' | 'td' = 'td'>(props: TableCellProps<As>) => JSX.Element | null;
+type TableCellComponent = <As extends 'th' | 'td' = 'td'>(props: TableCellProps<As>) => ReactNode;
 
 export const TableCell: TableCellComponent = forwardRef(
   <As extends 'th' | 'td' = 'td'>({ component = 'td', as, className, ...rest }: TableCellProps<As>, ref?: Ref<As>) => {
