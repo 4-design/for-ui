@@ -55,27 +55,3 @@ export const Chip: ChipComponent = forwardRef(
       limited: <LimitedChip<As> {...props} ref={ref} />,
     }[clickableArea]),
 );
-
-////////////////////
-
-// const _Chip = <As extends ElementType = 'button'>({
-//   clickableArea = 'full',
-//   ...props
-// }: ChipPropsWithoutRef<As> & { _ref?: ComponentPropsWithRef<As>["ref"]; }): JSX.Element =>
-//   ({
-//     full: <FullChip<As> {...props} />,
-//     limited: <LimitedChip<As> {...props} />,
-//   }[clickableArea]);
-
-// export type ChipProps<As extends ElementType = 'button'> = ChipPropsWithoutRef<As> &
-// // {  ref?: Ref<As extends keyof HTMLElementTagNameMap ? HTMLElementTagNameMap[As] : As> };
-// RefAttributes<ComponentPropsWithRef<As>["ref"]>
-
-// export const Chip = forwardRef((props: ChipPropsWithoutRef<ElementType>, ref: ComponentPropsWithRef<ElementType>["ref"]) => (
-//   <_Chip {...props} _ref={ref} />
-// )) as <As extends ElementType = 'button'>(props: ChipProps<As>) => JSX.Element | null;
-
-// type ChipProps<As extends ElementType = 'button'> = PolymorphicComponentPropWithRef<
-//   As,
-//   ChipPropsWithoutRef
-// >
