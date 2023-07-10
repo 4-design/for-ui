@@ -1,5 +1,11 @@
 # @3design/3design-ui
 
+## 1.1.4
+
+### Patch Changes
+
+- [#1348](https://github.com/4-design/for-ui/pull/1348) [`7326dd3`](https://github.com/4-design/for-ui/commit/7326dd33c52675496b2bf6be317dcaf501817fb2) Thanks [@locona](https://github.com/locona)! - fix(Table): ページ数を指定できるようにする
+
 ## 1.1.3
 
 ### Patch Changes
