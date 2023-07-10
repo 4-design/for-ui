@@ -1,6 +1,6 @@
 # @3design/3design-ui
 
-## 1.1.5
+## 1.1.6
 
 ### Patch Changes
 
