@@ -30,6 +30,7 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'colu
   /** The component used to render reach row. By default, Row is used. */
   rowRenderer?: FC<RowProps<T>>;
   className?: string;
+  pageCount?: number;
   pageSize?: number;
   defaultPage?: number;
   onChangePage?: (page: number) => void;
@@ -56,6 +57,7 @@ export const Table = <T extends RowData>({
   rowRenderer,
   getRowId,
   columns,
+  pageCount = 1,
   pageSize = 20,
   className,
   defaultPage = 1,
@@ -167,6 +169,7 @@ export const Table = <T extends RowData>({
   const table = useReactTable({
     data,
     columns: selectableColumns,
+    pageCount: disablePagination ? undefined : pageCount,
     state: {
       sorting,
       rowSelection,

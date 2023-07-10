@@ -86,6 +86,10 @@ export const WithTablePageSize: Story = () => (
   <Table<PersonData> columns={columns} data={StaticPersonData} pageSize={10} />
 );
 
+export const WithTablePageCount: Story = () => (
+  <Table<PersonData> columns={columns} data={StaticPersonData} pageSize={10} pageCount={2} />
+);
+
 export const WithClickRow: Story = () => (
   <Table<PersonData>
     columns={columns}
