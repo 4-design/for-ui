@@ -57,7 +57,7 @@ export const Table = <T extends RowData>({
   rowRenderer,
   getRowId,
   columns,
-  pageCount = 1,
+  pageCount,
   pageSize = 20,
   className,
   defaultPage = 1,
