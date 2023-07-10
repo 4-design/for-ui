@@ -1,5 +1,11 @@
 # @3design/3design-ui
 
+## 1.1.5
+
+### Patch Changes
+
+- [#1351](https://github.com/4-design/for-ui/pull/1351) [`bc1dc10`](https://github.com/4-design/for-ui/commit/bc1dc10149a5a8f6e5fe2dccd580e25483ae99b4) Thanks [@locona](https://github.com/locona)! - fix: pageCount を指定しない場合の対応
+
 ## 1.1.4
 
 ### Patch Changes
