@@ -1,5 +1,11 @@
 # @3design/3design-ui
 
+## 1.1.7
+
+### Patch Changes
+
+- [#1354](https://github.com/4-design/for-ui/pull/1354) [`348a5f0`](https://github.com/4-design/for-ui/commit/348a5f0ad6c90faabb42044c54d2a9b4f2c3392d) Thanks [@locona](https://github.com/locona)! - fix(Table): 外部からページを指定できるようにする
+
 ## 1.1.6
 
 ### Patch Changes
