@@ -30,6 +30,7 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'colu
   /** The component used to render reach row. By default, Row is used. */
   rowRenderer?: FC<RowProps<T>>;
   className?: string;
+  page?: number;
   pageCount?: number;
   pageSize?: number;
   defaultPage?: number;
@@ -60,6 +61,7 @@ export const Table = <T extends RowData>({
   pageCount,
   pageSize = 20,
   className,
+  page,
   defaultPage = 1,
   onChangePage,
 }: TableProps<T>) => {
@@ -231,7 +233,7 @@ export const Table = <T extends RowData>({
         </TableBody>
       </TableFrame>
       {!disablePagination && (
-        <TablePagination defaultPage={defaultPage} onChangePagination={onChangePage} table={table} />
+        <TablePagination page={page} defaultPage={defaultPage} onChangePagination={onChangePage} table={table} />
       )}
     </Fragment>
   );

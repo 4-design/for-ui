@@ -3,21 +3,26 @@ import { RowData, Table } from '@tanstack/react-table';
 
 export interface TablePaginationProps<T extends RowData> {
   table: Table<T>;
+  page?: number;
   defaultPage?: number;
   onChangePagination?: (page: number) => void;
 }
 
 export const TablePagination = <T extends RowData>({
   table,
+  page,
   defaultPage = 1,
   onChangePagination,
 }: TablePaginationProps<T>) => {
   const { getPageCount, setPageIndex } = table;
 
-  const handleChange = (_: React.ChangeEvent<unknown>, page: number) => {
-    setPageIndex(page - 1);
+  const handleChange = (_: React.ChangeEvent<unknown>, p: number) => {
     if (onChangePagination) {
-      onChangePagination(page);
+      onChangePagination(p);
+    }
+
+    if (!page) {
+      setPageIndex(p - 1);
     }
   };
 
@@ -27,6 +32,7 @@ export const TablePagination = <T extends RowData>({
         <div />
         <div>
           <Pagination
+            page={page}
             defaultPage={defaultPage}
             size="large"
             shape="rounded"
