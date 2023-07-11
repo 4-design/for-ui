@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MdMoreVert, MdOutlineDelete, MdOutlineEdit } from 'react-icons/md';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { Badge } from '../badge';
@@ -86,9 +86,50 @@ export const WithTablePageSize: Story = () => (
   <Table<PersonData> columns={columns} data={StaticPersonData} pageSize={10} />
 );
 
-export const WithTablePageCount: Story = () => (
-  <Table<PersonData> columns={columns} data={StaticPersonData} pageSize={10} pageCount={2} />
-);
+export const WithTablePage: Story = () => {
+  const usePagination = (limit = 10) => {
+    const [page, setPage] = useState(1);
+
+    const offset = (page - 1) * limit;
+    const next = () => setPage(page + 1);
+    const prev = () => setPage(page - 1);
+    const onChange = (p: number) => {
+      if (p === page) return;
+
+      setPage(p);
+    };
+
+    return {
+      page,
+      limit,
+      offset,
+      actions: {
+        next,
+        prev,
+        onChange,
+      },
+    };
+  };
+
+  const { page, limit, offset, actions } = usePagination();
+  const data = StaticPersonData.slice(offset, page * limit);
+  const pageCount = Math.ceil(StaticPersonData.length / limit);
+
+  return (
+    <Table<PersonData>
+      columns={columns}
+      data={data}
+      page={page}
+      pageSize={limit}
+      pageCount={pageCount}
+      onChangePage={actions.onChange}
+    />
+  );
+};
+
+export const WithTablePageCount: Story = () => {
+  return <Table<PersonData> columns={columns} data={StaticPersonData} pageSize={10} pageCount={2} />;
+};
 
 export const WithClickRow: Story = () => (
   <Table<PersonData>
