@@ -16,15 +16,15 @@
     "prettier-config"
   ],
   "peerDependencies": {
-    "prettier": "^2"
+    "prettier": "^2 || ^3.0.0"
   },
   "dependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
-    "prettier-plugin-pkg": "^0.17.1",
-    "prettier-plugin-sh": "^0.12.0"
+    "prettier-plugin-pkg": "0.18.0",
+    "prettier-plugin-sh": "0.13.0"
   },
   "devDependencies": {
-    "prettier": "2.8.8"
+    "prettier": "3.0.0"
   },
   "publishConfig": {
     "access": "public"

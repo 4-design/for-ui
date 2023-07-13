@@ -53,5 +53,5 @@ export const Chip: ChipComponent = forwardRef(
     ({
       full: <FullChip<As> {...props} ref={ref} />,
       limited: <LimitedChip<As> {...props} ref={ref} />,
-    }[clickableArea]),
+    })[clickableArea],
 );

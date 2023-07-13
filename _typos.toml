@@ -1,0 +1,4 @@
+[default]
+extend-ignore-identifiers-re = [
+    "7a872ba", # Commit id is unexpectedly checked so ignored
+]
