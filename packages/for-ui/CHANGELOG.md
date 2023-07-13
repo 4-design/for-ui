@@ -1,5 +1,25 @@
 # @3design/3design-ui
 
+## 1.1.8
+
+### Patch Changes
+
+- [#1362](https://github.com/4-design/for-ui/pull/1362) [`eb374fb`](https://github.com/4-design/for-ui/commit/eb374fb4c9df3bb4ca0dfb8de88e24b80442664a) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency @types/testing-library\_\_jest-dom to v5.14.8
+
+- [#1356](https://github.com/4-design/for-ui/pull/1356) [`25cbe7d`](https://github.com/4-design/for-ui/commit/25cbe7dabf02ebdbb6a65cc776b40256848d72d7) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency @types/testing-library\_\_jest-dom to v5.14.7
+
+- [#1366](https://github.com/4-design/for-ui/pull/1366) [`0a19cbb`](https://github.com/4-design/for-ui/commit/0a19cbbeaa929727ec6e22a39b674cf82ebc7ed1) Thanks [@Qs-F](https://github.com/Qs-F)! - feat(Callout): 追加
+
+- [#1370](https://github.com/4-design/for-ui/pull/1370) [`72ca34d`](https://github.com/4-design/for-ui/commit/72ca34d8cce3b5fa3cfc17f7311d155f6efc6d29) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency typescript to v5.1.6
+
+- [#1372](https://github.com/4-design/for-ui/pull/1372) [`23200fe`](https://github.com/4-design/for-ui/commit/23200fe8ef11db4121b52435dd90391dbaa44937) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency react-icons to v4.10.1
+
+- [#1332](https://github.com/4-design/for-ui/pull/1332) [`29d3106`](https://github.com/4-design/for-ui/commit/29d31068290c890a461f57fa3dbf06f77590c699) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update react monorepo
+
+- [#1373](https://github.com/4-design/for-ui/pull/1373) [`7a872ba`](https://github.com/4-design/for-ui/commit/7a872ba39eb24458df3f351e4f5b4a62e3f983d6) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency vitest to v0.33.0
+
+- [#1345](https://github.com/4-design/for-ui/pull/1345) [`873290e`](https://github.com/4-design/for-ui/commit/873290eebab6aef0a13eeb1c6a33bd560c0872da) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency @tanstack/react-table to v8.9.3
+
 ## 1.1.7
 
 ### Patch Changes
