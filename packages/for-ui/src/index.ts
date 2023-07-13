@@ -1,5 +1,6 @@
 export * from './badge';
 export * from './button';
+export * from './callout';
 export * from './checkbox';
 export * from './chip';
 export * from './drawer';
