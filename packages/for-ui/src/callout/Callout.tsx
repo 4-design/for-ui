@@ -35,13 +35,13 @@ export const Callout: FC<CalloutProps> = ({ icon, children, intention = 'subtle'
       aria-describedby={descriptionId}
       {...props}
       className={fsx([
-        `flex gap-1 rounded border px-2 py-1`,
+        `flex gap-1 rounded px-2 py-1 outline outline-1`,
         {
-          subtle: `border-shade-light-default text-shade-medium-default bg-shade-light-default fill-shade-medium-default`,
-          positive: `border-positive-light-default text-positive-dark-default bg-positive-light-default fill-positive-medium-default`,
-          negative: `border-negative-light-default text-negative-dark-default bg-negative-light-default fill-negative-medium-default`,
-          notice: `border-notice-light-default text-notice-dark-default bg-notice-light-default fill-notice-medium-default`,
-          informative: `border-informative-light-default text-informative-dark-default bg-informative-light-default fill-informative-medium-default`,
+          subtle: `outline-shade-light-default text-shade-medium-default bg-shade-light-default fill-shade-medium-default`,
+          positive: `outline-positive-light-default text-positive-dark-default bg-positive-light-default fill-positive-medium-default`,
+          negative: `outline-negative-light-default text-negative-dark-default bg-negative-light-default fill-negative-medium-default`,
+          notice: `outline-notice-light-default text-notice-dark-default bg-notice-light-default fill-notice-medium-default`,
+          informative: `outline-informative-light-default text-informative-dark-default bg-informative-light-default fill-informative-medium-default`,
         }[intention],
       ])}
     >
