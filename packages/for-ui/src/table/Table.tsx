@@ -241,7 +241,7 @@ export const Table = <T extends RowData>({
 
 export const TableFrame = forwardRef<HTMLTableElement, JSX.IntrinsicElements['table']>(
   ({ className, ...props }, ref) => (
-    <div className={fsx(`border-shade-light-default h-full w-full overflow-scroll rounded border`, className)}>
+    <div className={fsx(`border-shade-light-default h-full w-full overflow-auto rounded border`, className)}>
       <table
         className={fsx(`ring-shade-light-default w-full border-separate border-spacing-0 ring-1`)}
         ref={ref}
