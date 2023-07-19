@@ -92,7 +92,7 @@ const _Select = <
       popupIndicator: {
         disableRipple: true,
       },
-      // To change the rendering component by specifing component prop, `{ component?: ElementType }` is added.
+      // To change the rendering component by specifying component prop, `{ component?: ElementType }` is added.
       // clearIndicator is IconButton, but component props seems to be omitted.
       clearIndicator: ((): Partial<IconButtonProps<typeof Button, { component?: ElementType }>> => ({
         component: forwardRef(
@@ -196,8 +196,8 @@ const _Select = <
           ...inputProps,
           onChange: disableFilter
             ? () => {
-                // Ignore inputs if not searchable
-              }
+              // Ignore inputs if not searchable
+            }
             : inputProps.onChange,
         }}
         inputRef={InputProps.ref}
