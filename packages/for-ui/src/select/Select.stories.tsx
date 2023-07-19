@@ -540,4 +540,59 @@ export const DisableFilter: Story = () => {
   );
 };
 
+export const Clearable = () => {
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      country: null,
+      countries: [],
+    },
+  });
+  const onSubmit = (data: unknown) => console.info(JSON.stringify(data));
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+      <Controller
+        name="country"
+        control={control}
+        render={({ field: { onChange, name, ref: _, ...fields } }) => {
+          return (
+            <Select
+              {...fields}
+              name={name}
+              label="国名"
+              clearable
+              placeholder="未選択"
+              options={options}
+              onChange={(_, option) => {
+                onChange(option);
+              }}
+            />
+          );
+        }}
+      />
+      <Controller
+        name="countries"
+        control={control}
+        render={({ field: { onChange, name, ref: _, ...fields } }) => {
+          return (
+            <Select
+              {...fields}
+              name={name}
+              label="国名"
+              clearable
+              multiple
+              placeholder="未選択"
+              options={options}
+              onChange={(_, option) => {
+                onChange(option);
+              }}
+            />
+          );
+        }}
+      />
+
+      <Button type="submit">登録する</Button>
+    </form>
+  );
+};
+
 export const NoData = () => <Select name="hello" open options={[]} />;
