@@ -196,8 +196,8 @@ const _Select = <
           ...inputProps,
           onChange: disableFilter
             ? () => {
-              // Ignore inputs if not searchable
-            }
+                // Ignore inputs if not searchable
+              }
             : inputProps.onChange,
         }}
         inputRef={InputProps.ref}
