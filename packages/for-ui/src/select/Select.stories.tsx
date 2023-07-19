@@ -112,7 +112,11 @@ export const Single: Story = () => {
 };
 
 export const Multiple: Story = () => {
-  const { control, handleSubmit, formState: { errors } } = useForm({
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       country1: [],
       country2: [],
@@ -120,7 +124,7 @@ export const Multiple: Story = () => {
   });
   const rules = {
     required: '入力してください',
-  }
+  };
   const onSubmit = (data: unknown) => console.info(data);
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
