@@ -102,10 +102,14 @@ export type ButtonProps<As extends ElementType = 'button'> = MuiButtonProps<As> 
 const extractText = (root: ReactNode): string => {
   let ret = '';
   walkChildren(root, (node) => {
-    if (typeof node !== 'string') {
+    if (typeof node === 'string') {
+      ret += node;
       return;
     }
-    ret += node;
+    if (typeof node === 'number') {
+      ret += `${node}`;
+      return;
+    }
   });
   return ret;
 };
