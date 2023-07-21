@@ -1,4 +1,15 @@
-import { FC, forwardRef, Fragment, MouseEvent, useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import {
+  FC,
+  forwardRef,
+  Fragment,
+  MouseEvent,
+  useCallback,
+  useId,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import {
   ColumnDef,
   ColumnSort,
@@ -69,6 +80,7 @@ export const Table = <T extends RowData>({
   const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
   const prevRowSelection = useRef<RowSelectionState>({});
+  const tableId = useId();
 
   const onRowSelectionChange: OnChangeFn<RowSelectionState> = useCallback(
     (updater) => {
@@ -192,8 +204,8 @@ export const Table = <T extends RowData>({
   }, [table, pageSize]);
 
   return (
-    <Fragment>
-      <TableFrame className={className}>
+    <div className="flex flex-col gap-2">
+      <TableFrame className={className} id={tableId}>
         <TableHead>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="table-row">
@@ -233,9 +245,17 @@ export const Table = <T extends RowData>({
         </TableBody>
       </TableFrame>
       {!disablePagination && (
-        <TablePagination page={page} defaultPage={defaultPage} onChangePagination={onChangePage} table={table} />
+        <div className="flex w-full justify-center">
+          <TablePagination
+            page={page}
+            defaultPage={defaultPage}
+            onChangePage={onChangePage}
+            table={table}
+            aria-controls={tableId}
+          />
+        </div>
       )}
-    </Fragment>
+    </div>
   );
 };
 
