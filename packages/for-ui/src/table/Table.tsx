@@ -76,7 +76,6 @@ export const Table = <T extends RowData>({
   defaultPage = 1,
   onChangePage,
 }: TableProps<T>) => {
-  // const { data, disablePagination, defaultSortColumn, onSelectRow, onSelectRows, onRowClick, rowRenderer } = props;
   const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
   const prevRowSelection = useRef<RowSelectionState>({});
@@ -204,8 +203,8 @@ export const Table = <T extends RowData>({
   }, [table, pageSize]);
 
   return (
-    <div className="flex flex-col gap-2">
-      <TableFrame className={className} id={tableId}>
+    <div className={fsx(`flex flex-col gap-2`, className)}>
+      <TableFrame id={tableId}>
         <TableHead>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="table-row">
@@ -245,7 +244,7 @@ export const Table = <T extends RowData>({
         </TableBody>
       </TableFrame>
       {!disablePagination && (
-        <div className="flex w-full justify-center">
+        <div className={fsx(`flex w-full justify-center`)}>
           <TablePagination
             page={page}
             defaultPage={defaultPage}
