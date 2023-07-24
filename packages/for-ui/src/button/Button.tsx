@@ -201,9 +201,18 @@ const _Button = <As extends ElementType = 'button'>({
         }[variant],
         {
           subtle: {
-            filled: `bg-shade-light-default hover:bg-shade-light-hover focus-visible:bg-shade-light-hover text-shade-medium-default fill-shade-medium-default`,
-            outlined: `bg-shade-white-default hover:bg-shade-white-hover focus-visible:bg-shade-white-hover outline-shade-medium-default text-shade-dark-default fill-shade-medium-default`,
-            text: `bg-shade-white-default hover:bg-shade-white-hover focus-visible:bg-shade-white-hover text-shade-medium-default fill-shade-medium-default`,
+            filled: [
+              `bg-shade-light-default hover:bg-shade-light-hover focus-visible:bg-shade-light-hover text-shade-medium-default fill-shade-medium-default`,
+              structure === 'icon' && `fill-shade-dark-default`,
+            ],
+            outlined: [
+              `bg-shade-white-default hover:bg-shade-white-hover focus-visible:bg-shade-white-hover outline-shade-medium-default text-shade-dark-default fill-shade-medium-default`,
+              structure === 'icon' && `fill-shade-dark-default`,
+            ],
+            text: [
+              `bg-shade-white-default hover:bg-shade-white-hover focus-visible:bg-shade-white-hover text-shade-medium-default fill-shade-medium-default`,
+              structure === 'icon' && `fill-shade-dark-default`,
+            ],
           },
           primary: {
             filled: `bg-primary-dark-default hover:bg-primary-dark-hover focus-visible:bg-primary-dark-hover text-shade-white-default fill-shade-white-default`,
