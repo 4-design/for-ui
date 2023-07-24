@@ -66,7 +66,7 @@ World`);
   });
   it('with error and helperText shows error message', async () => {
     render(<TextArea label="TextArea" error helperText="Something wrong" />);
-    expect(screen.getByRole('textbox', { name: 'TextArea' })).toHaveErrorMessage('Something wrong');
+    expect(screen.getByRole('textbox', { name: 'TextArea' })).toHaveAccessibleErrorMessage('Something wrong');
   });
 });
 
