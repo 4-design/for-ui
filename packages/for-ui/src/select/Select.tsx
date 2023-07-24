@@ -1,9 +1,11 @@
-import { forwardRef, ReactNode, Ref } from 'react';
-import { MdExpandMore } from 'react-icons/md';
+import { ElementType, forwardRef, ReactElement, ReactNode, Ref } from 'react';
+import { MdExpandMore, MdOutlineClose } from 'react-icons/md';
+import { IconButtonProps } from '@mui/material';
 import Autocomplete, {
   createFilterOptions,
   AutocompleteProps as MuiAutocompleteProps,
 } from '@mui/material/Autocomplete';
+import { Button, ButtonProps } from '../button';
 import { Chip } from '../chip';
 import { MenuItem, MenuList } from '../menu';
 import { fsx } from '../system/fsx';
@@ -19,12 +21,13 @@ export type AutocompleteProps<
   Value extends SelectOption,
   Multiple extends boolean | undefined,
   FreeSolo extends boolean | undefined,
-> = Omit<MuiAutocompleteProps<Value, Multiple, true, FreeSolo, 'div'>, 'autoComplete' | 'renderInput' | 'size'> & {
+> = Omit<MuiAutocompleteProps<Value, Multiple, boolean, FreeSolo, 'div'>, 'autoComplete' | 'renderInput' | 'size'> & {
   name: string;
   label?: ReactNode;
   placeholder?: string;
   required?: boolean;
   loadingText?: ReactNode;
+  clearable?: boolean;
   error?: boolean;
   helperText?: ReactNode;
   disabled?: boolean;
@@ -46,6 +49,7 @@ const _Select = <
   required = false,
   placeholder,
   multiple,
+  clearable = multiple ?? false,
   freeSolo,
   error,
   helperText,
@@ -57,11 +61,11 @@ const _Select = <
 }: AutocompleteProps<Value, Multiple, FreeSolo> & {
   _ref?: Ref<HTMLInputElement | null>;
 }): JSX.Element => (
-  <Autocomplete<Value, Multiple, true, FreeSolo>
+  <Autocomplete<Value, Multiple, boolean, FreeSolo>
     ref={_ref}
     disablePortal
     disableCloseOnSelect={multiple}
-    disableClearable
+    disableClearable={!clearable}
     autoHighlight
     clearOnBlur
     openOnFocus
@@ -70,6 +74,9 @@ const _Select = <
     multiple={multiple}
     freeSolo={freeSolo}
     options={options}
+    clearText="選択を解除"
+    closeText="閉じる"
+    openText="開く"
     PaperComponent={(props) => <MenuList as="div" {...props} />}
     isOptionEqualToValue={(option, v) =>
       typeof option === 'string' ? option === v : option.inputValue === v.inputValue
@@ -80,10 +87,25 @@ const _Select = <
       </Text>
     }
     popupIcon={<MdExpandMore size={24} />}
+    clearIcon={<MdOutlineClose />}
     componentsProps={{
       popupIndicator: {
         disableRipple: true,
       },
+      // To change the rendering component by specifying component prop, `{ component?: ElementType }` is added.
+      // clearIndicator is IconButton, but component props seems to be omitted.
+      clearIndicator: ((): Partial<IconButtonProps<typeof Button, { component?: ElementType }>> => ({
+        component: forwardRef(
+          (
+            { children, ...props }: Omit<Partial<IconButtonProps>, keyof ButtonProps> & { children?: ReactElement },
+            ref: Ref<HTMLButtonElement>,
+          ) => (
+            <Button size="small" variant="filled" {...props} ref={ref}>
+              {children}
+            </Button>
+          ),
+        ),
+      }))(),
     }}
     filterOptions={(options, params) => {
       const filtered = createFilterOptions<Value>()(options, params);
@@ -155,14 +177,15 @@ const _Select = <
       listbox: fsx(`p-0`),
       input: fsx([multiple && `min-w-20`, disableFilter && `cursor-pointer caret-transparent`]),
       noOptions: fsx(`p-0`),
-      endAdornment: fsx([
-        `[&_svg]:icon-shade-dark-default border-shade-light-default [input:disabled+&_svg]:icon-shade-dark-disabled static flex border-x`,
+      endAdornment: fsx(`static flex gap-2`),
+      popupIndicator: fsx([
+        `[&_svg]:icon-shade-dark-default border-shade-light-default [input:disabled+&_svg]:icon-shade-dark-disabled static m-0 flex rounded-none border-x border-solid p-0`,
         {
           large: `px-2`,
           medium: `px-1`,
         }[size],
       ]),
-      popupIndicator: fsx(`m-0 p-0`),
+      clearIndicator: fsx(`visible`),
     }}
     renderInput={({ inputProps, InputProps, InputLabelProps, ...params }) => (
       <TextField
@@ -181,6 +204,7 @@ const _Select = <
         autoComplete="off"
         size={size}
         name={name}
+        // FIXME #1242: passing required to TextField causes unexpected error for TextField (TextField value can be empty while Select has values)
         required={required}
         label={label}
         placeholder={placeholder}
@@ -192,7 +216,7 @@ const _Select = <
   />
 );
 
-export const Select = forwardRef((props, ref: Ref<HTMLInputElement>) => <_Select ref={ref} {...props} />) as <
+export const Select = forwardRef((props, ref: Ref<HTMLInputElement>) => <_Select _ref={ref} {...props} />) as <
   Value extends SelectOption,
   Multiple extends boolean | undefined,
   FreeSolo extends boolean | undefined,
