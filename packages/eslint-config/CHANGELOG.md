@@ -1,5 +1,11 @@
 # @3design/eslint-config
 
+## 1.0.13
+
+### Patch Changes
+
+- [#1399](https://github.com/4-design/for-ui/pull/1399) [`e923870`](https://github.com/4-design/for-ui/commit/e9238700abcabafad75c25b968207e014982ac1f) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency eslint-plugin-unicorn to v48
+
 ## 1.0.12
 
 ### Patch Changes

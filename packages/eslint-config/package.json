@@ -1,6 +1,6 @@
 {
   "name": "@4design/eslint-config",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "4-design's shared ESLint config",
   "repository": {
     "url": "4-design/for-ui",
