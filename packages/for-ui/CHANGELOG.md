@@ -1,5 +1,37 @@
 # @3design/3design-ui
 
+## 1.1.9
+
+### Patch Changes
+
+- [#1403](https://github.com/4-design/for-ui/pull/1403) [`71cf58f`](https://github.com/4-design/for-ui/commit/71cf58f190d5cc21eecb936a80b63a82ed170f5b) Thanks [@Qs-F](https://github.com/Qs-F)! - feat(Select): 選択項目をリセットする手段を追加
+
+- [#1379](https://github.com/4-design/for-ui/pull/1379) [`5413c99`](https://github.com/4-design/for-ui/commit/5413c99d072d7fc727e89a2eea90b714baa59771) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency prettier to v3
+
+- [#1387](https://github.com/4-design/for-ui/pull/1387) [`3b36925`](https://github.com/4-design/for-ui/commit/3b36925cb885f337f917226ec3151113f6c1b87d) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Table): スクロールバーを常に表示に設定しているときの意図しないpaddingを除去
+
+- [#1394](https://github.com/4-design/for-ui/pull/1394) [`5eb8aa3`](https://github.com/4-design/for-ui/commit/5eb8aa3f94d5859e4f123e2e06ab81a5addcebef) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency tailwind-merge to v1.14.0
+
+- [#1339](https://github.com/4-design/for-ui/pull/1339) [`450b6b4`](https://github.com/4-design/for-ui/commit/450b6b420fe665957a70cea6023a1a139074997e) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency react-hook-form to v7.45.2
+
+- [#1410](https://github.com/4-design/for-ui/pull/1410) [`bd6ee4f`](https://github.com/4-design/for-ui/commit/bd6ee4f38ec23cc47d6aaa4ffce528b8b4601ec7) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Button): childrenがnumberのときも構造上テキストとして扱うよう修正
+
+- [#1409](https://github.com/4-design/for-ui/pull/1409) [`173e16f`](https://github.com/4-design/for-ui/commit/173e16f51cddba394155f925df2ddc2b83f95d9a) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Button): `intention=subtle`かつ構造がアイコンのときの色を修正
+
+- [#1400](https://github.com/4-design/for-ui/pull/1400) [`06eaa99`](https://github.com/4-design/for-ui/commit/06eaa99f06f76a5cf2f93fcb7ad4d7ca88cd0097) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency @testing-library/jest-dom to v5.17.0
+
+- [#1407](https://github.com/4-design/for-ui/pull/1407) [`82f912c`](https://github.com/4-design/for-ui/commit/82f912c40c3ef6a5376cfef0e285e2264b5c2e75) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Pagination): デザイン修正
+
+- [#1389](https://github.com/4-design/for-ui/pull/1389) [`79053df`](https://github.com/4-design/for-ui/commit/79053dfd6d8a2d73ca7b016c3603be264e9b5f30) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency @types/react to v18.2.15
+
+- [#1398](https://github.com/4-design/for-ui/pull/1398) [`baefea2`](https://github.com/4-design/for-ui/commit/baefea2cecf54eea0500de24442b2c363e17eabf) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Button): ローディングアイコンの色とサイズを修正
+
+- [#1390](https://github.com/4-design/for-ui/pull/1390) [`789529f`](https://github.com/4-design/for-ui/commit/789529ff4ae6d302c4dc79c25f93a5b8e593769e) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency tailwindcss to v3.3.3
+
+- [#1395](https://github.com/4-design/for-ui/pull/1395) [`34dcfc4`](https://github.com/4-design/for-ui/commit/34dcfc4c4e6e9a9e786f863f7d137dfafb1fd727) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency clsx to v2
+
+- [#1388](https://github.com/4-design/for-ui/pull/1388) [`0fa0cdc`](https://github.com/4-design/for-ui/commit/0fa0cdc97aed6adc8dddf6947375ec5aad5c0f91) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Callout): レイアウトの修正
+
 ## 1.1.8
 
 ### Patch Changes
