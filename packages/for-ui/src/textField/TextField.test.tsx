@@ -79,7 +79,7 @@ World`,
   });
   it('with error and helperText shows error message', async () => {
     render(<TextField label="TextField" error helperText="Something wrong" />);
-    expect(screen.getByRole('textbox', { name: 'TextField' })).toHaveErrorMessage('Something wrong');
+    expect(screen.getByRole('textbox', { name: 'TextField' })).toHaveAccessibleErrorMessage('Something wrong');
   });
 });
 

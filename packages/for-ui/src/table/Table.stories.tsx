@@ -10,6 +10,7 @@ import { PersonData, StaticPersonData } from '../utils/makeData';
 import { ColumnDef } from './ColumnDef';
 import { Table, TableBody, TableFrame, TableHead, TableRow } from './Table';
 import { TableCell } from './TableCell';
+import { Pagination } from './TablePagination';
 import { TableScroller } from './TableScroller';
 
 export default {
@@ -247,3 +248,5 @@ export const WithoutReactTable: Story = () => (
     </TableBody>
   </TableFrame>
 );
+
+export const _Pagination: Story = () => <Pagination total={100} defaultPage={50} />;
