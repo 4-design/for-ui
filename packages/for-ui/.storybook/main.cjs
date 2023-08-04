@@ -3,22 +3,19 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@storybook/addon-styling',
     '@storybook/addon-backgrounds',
-    {
-      name: '@storybook/addon-postcss',
-      options: {
-        postcssLoaderOptions: {
-          implementation: require('postcss'),
-        },
-      },
-    },
+    '@storybook/addon-mdx-gfm',
   ],
-  core: {
-    builder: '@storybook/builder-vite',
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
   },
-  framework: '@storybook/react',
   features: {
     storyStoreV7: true,
     // previewMdx2: true,
+  },
+  docs: {
+    autodocs: true,
   },
 };

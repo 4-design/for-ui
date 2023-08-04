@@ -1,5 +1,5 @@
 import path from 'path';
-import { defineConfig, PluginOption } from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import pkg from './package.json';
 
@@ -8,7 +8,7 @@ const externalPackages = Object.keys(pkg.peerDependencies || {});
 const regexesOfPackages = externalPackages.map((packageName) => new RegExp(`^${packageName}(/.*)?`));
 
 export default defineConfig(({ mode }) => ({
-  plugins: [react() as PluginOption],
+  plugins: [react()],
   build: {
     sourcemap: mode === 'production' ? false : 'inline',
     lib: {
