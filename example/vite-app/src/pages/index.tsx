@@ -4,7 +4,7 @@ import { Button, Chip, Dropzone, Menu, MenuItem, Text } from '@4design/for-ui';
 const IndexPage = () => (
   <div className="flex flex-col gap-4 p-4">
     <Text size="xl" weight="bold">
-      For UI Example Site with Next.js
+      For UI Example Site with Vite
     </Text>
     <Chip label="yuzuna.kanda.pdf" onClick={() => void 0} icon={<MdOutlineFileDownload />} />
     <div className="flex items-center gap-2">
