@@ -1,45 +1,48 @@
-import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
+import React, { useState, useCallback, MouseEvent } from 'react';
 import { Dropzone } from './Dropzone';
+import { Meta, StoryObj } from '@storybook/react';
+
+type Story = StoryObj<typeof Dropzone>
 
 export default {
   title: 'Form / Dropzone',
   component: Dropzone,
   decorators: [
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (Story: any) => <Story />,
+    (Story) => <Story />,
   ],
   argTypes: {
     multiple: { control: 'boolean' },
     message: { control: 'text' },
   },
-} as Meta;
+} satisfies Meta<typeof Dropzone>
 
-export const Basic = (): JSX.Element => {
-  const [filesState, setFilesState] = React.useState<File[]>([]);
-  const multiple = true;
+export const Basic: Story = {
+  render: () => {
+    const [filesState, setFilesState] = useState<File[]>([]);
+    const multiple = true;
 
-  const onDrop = React.useCallback(
-    (files: File[]) => {
-      if (!multiple && filesState.length > 0) {
-        return;
-      }
-      setFilesState((prevState) => [...prevState, ...files]);
-    },
-    [multiple, filesState.length],
-  );
+    const onDrop = useCallback(
+      (files: File[]) => {
+        if (!multiple && filesState.length > 0) {
+          return;
+        }
+        setFilesState((prevState) => [...prevState, ...files]);
+      },
+      [multiple, filesState.length],
+    );
 
-  const onRemove = React.useCallback(
-    (file: File) => (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.stopPropagation();
-      setFilesState((prevState) => {
-        const newState = [...prevState];
-        newState.splice(prevState.indexOf(file), 1);
-        return [...newState];
-      });
-    },
-    [],
-  );
+    const onRemove = useCallback(
+      (file: File) => (e: MouseEvent<HTMLButtonElement>) => {
+        e.stopPropagation();
+        setFilesState((prevState) => {
+          const newState = [...prevState];
+          newState.splice(prevState.indexOf(file), 1);
+          return [...newState];
+        });
+      },
+      [],
+    );
 
-  return <Dropzone multiple={multiple} onDrop={onDrop} onRemove={onRemove} files={filesState} />;
-};
+    return <Dropzone multiple={multiple} onDrop={onDrop} onRemove={onRemove} files={filesState} />;
+  }
+}

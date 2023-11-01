@@ -2,20 +2,22 @@ import React, { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Meta } from '@storybook/react/types-6-0';
 import { Button } from '../button';
 import { fsx } from '../system/fsx';
 import { Text } from '../text';
 import { Checkbox } from './Checkbox';
 import { CheckboxGroup } from './CheckboxGroup';
+import { Meta, StoryObj } from '@storybook/react';
+
+type Story = StoryObj<typeof Checkbox>
 
 export default {
   title: 'Form / Checkbox',
   component: Checkbox,
   decorators: [(Story) => <Story />],
-} as Meta;
+} satisfies Meta<typeof Checkbox>;
 
-export const Playground = {
+export const Playground: Story = {
   args: {
     label: '',
     disabled: false,
@@ -24,7 +26,7 @@ export const Playground = {
   },
 };
 
-export const Basic = (): JSX.Element => {
+const Basic = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data: unknown) => console.info(data);
 
@@ -48,9 +50,13 @@ export const Basic = (): JSX.Element => {
       <Button type="submit">登録</Button>
     </form>
   );
-};
+}
 
-export const WithNopadding = (): JSX.Element => {
+export const _Basic: Story = {
+  render: () => <Basic />
+}
+
+const WithNopadding = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data: unknown) => console.info(data);
 
@@ -74,7 +80,11 @@ export const WithNopadding = (): JSX.Element => {
       <Button type="submit">登録</Button>
     </form>
   );
-};
+}
+
+export const _WithNopadding: Story = {
+  render: () => <WithNopadding />
+}
 
 const allPreferences = {
   spring: '春',
@@ -89,7 +99,7 @@ const schema = yup.object({
 
 type FieldValue = yup.InferType<typeof schema>;
 
-export const WithCheckboxGroup = () => {
+const WithCheckboxGroup = () => {
   const {
     register,
     handleSubmit,
@@ -101,7 +111,7 @@ export const WithCheckboxGroup = () => {
     console.info(data);
   }, []);
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={fsx(`flex flex-col gap-8`)}>
+    <form onSubmit={handleSubmit(onSubmit)} className={fsx(`flex flex-col gap-8`)} >
       <CheckboxGroup
         required
         label="好きな季節"
@@ -115,16 +125,22 @@ export const WithCheckboxGroup = () => {
         <Checkbox label="雨季" value={true} disabled />
       </CheckboxGroup>
       <Button type="submit">保存</Button>
-    </form>
+    </form >
   );
-};
+}
 
-export const CustomLabel = () => (
-  <Checkbox
-    label={
-      <Text size="xl" weight="bold" className="text-shade-medium-default">
-        ラベル
-      </Text>
-    }
-  />
-);
+export const _WithCheckboxGroup: Story = {
+  render: () => <WithCheckboxGroup />
+}
+
+export const CustomLabel: Story = {
+  render: () => (
+    <Checkbox
+      label={
+        <Text size="xl" weight="bold" className="text-shade-medium-default">
+          ラベル
+        </Text>
+      }
+    />
+  )
+}
