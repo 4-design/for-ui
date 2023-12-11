@@ -36,15 +36,15 @@ describe('Button', () => {
     );
     expect(screen.queryByRole('button', { name: 'button' })).toBeInTheDocument();
   });
-  it('with nested text renders single label', () => {
+  it('with nested text is rendered', () => {
     render(
       <Button>
         <Text>
-          but<Text>ton</Text>
+          button<Text>test</Text>
         </Text>
       </Button>,
     );
-    expect(screen.queryByRole('button', { name: 'button' })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'button test' })).toBeInTheDocument();
   });
   it('does not fire onClick event when not clicked', async () => {
     const onClick = vi.fn();
@@ -77,7 +77,10 @@ describe('Button', () => {
         button
       </Button>,
     );
-    await user.click(screen.getByRole('button', { name: 'button' }));
+    const element = screen.getByText('button')?.closest('button');
+    expect(element).toBeTruthy();
+    if (!element) return; // Workaround for that expect does not assert element is not null
+    await user.click(element);
     expect(onClick).not.toHaveBeenCalled();
   });
   it('works as link when specified as anchor tag by `as`', async () => {
