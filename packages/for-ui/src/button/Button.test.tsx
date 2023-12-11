@@ -80,4 +80,13 @@ describe('Button', () => {
     await user.click(screen.getByRole('button', { name: 'button' }));
     expect(onClick).not.toHaveBeenCalled();
   });
+  it('works as link when specified as anchor tag by `as`', async () => {
+    render(
+      <Button as="a" href="https://example.com">
+        test
+      </Button>,
+    );
+    const element = await screen.findByRole('link', { name: 'test' });
+    expect(element).toBeInTheDocument();
+  });
 });
