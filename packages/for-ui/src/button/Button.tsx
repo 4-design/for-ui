@@ -1,4 +1,4 @@
-import { Children, ElementType, FC, forwardRef, MouseEvent, ReactNode, useMemo } from 'react';
+import { Children, ElementType, FC, forwardRef, MouseEvent, MouseEventHandler, ReactNode, useMemo } from 'react';
 import MuiButton, { ButtonUnstyledProps as MuiButtonProps } from '@mui/base/ButtonUnstyled';
 import { LoadingButtonProps } from '@mui/lab/LoadingButton';
 import { Loader } from '../loader';
@@ -10,7 +10,7 @@ import { walkChildren } from '../system/walkChildren';
 type Child = Exclude<ReactNode, Iterable<ReactNode>> | string;
 
 export type ButtonProps<As extends ElementType = 'button'> = ComponentProps<
-  Omit<MuiButtonProps<As>, 'href' | 'children'> & {
+  Omit<MuiButtonProps<As>, 'href' | 'children' | 'onClick'> & {
     /**
      * 種類を指定
      *
@@ -96,6 +96,8 @@ export type ButtonProps<As extends ElementType = 'button'> = ComponentProps<
      * @deprecated intention propsを使ってください
      */
     color?: 'primary' | 'secondary' | 'default';
+
+    onClick?: MouseEventHandler<HTMLElementTagNameMap[As extends keyof HTMLElementTagNameMap ? As : 'button']>;
 
     className?: string;
   },
@@ -250,7 +252,7 @@ export const Button: ButtonComponent = forwardRef(
         ])}
         // FIXME: Avoid unintended type error, maybe MUI's problem?
         {...(rest as MuiButtonProps<As>)}
-        onClick={(e: MouseEvent<As>) => {
+        onClick={(e: MouseEvent<HTMLElementTagNameMap[As extends keyof HTMLElementTagNameMap ? As : 'button']>) => {
           if (loading) {
             return;
           }
