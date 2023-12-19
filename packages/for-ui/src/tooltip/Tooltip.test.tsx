@@ -11,28 +11,28 @@ const Trigger = forwardRef<HTMLSpanElement, ComponentPropsWithRef<'span'>>((prop
 describe('Tooltip', () => {
   it('has rendered children', async () => {
     render(
-      <Tooltip title="テキスト">
-        <Trigger>test</Trigger>
+      <Tooltip title="description">
+        <Trigger>trigger</Trigger>
       </Tooltip>,
     );
-    expect(screen.getByText('test')).toBeInTheDocument();
+    expect(await screen.findByText('trigger')).toBeInTheDocument();
   });
   it('has children with accessible description', async () => {
     render(
-      <Tooltip title="テキスト">
-        <Trigger>test</Trigger>
+      <Tooltip title="description">
+        <Trigger>trigger</Trigger>
       </Tooltip>,
     );
-    expect(screen.getByText('test')).toHaveAccessibleDescription('テキスト');
+    expect(await screen.findByText('trigger')).toHaveAccessibleDescription('description');
   });
   it('is appeared when focusing trigger', async () => {
     const user = userEvent.setup();
     render(
-      <Tooltip title="テキスト">
-        <Trigger>test</Trigger>
+      <Tooltip title="description">
+        <Trigger>trigger</Trigger>
       </Tooltip>,
     );
-    user.tab();
+    await user.tab();
     expect(await screen.findByRole('tooltip')).toBeInTheDocument();
   });
 });

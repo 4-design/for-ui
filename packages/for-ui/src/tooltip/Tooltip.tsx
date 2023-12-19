@@ -1,8 +1,9 @@
-import { ComponentPropsWithRef, FC, forwardRef } from 'react';
+import { ComponentPropsWithRef, FC, forwardRef, useId } from 'react';
 import MuiTooltip, { TooltipProps as MuiTooltipProps } from '@mui/material/Tooltip';
 import { fsx } from '../system/fsx';
 import { PropsCascader } from '../system/PropsCascader';
 import { Text } from '../text';
+import { prepareForSlot } from '../utils/prepareForSlot';
 
 export type TooltipProps = Pick<MuiTooltipProps, 'placement' | 'children'> & {
   title: string;
@@ -23,15 +24,29 @@ export const TooltipFrame = forwardRef<HTMLSpanElement, ComponentPropsWithRef<'s
 );
 
 export const Tooltip: FC<TooltipProps> = ({ children, ...props }) => {
+  const internalId = useId();
   return (
     <MuiTooltip
+      id={internalId}
       slots={{
-        tooltip: TooltipFrame,
+        tooltip: prepareForSlot(TooltipFrame),
       }}
-      describeChild
+      slotProps={{
+        popper: {
+          keepMounted: true,
+          style: {
+            display: undefined,
+          },
+        },
+        tooltip: {
+          style: {
+            visibility: 'visible',
+          },
+        },
+      }}
       {...props}
     >
-      <PropsCascader tabIndex={0}>{children}</PropsCascader>
+      <PropsCascader tabIndex={0} aria-describedby={internalId} aria-label={undefined}>{children}</PropsCascader>
     </MuiTooltip>
   );
 };
