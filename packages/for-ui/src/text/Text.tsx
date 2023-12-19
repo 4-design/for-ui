@@ -1,5 +1,6 @@
-import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
+import { ElementType, FC, forwardRef, ReactNode } from 'react';
 import { fsx } from '../system/fsx';
+import { ComponentProps, Ref } from '../system/polyComponent';
 
 type WithInherit<T> = T | 'inherit';
 
@@ -33,52 +34,48 @@ const style = (size: WithInherit<Size>, weight: WithInherit<Weight>, typeface: W
   );
 };
 
-export type TextProps<P extends ElementType> = ComponentPropsWithoutRef<P> & {
-  /**
-   * レンダリングするコンポーネントを指定 (例: h1, p, strong)
-   * @default span
-   */
-  as?: P;
+export type TextProps<As extends ElementType = 'span'> = ComponentProps<
+  {
+    /**
+     * テキストのサイズを指定
+     * @default inherit
+     */
+    size?: WithInherit<Size>;
 
-  /**
-   * テキストのサイズを指定
-   * @default inherit
-   */
-  size?: WithInherit<Size>;
+    /**
+     * 表示するテキストのウェイトを指定
+     * @default inherit
+     */
+    weight?: WithInherit<Weight>;
 
-  /**
-   * 表示するテキストのウェイトを指定
-   * @default inherit
-   */
-  weight?: WithInherit<Weight>;
+    /**
+     * 表示する書体の種別を指定
+     * @default inherit
+     */
+    typeface?: WithInherit<Typeface>;
 
-  /**
-   * 表示する書体の種別を指定
-   * @default inherit
-   */
-  typeface?: WithInherit<Typeface>;
+    className?: string;
 
-  className?: string;
+    /**
+     * 文字列またはstrong等のコンポーネント (HTML的にvalidになるようにしてください)
+     */
+    children: ReactNode;
+  },
+  As
+>;
 
-  /**
-   * 文字列またはstrong等のコンポーネント (HTML的にvalidになるようにしてください)
-   */
-  children: ReactNode;
-};
+type TextComponent = <As extends ElementType = 'span'>(props: TextProps<As>) => ReturnType<FC>;
 
-export const Text = <P extends ElementType = 'span'>({
-  as,
-  size = 'inherit',
-  weight = 'inherit',
-  typeface = 'inherit',
-  className,
-  children,
-  ...rests
-}: TextProps<P>): JSX.Element => {
-  const Component = as || 'span';
-  return (
-    <Component className={fsx(style(size, weight, typeface), className)} {...rests}>
-      {children}
-    </Component>
-  );
-};
+export const Text: TextComponent = forwardRef(
+  <As extends ElementType = 'span'>(
+    { as, size = 'inherit', weight = 'inherit', typeface = 'inherit', className, children, ...rests }: TextProps<As>,
+    ref: Ref<As>,
+  ) => {
+    const Component = as || 'span';
+    return (
+      <Component ref={ref} className={fsx(style(size, weight, typeface), className)} {...rests}>
+        {children}
+      </Component>
+    );
+  },
+);
