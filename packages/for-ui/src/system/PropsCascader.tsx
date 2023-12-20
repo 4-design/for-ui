@@ -7,7 +7,10 @@ type PropsCascaderProps<T extends HTMLAttributes<HTMLElement>> = T & {
 type PropsCascaderComponent = <T extends HTMLAttributes<HTMLElement>>(props: PropsCascaderProps<T>) => ReturnType<FC>;
 
 export const PropsCascader: PropsCascaderComponent = forwardRef(
-  <T extends HTMLAttributes<HTMLElement>>({ children, ...props }: PropsCascaderProps<T>, ref: ForwardedRef<HTMLElement>) => {
+  <T extends HTMLAttributes<HTMLElement>>(
+    { children, ...props }: PropsCascaderProps<T>,
+    ref: ForwardedRef<HTMLElement>,
+  ) => {
     return Children.map(children, (child: ReactNode) => {
       if (!isValidElement(child)) {
         return child;

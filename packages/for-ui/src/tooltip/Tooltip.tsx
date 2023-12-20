@@ -46,7 +46,9 @@ export const Tooltip: FC<TooltipProps> = ({ children, ...props }) => {
       }}
       {...props}
     >
-      <PropsCascader tabIndex={0} aria-describedby={internalId} aria-label={undefined}>{children}</PropsCascader>
+      <PropsCascader tabIndex={0} aria-describedby={internalId} aria-label={undefined}>
+        {children}
+      </PropsCascader>
     </MuiTooltip>
   );
 };
