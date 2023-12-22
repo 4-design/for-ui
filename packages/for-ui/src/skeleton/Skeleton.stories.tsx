@@ -21,6 +21,18 @@ export default {
   },
 } as Meta;
 
+export const WithoutChildren = () => (
+  <div className="flex flex-col gap-4">
+    <Skeleton />
+    <Skeleton size="xs" />
+    <Skeleton size="s" />
+    <Skeleton size="r" />
+    <Skeleton size="xr" />
+    <Skeleton size="l" />
+    <Skeleton size="xl" />
+  </div>
+);
+
 export const WithText = () => {
   const [loading, setLoading] = React.useState(false);
   React.useEffect(() => {
