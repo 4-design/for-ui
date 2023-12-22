@@ -44,9 +44,10 @@ export const SortableTableCellHead: FC<
     sorted: false | 'asc' | 'desc';
     nextSortingOrder: false | 'asc' | 'desc';
     children: ReactNode;
+    disabled?: boolean;
     onClick?: HTMLAttributes<HTMLButtonElement>['onClick'];
   }
-> = ({ sortable, sorted, nextSortingOrder, onClick, children, ...rest }) => (
+> = ({ sortable, sorted, nextSortingOrder, onClick, disabled, children, ...rest }) => (
   <TableCell
     as="th"
     aria-sort={sorted ? ({ asc: 'ascending', desc: 'descending' } as const)[sorted] : undefined}
@@ -55,6 +56,7 @@ export const SortableTableCellHead: FC<
   >
     {sortable ? (
       <button
+        disabled={disabled}
         onClick={onClick}
         className={fsx(
           `hover:bg-shade-light-hover focus-visible:bg-shade-light-hover group flex w-full items-center gap-1 px-3 py-1 focus-visible:outline-none`,
