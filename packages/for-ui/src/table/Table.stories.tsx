@@ -46,7 +46,7 @@ const columns: ColumnDef<PersonData, ReactNode>[] = [
 
 export const Base: Story = () => <Table<PersonData> columns={columns} data={StaticPersonData} />;
 
-export const Loading: Story = () => <Table<PersonData> loading loadingRows={10} columns={columns} />;
+export const Loading: Story = () => <Table<PersonData> loading loadingRows={20} columns={columns} />;
 
 export const LoadingWithSelect: Story = () => (
   <Table<PersonData>

@@ -47,7 +47,6 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'columns' | 'g
   pageSize?: number;
   defaultPage?: number;
   onChangePage?: (page: number) => void;
-  loading?: boolean;
 } & (
     | {
         /** If wanting to use selectable table, specify _onSelectRow_ or _onSelectRows_ exclusively */
@@ -62,12 +61,34 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'columns' | 'g
   ) &
   (
     | {
+        /**
+         * 読み込み中であることを示す時に指定
+         *
+         * @default false
+         */
         loading?: false | undefined;
+
+        /**
+         * 読み込み中であることを示す時にスケルトンローディングで表示する行数を指定
+         *
+         * @default 10
+         */
         loadingRows?: never;
         data: TableOptions<T>['data'];
       }
     | {
+        /**
+         * 読み込み中であることを示す時に指定
+         *
+         * @default false
+         */
         loading: true;
+
+        /**
+         * 読み込み中であることを示す時にスケルトンローディングで表示する行数を指定
+         *
+         * @default 10
+         */
         loadingRows: number;
         data?: never;
       }
@@ -174,7 +195,7 @@ export const Table = <T extends RowData>({
   defaultPage = 1,
   onChangePage,
   loading,
-  loadingRows,
+  loadingRows = 10,
 }: TableProps<T>) => {
   const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
