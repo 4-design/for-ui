@@ -49,10 +49,14 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'colu
 } & (
     | {
         /** If wanting to use selectable table, specify _onSelectRow_ or _onSelectRows_ exclusively */
+        selectedRow?: string;
+        selectedRows?: never;
         onSelectRow?: ((id: string | undefined) => void) | undefined;
         onSelectRows?: never;
       }
     | {
+        selectedRow?: never;
+        selectedRows?: string[];
         onSelectRow?: never;
         /** If wanting to use selectable table, specify _onSelectRow_ or _onSelectRows_ exclusively */
         onSelectRows?: ((ids: string[]) => void) | undefined;
@@ -63,6 +67,8 @@ export const Table = <T extends RowData>({
   data,
   disablePagination,
   defaultSortColumn,
+  selectedRow,
+  selectedRows,
   onSelectRow,
   onSelectRows,
   onRowClick,
@@ -76,8 +82,11 @@ export const Table = <T extends RowData>({
   defaultPage = 1,
   onChangePage,
 }: TableProps<T>) => {
+  const defaultSelectedRows = selectedRow
+    ? { [selectedRow]: true }
+    : selectedRows?.reduce((acc, id) => ({ ...acc, [id]: true }), {}) ?? {};
   const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
-  const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
+  const [rowSelection, setRowSelection] = useState<RowSelectionState>(defaultSelectedRows);
   const prevRowSelection = useRef<RowSelectionState>({});
   const tableId = useId();
 
@@ -91,6 +100,7 @@ export const Table = <T extends RowData>({
       if (prevRowSelection.current === row) {
         return;
       }
+      console.info(row);
       setRowSelection(row);
       prevRowSelection.current = row;
       const selectedIds = Object.keys(row);
