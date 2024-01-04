@@ -6,7 +6,7 @@ import { Text } from '../text';
 import { Skeleton, SkeletonX } from './Skeleton';
 
 export default {
-  title: 'Data Display / Skeleton',
+  title: 'Feedback / Skeleton',
   component: Skeleton,
   decorators: [
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
