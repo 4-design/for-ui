@@ -123,11 +123,15 @@ export const Table = <T extends RowData>({
         minWidth: '20px',
         width: '20px',
         maxWidth: '20px',
+        columnLabel: '一括操作する行の選択',
       },
       header: ({ table }) => (
         <Fragment>
           {!!onSelectRows && (
             <Checkbox
+              inputProps={{
+                'aria-describedby': "hello"
+              }}
               label={
                 <Text aria-hidden={false} className={fsx(`hidden`)}>
                   すべての行を選択
@@ -142,12 +146,12 @@ export const Table = <T extends RowData>({
         </Fragment>
       ),
       cell: ({ row }) => (
-        <TableCell as="th" scope="row">
+        <TableCell as="td" scope="row">
           {!!onSelectRows && (
             <Checkbox
               label={
                 <Text aria-hidden={false} className={fsx(`hidden`)}>
-                  行を選択
+                  この行を選択
                 </Text>
               }
               className={fsx(`flex`)}
@@ -162,7 +166,7 @@ export const Table = <T extends RowData>({
             <Radio
               label={
                 <Text aria-hidden={false} className={fsx(`hidden`)}>
-                  行を選択
+                  この行を選択
                 </Text>
               }
               className={fsx(`flex`)}
@@ -210,6 +214,7 @@ export const Table = <T extends RowData>({
             <TableRow key={headerGroup.id} className="table-row">
               {headerGroup.headers.map((header) => (
                 <SortableTableCellHead
+                  aria-label={header.column.columnDef.meta?.columnLabel}
                   key={header.id}
                   scope="col"
                   nextSortingOrder={header.column.getNextSortingOrder()}
