@@ -49,7 +49,7 @@ export const WithSelect: Story = () => (
     columns={columns}
     data={StaticPersonData}
     getRowId={(row) => row.id.toString()}
-    selectedRow="2"
+    defaultSelectedRow="2"
     onSelectRow={(row) => console.info('Selected row: ', row)}
   />
 );
@@ -59,7 +59,7 @@ export const WithSelectMultiple: Story = () => (
     columns={columns}
     data={StaticPersonData}
     getRowId={(row) => row.id.toString()}
-    selectedRows={['2', '3', '4']}
+    defaultSelectedRows={['2', '3', '4']}
     onSelectRows={(rows) => console.info('Selected rows: ', rows)}
   />
 );
