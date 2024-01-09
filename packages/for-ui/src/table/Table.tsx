@@ -49,17 +49,17 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'colu
 } & (
     | {
         /** If wanting to use selectable table, specify _onSelectRow_ or _onSelectRows_ exclusively */
-        selectedRow?: string;
-        selectedRows?: never;
         onSelectRow?: ((id: string | undefined) => void) | undefined;
+        defaultSelectedRow?: string;
         onSelectRows?: never;
+        defaultSelectedRows?: never;
       }
     | {
-        selectedRow?: never;
-        selectedRows?: string[];
         onSelectRow?: never;
+        defaultSelectedRow?: never;
         /** If wanting to use selectable table, specify _onSelectRow_ or _onSelectRows_ exclusively */
         onSelectRows?: ((ids: string[]) => void) | undefined;
+        defaultSelectedRows?: string[];
       }
   );
 
@@ -67,8 +67,8 @@ export const Table = <T extends RowData>({
   data,
   disablePagination,
   defaultSortColumn,
-  selectedRow,
-  selectedRows,
+  defaultSelectedRow,
+  defaultSelectedRows,
   onSelectRow,
   onSelectRows,
   onRowClick,
@@ -82,13 +82,14 @@ export const Table = <T extends RowData>({
   defaultPage = 1,
   onChangePage,
 }: TableProps<T>) => {
-  const defaultSelectedRows = selectedRow
-    ? { [selectedRow]: true }
-    : selectedRows?.reduce((acc, id) => ({ ...acc, [id]: true }), {}) ?? {};
-  const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
-  const [rowSelection, setRowSelection] = useState<RowSelectionState>(defaultSelectedRows);
-  const prevRowSelection = useRef<RowSelectionState>({});
   const tableId = useId();
+  const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
+
+  const defaultRowSelection = defaultSelectedRow
+    ? { [defaultSelectedRow]: true }
+    : (defaultSelectedRows || []).reduce((acc, id) => ({ ...acc, [id]: true }), {});
+  const [rowSelection, setRowSelection] = useState<RowSelectionState>(defaultRowSelection);
+  const prevRowSelection = useRef<RowSelectionState>({});
 
   const onRowSelectionChange: OnChangeFn<RowSelectionState> = useCallback(
     (updater) => {
@@ -96,11 +97,10 @@ export const Table = <T extends RowData>({
       // However, due to the React "state is snapshot" design, it is hard to get current selection without using rowSelection.
       // This may lead to some bugs if setting state several times in 1 rendering.
       const row: RowSelectionState = typeof updater === 'function' ? updater(rowSelection) : updater;
-      // If selected the same row (when single selectable table), skip it
+      // If the same row is selected (when single selectable table), skip it
       if (prevRowSelection.current === row) {
         return;
       }
-      console.info(row);
       setRowSelection(row);
       prevRowSelection.current = row;
       const selectedIds = Object.keys(row);
@@ -112,7 +112,7 @@ export const Table = <T extends RowData>({
 
   const selectRow = useCallback(
     (row: RowType<T>) => {
-      // If multiply seletable table, using toggle. Or if singly selectable table, not using toggle.
+      // If multiple seletable table, using toggle. Otherwise (singly selectable table) not using toggle.
       row.toggleSelected(onSelectRows ? undefined : true);
     },
     [onSelectRows],
