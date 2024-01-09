@@ -21,6 +21,7 @@ const Indicator: FC<{ state: 'default' | 'checked' | 'intermediate'; disabled: b
         intermediate: [`bg-primary-dark-default`, disabled && `bg-primary-dark-disabled`],
       }[state],
     ])}
+    aria-hidden
   >
     {
       {

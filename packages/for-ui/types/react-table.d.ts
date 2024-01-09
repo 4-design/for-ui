@@ -7,5 +7,6 @@ declare module '@tanstack/table-core' {
     width?: string
     minWidth?: string
     maxWidth?: string
+    columnLabel?: string
   }
 }

@@ -17,6 +17,7 @@ const Indicator: FC<{ checked: boolean; disabled: boolean }> = ({ checked, disab
       checked && `border-primary-dark-default border-6`,
       disabled && `border-shade-medium-disabled`,
     ])}
+    aria-hidden
   />
 );
 
