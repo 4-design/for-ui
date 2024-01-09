@@ -1,5 +1,23 @@
 # @3design/eslint-config
 
+## 1.0.14
+
+### Patch Changes
+
+- [#1448](https://github.com/4-design/for-ui/pull/1448) [`af71ede`](https://github.com/4-design/for-ui/commit/af71ededfe92fa20d7b791c53205eb0184a520ad) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency eslint-config-prettier to v9
+
+- [#1425](https://github.com/4-design/for-ui/pull/1425) [`95d34cf`](https://github.com/4-design/for-ui/commit/95d34cf8ee58ba38128d6166cfed35280c3621ab) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency eslint-config-prettier to v8.9.0
+
+- [#1429](https://github.com/4-design/for-ui/pull/1429) [`1eed367`](https://github.com/4-design/for-ui/commit/1eed367c3528b0d83e0b17904300029ebfe0e01f) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency eslint-config-prettier to v8.10.0
+
+- [#1451](https://github.com/4-design/for-ui/pull/1451) [`d85dc9c`](https://github.com/4-design/for-ui/commit/d85dc9c596a58f5f02d08c4e93689249be420a2b) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency eslint-plugin-react to v7.33.2
+
+- [#1435](https://github.com/4-design/for-ui/pull/1435) [`bb0b3da`](https://github.com/4-design/for-ui/commit/bb0b3dafee045d8e1789f1672398e79065c6a479) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency eslint-plugin-sonarjs to ^0.20.0
+
+- [#1426](https://github.com/4-design/for-ui/pull/1426) [`85f9c59`](https://github.com/4-design/for-ui/commit/85f9c59f21d2b1cb1e76831f0d868cbe4cf9702f) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency eslint-plugin-import to v2.28.0
+
+- [#1406](https://github.com/4-design/for-ui/pull/1406) [`004d637`](https://github.com/4-design/for-ui/commit/004d6379efa879196632c7d994504fa081f697fe) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency eslint-plugin-react to v7.33.1
+
 ## 1.0.13
 
 ### Patch Changes
