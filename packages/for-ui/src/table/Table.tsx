@@ -129,9 +129,6 @@ export const Table = <T extends RowData>({
         <Fragment>
           {!!onSelectRows && (
             <Checkbox
-              inputProps={{
-                'aria-describedby': "hello"
-              }}
               label={
                 <Text aria-hidden={false} className={fsx(`hidden`)}>
                   すべての行を選択
