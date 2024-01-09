@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { MdMoreVert, MdOutlineDelete, MdOutlineEdit } from 'react-icons/md';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { Badge } from '../badge';
@@ -18,11 +18,13 @@ export default {
   component: Table,
 } as Meta;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const columns: ColumnDef<PersonData, any>[] = [
+const columns: ColumnDef<PersonData, ReactNode>[] = [
   {
     header: 'ID',
     accessorKey: 'id',
+    meta: {
+      width: '16px',
+    },
     cell: (cell) => <TableCell>{cell.renderValue()}</TableCell>,
   },
   {
@@ -44,11 +46,24 @@ const columns: ColumnDef<PersonData, any>[] = [
 
 export const Base: Story = () => <Table<PersonData> columns={columns} data={StaticPersonData} />;
 
+export const Loading: Story = () => <Table<PersonData> loading loadingRows={20} columns={columns} />;
+
+export const LoadingWithSelect: Story = () => (
+  <Table<PersonData>
+    loading
+    loadingRows={10}
+    columns={columns}
+    getRowId={(row) => row.id.toString()}
+    onSelectRow={(row) => console.info('Selected row: ', row)}
+  />
+);
+
 export const WithSelect: Story = () => (
   <Table<PersonData>
     columns={columns}
     data={StaticPersonData}
     getRowId={(row) => row.id.toString()}
+    defaultSelectedRow="2"
     onSelectRow={(row) => console.info('Selected row: ', row)}
   />
 );
@@ -58,6 +73,7 @@ export const WithSelectMultiple: Story = () => (
     columns={columns}
     data={StaticPersonData}
     getRowId={(row) => row.id.toString()}
+    defaultSelectedRows={['2', '3', '4']}
     onSelectRows={(rows) => console.info('Selected rows: ', rows)}
   />
 );

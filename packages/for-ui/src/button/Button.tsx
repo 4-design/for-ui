@@ -1,4 +1,4 @@
-import { Children, ElementType, forwardRef, ReactNode, useMemo } from 'react';
+import { Children, ElementType, forwardRef, MouseEvent, MouseEventHandler, ReactNode, useMemo } from 'react';
 import MuiButton, { ButtonUnstyledProps as MuiButtonProps } from '@mui/base/ButtonUnstyled';
 import { LoadingButtonProps } from '@mui/lab/LoadingButton';
 import { Loader } from '../loader';
@@ -10,7 +10,7 @@ import { walkChildren } from '../system/walkChildren';
 type Child = Exclude<ReactNode, Iterable<ReactNode>> | string;
 
 export type ButtonProps<As extends ElementType = 'button'> = ComponentPropsWithAs<
-  MuiButtonProps<As> & {
+  Omit<MuiButtonProps<As>, 'href' | 'children' | 'onClick'> & {
     /**
      * 種類を指定
      *
@@ -97,6 +97,8 @@ export type ButtonProps<As extends ElementType = 'button'> = ComponentPropsWithA
      */
     color?: 'primary' | 'secondary' | 'default';
 
+    onClick?: MouseEventHandler<HTMLElementTagNameMap[As extends keyof HTMLElementTagNameMap ? As : 'button']>;
+
     className?: string;
   },
   As
@@ -130,20 +132,19 @@ export const Button: ButtonComponent = forwardRef(
       variant = 'outlined',
       intention: passedIntention = 'subtle',
       size = 'large',
-      disabled = false,
       loading = false,
       startIcon,
       endIcon,
       color,
       children,
       className,
+      onClick,
       ...rest
     }: ButtonProps<As>,
-    ref: Ref<As>,
-  ): JSX.Element => {
+    ref?: Ref<As>,
+  ): Element => {
     const component = as || 'button';
     const childTexts = useMemo(() => Children.map(children, extractText) || [], [children]);
-    const label = childTexts.join('');
     const structure: Structure = useMemo(() => {
       if ((childTexts.at(0) && !childTexts.at(-1)) || (endIcon && children)) {
         return 'text-icon';
@@ -174,9 +175,9 @@ export const Button: ButtonComponent = forwardRef(
       <MuiButton<As>
         component={component}
         ref={ref}
-        disabled={disabled || loading}
-        aria-label={label || rest['aria-label'] || 'button'}
+        aria-disabled={loading}
         aria-busy={loading}
+        type="button"
         className={fsx([
           `rounded-1.5 focus-visible:shadow-focused relative flex h-fit w-fit shrink-0 flex-row items-center justify-center font-sans outline-none disabled:cursor-not-allowed [&_svg]:fill-inherit`,
           {
@@ -251,6 +252,12 @@ export const Button: ButtonComponent = forwardRef(
         ])}
         // FIXME: Avoid unintended type error, maybe MUI's problem?
         {...(rest as MuiButtonProps<As>)}
+        onClick={(e: MouseEvent<HTMLElementTagNameMap[As extends keyof HTMLElementTagNameMap ? As : 'button']>) => {
+          if (loading) {
+            return;
+          }
+          onClick?.(e);
+        }}
       >
         {startIcon}
         {children}

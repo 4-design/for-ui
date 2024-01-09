@@ -19,3 +19,4 @@ export * from './textArea';
 export * from './textField';
 export * from './tabs';
 export * from './table';
+export * from './tooltip';
