@@ -11,7 +11,6 @@ import {
   useState,
 } from 'react';
 import {
-  ColumnDef,
   ColumnSort,
   flexRender,
   getCoreRowModel,
@@ -28,12 +27,14 @@ import {
 } from '@tanstack/react-table';
 import { Checkbox } from '../checkbox';
 import { Radio } from '../radio';
+import { Skeleton } from '../skeleton';
 import { fsx } from '../system/fsx';
 import { Text } from '../text';
+import { ColumnDef } from './ColumnDef';
 import { SortableTableCellHead, TableCell } from './TableCell';
 import { TablePagination } from './TablePagination';
 
-export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'columns' | 'getRowId'> & {
+export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'columns' | 'getRowId'> & {
   disablePagination?: boolean | undefined;
   defaultSortColumn?: ColumnSort;
   /** onRowClick is called when each row is clicked regardless of the type of table (selectable or not) */
@@ -61,7 +62,125 @@ export type TableProps<T extends RowData> = Pick<TableOptions<T>, 'data' | 'colu
         onSelectRows?: ((ids: string[]) => void) | undefined;
         defaultSelectedRows?: string[];
       }
+  ) &
+  (
+    | {
+        /**
+         * 読み込み中であることを示す時に指定
+         *
+         * @default false
+         */
+        loading?: false | undefined;
+
+        /**
+         * 読み込み中であることを示す時にスケルトンローディングで表示する行数を指定
+         *
+         * @default 10
+         */
+        loadingRows?: never;
+        data: TableOptions<T>['data'];
+      }
+    | {
+        /**
+         * 読み込み中であることを示す時に指定
+         *
+         * @default false
+         */
+        loading: true;
+
+        /**
+         * 読み込み中であることを示す時にスケルトンローディングで表示する行数を指定
+         *
+         * @default 10
+         */
+        loadingRows: number;
+        data?: never;
+      }
   );
+
+const getSelectColumn = <T extends RowData>({
+  id,
+  multiple,
+  loading,
+  onSelectRow,
+}: {
+  id: string;
+  multiple?: boolean;
+  loading?: boolean;
+  onSelectRow?: (row: RowType<T>) => void;
+}): ColumnDef<T> => {
+  return {
+    id,
+    meta: {
+      minWidth: '20px',
+      width: '20px',
+      maxWidth: '20px',
+    },
+    header: ({ table }) => (
+      <Fragment>
+        {multiple && (
+          <Checkbox
+            label={
+              <Text aria-hidden={false} className={fsx(`hidden`)}>
+                すべての行を選択
+              </Text>
+            }
+            disabled={loading}
+            className={fsx(`flex`)}
+            checked={table.getIsAllRowsSelected()}
+            indeterminate={!table.getIsAllRowsSelected() && table.getIsSomeRowsSelected()}
+            onChange={table.getToggleAllRowsSelectedHandler()}
+          />
+        )}
+      </Fragment>
+    ),
+    cell: ({ row }) => (
+      <TableCell as="th" scope="row">
+        {multiple ? (
+          <Checkbox
+            label={
+              <Text aria-hidden={false} className={fsx(`hidden`)}>
+                行を選択
+              </Text>
+            }
+            disabled={loading}
+            className={fsx(`flex`)}
+            checked={row.getIsSelected()}
+            onClick={(e) => {
+              onSelectRow?.(row);
+              e.stopPropagation();
+            }}
+          />
+        ) : (
+          <Radio
+            label={
+              <Text aria-hidden={false} className={fsx(`hidden`)}>
+                行を選択
+              </Text>
+            }
+            disabled={loading}
+            className={fsx(`flex`)}
+            checked={row.getIsSelected()}
+            onClick={(e) => {
+              onSelectRow?.(row);
+              e.stopPropagation();
+            }}
+          />
+        )}
+      </TableCell>
+    ),
+  };
+};
+
+const makeColumnsLoading = <T extends RowData>(columns: ColumnDef<T>[]) =>
+  columns.map((column) => ({
+    ...column,
+    cell: () => (
+      <TableCell>
+        <Skeleton variant="rounded" loading className="flex h-6 w-full" />
+      </TableCell>
+    ),
+  }));
 
 export const Table = <T extends RowData>({
   data,
@@ -74,13 +193,15 @@ export const Table = <T extends RowData>({
   onRowClick,
   rowRenderer,
   getRowId,
-  columns,
+  columns: passedColumns,
   pageCount,
   pageSize = 20,
   className,
   page,
   defaultPage = 1,
   onChangePage,
+  loading,
+  loadingRows = 10,
 }: TableProps<T>) => {
   const tableId = useId();
   const [sorting, setSorting] = useState<SortingState>(defaultSortColumn ? [defaultSortColumn] : []);
@@ -90,6 +211,8 @@ export const Table = <T extends RowData>({
     : (defaultSelectedRows || []).reduce((acc, id) => ({ ...acc, [id]: true }), {});
   const [rowSelection, setRowSelection] = useState<RowSelectionState>(defaultRowSelection);
   const prevRowSelection = useRef<RowSelectionState>({});
+
+  const selectable = !!(onSelectRow || onSelectRows);
 
   const onRowSelectionChange: OnChangeFn<RowSelectionState> = useCallback(
     (updater) => {
@@ -120,91 +243,45 @@ export const Table = <T extends RowData>({
 
   const RowComponent: FC<RowProps<T>> = rowRenderer || Row;
 
-  const selectableColumns = useMemo(() => {
-    // Not selectable table
-    if (!(onSelectRow || onSelectRows)) {
-      return columns;
-    }
+  const loadingDummyData = Array(loadingRows).fill(
+    Object.fromEntries(
+      passedColumns.map((column) => [column.id || ('accessorKey' in column && column.accessorKey), '']),
+    ),
+  );
 
-    const selectColumn: ColumnDef<T> = {
-      // FIXME: use useId instead
-      id: 'select',
-      meta: {
-        minWidth: '20px',
-        width: '20px',
-        maxWidth: '20px',
-      },
-      header: ({ table }) => (
-        <Fragment>
-          {!!onSelectRows && (
-            <Checkbox
-              label={
-                <Text aria-hidden={false} className={fsx(`hidden`)}>
-                  すべての行を選択
-                </Text>
-              }
-              className={fsx(`flex`)}
-              checked={table.getIsAllRowsSelected()}
-              indeterminate={!table.getIsAllRowsSelected() && table.getIsSomeRowsSelected()}
-              onChange={table.getToggleAllRowsSelectedHandler()}
-            />
-          )}
-        </Fragment>
-      ),
-      cell: ({ row }) => (
-        <TableCell as="th" scope="row">
-          {!!onSelectRows && (
-            <Checkbox
-              label={
-                <Text aria-hidden={false} className={fsx(`hidden`)}>
-                  行を選択
-                </Text>
-              }
-              className={fsx(`flex`)}
-              checked={row.getIsSelected()}
-              onClick={(e) => {
-                selectRow(row);
-                e.stopPropagation();
-              }}
-            />
-          )}
-          {!!onSelectRow && (
-            <Radio
-              label={
-                <Text aria-hidden={false} className={fsx(`hidden`)}>
-                  行を選択
-                </Text>
-              }
-              className={fsx(`flex`)}
-              checked={row.getIsSelected()}
-              onClick={(e) => {
-                selectRow(row);
-                e.stopPropagation();
-              }}
-            />
-          )}
-        </TableCell>
-      ),
-    };
-    return [selectColumn, ...columns];
-  }, [onSelectRow, onSelectRows, selectRow, columns]);
+  const columns = useMemo(() => {
+    if (!selectable && !loading) {
+      return passedColumns;
+    }
+    const cols = loading ? makeColumnsLoading(passedColumns) : passedColumns;
+    if (!selectable) {
+      return cols;
+    }
+    const selectColumn = getSelectColumn({
+      id: `${tableId}-select`,
+      multiple: !!onSelectRows,
+      loading,
+      onSelectRow: selectRow,
+    });
+    return [selectColumn, ...cols];
+  }, [tableId, onSelectRows, loading, selectRow, passedColumns, selectable]);
 
   const table = useReactTable({
-    data,
-    columns: selectableColumns,
+    data: loading ? loadingDummyData : data,
+    columns,
     pageCount: disablePagination ? undefined : pageCount,
     state: {
       sorting,
       rowSelection,
     },
     getRowId,
-    onRowSelectionChange,
+    onRowSelectionChange: loading ? undefined : onRowSelectionChange,
     onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: !disablePagination ? getPaginationRowModel() : undefined,
-    enableRowSelection: !!(onSelectRow || onSelectRows),
+    enableRowSelection: selectable,
     enableMultiRowSelection: !!onSelectRows,
   });
 
@@ -214,7 +291,7 @@ export const Table = <T extends RowData>({
 
   return (
     <div className={fsx(`flex flex-col gap-2`, className)}>
-      <TableFrame id={tableId}>
+      <TableFrame id={tableId} aria-busy={loading}>
         <TableHead>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="table-row">
@@ -222,6 +299,7 @@ export const Table = <T extends RowData>({
                 <SortableTableCellHead
                   key={header.id}
                   scope="col"
+                  disabled={loading}
                   nextSortingOrder={header.column.getNextSortingOrder()}
                   sortable={header.column.getCanSort()}
                   sorted={header.column.getIsSorted()}
@@ -241,7 +319,7 @@ export const Table = <T extends RowData>({
             <RowComponent
               key={row.id}
               row={row}
-              selectable={!!(onSelectRow || onSelectRows)}
+              selectable={selectable}
               onClick={
                 (onSelectRow || onSelectRows || onRowClick) &&
                 ((e, row) => {
@@ -256,6 +334,7 @@ export const Table = <T extends RowData>({
       {!disablePagination && (
         <div className={fsx(`flex w-full justify-center`)}>
           <TablePagination
+            disabled={loading}
             page={page}
             defaultPage={defaultPage}
             onChangePage={onChangePage}
@@ -272,7 +351,9 @@ export const TableFrame = forwardRef<HTMLTableElement, JSX.IntrinsicElements['ta
   ({ className, ...props }, ref) => (
     <div className={fsx(`border-shade-light-default h-full w-full overflow-auto rounded border`, className)}>
       <table
-        className={fsx(`ring-shade-light-default w-full border-separate border-spacing-0 ring-1`)}
+        className={fsx(
+          `ring-shade-light-default w-full border-separate border-spacing-0 ring-1 aria-[busy=true]:pointer-events-none`,
+        )}
         ref={ref}
         {...props}
       />
@@ -313,6 +394,7 @@ export const TableRow = forwardRef<HTMLTableRowElement, JSX.IntrinsicElements['t
 export type RowProps<T extends RowData> = {
   row: RowType<T>;
   selectable: boolean;
+  clickable?: boolean;
   onClick?: (e: MouseEvent<HTMLTableRowElement>, row: RowType<T>) => void;
   className?: string;
 };

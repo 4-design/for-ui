@@ -55,6 +55,8 @@ export type TablePaginationProps<T extends RowData> = {
    */
   'aria-controls'?: string;
 
+  disabled?: boolean;
+
   className?: string;
 };
 
@@ -141,6 +143,8 @@ type PaginationProps = {
    */
   onClickLastPageButton?: ReactEventHandler<HTMLButtonElement>;
 
+  disabled?: boolean;
+
   className?: string;
 };
 
@@ -153,6 +157,7 @@ export const Pagination: FC<PaginationProps> = ({
   onClickLastPageButton,
   onClickNextPageButton,
   onClickPreviousPageButton,
+  disabled = false,
   className,
   ...props
 }) => {
@@ -163,6 +168,7 @@ export const Pagination: FC<PaginationProps> = ({
     showFirstButton: true,
     showLastButton: true,
     siblingCount: 2,
+    disabled,
     onChange: (_, page) => {
       onChangePage?.(page);
     },
