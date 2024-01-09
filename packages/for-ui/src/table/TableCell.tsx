@@ -1,10 +1,10 @@
 import { FC, forwardRef, HTMLAttributes, ReactNode } from 'react';
 import { MdArrowDownward, MdArrowUpward } from 'react-icons/md';
+import { ComponentPropsWithAs, Element, Ref } from '../system/componentType';
 import { fsx } from '../system/fsx';
-import { ComponentProps, Ref } from '../system/polyComponent';
 import { Text } from '../text';
 
-export type TableCellProps<As extends 'th' | 'td' = 'td'> = ComponentProps<
+export type TableCellProps<As extends 'th' | 'td' = 'td'> = ComponentPropsWithAs<
   {
     /**
      * @deprecated `as` propを使ってください
@@ -16,7 +16,7 @@ export type TableCellProps<As extends 'th' | 'td' = 'td'> = ComponentProps<
   As
 >;
 
-type TableCellComponent = <As extends 'th' | 'td' = 'td'>(props: TableCellProps<As>) => ReactNode;
+type TableCellComponent = <As extends 'th' | 'td' = 'td'>(props: TableCellProps<As>) => Element;
 
 export const TableCell: TableCellComponent = forwardRef(
   <As extends 'th' | 'td' = 'td'>({ component = 'td', as, className, ...rest }: TableCellProps<As>, ref?: Ref<As>) => {

@@ -1,15 +1,15 @@
-import { ElementType, forwardRef, ReactNode } from 'react';
+import { ElementType, forwardRef } from 'react';
+import { Element, Ref } from '../system/componentType';
 import { fsx } from '../system/fsx';
-import { Ref } from '../system/polyComponent';
 import { Text } from '../text';
 import { ChipProps } from './Chip';
 
 type FullChipProps<As extends ElementType = 'button'> = Omit<ChipProps<As>, 'clickableArea'>;
 
-type FullChipComponent = <As extends ElementType = 'button'>(props: FullChipProps<As>) => ReactNode;
+type FullChipComponent = <As extends ElementType = 'button'>(props: FullChipProps<As>) => Element;
 
 export const FullChip: FullChipComponent = forwardRef(
-  <As extends ElementType = 'button'>(props: FullChipProps<As>, ref: Ref<As>): JSX.Element => {
+  <As extends ElementType = 'button'>(props: FullChipProps<As>, ref: Ref<As>) => {
     const { as, label, icon, intention = 'shade', className, ...rest } = props;
     const Component: ElementType = as || 'button';
     return (

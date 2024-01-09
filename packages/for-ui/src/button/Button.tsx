@@ -1,15 +1,15 @@
-import { Children, ElementType, FC, forwardRef, MouseEvent, MouseEventHandler, ReactNode, useMemo } from 'react';
+import { Children, ElementType, forwardRef, MouseEvent, MouseEventHandler, ReactNode, useMemo } from 'react';
 import MuiButton, { ButtonUnstyledProps as MuiButtonProps } from '@mui/base/ButtonUnstyled';
 import { LoadingButtonProps } from '@mui/lab/LoadingButton';
 import { Loader } from '../loader';
+import { ComponentPropsWithAs, Element, Ref } from '../system/componentType';
 import { fsx } from '../system/fsx';
-import { ComponentProps, Ref } from '../system/polyComponent';
 import { walkChildren } from '../system/walkChildren';
 
 // Iterable<ReactNode> seems to contain string but cannot be excluded, so added as sum type.
 type Child = Exclude<ReactNode, Iterable<ReactNode>> | string;
 
-export type ButtonProps<As extends ElementType = 'button'> = ComponentProps<
+export type ButtonProps<As extends ElementType = 'button'> = ComponentPropsWithAs<
   Omit<MuiButtonProps<As>, 'href' | 'children' | 'onClick'> & {
     /**
      * 種類を指定
@@ -123,7 +123,7 @@ const structures = ['text', 'icon', 'text-icon', 'icon-text'] as const;
 
 type Structure = (typeof structures)[number];
 
-type ButtonComponent = <As extends ElementType = 'button'>(props: ButtonProps<As>) => ReturnType<FC>;
+type ButtonComponent = <As extends ElementType = 'button'>(props: ButtonProps<As>) => Element;
 
 export const Button: ButtonComponent = forwardRef(
   <As extends ElementType = 'button'>(
@@ -142,7 +142,7 @@ export const Button: ButtonComponent = forwardRef(
       ...rest
     }: ButtonProps<As>,
     ref?: Ref<As>,
-  ): JSX.Element => {
+  ): Element => {
     const component = as || 'button';
     const childTexts = useMemo(() => Children.map(children, extractText) || [], [children]);
     const structure: Structure = useMemo(() => {

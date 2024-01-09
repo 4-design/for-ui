@@ -1,6 +1,6 @@
 import { ElementType, FC, forwardRef, ReactNode } from 'react';
+import { ComponentPropsWithAs, Ref } from '../system/componentType';
 import { fsx } from '../system/fsx';
-import { ComponentProps, Ref } from '../system/polyComponent';
 
 type WithInherit<T> = T | 'inherit';
 
@@ -34,7 +34,7 @@ const style = (size: WithInherit<Size>, weight: WithInherit<Weight>, typeface: W
   );
 };
 
-export type TextProps<As extends ElementType = 'span'> = ComponentProps<
+export type TextProps<As extends ElementType = 'span'> = ComponentPropsWithAs<
   {
     /**
      * テキストのサイズを指定
