@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ComponentPropsWithRef, ElementType } from 'react';
+import { ComponentPropsWithoutRef, ComponentPropsWithRef, ElementType, FC } from 'react';
 import { PreservedOmit } from './preservedOmit';
 
 export type Ref<As extends ElementType> = ComponentPropsWithRef<As>['ref'];
@@ -12,7 +12,7 @@ export type AsProps<As extends ElementType> = {
   as?: As;
 };
 
-export type ComponentProps<Props extends object, As extends ElementType> = AsProps<As> &
+export type ComponentPropsWithAs<Props extends object, As extends ElementType> = AsProps<As> &
   Props &
   RefProps<As> &
   PreservedOmit<ComponentPropsWithoutRef<As>, keyof (Props & AsProps<As> & RefProps<As>)>;
@@ -20,3 +20,5 @@ export type ComponentProps<Props extends object, As extends ElementType> = AsPro
 export type ElementTypeToHTMLElement<Element extends ElementType> = Element extends keyof HTMLElementTagNameMap
   ? HTMLElementTagNameMap[Element]
   : Element;
+
+export type Element = ReturnType<FC>;

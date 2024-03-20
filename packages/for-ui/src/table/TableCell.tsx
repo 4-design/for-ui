@@ -1,10 +1,10 @@
 import { FC, forwardRef, HTMLAttributes, ReactNode } from 'react';
 import { MdArrowDownward, MdArrowUpward } from 'react-icons/md';
+import { ComponentPropsWithAs, Element, Ref } from '../system/componentType';
 import { fsx } from '../system/fsx';
-import { ComponentProps, Ref } from '../system/polyComponent';
 import { Text } from '../text';
 
-export type TableCellProps<As extends 'th' | 'td' = 'td'> = ComponentProps<
+export type TableCellProps<As extends 'th' | 'td' = 'td'> = ComponentPropsWithAs<
   {
     /**
      * @deprecated `as` propを使ってください
@@ -16,7 +16,7 @@ export type TableCellProps<As extends 'th' | 'td' = 'td'> = ComponentProps<
   As
 >;
 
-type TableCellComponent = <As extends 'th' | 'td' = 'td'>(props: TableCellProps<As>) => ReactNode;
+type TableCellComponent = <As extends 'th' | 'td' = 'td'>(props: TableCellProps<As>) => Element;
 
 export const TableCell: TableCellComponent = forwardRef(
   <As extends 'th' | 'td' = 'td'>({ component = 'td', as, className, ...rest }: TableCellProps<As>, ref?: Ref<As>) => {
@@ -44,9 +44,10 @@ export const SortableTableCellHead: FC<
     sorted: false | 'asc' | 'desc';
     nextSortingOrder: false | 'asc' | 'desc';
     children: ReactNode;
+    disabled?: boolean;
     onClick?: HTMLAttributes<HTMLButtonElement>['onClick'];
   }
-> = ({ sortable, sorted, nextSortingOrder, onClick, children, ...rest }) => (
+> = ({ sortable, sorted, nextSortingOrder, onClick, disabled, children, ...rest }) => (
   <TableCell
     as="th"
     aria-sort={sorted ? ({ asc: 'ascending', desc: 'descending' } as const)[sorted] : undefined}
@@ -55,6 +56,7 @@ export const SortableTableCellHead: FC<
   >
     {sortable ? (
       <button
+        disabled={disabled}
         onClick={onClick}
         className={fsx(
           `hover:bg-shade-light-hover focus-visible:bg-shade-light-hover group flex w-full items-center gap-1 px-3 py-1 focus-visible:outline-none`,

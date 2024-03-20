@@ -1,9 +1,9 @@
 import { ElementType, forwardRef, MouseEvent, ReactNode } from 'react';
-import { ComponentProps, ElementTypeToHTMLElement, Ref } from '../system/polyComponent';
+import { ComponentPropsWithAs, Element, ElementTypeToHTMLElement, Ref } from '../system/componentType';
 import { FullChip } from './FullChip';
 import { LimitedChip } from './LimitedChip';
 
-export type ChipProps<As extends ElementType = 'button'> = ComponentProps<
+export type ChipProps<As extends ElementType = 'button'> = ComponentPropsWithAs<
   {
     /**
      * ユーザーに提示したい意図 (e.g. エラーならばnegative) を指定
@@ -46,7 +46,7 @@ export type ChipProps<As extends ElementType = 'button'> = ComponentProps<
   As
 >;
 
-type ChipComponent = <As extends ElementType = 'button'>(props: ChipProps<As>) => ReactNode;
+type ChipComponent = <As extends ElementType = 'button'>(props: ChipProps<As>) => Element;
 
 export const Chip: ChipComponent = forwardRef(
   <As extends ElementType = 'button'>({ clickableArea = 'full', ...props }: ChipProps<As>, ref?: Ref<As>) =>
