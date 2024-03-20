@@ -16,7 +16,8 @@
   "exports": {
     ".": {
       "import": "./dist/esm/for-ui.esm.js",
-      "require": "./dist/commonjs/for-ui.js"
+      "require": "./dist/commonjs/for-ui.js",
+      "types": "./dist/types/index.d.ts"
     },
     "./tailwind.config.base.js": "./tailwind.config.base.js"
   },
