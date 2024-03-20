@@ -1,5 +1,11 @@
 # @3design/3design-ui
 
+## 1.1.11
+
+### Patch Changes
+
+- [#1506](https://github.com/4-design/for-ui/pull/1506) [`01e42dc`](https://github.com/4-design/for-ui/commit/01e42dc2928947913736d8678e2cd1463cb7d3d5) Thanks [@locona](https://github.com/locona)! - fix: esm が正常にimport できない問題修正
+
 ## 1.1.10
 
 ### Patch Changes
