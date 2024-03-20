@@ -1,6 +1,6 @@
 {
   "name": "@4design/for-ui",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/4-design/for-ui.git"
@@ -16,7 +16,8 @@
   "exports": {
     ".": {
       "import": "./dist/esm/for-ui.esm.js",
-      "require": "./dist/commonjs/for-ui.js"
+      "require": "./dist/commonjs/for-ui.js",
+      "types": "./dist/types/index.d.ts"
     },
     "./tailwind.config.base.js": "./tailwind.config.base.js"
   },

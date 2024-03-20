@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'for-ui',
-      fileName: (format) => `for-ui${format === 'es' ? '.esm' : ''}.js`,
+      fileName: (format) => `for-ui${format === 'esm' ? '.esm' : ''}.js`,
     },
     rollupOptions: {
       external: regexesOfPackages,
