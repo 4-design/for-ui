@@ -1,5 +1,19 @@
 # @3design/3design-ui
 
+## 1.1.12
+
+### Patch Changes
+
+- [#1516](https://github.com/4-design/for-ui/pull/1516) [`b6a6444`](https://github.com/4-design/for-ui/commit/b6a64440d34d0c628539fec21d7abda7fa5f8ce9) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency react-number-format to v5.3.4
+
+- [#1522](https://github.com/4-design/for-ui/pull/1522) [`bca3627`](https://github.com/4-design/for-ui/commit/bca36275f3f2515d32ccca75fecbbe3c4bc2126f) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency @tanstack/react-table to v8.15.0
+
+- [#1510](https://github.com/4-design/for-ui/pull/1510) [`4e75a75`](https://github.com/4-design/for-ui/commit/4e75a75098cad2af1093c744d5e11053e10d75c6) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency autoprefixer to v10.4.19
+
+- [#1521](https://github.com/4-design/for-ui/pull/1521) [`21274ac`](https://github.com/4-design/for-ui/commit/21274ac3f76d5baa843b707b45656b1aebaa0bc0) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency npm-run-all2 to v5.0.2
+
+- [#1509](https://github.com/4-design/for-ui/pull/1509) [`934550f`](https://github.com/4-design/for-ui/commit/934550f78119b91c4af17b193b6fefad877854c5) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): replace dependency npm-run-all with npm-run-all2 5.0.0
+
 ## 1.1.11
 
 ### Patch Changes
