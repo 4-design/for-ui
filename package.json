@@ -39,7 +39,7 @@
     "html-webpack-plugin": "^5.5.0",
     "lint-staged": "14.0.1",
     "npm-run-all2": "5.0.2",
-    "prettier": "3.0.1",
+    "prettier": "3.2.5",
     "turbo": "1.11.2",
     "typescript": "5.1.6"
   },
