@@ -22,8 +22,8 @@
   "devDependencies": {
     "@tanstack/react-table": "8.15.0",
     "@types/node": "12.20.55",
-    "@types/react": "18.2.37",
-    "@types/react-dom": "18.2.15",
+    "@types/react": "18.2.72",
+    "@types/react-dom": "18.2.22",
     "@types/react-table": "7.7.18",
     "autoprefixer": "10.4.19",
     "next": "13.4.19",
