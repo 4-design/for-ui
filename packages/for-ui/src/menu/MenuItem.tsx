@@ -44,7 +44,7 @@ export const MenuItem = forwardRef<HTMLLIElement, MenuItemProps>(
       disabled={disabled}
       classes={{
         root: fsx([
-          `bg-shade-white-default text-r hover:bg-shade-white-hover focus-visible:bg-shade-white-active [&.Mui-focused]:bg-shade-white-active flex flex-row items-start gap-2 whitespace-nowrap px-4 py-1 font-sans`,
+          `bg-shade-white-default text-r hover:bg-shade-white-hover focus-visible:bg-shade-white-active [&.Mui-focused]:bg-shade-white-active flex min-h-[unset] flex-row items-start gap-2 whitespace-nowrap px-4 py-1 font-sans`,
           icon && `pl-2`,
           selected && `pr-2`,
           {
