@@ -173,7 +173,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
                 `bg-shade-white-disabled placeholder:text-shade-light-default text-shade-light-disabled cursor-not-allowed [-webkit-text-fill-color:currentColor_!important]`,
               ),
               input: fsx([
-                `text-r text-shade-dark-default placeholder:text-shade-light-default h-auto grow p-0 font-sans placeholder:opacity-100 focus:shadow-none`,
+                `text-r text-shade-dark-default placeholder:text-shade-light-default h-6 grow p-0 font-sans placeholder:opacity-100 focus:shadow-none [&::-webkit-date-and-time-value]:text-start`,
                 {
                   large: [`px-2`, icon && `pl-1`],
                   medium: [`px-1`, icon && `pl-1`],
