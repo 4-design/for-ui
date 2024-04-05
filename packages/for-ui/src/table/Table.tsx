@@ -315,21 +315,28 @@ export const Table = <T extends RowData>({
           ))}
         </TableHead>
         <TableBody>
-          {table.getRowModel().rows.map((row) => (
-            <RowComponent
-              key={row.id}
-              row={row}
-              selectable={selectable}
-              onClick={
-                (onSelectRow || onSelectRows || onRowClick) &&
-                ((e, row) => {
-                  selectRow(row);
-                  onRowClick?.(e, row);
-                })
-              }
-            />
-          ))}
-        </TableBody>
+          {table.getRowModel().rows.length > 0 ? (
+            table.getRowModel().rows.map((row) => (
+              <RowComponent
+                key={row.id}
+                row={row}
+                selectable={selectable}
+                onClick={
+                  (onSelectRow || onSelectRows || onRowClick) &&
+                  ((e, row) => {
+                    selectRow(row);
+                    onRowClick?.(e, row);
+                  })
+                }
+              />
+            ))
+          ) : (
+            <tr>
+              <td colSpan={passedColumns.length} style={{ textAlign: 'center' }}>
+                データがありません
+              </td>
+            </tr>
+          )}
       </TableFrame>
       {!disablePagination && (
         <div className={fsx(`flex w-full justify-center`)}>
