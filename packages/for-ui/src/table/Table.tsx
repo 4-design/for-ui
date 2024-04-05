@@ -328,7 +328,13 @@ export const Table = <T extends RowData>({
                 })
               }
             />
-          ))}
+        {table.getRowModel().rows.length === 0 && (
+          <tr>
+            <td colSpan={passedColumns.length} style={{ textAlign: 'center' }}>
+              データがありません
+            </td>
+          </tr>
+        )}
         </TableBody>
       </TableFrame>
       {!disablePagination && (
