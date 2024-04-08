@@ -1,11 +1,11 @@
-import { FC, forwardRef, ReactNode, ComponentPropsWithRef } from 'react';
+import { ComponentPropsWithRef, FC, forwardRef, ReactNode } from 'react';
 import { MdCheck, MdRemove } from 'react-icons/md';
 import MuiCheckbox, { CheckboxProps as MuiCheckboxProps } from '@mui/material/Checkbox';
 import { fsx } from '../system/fsx';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
 import { Text } from '../text';
 
-type _CheckboxProps = MuiCheckboxProps & {
+type InternalCheckboxProps = MuiCheckboxProps & {
   label?: ReactNode;
   nopadding?: boolean;
   className?: string;
@@ -32,7 +32,7 @@ const Indicator: FC<{ state: 'default' | 'checked' | 'intermediate'; disabled: b
   </span>
 );
 
-export const Checkbox = forwardRef<HTMLInputElement, _CheckboxProps>(
+export const Checkbox = forwardRef<HTMLInputElement, InternalCheckboxProps>(
   ({ label, nopadding = false, disabled, className, ...rest }, ref) => (
     <Text as="label" className={fsx(`group inline-flex w-fit flex-row items-center gap-1`, className)}>
       <MuiCheckbox
@@ -59,4 +59,4 @@ export const Checkbox = forwardRef<HTMLInputElement, _CheckboxProps>(
   ),
 );
 
-export type CheckboxProps = ComponentPropsWithRef<typeof Checkbox>
+export type CheckboxProps = ComponentPropsWithRef<typeof Checkbox>;

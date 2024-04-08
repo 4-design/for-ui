@@ -4,7 +4,7 @@ import { fsx } from '../system/fsx';
 import { TextDefaultStyler } from '../system/TextDefaultStyler';
 import { Text } from '../text';
 
-type _RadioProps = Omit<MuiRadioProps, 'ref'> & {
+type InternalRadioProps = Omit<MuiRadioProps, 'ref'> & {
   label?: ReactNode;
   nopadding?: boolean;
   className?: string;
@@ -20,7 +20,7 @@ const Indicator: FC<{ checked: boolean; disabled: boolean }> = ({ checked, disab
   />
 );
 
-export const Radio = forwardRef<HTMLInputElement, _RadioProps>(
+export const Radio = forwardRef<HTMLInputElement, InternalRadioProps>(
   ({ nopadding, label, value, disabled, className, ...rest }, ref) => (
     <Text as="label" className={fsx(`inline-flex w-fit flex-row items-center gap-1`, className)}>
       <MuiRadio
@@ -49,4 +49,4 @@ export const Radio = forwardRef<HTMLInputElement, _RadioProps>(
   ),
 );
 
-export type RadioProps = ComponentPropsWithRef<typeof Radio>
+export type RadioProps = ComponentPropsWithRef<typeof Radio>;
