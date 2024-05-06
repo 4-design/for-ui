@@ -6,7 +6,7 @@
   },
   "homepage": "https://github.com/4-design/for-ui",
   "author": "3-shake, Inc.",
-  "license": ""Apache-2.0",
+  "license": "Apache-2.0",
   "private": true,
   "workspaces": [
     "packages/*"
