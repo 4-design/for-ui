@@ -15,7 +15,7 @@ export type AsProps<As extends ElementType> = {
 export type ComponentPropsWithAs<Props extends object, As extends ElementType> = AsProps<As> &
   Props &
   RefProps<As> &
-  PreservedOmit<ComponentPropsWithoutRef<As>, keyof (Props & AsProps<As> & RefProps<As>)>;
+  NoInfer<PreservedOmit<ComponentPropsWithoutRef<As>, keyof (Props & AsProps<As> & RefProps<As>)>>
 
 export type ElementTypeToHTMLElement<Element extends ElementType> = Element extends keyof HTMLElementTagNameMap
   ? HTMLElementTagNameMap[Element]
