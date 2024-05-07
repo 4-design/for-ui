@@ -55,8 +55,6 @@ export type ButtonProps<As extends ElementType = 'button'> = ComponentPropsWithA
 
     disabled?: boolean;
 
-    // onClick?: MouseEventHandler<HTMLElementTagNameMap[As extends keyof HTMLElementTagNameMap ? As : 'button']>;
-
     className?: string;
   },
   As
