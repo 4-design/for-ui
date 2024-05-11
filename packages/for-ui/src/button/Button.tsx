@@ -1,6 +1,4 @@
-import { Children, ElementType, forwardRef, MouseEvent, MouseEventHandler, ReactNode, useMemo } from 'react';
-import MuiButton, { ButtonUnstyledProps as MuiButtonProps } from '@mui/base/ButtonUnstyled';
-import { LoadingButtonProps } from '@mui/lab/LoadingButton';
+import { Children, ElementType, forwardRef, ReactNode, useMemo } from 'react';
 import { Loader } from '../loader';
 import { ComponentPropsWithAs, Element, Ref } from '../system/componentType';
 import { fsx } from '../system/fsx';
@@ -10,7 +8,7 @@ import { walkChildren } from '../system/walkChildren';
 type Child = Exclude<ReactNode, Iterable<ReactNode>> | string;
 
 export type ButtonProps<As extends ElementType = 'button'> = ComponentPropsWithAs<
-  Omit<MuiButtonProps<As>, 'href' | 'children' | 'onClick'> & {
+  {
     /**
      * 種類を指定
      *
@@ -57,48 +55,6 @@ export type ButtonProps<As extends ElementType = 'button'> = ComponentPropsWithA
 
     disabled?: boolean;
 
-    /**
-     * 先頭に表示するアイコンを指定
-     *
-     * @deprecated childrenを使用してください
-     * ```
-     * <Button>
-     *   <MdEdit />
-     *   編集
-     * </Button>
-     * ```
-     */
-    startIcon?: ReactNode;
-
-    /**
-     * 末尾に表示するアイコンを指定
-     *
-     * @deprecated childrenを使用してください
-     * ```
-     * <Button>
-     *   編集
-     *   <MdEdit />
-     * </Button>
-     * ```
-     */
-    endIcon?: ReactNode;
-
-    /**
-     * 読み込み中のアイコンを表示する場所を指定
-     *
-     * @deprecated デザインの仕様変更に伴い表示位置は固定になりました
-     */
-    loadingPosition?: LoadingButtonProps['loadingPosition'];
-
-    /**
-     * colorを指定する場合に指定
-     *
-     * @deprecated intention propsを使ってください
-     */
-    color?: 'primary' | 'secondary' | 'default';
-
-    onClick?: MouseEventHandler<HTMLElementTagNameMap[As extends keyof HTMLElementTagNameMap ? As : 'button']>;
-
     className?: string;
   },
   As
@@ -130,56 +86,41 @@ export const Button: ButtonComponent = forwardRef(
     {
       as,
       variant = 'outlined',
-      intention: passedIntention = 'subtle',
+      intention = 'subtle',
       size = 'large',
       loading = false,
-      startIcon,
-      endIcon,
-      color,
       children,
       className,
+      disabled,
       onClick,
       ...rest
     }: ButtonProps<As>,
     ref?: Ref<As>,
   ): Element => {
-    const component = as || 'button';
+    const Component = as || 'button';
     const childTexts = useMemo(() => Children.map(children, extractText) || [], [children]);
     const structure: Structure = useMemo(() => {
-      if ((childTexts.at(0) && !childTexts.at(-1)) || (endIcon && children)) {
+      if (childTexts.at(0) && !childTexts.at(-1)) {
         return 'text-icon';
       }
-      if ((!childTexts.at(0) && childTexts.at(-1)) || (startIcon && children)) {
+      if (!childTexts.at(0) && childTexts.at(-1)) {
         return 'icon-text';
       }
-      if (!childTexts.at(0) || (startIcon && !children)) {
+      if (!childTexts.at(0)) {
         return 'icon';
       }
       return 'text';
-    }, [startIcon, endIcon, children, childTexts]);
-
-    // Legacy support for color props
-    // If not needed, rename the passedIntention to intention.
-
-    const intention = color
-      ? (
-          {
-            primary: 'primary',
-            secondary: 'secondary',
-            default: 'primary',
-          } as const
-        )[color]
-      : passedIntention;
+    }, [childTexts]);
 
     return (
-      <MuiButton<As>
-        component={component}
+      <Component
         ref={ref}
-        aria-disabled={loading}
-        aria-busy={loading}
         type="button"
+        disabled={disabled}
+        aria-disabled={loading || disabled}
+        aria-busy={loading}
         className={fsx([
-          `rounded-1.5 focus-visible:shadow-focused relative flex h-fit w-fit shrink-0 flex-row items-center justify-center font-sans outline-none disabled:cursor-not-allowed [&_svg]:fill-inherit`,
+          `rounded-1.5 focus-visible:shadow-focused relative flex h-fit w-fit shrink-0 flex-row items-center justify-center font-sans outline-none aria-disabled:cursor-not-allowed [&_svg]:fill-inherit`,
           {
             text: {
               large: `px-4 py-2 gap-1`,
@@ -208,9 +149,9 @@ export const Button: ButtonComponent = forwardRef(
             small: `text-s`,
           }[size],
           {
-            filled: `font-bold disabled:bg-shade-dark-disabled disabled:text-shade-white-disabled disabled:fill-shade-dark-disabled`,
-            outlined: `font-regular outline outline-1 -outline-offset-1 disabled:bg-shade-dark-disabled disabled:outline-shade-dark-disabled disabled:text-shade-white-disabled disabled:fill-shade-dark-disabled`,
-            text: `font-bold disabled:bg-shade-dark-disabled disabled:text-shade-white-disabled disabled:fill-shade-dark-disabled`,
+            filled: `font-bold aria-disabled:bg-shade-dark-disabled aria-disabled:text-shade-white-disabled aria-disabled:fill-shade-dark-disabled`,
+            outlined: `font-regular outline outline-1 -outline-offset-1 aria-disabled:bg-shade-dark-disabled aria-disabled:outline-shade-dark-disabled aria-disabled:text-shade-white-disabled aria-disabled:fill-shade-dark-disabled`,
+            text: `font-bold aria-disabled:bg-shade-dark-disabled aria-disabled:text-shade-white-disabled aria-disabled:fill-shade-dark-disabled`,
           }[variant],
           {
             subtle: {
@@ -251,17 +192,15 @@ export const Button: ButtonComponent = forwardRef(
           className,
         ])}
         // FIXME: Avoid unintended type error, maybe MUI's problem?
-        {...(rest as MuiButtonProps<As>)}
-        onClick={(e: MouseEvent<HTMLElementTagNameMap[As extends keyof HTMLElementTagNameMap ? As : 'button']>) => {
+        {...rest}
+        onClick={(e) => {
           if (loading) {
             return;
           }
           onClick?.(e);
         }}
       >
-        {startIcon}
         {children}
-        {endIcon}
         {loading && (
           <div className={fsx(`absolute inset-0 grid h-full w-full place-items-center`)}>
             <Loader
@@ -271,7 +210,7 @@ export const Button: ButtonComponent = forwardRef(
             />
           </div>
         )}
-      </MuiButton>
+      </Component>
     );
   },
 );

@@ -1,3 +1,4 @@
+import { FC, ReactNode } from 'react';
 import { MdOutlineCheck } from 'react-icons/md';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
@@ -86,6 +87,19 @@ describe('Button', () => {
   it('works as link when specified as anchor tag by `as`', async () => {
     render(
       <Button as="a" href="https://example.com">
+        test
+      </Button>,
+    );
+    const element = await screen.findByRole('link', { name: 'test' });
+    expect(element).toBeInTheDocument();
+  });
+});
+
+describe('Type', () => {
+  it('is semantically correct for React component using as props', async () => {
+    const Link: FC<{ to: string; children?: ReactNode }> = ({ to, children }) => <a href={to}>{children}</a>;
+    render(
+      <Button as={Link} to="https://example.com">
         test
       </Button>,
     );
