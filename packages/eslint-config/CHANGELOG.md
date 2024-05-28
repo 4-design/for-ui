@@ -1,5 +1,13 @@
 # @3design/eslint-config
 
+## 1.0.15
+
+### Patch Changes
+
+- [#1532](https://github.com/4-design/for-ui/pull/1532) [`7688ad4`](https://github.com/4-design/for-ui/commit/7688ad4477951f1b62e3d78a3733f598f3c9286e) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency eslint-plugin-mdx to v3
+
+- [#1539](https://github.com/4-design/for-ui/pull/1539) [`c4fe4ec`](https://github.com/4-design/for-ui/commit/c4fe4ecb034cf78c816b660ead1ca30869f64a0d) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency eslint-plugin-react to v7.34.1
+
 ## 1.0.14
 
 ### Patch Changes
