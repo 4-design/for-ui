@@ -1,5 +1,31 @@
 # @3design/3design-ui
 
+## 1.1.12
+
+### Patch Changes
+
+- [#1533](https://github.com/4-design/for-ui/pull/1533) [`401d65c`](https://github.com/4-design/for-ui/commit/401d65ce333a47683dbb7ff6e3842ca009d47e8a) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency jsdom to v24
+
+- [#1516](https://github.com/4-design/for-ui/pull/1516) [`b6a6444`](https://github.com/4-design/for-ui/commit/b6a64440d34d0c628539fec21d7abda7fa5f8ce9) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency react-number-format to v5.3.4
+
+- [#1522](https://github.com/4-design/for-ui/pull/1522) [`bca3627`](https://github.com/4-design/for-ui/commit/bca36275f3f2515d32ccca75fecbbe3c4bc2126f) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency @tanstack/react-table to v8.15.0
+
+- [#1510](https://github.com/4-design/for-ui/pull/1510) [`4e75a75`](https://github.com/4-design/for-ui/commit/4e75a75098cad2af1093c744d5e11053e10d75c6) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency autoprefixer to v10.4.19
+
+- [#1521](https://github.com/4-design/for-ui/pull/1521) [`21274ac`](https://github.com/4-design/for-ui/commit/21274ac3f76d5baa843b707b45656b1aebaa0bc0) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency npm-run-all2 to v5.0.2
+
+- [#1550](https://github.com/4-design/for-ui/pull/1550) [`5f4b46a`](https://github.com/4-design/for-ui/commit/5f4b46ab8803125f7dbb0c0202d0f9143da7cbf3) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(TextField): Mobile SafariでTextField type=dateの高さが潰れてしまうのを修正
+
+- [#1509](https://github.com/4-design/for-ui/pull/1509) [`934550f`](https://github.com/4-design/for-ui/commit/934550f78119b91c4af17b193b6fefad877854c5) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): replace dependency npm-run-all with npm-run-all2 5.0.0
+
+- [#1535](https://github.com/4-design/for-ui/pull/1535) [`2733645`](https://github.com/4-design/for-ui/commit/2733645bac5a8b62250e04368b26182798f945fc) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency npm-run-all2 to v6
+
+- [#1544](https://github.com/4-design/for-ui/pull/1544) [`46625c3`](https://github.com/4-design/for-ui/commit/46625c31f829af36d97049cf6825dde923377f25) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency clsx to v2.1.0
+
+- [#1541](https://github.com/4-design/for-ui/pull/1541) [`fdbae60`](https://github.com/4-design/for-ui/commit/fdbae6090f9ac7883109fd92b5859c287ea5f30d) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): update dependency tailwindcss to v3.4.3
+
+- [#1549](https://github.com/4-design/for-ui/pull/1549) [`5b3a8a8`](https://github.com/4-design/for-ui/commit/5b3a8a8eeb5977810054672ad1ee1a13270a0eae) Thanks [@Qs-F](https://github.com/Qs-F)! - fix(Menu): MenuItemの高さが小さい画面で崩れるのを修正
+
 ## 1.1.11
 
 ### Patch Changes
