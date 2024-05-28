@@ -12,3 +12,4 @@ tailwind.config.base.js
 .yalc/**
 .changeset
 storybook-static
+.coderabbit.yaml
