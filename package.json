@@ -5,8 +5,8 @@
     "url": "git+https://github.com/4-design/for-ui.git"
   },
   "homepage": "https://github.com/4-design/for-ui",
-  "author": "locona <miyamae@youx.co.jp>",
-  "license": "MIT",
+  "author": "3-shake, Inc.",
+  "license": "Apache-2.0",
   "private": true,
   "workspaces": [
     "packages/*"

@@ -6,8 +6,8 @@
     "url": "4-design/for-ui",
     "directory": "packages/prettier-config"
   },
-  "author": "locona (https://github.com/locona)",
-  "license": "MIT",
+  "author": "3-shake, Inc.",
+  "license": "Apache-2.0",
   "exports": {
     ".": "./src/index.cjs"
   },
